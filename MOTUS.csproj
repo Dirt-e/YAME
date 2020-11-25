@@ -67,6 +67,7 @@
     <Compile Include="Model\CrashDetector.cs" />
     <Compile Include="Model\Inverter.cs" />
     <Compile Include="Model\PositionOffsetCorrector.cs" />
+    <Compile Include="Model\Protector.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="ViewModel\ViewModel_CrashDetector.cs" />
     <Compile Include="ViewModel\ViewModel_FiltersWindow.cs" />
@@ -74,14 +75,23 @@
     <Compile Include="ViewModel\ViewModel_PositionOffsetCorrector.cs" />
     <Compile Include="ViewModel\ViewModel_RawData.cs" />
     <Compile Include="ViewModel\_ViewModel.cs" />
+    <Compile Include="View\Converters\BoolToActiveConverter..cs" />
+    <Compile Include="View\Converters\BoolToColorBrushConverter.cs" />
+    <Compile Include="View\Converters\CharToColorConverter.cs" />
     <Compile Include="View\CrashDetectorWindow.xaml.cs">
       <DependentUpon>CrashDetectorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PositionCorrectorWindow.xaml.cs">
+      <DependentUpon>PositionCorrectorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\RawDataWindow.xaml.cs">
       <DependentUpon>RawDataWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ServerWindow.xaml.cs">
       <DependentUpon>ServerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\ToggleSwitch.xaml.cs">
+      <DependentUpon>ToggleSwitch.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -99,11 +109,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\PositionCorrectorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\RawDataWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ServerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\ToggleSwitch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -139,7 +157,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BaseClasses\" />
-    <Folder Include="View\Converters\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

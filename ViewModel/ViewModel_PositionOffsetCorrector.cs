@@ -1,4 +1,5 @@
-﻿using MOTUS.Viewmodel;
+﻿using MOTUS.Model;
+using MOTUS.Viewmodel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,18 @@ namespace MOTUS.ViewModel
 {
     public class ViewModel_PositionOffsetCorrector : _ViewModel
     {
+        bool _isActive;
+        public bool IsActive
+        {
+            get { return _isActive; }
+            set 
+            { 
+                _isActive = value;
+                engine.positionoffsetcorrector.IsActive = value;
+                OnPropertyChanged("IsActive"); 
+            }
+        }
+
         private float _delta_x = 0;
         public float Delta_X
         {
@@ -69,6 +82,11 @@ namespace MOTUS.ViewModel
                 _az_output = value;
                 OnPropertyChanged("Az_output");
             }
+        }
+
+        public ViewModel_PositionOffsetCorrector(Engine e)
+        {
+            base.engine = e;
         }
     }
 }

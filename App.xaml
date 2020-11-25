@@ -2,11 +2,12 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:MOTUS"
+             xmlns:converters="clr-namespace:MOTUS.View.Converters"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <!--Converters-->
-        <!--<converters:BoolToActiveConverter x:Key="cnvrt_BoolToActive"/>-->
-        <!--<converters:BoolToColorBrushConverter x:Key="cnvrt_BoolToColorBrush"/>-->
+        <converters:BoolToActiveConverter x:Key="cnvrt_BoolToActive"/>
+        <converters:BoolToColorBrushConverter x:Key="cnvrt_BoolToColorBrush"/>
         <!--<converters:CharToColorConverter x:Key="cnvrt_CharToColor"/>-->
         <!--Colors-->
         <Color x:Key="MyDarkGray" A="255" R="30" G="30" B="30"/>

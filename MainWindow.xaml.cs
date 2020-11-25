@@ -25,6 +25,7 @@ namespace MOTUS
 
         RawDataWindow rawDataWindow;
         CrashDetectorWindow crashDetectorWindow;
+        PositionCorrectorWindow positionCorrectorWindow;
 
         public MainWindow()
         {
@@ -49,8 +50,8 @@ namespace MOTUS
             
             mnuRawData.IsChecked = true;
             mnuCrashDetector.IsChecked = true;
-            //mnuPositionCorrection.IsChecked = true;
-            //mnuFilters.IsChecked = true;
+            mnuPositionCorrection.IsChecked = true;
+            mnuFilters.IsChecked = true;
             //mnuAlphaCompansation.IsChecked = true;
             //mnuGraphs.IsChecked = true;
             //mnuDOFs.IsChecked = true;
@@ -84,13 +85,13 @@ namespace MOTUS
 
         private void mnuPositionCorrection_Checked(object sender, RoutedEventArgs e)
         {
-            //positionOffsetCorrectionWindow = new PositionOffsetCorrectionWindow();
-            //positionOffsetCorrectionWindow.Owner = this;
-            //positionOffsetCorrectionWindow.Show();
+            positionCorrectorWindow = new PositionCorrectorWindow();
+            positionCorrectorWindow.Owner = this;
+            positionCorrectorWindow.Show();
         }
         private void mnuPositionCorrection_Unchecked(object sender, RoutedEventArgs e)
         {
-            //positionOffsetCorrectionWindow.Close();
+            positionCorrectorWindow.Close();
         }
 
         private void mnuFilters_Checked(object sender, RoutedEventArgs e)

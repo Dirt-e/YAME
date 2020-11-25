@@ -52,3 +52,8 @@ D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\MOTUS.cspr
 D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\MOTUS.csproj.CopyComplete
 D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\MOTUS.exe
 D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\MOTUS.pdb
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\PositionCorrectorWindow.g.cs
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\UserControls\ToggleSwitch.g.cs
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\PositionCorrectorWindow.baml
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\UserControls\ToggleSwitch.baml

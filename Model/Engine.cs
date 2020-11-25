@@ -14,18 +14,19 @@ namespace MOTUS.Model
     public class Engine
     {
         //Objects:
-        public BackgroundWorker backgroundworker;
-        public Server server;
-        public Chopper chopper;
-        public Inverter inverter;
-        public CrashDetector crashdetector;
-        public PositionOffsetCorrector positionoffsetcorrector;
+        public BackgroundWorker         backgroundworker;
+        public Server                   server;
+        public Chopper                  chopper;
+        public Inverter                 inverter;
+        public CrashDetector            crashdetector;
+        public PositionOffsetCorrector  positionoffsetcorrector;
 
         //ViewModels:
-        public ViewModel_MainWindow     VM_MainWindow;
-        public ViewModel_RawData        VM_Rawdata;
-        public ViewModel_FiltersWindow  VM_FiltersWindow;
-        public ViewModel_CrashDetector  VM_CrashDetector;
+        public ViewModel_MainWindow                 VM_MainWindow;
+        public ViewModel_RawData                    VM_Rawdata;
+        public ViewModel_FiltersWindow              VM_FiltersWindow;
+        public ViewModel_CrashDetector              VM_CrashDetector;
+        public ViewModel_PositionOffsetCorrector    VM_PositionOffsetCorrector;
 
         //Internal properties:
         float deltatime_processing;
@@ -43,10 +44,11 @@ namespace MOTUS.Model
             {
                 WorkerSupportsCancellation = true,
             };
-            server              = new Server();
-            chopper             = new Chopper();
-            inverter            = new Inverter();
-            crashdetector       = new CrashDetector();
+            server                  = new Server();
+            chopper                 = new Chopper();
+            inverter                = new Inverter();
+            crashdetector           = new CrashDetector();
+            positionoffsetcorrector = new PositionOffsetCorrector();
         }
         private void InstantiateViewModels()
         {
@@ -54,6 +56,7 @@ namespace MOTUS.Model
             VM_Rawdata          = new ViewModel_RawData(this);
             VM_FiltersWindow    = new ViewModel_FiltersWindow(this);
             VM_CrashDetector    = new ViewModel_CrashDetector(this);
+            VM_PositionOffsetCorrector = new ViewModel_PositionOffsetCorrector(this);
         }
 
         public void StartEngine()
@@ -76,19 +79,18 @@ namespace MOTUS.Model
             }
             
         }
-
-        
-
         public void StopEngine()
         {
             backgroundworker.CancelAsync();
         }
+
         private void Update()
         {
             Update_Server();
             Update_Chopper();
             Update_Inverter();
             Update_Crashdetector();
+            Update_PositionOffsetCorrector();
         }
 
         private void Update_Server()
@@ -143,10 +145,18 @@ namespace MOTUS.Model
         private void Update_Crashdetector()
         {
             crashdetector.CheckForCrash(inverter.Output);
+            //The ViewModel is being updated by the StartStopLogic
         }
         private void Update_PositionOffsetCorrector()
         {
             positionoffsetcorrector.Process(crashdetector.Output, deltatime_processing);
+
+            #region Update ViewModel
+            VM_PositionOffsetCorrector.IsActive = positionoffsetcorrector.IsActive;
+            VM_PositionOffsetCorrector.Ax_output = positionoffsetcorrector.Ax_output;
+            VM_PositionOffsetCorrector.Ay_output = positionoffsetcorrector.Ay_output;
+            VM_PositionOffsetCorrector.Az_output = positionoffsetcorrector.Az_output;
+            #endregion
         }
 
 

@@ -9,15 +9,19 @@ namespace MOTUS.Model
 {
     public class PositionOffsetCorrector
     {
-        public PreprocessorData Output;
-        private PreprocessorData Input;
+        public PreprocessorData Output = new PreprocessorData();
+        public PreprocessorData Input;
 
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
 
         public float Delta_X { get; set; }
         public float Delta_Y { get; set; }
         public float Delta_Z { get; set; }
         
+        public float Ax_output { get; set; }
+        public float Ay_output { get; set; }
+        public float Az_output { get; set; }
+
         #region Internal Properties
         private float delta_Wx;
         private float delta_Wy;
@@ -41,10 +45,6 @@ namespace MOTUS.Model
         private float tang_x;
         private float tang_y;
         private float tang_z;
-
-        private float _ax_output;
-        private float _ay_output;
-        private float _az_output;
         #endregion
 
         public void Process(PreprocessorData data, float deltatime)
@@ -60,11 +60,9 @@ namespace MOTUS.Model
         {
             CalculateDeltasSinceLastFrame();
             CalculateOmegaDots();
-
             Correct_Ax();
             Correct_Ay();
             Correct_Az();
-
             WriteCorrectedOuptutData();
         }
 
@@ -93,39 +91,39 @@ namespace MOTUS.Model
             //Centrifugal acceleration:
             cent_x = -Delta_X * (float)(Math.Pow((Input.WY), 2) + Math.Pow((Input.WZ), 2)) / 9.81f;      //division by 9.81 to convert m/s^2 into G.
             //Tangential acceleration:
-            tang_x = (Wy_dot_smooth * Delta_Z - Wz_dot_smooth * Delta_Y) / 9.81f;                                             //division by 9.81 to convert m/s^2 into G.
+            tang_x = (Wy_dot_smooth * Delta_Z - Wz_dot_smooth * Delta_Y) / 9.81f;                       //division by 9.81 to convert m/s^2 into G.
 
-            _ax_output = Input.AX + cent_x + tang_x;
+            Ax_output = Input.AX + cent_x + tang_x;
         }
         void Correct_Ay()
         {
             //Centrifugal acceleration:
             cent_y = -Delta_Y * (float)(Math.Pow((Input.WX), 2) + Math.Pow((Input.WZ), 2)) / 9.81f;     //division by 9.81 to convert m/s^2 into G.
             //Tangential acceleration:
-            tang_y = (Wz_dot_smooth * Delta_X - Wx_dot_smooth * Delta_Z) / 9.81f;                                             //division by 9.81 to convert m/s^2 into G.
+            tang_y = (Wz_dot_smooth * Delta_X - Wx_dot_smooth * Delta_Z) / 9.81f;                       //division by 9.81 to convert m/s^2 into G.
 
-            _ay_output = Input.AY + cent_y + tang_y;
+            Ay_output = Input.AY + cent_y + tang_y;
         }
         void Correct_Az()
         {
             //Centrifugal acceleration:
             cent_z = -Delta_Z * (float)(Math.Pow((Input.WX), 2) + Math.Pow((Input.WY), 2)) / 9.81f;     //division by 9.81 to convert m/s^2 into G.
             //Tangential acceleration:
-            tang_z = (Wx_dot_smooth * Delta_Y - Wy_dot_smooth * Delta_X) / 9.81f;                                               //division by 9.81 to convert m/s^2 into G.
+            tang_z = (Wx_dot_smooth * Delta_Y - Wy_dot_smooth * Delta_X) / 9.81f;                       //division by 9.81 to convert m/s^2 into G.
 
-            _az_output = Input.AZ + cent_z + tang_z;
+            Az_output = Input.AZ + cent_z + tang_z;
         }
-
         void WriteCorrectedOuptutData()
         {
             //First, just copy over EVERYTHING...
             Output = Input;
 
             //...then manipulate as needed
-            Output.AX = _ax_output;
-            Output.AY = _ay_output;
-            Output.AZ = _az_output;
+            Output.AX = Ax_output;
+            Output.AY = Ay_output;
+            Output.AZ = Az_output;
         }
+
         void PassThrough()
         {
             Output = Input;

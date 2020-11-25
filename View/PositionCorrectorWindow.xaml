@@ -1,0 +1,126 @@
+﻿<Window x:Class="MOTUS.View.PositionCorrectorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MOTUS.View"
+        xmlns:Controls="clr-namespace:MOTUS.View.UserControls"
+        mc:Ignorable="d"
+       Title="PositionOffsetCorrectorWindow"
+        Height="200" Width="160" WindowStartupLocation="Manual" Top="0" Left="330"
+        ResizeMode="NoResize" MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        Style="{StaticResource ChildWindow_Style}">
+    <Grid Margin="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5"></ColumnDefinition>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Position Offset:"    Margin="0"  Padding="2"  FontSize="15" FontWeight="Bold" Grid.ColumnSpan="4" HorizontalAlignment="Left"/>
+
+        <Label      Content="Delta X:"  Grid.Column="1"     Grid.Row="1"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" Height="16" Margin="0,2,0.667,2" Width="40" />
+        <Label      Content="Delta Y:"  Grid.Column="1"     Grid.Row="2"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" Height="16" Margin="0,2,0.667,2" Width="40" />
+        <Label      Content="Delta Z:"  Grid.Column="1"     Grid.Row="3"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" Height="16" Margin="0,2,0.667,2" Width="40"/>
+
+        <Label     Grid.Row="5" Grid.Column="1" Padding="0"   HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Label.Style>
+                <Style TargetType="Label">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsActive}" Value="True">
+                            <Setter Property="Content" Value="Corrected Ax:"/>
+                            <Setter Property="Foreground" Value="LightGray"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsActive}" Value="False">
+                            <Setter Property="Content" Value="Uncorr. Ax:"/>
+                            <Setter Property="Foreground" Value="LightGray"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+        </Label>
+        <Label     Grid.Row="6" Grid.Column="1" Padding="0"   HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Label.Style>
+                <Style TargetType="Label">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsActive}" Value="True">
+                            <Setter Property="Content" Value="Corrected Ay:"/>
+                            <Setter Property="Foreground" Value="LightGray"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsActive}" Value="False">
+                            <Setter Property="Content" Value="Uncorr. Ay:"/>
+                            <Setter Property="Foreground" Value="LightGray"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+        </Label>
+        <Label     Grid.Row="7" Grid.Column="1" Padding="0"  HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Label.Style>
+                <Style TargetType="Label">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsActive}" Value="True">
+                            <Setter Property="Content" Value="Corrected Az:"/>
+                            <Setter Property="Foreground" Value="LightGray"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsActive}" Value="False">
+                            <Setter Property="Content" Value="Uncorr. Az:"/>
+                            <Setter Property="Foreground" Value="LightGray"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+        </Label>
+
+        <TextBox    x:Name="txtbx_DeltaX" Text="{ Binding Delta_X, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Column="3" Grid.Row="1" TextAlignment="Center" Grid.ColumnSpan="1" Margin="1" Style="{StaticResource TextBox_Style}"/>
+        <TextBox    x:Name="txtbx_DeltaY" Text="{ Binding Delta_Y, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Column="3" Grid.Row="2" TextAlignment="Center" Grid.ColumnSpan="1" Margin="1" Style="{StaticResource TextBox_Style}"/>
+        <TextBox    x:Name="txtbx_DeltaZ" Text="{ Binding Delta_Z, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Column="3" Grid.Row="3" TextAlignment="Center" Grid.ColumnSpan="1" Margin="1" Style="{StaticResource TextBox_Style}"/>
+
+        <Label      x:Name="lbl_Ax_corr" Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0">
+            <Label.Content>
+                <TextBlock Text="{ Binding Ax_output, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"/>
+            </Label.Content>
+        </Label>
+        <Label      x:Name="lbl_Ay_corr" Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0">
+            <Label.Content>
+                <TextBlock Text="{ Binding Ay_output, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"/>
+            </Label.Content>
+        </Label>
+        <Label      x:Name="lbl_Az_corr" Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0">
+            <Label.Content>
+                <TextBlock Text="{ Binding Az_output, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"/>
+            </Label.Content>
+        </Label>
+
+        <Label      Content="m" Grid.Column="4"   Grid.Row="1"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
+        <Label      Content="m" Grid.Column="4"   Grid.Row="2"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
+        <Label      Content="m" Grid.Column="4"   Grid.Row="3"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
+
+        <Label      Content="g" Grid.Column="4"   Grid.Row="5"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
+        <Label      Content="g" Grid.Column="4"   Grid.Row="6"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
+        <Label      Content="g" Grid.Column="4"   Grid.Row="7"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
+
+        <Controls:ToggleSwitch x:Name="tgl_Active" IsOn="{Binding IsActive, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                               Grid.Column="1" Grid.Row="8" Height="15"/>
+        <TextBlock  x:Name="txtblk_CorrectionActive" Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Foreground="{Binding IsActive, Converter={StaticResource cnvrt_BoolToColorBrush}}"
+                    Text="{Binding IsActive, Converter={StaticResource cnvrt_BoolToActive }}" />
+    </Grid>
+
+</Window>
