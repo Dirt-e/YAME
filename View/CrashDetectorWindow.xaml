@@ -1,0 +1,90 @@
+﻿<Window x:Class="MOTUS.View.CrashDetectorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MOTUS.View"
+        mc:Ignorable="d"
+        Title="CrashDetectorWindow"
+        Height="226.25" Width="130" WindowStartupLocation="Manual" Top="115" Left="200"
+        ResizeMode="NoResize" MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        Style="{StaticResource ChildWindow_Style}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="30"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock  Text="Crash Detector:" Grid.Column="0" Grid.ColumnSpan="5"  Margin="5,0,0,0" FontSize="15" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+        <Label      Content="Ax:" Grid.Column="1"   Grid.Row="2"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Label      Content="Ay:" Grid.Column="1"   Grid.Row="3"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Label      Content="Az:" Grid.Column="1"   Grid.Row="4"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+        <Label      Content="Wx:" Grid.Column="1"   Grid.Row="6"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Label      Content="Wy:" Grid.Column="1"   Grid.Row="7"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Label      Content="Wz:" Grid.Column="1"   Grid.Row="8"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+        <TextBox    x:Name="txtbx_Ax_Threshold" Text="{ Binding AX_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                    Grid.Column="3" Grid.Row="2" Margin="1" TextAlignment="Center" Style="{StaticResource TextBox_Style}"/>
+        <TextBox    x:Name="txtbx_Ay_Threshold" Text="{ Binding AY_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Column="3" Grid.Row="3" Margin="1" TextAlignment="Center" Style="{StaticResource TextBox_Style}"/>
+        <TextBox    x:Name="txtbx_Az_Threshold" Text="{ Binding AZ_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Column="3" Grid.Row="4" Margin="1" TextAlignment="Center" Style="{StaticResource TextBox_Style}"/>
+
+        <TextBox    x:Name="txtbx_Wx_Threshold" Text="{ Binding WX_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Column="3" Grid.Row="6" Margin="1" TextAlignment="Center" Style="{StaticResource TextBox_Style}"/>
+        <TextBox    x:Name="txtbx_Wy_Threshold" Text="{ Binding WY_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Column="3" Grid.Row="7" Margin="1" TextAlignment="Center" Style="{StaticResource TextBox_Style}"/>
+        <TextBox    x:Name="txtbx_Wz_Threshold" Text="{ Binding WZ_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Column="3" Grid.Row="8" Margin="1" TextAlignment="Center" Style="{StaticResource TextBox_Style}"/>
+
+        <Label      Content="g" Grid.Column="4"   Grid.Row="2"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
+        <Label      Content="g" Grid.Column="4"   Grid.Row="3"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
+        <Label      Content="g" Grid.Column="4"   Grid.Row="4"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
+
+        <Label      Content="rad/s" Grid.Column="4"   Grid.Row="6"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
+        <Label      Content="rad/s" Grid.Column="4"   Grid.Row="7"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
+        <Label      Content="rad/s" Grid.Column="4"   Grid.Row="8"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
+
+        <Button     Name="btn_Indicator" Grid.Row="9" Width="100" Margin="10" Cursor="Hand"
+                    Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Center"
+                    Foreground="{Binding TextColor}" Background="{Binding LightColor}" 
+                    ToolTip="This light indicates when a crash is detected.&#10;It also functions as a reset button." ToolTipService.ShowDuration="10000">
+            <Button.Content>
+                <StackPanel>
+                    <TextBlock x:Name="txtblk_Line1" Text="{Binding Line1}" FontWeight="DemiBold" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="txtblk_Line2" Text="{Binding Line2}" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button.Content>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="1">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+</Window>

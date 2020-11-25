@@ -1,0 +1,54 @@
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\MOTUS.csprojAssemblyReference.cache
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\MainWindow.g.cs
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\App.g.cs
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\MOTUS_MarkupCompile.cache
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\MOTUS_MarkupCompile.lref
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\bin\Debug\MOTUS.exe.config
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\bin\Debug\MOTUS.exe
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\bin\Debug\MOTUS.pdb
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\MainWindow.baml
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\MOTUS.g.resources
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\MOTUS.Properties.Resources.resources
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\MOTUS.csproj.GenerateResource.cache
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\MOTUS.csproj.CoreCompileInputs.cache
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\MOTUS.exe
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\MOTUS.pdb
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\App.baml
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\bin\Debug\HelixToolkit.dll
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\bin\Debug\HelixToolkit.Wpf.dll
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\bin\Debug\HelixToolkit.xml
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\bin\Debug\HelixToolkit.Wpf.xml
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\MOTUS.csproj.CopyComplete
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\ServerWindow.g.cs
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\ServerWindow.baml
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\RawDataWindow.g.cs
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\RawDataWindow.baml
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\CrashDetectorWindow.g.cs
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\CrashDetectorWindow.baml
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\bin\Debug\MOTUS.exe.config
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\bin\Debug\MOTUS.exe
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\bin\Debug\MOTUS.pdb
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\bin\Debug\HelixToolkit.dll
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\bin\Debug\HelixToolkit.Wpf.dll
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\bin\Debug\HelixToolkit.xml
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\bin\Debug\HelixToolkit.Wpf.xml
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\MOTUS.csprojAssemblyReference.cache
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\MainWindow.g.cs
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\View\CrashDetectorWindow.g.cs
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\View\RawDataWindow.g.cs
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\View\ServerWindow.g.cs
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\App.g.cs
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\MOTUS_MarkupCompile.cache
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\MOTUS_MarkupCompile.lref
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\App.baml
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\MainWindow.baml
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\View\CrashDetectorWindow.baml
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\View\RawDataWindow.baml
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\View\ServerWindow.baml
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\MOTUS.g.resources
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\MOTUS.Properties.Resources.resources
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\MOTUS.csproj.GenerateResource.cache
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\MOTUS.csproj.CoreCompileInputs.cache
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\MOTUS.csproj.CopyComplete
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\MOTUS.exe
+D:\OneDrive\Frank - PC\GitHub\BACKUP\MOTUS 2020.11.24\MOTUS\obj\Debug\MOTUS.pdb
