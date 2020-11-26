@@ -17,7 +17,7 @@ namespace MOTUS.View.Converters
             var b = (bool)value;
 
             if (b)  return new SolidColorBrush(Colors.LightGreen);
-            else    return new SolidColorBrush(Colors.LightCoral);
+            else    return new SolidColorBrush(Colors.DimGray);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

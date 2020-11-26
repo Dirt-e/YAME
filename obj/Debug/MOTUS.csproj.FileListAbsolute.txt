@@ -57,3 +57,13 @@ D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\UserControls\ToggleSwit
 D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\PositionCorrectorWindow.baml
 D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\UserControls\ToggleSwitch.baml
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\AlphaCompensationWindow.g.cs
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\AlphaCompensationWindow.baml
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\FiltersWindow.g.cs
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\FiltersWindow.baml
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\UserControls\CompressionBox.g.cs
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\UserControls\CompressionBox.baml
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\UserControls\FilterBox.g.cs
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\UserControls\FilterBox.baml
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\UserControls\ScalerBox.g.cs
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\UserControls\ScalerBox.baml

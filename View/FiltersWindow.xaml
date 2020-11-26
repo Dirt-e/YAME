@@ -1,0 +1,153 @@
+﻿<Window x:Class="MOTUS.View.FiltersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MOTUS.View"
+        xmlns:controls="clr-namespace:MOTUS.View.UserControls"
+        mc:Ignorable="d"
+        Title="FiltersWindow" Height="600" Width="600"
+        WindowStartupLocation="Manual"  Left="490" Top="0"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        Style="{StaticResource ChildWindow_Style}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <!--Headers-->
+        <TextBlock  Text="Inv:" Grid.Column="1"  Grid.Row="1" HorizontalAlignment="Center"  VerticalAlignment="Center"
+                    FontSize="15" FontWeight="Bold"/>
+        <Border     Grid.Column="1" Grid.Row="1" BorderBrush="Gray" Margin="2" BorderThickness="0,0,0,2"/>
+        <TextBlock  Text="Filters:"  Grid.Row="1" Grid.Column="3"
+                    FontSize="15" FontWeight="Bold" Grid.ColumnSpan="3" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+        <Border     Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="3" BorderBrush="Gray" Margin="2" BorderThickness="0,0,0,2"/>
+        <TextBlock  Text="Compression:"  Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="2"
+                    FontSize="15" FontWeight="Bold" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+        <Border     Grid.Column="7" Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="Gray" Margin="2" BorderThickness="0,0,0,2"/>
+        <TextBlock  Text="Scaling:"  Grid.Row="1" Grid.Column="10"
+                    FontSize="15" FontWeight="Bold" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+        <Border     Grid.Column="10" Grid.Row="1" BorderBrush="Gray" Margin="2" BorderThickness="0,0,0,2"/>
+
+        <!--Checkboxes-->
+        <CheckBox x:Name="chkbx_invert_Wx"      Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"     
+                  IsChecked="{Binding Invert_Wx, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  Style="{StaticResource CheckBox_Style}"/>
+        <CheckBox x:Name="chkbx_invert_Wy"      Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"    
+                  IsChecked="{Binding Invert_Wy, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  Style="{StaticResource CheckBox_Style}"/>
+        <CheckBox x:Name="chkbx_invert_Wz"      Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center"     
+                  IsChecked="{Binding Invert_Wz, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  Style="{StaticResource CheckBox_Style}"/>
+        <CheckBox x:Name="chkbx_invert_Ax"  Grid.Column="1" Grid.Row="6" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"     
+                  IsChecked="{Binding Invert_Ax, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  Style="{StaticResource CheckBox_Style}"/>
+        <CheckBox x:Name="chkbx_invert_Ay"  Grid.Column="1" Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Center"     
+                  IsChecked="{Binding Invert_Ay, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  Style="{StaticResource CheckBox_Style}"/>
+        <CheckBox x:Name="chkbx_invert_Az"  Grid.Column="1" Grid.Row="11" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"    
+                  IsChecked="{Binding Invert_Az, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  Style="{StaticResource CheckBox_Style}"/>
+        <!--Filtering-->
+        <controls:FilterBox x:Name="filterbox_wx_HP"        Grid.Column="3" Grid.Row="2" InValue="{Binding InValue, StringFormat=N2}" Code="{Binding Code}" FilterVariable="{Binding FilterVariable}" OutValue="{Binding OutValue}"/>
+        <controls:FilterBox x:Name="filterbox_wx_HP_LP"     Grid.Column="4" Grid.Row="2" />
+        <controls:FilterBox x:Name="filterbox_wy_HP"        Grid.Column="3" Grid.Row="3"/>
+        <controls:FilterBox x:Name="filterbox_wy_HP_LP"     Grid.Column="4" Grid.Row="3"/>
+        <controls:FilterBox x:Name="filterbox_wz_HP"        Grid.Column="3" Grid.Row="4"/>
+        <controls:FilterBox x:Name="filterbox_wz_HP_LP"     Grid.Column="4" Grid.Row="4"/>
+
+        <controls:FilterBox x:Name="filterbox_ax_HP"        Grid.Column="3" Grid.Row="6"/>
+        <controls:FilterBox x:Name="filterbox_ax_HP_LP2"    Grid.Column="4" Grid.Row="6" Grid.ColumnSpan="2"/>
+        <controls:FilterBox x:Name="filterbox_ax_LP3"       Grid.Column="3" Grid.Row="7" Grid.ColumnSpan="3"/>
+
+        <controls:FilterBox x:Name="filterbox_ay_HP"        Grid.Column="3" Grid.Row="9"/>
+        <controls:FilterBox x:Name="filterbox_ay_HP_LP2"    Grid.Column="4" Grid.Row="9" Grid.ColumnSpan="2"/>
+
+        <controls:FilterBox x:Name="filterbox_az_HP"        Grid.Column="3" Grid.Row="11"/>
+        <controls:FilterBox x:Name="filterbox_az_HP_LP2"    Grid.Column="4" Grid.Row="11" Grid.ColumnSpan="2"/>
+        <controls:FilterBox x:Name="filterbox_az_LP3"       Grid.Column="3" Grid.Row="12" Grid.ColumnSpan="3"/>
+
+        <!--Compression-->
+        <controls:CompressionBox x:Name="cmprbx_Roll_HFC"   Grid.Column="7" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <controls:CompressionBox x:Name="cmprbx_Yaw_HFC"    Grid.Column="7" Grid.Row="3" Grid.ColumnSpan="2"/>
+        <controls:CompressionBox x:Name="cmprbx_Pitch_HFC"  Grid.Column="7" Grid.Row="4" Grid.ColumnSpan="2"/>
+
+        <controls:CompressionBox x:Name="cmprbx_Surge_HFC"   Grid.Column="7" Grid.Row="6" Grid.ColumnSpan="2"/>
+        <controls:CompressionBox x:Name="cmprbx_Pitch_LFC"   Grid.Column="7" Grid.Row="7" Grid.ColumnSpan="2"/>
+
+        <controls:CompressionBox x:Name="cmprbx_Heave_HFC"   Grid.Column="7" Grid.Row="9" Grid.ColumnSpan="2"/>
+
+        <controls:CompressionBox x:Name="cmprbx_Sway_HFC"   Grid.Column="7" Grid.Row="11" Grid.ColumnSpan="2"/>
+        <controls:CompressionBox x:Name="cmprbx_Roll_LFC"   Grid.Column="7" Grid.Row="12" Grid.ColumnSpan="2"/>
+
+        <!--Scaling-->
+        <controls:ScalerBox x:Name="sclr_Roll_HFC"      Grid.Column="10" Grid.Row="2"/>
+        <controls:ScalerBox x:Name="sclr_Yaw_HFC"       Grid.Column="10" Grid.Row="3"/>
+        <controls:ScalerBox x:Name="sclr_Pitch_HFC"     Grid.Column="10" Grid.Row="4"/>
+
+        <controls:ScalerBox x:Name="sclr_Surge_HFC"     Grid.Column="10" Grid.Row="6"/>
+        <controls:ScalerBox x:Name="sclr_Pitch_LFC"     Grid.Column="10" Grid.Row="7"/>
+
+        <controls:ScalerBox x:Name="sclr_Heave_HFC"     Grid.Column="10" Grid.Row="9"/>
+
+        <controls:ScalerBox x:Name="sclr_Sway_HFC"     Grid.Column="10" Grid.Row="11"/>
+        <controls:ScalerBox x:Name="sclr_Roll_LFC"     Grid.Column="10" Grid.Row="12"/>
+
+        <!--Zeros-->
+        <TextBlock  Text="Zero:"  Grid.Row="1" Grid.Column="11" FontSize="15" FontWeight="Bold"
+                        HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+        <Border     Grid.Column="11" Grid.Row="1" BorderBrush="Gray" Margin="2" BorderThickness="0,0,0,2">
+
+        </Border>
+        <CheckBox x:Name="chkbx_zero_RollHFC" Grid.Column="11" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"     
+                  IsChecked="{Binding Zero_RollHFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  Style="{StaticResource CheckBox_Style}"/>
+        <CheckBox x:Name="chkbx_zero_YawHFC" Grid.Column="11" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"     
+                  IsChecked="{Binding Zero_YawHFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  Style="{StaticResource CheckBox_Style}"/>
+        <CheckBox x:Name="chkbx_zero_PitchHFC" Grid.Column="11" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center"     
+                  IsChecked="{Binding Zero_PitchHFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  Style="{StaticResource CheckBox_Style}"/>
+        <CheckBox x:Name="chkbx_zero_SurgeHFC" Grid.Column="11" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center"     
+                  IsChecked="{Binding Zero_SurgeHFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  Style="{StaticResource CheckBox_Style}"/>
+        <CheckBox x:Name="chkbx_zero_PitchLFC" Grid.Column="11" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Center"     
+                  IsChecked="{Binding Zero_PitchLFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  Style="{StaticResource CheckBox_Style}"/>
+        <CheckBox x:Name="chkbx_zero_HeaveHFC" Grid.Column="11" Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Center"     
+                  IsChecked="{Binding Zero_HeavelHFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  Style="{StaticResource CheckBox_Style}"/>
+        <CheckBox x:Name="chkbx_zero_SwayHFC" Grid.Column="11" Grid.Row="11" VerticalAlignment="Center" HorizontalAlignment="Center"     
+                  IsChecked="{Binding Zero_SwayHFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  Style="{StaticResource CheckBox_Style}"/>
+        <CheckBox x:Name="chkbx_zero_RollLFC" Grid.Column="11" Grid.Row="12" VerticalAlignment="Center" HorizontalAlignment="Center"     
+                  IsChecked="{Binding Zero_RollLFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  Style="{StaticResource CheckBox_Style}"/>
+    </Grid>
+</Window>

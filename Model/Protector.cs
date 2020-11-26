@@ -9,9 +9,9 @@ namespace MOTUS.Model
 {
     public class Protector
     {
-        public PreprocessorData Input;
-        public PreprocessorData Output;
-        public PreprocessorData LastGoodValues;
+        public PreprocessorData Input = new PreprocessorData();
+        public PreprocessorData Output = new PreprocessorData();
+        public PreprocessorData LastGoodValues = new PreprocessorData();
 
         public bool IsLatched { get; set; } = false;
 
@@ -41,11 +41,7 @@ namespace MOTUS.Model
 
         private void SendLastGoodValues()
         {
-            OutputData = new PreprocessorData(LastGoodValues);
-        }
-        public void Latch()
-        {
-            IsLatched = true;
+            Output = LastGoodValues;
         }
     }
 }

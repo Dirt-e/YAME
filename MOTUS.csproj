@@ -61,25 +61,42 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataFomats\DOF_Data.cs" />
     <Compile Include="DataFomats\PreprocessorData.cs" />
     <Compile Include="GlobalVars.cs" />
+    <Compile Include="Model\AlphaCompensator.cs" />
     <Compile Include="Model\Chopper.cs" />
+    <Compile Include="Model\CompressorModule.cs" />
     <Compile Include="Model\CrashDetector.cs" />
+    <Compile Include="DataFomats\FilterData.cs" />
+    <Compile Include="Model\HighPassNthOrder.cs" />
+    <Compile Include="Model\_Filter.cs" />
+    <Compile Include="Model\FilterSystem.cs" />
     <Compile Include="Model\Inverter.cs" />
+    <Compile Include="Model\LowPassModule.cs" />
+    <Compile Include="Model\LowPassNthOrder.cs" />
     <Compile Include="Model\PositionOffsetCorrector.cs" />
     <Compile Include="Model\Protector.cs" />
     <Compile Include="Utility.cs" />
+    <Compile Include="ViewModel\ViewModel_AlphaCompensator.cs" />
     <Compile Include="ViewModel\ViewModel_CrashDetector.cs" />
     <Compile Include="ViewModel\ViewModel_FiltersWindow.cs" />
     <Compile Include="ViewModel\ViewModel_MainWindow.cs" />
     <Compile Include="ViewModel\ViewModel_PositionOffsetCorrector.cs" />
     <Compile Include="ViewModel\ViewModel_RawData.cs" />
     <Compile Include="ViewModel\_ViewModel.cs" />
+    <Compile Include="View\AlphaCompensationWindow.xaml.cs">
+      <DependentUpon>AlphaCompensationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Converters\BoolToActiveConverter..cs" />
     <Compile Include="View\Converters\BoolToColorBrushConverter.cs" />
     <Compile Include="View\Converters\CharToColorConverter.cs" />
     <Compile Include="View\CrashDetectorWindow.xaml.cs">
       <DependentUpon>CrashDetectorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnumBindingSourceExtension.cs" />
+    <Compile Include="View\FiltersWindow.xaml.cs">
+      <DependentUpon>FiltersWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PositionCorrectorWindow.xaml.cs">
       <DependentUpon>PositionCorrectorWindow.xaml</DependentUpon>
@@ -89,6 +106,15 @@
     </Compile>
     <Compile Include="View\ServerWindow.xaml.cs">
       <DependentUpon>ServerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\CompressionBox.xaml.cs">
+      <DependentUpon>CompressionBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\FilterBox.xaml.cs">
+      <DependentUpon>FilterBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\ScalerBox.xaml.cs">
+      <DependentUpon>ScalerBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls\ToggleSwitch.xaml.cs">
       <DependentUpon>ToggleSwitch.xaml</DependentUpon>
@@ -105,7 +131,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AlphaCompensationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\CrashDetectorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FiltersWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -118,6 +152,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ServerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\CompressionBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\FilterBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\ScalerBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -155,8 +201,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BaseClasses\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

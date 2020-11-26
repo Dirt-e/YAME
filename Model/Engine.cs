@@ -20,13 +20,22 @@ namespace MOTUS.Model
         public Inverter                 inverter;
         public CrashDetector            crashdetector;
         public PositionOffsetCorrector  positionoffsetcorrector;
+        public Protector                protector;
+        public AlphaCompensator         alphacompensator;
+        public FilterSystem             filtersystem;
 
         //ViewModels:
         public ViewModel_MainWindow                 VM_MainWindow;
         public ViewModel_RawData                    VM_Rawdata;
-        public ViewModel_FiltersWindow              VM_FiltersWindow;
         public ViewModel_CrashDetector              VM_CrashDetector;
         public ViewModel_PositionOffsetCorrector    VM_PositionOffsetCorrector;
+        public ViewModel_AlphaCompensator           VM_AlphaCompensator;
+        public ViewModel_FiltersWindow              VM_FiltersWindow;
+            public VM_FilterBox_WX_HP               VM_FilterBox_WX_HP;
+        //...
+        //...
+        //...
+
 
         //Internal properties:
         float deltatime_processing;
@@ -40,7 +49,7 @@ namespace MOTUS.Model
 
         private void InstatiateObjects()
         {
-            backgroundworker    = new BackgroundWorker
+            backgroundworker        = new BackgroundWorker
             {
                 WorkerSupportsCancellation = true,
             };
@@ -49,14 +58,22 @@ namespace MOTUS.Model
             inverter                = new Inverter();
             crashdetector           = new CrashDetector();
             positionoffsetcorrector = new PositionOffsetCorrector();
+            protector               = new Protector();
+            alphacompensator        = new AlphaCompensator();
+            filtersystem            = new FilterSystem();
         }
         private void InstantiateViewModels()
         {
-            VM_MainWindow       = new ViewModel_MainWindow(this);
-            VM_Rawdata          = new ViewModel_RawData(this);
-            VM_FiltersWindow    = new ViewModel_FiltersWindow(this);
-            VM_CrashDetector    = new ViewModel_CrashDetector(this);
-            VM_PositionOffsetCorrector = new ViewModel_PositionOffsetCorrector(this);
+            VM_MainWindow               = new ViewModel_MainWindow(this);
+            VM_Rawdata                  = new ViewModel_RawData(this);
+            VM_CrashDetector            = new ViewModel_CrashDetector(this);
+            VM_PositionOffsetCorrector  = new ViewModel_PositionOffsetCorrector(this);
+            VM_AlphaCompensator         = new ViewModel_AlphaCompensator(this);
+            VM_FiltersWindow            = new ViewModel_FiltersWindow(this);
+                VM_FilterBox_WX_HP       = new VM_FilterBox_WX_HP(this);
+            //...
+            //...
+            //...
         }
 
         public void StartEngine()
@@ -91,6 +108,9 @@ namespace MOTUS.Model
             Update_Inverter();
             Update_Crashdetector();
             Update_PositionOffsetCorrector();
+            Update_Protector();
+            Update_Alphacompensator();
+            Update_Filtersystem();
         }
 
         private void Update_Server()
@@ -150,7 +170,6 @@ namespace MOTUS.Model
         private void Update_PositionOffsetCorrector()
         {
             positionoffsetcorrector.Process(crashdetector.Output, deltatime_processing);
-
             #region Update ViewModel
             VM_PositionOffsetCorrector.IsActive = positionoffsetcorrector.IsActive;
             VM_PositionOffsetCorrector.Ax_output = positionoffsetcorrector.Ax_output;
@@ -158,7 +177,33 @@ namespace MOTUS.Model
             VM_PositionOffsetCorrector.Az_output = positionoffsetcorrector.Az_output;
             #endregion
         }
+        private void Update_Protector()
+        {
+            protector.Process(positionoffsetcorrector.Output);
+            //No ViewModel here
+        }
+        private void Update_Alphacompensator()
+        {
+            alphacompensator.Process(protector.Output);
+            #region Update ViewModel
+            VM_AlphaCompensator.AoA = alphacompensator.AoA;
+            VM_AlphaCompensator.FadeIn_Percentage = alphacompensator.FadeIn_Percentage;
+            #endregion
+        }
+        private void Update_Filtersystem()
+        {
+            filtersystem.Process(alphacompensator.Output);
 
+            #region Update ViewModel WX_HP
+            VM_FilterBox_WX_HP.InValue = filtersystem.Wx_HP.InValue;
+            VM_FilterBox_WX_HP.Code = filtersystem.Wx_HP.Code;
+            VM_FilterBox_WX_HP.FilterVariable = filtersystem.Wx_HP.FilterVariable;
+            VM_FilterBox_WX_HP.OutValue = filtersystem.Wx_HP.OutValue;
+            //...
+            //...
+            //...
+            #endregion
+        }
 
 
         //Helpers:

@@ -14,6 +14,8 @@ namespace MOTUS.View.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if (value == null) { return Colors.Gray; }
+
             var code = (string)value;
             char ch = code.ToCharArray()[0];
 

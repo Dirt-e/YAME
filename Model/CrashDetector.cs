@@ -9,7 +9,7 @@ namespace MOTUS.Model
 {
     public class CrashDetector
     {
-        public PreprocessorData Output;
+        public PreprocessorData Output = new PreprocessorData();
 
         public bool IsCrashed { get; set; }
 

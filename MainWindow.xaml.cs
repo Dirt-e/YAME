@@ -26,6 +26,9 @@ namespace MOTUS
         RawDataWindow rawDataWindow;
         CrashDetectorWindow crashDetectorWindow;
         PositionCorrectorWindow positionCorrectorWindow;
+        AlphaCompensationWindow alphaCompensationWindow;
+        FiltersWindow filtersWindow;
+
 
         public MainWindow()
         {
@@ -52,7 +55,7 @@ namespace MOTUS
             mnuCrashDetector.IsChecked = true;
             mnuPositionCorrection.IsChecked = true;
             mnuFilters.IsChecked = true;
-            //mnuAlphaCompansation.IsChecked = true;
+            mnuAlphaCompansation.IsChecked = true;
             //mnuGraphs.IsChecked = true;
             //mnuDOFs.IsChecked = true;
             //mnuSceneView.IsChecked = true;
@@ -93,27 +96,27 @@ namespace MOTUS
         {
             positionCorrectorWindow.Close();
         }
-
-        private void mnuFilters_Checked(object sender, RoutedEventArgs e)
-        {
-            //filtersWindow = new FiltersWindow();
-            //filtersWindow.Owner = this;
-            //filtersWindow.Show();
-        }
-        private void mnuFilters_Unchecked(object sender, RoutedEventArgs e)
-        {
-            //filtersWindow.Close();
-        }
-
+        
         private void mnuAlphaCompensation_Checked(object sender, RoutedEventArgs e)
         {
-            //alphaCompensationWindow = new AlphaCompensationWindow();
-            //alphaCompensationWindow.Owner = this;
-            //alphaCompensationWindow.Show();
+            alphaCompensationWindow = new AlphaCompensationWindow();
+            alphaCompensationWindow.Owner = this;
+            alphaCompensationWindow.Show();
         }
         private void mnuAlphaCompensation_Unchecked(object sender, RoutedEventArgs e)
         {
-            //alphaCompensationWindow.Close();
+            alphaCompensationWindow.Close();
+        }
+
+        private void mnuFilters_Checked(object sender, RoutedEventArgs e)
+        {
+            filtersWindow = new FiltersWindow();
+            filtersWindow.Owner = this;
+            filtersWindow.Show();
+        }
+        private void mnuFilters_Unchecked(object sender, RoutedEventArgs e)
+        {
+            filtersWindow.Close();
         }
 
         private void mnuGraphs_Checked(object sender, RoutedEventArgs e)

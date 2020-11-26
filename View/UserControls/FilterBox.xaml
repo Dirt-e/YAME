@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="MOTUS.View.UserControls.FilterBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MOTUS.View.UserControls"
+             xmlns:converters="clr-namespace:MOTUS.View.Converters"
+             mc:Ignorable="d" d:DesignHeight="60" d:DesignWidth="80"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}" >
+    <Grid Width="Auto" Height="Auto" Margin="1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Rectangle RadiusY="10" RadiusX="10" Grid.Row="0" Grid.RowSpan="3" >
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF4D4D4D" Offset="0"/>
+                    <GradientStop Color="#FF525252" Offset="1"/>
+                    <GradientStop Color="#FF6D6D6D" Offset="0.083"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+            <Rectangle.Stroke>
+                <SolidColorBrush Color="{Binding Code, Converter={StaticResource cnvrt_CharToColor}}"/>
+            </Rectangle.Stroke>
+        </Rectangle>
+        <DockPanel      Grid.Row="0" LastChildFill="False">
+            <TextBlock  x:Name="txtblk_Invalue" Text="{Binding InValue, StringFormat=N2}"
+                        FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center"
+                        Style="{StaticResource TextBlock_Style}"   Margin="5,0,0,0"/>
+            <TextBlock  x:Name="txtblk_code" DockPanel.Dock="Right" Text="{Binding Code}"
+                        VerticalAlignment="Center" Margin="0,0,5,0"/>
+        </DockPanel>
+        <TextBox    x:Name="txtbx_FilterVariable" Text="{Binding FilterVariable}"
+                    FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"
+                    Style="{StaticResource TextBox_Style}"   Width="40"/>
+        <TextBlock  x:Name="txtblk_Outvalue"    Text="{Binding OutValue, StringFormat=N2}"
+                    FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2"
+                    Style="{StaticResource TextBlock_Style}"  Margin="0,0,5,0"/>
+    </Grid>
+
+</UserControl>

@@ -10,17 +10,19 @@ namespace MOTUS.Model
     public class PositionOffsetCorrector
     {
         public PreprocessorData Output = new PreprocessorData();
-        public PreprocessorData Input;
+        public PreprocessorData Input = new PreprocessorData();
 
-        public bool IsActive { get; set; } = true;
+        #region External properties
+        public bool IsActive { get; set; }
 
         public float Delta_X { get; set; }
         public float Delta_Y { get; set; }
         public float Delta_Z { get; set; }
-        
+
         public float Ax_output { get; set; }
         public float Ay_output { get; set; }
         public float Az_output { get; set; }
+        #endregion
 
         #region Internal Properties
         private float delta_Wx;
@@ -127,6 +129,11 @@ namespace MOTUS.Model
         void PassThrough()
         {
             Output = Input;
+
+            //Just for the UI:
+            Ax_output = Output.AX;
+            Ay_output = Output.AY;
+            Az_output = Output.AZ;
         }
     }
 }

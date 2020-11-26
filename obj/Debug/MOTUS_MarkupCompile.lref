@@ -1,9 +1,14 @@
 ﻿
 FD:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\App.xaml;;
 FD:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\MainWindow.xaml;;
+FD:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\View\AlphaCompensationWindow.xaml;;
 FD:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\View\CrashDetectorWindow.xaml;;
+FD:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\View\FiltersWindow.xaml;;
 FD:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\View\PositionCorrectorWindow.xaml;;
 FD:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\View\RawDataWindow.xaml;;
 FD:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\View\ServerWindow.xaml;;
+FD:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\View\UserControls\CompressionBox.xaml;;
+FD:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\View\UserControls\FilterBox.xaml;;
 FD:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\View\UserControls\ToggleSwitch.xaml;;
+FD:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\View\UserControls\ScalerBox.xaml;;
 
