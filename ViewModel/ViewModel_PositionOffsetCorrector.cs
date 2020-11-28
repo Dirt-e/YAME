@@ -29,6 +29,7 @@ namespace MOTUS.ViewModel
             set
             {
                 _delta_x = value;
+                engine.positionoffsetcorrector.Delta_X = value;
                 OnPropertyChanged("Delta_X");
             }
         }
@@ -39,6 +40,7 @@ namespace MOTUS.ViewModel
             set
             {
                 _delta_y = value;
+                engine.positionoffsetcorrector.Delta_Y = value;
                 OnPropertyChanged("Delta_Y");
             }
         }
@@ -49,6 +51,7 @@ namespace MOTUS.ViewModel
             set
             {
                 _delta_z = value;
+                engine.positionoffsetcorrector.Delta_Z = value;
                 OnPropertyChanged("Delta_Z");
             }
         }

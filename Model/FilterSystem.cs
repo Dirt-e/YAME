@@ -89,18 +89,19 @@ namespace MOTUS.Model
                 Az_HP_LP2.Push(Az_HP.OutValue);
             Az_LP3.Push(Input.AZ);
         }
+
         private void WriteOutputData()
         {
-            Output.HFC_Roll = Wx_HP_LP.OutValue;
-            Output.HFC_Yaw = Wy_HP_LP.OutValue;
-            Output.HFC_Pitch = Wz_HP_LP.OutValue;
+            Output.HFC_Roll     = Wx_HP_LP.OutValue;
+            Output.HFC_Yaw      = Wy_HP_LP.OutValue;
+            Output.HFC_Pitch    = Wz_HP_LP.OutValue;
 
-            Output.HFC_Surge = Ax_HP_LP2.OutValue;
-            Output.HFC_Heave = Ay_HP_LP2.OutValue;
-            Output.HFC_Sway = Az_HP_LP2.OutValue;
+            Output.HFC_Surge    = Ax_HP_LP2.OutValue;
+            Output.HFC_Heave    = Ay_HP_LP2.OutValue;
+            Output.HFC_Sway     = Az_HP_LP2.OutValue;
 
-            Output.LFC_Pitch = Ax_LP3.OutValue;
-            Output.LFC_Roll = Az_LP3.OutValue;
+            Output.LFC_Pitch    = Ax_LP3.OutValue;
+            Output.LFC_Roll     = Az_LP3.OutValue;
         }
 
         //Convienience functions:

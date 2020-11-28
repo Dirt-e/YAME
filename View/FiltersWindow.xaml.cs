@@ -41,24 +41,25 @@ namespace MOTUS.View
             chkbx_invert_Ay.DataContext = engine.VM_FiltersWindow;
             chkbx_invert_Az.DataContext = engine.VM_FiltersWindow;
 
-            //Filters
-            filterbox_wx_HP.DataContext = engine.VM_FilterBox_WX_HP;
-            //filterbox_wx_HP_LP.DataContext = filtersystem.Wx_HP_LP;
-            //filterbox_wy_HP.DataContext = filtersystem.Wy_HP;
-            //filterbox_wy_HP_LP.DataContext = filtersystem.Wy_HP_LP;
-            //filterbox_wz_HP.DataContext = filtersystem.Wz_HP;
-            //filterbox_wz_HP_LP.DataContext = filtersystem.Wz_HP_LP;
+            //Filters get their DataContext set directly to the Filter-objects 
+            filterbox_wx_HP.DataContext     = engine.filtersystem.Wx_HP;
+            filterbox_wx_HP_LP.DataContext  = engine.filtersystem.Wx_HP_LP;
+            filterbox_wy_HP.DataContext     = engine.filtersystem.Wy_HP;
+            filterbox_wy_HP_LP.DataContext  = engine.filtersystem.Wy_HP_LP;
+            filterbox_wz_HP.DataContext     = engine.filtersystem.Wz_HP;
+            filterbox_wz_HP_LP.DataContext  = engine.filtersystem.Wz_HP_LP;
 
-            //filterbox_ax_HP.DataContext = filtersystem.Ax_HP;
-            //filterbox_ax_HP_LP2.DataContext = filtersystem.Ax_HP_LP2;
-            //filterbox_ax_LP3.DataContext = filtersystem.Ax_LP3;
+            filterbox_ax_HP.DataContext     = engine.filtersystem.Ax_HP;
+            filterbox_ax_HP_LP2.DataContext = engine.filtersystem.Ax_HP_LP2;
+            filterbox_ax_LP3.DataContext    = engine.filtersystem.Ax_LP3;
 
-            //filterbox_ay_HP.DataContext = filtersystem.Ay_HP;
-            //filterbox_ay_HP_LP2.DataContext = filtersystem.Ay_HP_LP2;
+            filterbox_ay_HP.DataContext     = engine.filtersystem.Ay_HP;
+            filterbox_ay_HP_LP2.DataContext = engine.filtersystem.Ay_HP_LP2;
 
-            //filterbox_az_HP.DataContext = filtersystem.Az_HP;
-            //filterbox_az_HP_LP2.DataContext = filtersystem.Az_HP_LP2;
-            //filterbox_az_LP3.DataContext = filtersystem.Az_LP3;
+            filterbox_az_HP.DataContext     = engine.filtersystem.Az_HP;
+            filterbox_az_HP_LP2.DataContext = engine.filtersystem.Az_HP_LP2;
+            filterbox_az_LP3.DataContext    = engine.filtersystem.Az_LP3;
+
 
             ////Compressors
             //cmprbx_Roll_HFC.DataContext = compressorsystem.CMP_Roll_HFC;

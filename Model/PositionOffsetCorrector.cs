@@ -10,6 +10,7 @@ namespace MOTUS.Model
     public class PositionOffsetCorrector
     {
         public PreprocessorData Output = new PreprocessorData();
+        public PreprocessorData PreviousOutput = new PreprocessorData();
         public PreprocessorData Input = new PreprocessorData();
 
         #region External properties
@@ -35,7 +36,10 @@ namespace MOTUS.Model
         private float Wy_dot;
         private float Wz_dot;
 
-        private float adoptionrate = 0.3f;        //slight LP filter to get a smoother signal
+        //LP filter to get a smoother signal, because processing is done at 500FPS while the sim runs at ~60Fps
+        //That means that the value changes only on every 10th processing cycle.
+        private float adoptionrate = 0.1f;   
+        
         private float Wx_dot_smooth;
         private float Wy_dot_smooth;
         private float Wz_dot_smooth;
@@ -51,11 +55,13 @@ namespace MOTUS.Model
 
         public void Process(PreprocessorData data, float deltatime)
         {
-            Input = data;
+            Input = new PreprocessorData(data);
             deltaTime = deltatime;
 
             if (IsActive) ApplyPositionCorrection();
             else PassThrough();
+
+            PreviousOutput = new PreprocessorData(Output);
         }
 
         private void ApplyPositionCorrection()
@@ -79,9 +85,9 @@ namespace MOTUS.Model
         {
             if (deltaTime > 0)                      //Prevents division by zero
             {
-                Wx_dot = delta_Wx / deltaTime;
-                Wy_dot = delta_Wy / deltaTime;
-                Wz_dot = delta_Wz / deltaTime;
+                Wx_dot = 1000 * delta_Wx / deltaTime;
+                Wy_dot = 1000 * delta_Wy / deltaTime;
+                Wz_dot = 1000 * delta_Wz / deltaTime;
             }
 
             Wx_dot_smooth = Wx_dot * adoptionrate + Wx_dot_smooth * (1 - adoptionrate);
@@ -118,7 +124,7 @@ namespace MOTUS.Model
         void WriteCorrectedOuptutData()
         {
             //First, just copy over EVERYTHING...
-            Output = Input;
+            Output = new PreprocessorData(Input);
 
             //...then manipulate as needed
             Output.AX = Ax_output;
@@ -128,7 +134,7 @@ namespace MOTUS.Model
 
         void PassThrough()
         {
-            Output = Input;
+            Output = new PreprocessorData(Input);
 
             //Just for the UI:
             Ax_output = Output.AX;

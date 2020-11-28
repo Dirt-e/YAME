@@ -8,7 +8,7 @@ namespace MOTUS.Model
 {
     public class LowPassNthOrder : Filter
     {
-        int DefaultFilterVariable = 100;
+        
 
         private LowPassModule[] LP_Array = new LowPassModule[4];
         
@@ -16,8 +16,7 @@ namespace MOTUS.Model
         public LowPassNthOrder(int order = 1)
         {
             Order = (FilterOrder)order;
-            FilterVariable = DefaultFilterVariable;
-
+            
             for (int i = 0; i < 4; i++)        //initialise all four filter instances
             {
                 LP_Array[i] = new LowPassModule();

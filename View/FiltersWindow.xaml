@@ -57,25 +57,25 @@
 
         <!--Checkboxes-->
         <CheckBox x:Name="chkbx_invert_Wx"      Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"     
-                  IsChecked="{Binding Invert_Wx, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  IsChecked="{Binding InvertWx, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
         <CheckBox x:Name="chkbx_invert_Wy"      Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"    
-                  IsChecked="{Binding Invert_Wy, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  IsChecked="{Binding InvertWy, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
         <CheckBox x:Name="chkbx_invert_Wz"      Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center"     
-                  IsChecked="{Binding Invert_Wz, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  IsChecked="{Binding InvertWz, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
         <CheckBox x:Name="chkbx_invert_Ax"  Grid.Column="1" Grid.Row="6" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"     
-                  IsChecked="{Binding Invert_Ax, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  IsChecked="{Binding InvertAx, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
         <CheckBox x:Name="chkbx_invert_Ay"  Grid.Column="1" Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Center"     
-                  IsChecked="{Binding Invert_Ay, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  IsChecked="{Binding InvertAy, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
         <CheckBox x:Name="chkbx_invert_Az"  Grid.Column="1" Grid.Row="11" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"    
-                  IsChecked="{Binding Invert_Az, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  IsChecked="{Binding InvertAz, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
         <!--Filtering-->
-        <controls:FilterBox x:Name="filterbox_wx_HP"        Grid.Column="3" Grid.Row="2" InValue="{Binding InValue, StringFormat=N2}" Code="{Binding Code}" FilterVariable="{Binding FilterVariable, StringFormat=N2}" OutValue="{Binding OutValue}"/>
+        <controls:FilterBox x:Name="filterbox_wx_HP"        Grid.Column="3" Grid.Row="2"/>
         <controls:FilterBox x:Name="filterbox_wx_HP_LP"     Grid.Column="4" Grid.Row="2" />
         <controls:FilterBox x:Name="filterbox_wy_HP"        Grid.Column="3" Grid.Row="3"/>
         <controls:FilterBox x:Name="filterbox_wy_HP_LP"     Grid.Column="4" Grid.Row="3"/>

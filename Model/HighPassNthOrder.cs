@@ -10,7 +10,6 @@ namespace MOTUS.Model
     {   
         public LowPassNthOrder LP = new LowPassNthOrder();
 
-        float _filtervariable= 100;
         new public float FilterVariable
         {
             get { return _filtervariable; }

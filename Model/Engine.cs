@@ -31,7 +31,6 @@ namespace MOTUS.Model
         public ViewModel_PositionOffsetCorrector    VM_PositionOffsetCorrector;
         public ViewModel_AlphaCompensator           VM_AlphaCompensator;
         public ViewModel_FiltersWindow              VM_FiltersWindow;
-            public VM_FilterBox_WX_HP               VM_FilterBox_WX_HP;
         //...
         //...
         //...
@@ -70,7 +69,7 @@ namespace MOTUS.Model
             VM_PositionOffsetCorrector  = new ViewModel_PositionOffsetCorrector(this);
             VM_AlphaCompensator         = new ViewModel_AlphaCompensator(this);
             VM_FiltersWindow            = new ViewModel_FiltersWindow(this);
-                VM_FilterBox_WX_HP       = new VM_FilterBox_WX_HP(this);
+                //VM_FilterBox_WX_HP       = new VM_FilterBox_WX_HP(this);
             //...
             //...
             //...
@@ -152,13 +151,13 @@ namespace MOTUS.Model
             inverter.InvertDataAsNeeded(chopper.Output);
 
             #region Update ViewModel
-            VM_FiltersWindow.InvertAx = inverter.Invert_Ax;
-            VM_FiltersWindow.InvertAy = inverter.Invert_Ay;
-            VM_FiltersWindow.InvertAz = inverter.Invert_Az;
-
             VM_FiltersWindow.InvertWx = inverter.Invert_Wx;
             VM_FiltersWindow.InvertWy = inverter.Invert_Wy;
             VM_FiltersWindow.InvertWz = inverter.Invert_Wz; 
+
+            VM_FiltersWindow.InvertAx = inverter.Invert_Ax;
+            VM_FiltersWindow.InvertAy = inverter.Invert_Ay;
+            VM_FiltersWindow.InvertAz = inverter.Invert_Az;
             #endregion
 
         }
@@ -194,11 +193,7 @@ namespace MOTUS.Model
         {
             filtersystem.Process(alphacompensator.Output);
 
-            #region Update ViewModel WX_HP
-            VM_FilterBox_WX_HP.InValue = filtersystem.Wx_HP.InValue;
-            VM_FilterBox_WX_HP.Code = filtersystem.Wx_HP.Code;
-            VM_FilterBox_WX_HP.FilterVariable = filtersystem.Wx_HP.FilterVariable;
-            VM_FilterBox_WX_HP.OutValue = filtersystem.Wx_HP.OutValue;
+            #region Update ViewModel
             //...
             //...
             //...

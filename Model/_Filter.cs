@@ -1,22 +1,49 @@
 ﻿using MOTUS.Model;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MOTUS.Model
 {
-    abstract public class Filter
+    abstract public class Filter : INotifyPropertyChanged
     {
-        public FilterOrder  Order { get; set; }
-        public float        InValue { get; set; }
-        public float        FilterVariable { get; set; }
-        public float        OutValue { get; set; }
-        public string       Code { get; set; }
+        protected FilterOrder  Order { get; set; }
+        protected int DefaultFilterVariable = 100;
+
+        float _invalue;
+        public float InValue
+        {
+            get { return _invalue; } 
+            set { _invalue = value; OnPropertyChanged("InValue"); } 
+        }
+
+        protected float _filtervariable;
+        public float FilterVariable
+        {
+            get { return _filtervariable; }
+            set { _filtervariable = value; OnPropertyChanged("FilterVariable"); }
+        }
+
+        float _outvalue;
+        public float OutValue 
+        { 
+            get { return _outvalue; } 
+            set { _outvalue = value; OnPropertyChanged("OutValue"); }
+        }
+
+        string _code;
+        public string Code 
+        { 
+            get { return _code; } 
+            set { _code = value; OnPropertyChanged("Code"); }
+        }
 
         public Filter()
         {
+            FilterVariable = DefaultFilterVariable;
             UpdateCode();
         }
 
@@ -37,6 +64,14 @@ namespace MOTUS.Model
         }
 
         public abstract void CreateOutput();
+
+
+        //INotifyPropertyChanged:
+        public event PropertyChangedEventHandler PropertyChanged;
+        private protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 
 
