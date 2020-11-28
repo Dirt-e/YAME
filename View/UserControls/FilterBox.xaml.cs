@@ -27,11 +27,6 @@ namespace MOTUS.View.UserControls
             "OutValue", typeof(float), typeof(FilterBox));
 
 
-        
-
-
-
-
 
         public float InValue
         {

@@ -128,7 +128,7 @@ namespace MOTUS.ViewModel
             set 
             { 
                 _filtervariable = value;
-                engine.VM_FilterBox_WX_HP.FilterVariable = value;
+                //engine.VM_FilterBox_WX_HP.FilterVariable = value;
                 OnPropertyChanged("FilterVariable"); 
             }
         }

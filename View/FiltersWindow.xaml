@@ -75,7 +75,7 @@
                   IsChecked="{Binding Invert_Az, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
         <!--Filtering-->
-        <controls:FilterBox x:Name="filterbox_wx_HP"        Grid.Column="3" Grid.Row="2" InValue="{Binding InValue, StringFormat=N2}" Code="{Binding Code}" FilterVariable="{Binding FilterVariable}" OutValue="{Binding OutValue}"/>
+        <controls:FilterBox x:Name="filterbox_wx_HP"        Grid.Column="3" Grid.Row="2" InValue="{Binding InValue, StringFormat=N2}" Code="{Binding Code}" FilterVariable="{Binding FilterVariable, StringFormat=N2}" OutValue="{Binding OutValue}"/>
         <controls:FilterBox x:Name="filterbox_wx_HP_LP"     Grid.Column="4" Grid.Row="2" />
         <controls:FilterBox x:Name="filterbox_wy_HP"        Grid.Column="3" Grid.Row="3"/>
         <controls:FilterBox x:Name="filterbox_wy_HP_LP"     Grid.Column="4" Grid.Row="3"/>

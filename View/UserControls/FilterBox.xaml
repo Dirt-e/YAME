@@ -32,7 +32,7 @@
             <TextBlock  x:Name="txtblk_code" DockPanel.Dock="Right" Text="{Binding Code}"
                         VerticalAlignment="Center" Margin="0,0,5,0"/>
         </DockPanel>
-        <TextBox    x:Name="txtbx_FilterVariable" Text="{Binding FilterVariable}"
+        <TextBox    x:Name="txtbx_FilterVariable"
                     FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"
                     Style="{StaticResource TextBox_Style}"   Width="40"/>
         <TextBlock  x:Name="txtblk_Outvalue"    Text="{Binding OutValue, StringFormat=N2}"
