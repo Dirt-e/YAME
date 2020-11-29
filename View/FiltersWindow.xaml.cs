@@ -16,13 +16,6 @@ namespace MOTUS.View
 {
     public partial class FiltersWindow : Window
     {
-        //Inverter inverter = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().preprocessor.inverter;
-        //FilterSystem filtersystem = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().mainprocessor.filtersystem;
-        //CompressorSystem compressorsystem = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().mainprocessor.compressorsystem;
-        //ScalerSystem scalersystem = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().mainprocessor.scalersystem;
-        //ZeroMaker zeromaker = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().mainprocessor.zeromaker;
-
-
         public FiltersWindow()
         {
             InitializeComponent();
@@ -33,15 +26,16 @@ namespace MOTUS.View
         {
             var engine = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine;
 
-            //Checkboxes to invert input signal
+            #region Inverters are bound to the ViewModel
             chkbx_invert_Wx.DataContext = engine.VM_FiltersWindow;
             chkbx_invert_Wy.DataContext = engine.VM_FiltersWindow;
             chkbx_invert_Wz.DataContext = engine.VM_FiltersWindow;
             chkbx_invert_Ax.DataContext = engine.VM_FiltersWindow;
             chkbx_invert_Ay.DataContext = engine.VM_FiltersWindow;
             chkbx_invert_Az.DataContext = engine.VM_FiltersWindow;
+            #endregion
 
-            //Filters get their DataContext set directly to the Filter-objects 
+            #region Filters get their DataContext set directly to the Filter-objects 
             filterbox_wx_HP.DataContext     = engine.filtersystem.Wx_HP;
             filterbox_wx_HP_LP.DataContext  = engine.filtersystem.Wx_HP_LP;
             filterbox_wy_HP.DataContext     = engine.filtersystem.Wy_HP;
@@ -59,19 +53,21 @@ namespace MOTUS.View
             filterbox_az_HP.DataContext     = engine.filtersystem.Az_HP;
             filterbox_az_HP_LP2.DataContext = engine.filtersystem.Az_HP_LP2;
             filterbox_az_LP3.DataContext    = engine.filtersystem.Az_LP3;
+            #endregion
 
+            #region Comperssors are bound directly to the CompressorModules
+            cmprbx_Roll_HFC.DataContext     = engine.compressorsystem.CMP_Roll_HFC;
+            cmprbx_Yaw_HFC.DataContext      = engine.compressorsystem.CMP_Yaw_HFC;
+            cmprbx_Pitch_HFC.DataContext    = engine.compressorsystem.CMP_Pitch_HFC;
 
-            ////Compressors
-            //cmprbx_Roll_HFC.DataContext = compressorsystem.CMP_Roll_HFC;
-            //cmprbx_Yaw_HFC.DataContext = compressorsystem.CMP_Yaw_HFC;
-            //cmprbx_Pitch_HFC.DataContext = compressorsystem.CMP_Pitch_HFC;
+            cmprbx_Surge_HFC.DataContext    = engine.compressorsystem.CMP_Surge_HFC;
+            cmprbx_Pitch_LFC.DataContext    = engine.compressorsystem.CMP_Pitch_LFC;
+            cmprbx_Heave_HFC.DataContext    = engine.compressorsystem.CMP_Heave_HFC;
 
-            //cmprbx_Surge_HFC.DataContext = compressorsystem.CMP_Surge_HFC;
-            //cmprbx_Pitch_LFC.DataContext = compressorsystem.CMP_Pitch_LFC;
-            //cmprbx_Heave_HFC.DataContext = compressorsystem.CMP_Heave_HFC;
+            cmprbx_Sway_HFC.DataContext     = engine.compressorsystem.CMP_Sway_HFC;
+            cmprbx_Roll_LFC.DataContext     = engine.compressorsystem.CMP_Roll_LFC;
+            #endregion
 
-            //cmprbx_Sway_HFC.DataContext = compressorsystem.CMP_Sway_HFC;
-            //cmprbx_Roll_LFC.DataContext = compressorsystem.CMP_Roll_LFC;
 
             ////Scalers
             //sclr_Roll_HFC.DataContext = scalersystem.SCL_Roll_HFC;

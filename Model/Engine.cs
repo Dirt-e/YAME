@@ -23,6 +23,10 @@ namespace MOTUS.Model
         public Protector                protector;
         public AlphaCompensator         alphacompensator;
         public FilterSystem             filtersystem;
+        public CompressorSystem         compressorsystem;
+        //...
+        //...
+        //...
 
         //ViewModels:
         public ViewModel_MainWindow                 VM_MainWindow;
@@ -60,6 +64,10 @@ namespace MOTUS.Model
             protector               = new Protector();
             alphacompensator        = new AlphaCompensator();
             filtersystem            = new FilterSystem();
+            compressorsystem        = new CompressorSystem();
+            //...
+            //...
+            //...
         }
         private void InstantiateViewModels()
         {
@@ -110,8 +118,10 @@ namespace MOTUS.Model
             Update_Protector();
             Update_Alphacompensator();
             Update_Filtersystem();
+            Update_CompressorSytem();
         }
 
+        
         private void Update_Server()
         {
             server.Read();
@@ -198,6 +208,11 @@ namespace MOTUS.Model
             //...
             //...
             #endregion
+        }
+        private void Update_CompressorSytem()
+        {
+            compressorsystem.Process(filtersystem.Output);
+            //No ViewModel, because the View binds directly into the objects.
         }
 
 

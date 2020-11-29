@@ -55,7 +55,7 @@
                     FontSize="15" FontWeight="Bold" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
         <Border     Grid.Column="10" Grid.Row="1" BorderBrush="Gray" Margin="2" BorderThickness="0,0,0,2"/>
 
-        <!--Checkboxes-->
+        <!--Inversion Checkboxes-->
         <CheckBox x:Name="chkbx_invert_Wx"      Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"     
                   IsChecked="{Binding InvertWx, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>

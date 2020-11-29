@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MOTUS.Model
 {
-    public class CompressorModule
+    public class CompressorModule : INotifyPropertyChanged
     {
         float _input;
         public float Input
@@ -18,7 +19,7 @@ namespace MOTUS.Model
             set
             {
                 _input = value;
-                //OnPropertyChanged("Input");
+                OnPropertyChanged("Input");
             }
         }
         float _output;
@@ -31,7 +32,7 @@ namespace MOTUS.Model
             set
             {
                 _output = value;
-                //OnPropertyChanged("Output");
+                OnPropertyChanged("Output");
             }
         }
         float _parameter = 1;
@@ -44,7 +45,7 @@ namespace MOTUS.Model
             set
             {
                 _parameter = value;
-                //OnPropertyChanged("Parameter");
+                OnPropertyChanged("Parameter");
             }
         }
         float _limit;
@@ -57,7 +58,7 @@ namespace MOTUS.Model
             set
             {
                 _limit = value;
-                //OnPropertyChanged("Limit");
+                OnPropertyChanged("Limit");
             }
         }
 
@@ -68,7 +69,7 @@ namespace MOTUS.Model
             set
             {
                 _method = value;
-                //OnPropertyChanged("Method");
+                OnPropertyChanged("Method");
             }
         }
 
@@ -76,6 +77,7 @@ namespace MOTUS.Model
         {
             Method = CompressionMethod.None;
         }
+
         public void Push(float input)
         {
             Input = input;
@@ -125,6 +127,14 @@ namespace MOTUS.Model
         {
             //Not implemented yet!
             return 0;
+        }
+
+
+        //INotifyPropertyChanged:
+        public event PropertyChangedEventHandler PropertyChanged;
+        private protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 
