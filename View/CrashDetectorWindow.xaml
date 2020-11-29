@@ -54,13 +54,13 @@
         <TextBox    x:Name="txtbx_Wz_Threshold" Text="{ Binding WZ_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"
                     Grid.Column="3" Grid.Row="8" Margin="1" TextAlignment="Center" Style="{StaticResource TextBox_Style}"/>
 
-        <Label      Content="g" Grid.Column="4"   Grid.Row="2"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
-        <Label      Content="g" Grid.Column="4"   Grid.Row="3"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
-        <Label      Content="g" Grid.Column="4"   Grid.Row="4"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
+        <Label      Content="m/s²" Grid.Column="4"   Grid.Row="2"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
+        <Label      Content="m/s²" Grid.Column="4"   Grid.Row="3"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
+        <Label      Content="m/s²" Grid.Column="4"   Grid.Row="4"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
 
-        <Label      Content="rad/s" Grid.Column="4"   Grid.Row="6"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
-        <Label      Content="rad/s" Grid.Column="4"   Grid.Row="7"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
-        <Label      Content="rad/s" Grid.Column="4"   Grid.Row="8"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
+        <Label      Content="°/s" Grid.Column="4"   Grid.Row="6"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
+        <Label      Content="°/s" Grid.Column="4"   Grid.Row="7"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
+        <Label      Content="°/s" Grid.Column="4"   Grid.Row="8"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
 
         <Button     Name="btn_Indicator" Grid.Row="9" Width="100" Margin="10" Cursor="Hand"
                     Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Center"

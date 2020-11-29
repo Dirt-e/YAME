@@ -24,6 +24,7 @@ namespace MOTUS.Model
         public AlphaCompensator         alphacompensator;
         public FilterSystem             filtersystem;
         public CompressorSystem         compressorsystem;
+        public ScalerSystem             scalersystem;
         //...
         //...
         //...
@@ -65,6 +66,7 @@ namespace MOTUS.Model
             alphacompensator        = new AlphaCompensator();
             filtersystem            = new FilterSystem();
             compressorsystem        = new CompressorSystem();
+            scalersystem            = new ScalerSystem();
             //...
             //...
             //...
@@ -119,9 +121,13 @@ namespace MOTUS.Model
             Update_Alphacompensator();
             Update_Filtersystem();
             Update_CompressorSytem();
+            Update_ScalerSystem();
+            //...
+            //...
+            //...
         }
 
-        
+
         private void Update_Server()
         {
             server.Read();
@@ -213,6 +219,10 @@ namespace MOTUS.Model
         {
             compressorsystem.Process(filtersystem.Output);
             //No ViewModel, because the View binds directly into the objects.
+        }
+        private void Update_ScalerSystem()
+        {
+            scalersystem.Process(compressorsystem.Output);
         }
 
 

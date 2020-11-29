@@ -55,59 +55,59 @@
         <TextBlock Grid.Row="8" Grid.Column="1" Text="HGT:"  HorizontalAlignment="Right"/>
 
         <TextBlock Grid.Row="10" Grid.Column="1" Text="BANK:"    HorizontalAlignment="Right"/>
-        <TextBlock Grid.Row="11" Grid.Column="1" Text="YAW:"     HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="11" Grid.Column="1" Text="HDG:"     HorizontalAlignment="Right"/>
         <TextBlock Grid.Row="12" Grid.Column="1" Text="PITCH:"   HorizontalAlignment="Right"/>
 
-        <TextBlock Grid.Row="14" Grid.Column="1" Text="Wx:"      HorizontalAlignment="Right"/>
-        <TextBlock Grid.Row="15" Grid.Column="1" Text="Wy:"      HorizontalAlignment="Right"/>
-        <TextBlock Grid.Row="16" Grid.Column="1" Text="Wz:"      HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="14" Grid.Column="1" Text="ω_lon:"      HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="15" Grid.Column="1" Text="ω_vrt:"      HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="16" Grid.Column="1" Text="ω_lat:"      HorizontalAlignment="Right"/>
 
-        <TextBlock Grid.Row="18" Grid.Column="1" Text="Ax:"      HorizontalAlignment="Right"/>
-        <TextBlock Grid.Row="19" Grid.Column="1" Text="Ay:"      HorizontalAlignment="Right"/>
-        <TextBlock Grid.Row="20" Grid.Column="1" Text="Az:"      HorizontalAlignment="Right"/>
-
-
-
-        <TextBlock x:Name="txtblk_RawData_IAS"      Grid.Row="2" Grid.Column="3"    TextAlignment="Right"   Text="{Binding IAS,     StringFormat=N4,    UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock x:Name="txtblk_RawData_MACH"     Grid.Row="3" Grid.Column="3"    TextAlignment="Right"   Text="{Binding MACH,    StringFormat=N4,    UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock x:Name="txtblk_RawData_TAS"      Grid.Row="4" Grid.Column="3"    TextAlignment="Right"   Text="{Binding TAS,     StringFormat=N4,    UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock x:Name="txtblk_RawData_GS"       Grid.Row="5" Grid.Column="3"    TextAlignment="Right"   Text="{Binding GS,      StringFormat=N4,    UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock x:Name="txtblk_RawData_AOA"      Grid.Row="6" Grid.Column="3"    TextAlignment="Right"   Text="{Binding AOA,     StringFormat=N4,    UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock x:Name="txtblk_RawData_VS"       Grid.Row="7" Grid.Column="3"    TextAlignment="Right"   Text="{Binding VS,      StringFormat=N4,    UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock x:Name="txtblk_RawData_HGT"      Grid.Row="8" Grid.Column="3"    TextAlignment="Right"   Text="{Binding HGT,     StringFormat=N1,    UpdateSourceTrigger=PropertyChanged}"/>
-
-        <TextBlock x:Name="txtblk_RawData_BANK"     Grid.Row="10" Grid.Column="3"    TextAlignment="Right"  Text="{Binding BANK,    StringFormat=N4,    UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock x:Name="txtblk_RawData_HDG"      Grid.Row="11" Grid.Column="3"   TextAlignment="Right"   Text="{Binding HDG,     StringFormat=N4,    UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock x:Name="txtblk_RawData_PITCH"    Grid.Row="12" Grid.Column="3"   TextAlignment="Right"   Text="{Binding PITCH,   StringFormat=N4,    UpdateSourceTrigger=PropertyChanged}"/>
-
-        <TextBlock x:Name="txtblk_RawData_Wx"       Grid.Row="14" Grid.Column="3"   TextAlignment="Right"   Text="{Binding WX,      StringFormat=N4,    UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock x:Name="txtblk_RawData_Wy"       Grid.Row="15" Grid.Column="3"   TextAlignment="Right"   Text="{Binding WY,      StringFormat=N4,    UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock x:Name="txtblk_RawData_Wz"       Grid.Row="16" Grid.Column="3"   TextAlignment="Right"   Text="{Binding WZ,      StringFormat=N4,    UpdateSourceTrigger=PropertyChanged}"/>
-
-        <TextBlock x:Name="txtblk_RawData_Ax"       Grid.Row="18" Grid.Column="3"   TextAlignment="Right"   Text="{Binding AX,      StringFormat=N4,    UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock x:Name="txtblk_RawData_Ay"       Grid.Row="19" Grid.Column="3"   TextAlignment="Right"   Text="{Binding AY,      StringFormat=N4,    UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock x:Name="txtblk_RawData_Az"       Grid.Row="20" Grid.Column="3"   TextAlignment="Right"   Text="{Binding AZ,      StringFormat=N4,    UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Grid.Row="18" Grid.Column="1" Text="A_lon:"      HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="19" Grid.Column="1" Text="A_vrt:"      HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="20" Grid.Column="1" Text="A_lat:"      HorizontalAlignment="Right"/>
 
 
 
-        <TextBlock Grid.Row="2" Grid.Column="5" Margin="3,0,-0.333,14.333"    Text="m/s" Grid.RowSpan="2"/>
-        <TextBlock Grid.Row="3" Grid.Column="5" Margin="3,0.333,-0.333,14"    Text="unitless" Grid.RowSpan="2"/>
-        <TextBlock Grid.Row="3" Grid.Column="5" Margin="3,14.333,-0.333,0"    Text="m/s" Grid.RowSpan="2" />
-        <TextBlock Grid.Row="5" Grid.Column="5" Margin="3,0,-0.333,14.333"    Text="m/s" Grid.RowSpan="2"/>
-        <TextBlock Grid.Row="6" Grid.Column="5" Margin="3,0.333,-0.333,14"    Text="°" Grid.RowSpan="2"/>
-        <TextBlock Grid.Row="6" Grid.Column="5" Margin="3,14.333,-0.333,0"    Text="m/s" Grid.RowSpan="2"/>
-        <TextBlock Grid.Row="8" Grid.Column="5" Margin="3,0,-0.333,15"    Text="m" Grid.RowSpan="2"/>
+        <TextBlock x:Name="txtblk_RawData_IAS"      Grid.Row="2" Grid.Column="3"    TextAlignment="Right"   Text="{Binding IAS,     StringFormat=N2,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_RawData_MACH"     Grid.Row="3" Grid.Column="3"    TextAlignment="Right"   Text="{Binding MACH,    StringFormat=N2,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_RawData_TAS"      Grid.Row="4" Grid.Column="3"    TextAlignment="Right"   Text="{Binding TAS,     StringFormat=N2,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_RawData_GS"       Grid.Row="5" Grid.Column="3"    TextAlignment="Right"   Text="{Binding GS,      StringFormat=N2,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_RawData_AOA"      Grid.Row="6" Grid.Column="3"    TextAlignment="Right"   Text="{Binding AOA,     StringFormat=N2,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_RawData_VS"       Grid.Row="7" Grid.Column="3"    TextAlignment="Right"   Text="{Binding VS,      StringFormat=N2,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_RawData_HGT"      Grid.Row="8" Grid.Column="3"    TextAlignment="Right"   Text="{Binding HGT,     StringFormat=N2,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
 
-        <TextBlock Grid.Row="10" Grid.Column="5" Margin="3,0,-0.333,0.333"   Text="rad"/>
-        <TextBlock Grid.Row="11" Grid.Column="5" Margin="3,0.667,-0.333,15"   Text="rad" Grid.RowSpan="2"/>
-        <TextBlock Grid.Row="12" Grid.Column="5" Margin="3,0.333,-0.333,13.333"   Text="rad" Grid.RowSpan="2"/>
+        <TextBlock x:Name="txtblk_RawData_BANK"     Grid.Row="10" Grid.Column="3"    TextAlignment="Right"  Text="{Binding BANK,    StringFormat=N1,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_RawData_HDG"      Grid.Row="11" Grid.Column="3"   TextAlignment="Right"   Text="{Binding HDG,     StringFormat=N1,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_RawData_PITCH"    Grid.Row="12" Grid.Column="3"   TextAlignment="Right"   Text="{Binding PITCH,   StringFormat=N1,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
 
-        <TextBlock Grid.Row="13" Grid.Column="5" Margin="3,14,-0.333,15"   Text="rad/s" Grid.RowSpan="3"/>
-        <TextBlock Grid.Row="15" Grid.Column="5" Margin="3,0.333,-0.333,0"   Text="rad/s"/>
-        <TextBlock Grid.Row="16" Grid.Column="5" Margin="3,0,-0.333,0.333"   Text="rad/s"/>
+        <TextBlock x:Name="txtblk_RawData_Wx"       Grid.Row="14" Grid.Column="3"   TextAlignment="Right"   Text="{Binding WX,      StringFormat=N1,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_RawData_Wy"       Grid.Row="15" Grid.Column="3"   TextAlignment="Right"   Text="{Binding WY,      StringFormat=N1,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_RawData_Wz"       Grid.Row="16" Grid.Column="3"   TextAlignment="Right"   Text="{Binding WZ,      StringFormat=N1,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
 
-        <TextBlock Grid.Row="18" Grid.Column="5" Margin="3,0.333,-0.333,0.333"   Text="g"/>
-        <TextBlock Grid.Row="19" Grid.Column="5" Margin="3,0.667,-0.333,0"   Text="g"/>
-        <TextBlock Grid.Row="20" Grid.Column="5" Margin="3,0,-0.333,26.333"   Text="g" Grid.RowSpan="3"/>
+        <TextBlock x:Name="txtblk_RawData_Ax"       Grid.Row="18" Grid.Column="3"   TextAlignment="Right"   Text="{Binding AX,      StringFormat=N2,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_RawData_Ay"       Grid.Row="19" Grid.Column="3"   TextAlignment="Right"   Text="{Binding AY,      StringFormat=N2,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_RawData_Az"       Grid.Row="20" Grid.Column="3"   TextAlignment="Right"   Text="{Binding AZ,      StringFormat=N2,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
+
+
+
+        <TextBlock Grid.Row="2" Grid.Column="5" Text="m/s"/>
+        <TextBlock Grid.Row="3" Grid.Column="5" Text="unitless"/>
+        <TextBlock Grid.Row="4" Grid.Column="5" Text="m/s"/>
+        <TextBlock Grid.Row="5" Grid.Column="5" Text="m/s"/>
+        <TextBlock Grid.Row="6" Grid.Column="5" Text="°"/>
+        <TextBlock Grid.Row="7" Grid.Column="5" Text="m/s"/>
+        <TextBlock Grid.Row="8" Grid.Column="5" Text="m"/>
+
+        <TextBlock Grid.Row="10" Grid.Column="5" Text="°"/>
+        <TextBlock Grid.Row="11" Grid.Column="5" Text="°"/>
+        <TextBlock Grid.Row="12" Grid.Column="5" Text="°"/>
+
+        <TextBlock Grid.Row="14" Grid.Column="5" Text="°/s"/>
+        <TextBlock Grid.Row="15" Grid.Column="5" Text="°/s"/>
+        <TextBlock Grid.Row="16" Grid.Column="5" Text="°/s"/>
+
+        <TextBlock Grid.Row="18" Grid.Column="5" Text="m/s²"/>
+        <TextBlock Grid.Row="19" Grid.Column="5" Text="m/s²"/>
+        <TextBlock Grid.Row="20" Grid.Column="5" Text="m/s²"/>
     </Grid>
 </Window>

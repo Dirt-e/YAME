@@ -85,7 +85,7 @@ namespace MOTUS.Model
         {
             if (deltaTime > 0)                      //Prevents division by zero
             {
-                Wx_dot = 1000 * delta_Wx / deltaTime;
+                Wx_dot = 1000 * delta_Wx / deltaTime;       //Factor of 1000 to convert °/ms into  °/s 
                 Wy_dot = 1000 * delta_Wy / deltaTime;
                 Wz_dot = 1000 * delta_Wz / deltaTime;
             }
@@ -97,27 +97,27 @@ namespace MOTUS.Model
         void Correct_Ax()
         {
             //Centrifugal acceleration:
-            cent_x = -Delta_X * (float)(Math.Pow((Input.WY), 2) + Math.Pow((Input.WZ), 2)) / 9.81f;      //division by 9.81 to convert m/s^2 into G.
+            cent_x = -Delta_X * (float)(Math.Pow((Input.WY), 2) + Math.Pow((Input.WZ), 2));      //division by 9.81 to convert m/s^2 into G.
             //Tangential acceleration:
-            tang_x = (Wy_dot_smooth * Delta_Z - Wz_dot_smooth * Delta_Y) / 9.81f;                       //division by 9.81 to convert m/s^2 into G.
+            tang_x = Wy_dot_smooth * Delta_Z - Wz_dot_smooth * Delta_Y;                       //division by 9.81 to convert m/s^2 into G.
 
             Ax_output = Input.AX + cent_x + tang_x;
         }
         void Correct_Ay()
         {
             //Centrifugal acceleration:
-            cent_y = -Delta_Y * (float)(Math.Pow((Input.WX), 2) + Math.Pow((Input.WZ), 2)) / 9.81f;     //division by 9.81 to convert m/s^2 into G.
+            cent_y = -Delta_Y * (float)(Math.Pow((Input.WX), 2) + Math.Pow((Input.WZ), 2));     //division by 9.81 to convert m/s^2 into G.
             //Tangential acceleration:
-            tang_y = (Wz_dot_smooth * Delta_X - Wx_dot_smooth * Delta_Z) / 9.81f;                       //division by 9.81 to convert m/s^2 into G.
+            tang_y = (Wz_dot_smooth * Delta_X - Wx_dot_smooth * Delta_Z);                       //division by 9.81 to convert m/s^2 into G.
 
             Ay_output = Input.AY + cent_y + tang_y;
         }
         void Correct_Az()
         {
             //Centrifugal acceleration:
-            cent_z = -Delta_Z * (float)(Math.Pow((Input.WX), 2) + Math.Pow((Input.WY), 2)) / 9.81f;     //division by 9.81 to convert m/s^2 into G.
+            cent_z = -Delta_Z * (float)(Math.Pow((Input.WX), 2) + Math.Pow((Input.WY), 2));     //division by 9.81 to convert m/s^2 into G.
             //Tangential acceleration:
-            tang_z = (Wx_dot_smooth * Delta_Y - Wy_dot_smooth * Delta_X) / 9.81f;                       //division by 9.81 to convert m/s^2 into G.
+            tang_z = (Wx_dot_smooth * Delta_Y - Wy_dot_smooth * Delta_X);                       //division by 9.81 to convert m/s^2 into G.
 
             Az_output = Input.AZ + cent_z + tang_z;
         }

@@ -10,10 +10,10 @@ namespace MOTUS.Model
     public class Chopper
     {
         public PreprocessorData Output= new PreprocessorData();
-
+        public string Simulator { get; set; }
+        
         private string[] Chunks = new string[18];
         private float[] Floats = new float[18];
-
 
         public void ChopParseAndPackage(string rawdatastring)
         {
@@ -25,6 +25,8 @@ namespace MOTUS.Model
         private void ChopStringIntoChunks( string s)
         {
             Chunks = s.Split(',');
+            Simulator = Chunks[18];
+            Chunks = Chunks.Take(18).ToArray();     //We don't need the last element anymore.
         }
         private void ParseChunksIntoFloats()
         {

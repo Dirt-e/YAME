@@ -26,13 +26,13 @@
             </Rectangle.Stroke>
         </Rectangle>
         <TextBlock  FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0"
-                    Text="{Binding Input, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, StringFormat=N3}"
+                    Text="{Binding Input, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat=N3}"
                     Style="{StaticResource TextBlock_Style}"   Margin="5,0,0,0"/>
 
-        <TextBox    Text="{Binding Gain, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, StringFormat=N2}"
+        <TextBox    Text="{Binding Gain, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat=N2}"
                     FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"
                     Style="{StaticResource TextBox_Style}"   Width="40"/>
-        <TextBlock  Text="{Binding Output, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, StringFormat=N3}"
+        <TextBlock  Text="{Binding Output, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat=N3}"
                     FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2"
                     Style="{StaticResource TextBlock_Style}"  Margin="0,0,5,0"/>
     </Grid>

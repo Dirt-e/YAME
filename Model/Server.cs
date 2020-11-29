@@ -15,8 +15,8 @@ namespace MOTUS.Model
         public string RawDatastring { get; set; }
         public int Port { get; set; } = 31090;
 
-        public string defaultDataString = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0";        //The 1 is for vertical
-        Stopwatch stopwatch = new Stopwatch();                                          //To determine the timeout for the default values
+        public string defaultDataString = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,9.806,0,0,0,nil";        //The 9.806 is for vertical acceleration (1G)
+        Stopwatch stopwatch = new Stopwatch();                                                  //To determine the timeout for the default values
 
         IPEndPoint MyEndPoint;
         UdpClient Client;
