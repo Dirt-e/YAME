@@ -10,56 +10,56 @@ namespace MOTUS.Model
 {
     public class ZeroMaker : INotifyPropertyChanged
     {
-        public DOF_Data source = new DOF_Data();
+        public DOF_Data Input = new DOF_Data();
         public DOF_Data Output = new DOF_Data();
 
         #region values to bind to
-        float _rollHFC = 0.5f;
+        float _rollHFC;
         public float RollHFC
         {
             get { return _rollHFC; }
             set { _rollHFC = value; OnPropertyChanged("RollHFC"); }
         }
-        float _yawHFC = 0.1f;
+        float _yawHFC;
         public float YawHFC
         {
             get { return _yawHFC; }
             set { _yawHFC = value; OnPropertyChanged("YawHFC"); }
         }
-        float _pitchHFC = 0.1f;
+        float _pitchHFC;
         public float PitchHFC
         {
             get { return _pitchHFC; }
             set { _pitchHFC = value; OnPropertyChanged("PitchHFC"); }
         }
 
-        float _surgeHFC = 0.1f;
+        float _surgeHFC;
         public float SurgeHFC
         {
             get { return _surgeHFC; }
             set { _surgeHFC = value; OnPropertyChanged("SurgeHFC"); }
         }
-        float _pitchLFC = 0.1f;
+        float _pitchLFC;
         public float PitchLFC
         {
             get { return _pitchLFC; }
             set { _pitchLFC = value; OnPropertyChanged("PitchLFC"); }
         }
 
-        float _heaveHFC = 0.1f;
+        float _heaveHFC;
         public float HeaveHFC
         {
             get { return _heaveHFC; }
             set { _heaveHFC = value; OnPropertyChanged("HeaveHFC"); }
         }
 
-        float _swayHFC = 0.1f;
+        float _swayHFC;
         public float SwayHFC
         {
             get { return _swayHFC; }
             set { _swayHFC = value; OnPropertyChanged("SwayHFC"); }
         }
-        float _rollLFC = 0.1f;
+        float _rollLFC;
         public float RollLFC
         {
             get { return _rollLFC; }
@@ -67,7 +67,7 @@ namespace MOTUS.Model
         }
         #endregion
 
-        #region bool-switches
+        #region Zero switches
         bool _zero_rollHFC;
         public bool Zero_RollHFC
         {
@@ -153,36 +153,103 @@ namespace MOTUS.Model
         }
         #endregion
 
-        public override void Start()
-        {
-            //NIL
-        }
-        public override void Update()
-        {
-            GrabSourceData();
-            NullDataAsNeeded();
-        }
+        //#region Isolate switches
+        //bool _isolate_rollHFC;
+        //public bool Isolate_RollHFC
+        //{
+        //    get { return _isolate_rollHFC; }
+        //    set
+        //    {
+        //        _isolate_rollHFC = value;
+        //        OnPropertyChanged("Isolate_RollHFC");
+        //    }
+        //}
+        //bool _isolate_PitchHFC;
+        //public bool Isolate_PitchHFC
+        //{
+        //    get { return _isolate_PitchHFC; }
+        //    set
+        //    {
+        //        _isolate_PitchHFC = value;
+        //        OnPropertyChanged("Isolate_PitchHFC");
+        //    }
+        //}
+        //bool _isolate_yawHFC;
+        //public bool Isolate_YawHFC
+        //{
+        //    get { return _isolate_yawHFC; }
+        //    set
+        //    {
+        //        _isolate_yawHFC = value;
+        //        OnPropertyChanged("Isolate_YawHFC");
+        //    }
+        //}
 
-        private void GrabSourceData()
+        //bool _isolate_surgeHFC;
+        //public bool Isolate_SurgeHFC
+        //{
+        //    get { return _isolate_surgeHFC; }
+        //    set
+        //    {
+        //        _isolate_surgeHFC = value;
+        //        OnPropertyChanged("Isolate_SurgeHFC");
+        //    }
+        //}
+        //bool _isolate_pitchLFC;
+        //public bool Isolate_PitchLFC
+        //{
+        //    get { return _isolate_pitchLFC; }
+        //    set
+        //    {
+        //        _isolate_pitchLFC = value;
+        //        OnPropertyChanged("Isolate_PitchLFC");
+        //    }
+        //}
+
+        //bool _isolate_heaveHFC;
+        //public bool Isolate_HeavelHFC
+        //{
+        //    get { return _isolate_heaveHFC; }
+        //    set
+        //    {
+        //        _isolate_heaveHFC = value;
+        //        OnPropertyChanged("Isolate_HeavelHFC");
+        //    }
+        //}
+
+        //bool _isolate_swayHFC;
+        //public bool Isolate_SwayHFC
+        //{
+        //    get { return _isolate_swayHFC; }
+        //    set
+        //    {
+        //        _isolate_swayHFC = value;
+        //        OnPropertyChanged("Isolate_SwayHFC");
+        //    }
+        //}
+        //bool _isolate_rollLFC;
+        //public bool Isolate_RollLFC
+        //{
+        //    get { return _isolate_rollLFC; }
+        //    set
+        //    {
+        //        _isolate_rollLFC = value;
+        //        OnPropertyChanged("Isolate_RollLFC");
+        //    }
+        //}
+        //#endregion
+
+        public void Process(DOF_Data data)
         {
-            source = new DOF_Data(mainwindow.mainprocessor.scalersystem.Output);
+            Input = new DOF_Data(data);
+
+            NullDataAsNeeded();
         }
 
         private void NullDataAsNeeded()
         {
-            Output = new DOF_Data(source);
-
-            RollHFC = source.HFC_Roll;
-            YawHFC = source.HFC_Yaw;
-            PitchHFC = source.HFC_Pitch;
-
-            SurgeHFC = source.HFC_Surge;
-            PitchLFC = source.LFC_Pitch;
-
-            HeaveHFC = source.HFC_Heave;
-
-            SwayHFC = source.HFC_Sway;
-            RollLFC = source.LFC_Roll;
+            //Copy all values over
+            Output = new DOF_Data(Input);
 
             //And then modify some
             if (Zero_RollHFC) { Output.HFC_Roll = 0; }
@@ -196,6 +263,19 @@ namespace MOTUS.Model
 
             if (Zero_SwayHFC) { Output.HFC_Sway = 0; }
             if (Zero_RollLFC) { Output.LFC_Roll = 0; }
+
+            //Make them show up in the UI
+            RollHFC     = Output.HFC_Roll;
+            YawHFC      = Output.HFC_Yaw;
+            PitchHFC    = Output.HFC_Pitch;
+
+            SurgeHFC    = Output.HFC_Surge;
+            PitchLFC    = Output.LFC_Pitch;
+
+            HeaveHFC    = Output.HFC_Heave;
+
+            SwayHFC     = Output.HFC_Sway;
+            RollLFC     = Output.LFC_Roll;
         }
 
 

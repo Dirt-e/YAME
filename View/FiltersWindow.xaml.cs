@@ -68,35 +68,148 @@ namespace MOTUS.View
             cmprbx_Roll_LFC.DataContext     = engine.compressorsystem.CMP_Roll_LFC;
             #endregion
 
+            #region Scalers are bound direwctly to the Scaler objects
+            sclr_Roll_HFC.DataContext = engine.scalersystem.SCL_Roll_HFC;
+            sclr_Yaw_HFC.DataContext = engine.scalersystem.SCL_Yaw_HFC;
+            sclr_Pitch_HFC.DataContext = engine.scalersystem.SCL_Pitch_HFC;
 
-            ////Scalers
-            sclr_Roll_HFC.DataContext   = engine.scalersystem.SCL_Roll_HFC;
-            sclr_Yaw_HFC.DataContext    = engine.scalersystem.SCL_Yaw_HFC;
-            sclr_Pitch_HFC.DataContext  = engine.scalersystem.SCL_Pitch_HFC;
+            sclr_Surge_HFC.DataContext = engine.scalersystem.SCL_Surge_HFC;
+            sclr_Heave_HFC.DataContext = engine.scalersystem.SCL_Heave_HFC;
+            sclr_Sway_HFC.DataContext = engine.scalersystem.SCL_Sway_HFC;
 
-            sclr_Surge_HFC.DataContext  = engine.scalersystem.SCL_Surge_HFC;
-            sclr_Heave_HFC.DataContext  = engine.scalersystem.SCL_Heave_HFC;
-            sclr_Sway_HFC.DataContext   = engine.scalersystem.SCL_Sway_HFC;
+            sclr_Pitch_LFC.DataContext = engine.scalersystem.SCL_Pitch_LFC;
+            sclr_Roll_LFC.DataContext = engine.scalersystem.SCL_Roll_LFC;
+            #endregion
 
-            sclr_Pitch_LFC.DataContext  = engine.scalersystem.SCL_Pitch_LFC;
-            sclr_Roll_LFC.DataContext   = engine.scalersystem.SCL_Roll_LFC;
+            #region Zeros are bound directly to the ZeroMaker
+            chkbx_zero_RollHFC.DataContext = engine.zeromaker;
+            chkbx_zero_YawHFC.DataContext = engine.zeromaker;
+            chkbx_zero_PitchHFC.DataContext = engine.zeromaker;
 
-            ////Zeros
-            //chkbx_zero_RollHFC.DataContext = zeromaker;
-            //chkbx_zero_YawHFC.DataContext = zeromaker;
-            //chkbx_zero_PitchHFC.DataContext = zeromaker;
+            chkbx_zero_SurgeHFC.DataContext = engine.zeromaker;
+            chkbx_zero_HeaveHFC.DataContext = engine.zeromaker;
+            chkbx_zero_SwayHFC.DataContext = engine.zeromaker;
 
-            //chkbx_zero_SurgeHFC.DataContext = zeromaker;
-            //chkbx_zero_HeaveHFC.DataContext = zeromaker;
-            //chkbx_zero_SwayHFC.DataContext = zeromaker;
+            chkbx_zero_PitchLFC.DataContext = engine.zeromaker;
+            chkbx_zero_RollLFC.DataContext = engine.zeromaker;
+            #endregion
 
-            //chkbx_zero_PitchLFC.DataContext = zeromaker;
-            //chkbx_zero_RollLFC.DataContext = zeromaker;
+            #region Outputs are bound directly to the Zeromaker
+            txtblk_output_wx.DataContext        = engine.zeromaker;
+            txtblk_output_wy.DataContext        = engine.zeromaker;
+            txtblk_output_wz.DataContext        = engine.zeromaker;
+            txtblk_output_ax_hfc.DataContext    = engine.zeromaker;
+            txtblk_output_ax_lfc.DataContext    = engine.zeromaker;
+            txtblk_output_ay_hfc.DataContext    = engine.zeromaker;
+            txtblk_output_az_hfc.DataContext    = engine.zeromaker;
+            txtblk_output_az_lfc.DataContext    = engine.zeromaker;
+            #endregion
+
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+        }
+        private void btn_isol_wx_Click(object sender, RoutedEventArgs e)
+        {
+            chkbx_zero_RollHFC.IsChecked = false;
+            chkbx_zero_YawHFC.IsChecked = true;
+            chkbx_zero_PitchHFC.IsChecked = true;
+            chkbx_zero_SurgeHFC.IsChecked = true;
+            chkbx_zero_PitchLFC.IsChecked = true;
+            chkbx_zero_HeaveHFC.IsChecked = true;
+            chkbx_zero_SwayHFC.IsChecked = true;
+            chkbx_zero_RollLFC.IsChecked = true;
+        }
+        private void btn_isol_wy_Click(object sender, RoutedEventArgs e)
+        {
+            chkbx_zero_RollHFC.IsChecked = true;
+            chkbx_zero_YawHFC.IsChecked = false;
+            chkbx_zero_PitchHFC.IsChecked = true;
+            chkbx_zero_SurgeHFC.IsChecked = true;
+            chkbx_zero_PitchLFC.IsChecked = true;
+            chkbx_zero_HeaveHFC.IsChecked = true;
+            chkbx_zero_SwayHFC.IsChecked = true;
+            chkbx_zero_RollLFC.IsChecked = true;
+        }
+        private void btn_isol_wz_Click(object sender, RoutedEventArgs e)
+        {
+            chkbx_zero_RollHFC.IsChecked = true;
+            chkbx_zero_YawHFC.IsChecked = true;
+            chkbx_zero_PitchHFC.IsChecked = false;
+            chkbx_zero_SurgeHFC.IsChecked = true;
+            chkbx_zero_PitchLFC.IsChecked = true;
+            chkbx_zero_HeaveHFC.IsChecked = true;
+            chkbx_zero_SwayHFC.IsChecked = true;
+            chkbx_zero_RollLFC.IsChecked = true;
+        }
+        private void btn_isol_ax_hfc_Click(object sender, RoutedEventArgs e)
+        {
+            chkbx_zero_RollHFC.IsChecked = true;
+            chkbx_zero_YawHFC.IsChecked = true;
+            chkbx_zero_PitchHFC.IsChecked = true;
+            chkbx_zero_SurgeHFC.IsChecked = false;
+            chkbx_zero_PitchLFC.IsChecked = true;
+            chkbx_zero_HeaveHFC.IsChecked = true;
+            chkbx_zero_SwayHFC.IsChecked = true;
+            chkbx_zero_RollLFC.IsChecked = true;
+        }
+        private void btn_isol_ax_lfc_Click(object sender, RoutedEventArgs e)
+        {
+            chkbx_zero_RollHFC.IsChecked = true;
+            chkbx_zero_YawHFC.IsChecked = true;
+            chkbx_zero_PitchHFC.IsChecked = true;
+            chkbx_zero_SurgeHFC.IsChecked = true;
+            chkbx_zero_PitchLFC.IsChecked = false;
+            chkbx_zero_HeaveHFC.IsChecked = true;
+            chkbx_zero_SwayHFC.IsChecked = true;
+            chkbx_zero_RollLFC.IsChecked = true;
+        }
+        private void btn_isol_ay_hfc_Click(object sender, RoutedEventArgs e)
+        {
+            chkbx_zero_RollHFC.IsChecked = true;
+            chkbx_zero_YawHFC.IsChecked = true;
+            chkbx_zero_PitchHFC.IsChecked = true;
+            chkbx_zero_SurgeHFC.IsChecked = true;
+            chkbx_zero_PitchLFC.IsChecked = true;
+            chkbx_zero_HeaveHFC.IsChecked = false;
+            chkbx_zero_SwayHFC.IsChecked = true;
+            chkbx_zero_RollLFC.IsChecked = true;
+        }
+        private void btn_isol_az_hfc_Click(object sender, RoutedEventArgs e)
+        {
+            chkbx_zero_RollHFC.IsChecked = true;
+            chkbx_zero_YawHFC.IsChecked = true;
+            chkbx_zero_PitchHFC.IsChecked = true;
+            chkbx_zero_SurgeHFC.IsChecked = true;
+            chkbx_zero_PitchLFC.IsChecked = true;
+            chkbx_zero_HeaveHFC.IsChecked = true;
+            chkbx_zero_SwayHFC.IsChecked = false;
+            chkbx_zero_RollLFC.IsChecked = true;
+        }
+        private void btn_isol_az_lfc_Click(object sender, RoutedEventArgs e)
+        {
+            chkbx_zero_RollHFC.IsChecked = true;
+            chkbx_zero_YawHFC.IsChecked = true;
+            chkbx_zero_PitchHFC.IsChecked = true;
+            chkbx_zero_SurgeHFC.IsChecked = true;
+            chkbx_zero_PitchLFC.IsChecked = true;
+            chkbx_zero_HeaveHFC.IsChecked = true;
+            chkbx_zero_SwayHFC.IsChecked = true;
+            chkbx_zero_RollLFC.IsChecked = false;
+        }
+
+        private void btn_AllActive_Click(object sender, RoutedEventArgs e)
+        {
+            chkbx_zero_RollHFC.IsChecked = false;
+            chkbx_zero_YawHFC.IsChecked = false;
+            chkbx_zero_PitchHFC.IsChecked = false;
+            chkbx_zero_SurgeHFC.IsChecked = false;
+            chkbx_zero_PitchLFC.IsChecked = false;
+            chkbx_zero_HeaveHFC.IsChecked = false;
+            chkbx_zero_SwayHFC.IsChecked = false;
+            chkbx_zero_RollLFC.IsChecked = false;
         }
     }
 }

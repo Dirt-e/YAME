@@ -25,6 +25,7 @@ namespace MOTUS.Model
         public FilterSystem             filtersystem;
         public CompressorSystem         compressorsystem;
         public ScalerSystem             scalersystem;
+        public ZeroMaker                zeromaker;
         //...
         //...
         //...
@@ -67,6 +68,7 @@ namespace MOTUS.Model
             filtersystem            = new FilterSystem();
             compressorsystem        = new CompressorSystem();
             scalersystem            = new ScalerSystem();
+            zeromaker               = new ZeroMaker();
             //...
             //...
             //...
@@ -122,10 +124,12 @@ namespace MOTUS.Model
             Update_Filtersystem();
             Update_CompressorSytem();
             Update_ScalerSystem();
+            Update_ZeroMaker();
             //...
             //...
             //...
         }
+
 
 
         private void Update_Server()
@@ -223,6 +227,10 @@ namespace MOTUS.Model
         private void Update_ScalerSystem()
         {
             scalersystem.Process(compressorsystem.Output);
+        }
+        private void Update_ZeroMaker()
+        {
+            zeromaker.Process(scalersystem.Output);
         }
 
 
