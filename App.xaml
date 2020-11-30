@@ -57,6 +57,14 @@
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Courier"/>
+        </Style>
+        <Style TargetType="ComboBox" x:Key="ComboBox_Style">
+            <Setter Property="Background" Value="{StaticResource My_EnterData_Brush}"/>
+            <Setter Property="Foreground" Value="{StaticResource MyDarkGrayBrush}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Courier"/>
         </Style>
         <Style TargetType="TextBlock" x:Key="TextBlock_Style">
             <Setter Property="Foreground"  Value="{StaticResource MyPaleWhiteBrush}"/>

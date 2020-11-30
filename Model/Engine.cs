@@ -26,6 +26,8 @@ namespace MOTUS.Model
         public CompressorSystem         compressorsystem;
         public ScalerSystem             scalersystem;
         public ZeroMaker                zeromaker;
+        public DOF_Override             dof_override;
+        public LoaderSaver              loadersaver;
         //...
         //...
         //...
@@ -35,7 +37,6 @@ namespace MOTUS.Model
         public ViewModel_RawData                    VM_Rawdata;
         public ViewModel_CrashDetector              VM_CrashDetector;
         public ViewModel_PositionOffsetCorrector    VM_PositionOffsetCorrector;
-        public ViewModel_AlphaCompensator           VM_AlphaCompensator;
         public ViewModel_FiltersWindow              VM_FiltersWindow;
         //...
         //...
@@ -69,6 +70,8 @@ namespace MOTUS.Model
             compressorsystem        = new CompressorSystem();
             scalersystem            = new ScalerSystem();
             zeromaker               = new ZeroMaker();
+            dof_override            = new DOF_Override();
+            loadersaver             = new LoaderSaver(this);
             //...
             //...
             //...
@@ -79,9 +82,7 @@ namespace MOTUS.Model
             VM_Rawdata                  = new ViewModel_RawData(this);
             VM_CrashDetector            = new ViewModel_CrashDetector(this);
             VM_PositionOffsetCorrector  = new ViewModel_PositionOffsetCorrector(this);
-            VM_AlphaCompensator         = new ViewModel_AlphaCompensator(this);
             VM_FiltersWindow            = new ViewModel_FiltersWindow(this);
-                //VM_FilterBox_WX_HP       = new VM_FilterBox_WX_HP(this);
             //...
             //...
             //...
@@ -125,11 +126,11 @@ namespace MOTUS.Model
             Update_CompressorSytem();
             Update_ScalerSystem();
             Update_ZeroMaker();
+            Update_DOF_Override();
             //...
             //...
             //...
         }
-
 
 
         private void Update_Server()
@@ -183,17 +184,26 @@ namespace MOTUS.Model
         }
         private void Update_Crashdetector()
         {
-            crashdetector.CheckForCrash(inverter.Output);
-            //The ViewModel is being updated by the StartStopLogic
+            crashdetector.Process(inverter.Output);
+            VM_CrashDetector.AX_CrashTrigger = crashdetector.Ax_Crashtrigger;
+            VM_CrashDetector.AY_CrashTrigger = crashdetector.Ay_Crashtrigger;
+            VM_CrashDetector.AZ_CrashTrigger = crashdetector.Az_Crashtrigger;
+            VM_CrashDetector.WX_CrashTrigger = crashdetector.Wx_Crashtrigger;
+            VM_CrashDetector.WY_CrashTrigger = crashdetector.Wy_Crashtrigger;
+            VM_CrashDetector.WZ_CrashTrigger = crashdetector.Wz_Crashtrigger;
+            //The rest of the ViewModel is being updated by the StartStopLogic
         }
         private void Update_PositionOffsetCorrector()
         {
             positionoffsetcorrector.Process(crashdetector.Output, deltatime_processing);
             #region Update ViewModel
-            VM_PositionOffsetCorrector.IsActive = positionoffsetcorrector.IsActive;
+            VM_PositionOffsetCorrector.Delta_X = positionoffsetcorrector.Delta_X;
+            VM_PositionOffsetCorrector.Delta_Y = positionoffsetcorrector.Delta_Y;
+            VM_PositionOffsetCorrector.Delta_Z = positionoffsetcorrector.Delta_Z;
             VM_PositionOffsetCorrector.Ax_output = positionoffsetcorrector.Ax_output;
             VM_PositionOffsetCorrector.Ay_output = positionoffsetcorrector.Ay_output;
             VM_PositionOffsetCorrector.Az_output = positionoffsetcorrector.Az_output;
+            VM_PositionOffsetCorrector.IsActive = positionoffsetcorrector.IsActive;
             #endregion
         }
         private void Update_Protector()
@@ -204,10 +214,6 @@ namespace MOTUS.Model
         private void Update_Alphacompensator()
         {
             alphacompensator.Process(protector.Output);
-            #region Update ViewModel
-            VM_AlphaCompensator.AoA = alphacompensator.AoA;
-            VM_AlphaCompensator.FadeIn_Percentage = alphacompensator.FadeIn_Percentage;
-            #endregion
         }
         private void Update_Filtersystem()
         {
@@ -231,6 +237,10 @@ namespace MOTUS.Model
         private void Update_ZeroMaker()
         {
             zeromaker.Process(scalersystem.Output);
+        }
+        private void Update_DOF_Override()
+        {
+            dof_override.Process(zeromaker.Output);
         }
 
 

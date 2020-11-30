@@ -67,3 +67,5 @@ D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\UserControls\FilterBox.
 D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\UserControls\FilterBox.baml
 D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\UserControls\ScalerBox.g.cs
 D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\UserControls\ScalerBox.baml
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\DOF_Window.g.cs
+D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\View\DOF_Window.baml

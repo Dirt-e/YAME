@@ -8,22 +8,750 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MOTUS.Properties
-{
-
-
+namespace MOTUS.Properties {
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
-    {
-
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.7.0.0")]
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
-        public static Settings Default
-        {
-            get
-            {
+        
+        public static Settings Default {
+            get {
                 return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float CrashDetector_Threshold_Ax {
+            get {
+                return ((float)(this["CrashDetector_Threshold_Ax"]));
+            }
+            set {
+                this["CrashDetector_Threshold_Ax"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float CrashDetector_Threshold_Ay {
+            get {
+                return ((float)(this["CrashDetector_Threshold_Ay"]));
+            }
+            set {
+                this["CrashDetector_Threshold_Ay"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float CrashDetector_Threshold_Az {
+            get {
+                return ((float)(this["CrashDetector_Threshold_Az"]));
+            }
+            set {
+                this["CrashDetector_Threshold_Az"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float CrashDetector_Threshold_Wx {
+            get {
+                return ((float)(this["CrashDetector_Threshold_Wx"]));
+            }
+            set {
+                this["CrashDetector_Threshold_Wx"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float CrashDetector_Threshold_Wy {
+            get {
+                return ((float)(this["CrashDetector_Threshold_Wy"]));
+            }
+            set {
+                this["CrashDetector_Threshold_Wy"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float CrashDetector_Threshold_Wz {
+            get {
+                return ((float)(this["CrashDetector_Threshold_Wz"]));
+            }
+            set {
+                this["CrashDetector_Threshold_Wz"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float PositionOffsetCorrection_DeltaX {
+            get {
+                return ((float)(this["PositionOffsetCorrection_DeltaX"]));
+            }
+            set {
+                this["PositionOffsetCorrection_DeltaX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float PositionOffsetCorrection_DeltaY {
+            get {
+                return ((float)(this["PositionOffsetCorrection_DeltaY"]));
+            }
+            set {
+                this["PositionOffsetCorrection_DeltaY"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float PositionOffsetCorrection_DeltaZ {
+            get {
+                return ((float)(this["PositionOffsetCorrection_DeltaZ"]));
+            }
+            set {
+                this["PositionOffsetCorrection_DeltaZ"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool PositionOffsetCorrection_IsActive {
+            get {
+                return ((bool)(this["PositionOffsetCorrection_IsActive"]));
+            }
+            set {
+                this["PositionOffsetCorrection_IsActive"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float AlphaCompensation_AlphaZero {
+            get {
+                return ((float)(this["AlphaCompensation_AlphaZero"]));
+            }
+            set {
+                this["AlphaCompensation_AlphaZero"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float AlphaCompensation_CompensationPercentage {
+            get {
+                return ((float)(this["AlphaCompensation_CompensationPercentage"]));
+            }
+            set {
+                this["AlphaCompensation_CompensationPercentage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float AlphaCompensation_FadeIn_Start {
+            get {
+                return ((float)(this["AlphaCompensation_FadeIn_Start"]));
+            }
+            set {
+                this["AlphaCompensation_FadeIn_Start"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float AlphaCompensation_FadeIn_Done {
+            get {
+                return ((float)(this["AlphaCompensation_FadeIn_Done"]));
+            }
+            set {
+                this["AlphaCompensation_FadeIn_Done"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AlphaCompensation_IsActive {
+            get {
+                return ((bool)(this["AlphaCompensation_IsActive"]));
+            }
+            set {
+                this["AlphaCompensation_IsActive"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Filtervariable_Wx_HP {
+            get {
+                return ((float)(this["Filtervariable_Wx_HP"]));
+            }
+            set {
+                this["Filtervariable_Wx_HP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Filtervariable_Wx_HP_LP {
+            get {
+                return ((float)(this["Filtervariable_Wx_HP_LP"]));
+            }
+            set {
+                this["Filtervariable_Wx_HP_LP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float FilterVariable_Wy_HP {
+            get {
+                return ((float)(this["FilterVariable_Wy_HP"]));
+            }
+            set {
+                this["FilterVariable_Wy_HP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Filtervariable_Wy_HP_LP {
+            get {
+                return ((float)(this["Filtervariable_Wy_HP_LP"]));
+            }
+            set {
+                this["Filtervariable_Wy_HP_LP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Filtervariable_Wz_HP {
+            get {
+                return ((float)(this["Filtervariable_Wz_HP"]));
+            }
+            set {
+                this["Filtervariable_Wz_HP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Filtervariable_Wz_HP_LP {
+            get {
+                return ((float)(this["Filtervariable_Wz_HP_LP"]));
+            }
+            set {
+                this["Filtervariable_Wz_HP_LP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Filtervariable_Ax_HP {
+            get {
+                return ((float)(this["Filtervariable_Ax_HP"]));
+            }
+            set {
+                this["Filtervariable_Ax_HP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Filtervariable_Ax_HP_LP2 {
+            get {
+                return ((float)(this["Filtervariable_Ax_HP_LP2"]));
+            }
+            set {
+                this["Filtervariable_Ax_HP_LP2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Filtervariable_Ay_HP {
+            get {
+                return ((float)(this["Filtervariable_Ay_HP"]));
+            }
+            set {
+                this["Filtervariable_Ay_HP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Filtervariable_Ay_HP_LP2 {
+            get {
+                return ((float)(this["Filtervariable_Ay_HP_LP2"]));
+            }
+            set {
+                this["Filtervariable_Ay_HP_LP2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Filtervariable_Az_HP {
+            get {
+                return ((float)(this["Filtervariable_Az_HP"]));
+            }
+            set {
+                this["Filtervariable_Az_HP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Filtervariable_Az_HP_LP2 {
+            get {
+                return ((float)(this["Filtervariable_Az_HP_LP2"]));
+            }
+            set {
+                this["Filtervariable_Az_HP_LP2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Filtervariable_Ax_LP3 {
+            get {
+                return ((float)(this["Filtervariable_Ax_LP3"]));
+            }
+            set {
+                this["Filtervariable_Ax_LP3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Filtervariable_Az_LP3 {
+            get {
+                return ((float)(this["Filtervariable_Az_LP3"]));
+            }
+            set {
+                this["Filtervariable_Az_LP3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("None")]
+        public string CompressionMethod_Roll_HFC {
+            get {
+                return ((string)(this["CompressionMethod_Roll_HFC"]));
+            }
+            set {
+                this["CompressionMethod_Roll_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("None")]
+        public string CompressionMethod_Yaw_HFC {
+            get {
+                return ((string)(this["CompressionMethod_Yaw_HFC"]));
+            }
+            set {
+                this["CompressionMethod_Yaw_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("None")]
+        public string CompressionMethod_Pitch_HFC {
+            get {
+                return ((string)(this["CompressionMethod_Pitch_HFC"]));
+            }
+            set {
+                this["CompressionMethod_Pitch_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("None")]
+        public string CompressionMethod_Surge_HFC {
+            get {
+                return ((string)(this["CompressionMethod_Surge_HFC"]));
+            }
+            set {
+                this["CompressionMethod_Surge_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("None")]
+        public string CompressionMethod_Heave_HFC {
+            get {
+                return ((string)(this["CompressionMethod_Heave_HFC"]));
+            }
+            set {
+                this["CompressionMethod_Heave_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("None")]
+        public string CompressionMethod_Sway_HFC {
+            get {
+                return ((string)(this["CompressionMethod_Sway_HFC"]));
+            }
+            set {
+                this["CompressionMethod_Sway_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("None")]
+        public string CompressionMethod_Pitch_LFC {
+            get {
+                return ((string)(this["CompressionMethod_Pitch_LFC"]));
+            }
+            set {
+                this["CompressionMethod_Pitch_LFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("None")]
+        public string CompressionMethod_Roll_LFC {
+            get {
+                return ((string)(this["CompressionMethod_Roll_LFC"]));
+            }
+            set {
+                this["CompressionMethod_Roll_LFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float CompressionParameter_Roll_HFC {
+            get {
+                return ((float)(this["CompressionParameter_Roll_HFC"]));
+            }
+            set {
+                this["CompressionParameter_Roll_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float CompressionParameter_Yaw_HFC {
+            get {
+                return ((float)(this["CompressionParameter_Yaw_HFC"]));
+            }
+            set {
+                this["CompressionParameter_Yaw_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float CompressionParameter_Pitch_HFC {
+            get {
+                return ((float)(this["CompressionParameter_Pitch_HFC"]));
+            }
+            set {
+                this["CompressionParameter_Pitch_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float CompressionParameter_Surge_HFC {
+            get {
+                return ((float)(this["CompressionParameter_Surge_HFC"]));
+            }
+            set {
+                this["CompressionParameter_Surge_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float CompressionParameter_Heave_HFC {
+            get {
+                return ((float)(this["CompressionParameter_Heave_HFC"]));
+            }
+            set {
+                this["CompressionParameter_Heave_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float CompressionParameter_Sway_HFC {
+            get {
+                return ((float)(this["CompressionParameter_Sway_HFC"]));
+            }
+            set {
+                this["CompressionParameter_Sway_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float CompressionParameter_Pitch_LFC {
+            get {
+                return ((float)(this["CompressionParameter_Pitch_LFC"]));
+            }
+            set {
+                this["CompressionParameter_Pitch_LFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float CompressionParameter_Roll_LFC {
+            get {
+                return ((float)(this["CompressionParameter_Roll_LFC"]));
+            }
+            set {
+                this["CompressionParameter_Roll_LFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float CompressionLimit_Roll_HFC {
+            get {
+                return ((float)(this["CompressionLimit_Roll_HFC"]));
+            }
+            set {
+                this["CompressionLimit_Roll_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float CompressionLimit_Yaw_HFC {
+            get {
+                return ((float)(this["CompressionLimit_Yaw_HFC"]));
+            }
+            set {
+                this["CompressionLimit_Yaw_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float CompressionLimit_Pitch_HFC {
+            get {
+                return ((float)(this["CompressionLimit_Pitch_HFC"]));
+            }
+            set {
+                this["CompressionLimit_Pitch_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float CompressionLimit_Surge_HFC {
+            get {
+                return ((float)(this["CompressionLimit_Surge_HFC"]));
+            }
+            set {
+                this["CompressionLimit_Surge_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float CompressionLimit_Heave_HFC {
+            get {
+                return ((float)(this["CompressionLimit_Heave_HFC"]));
+            }
+            set {
+                this["CompressionLimit_Heave_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float CompressionLimit_Sway_HFC {
+            get {
+                return ((float)(this["CompressionLimit_Sway_HFC"]));
+            }
+            set {
+                this["CompressionLimit_Sway_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float CompressionLimit_Pitch_LFC {
+            get {
+                return ((float)(this["CompressionLimit_Pitch_LFC"]));
+            }
+            set {
+                this["CompressionLimit_Pitch_LFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float CompressionLimit_Roll_LFC {
+            get {
+                return ((float)(this["CompressionLimit_Roll_LFC"]));
+            }
+            set {
+                this["CompressionLimit_Roll_LFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Scaler_Gain_RollHFC {
+            get {
+                return ((float)(this["Scaler_Gain_RollHFC"]));
+            }
+            set {
+                this["Scaler_Gain_RollHFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Scaler_Gain_YawHFC {
+            get {
+                return ((float)(this["Scaler_Gain_YawHFC"]));
+            }
+            set {
+                this["Scaler_Gain_YawHFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Scaler_Gain_PitchHFC {
+            get {
+                return ((float)(this["Scaler_Gain_PitchHFC"]));
+            }
+            set {
+                this["Scaler_Gain_PitchHFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Scaler_Gain_HeaveHFC {
+            get {
+                return ((float)(this["Scaler_Gain_HeaveHFC"]));
+            }
+            set {
+                this["Scaler_Gain_HeaveHFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Scaler_Gain_SwayHFC {
+            get {
+                return ((float)(this["Scaler_Gain_SwayHFC"]));
+            }
+            set {
+                this["Scaler_Gain_SwayHFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Scaler_Gain_RollLFC {
+            get {
+                return ((float)(this["Scaler_Gain_RollLFC"]));
+            }
+            set {
+                this["Scaler_Gain_RollLFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Scaler_Gain_PitchLFC {
+            get {
+                return ((float)(this["Scaler_Gain_PitchLFC"]));
+            }
+            set {
+                this["Scaler_Gain_PitchLFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Scaler_Gain_SurgeHFC {
+            get {
+                return ((float)(this["Scaler_Gain_SurgeHFC"]));
+            }
+            set {
+                this["Scaler_Gain_SurgeHFC"] = value;
             }
         }
     }

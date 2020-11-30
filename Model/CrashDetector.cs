@@ -20,7 +20,7 @@ namespace MOTUS.Model
         public float Wy_Crashtrigger { get; set; }
         public float Wz_Crashtrigger { get; set; }
 
-        public void CheckForCrash(PreprocessorData data)
+        public void Process(PreprocessorData data)
         {
             if (LimitsExceeded(data)) { IsCrashed = true;  }
             Output = data;                                          //We always pass the data on. This is only a DETECTOR!

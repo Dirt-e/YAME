@@ -153,92 +153,6 @@ namespace MOTUS.Model
         }
         #endregion
 
-        //#region Isolate switches
-        //bool _isolate_rollHFC;
-        //public bool Isolate_RollHFC
-        //{
-        //    get { return _isolate_rollHFC; }
-        //    set
-        //    {
-        //        _isolate_rollHFC = value;
-        //        OnPropertyChanged("Isolate_RollHFC");
-        //    }
-        //}
-        //bool _isolate_PitchHFC;
-        //public bool Isolate_PitchHFC
-        //{
-        //    get { return _isolate_PitchHFC; }
-        //    set
-        //    {
-        //        _isolate_PitchHFC = value;
-        //        OnPropertyChanged("Isolate_PitchHFC");
-        //    }
-        //}
-        //bool _isolate_yawHFC;
-        //public bool Isolate_YawHFC
-        //{
-        //    get { return _isolate_yawHFC; }
-        //    set
-        //    {
-        //        _isolate_yawHFC = value;
-        //        OnPropertyChanged("Isolate_YawHFC");
-        //    }
-        //}
-
-        //bool _isolate_surgeHFC;
-        //public bool Isolate_SurgeHFC
-        //{
-        //    get { return _isolate_surgeHFC; }
-        //    set
-        //    {
-        //        _isolate_surgeHFC = value;
-        //        OnPropertyChanged("Isolate_SurgeHFC");
-        //    }
-        //}
-        //bool _isolate_pitchLFC;
-        //public bool Isolate_PitchLFC
-        //{
-        //    get { return _isolate_pitchLFC; }
-        //    set
-        //    {
-        //        _isolate_pitchLFC = value;
-        //        OnPropertyChanged("Isolate_PitchLFC");
-        //    }
-        //}
-
-        //bool _isolate_heaveHFC;
-        //public bool Isolate_HeavelHFC
-        //{
-        //    get { return _isolate_heaveHFC; }
-        //    set
-        //    {
-        //        _isolate_heaveHFC = value;
-        //        OnPropertyChanged("Isolate_HeavelHFC");
-        //    }
-        //}
-
-        //bool _isolate_swayHFC;
-        //public bool Isolate_SwayHFC
-        //{
-        //    get { return _isolate_swayHFC; }
-        //    set
-        //    {
-        //        _isolate_swayHFC = value;
-        //        OnPropertyChanged("Isolate_SwayHFC");
-        //    }
-        //}
-        //bool _isolate_rollLFC;
-        //public bool Isolate_RollLFC
-        //{
-        //    get { return _isolate_rollLFC; }
-        //    set
-        //    {
-        //        _isolate_rollLFC = value;
-        //        OnPropertyChanged("Isolate_RollLFC");
-        //    }
-        //}
-        //#endregion
-
         public void Process(DOF_Data data)
         {
             Input = new DOF_Data(data);
@@ -252,17 +166,17 @@ namespace MOTUS.Model
             Output = new DOF_Data(Input);
 
             //And then modify some
-            if (Zero_RollHFC) { Output.HFC_Roll = 0; }
-            if (Zero_YawHFC) { Output.HFC_Yaw = 0; }
-            if (Zero_PitchHFC) { Output.HFC_Pitch = 0; }
+            if (Zero_RollHFC)   { Output.HFC_Roll = 0; }
+            if (Zero_YawHFC)    { Output.HFC_Yaw = 0; }
+            if (Zero_PitchHFC)  { Output.HFC_Pitch = 0; }
 
-            if (Zero_SurgeHFC) { Output.HFC_Surge = 0; }
-            if (Zero_PitchLFC) { Output.LFC_Pitch = 0; }
+            if (Zero_SurgeHFC)  { Output.HFC_Surge = 0; }
+            if (Zero_PitchLFC)  { Output.LFC_Pitch = 0; }
 
             if (Zero_HeavelHFC) { Output.HFC_Heave = 0; }
 
-            if (Zero_SwayHFC) { Output.HFC_Sway = 0; }
-            if (Zero_RollLFC) { Output.LFC_Roll = 0; }
+            if (Zero_SwayHFC)   { Output.HFC_Sway = 0; }
+            if (Zero_RollLFC)   { Output.LFC_Roll = 0; }
 
             //Make them show up in the UI
             RollHFC     = Output.HFC_Roll;

@@ -19,7 +19,7 @@ namespace MOTUS.View
         public AlphaCompensationWindow()
         {
             InitializeComponent();
-            DataContext = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine.VM_AlphaCompensator;
+            DataContext = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine.alphacompensator;
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

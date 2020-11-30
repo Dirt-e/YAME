@@ -86,11 +86,11 @@
         </Label>
 
         <TextBox    x:Name="txtbx_DeltaX" Text="{ Binding Delta_X, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"
-                    Grid.Column="3" Grid.Row="1" TextAlignment="Center" Grid.ColumnSpan="1" Margin="1" Style="{StaticResource TextBox_Style}"/>
+                    Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="1" Margin="1" Style="{StaticResource TextBox_Style}"/>
         <TextBox    x:Name="txtbx_DeltaY" Text="{ Binding Delta_Y, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"
-                    Grid.Column="3" Grid.Row="2" TextAlignment="Center" Grid.ColumnSpan="1" Margin="1" Style="{StaticResource TextBox_Style}"/>
+                    Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="1" Margin="1" Style="{StaticResource TextBox_Style}"/>
         <TextBox    x:Name="txtbx_DeltaZ" Text="{ Binding Delta_Z, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"
-                    Grid.Column="3" Grid.Row="3" TextAlignment="Center" Grid.ColumnSpan="1" Margin="1" Style="{StaticResource TextBox_Style}"/>
+                    Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="1" Margin="1" Style="{StaticResource TextBox_Style}"/>
 
         <Label      x:Name="lbl_Ax_corr" Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0">
             <Label.Content>

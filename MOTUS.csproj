@@ -70,7 +70,9 @@
     <Compile Include="Model\CompressorSystem.cs" />
     <Compile Include="Model\CrashDetector.cs" />
     <Compile Include="DataFomats\FilterData.cs" />
+    <Compile Include="Model\DOF_Override.cs" />
     <Compile Include="Model\HighPassNthOrder.cs" />
+    <Compile Include="Model\LoaderSaver.cs" />
     <Compile Include="Model\ScalerModule.cs" />
     <Compile Include="Model\ScalerSystem.cs" />
     <Compile Include="Model\ZeroMaker.cs" />
@@ -82,7 +84,6 @@
     <Compile Include="Model\PositionOffsetCorrector.cs" />
     <Compile Include="Model\Protector.cs" />
     <Compile Include="Utility.cs" />
-    <Compile Include="ViewModel\ViewModel_AlphaCompensator.cs" />
     <Compile Include="ViewModel\ViewModel_CrashDetector.cs" />
     <Compile Include="ViewModel\ViewModel_FiltersWindow.cs" />
     <Compile Include="ViewModel\ViewModel_MainWindow.cs" />
@@ -97,6 +98,9 @@
     <Compile Include="View\Converters\CharToColorConverter.cs" />
     <Compile Include="View\CrashDetectorWindow.xaml.cs">
       <DependentUpon>CrashDetectorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DOF_Window.xaml.cs">
+      <DependentUpon>DOF_Window.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EnumBindingSourceExtension.cs" />
     <Compile Include="View\FiltersWindow.xaml.cs">
@@ -140,6 +144,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\CrashDetectorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DOF_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

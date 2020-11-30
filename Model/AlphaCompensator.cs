@@ -1,27 +1,70 @@
 ﻿using MOTUS.DataFomats;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MOTUS.Model
 {
-    public class AlphaCompensator
+    public class AlphaCompensator :INotifyPropertyChanged
     {
         //The AlphaCompensator takes PreprocessorData in and gives MotionData out
         private PreprocessorData Input = new PreprocessorData();
         public FilterData Output = new FilterData();
 
-        //AoA compensation
-        public float AoA { get; set; }
-        public float AoA_zero { get; set; }
-        public bool IsActive { get; set; }
-        public float AlphaCompensationPercentage { get; set; }
-        public float IAS_FadeIn_StartSpeed { get; set; }
-        public float IAS_FadeIn_DoneSpeed { get; set; }
-        public float FadeIn_Percentage { get; set; }
+        #region ViewModel
+        float _aoa;
+        public float AoA
+        {
+            get { return _aoa; }
+            set { _aoa = value; OnPropertyChanged("AoA"); }
+        }
 
+        float _aoa_zero;
+        public float AoA_zero
+        {
+            get { return _aoa_zero; }
+            set { _aoa_zero = value; OnPropertyChanged("AoA_zero"); }
+        }
+
+        float _alphacompensationpercentage;
+        public float AlphaCompensationPercentage
+        {
+            get { return _alphacompensationpercentage; }
+            set { _alphacompensationpercentage = value; OnPropertyChanged("AlphaCompensationPercentage"); }
+        }
+
+        float _ias_fade_in_start_speed;
+        public float IAS_FadeIn_StartSpeed
+        {
+            get { return _ias_fade_in_start_speed; }
+            set { _ias_fade_in_start_speed = value; OnPropertyChanged("IAS_FadeIn_StartSpeed");  }
+        }
+
+        float _ias_fade_in_done_speed;
+        public float IAS_FadeIn_DoneSpeed
+        {
+            get { return _ias_fade_in_done_speed; }
+            set { _ias_fade_in_done_speed = value; OnPropertyChanged("IAS_FadeIn_DoneSpeed"); }
+        }
+
+        float _fade_in_percentage;
+        public float FadeIn_Percentage
+        {
+            get { return _fade_in_percentage; }
+            set { _fade_in_percentage = value; OnPropertyChanged("FadeIn_Percentage"); }
+        }
+
+        bool _is_active;
+        public bool IsActive
+        {
+            get { return _is_active; }
+            set { _is_active = value; OnPropertyChanged("IsActive"); }
+        }
+        #endregion
+        
         public void Process(PreprocessorData data)
         {
             Input = data;
@@ -97,6 +140,14 @@ namespace MOTUS.Model
             return (float)Math.Sin(                                    
                         Math.Abs(
                             Utility.RAD_from_DEG(AoA_fuselage)));
+        }
+
+
+        //INotifyPropertyChanged:
+        public event PropertyChangedEventHandler PropertyChanged;
+        private protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

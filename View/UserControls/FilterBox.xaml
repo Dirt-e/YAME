@@ -33,6 +33,7 @@
                         VerticalAlignment="Center" Margin="0,0,5,0"/>
         </DockPanel>
         <TextBox    x:Name="txtbx_FilterVariable" Text="{Binding FilterVariable, UpdateSourceTrigger=LostFocus}"
+                    Style="{StaticResource TextBox_Style}"
                     FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Width="40"/>
         <TextBlock  x:Name="txtblk_Outvalue"    Text="{Binding OutValue, StringFormat=N2}"
                     FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Margin="0,0,5,0"/>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\App.xaml
-11-1542223989
+12-911292086
 
-491084576712
+511048750896
 119736751667
-MainWindow.xaml;View\AlphaCompensationWindow.xaml;View\CrashDetectorWindow.xaml;View\FiltersWindow.xaml;View\PositionCorrectorWindow.xaml;View\RawDataWindow.xaml;View\ServerWindow.xaml;View\UserControls\CompressionBox.xaml;View\UserControls\FilterBox.xaml;View\UserControls\ScalerBox.xaml;View\UserControls\ToggleSwitch.xaml;
+MainWindow.xaml;View\AlphaCompensationWindow.xaml;View\CrashDetectorWindow.xaml;View\DOF_Window.xaml;View\FiltersWindow.xaml;View\PositionCorrectorWindow.xaml;View\RawDataWindow.xaml;View\ServerWindow.xaml;View\UserControls\CompressionBox.xaml;View\UserControls\FilterBox.xaml;View\UserControls\ScalerBox.xaml;View\UserControls\ToggleSwitch.xaml;
 
 False
 

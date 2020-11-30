@@ -35,7 +35,7 @@ namespace MOTUS.View
             chkbx_invert_Az.DataContext = engine.VM_FiltersWindow;
             #endregion
 
-            #region Filters get their DataContext set directly to the Filter-objects 
+            #region Filters are bound directly to the Filter-objects 
             filterbox_wx_HP.DataContext     = engine.filtersystem.Wx_HP;
             filterbox_wx_HP_LP.DataContext  = engine.filtersystem.Wx_HP_LP;
             filterbox_wy_HP.DataContext     = engine.filtersystem.Wy_HP;
@@ -68,7 +68,7 @@ namespace MOTUS.View
             cmprbx_Roll_LFC.DataContext     = engine.compressorsystem.CMP_Roll_LFC;
             #endregion
 
-            #region Scalers are bound direwctly to the Scaler objects
+            #region Scalers are bound directly to the Scaler objects
             sclr_Roll_HFC.DataContext = engine.scalersystem.SCL_Roll_HFC;
             sclr_Yaw_HFC.DataContext = engine.scalersystem.SCL_Yaw_HFC;
             sclr_Pitch_HFC.DataContext = engine.scalersystem.SCL_Pitch_HFC;

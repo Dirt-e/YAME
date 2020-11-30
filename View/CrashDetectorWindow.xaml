@@ -42,16 +42,16 @@
 
         <TextBox    x:Name="txtbx_Ax_Threshold" Text="{ Binding AX_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                     Grid.Column="3" Grid.Row="2" Margin="1" TextAlignment="Center" Style="{StaticResource TextBox_Style}"/>
-        <TextBox    x:Name="txtbx_Ay_Threshold" Text="{ Binding AY_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"
+        <TextBox    x:Name="txtbx_Ay_Threshold" Text="{ Binding AY_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                     Grid.Column="3" Grid.Row="3" Margin="1" TextAlignment="Center" Style="{StaticResource TextBox_Style}"/>
-        <TextBox    x:Name="txtbx_Az_Threshold" Text="{ Binding AZ_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"
+        <TextBox    x:Name="txtbx_Az_Threshold" Text="{ Binding AZ_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                     Grid.Column="3" Grid.Row="4" Margin="1" TextAlignment="Center" Style="{StaticResource TextBox_Style}"/>
 
-        <TextBox    x:Name="txtbx_Wx_Threshold" Text="{ Binding WX_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"
+        <TextBox    x:Name="txtbx_Wx_Threshold" Text="{ Binding WX_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                     Grid.Column="3" Grid.Row="6" Margin="1" TextAlignment="Center" Style="{StaticResource TextBox_Style}"/>
-        <TextBox    x:Name="txtbx_Wy_Threshold" Text="{ Binding WY_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"
+        <TextBox    x:Name="txtbx_Wy_Threshold" Text="{ Binding WY_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                     Grid.Column="3" Grid.Row="7" Margin="1" TextAlignment="Center" Style="{StaticResource TextBox_Style}"/>
-        <TextBox    x:Name="txtbx_Wz_Threshold" Text="{ Binding WZ_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"
+        <TextBox    x:Name="txtbx_Wz_Threshold" Text="{ Binding WZ_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                     Grid.Column="3" Grid.Row="8" Margin="1" TextAlignment="Center" Style="{StaticResource TextBox_Style}"/>
 
         <Label      Content="m/s²" Grid.Column="4"   Grid.Row="2"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>

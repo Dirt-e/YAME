@@ -23,11 +23,12 @@ namespace MOTUS
     {
         public Engine engine = new Engine();
 
-        RawDataWindow rawDataWindow;
-        CrashDetectorWindow crashDetectorWindow;
+        RawDataWindow           rawDataWindow;
+        CrashDetectorWindow     crashDetectorWindow;
         PositionCorrectorWindow positionCorrectorWindow;
         AlphaCompensationWindow alphaCompensationWindow;
-        FiltersWindow filtersWindow;
+        FiltersWindow           filtersWindow;
+        DOF_Window              dof_window;
 
 
         public MainWindow()
@@ -40,10 +41,12 @@ namespace MOTUS
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             engine.StartEngine();
+            engine.loadersaver.LoadSettingsFromApplication();
             OpenDefaultChildWindows();
         }
         private void Window_Closing(object sender, CancelEventArgs e)
         {
+            engine.loadersaver.SaveSettingsInApplication();
             engine.StopEngine();
         }
 
@@ -57,7 +60,7 @@ namespace MOTUS
             mnuFilters.IsChecked = true;
             mnuAlphaCompansation.IsChecked = true;
             //mnuGraphs.IsChecked = true;
-            //mnuDOFs.IsChecked = true;
+            mnuDOFs.IsChecked = true;
             //mnuSceneView.IsChecked = true;
             //mnuRigConfig.IsChecked = true;
             //mnuMotionControl.IsChecked = true;
@@ -132,13 +135,13 @@ namespace MOTUS
 
         private void mnuDOFs_Checked(object sender, RoutedEventArgs e)
         {
-            //dof_Window = new DOF_Window();
-            //dof_Window.Owner = this;
-            //dof_Window.Show();
+            dof_window = new DOF_Window();
+            dof_window.Owner = this;
+            dof_window.Show();
         }
         private void mnuDOFs_Unchecked(object sender, RoutedEventArgs e)
         {
-            //dof_Window.Close();
+            dof_window.Close();
         }
 
         private void mnuSceneView_Checked(object sender, RoutedEventArgs e)
