@@ -28,6 +28,7 @@ namespace MOTUS.Model
         public ZeroMaker                zeromaker;
         public DOF_Override             dof_override;
         public LoaderSaver              loadersaver;
+        public Integrator               integrator;
         //...
         //...
         //...
@@ -38,6 +39,9 @@ namespace MOTUS.Model
         public ViewModel_CrashDetector              VM_CrashDetector;
         public ViewModel_PositionOffsetCorrector    VM_PositionOffsetCorrector;
         public ViewModel_FiltersWindow              VM_FiltersWindow;
+        public ViewModel_MotionControlWindow        VM_MotionControlWindow;
+        public Viewmodel_RigConfigWindow            VM_RigConfig;
+        public ViewModelSceneView_Provider          VM_SceneView_Provider;
         //...
         //...
         //...
@@ -72,6 +76,7 @@ namespace MOTUS.Model
             zeromaker               = new ZeroMaker();
             dof_override            = new DOF_Override();
             loadersaver             = new LoaderSaver(this);
+            integrator              = new Integrator();
             //...
             //...
             //...
@@ -83,6 +88,9 @@ namespace MOTUS.Model
             VM_CrashDetector            = new ViewModel_CrashDetector(this);
             VM_PositionOffsetCorrector  = new ViewModel_PositionOffsetCorrector(this);
             VM_FiltersWindow            = new ViewModel_FiltersWindow(this);
+            VM_MotionControlWindow      = new ViewModel_MotionControlWindow(this);
+            VM_RigConfig                = new Viewmodel_RigConfigWindow(this);
+            VM_SceneView_Provider       = new ViewModelSceneView_Provider(this);
             //...
             //...
             //...
@@ -101,7 +109,7 @@ namespace MOTUS.Model
                     {
                         Update();
                         MeasureLoopTime();
-                        Thread.Sleep(1);
+                        Thread.Sleep(9);
                     }
                 };
                 backgroundworker.RunWorkerAsync();
@@ -127,11 +135,16 @@ namespace MOTUS.Model
             Update_ScalerSystem();
             Update_ZeroMaker();
             Update_DOF_Override();
+            Update_Integrator();
+
+            //TestCode:
+            VM_SceneView_Provider.yaw   += 0.01f;
+            VM_SceneView_Provider.pitch += 0.01f;
+            VM_SceneView_Provider.roll  += 0.01f;
             //...
             //...
             //...
         }
-
 
         private void Update_Server()
         {
@@ -242,8 +255,10 @@ namespace MOTUS.Model
         {
             dof_override.Process(zeromaker.Output);
         }
-
-
+        private void Update_Integrator()
+        {
+            integrator.Process( dof_override.Output);
+        }
         //Helpers:
         private void MeasureLoopTime()
         {

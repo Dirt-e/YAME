@@ -1,0 +1,72 @@
+﻿<Window x:Class="MOTUS.View.SceneViewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MOTUS"
+        xmlns:Controls="clr-namespace:MOTUS.View.UserControls"
+        xmlns:Converters="clr-namespace:MOTUS.View.Converters"
+        xmlns:HelixToolkit="clr-namespace:HelixToolkit.Wpf;assembly=HelixToolkit.Wpf"        mc:Ignorable="d"
+        Title="SceneView" Height="450" Width="800" WindowStartupLocation="Manual"  Left="0" Top="400"
+        Loaded="Window_Loaded"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        Style="{StaticResource ChildWindow_Style}">
+    <Grid>
+        <HelixToolkit:HelixViewport3D x:Name="Viewport" ZoomExtentsWhenLoaded="true"
+                                      ShowCoordinateSystem="True" ShowViewCube="False" CameraRotationMode="Turntable" Title="SceneView"
+                                      Background="{StaticResource MyDimGrayBrush}">
+            <HelixToolkit:SunLight/>
+            <!--Hirarchy:-->
+
+            <HelixToolkit:GridLinesVisual3D x:Name="World" Width="2000" Length="2000" Thickness="2" MinorDistance="100" MajorDistance="500" Fill="LightGray">
+                <ModelVisual3D x:Name="Plane1" Transform="{Binding Transform, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <!--<ModelVisual3D x:Name="Plat_Fix_Base">
+                    <ModelVisual3D x:Name="Plat_Fix_Pause" Transform="{Binding PlatFixPause, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                        <ModelVisual3D x:Name="Plat_CoR" Transform="{Binding PlatCoR, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                            <ModelVisual3D x:Name="Plat_LFC" Transform="{Binding PlatLFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                <ModelVisual3D x:Name="Plat_HFC" Transform="{Binding PlatHFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                    <ModelVisual3D x:Name="Plat_Motion" Transform="{Binding PlatMotion, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                </ModelVisual3D>
+                            </ModelVisual3D>
+                        </ModelVisual3D>
+                    </ModelVisual3D>
+                    <ModelVisual3D x:Name="Base1" Transform="{Binding Base1, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    <ModelVisual3D x:Name="Base2" Transform="{Binding Base2, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    <ModelVisual3D x:Name="Base3" Transform="{Binding Base3, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    <ModelVisual3D x:Name="Base4" Transform="{Binding Base4, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    <ModelVisual3D x:Name="Base5" Transform="{Binding Base5, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    <ModelVisual3D x:Name="Base6" Transform="{Binding Base6, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                </ModelVisual3D>
+                <ModelVisual3D x:Name="Plat_Fix_Park" Transform="{Binding PlatFixPark, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                <ModelVisual3D x:Name="Plat_Physical" Transform="{Binding PlatFloatPhysical, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                    <ModelVisual3D x:Name="Upper1" Transform="{Binding Upper1, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    <ModelVisual3D x:Name="Upper2" Transform="{Binding Upper2, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    <ModelVisual3D x:Name="Upper3" Transform="{Binding Upper3, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    <ModelVisual3D x:Name="Upper4" Transform="{Binding Upper4, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    <ModelVisual3D x:Name="Upper5" Transform="{Binding Upper5, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    <ModelVisual3D x:Name="Upper6" Transform="{Binding Upper6, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                </ModelVisual3D>
+                <HelixToolkit:PipeVisual3D x:Name="Act1" Diameter="50" Fill="Orange"
+                                           Point1="{Binding WorldCoord_Base1, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                           Point2="{Binding WorldCoord_Upper1, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                <HelixToolkit:PipeVisual3D x:Name="Act2" Diameter="50" Fill="Orange"
+                                           Point1="{Binding WorldCoord_Base2, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                           Point2="{Binding WorldCoord_Upper2, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                <HelixToolkit:PipeVisual3D x:Name="Act3" Diameter="50" Fill="Orange"
+                                           Point1="{Binding WorldCoord_Base3, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                           Point2="{Binding WorldCoord_Upper3, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                <HelixToolkit:PipeVisual3D x:Name="Act4" Diameter="50" Fill="Orange"
+                                           Point1="{Binding WorldCoord_Base4, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                           Point2="{Binding WorldCoord_Upper4, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                <HelixToolkit:PipeVisual3D x:Name="Act5" Diameter="50" Fill="Orange"
+                                           Point1="{Binding WorldCoord_Base5, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                           Point2="{Binding WorldCoord_Upper5, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                <HelixToolkit:PipeVisual3D x:Name="Act6" Diameter="50" Fill="Orange"
+                                           Point1="{Binding WorldCoord_Base6, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                           Point2="{Binding WorldCoord_Upper6, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>-->
+                <!--Add other platforms here-->
+            </HelixToolkit:GridLinesVisual3D>
+        </HelixToolkit:HelixViewport3D>
+    </Grid>
+</Window>

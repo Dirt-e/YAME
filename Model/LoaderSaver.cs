@@ -23,6 +23,7 @@ namespace MOTUS.Model
             LoadFilterSettings();
             LoadCompressionSettings();
             LoadScalerSettings();
+            LoadZeromakerSettings();
             LoadRigConfiguration();
         }
 
@@ -131,6 +132,23 @@ namespace MOTUS.Model
             scaler.SCL_Roll_LFC.Gain = defaults.Scaler_Gain_RollLFC;
             scaler.SCL_Pitch_LFC.Gain = defaults.Scaler_Gain_PitchLFC;
         }
+        private void LoadZeromakerSettings()
+        {
+            var defaults = Properties.Settings.Default;
+            var zeromaker = engine.zeromaker;
+
+            zeromaker.Zero_RollHFC  = defaults.Zeromaker_Zero_RollHFC;
+            zeromaker.Zero_YawHFC   = defaults.Zeromaker_Zero_YawHFC;
+            zeromaker.Zero_PitchHFC = defaults.Zeromaker_Zero_PitchHFC;
+
+            zeromaker.Zero_SurgeHFC = defaults.Zeromaker_Zero_SurgeHFC;
+            zeromaker.Zero_PitchLFC = defaults.Zeromaker_Zero_PitchLFC;
+
+            zeromaker.Zero_HeaveHFC = defaults.Zeromaker_Zero_HeaveHFC;
+
+            zeromaker.Zero_SwayHFC  = defaults.Zeromaker_Zero_SwayHFC;
+            zeromaker.Zero_RollLFC  = defaults.Zeromaker_Zero_RollLFC;
+        }
         private void LoadRigConfiguration()
         {
             //var defaults = Properties.Settings.Default;
@@ -161,6 +179,7 @@ namespace MOTUS.Model
             SaveFilterSettings();
             SaveCompressionSettings();
             SaveScalerSettings();
+            SaveZeromakerSettings();
             SaveRigConfiguration();
 
             Properties.Settings.Default.Save();
@@ -268,6 +287,23 @@ namespace MOTUS.Model
 
             defaults.Scaler_Gain_PitchLFC = scaler.SCL_Pitch_LFC.Gain;
             defaults.Scaler_Gain_RollLFC = scaler.SCL_Roll_LFC.Gain;
+        }
+        private void SaveZeromakerSettings()
+        {
+            var defaults = Properties.Settings.Default;
+            var zeromaker = engine.zeromaker;
+
+            defaults.Zeromaker_Zero_RollHFC = zeromaker.Zero_RollHFC;
+            defaults.Zeromaker_Zero_YawHFC = zeromaker.Zero_YawHFC;
+            defaults.Zeromaker_Zero_PitchHFC = zeromaker.Zero_PitchHFC;
+
+            defaults.Zeromaker_Zero_SurgeHFC = zeromaker.Zero_SurgeHFC;
+            defaults.Zeromaker_Zero_PitchLFC = zeromaker.Zero_PitchLFC;
+
+            defaults.Zeromaker_Zero_HeaveHFC = zeromaker.Zero_HeaveHFC;
+
+            defaults.Zeromaker_Zero_SwayHFC = zeromaker.Zero_SwayHFC;
+            defaults.Zeromaker_Zero_RollLFC = zeromaker.Zero_RollLFC;
         }
         private void SaveRigConfiguration()
         {

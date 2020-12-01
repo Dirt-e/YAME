@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MOTUS.Model
 {
-    abstract public class Filter : INotifyPropertyChanged
+    abstract public class Filter : MyObject
     {
         protected FilterOrder  Order { get; set; }
         protected int DefaultFilterVariable = 100;
@@ -64,14 +64,6 @@ namespace MOTUS.Model
         }
 
         public abstract void CreateOutput();
-
-
-        //INotifyPropertyChanged:
-        public event PropertyChangedEventHandler PropertyChanged;
-        private protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 
 

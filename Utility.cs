@@ -7,6 +7,7 @@ using System.Threading;
 using System.Text;
 using System.Windows.Media.Media3D;
 using System.Windows.Media;
+using MOTUS.Model;
 
 public class Utility
 {

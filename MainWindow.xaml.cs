@@ -29,7 +29,7 @@ namespace MOTUS
         AlphaCompensationWindow alphaCompensationWindow;
         FiltersWindow           filtersWindow;
         DOF_Window              dof_window;
-
+        SceneViewWindow         sceneViewWindow;
 
         public MainWindow()
         {
@@ -61,7 +61,7 @@ namespace MOTUS
             mnuAlphaCompansation.IsChecked = true;
             //mnuGraphs.IsChecked = true;
             mnuDOFs.IsChecked = true;
-            //mnuSceneView.IsChecked = true;
+            mnuSceneView.IsChecked = true;
             //mnuRigConfig.IsChecked = true;
             //mnuMotionControl.IsChecked = true;
         }
@@ -146,13 +146,13 @@ namespace MOTUS
 
         private void mnuSceneView_Checked(object sender, RoutedEventArgs e)
         {
-            //sceneViewWindow = new SceneViewWindow();
-            //sceneViewWindow.Owner = this;
-            //sceneViewWindow.Show();
+            sceneViewWindow = new SceneViewWindow();
+            sceneViewWindow.Owner = this;
+            sceneViewWindow.Show();
         }
         private void mnuSceneView_Unchecked(object sender, RoutedEventArgs e)
         {
-            //sceneViewWindow.Close();
+            sceneViewWindow.Close();
         }
 
         private void mnuRigConfig_Checked(object sender, RoutedEventArgs e)

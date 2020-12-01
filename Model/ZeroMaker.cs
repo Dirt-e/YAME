@@ -121,13 +121,13 @@ namespace MOTUS.Model
         }
 
         bool _zero_heaveHFC;
-        public bool Zero_HeavelHFC
+        public bool Zero_HeaveHFC
         {
             get { return _zero_heaveHFC; }
             set
             {
                 _zero_heaveHFC = value;
-                OnPropertyChanged("Zero_HeavelHFC");
+                OnPropertyChanged("Zero_HeaveHFC");
             }
         }
 
@@ -173,7 +173,7 @@ namespace MOTUS.Model
             if (Zero_SurgeHFC)  { Output.HFC_Surge = 0; }
             if (Zero_PitchLFC)  { Output.LFC_Pitch = 0; }
 
-            if (Zero_HeavelHFC) { Output.HFC_Heave = 0; }
+            if (Zero_HeaveHFC) { Output.HFC_Heave = 0; }
 
             if (Zero_SwayHFC)   { Output.HFC_Sway = 0; }
             if (Zero_RollLFC)   { Output.LFC_Roll = 0; }

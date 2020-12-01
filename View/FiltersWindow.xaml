@@ -144,7 +144,7 @@
                   IsChecked="{Binding Zero_PitchLFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
         <CheckBox x:Name="chkbx_zero_HeaveHFC" Grid.Column="11" Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Center"     
-                  IsChecked="{Binding Zero_HeavelHFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                  IsChecked="{Binding Zero_HeaveHFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
         <CheckBox x:Name="chkbx_zero_SwayHFC" Grid.Column="11" Grid.Row="11" VerticalAlignment="Center" HorizontalAlignment="Center"     
                   IsChecked="{Binding Zero_SwayHFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 

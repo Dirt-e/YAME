@@ -754,5 +754,101 @@ namespace MOTUS.Properties {
                 this["Scaler_Gain_SurgeHFC"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Zeromaker_Zero_RollHFC {
+            get {
+                return ((bool)(this["Zeromaker_Zero_RollHFC"]));
+            }
+            set {
+                this["Zeromaker_Zero_RollHFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Zeromaker_Zero_YawHFC {
+            get {
+                return ((bool)(this["Zeromaker_Zero_YawHFC"]));
+            }
+            set {
+                this["Zeromaker_Zero_YawHFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Zeromaker_Zero_PitchHFC {
+            get {
+                return ((bool)(this["Zeromaker_Zero_PitchHFC"]));
+            }
+            set {
+                this["Zeromaker_Zero_PitchHFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Zeromaker_Zero_SurgeHFC {
+            get {
+                return ((bool)(this["Zeromaker_Zero_SurgeHFC"]));
+            }
+            set {
+                this["Zeromaker_Zero_SurgeHFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Zeromaker_Zero_PitchLFC {
+            get {
+                return ((bool)(this["Zeromaker_Zero_PitchLFC"]));
+            }
+            set {
+                this["Zeromaker_Zero_PitchLFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Zeromaker_Zero_HeaveHFC {
+            get {
+                return ((bool)(this["Zeromaker_Zero_HeaveHFC"]));
+            }
+            set {
+                this["Zeromaker_Zero_HeaveHFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Zeromaker_Zero_SwayHFC {
+            get {
+                return ((bool)(this["Zeromaker_Zero_SwayHFC"]));
+            }
+            set {
+                this["Zeromaker_Zero_SwayHFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Zeromaker_Zero_RollLFC {
+            get {
+                return ((bool)(this["Zeromaker_Zero_RollLFC"]));
+            }
+            set {
+                this["Zeromaker_Zero_RollLFC"] = value;
+            }
+        }
     }
 }

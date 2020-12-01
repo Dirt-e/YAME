@@ -64,17 +64,26 @@
     <Compile Include="DataFomats\DOF_Data.cs" />
     <Compile Include="DataFomats\PreprocessorData.cs" />
     <Compile Include="GlobalVars.cs" />
+    <Compile Include="Model\Actuator.cs" />
+    <Compile Include="Model\ActuatorSystem.cs" />
     <Compile Include="Model\AlphaCompensator.cs" />
     <Compile Include="Model\Chopper.cs" />
     <Compile Include="Model\CompressorModule.cs" />
     <Compile Include="Model\CompressorSystem.cs" />
+    <Compile Include="Model\ConnectingPoints.cs" />
     <Compile Include="Model\CrashDetector.cs" />
     <Compile Include="DataFomats\FilterData.cs" />
     <Compile Include="Model\DOF_Override.cs" />
+    <Compile Include="Model\Fader.cs" />
+    <Compile Include="Model\Fader_ThreeWay.cs" />
     <Compile Include="Model\HighPassNthOrder.cs" />
+    <Compile Include="Model\Integrator.cs" />
     <Compile Include="Model\LoaderSaver.cs" />
+    <Compile Include="Model\MyQuaternion.cs" />
+    <Compile Include="Model\MyTransform.cs" />
     <Compile Include="Model\ScalerModule.cs" />
     <Compile Include="Model\ScalerSystem.cs" />
+    <Compile Include="Model\ViewModelSceneView_Provider.cs" />
     <Compile Include="Model\ZeroMaker.cs" />
     <Compile Include="Model\_Filter.cs" />
     <Compile Include="Model\FilterSystem.cs" />
@@ -83,12 +92,16 @@
     <Compile Include="Model\LowPassNthOrder.cs" />
     <Compile Include="Model\PositionOffsetCorrector.cs" />
     <Compile Include="Model\Protector.cs" />
+    <Compile Include="Model\_MyObject.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="ViewModel\ViewModel_CrashDetector.cs" />
     <Compile Include="ViewModel\ViewModel_FiltersWindow.cs" />
     <Compile Include="ViewModel\ViewModel_MainWindow.cs" />
+    <Compile Include="ViewModel\ViewModel_MotionControlWindow.cs" />
     <Compile Include="ViewModel\ViewModel_PositionOffsetCorrector.cs" />
     <Compile Include="ViewModel\ViewModel_RawData.cs" />
+    <Compile Include="ViewModel\ViewModel_RigConfigWindow.cs" />
+    <Compile Include="ViewModel\ViewModel_SceneView.cs" />
     <Compile Include="ViewModel\_ViewModel.cs" />
     <Compile Include="View\AlphaCompensationWindow.xaml.cs">
       <DependentUpon>AlphaCompensationWindow.xaml</DependentUpon>
@@ -111,6 +124,9 @@
     </Compile>
     <Compile Include="View\RawDataWindow.xaml.cs">
       <DependentUpon>RawDataWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SceneViewWindow.xaml.cs">
+      <DependentUpon>SceneViewWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ServerWindow.xaml.cs">
       <DependentUpon>ServerWindow.xaml</DependentUpon>
@@ -163,6 +179,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\SceneViewWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ServerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -204,6 +224,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Media\Models\Plane.stl" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
