@@ -14,14 +14,12 @@ namespace MOTUS.Model
         DispatcherTimer dispatcherTimer;
         Engine engine;
 
-        public MyTransform SomePlaneMyTF = new MyTransform();
-
         //ViewModel:
-        Transform3D _transform = Transform3D.Identity;
-        public Transform3D Transform
+        MyTransform _transform = new MyTransform();
+        public MyTransform SomeTransform
         {
             get { return _transform; }
-            private set { _transform = value; OnPropertyChanged("Transform"); }
+            set { _transform = value; OnPropertyChanged("Transform"); }
         }
 
         public float yaw;
@@ -38,14 +36,21 @@ namespace MOTUS.Model
         {
             dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Interval = TimeSpan.FromMilliseconds(10);
-            dispatcherTimer.Tick += new EventHandler(UpdateViewmodel);
+            dispatcherTimer.Tick += new EventHandler(UpdateViewModel_OnTick);
             dispatcherTimer.Start();
         }
 
-        private void UpdateViewmodel(object sender, EventArgs e)
+        private void UpdateViewModel_OnTick(object sender, EventArgs e)
         {
-            engine.integrator.World.SetOrientation(yaw, pitch, roll);
-            Transform = engine.integrator.World.Transform;
+            SomeTransform.SetOrientation(yaw, pitch, roll);
+            
+            //yaw += 0.1f;
+            //pitch += 0.1f;
+            //roll += 0.1f;
+
+
         }
+
+        
     }
 }

@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Threading;
 
 namespace MOTUS.Model
 {
@@ -105,11 +107,12 @@ namespace MOTUS.Model
 
                 backgroundworker.DoWork += (object sender, DoWorkEventArgs e) =>
                 {
+                    Thread.CurrentThread.IsBackground = true;
                     while (!backgroundworker.CancellationPending)
                     {
                         Update();
                         MeasureLoopTime();
-                        Thread.Sleep(9);
+                        Thread.Sleep(1);
                     }
                 };
                 backgroundworker.RunWorkerAsync();
@@ -138,13 +141,12 @@ namespace MOTUS.Model
             Update_Integrator();
 
             //TestCode:
-            VM_SceneView_Provider.yaw   += 0.01f;
-            VM_SceneView_Provider.pitch += 0.01f;
-            VM_SceneView_Provider.roll  += 0.01f;
+            
             //...
             //...
             //...
         }
+        
 
         private void Update_Server()
         {
@@ -257,7 +259,7 @@ namespace MOTUS.Model
         }
         private void Update_Integrator()
         {
-            integrator.Process( dof_override.Output);
+            integrator.Process(dof_override.Output);
         }
         //Helpers:
         private void MeasureLoopTime()

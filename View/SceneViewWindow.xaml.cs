@@ -32,7 +32,7 @@ namespace MOTUS.View
 
         private void SetDataContext()
         {
-            DataContext = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine.VM_SceneView_Provider;
+            DataContext = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine.VM_SceneView_Provider.SomeTransform;
         }
         private void Load_3D_Objects()
         {

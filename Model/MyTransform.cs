@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace MOTUS.Model
             private set { _transform = value; OnPropertyChanged("Transform"); }
         }
 
+        #region State
         Quaternion _quaternion = Quaternion.Identity;
         public Quaternion Quaternion
         {
@@ -90,7 +92,8 @@ namespace MOTUS.Model
                 OnPropertyChanged("RollAngle");
             }
         }
-
+        #endregion
+        
         public MyTransform(MyTransform MyTF)
         {
             Offset_X = MyTF.Offset_X;
@@ -155,14 +158,24 @@ namespace MOTUS.Model
             Group.Children.Add(Rotation);
             Group.Children.Add(Translation);
 
-            Transform = Group;
+            Transform = Group as Transform3D;
         }
 
-        
+
+        //INotifyPropertyChanged:
         public event PropertyChangedEventHandler PropertyChanged;
         private protected void OnPropertyChanged(string propertyName)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            try
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("This damn exception!!!");
+                //Ignore :-)
+            }
+
         }
     }
 }
