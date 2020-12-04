@@ -33,6 +33,13 @@
                 <HelixToolkit:SphereVisual3D Center="{Binding Lower4, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="60" Fill="Blue"/>
                 <HelixToolkit:SphereVisual3D Center="{Binding Lower5, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="60" Fill="Blue"/>
                 <HelixToolkit:SphereVisual3D Center="{Binding Lower6, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="60" Fill="Blue"/>
+                
+                <HelixToolkit:SphereVisual3D Center="{Binding Upper1, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="60" Fill="Blue"/>
+                <HelixToolkit:SphereVisual3D Center="{Binding Upper2, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="60" Fill="Blue"/>
+                <HelixToolkit:SphereVisual3D Center="{Binding Upper3, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="60" Fill="Blue"/>
+                <HelixToolkit:SphereVisual3D Center="{Binding Upper4, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="60" Fill="Blue"/>
+                <HelixToolkit:SphereVisual3D Center="{Binding Upper5, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="60" Fill="Blue"/>
+                <HelixToolkit:SphereVisual3D Center="{Binding Upper6, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="60" Fill="Blue"/>
 
                 <HelixToolkit:PipeVisual3D x:Name="Act1" Diameter="50" Fill="Orange"
                                            Point1="{Binding Lower1, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"

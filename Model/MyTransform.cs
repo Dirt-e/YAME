@@ -26,7 +26,7 @@ namespace MOTUS.Model
         public Quaternion Quaternion
         {
             get { return _quaternion; }
-            private set
+            set
             {
                 _quaternion = value;
                 OnPropertyChanged("Quaternion");
@@ -37,30 +37,33 @@ namespace MOTUS.Model
         public float Offset_X
         {
             get { return _offset_x; }
-            private set
+            set
             {
                 _offset_x = value;
                 OnPropertyChanged("Offset_X");
+                ComposeTransform();
             }
         }
         float _offset_y;
         public float Offset_Y
         {
             get { return _offset_y; }
-            private set
+            set
             {
                 _offset_y = value;
                 OnPropertyChanged("Offset_Y");
+                ComposeTransform();
             }
         }
         float _offset_z;
         public float Offset_Z
         {
             get { return _offset_z; }
-            private set
+            set
             {
                 _offset_z = value;
                 OnPropertyChanged("Offset_Z");
+                ComposeTransform();
             }
         }
 
@@ -69,30 +72,36 @@ namespace MOTUS.Model
         public float YawAngle
         {
             get { return _yawangle; }
-            private set
+            set
             {
                 _yawangle = value;
                 OnPropertyChanged("YawAngle");
+                Quaternion = Utility.QuaternionFrom(YawAngle, PitchAngle, RollAngle);
+                ComposeTransform();
             }
         }
         float _pitchangle;
         public float PitchAngle
         {
             get { return _pitchangle; }
-            private set
+            set
             {
                 _pitchangle = value;
                 OnPropertyChanged("PitchAngle");
+                Quaternion = Utility.QuaternionFrom(YawAngle, PitchAngle, RollAngle);
+                ComposeTransform();
             }
         }
         float _rollangle;
         public float RollAngle
         {
             get { return _rollangle; }
-            private set
+            set
             {
                 _rollangle = value;
                 OnPropertyChanged("RollAngle");
+                Quaternion = Utility.QuaternionFrom(YawAngle, PitchAngle, RollAngle);
+                ComposeTransform();
             }
         }
         #endregion

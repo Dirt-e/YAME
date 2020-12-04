@@ -2,6 +2,7 @@
 using MOTUS.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,13 +13,26 @@ using static Utility;
 
 namespace MOTUS.Model
 {
-    public class Integrator
+    public class Integrator : MyObject
     {
         public DOF_Data Input = new DOF_Data();
+        Stopwatch invoke_timer = new Stopwatch();
 
-        //Fader:
+        #region ViewModel
+        public float Offset_Park
+        {
+            get { return (float)Plat_Park.Transform.Value.OffsetZ; }
+            //set { Plat_Park.Transform.OffsetZ = value; OnPropertyChanged("Offset_Park"); }
+        }
+        float _offset_pause;
+        public float Offset_Pause
+        {
+            get { return _offset_pause; }
+            set { _offset_pause = value; OnPropertyChanged("Offset_Pause"); }
+        }
+        #endregion
+
         public Fader_Threeway Fader_3Way;
-
         float fade_duration_ParkToPause_seconds = 5;
         float fade_duration_PauseToMotion_seconds = 5;
 
@@ -38,6 +52,7 @@ namespace MOTUS.Model
         
         #endregion
 
+
         public Integrator()
         {
             World = new MyTransform();
@@ -54,8 +69,17 @@ namespace MOTUS.Model
 
             Fader_3Way = new Fader_Threeway(    TimeSpan.FromSeconds(fade_duration_ParkToPause_seconds),
                                                 TimeSpan.FromSeconds(fade_duration_PauseToMotion_seconds));
-
+            invoke_timer.Start();
             EstablishHierarchy();
+        }
+        
+
+        public void Process(DOF_Data data)
+        {
+            Input = new DOF_Data(data);
+            DriveRigGeometry();
+
+            UpdateUI_ViaDispatcherInvoke();
         }
 
         private void EstablishHierarchy()
@@ -70,12 +94,6 @@ namespace MOTUS.Model
                 Plat_Fix_Base.IsParentOf(LowerPoints);
                 Plat_Fix_Base.IsParentOf(Plat_Park);
                 Plat_Fix_Base.IsParentOf(Plat_Float_Physical);
-        }
-
-        public void Process(DOF_Data data)
-        {
-            Input = new DOF_Data(data);
-            DriveRigGeometry();
         }
         private void DriveRigGeometry()
         {
@@ -99,93 +117,100 @@ namespace MOTUS.Model
 
             UpdateUI_ViaDispatcherInvoke();
         }
-
         private void UpdateUI_ViaDispatcherInvoke()
         {
-            Matrix_Struct mx = new Matrix_Struct()
+            if (invoke_timer.ElapsedMilliseconds > 30)      //Update the UI only at ~30fps
             {
-                Mx_Plat_Fix_Base        = Plat_Fix_Base.GetWorldTransform().Value,
-                Mx_Plat_Park            = Plat_Park.GetWorldTransform().Value,
-                Mx_Plat_Pause           = Plat_Pause.GetWorldTransform().Value,
-                Mx_Plat_CoR             = Plat_CoR.GetWorldTransform().Value,
-                Mx_Plat_LFC             = Plat_LFC.GetWorldTransform().Value,
-                Mx_Plat_HFC             = Plat_HFC.GetWorldTransform().Value,
-                Mx_Plat_Motion          = Plat_Motion.GetWorldTransform().Value,
-                Mx_Plat_Float_Physical  = Plat_Float_Physical.GetWorldTransform().Value,
+                Matrix_Struct mx = new Matrix_Struct()
+                {
+                    Mx_Plat_Fix_Base        = Plat_Fix_Base.GetWorldTransform().Value,
+                    Mx_Plat_Park            = Plat_Park.GetWorldTransform().Value,
+                    Mx_Plat_Pause           = Plat_Pause.GetWorldTransform().Value,
+                    Mx_Plat_CoR             = Plat_CoR.GetWorldTransform().Value,
+                    Mx_Plat_LFC             = Plat_LFC.GetWorldTransform().Value,
+                    Mx_Plat_HFC             = Plat_HFC.GetWorldTransform().Value,
+                    Mx_Plat_Motion          = Plat_Motion.GetWorldTransform().Value,
+                    Mx_Plat_Float_Physical  = Plat_Float_Physical.GetWorldTransform().Value,
 
-                Mx_UpperPoints_1    = UpperPoints.P1.GetWorldTransform().Value,
-                Mx_UpperPoints_2    = UpperPoints.P2.GetWorldTransform().Value,
-                Mx_UpperPoints_3    = UpperPoints.P3.GetWorldTransform().Value,
-                Mx_UpperPoints_4    = UpperPoints.P4.GetWorldTransform().Value,
-                Mx_UpperPoints_5    = UpperPoints.P5.GetWorldTransform().Value,
-                Mx_UpperPoints_6    = UpperPoints.P6.GetWorldTransform().Value,
+                    Mx_UpperPoints_1    = UpperPoints.P1.GetWorldTransform().Value,
+                    Mx_UpperPoints_2    = UpperPoints.P2.GetWorldTransform().Value,
+                    Mx_UpperPoints_3    = UpperPoints.P3.GetWorldTransform().Value,
+                    Mx_UpperPoints_4    = UpperPoints.P4.GetWorldTransform().Value,
+                    Mx_UpperPoints_5    = UpperPoints.P5.GetWorldTransform().Value,
+                    Mx_UpperPoints_6    = UpperPoints.P6.GetWorldTransform().Value,
 
-                Mx_LowerPoints_1 = LowerPoints.P1.GetWorldTransform().Value,
-                Mx_LowerPoints_2 = LowerPoints.P2.GetWorldTransform().Value,
-                Mx_LowerPoints_3 = LowerPoints.P3.GetWorldTransform().Value,
-                Mx_LowerPoints_4 = LowerPoints.P4.GetWorldTransform().Value,
-                Mx_LowerPoints_5 = LowerPoints.P5.GetWorldTransform().Value,
-                Mx_LowerPoints_6 = LowerPoints.P6.GetWorldTransform().Value,
-            };
+                    Mx_LowerPoints_1 = LowerPoints.P1.GetWorldTransform().Value,
+                    Mx_LowerPoints_2 = LowerPoints.P2.GetWorldTransform().Value,
+                    Mx_LowerPoints_3 = LowerPoints.P3.GetWorldTransform().Value,
+                    Mx_LowerPoints_4 = LowerPoints.P4.GetWorldTransform().Value,
+                    Mx_LowerPoints_5 = LowerPoints.P5.GetWorldTransform().Value,
+                    Mx_LowerPoints_6 = LowerPoints.P6.GetWorldTransform().Value,
+                };
 
-            Application.Current.Dispatcher.BeginInvoke(new UpdateViewModel_Callback(UpdateViewModel), mx);
+                Application.Current.Dispatcher.BeginInvoke(new UpdateViewModel_Callback(UpdateViewModel), mx);
+            
+                invoke_timer.Restart();
+            }
+            
         }
+
+
+        #region Callback
         private delegate void UpdateViewModel_Callback(Matrix_Struct Mx);
         private void UpdateViewModel(Matrix_Struct Mx)
         {
             var mainwindow = Application.Current.MainWindow as MainWindow;
             if (mainwindow != null)
             {
-                mainwindow.btn_Test.Content = "Marker";
-
-                mainwindow.engine.VM_SceneView.PlatFixBase  = new MatrixTransform3D(Mx.Mx_Plat_Fix_Base);
+                mainwindow.engine.VM_SceneView.PlatFixBase = new MatrixTransform3D(Mx.Mx_Plat_Fix_Base);
                 mainwindow.engine.VM_SceneView.PlatFixPause = new MatrixTransform3D(Mx.Mx_Plat_Pause);
-                mainwindow.engine.VM_SceneView.PlatFixPark  = new MatrixTransform3D(Mx.Mx_Plat_Park);
-                mainwindow.engine.VM_SceneView.PlatLFC      = new MatrixTransform3D(Mx.Mx_Plat_LFC);
-                mainwindow.engine.VM_SceneView.PlatHFC      = new MatrixTransform3D(Mx.Mx_Plat_HFC);
-                mainwindow.engine.VM_SceneView.PlatMotion   = new MatrixTransform3D(Mx.Mx_Plat_Motion);
+                mainwindow.engine.VM_SceneView.PlatFixPark = new MatrixTransform3D(Mx.Mx_Plat_Park);
+                mainwindow.engine.VM_SceneView.PlatLFC = new MatrixTransform3D(Mx.Mx_Plat_LFC);
+                mainwindow.engine.VM_SceneView.PlatHFC = new MatrixTransform3D(Mx.Mx_Plat_HFC);
+                mainwindow.engine.VM_SceneView.PlatMotion = new MatrixTransform3D(Mx.Mx_Plat_Motion);
 
-                mainwindow.engine.VM_SceneView.Lower1 = new Point3D(    Mx.Mx_LowerPoints_1.OffsetX,   
+                mainwindow.engine.VM_SceneView.Lower1 = new Point3D(Mx.Mx_LowerPoints_1.OffsetX,
                                                                         Mx.Mx_LowerPoints_1.OffsetY,
-                                                                        Mx.Mx_LowerPoints_1.OffsetZ     );
-                mainwindow.engine.VM_SceneView.Lower2 = new Point3D(    Mx.Mx_LowerPoints_2.OffsetX,
+                                                                        Mx.Mx_LowerPoints_1.OffsetZ);
+                mainwindow.engine.VM_SceneView.Lower2 = new Point3D(Mx.Mx_LowerPoints_2.OffsetX,
                                                                         Mx.Mx_LowerPoints_2.OffsetY,
-                                                                        Mx.Mx_LowerPoints_2.OffsetZ     );
-                mainwindow.engine.VM_SceneView.Lower3 = new Point3D(    Mx.Mx_LowerPoints_3.OffsetX,
+                                                                        Mx.Mx_LowerPoints_2.OffsetZ);
+                mainwindow.engine.VM_SceneView.Lower3 = new Point3D(Mx.Mx_LowerPoints_3.OffsetX,
                                                                         Mx.Mx_LowerPoints_3.OffsetY,
-                                                                        Mx.Mx_LowerPoints_3.OffsetZ     );
-                mainwindow.engine.VM_SceneView.Lower4 = new Point3D(    Mx.Mx_LowerPoints_4.OffsetX,
+                                                                        Mx.Mx_LowerPoints_3.OffsetZ);
+                mainwindow.engine.VM_SceneView.Lower4 = new Point3D(Mx.Mx_LowerPoints_4.OffsetX,
                                                                         Mx.Mx_LowerPoints_4.OffsetY,
-                                                                        Mx.Mx_LowerPoints_4.OffsetZ     );
-                mainwindow.engine.VM_SceneView.Lower5 = new Point3D (   Mx.Mx_LowerPoints_5.OffsetX,
+                                                                        Mx.Mx_LowerPoints_4.OffsetZ);
+                mainwindow.engine.VM_SceneView.Lower5 = new Point3D(Mx.Mx_LowerPoints_5.OffsetX,
                                                                         Mx.Mx_LowerPoints_5.OffsetY,
-                                                                        Mx.Mx_LowerPoints_5.OffsetZ     );
-                mainwindow.engine.VM_SceneView.Lower6 = new Point3D(    Mx.Mx_LowerPoints_6.OffsetX,
+                                                                        Mx.Mx_LowerPoints_5.OffsetZ);
+                mainwindow.engine.VM_SceneView.Lower6 = new Point3D(Mx.Mx_LowerPoints_6.OffsetX,
                                                                         Mx.Mx_LowerPoints_6.OffsetY,
-                                                                        Mx.Mx_LowerPoints_6.OffsetZ     );
+                                                                        Mx.Mx_LowerPoints_6.OffsetZ);
 
-                mainwindow.engine.VM_SceneView.Upper1 = new Point3D(    Mx.Mx_UpperPoints_1.OffsetX,
+                mainwindow.engine.VM_SceneView.Upper1 = new Point3D(Mx.Mx_UpperPoints_1.OffsetX,
                                                                         Mx.Mx_UpperPoints_1.OffsetY,
-                                                                        Mx.Mx_UpperPoints_1.OffsetZ     );
-                mainwindow.engine.VM_SceneView.Upper2 = new Point3D(    Mx.Mx_UpperPoints_2.OffsetX,
+                                                                        Mx.Mx_UpperPoints_1.OffsetZ);
+                mainwindow.engine.VM_SceneView.Upper2 = new Point3D(Mx.Mx_UpperPoints_2.OffsetX,
                                                                         Mx.Mx_UpperPoints_2.OffsetY,
-                                                                        Mx.Mx_UpperPoints_2.OffsetZ     );
-                mainwindow.engine.VM_SceneView.Upper3 = new Point3D(    Mx.Mx_UpperPoints_3.OffsetX,
+                                                                        Mx.Mx_UpperPoints_2.OffsetZ);
+                mainwindow.engine.VM_SceneView.Upper3 = new Point3D(Mx.Mx_UpperPoints_3.OffsetX,
                                                                         Mx.Mx_UpperPoints_3.OffsetY,
-                                                                        Mx.Mx_UpperPoints_3.OffsetZ     );
-                mainwindow.engine.VM_SceneView.Upper4 = new Point3D(    Mx.Mx_UpperPoints_4.OffsetX,
+                                                                        Mx.Mx_UpperPoints_3.OffsetZ);
+                mainwindow.engine.VM_SceneView.Upper4 = new Point3D(Mx.Mx_UpperPoints_4.OffsetX,
                                                                         Mx.Mx_UpperPoints_4.OffsetY,
-                                                                        Mx.Mx_UpperPoints_4.OffsetZ     );
-                mainwindow.engine.VM_SceneView.Upper5 = new Point3D(    Mx.Mx_UpperPoints_5.OffsetX,
+                                                                        Mx.Mx_UpperPoints_4.OffsetZ);
+                mainwindow.engine.VM_SceneView.Upper5 = new Point3D(Mx.Mx_UpperPoints_5.OffsetX,
                                                                         Mx.Mx_UpperPoints_5.OffsetY,
-                                                                        Mx.Mx_UpperPoints_5.OffsetZ     );
-                mainwindow.engine.VM_SceneView.Upper6 = new Point3D(    Mx.Mx_UpperPoints_6.OffsetX,
+                                                                        Mx.Mx_UpperPoints_5.OffsetZ);
+                mainwindow.engine.VM_SceneView.Upper6 = new Point3D(Mx.Mx_UpperPoints_6.OffsetX,
                                                                         Mx.Mx_UpperPoints_6.OffsetY,
-                                                                        Mx.Mx_UpperPoints_6.OffsetZ     );
+                                                                        Mx.Mx_UpperPoints_6.OffsetZ);
             }
-            
 
 
-        }
+
+        } 
+        #endregion
     }
 }
