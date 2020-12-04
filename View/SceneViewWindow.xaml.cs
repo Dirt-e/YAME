@@ -32,13 +32,11 @@ namespace MOTUS.View
 
         private void SetDataContext()
         {
-            DataContext = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine.VM_SceneView_Provider.SomeTransform;
+            DataContext = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine.VM_SceneView;
         }
         private void Load_3D_Objects()
         {
             ModelImporter Importer = new ModelImporter();
-            Importer.DefaultMaterial = new DiffuseMaterial(new SolidColorBrush(Colors.Red));
-            Plane1.Content = Importer.Load(@"..\..\Media\Models\Plane.stl");
 
             #region UpperPoints
             //Importer.DefaultMaterial = new DiffuseMaterial(new SolidColorBrush(Colors.Red));
@@ -56,18 +54,26 @@ namespace MOTUS.View
             #endregion
 
             #region Dynamic platforms
-            //Importer.DefaultMaterial = new DiffuseMaterial(new SolidColorBrush(Colors.Blue));
-            //Plat_CoR.Content = Importer.Load(@"..\..\Media\Models\Plane.stl");
-            ////Importer.DefaultMaterial = new DiffuseMaterial(new SolidColorBrush(Colors.Red));
-            ////Plat_LFC.Content = Importer.Load(@"..\..\Media\Models\Plane.stl");
-            ////Importer.DefaultMaterial = new DiffuseMaterial(new SolidColorBrush(Colors.Red));
-            ////Plat_HFC.Content = Importer.Load(@"..\..\Media\Models\Plane.stl");
-            //Importer.DefaultMaterial = new DiffuseMaterial(new SolidColorBrush(Colors.Red));
-            //Plat_Motion.Content = Importer.Load(@"..\..\Media\Models\Plane.stl");
-            //Importer.DefaultMaterial = new DiffuseMaterial(new SolidColorBrush(Colors.Violet));
-            //Plat_Fix_Park.Content = Importer.Load(@"..\..\Media\Models\Plane.stl");
-            //Importer.DefaultMaterial = new DiffuseMaterial(new SolidColorBrush(Colors.DarkKhaki));
-            //Plat_Physical.Content = Importer.Load(@"..\..\Media\Models\Plane.stl");
+            Importer.DefaultMaterial = Materials.Black;
+            Plat_Fix_Park.Content = Importer.Load(@"..\..\Media\Models\Plane.stl");
+
+            Importer.DefaultMaterial = Materials.White;
+            Plat_Fix_Pause.Content = Importer.Load(@"..\..\Media\Models\Plane.stl");
+
+            Importer.DefaultMaterial = Materials.Gold;
+            Plat_CoR.Content = Importer.Load(@"..\..\Media\Models\Plane.stl");
+
+            Importer.DefaultMaterial = Materials.Blue;
+            Plat_LFC.Content = Importer.Load(@"..\..\Media\Models\Plane.stl");
+
+            Importer.DefaultMaterial = Materials.Red;
+            Plat_HFC.Content = Importer.Load(@"..\..\Media\Models\Plane.stl");
+
+            Importer.DefaultMaterial = Materials.Violet;
+            Plat_Motion.Content = Importer.Load(@"..\..\Media\Models\Plane.stl");
+
+            Importer.DefaultMaterial = Materials.Rainbow;
+            Plat_Physical.Content = Importer.Load(@"..\..\Media\Models\Plane.stl");
             #endregion
 
             #region BasePoints

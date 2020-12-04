@@ -41,7 +41,7 @@ namespace MOTUS
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             engine.StartEngine();
-            engine.loadersaver.LoadSettingsFromApplication();
+            //engine.loadersaver.LoadSettingsFromApplication();
             OpenDefaultChildWindows();
         }
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -179,7 +179,7 @@ namespace MOTUS
 
         private void btn_Test_Click(object sender, RoutedEventArgs e)
         {
-            engine.StopEngine();
+            
         }
     }
 }

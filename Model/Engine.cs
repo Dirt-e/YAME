@@ -43,29 +43,32 @@ namespace MOTUS.Model
         public ViewModel_FiltersWindow              VM_FiltersWindow;
         public ViewModel_MotionControlWindow        VM_MotionControlWindow;
         public Viewmodel_RigConfigWindow            VM_RigConfig;
-        public ViewModelSceneView_Provider          VM_SceneView_Provider;
+        public ViewModel_Sceneview                  VM_SceneView;
         //...
         //...
         //...
 
 
         //Internal properties:
+
         float deltatime_processing;
         Stopwatch stopwatch = new Stopwatch();
 
         public Engine()
-        {
-            InstatiateObjects();
-            InstantiateViewModels();
-        }
-
-        private void InstatiateObjects()
         {
             backgroundworker        = new BackgroundWorker
             {
                 WorkerSupportsCancellation = true,
             };
             server                  = new Server();
+            
+            InstantiateViewModels();
+        }
+
+        private void InstatiateObjects()
+        {
+            
+            
             chopper                 = new Chopper();
             inverter                = new Inverter();
             crashdetector           = new CrashDetector();
@@ -92,7 +95,7 @@ namespace MOTUS.Model
             VM_FiltersWindow            = new ViewModel_FiltersWindow(this);
             VM_MotionControlWindow      = new ViewModel_MotionControlWindow(this);
             VM_RigConfig                = new Viewmodel_RigConfigWindow(this);
-            VM_SceneView_Provider       = new ViewModelSceneView_Provider(this);
+            VM_SceneView                = new ViewModel_Sceneview(this);
             //...
             //...
             //...
@@ -107,12 +110,12 @@ namespace MOTUS.Model
 
                 backgroundworker.DoWork += (object sender, DoWorkEventArgs e) =>
                 {
-                    Thread.CurrentThread.IsBackground = true;
+                    InstatiateObjects();
                     while (!backgroundworker.CancellationPending)
                     {
                         Update();
                         MeasureLoopTime();
-                        Thread.Sleep(1);
+                        Thread.Sleep(9);
                     }
                 };
                 backgroundworker.RunWorkerAsync();

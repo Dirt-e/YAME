@@ -83,7 +83,7 @@
     <Compile Include="Model\MyTransform.cs" />
     <Compile Include="Model\ScalerModule.cs" />
     <Compile Include="Model\ScalerSystem.cs" />
-    <Compile Include="Model\ViewModelSceneView_Provider.cs" />
+    <Compile Include="Model\Structs\Matrix_Struct.cs" />
     <Compile Include="Model\ZeroMaker.cs" />
     <Compile Include="Model\_Filter.cs" />
     <Compile Include="Model\FilterSystem.cs" />

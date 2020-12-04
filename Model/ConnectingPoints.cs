@@ -7,9 +7,9 @@ using System.Windows.Media.Media3D;
 
 namespace MOTUS.Model
 {
-    public class ConnectingPoints : MyObject
+    public class ConnectingPoints : MyTransform
     {
-        float _radius;
+        float _radius = 1000;
         public float Radius
         {
             get { return _radius; }
@@ -21,7 +21,7 @@ namespace MOTUS.Model
                 OnPropertyChanged("Radius");
             }
         }
-        float _alpha;
+        float _alpha = 45;
         public float Alpha
         {
             get { return _alpha; }
@@ -34,7 +34,7 @@ namespace MOTUS.Model
                 OnPropertyChanged("Alpha");
             }
         }
-        float _beta;
+        float _beta = 75;
         public float Beta
         {
             get { return _beta; }
@@ -88,15 +88,19 @@ namespace MOTUS.Model
             P4 = new MyTransform();
             P5 = new MyTransform();
             P6 = new MyTransform();
+
+            IsParentOf(P1);
+            IsParentOf(P2);
+            IsParentOf(P3);
+            IsParentOf(P4);
+            IsParentOf(P5);
+            IsParentOf(P6);
+
+            Redraw();
         }
 
         //Angles in degrees
-        private float A1;
-        private float A2;
-        private float A3;
-        private float A4;
-        private float A5;
-        private float A6;
+        private float A1, A2, A3, A4, A5, A6;
 
         void Redraw()
         {

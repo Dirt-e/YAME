@@ -15,8 +15,11 @@ namespace MOTUS.Model
         public Transform3D Transform
         {
             get { return _transform; }
-            private set { _transform = value; OnPropertyChanged("Transform"); }
+            set { _transform = value; OnPropertyChanged("Transform"); }
         }
+
+        public MyTransform Parent = null;
+        public List<MyTransform> Children = new List<MyTransform>();
 
         #region State
         Quaternion _quaternion = Quaternion.Identity;
@@ -161,7 +164,25 @@ namespace MOTUS.Model
             Transform = Group as Transform3D;
         }
 
+        public Transform3D GetWorldTransform()
+        {
+            if (Parent == null) { return Transform; }       //This IS world!
+            else
+            {
+                Transform3DGroup Group = new Transform3DGroup();
+                Group.Children.Add(Transform);
+                Group.Children.Add(Parent.GetWorldTransform());
 
+                return Group;
+            }
+        }
+
+
+        public void IsParentOf(MyTransform MyTF)
+        {   
+            MyTF.Parent = this;
+            Children.Add(MyTF);
+        }
         //INotifyPropertyChanged:
         public event PropertyChangedEventHandler PropertyChanged;
         private protected void OnPropertyChanged(string propertyName)
