@@ -25,7 +25,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public float CrashDetector_Threshold_Ax {
             get {
                 return ((float)(this["CrashDetector_Threshold_Ax"]));
@@ -37,7 +37,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public float CrashDetector_Threshold_Ay {
             get {
                 return ((float)(this["CrashDetector_Threshold_Ay"]));
@@ -49,7 +49,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public float CrashDetector_Threshold_Az {
             get {
                 return ((float)(this["CrashDetector_Threshold_Az"]));
@@ -61,7 +61,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public float CrashDetector_Threshold_Wx {
             get {
                 return ((float)(this["CrashDetector_Threshold_Wx"]));
@@ -73,7 +73,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public float CrashDetector_Threshold_Wy {
             get {
                 return ((float)(this["CrashDetector_Threshold_Wy"]));
@@ -85,7 +85,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public float CrashDetector_Threshold_Wz {
             get {
                 return ((float)(this["CrashDetector_Threshold_Wz"]));
@@ -97,7 +97,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public float PositionOffsetCorrection_DeltaX {
             get {
                 return ((float)(this["PositionOffsetCorrection_DeltaX"]));
@@ -109,7 +109,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public float PositionOffsetCorrection_DeltaY {
             get {
                 return ((float)(this["PositionOffsetCorrection_DeltaY"]));
@@ -121,7 +121,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public float PositionOffsetCorrection_DeltaZ {
             get {
                 return ((float)(this["PositionOffsetCorrection_DeltaZ"]));
@@ -205,7 +205,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Filtervariable_Wx_HP {
             get {
                 return ((float)(this["Filtervariable_Wx_HP"]));
@@ -217,7 +217,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Filtervariable_Wx_HP_LP {
             get {
                 return ((float)(this["Filtervariable_Wx_HP_LP"]));
@@ -229,7 +229,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float FilterVariable_Wy_HP {
             get {
                 return ((float)(this["FilterVariable_Wy_HP"]));
@@ -241,7 +241,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Filtervariable_Wy_HP_LP {
             get {
                 return ((float)(this["Filtervariable_Wy_HP_LP"]));
@@ -253,7 +253,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Filtervariable_Wz_HP {
             get {
                 return ((float)(this["Filtervariable_Wz_HP"]));
@@ -265,7 +265,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Filtervariable_Wz_HP_LP {
             get {
                 return ((float)(this["Filtervariable_Wz_HP_LP"]));
@@ -277,7 +277,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Filtervariable_Ax_HP {
             get {
                 return ((float)(this["Filtervariable_Ax_HP"]));
@@ -289,7 +289,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Filtervariable_Ax_HP_LP2 {
             get {
                 return ((float)(this["Filtervariable_Ax_HP_LP2"]));
@@ -301,7 +301,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Filtervariable_Ay_HP {
             get {
                 return ((float)(this["Filtervariable_Ay_HP"]));
@@ -313,7 +313,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Filtervariable_Ay_HP_LP2 {
             get {
                 return ((float)(this["Filtervariable_Ay_HP_LP2"]));
@@ -325,7 +325,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Filtervariable_Az_HP {
             get {
                 return ((float)(this["Filtervariable_Az_HP"]));
@@ -337,7 +337,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Filtervariable_Az_HP_LP2 {
             get {
                 return ((float)(this["Filtervariable_Az_HP_LP2"]));
@@ -349,7 +349,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Filtervariable_Ax_LP3 {
             get {
                 return ((float)(this["Filtervariable_Ax_LP3"]));
@@ -361,7 +361,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Filtervariable_Az_LP3 {
             get {
                 return ((float)(this["Filtervariable_Az_LP3"]));
@@ -469,7 +469,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public float CompressionParameter_Roll_HFC {
             get {
                 return ((float)(this["CompressionParameter_Roll_HFC"]));
@@ -481,7 +481,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public float CompressionParameter_Yaw_HFC {
             get {
                 return ((float)(this["CompressionParameter_Yaw_HFC"]));
@@ -493,7 +493,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public float CompressionParameter_Pitch_HFC {
             get {
                 return ((float)(this["CompressionParameter_Pitch_HFC"]));
@@ -505,7 +505,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public float CompressionParameter_Surge_HFC {
             get {
                 return ((float)(this["CompressionParameter_Surge_HFC"]));
@@ -517,7 +517,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public float CompressionParameter_Heave_HFC {
             get {
                 return ((float)(this["CompressionParameter_Heave_HFC"]));
@@ -529,7 +529,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public float CompressionParameter_Sway_HFC {
             get {
                 return ((float)(this["CompressionParameter_Sway_HFC"]));
@@ -541,7 +541,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public float CompressionParameter_Pitch_LFC {
             get {
                 return ((float)(this["CompressionParameter_Pitch_LFC"]));
@@ -553,7 +553,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public float CompressionParameter_Roll_LFC {
             get {
                 return ((float)(this["CompressionParameter_Roll_LFC"]));
@@ -565,7 +565,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float CompressionLimit_Roll_HFC {
             get {
                 return ((float)(this["CompressionLimit_Roll_HFC"]));
@@ -577,7 +577,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float CompressionLimit_Yaw_HFC {
             get {
                 return ((float)(this["CompressionLimit_Yaw_HFC"]));
@@ -589,7 +589,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float CompressionLimit_Pitch_HFC {
             get {
                 return ((float)(this["CompressionLimit_Pitch_HFC"]));
@@ -601,7 +601,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float CompressionLimit_Surge_HFC {
             get {
                 return ((float)(this["CompressionLimit_Surge_HFC"]));
@@ -613,7 +613,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float CompressionLimit_Heave_HFC {
             get {
                 return ((float)(this["CompressionLimit_Heave_HFC"]));
@@ -625,7 +625,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float CompressionLimit_Sway_HFC {
             get {
                 return ((float)(this["CompressionLimit_Sway_HFC"]));
@@ -637,7 +637,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float CompressionLimit_Pitch_LFC {
             get {
                 return ((float)(this["CompressionLimit_Pitch_LFC"]));
@@ -649,7 +649,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float CompressionLimit_Roll_LFC {
             get {
                 return ((float)(this["CompressionLimit_Roll_LFC"]));
@@ -661,7 +661,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public float Scaler_Gain_RollHFC {
             get {
                 return ((float)(this["Scaler_Gain_RollHFC"]));
@@ -673,7 +673,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public float Scaler_Gain_YawHFC {
             get {
                 return ((float)(this["Scaler_Gain_YawHFC"]));
@@ -685,7 +685,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public float Scaler_Gain_PitchHFC {
             get {
                 return ((float)(this["Scaler_Gain_PitchHFC"]));
@@ -697,7 +697,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public float Scaler_Gain_HeaveHFC {
             get {
                 return ((float)(this["Scaler_Gain_HeaveHFC"]));
@@ -709,7 +709,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public float Scaler_Gain_SwayHFC {
             get {
                 return ((float)(this["Scaler_Gain_SwayHFC"]));
@@ -721,7 +721,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public float Scaler_Gain_RollLFC {
             get {
                 return ((float)(this["Scaler_Gain_RollLFC"]));
@@ -733,7 +733,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public float Scaler_Gain_PitchLFC {
             get {
                 return ((float)(this["Scaler_Gain_PitchLFC"]));
@@ -745,7 +745,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public float Scaler_Gain_SurgeHFC {
             get {
                 return ((float)(this["Scaler_Gain_SurgeHFC"]));
@@ -985,7 +985,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Window_RawData_Position_X {
             get {
                 return ((float)(this["Window_RawData_Position_X"]));
@@ -997,7 +997,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Window_RawData_Position_Y {
             get {
                 return ((float)(this["Window_RawData_Position_Y"]));
@@ -1009,7 +1009,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Window_SceneView_Position_X {
             get {
                 return ((float)(this["Window_SceneView_Position_X"]));
@@ -1021,7 +1021,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Window_SceneView_Position_Y {
             get {
                 return ((float)(this["Window_SceneView_Position_Y"]));
@@ -1081,7 +1081,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Window_CrashDetector_Position_X {
             get {
                 return ((float)(this["Window_CrashDetector_Position_X"]));
@@ -1093,7 +1093,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Window_CrashDetector_Position_Y {
             get {
                 return ((float)(this["Window_CrashDetector_Position_Y"]));
@@ -1105,7 +1105,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Window_PositionCorrection_Position_X {
             get {
                 return ((float)(this["Window_PositionCorrection_Position_X"]));
@@ -1117,7 +1117,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Window_PositionCorrection_Position_Y {
             get {
                 return ((float)(this["Window_PositionCorrection_Position_Y"]));
@@ -1153,7 +1153,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Window_AlphaCompensation_Position_X {
             get {
                 return ((float)(this["Window_AlphaCompensation_Position_X"]));
@@ -1165,7 +1165,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Window_AlphaCompensation_Position_Y {
             get {
                 return ((float)(this["Window_AlphaCompensation_Position_Y"]));
@@ -1189,7 +1189,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Window_Filters_Position_X {
             get {
                 return ((float)(this["Window_Filters_Position_X"]));
@@ -1201,7 +1201,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Window_Filters_Position_Y {
             get {
                 return ((float)(this["Window_Filters_Position_Y"]));
@@ -1225,7 +1225,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Window_Graphs_Position_X {
             get {
                 return ((float)(this["Window_Graphs_Position_X"]));
@@ -1237,7 +1237,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Window_Graphs_Position_Y {
             get {
                 return ((float)(this["Window_Graphs_Position_Y"]));
@@ -1261,7 +1261,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Window_DOFs_Position_X {
             get {
                 return ((float)(this["Window_DOFs_Position_X"]));
@@ -1273,7 +1273,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Window_DOFs_Position_Y {
             get {
                 return ((float)(this["Window_DOFs_Position_Y"]));
@@ -1297,7 +1297,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Window_MotionControl_Position_X {
             get {
                 return ((float)(this["Window_MotionControl_Position_X"]));
@@ -1309,7 +1309,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Window_MotionControl_Position_Y {
             get {
                 return ((float)(this["Window_MotionControl_Position_Y"]));
