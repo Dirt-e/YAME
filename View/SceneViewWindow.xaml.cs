@@ -21,15 +21,31 @@ namespace MOTUS.View
         public SceneViewWindow()
         {
             InitializeComponent();
-        }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
             SetDataContext();
             Load_3D_Objects();
             SetCamera();
         }
 
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+        
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Left = Properties.Settings.Default.Window_SceneView_Position_X;
+            Top     = Properties.Settings.Default.Window_SceneView_Position_Y;
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Properties.Settings.Default.Window_SceneView_Position_X = (float)Left;
+            Properties.Settings.Default.Window_SceneView_Position_Y = (float)Top;
+
+            Properties.Settings.Default.Save();
+        }
+
+        //Helpers:
         private void SetDataContext()
         {
             DataContext = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine.VM_SceneView;
@@ -54,26 +70,26 @@ namespace MOTUS.View
             #endregion
 
             #region Dynamic platforms
-            Importer.DefaultMaterial = Materials.Black;
-            Plat_Fix_Park.Content = Importer.Load(@"..\..\Media\Models\Plane.stl");
+            Importer.DefaultMaterial    = Materials.Black;
+            Plat_Fix_Park.Content       = Importer.Load(@"..\..\Media\Models\Plane.stl");
 
-            Importer.DefaultMaterial = Materials.White;
-            Plat_Fix_Pause.Content = Importer.Load(@"..\..\Media\Models\Plane.stl");
+            Importer.DefaultMaterial    = Materials.White;
+            Plat_Fix_Pause.Content      = Importer.Load(@"..\..\Media\Models\Plane.stl");
 
-            Importer.DefaultMaterial = Materials.Gold;
-            Plat_CoR.Content = Importer.Load(@"..\..\Media\Models\Plane.stl");
+            Importer.DefaultMaterial    = Materials.Gold;
+            Plat_CoR.Content            = Importer.Load(@"..\..\Media\Models\Plane.stl");
 
-            Importer.DefaultMaterial = Materials.Blue;
-            Plat_LFC.Content = Importer.Load(@"..\..\Media\Models\Plane.stl");
+            Importer.DefaultMaterial    = Materials.Blue;
+            Plat_LFC.Content            = Importer.Load(@"..\..\Media\Models\Plane.stl");
 
-            Importer.DefaultMaterial = Materials.Red;
-            Plat_HFC.Content = Importer.Load(@"..\..\Media\Models\Plane.stl");
+            Importer.DefaultMaterial    = Materials.Red;
+            Plat_HFC.Content             = Importer.Load(@"..\..\Media\Models\Plane.stl");
 
-            Importer.DefaultMaterial = Materials.Violet;
-            Plat_Motion.Content = Importer.Load(@"..\..\Media\Models\Plane.stl");
+            Importer.DefaultMaterial    = Materials.Violet;
+            Plat_Motion.Content         = Importer.Load(@"..\..\Media\Models\Plane.stl");
 
-            Importer.DefaultMaterial = Materials.Rainbow;
-            Plat_Physical.Content = Importer.Load(@"..\..\Media\Models\Plane.stl");
+            Importer.DefaultMaterial    = Materials.Rainbow;
+            Plat_Physical.Content       = Importer.Load(@"..\..\Media\Models\Plane.stl");
             #endregion
 
             #region BasePoints
@@ -92,13 +108,8 @@ namespace MOTUS.View
             #endregion
         }
         private void SetCamera()
-        {
+        {   
             Viewport.Camera.LookDirection = new Vector3D(-1000, 2000, -1000);
-        }
-
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
         }
     }
 }

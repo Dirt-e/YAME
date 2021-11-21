@@ -37,7 +37,7 @@
                             Checked="mnuPositionCorrection_Checked"
                             Unchecked="mnuPositionCorrection_Unchecked"/>
                 <MenuItem   Header="_Alpha Compensation"
-                            x:Name="mnuAlphaCompansation"
+                            x:Name="mnuAlphaCompensation"
                             IsCheckable="True"
                             IsChecked="False"
                             Checked="mnuAlphaCompensation_Checked"

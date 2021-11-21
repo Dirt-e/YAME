@@ -99,5 +99,11 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style TargetType="Border" x:Key="BorderStyle">
+            <Setter Property="BorderThickness" Value="0.7"/>
+            <Setter Property="CornerRadius" Value="3"/>
+            <Setter Property="BorderBrush" Value="LightGray"/>
+            <Setter Property="Background" Value="{StaticResource MyMediumGrayBrush}"/>
+        </Style>
     </Application.Resources>
 </Application>

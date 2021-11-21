@@ -19,16 +19,57 @@ namespace MOTUS.Model
         Stopwatch invoke_timer = new Stopwatch();
 
         #region ViewModel
+        float _dist_a_upper;
+        public float Dist_A_Upper
+        {
+            get { return _dist_a_upper; }
+            set { _dist_a_upper = value; OnPropertyChanged("Dist_A_Upper"); }
+        }
+
+        float _dist_b_upper;
+        public float Dist_B_Upper
+        {
+            get { return _dist_b_upper; }
+            set { _dist_b_upper = value; OnPropertyChanged("Dist_B_Upper"); }
+        }
+
+        float _dist_a_lower;
+        public float Dist_A_Lower
+        {
+            get { return _dist_a_lower; }
+            set { _dist_a_lower = value; OnPropertyChanged("Dist_A_Lower"); }
+        }
+
+        float _dist_b_lower;
+        public float Dist_B_Lower
+        {
+            get { return _dist_b_lower; }
+            set { _dist_b_lower = value; OnPropertyChanged("Dist_B_Lower"); }
+        }
+
+        float _offset_park;
         public float Offset_Park
         {
-            get { return (float)Plat_Park.Transform.Value.OffsetZ; }
-            //set { Plat_Park.Transform.OffsetZ = value; OnPropertyChanged("Offset_Park"); }
+            get { return _offset_park; }
+            set 
+            { 
+                _offset_park = value; 
+                OnPropertyChanged("Offset_Park"); 
+            }
         }
+
         float _offset_pause;
         public float Offset_Pause
         {
             get { return _offset_pause; }
             set { _offset_pause = value; OnPropertyChanged("Offset_Pause"); }
+        }
+
+        float _offset_cor;
+        public float Offset_CoR
+        {
+            get { return _offset_cor; }
+            set { _offset_cor = value; OnPropertyChanged("Offset_CoR"); }
         }
         #endregion
 
@@ -69,17 +110,10 @@ namespace MOTUS.Model
 
             Fader_3Way = new Fader_Threeway(    TimeSpan.FromSeconds(fade_duration_ParkToPause_seconds),
                                                 TimeSpan.FromSeconds(fade_duration_PauseToMotion_seconds));
-            invoke_timer.Start();
+
             EstablishHierarchy();
-        }
-        
 
-        public void Process(DOF_Data data)
-        {
-            Input = new DOF_Data(data);
-            DriveRigGeometry();
-
-            UpdateUI_ViaDispatcherInvoke();
+            invoke_timer.Start();
         }
 
         private void EstablishHierarchy()
@@ -95,12 +129,35 @@ namespace MOTUS.Model
                 Plat_Fix_Base.IsParentOf(Plat_Park);
                 Plat_Fix_Base.IsParentOf(Plat_Float_Physical);
         }
+
+
+        public void Process(DOF_Data data)
+        {
+            Input = new DOF_Data(data);
+            DriveRigGeometry();
+
+            UpdateUI_ViaDispatcherInvoke();
+        }
+
         private void DriveRigGeometry()
         {
-            //Dynamic offsets here only!
-            Plat_Pause.SetTranslation(0,0,850);         //To be changed to bindings
+            UpperPoints.Dist_A = Dist_A_Upper;
+            UpperPoints.Dist_B = Dist_B_Upper;
 
-            Plat_CoR.SetTranslation(0,0,300);           //To be changed to bindings
+            LowerPoints.Dist_A = Dist_A_Lower;
+            LowerPoints.Dist_B = Dist_B_Lower;
+
+            Plat_Park.SetTranslation(   0,
+                                        0,
+                                        Offset_Park                     );
+
+            Plat_Pause.SetTranslation(  0,
+                                        0,
+                                        Offset_Pause                    );
+
+            Plat_CoR.SetTranslation(    0,
+                                        0,
+                                        Offset_CoR                      );
 
             Plat_LFC.SetOrientation(    0,      
                                         RAD_from_DEG(Input.LFC_Pitch), 
@@ -108,18 +165,20 @@ namespace MOTUS.Model
             
             Plat_HFC.SetTranslation(    Input.HFC_Sway, 
                                         Input.HFC_Surge, 
-                                        Input.HFC_Heave     );
+                                        Input.HFC_Heave                 );
             Plat_HFC.SetOrientation(    RAD_from_DEG(Input.HFC_Yaw), 
                                         RAD_from_DEG(Input.HFC_Pitch), 
                                         RAD_from_DEG(Input.HFC_Roll)    );
 
-            Plat_Motion.SetTranslation( 0, 0, -300);     //To be changed to bindings
+            Plat_Motion.SetTranslation( 0,
+                                        0,
+                                        -Offset_CoR                      );
 
             UpdateUI_ViaDispatcherInvoke();
         }
         private void UpdateUI_ViaDispatcherInvoke()
         {
-            if (invoke_timer.ElapsedMilliseconds > 30)      //Update the UI only at ~30fps
+            if (invoke_timer.ElapsedMilliseconds > 33)      //Update the UI only at ~30fps
             {
                 Matrix_Struct mx = new Matrix_Struct()
                 {
@@ -165,6 +224,7 @@ namespace MOTUS.Model
                 mainwindow.engine.VM_SceneView.PlatFixBase = new MatrixTransform3D(Mx.Mx_Plat_Fix_Base);
                 mainwindow.engine.VM_SceneView.PlatFixPause = new MatrixTransform3D(Mx.Mx_Plat_Pause);
                 mainwindow.engine.VM_SceneView.PlatFixPark = new MatrixTransform3D(Mx.Mx_Plat_Park);
+                mainwindow.engine.VM_SceneView.PlatCoR = new MatrixTransform3D(Mx.Mx_Plat_CoR);
                 mainwindow.engine.VM_SceneView.PlatLFC = new MatrixTransform3D(Mx.Mx_Plat_LFC);
                 mainwindow.engine.VM_SceneView.PlatHFC = new MatrixTransform3D(Mx.Mx_Plat_HFC);
                 mainwindow.engine.VM_SceneView.PlatMotion = new MatrixTransform3D(Mx.Mx_Plat_Motion);

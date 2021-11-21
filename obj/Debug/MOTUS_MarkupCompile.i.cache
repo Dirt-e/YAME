@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\obj\Debug\
+D:\OneDrive\Frank - PC\GitHub\MOTUS_OLD\obj\Debug\
 MOTUS
 none
 false
 DEBUG;TRACE
-D:\OneDrive\Frank - PC\GitHub\MOTUS\MOTUS\App.xaml
-132019355593
+D:\OneDrive\Frank - PC\GitHub\MOTUS_OLD\App.xaml
+141367152433
 
-661695062589
-119736751667
-MainWindow.xaml;View\AlphaCompensationWindow.xaml;View\CrashDetectorWindow.xaml;View\DOF_Window.xaml;View\FiltersWindow.xaml;View\PositionCorrectorWindow.xaml;View\RawDataWindow.xaml;View\SceneViewWindow.xaml;View\ServerWindow.xaml;View\UserControls\CompressionBox.xaml;View\UserControls\FilterBox.xaml;View\UserControls\ScalerBox.xaml;View\UserControls\ToggleSwitch.xaml;
+65443764945
+119-752425045
+MainWindow.xaml;View\AlphaCompensationWindow.xaml;View\CrashDetectorWindow.xaml;View\DOF_Window.xaml;View\FiltersWindow.xaml;View\PositionCorrectorWindow.xaml;View\RawDataWindow.xaml;View\RigConfigWindow.xaml;View\SceneViewWindow.xaml;View\ServerWindow.xaml;View\UserControls\CompressionBox.xaml;View\UserControls\FilterBox.xaml;View\UserControls\ScalerBox.xaml;View\UserControls\ToggleSwitch.xaml;
 
 True
 

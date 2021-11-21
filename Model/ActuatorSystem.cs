@@ -50,7 +50,12 @@ namespace MOTUS.Model
 
         }
 
-        private void redraw()
+        public void Update()
+        {
+            DetermineStatus();
+        }
+
+        public void redraw()
         {
             foreach (Actuator act in Actuators)
             {
@@ -63,12 +68,16 @@ namespace MOTUS.Model
         //Helpers:
         void DetermineStatus()
         {
-            bool temp = true;                                               //Assume things are OK,....
+            bool temp = true;                                       //Assume things are OK,....
 
-            foreach (Actuator act in Actuators)                             //...but let each actuator...
+            foreach (Actuator act in Actuators)                     //...but let each actuator...
             {
-                if (act.Status != ActuatorStatus.Inlimits) temp = false;    //...speak. 
-                break;                                                      //A single vote is enough to spoil the party!
+                if (act.Status != ActuatorStatus.Inlimits)         //...speak. 
+                {
+                    temp = false;                          
+                    break;                                          //A single vote is enough to spoil the party!
+                }
+                
             }
             AllInLimits = temp; ;
         }

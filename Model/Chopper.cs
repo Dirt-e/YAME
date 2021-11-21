@@ -12,30 +12,31 @@ namespace MOTUS.Model
         public PreprocessorData Output= new PreprocessorData();
         public string Simulator { get; set; }
         
-        private string[] Chunks = new string[18];
-        private float[] Floats = new float[18];
+        private string[] Chunks = new string[19];
+        private float[] Floats = new float[19];
 
         public void ChopParseAndPackage(string rawdatastring)
         {
             ChopStringIntoChunks(rawdatastring);
-            ParseChunksIntoFloats();
-            PackFloatsIntoData();
+            ParseChunks();
+            PackIntoData();
         }
 
         private void ChopStringIntoChunks( string s)
         {
             Chunks = s.Split(',');
-            Simulator = Chunks[18];
-            Chunks = Chunks.Take(18).ToArray();     //We don't need the last element anymore.
         }
-        private void ParseChunksIntoFloats()
-        {
+        private void ParseChunks()
+        {   
+            Simulator = Chunks[18];
+            Chunks = Chunks.Take(18).ToArray();     //We don't need the last 2 elements anymore. Thosa are only "Simulator" and "\n"
+            
             for (int i = 0; i < Chunks.Length; i++)
             {
                 Floats[i] = Convert.ToSingle(Chunks[i], GlobalVars.myNumberFormat(7));
             }
         }
-        private void PackFloatsIntoData()
+        private void PackIntoData()
         {
             //Airdata
             Output.IAS      = Floats[0];
@@ -61,6 +62,7 @@ namespace MOTUS.Model
             //Meta
             Output.TIME     = Floats[16];
             Output.COUNTER  = Floats[17];
+            Output.SIMULATOR = Simulator; 
         }
     }
 

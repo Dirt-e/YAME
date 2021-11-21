@@ -85,46 +85,4 @@ namespace MOTUS.ViewModel
             base.engine = e;
         }
     }
-
-    //public class VM_FilterBox_WX_HP : _ViewModel
-    //{
-    //    private float _invalue;
-    //    public float InValue
-    //    {
-    //        get { return _invalue; }
-    //        set { _invalue = value; OnPropertyChanged("InValue"); }
-    //    }
-
-    //    private string _code;
-    //    public string Code
-    //    {
-    //        get { return _code; }
-    //        set { _code = value; OnPropertyChanged("Code"); }
-    //    }
-        
-    //    private float _filtervariable;
-    //    public float FilterVariable
-    //    {
-    //        get { return _filtervariable; }
-    //        set 
-    //        { 
-    //            _filtervariable = value;
-    //            engine.filtersystem.Wx_HP.FilterVariable = value;
-    //            OnPropertyChanged("FilterVariable"); 
-    //        }
-    //    }
-
-    //    private float _outvalue;
-    //    public float OutValue
-    //    {
-    //        get { return _outvalue; }
-    //        set { _outvalue = value; OnPropertyChanged("OutValue"); }
-    //    }
-
-    //    public VM_FilterBox_WX_HP(Engine e)
-    //    {
-    //        base.engine = e;
-    //    }
-
-    //}
 }

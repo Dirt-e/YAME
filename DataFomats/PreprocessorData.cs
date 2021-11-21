@@ -31,6 +31,7 @@ namespace MOTUS.DataFomats
         //Meta
         public float TIME { get; set; }
         public float COUNTER { get; set; }
+        public string SIMULATOR { get; set; }
 
         //Constructor
         public PreprocessorData() { }
@@ -59,6 +60,7 @@ namespace MOTUS.DataFomats
             //Meta
             TIME = p.TIME;
             COUNTER = p.COUNTER;
+            SIMULATOR = p.SIMULATOR;
         }
     }
 }

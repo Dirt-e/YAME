@@ -14,10 +14,13 @@ using System.Windows.Threading;
 namespace MOTUS.Model
 {
     public class Engine
-    {
-        //Objects:
-        public BackgroundWorker         backgroundworker;
+    {   
+        //UI-thread objects:
         public Server                   server;
+        public LoaderSaver              loadersaver;
+
+        //Worker-thread objects:
+        public BackgroundWorker         backgroundworker;
         public Chopper                  chopper;
         public Inverter                 inverter;
         public CrashDetector            crashdetector;
@@ -29,8 +32,8 @@ namespace MOTUS.Model
         public ScalerSystem             scalersystem;
         public ZeroMaker                zeromaker;
         public DOF_Override             dof_override;
-        public LoaderSaver              loadersaver;
         public Integrator               integrator;
+        public ActuatorSystem           actuatorsystem;
         //...
         //...
         //...
@@ -42,7 +45,6 @@ namespace MOTUS.Model
         public ViewModel_PositionOffsetCorrector    VM_PositionOffsetCorrector;
         public ViewModel_FiltersWindow              VM_FiltersWindow;
         public ViewModel_MotionControlWindow        VM_MotionControlWindow;
-        public Viewmodel_RigConfigWindow            VM_RigConfig;
         public ViewModel_Sceneview                  VM_SceneView;
         //...
         //...
@@ -56,36 +58,15 @@ namespace MOTUS.Model
 
         public Engine()
         {
-            backgroundworker        = new BackgroundWorker
+            backgroundworker    = new BackgroundWorker
             {
                 WorkerSupportsCancellation = true,
             };
-            server                  = new Server();
-            
+            server              = new Server();
+            loadersaver         = new LoaderSaver(this);
             InstantiateViewModels();
         }
-
-        private void InstatiateObjects()
-        {
-            
-            
-            chopper                 = new Chopper();
-            inverter                = new Inverter();
-            crashdetector           = new CrashDetector();
-            positionoffsetcorrector = new PositionOffsetCorrector();
-            protector               = new Protector();
-            alphacompensator        = new AlphaCompensator();
-            filtersystem            = new FilterSystem();
-            compressorsystem        = new CompressorSystem();
-            scalersystem            = new ScalerSystem();
-            zeromaker               = new ZeroMaker();
-            dof_override            = new DOF_Override();
-            loadersaver             = new LoaderSaver(this);
-            integrator              = new Integrator();
-            //...
-            //...
-            //...
-        }
+        
         private void InstantiateViewModels()
         {
             VM_MainWindow               = new ViewModel_MainWindow(this);
@@ -94,7 +75,6 @@ namespace MOTUS.Model
             VM_PositionOffsetCorrector  = new ViewModel_PositionOffsetCorrector(this);
             VM_FiltersWindow            = new ViewModel_FiltersWindow(this);
             VM_MotionControlWindow      = new ViewModel_MotionControlWindow(this);
-            VM_RigConfig                = new Viewmodel_RigConfigWindow(this);
             VM_SceneView                = new ViewModel_Sceneview(this);
             //...
             //...
@@ -113,9 +93,9 @@ namespace MOTUS.Model
                     InstatiateObjects();
                     while (!backgroundworker.CancellationPending)
                     {
-                        Update();
+                        UpdateObjects();
                         MeasureLoopTime();
-                        Thread.Sleep(9);
+                        Thread.Sleep(4);
                     }
                 };
                 backgroundworker.RunWorkerAsync();
@@ -127,7 +107,28 @@ namespace MOTUS.Model
             backgroundworker.CancelAsync();
         }
 
-        private void Update()
+        //------- This happens on the Worker Thread -----------------
+        private void InstatiateObjects()
+        {
+            chopper                 = new Chopper();
+            inverter                = new Inverter();
+            crashdetector           = new CrashDetector();
+            positionoffsetcorrector = new PositionOffsetCorrector();
+            protector               = new Protector();
+            alphacompensator        = new AlphaCompensator();
+            filtersystem            = new FilterSystem();
+            compressorsystem        = new CompressorSystem();
+            scalersystem            = new ScalerSystem();
+            zeromaker               = new ZeroMaker();
+            dof_override            = new DOF_Override();
+            loadersaver             = new LoaderSaver(this);
+            integrator              = new Integrator();
+            actuatorsystem          = new ActuatorSystem();
+            //...
+            //...
+            //...
+        }
+        private void UpdateObjects()
         {
             Update_Server();
             Update_Chopper();
@@ -142,6 +143,7 @@ namespace MOTUS.Model
             Update_ZeroMaker();
             Update_DOF_Override();
             Update_Integrator();
+            UpdateActuatorSystem();
 
             //TestCode:
             
@@ -149,7 +151,7 @@ namespace MOTUS.Model
             //...
             //...
         }
-        
+
 
         private void Update_Server()
         {
@@ -182,6 +184,7 @@ namespace MOTUS.Model
 
             VM_Rawdata.TIME = chopper.Output.TIME;
             VM_Rawdata.COUNTER = chopper.Output.COUNTER;
+            VM_Rawdata.SIM = chopper.Output.SIMULATOR;
             #endregion
             
         }
@@ -227,7 +230,6 @@ namespace MOTUS.Model
         private void Update_Protector()
         {
             protector.Process(positionoffsetcorrector.Output);
-            //No ViewModel here
         }
         private void Update_Alphacompensator()
         {
@@ -236,17 +238,10 @@ namespace MOTUS.Model
         private void Update_Filtersystem()
         {
             filtersystem.Process(alphacompensator.Output);
-
-            #region Update ViewModel
-            //...
-            //...
-            //...
-            #endregion
         }
         private void Update_CompressorSytem()
         {
             compressorsystem.Process(filtersystem.Output);
-            //No ViewModel, because the View binds directly into the objects.
         }
         private void Update_ScalerSystem()
         {
@@ -264,6 +259,11 @@ namespace MOTUS.Model
         {
             integrator.Process(dof_override.Output);
         }
+        private void UpdateActuatorSystem()
+        {
+            actuatorsystem.Update();
+        }
+
         //Helpers:
         private void MeasureLoopTime()
         {

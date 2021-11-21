@@ -8,24 +8,29 @@
         xmlns:Converters="clr-namespace:MOTUS.View.Converters"
         xmlns:HelixToolkit="clr-namespace:HelixToolkit.Wpf;assembly=HelixToolkit.Wpf"        mc:Ignorable="d"
         Title="SceneView" Height="450" Width="800" WindowStartupLocation="Manual"  Left="0" Top="400"
-        Loaded="Window_Loaded"
+        Loaded="Window_Loaded" Closing="Window_Closing"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Style="{StaticResource ChildWindow_Style}">
     <Grid>
-        <HelixToolkit:HelixViewport3D x:Name="Viewport" ZoomExtentsWhenLoaded="true"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <HelixToolkit:HelixViewport3D x:Name="Viewport" ZoomExtentsWhenLoaded="true" Grid.Row="0" Grid.RowSpan="2"
                                       ShowCoordinateSystem="True" ShowViewCube="False" CameraRotationMode="Turntable" Title="SceneView"
+                                      ShowCameraInfo="true" ShowCameraTarget="True" 
                                       Background="{StaticResource MyDimGrayBrush}">
             <HelixToolkit:SunLight/>
             <!--All Visual3D objects :-->
             <HelixToolkit:GridLinesVisual3D x:Name="World" Width="2000" Length="2000" Thickness="2" MinorDistance="100" MajorDistance="500" Fill="LightGray">
                 <ModelVisual3D x:Name="Plat_Fix_Base"/>
-                <ModelVisual3D x:Name="Plat_Fix_Park"   Transform="{Binding PlatFixPark, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                <ModelVisual3D x:Name="Plat_Fix_Pause"  Transform="{Binding PlatFixPause, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                <ModelVisual3D x:Name="Plat_CoR"        Transform="{Binding PlatCoR, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                <ModelVisual3D x:Name="Plat_LFC"        Transform="{Binding PlatLFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                <ModelVisual3D x:Name="Plat_HFC"        Transform="{Binding PlatHFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                <ModelVisual3D x:Name="Plat_Motion"     Transform="{Binding PlatMotion, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                <ModelVisual3D x:Name="Plat_Physical"   Transform="{Binding PlatFloatPhysical, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                <ModelVisual3D x:Name="Plat_Fix_Park"   Transform="{Binding PlatFixPark,        UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                <ModelVisual3D x:Name="Plat_Fix_Pause"  Transform="{Binding PlatFixPause,       UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                <ModelVisual3D x:Name="Plat_CoR"        Transform="{Binding PlatCoR,            UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                <ModelVisual3D x:Name="Plat_LFC"        Transform="{Binding PlatLFC,            UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                <ModelVisual3D x:Name="Plat_HFC"        Transform="{Binding PlatHFC,            UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                <ModelVisual3D x:Name="Plat_Motion"     Transform="{Binding PlatMotion,         UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                <ModelVisual3D x:Name="Plat_Physical"   Transform="{Binding PlatFloatPhysical,  UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
                 <HelixToolkit:SphereVisual3D Center="{Binding Lower1, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="60" Fill="Blue"/>
                 <HelixToolkit:SphereVisual3D Center="{Binding Lower2, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="60" Fill="Blue"/>
@@ -82,5 +87,7 @@
                 <!--Add other platforms here-->
             </HelixToolkit:GridLinesVisual3D>
         </HelixToolkit:HelixViewport3D>
+        <TextBlock Text="Raw Data:" Grid.Row="0" Padding="2" FontSize="15" FontWeight="Bold"/>
+
     </Grid>
 </Window>

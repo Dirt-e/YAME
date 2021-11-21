@@ -9,6 +9,7 @@
         Title="FiltersWindow" Height="620" Width="680"
         WindowStartupLocation="Manual"  Left="460" Top="0"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        Loaded="Window_Loaded" Closing="Window_Closing"
         Style="{StaticResource ChildWindow_Style}">
 
     <Grid>

@@ -49,5 +49,20 @@ namespace MOTUS.View
                 slider.SelectionEnd = 0;
             }
         }
+
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Left    = Properties.Settings.Default.Window_DOFs_Position_X;
+            Top     = Properties.Settings.Default.Window_DOFs_Position_Y;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Properties.Settings.Default.Window_DOFs_Position_X = (float)Left;
+            Properties.Settings.Default.Window_DOFs_Position_Y = (float)Top;
+
+            Properties.Settings.Default.Save();
+        }
     }
 }

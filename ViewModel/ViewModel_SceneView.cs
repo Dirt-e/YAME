@@ -16,7 +16,7 @@ namespace MOTUS.ViewModel
         public Transform3D PlatFixBase
         {
             get { return _plat_fix_base; }
-            set { _plat_fix_base = value; OnPropertyChanged("PlatFixBase"); } //50% extension
+            set { _plat_fix_base = value; OnPropertyChanged("PlatFixBase"); }
         }
         Transform3D _plat_fix_park;
         public Transform3D PlatFixPark

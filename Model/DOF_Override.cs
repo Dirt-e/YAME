@@ -9,7 +9,7 @@ using static System.Math;
 
 namespace MOTUS.Model
 {
-    public class DOF_Override : INotifyPropertyChanged
+    public class DOF_Override : MyObject
     {
         public DOF_Data Input = new DOF_Data();
         public DOF_Data Output = new DOF_Data();
@@ -213,12 +213,6 @@ namespace MOTUS.Model
         private void PassThrough()
         {
             Output = new DOF_Data(Input);
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        private protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

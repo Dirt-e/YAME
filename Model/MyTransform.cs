@@ -9,7 +9,7 @@ using System.Windows.Media.Media3D;
 
 namespace MOTUS.Model
 {
-    public class MyTransform : INotifyPropertyChanged
+    public class MyTransform : MyObject
     {
         Transform3D _transform = Transform3D.Identity;
         public Transform3D Transform
@@ -179,8 +179,8 @@ namespace MOTUS.Model
             else
             {
                 Transform3DGroup Group = new Transform3DGroup();
-                Group.Children.Add(Transform);
-                Group.Children.Add(Parent.GetWorldTransform());
+                    Group.Children.Add(Transform);
+                Group.Children.Add(Parent.GetWorldTransform());     //Recursion!
 
                 return Group;
             }
@@ -191,21 +191,6 @@ namespace MOTUS.Model
         {   
             MyTF.Parent = this;
             Children.Add(MyTF);
-        }
-        //INotifyPropertyChanged:
-        public event PropertyChangedEventHandler PropertyChanged;
-        private protected void OnPropertyChanged(string propertyName)
-        {
-            try
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            }
-            catch (Exception)
-            {
-                Debug.WriteLine("This damn exception!!!");
-                //Ignore :-)
-            }
-
         }
     }
 }

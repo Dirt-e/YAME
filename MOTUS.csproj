@@ -79,7 +79,6 @@
     <Compile Include="Model\HighPassNthOrder.cs" />
     <Compile Include="Model\Integrator.cs" />
     <Compile Include="Model\LoaderSaver.cs" />
-    <Compile Include="Model\MyQuaternion.cs" />
     <Compile Include="Model\MyTransform.cs" />
     <Compile Include="Model\ScalerModule.cs" />
     <Compile Include="Model\ScalerSystem.cs" />
@@ -100,7 +99,6 @@
     <Compile Include="ViewModel\ViewModel_MotionControlWindow.cs" />
     <Compile Include="ViewModel\ViewModel_PositionOffsetCorrector.cs" />
     <Compile Include="ViewModel\ViewModel_RawData.cs" />
-    <Compile Include="ViewModel\ViewModel_RigConfigWindow.cs" />
     <Compile Include="ViewModel\ViewModel_SceneView.cs" />
     <Compile Include="ViewModel\_ViewModel.cs" />
     <Compile Include="View\AlphaCompensationWindow.xaml.cs">
@@ -124,6 +122,9 @@
     </Compile>
     <Compile Include="View\RawDataWindow.xaml.cs">
       <DependentUpon>RawDataWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RigConfigWindow.xaml.cs">
+      <DependentUpon>RigConfigWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SceneViewWindow.xaml.cs">
       <DependentUpon>SceneViewWindow.xaml</DependentUpon>
@@ -176,6 +177,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\RawDataWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RigConfigWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

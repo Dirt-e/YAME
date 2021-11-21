@@ -12,7 +12,7 @@ namespace MOTUS.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.7.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.0.3.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -848,6 +848,474 @@ namespace MOTUS.Properties {
             }
             set {
                 this["Zeromaker_Zero_RollLFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
+        public float Integrator_OffsetPark {
+            get {
+                return ((float)(this["Integrator_OffsetPark"]));
+            }
+            set {
+                this["Integrator_OffsetPark"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("850")]
+        public float Integrator_OffsetPause {
+            get {
+                return ((float)(this["Integrator_OffsetPause"]));
+            }
+            set {
+                this["Integrator_OffsetPause"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("300")]
+        public float Integrator_OffsetCoR {
+            get {
+                return ((float)(this["Integrator_OffsetCoR"]));
+            }
+            set {
+                this["Integrator_OffsetCoR"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public float Dist_A_Upper {
+            get {
+                return ((float)(this["Dist_A_Upper"]));
+            }
+            set {
+                this["Dist_A_Upper"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
+        public float Dist_B_Upper {
+            get {
+                return ((float)(this["Dist_B_Upper"]));
+            }
+            set {
+                this["Dist_B_Upper"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public float Dist_A_Lower {
+            get {
+                return ((float)(this["Dist_A_Lower"]));
+            }
+            set {
+                this["Dist_A_Lower"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
+        public float Dist_B_Lower {
+            get {
+                return ((float)(this["Dist_B_Lower"]));
+            }
+            set {
+                this["Dist_B_Lower"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_RigConfig_Position_X {
+            get {
+                return ((float)(this["Window_RigConfig_Position_X"]));
+            }
+            set {
+                this["Window_RigConfig_Position_X"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_RigConfig_Position_Y {
+            get {
+                return ((float)(this["Window_RigConfig_Position_Y"]));
+            }
+            set {
+                this["Window_RigConfig_Position_Y"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1400")]
+        public float ActuatorSystem_MaxLength {
+            get {
+                return ((float)(this["ActuatorSystem_MaxLength"]));
+            }
+            set {
+                this["ActuatorSystem_MaxLength"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("850")]
+        public float ActuatorSystem_MinLength {
+            get {
+                return ((float)(this["ActuatorSystem_MinLength"]));
+            }
+            set {
+                this["ActuatorSystem_MinLength"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_RawData_Position_X {
+            get {
+                return ((float)(this["Window_RawData_Position_X"]));
+            }
+            set {
+                this["Window_RawData_Position_X"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_RawData_Position_Y {
+            get {
+                return ((float)(this["Window_RawData_Position_Y"]));
+            }
+            set {
+                this["Window_RawData_Position_Y"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_SceneView_Position_X {
+            get {
+                return ((float)(this["Window_SceneView_Position_X"]));
+            }
+            set {
+                this["Window_SceneView_Position_X"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_SceneView_Position_Y {
+            get {
+                return ((float)(this["Window_SceneView_Position_Y"]));
+            }
+            set {
+                this["Window_SceneView_Position_Y"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Window_RawData_IsOpen {
+            get {
+                return ((bool)(this["Window_RawData_IsOpen"]));
+            }
+            set {
+                this["Window_RawData_IsOpen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Window_SceneView_IsOpen {
+            get {
+                return ((bool)(this["Window_SceneView_IsOpen"]));
+            }
+            set {
+                this["Window_SceneView_IsOpen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Window_RigConfig_IsOpen {
+            get {
+                return ((bool)(this["Window_RigConfig_IsOpen"]));
+            }
+            set {
+                this["Window_RigConfig_IsOpen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Window_CrashDetector_IsOpen {
+            get {
+                return ((bool)(this["Window_CrashDetector_IsOpen"]));
+            }
+            set {
+                this["Window_CrashDetector_IsOpen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_CrashDetector_Position_X {
+            get {
+                return ((float)(this["Window_CrashDetector_Position_X"]));
+            }
+            set {
+                this["Window_CrashDetector_Position_X"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_CrashDetector_Position_Y {
+            get {
+                return ((float)(this["Window_CrashDetector_Position_Y"]));
+            }
+            set {
+                this["Window_CrashDetector_Position_Y"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_PositionCorrection_Position_X {
+            get {
+                return ((float)(this["Window_PositionCorrection_Position_X"]));
+            }
+            set {
+                this["Window_PositionCorrection_Position_X"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_PositionCorrection_Position_Y {
+            get {
+                return ((float)(this["Window_PositionCorrection_Position_Y"]));
+            }
+            set {
+                this["Window_PositionCorrection_Position_Y"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Window_PositionCorrection_IsOpen {
+            get {
+                return ((bool)(this["Window_PositionCorrection_IsOpen"]));
+            }
+            set {
+                this["Window_PositionCorrection_IsOpen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Window_AlphaCompensation_IsOpen {
+            get {
+                return ((bool)(this["Window_AlphaCompensation_IsOpen"]));
+            }
+            set {
+                this["Window_AlphaCompensation_IsOpen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_AlphaCompensation_Position_X {
+            get {
+                return ((float)(this["Window_AlphaCompensation_Position_X"]));
+            }
+            set {
+                this["Window_AlphaCompensation_Position_X"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_AlphaCompensation_Position_Y {
+            get {
+                return ((float)(this["Window_AlphaCompensation_Position_Y"]));
+            }
+            set {
+                this["Window_AlphaCompensation_Position_Y"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Window_Filters_IsOpen {
+            get {
+                return ((bool)(this["Window_Filters_IsOpen"]));
+            }
+            set {
+                this["Window_Filters_IsOpen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_Filters_Position_X {
+            get {
+                return ((float)(this["Window_Filters_Position_X"]));
+            }
+            set {
+                this["Window_Filters_Position_X"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_Filters_Position_Y {
+            get {
+                return ((float)(this["Window_Filters_Position_Y"]));
+            }
+            set {
+                this["Window_Filters_Position_Y"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Window_Graphs_IsOpen {
+            get {
+                return ((bool)(this["Window_Graphs_IsOpen"]));
+            }
+            set {
+                this["Window_Graphs_IsOpen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_Graphs_Position_X {
+            get {
+                return ((float)(this["Window_Graphs_Position_X"]));
+            }
+            set {
+                this["Window_Graphs_Position_X"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_Graphs_Position_Y {
+            get {
+                return ((float)(this["Window_Graphs_Position_Y"]));
+            }
+            set {
+                this["Window_Graphs_Position_Y"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Window_DOFs_IsOpen {
+            get {
+                return ((bool)(this["Window_DOFs_IsOpen"]));
+            }
+            set {
+                this["Window_DOFs_IsOpen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_DOFs_Position_X {
+            get {
+                return ((float)(this["Window_DOFs_Position_X"]));
+            }
+            set {
+                this["Window_DOFs_Position_X"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_DOFs_Position_Y {
+            get {
+                return ((float)(this["Window_DOFs_Position_Y"]));
+            }
+            set {
+                this["Window_DOFs_Position_Y"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Window_MotionControl_IsOpen {
+            get {
+                return ((bool)(this["Window_MotionControl_IsOpen"]));
+            }
+            set {
+                this["Window_MotionControl_IsOpen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_MotionControl_Position_X {
+            get {
+                return ((float)(this["Window_MotionControl_Position_X"]));
+            }
+            set {
+                this["Window_MotionControl_Position_X"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_MotionControl_Position_Y {
+            get {
+                return ((float)(this["Window_MotionControl_Position_Y"]));
+            }
+            set {
+                this["Window_MotionControl_Position_Y"] = value;
             }
         }
     }

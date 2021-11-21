@@ -249,6 +249,19 @@ namespace MOTUS.ViewModel
                 OnPropertyChanged("COUNTER");
             }
         }
+        string _sim;
+        public string SIM
+        {
+            get
+            {
+                return _sim;
+            }
+            set
+            {
+                _sim = value;
+                OnPropertyChanged("SIM");
+            }
+        }
 
 
         public ViewModel_RawData(Engine e)

@@ -15,7 +15,7 @@ namespace MOTUS.Model
             engine = e;
         }
         //------------------Load stuff:------------------------
-        public void LoadSettingsFromApplication()
+        public void LoadEngineSettingsFromApplication()
         {
             LoadCrashDetectorThresholds();
             LoadPositionOffsetCorrectionSettings();
@@ -26,7 +26,6 @@ namespace MOTUS.Model
             LoadZeromakerSettings();
             LoadRigConfiguration();
         }
-
         private void LoadCrashDetectorThresholds()
         {
             var defaults = Properties.Settings.Default;
@@ -151,23 +150,17 @@ namespace MOTUS.Model
         }
         private void LoadRigConfiguration()
         {
-            //var defaults = Properties.Settings.Default;
-            //var integrator = mainwindow.postprocessor.integrator;
-            //var actuatorsystem = mainwindow.postprocessor.actuatorsystem;
+            var defaults = Properties.Settings.Default;
 
-            //integrator.UpperPoints.Dist_A = defaults.RigConfiguration_Upper_DistA;
-            //integrator.UpperPoints.Dist_B = defaults.RigConfiguration_Upper_DistB;
-            //integrator.LowerPoints.Dist_A = defaults.RigConfiguration_Lower_DistA;
-            //integrator.LowerPoints.Dist_B = defaults.RigConfiguration_Lower_DistB;
-            //actuatorsystem.MaxLength = defaults.RigConfiguration_Actuators_MaxLength;
-            //actuatorsystem.MinLength = defaults.RigConfiguration_Actuators_MinLength;
-
-            //integrator.Plat_Fix_Park.Offset_Z = defaults.RigConfiguration_ParkPosition_Height;
-            //integrator.Plat_Fix_Pause.Offset_Z = defaults.RigConfiguration_PausePosition_Height;
-
-            ////Detour via the ViewModel, because the value must be updated in TWO places 
-            //integrator.VM_RigConfig.CoR_Offset_Z = defaults.RigConfiguration_CoR_Offset;
-
+            engine.integrator.Offset_Park       = defaults.Integrator_OffsetPark;
+            engine.integrator.Offset_Pause      = defaults.Integrator_OffsetPause;
+            engine.integrator.Offset_CoR        = defaults.Integrator_OffsetCoR;
+            engine.integrator.Dist_A_Upper      = defaults.Dist_A_Upper;
+            engine.integrator.Dist_B_Upper      = defaults.Dist_B_Upper;
+            engine.integrator.Dist_A_Lower      = defaults.Dist_A_Lower;
+            engine.integrator.Dist_B_Lower      = defaults.Dist_B_Lower;
+            engine.actuatorsystem.MaxLength     = defaults.ActuatorSystem_MaxLength;
+            engine.actuatorsystem.MinLength     = defaults.ActuatorSystem_MinLength;
         }
 
         //----------------Save stuff:-----------------------
@@ -307,22 +300,19 @@ namespace MOTUS.Model
         }
         private void SaveRigConfiguration()
         {
-            //var defaults = Properties.Settings.Default;
-            //var integrator = mainwindow.postprocessor.integrator;
-            //var actuatorsystem = mainwindow.postprocessor.actuatorsystem;
+            var defaults = Properties.Settings.Default;
+            var integrator = engine.integrator;
 
-            //defaults.RigConfiguration_Upper_DistA = integrator.UpperPoints.Dist_A;
-            //defaults.RigConfiguration_Upper_DistB = integrator.UpperPoints.Dist_B;
-            //defaults.RigConfiguration_Lower_DistA = integrator.LowerPoints.Dist_A;
-            //defaults.RigConfiguration_Lower_DistB = integrator.LowerPoints.Dist_B;
-            //defaults.RigConfiguration_Actuators_MaxLength = (int)actuatorsystem.MaxLength;
-            //defaults.RigConfiguration_Actuators_MinLength = (int)actuatorsystem.MinLength;
+            defaults.Integrator_OffsetPark      = engine.integrator.Offset_Park;
+            defaults.Integrator_OffsetPause     = engine.integrator.Offset_Pause;
+            defaults.Integrator_OffsetCoR       = engine.integrator.Offset_CoR;
+            defaults.Dist_A_Upper               = engine.integrator.Dist_A_Upper;
+            defaults.Dist_B_Upper               = engine.integrator.Dist_B_Upper;
+            defaults.Dist_A_Lower               = engine.integrator.Dist_A_Lower;
+            defaults.Dist_B_Lower               = engine.integrator.Dist_B_Lower;
+            defaults.ActuatorSystem_MaxLength   = engine.actuatorsystem.MaxLength;
+            defaults.ActuatorSystem_MinLength   = engine.actuatorsystem.MinLength;
 
-            //defaults.RigConfiguration_ParkPosition_Height = (int)integrator.Plat_Fix_Park.Offset_Z;
-            //defaults.RigConfiguration_PausePosition_Height = (int)integrator.Plat_Fix_Pause.Offset_Z;
-
-            ////Detour via the ViewModel, because the value must be updated in TWO places 
-            //defaults.RigConfiguration_CoR_Offset = integrator.VM_RigConfig.CoR_Offset_Z;
         }
     }
 }

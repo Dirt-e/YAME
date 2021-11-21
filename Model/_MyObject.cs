@@ -23,7 +23,6 @@ namespace MOTUS.Model
                 Debug.WriteLine("This damn exception!!!");
                 //Ignore :-)
             }
-            
         }
     }
 }
