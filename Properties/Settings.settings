@@ -219,10 +219,10 @@
       <Value Profile="(Default)">300</Value>
     </Setting>
     <Setting Name="Dist_A_Upper" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">1000</Value>
     </Setting>
     <Setting Name="Dist_B_Upper" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">1000</Value>
+      <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="Dist_A_Lower" Type="System.Single" Scope="User">
       <Value Profile="(Default)">100</Value>

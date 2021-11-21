@@ -165,3 +165,5 @@ D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Debug\MOTUS.csproj.CoreCompileInputs.cac
 D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Debug\MOTUS.csproj.CopyComplete
 D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Debug\MOTUS.exe
 D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Debug\MOTUS.pdb
+D:\OneDrive\Frank - PC\GitHub\MOTUS\bin\Debug\HelixToolkit.dll
+D:\OneDrive\Frank - PC\GitHub\MOTUS\bin\Debug\HelixToolkit.Wpf.dll

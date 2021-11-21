@@ -889,7 +889,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
         public float Dist_A_Upper {
             get {
                 return ((float)(this["Dist_A_Upper"]));
@@ -901,7 +901,7 @@ namespace MOTUS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public float Dist_B_Upper {
             get {
                 return ((float)(this["Dist_B_Upper"]));
