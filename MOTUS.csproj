@@ -75,7 +75,7 @@
     <Compile Include="DataFomats\FilterData.cs" />
     <Compile Include="Model\DOF_Override.cs" />
     <Compile Include="Model\Fader.cs" />
-    <Compile Include="Model\Fader_ThreeWay.cs" />
+    <Compile Include="Model\Fader_3Way.cs" />
     <Compile Include="Model\HighPassNthOrder.cs" />
     <Compile Include="Model\Integrator.cs" />
     <Compile Include="Model\LoaderSaver.cs" />

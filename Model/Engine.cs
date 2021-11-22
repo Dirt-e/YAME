@@ -33,6 +33,7 @@ namespace MOTUS.Model
         public ZeroMaker                zeromaker;
         public DOF_Override             dof_override;
         public Integrator               integrator;
+        public Fader_3Way               fader_3way;
         public ActuatorSystem           actuatorsystem;
         //...
         //...
@@ -95,7 +96,7 @@ namespace MOTUS.Model
                     {
                         UpdateObjects();
                         MeasureLoopTime();
-                        //Thread.Sleep(4);
+                        Thread.Sleep(4);
                     }
                 };
                 backgroundworker.RunWorkerAsync();
@@ -123,6 +124,7 @@ namespace MOTUS.Model
             dof_override            = new DOF_Override();
             loadersaver             = new LoaderSaver(this);
             integrator              = new Integrator();
+            fader_3way              = new Fader_3Way();  
             actuatorsystem          = new ActuatorSystem();
             //...
             //...
@@ -143,7 +145,8 @@ namespace MOTUS.Model
             Update_ZeroMaker();
             Update_DOF_Override();
             Update_Integrator();
-            UpdateActuatorSystem();
+            Update_Fader3Way();
+            Update_ActuatorSystem();
 
             //TestCode:
             
@@ -259,7 +262,14 @@ namespace MOTUS.Model
         {
             integrator.Process(dof_override.Output);
         }
-        private void UpdateActuatorSystem()
+        private void Update_Fader3Way()
+        {
+            fader_3way.Update(  integrator.Plat_Park.Transform,
+                                integrator.Plat_Pause.Transform,
+                                integrator.Plat_Motion.Transform    );
+        }
+
+        private void Update_ActuatorSystem()
         {
             actuatorsystem.Update();
         }

@@ -73,7 +73,7 @@ namespace MOTUS.Model
         }
         #endregion
 
-        public Fader_Threeway Fader_3Way;
+        public Fader_3Way Fader_3Way;
         float fade_duration_ParkToPause_seconds = 5;
         float fade_duration_PauseToMotion_seconds = 5;
 
@@ -108,7 +108,7 @@ namespace MOTUS.Model
             Plat_Float_Physical = new MyTransform();
             UpperPoints = new ConnectingPoints();
 
-            Fader_3Way = new Fader_Threeway(    TimeSpan.FromSeconds(fade_duration_ParkToPause_seconds),
+            Fader_3Way = new Fader_3Way(    TimeSpan.FromSeconds(fade_duration_ParkToPause_seconds),
                                                 TimeSpan.FromSeconds(fade_duration_PauseToMotion_seconds));
 
             EstablishHierarchy();
@@ -173,8 +173,6 @@ namespace MOTUS.Model
             Plat_Motion.SetTranslation( 0,
                                         0,
                                         -Offset_CoR                      );
-
-            UpdateUI_ViaDispatcherInvoke();
         }
 
 
@@ -219,6 +217,9 @@ namespace MOTUS.Model
         private delegate void UpdateViewModel_Callback(Matrix_Struct Mx);
         private void UpdateViewModel(Matrix_Struct Mx)
         {
+            //This code runs on the Main thread!
+            //The integrator draws only the airplane symbols (not visible in normal ops).
+            //The ActuatorSystem is responsibe for drawing the actuators!!!
             var mainwindow = Application.Current.MainWindow as MainWindow;
             if (mainwindow != null)
             {
@@ -268,9 +269,6 @@ namespace MOTUS.Model
                                                                         Mx.Mx_UpperPoints_6.OffsetY,
                                                                         Mx.Mx_UpperPoints_6.OffsetZ);
             }
-
-
-
         } 
         #endregion
     }

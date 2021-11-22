@@ -8,8 +8,10 @@ using System.Windows.Media.Media3D;
 
 namespace MOTUS.Model
 {
-    public class Fader_Threeway
+    public class Fader_3Way
     {
+        public Transform3D Output { get; set; }
+
         public Fader Fader_ParkPause = new Fader();
         public Fader Fader_PauseMotion = new Fader();
 
@@ -63,13 +65,13 @@ namespace MOTUS.Model
             }
         }
 
-        public Fader_Threeway()
+        public Fader_3Way()
         {
             Fader_ParkPause.Duration = TimeSpan.FromSeconds(5);
             Fader_PauseMotion.Duration = TimeSpan.FromSeconds(5);
             SetToA();
         }
-        public Fader_Threeway(TimeSpan time_AB, TimeSpan time_BC)
+        public Fader_3Way(TimeSpan time_AB, TimeSpan time_BC)
         {
             Fader_ParkPause.Duration = time_AB;
             Fader_PauseMotion.Duration = time_BC;
@@ -92,10 +94,12 @@ namespace MOTUS.Model
             Fader_PauseMotion.ResetTo_One();
         }
 
-        public void Update()
+        public void Update(Transform3D TF1, Transform3D TF2, Transform3D TF3)
         {
             Fader_ParkPause.Update();
             Fader_PauseMotion.Update();
+
+            Output = CreateInperpolation(TF1, TF2, TF3);
         }
 
         public Transform3D CreateInperpolation(Transform3D tf1, Transform3D tf2, Transform3D tf3)
@@ -106,7 +110,7 @@ namespace MOTUS.Model
             return TF_ABC;
         }
     }
-
+   
     public enum Fader3_State
     {
         Park,
