@@ -8,10 +8,10 @@ using System.Windows.Media.Media3D;
 
 namespace MOTUS.Model
 {
-    public class Fader
+    public class Lerp
     {
         public TimeSpan Duration { get; set; }
-        public FadeOverMethod Method { get; set; } = FadeOverMethod.Cosine;
+        public LerpOverMethod Method { get; set; } = LerpOverMethod.Cosine;
         Stopwatch stopwatch = new Stopwatch();
         float Deltatime;
 
@@ -22,12 +22,12 @@ namespace MOTUS.Model
         public bool Direction { get; set; } = true;
 
         //Constructor:
-        public Fader()
+        public Lerp()
         {
             Duration = TimeSpan.FromMilliseconds(5000);
             stopwatch.Start();
         }
-        public Fader(int ms)
+        public Lerp(int ms)
         {
             Duration = TimeSpan.FromMilliseconds(ms);
             stopwatch.Start();
@@ -35,6 +35,8 @@ namespace MOTUS.Model
 
         public void Update()
         {
+            Console.WriteLine(_ratio_internal);
+
             DetermineDeltaTime();
 
             if (IsRunning)
@@ -46,16 +48,16 @@ namespace MOTUS.Model
 
                 switch (Method)
                 {
-                    case FadeOverMethod.linear:
+                    case LerpOverMethod.linear:
                         Ratio_external = _ratio_internal;
                         break;
-                    case FadeOverMethod.Cosine:
+                    case LerpOverMethod.Cosine:
                         Ratio_external = Utility.CosInterpolation(_ratio_internal);
                         break;
-                    case FadeOverMethod.SmoothStep:
+                    case LerpOverMethod.SmoothStep:
                         Ratio_external = Utility.SmoothStep(_ratio_internal);
                         break;
-                    case FadeOverMethod.PerlinSmoothStep:
+                    case LerpOverMethod.PerlinSmoothStep:
                         Ratio_external = Utility.PerlinSmoothStep(_ratio_internal);
                         break;
                     default:
@@ -116,7 +118,7 @@ namespace MOTUS.Model
     }
 
 
-    public enum FadeOverMethod
+    public enum LerpOverMethod
     {
         linear,
         Cosine,

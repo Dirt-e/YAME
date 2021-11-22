@@ -26,12 +26,13 @@ namespace MOTUS
 
         RawDataWindow           rawDataWindow;
         CrashDetectorWindow     crashDetectorWindow;
-        PositionCorrectorWindow positionCorrectorWindow;
+        PositionCorrector_Window positionCorrectorWindow;
         AlphaCompensationWindow alphaCompensationWindow;
         FiltersWindow           filtersWindow;
         DOF_Window              dof_window;
         SceneViewWindow         sceneViewWindow;
         RigConfigWindow         rigConfigWindow;
+        MotionControl_Window    motionControlWindow;
 
         public MainWindow()
         {
@@ -162,7 +163,7 @@ namespace MOTUS
 
         private void mnuPositionCorrection_Checked(object sender, RoutedEventArgs e)
         {
-            positionCorrectorWindow = new PositionCorrectorWindow();
+            positionCorrectorWindow = new PositionCorrector_Window();
             positionCorrectorWindow.Owner = this;
             positionCorrectorWindow.Name = "PositionCorrectorWindow";
             positionCorrectorWindow.Show();
@@ -246,14 +247,14 @@ namespace MOTUS
 
         private void mnuMotionControl_Checked(object sender, RoutedEventArgs e)
         {
-            //motionControlWindow = new MotionControlWindow();
-            //motionControlWindow.Owner = this;
-            //motionControlWindow.Name = "MotionControlWindow";
-            //motionControlWindow.Show();
+            motionControlWindow = new MotionControl_Window();
+            motionControlWindow.Owner = this;
+            motionControlWindow.Name = "MotionControlWindow";
+            motionControlWindow.Show();
         }
         private void mnuMotionControl_Unchecked(object sender, RoutedEventArgs e)
         {
-            //motionControlWindow.Close();
+            motionControlWindow.Close();
         }
 
         private void btn_Test_Click(object sender, RoutedEventArgs e)

@@ -74,15 +74,16 @@
     <Compile Include="Model\CrashDetector.cs" />
     <Compile Include="DataFomats\FilterData.cs" />
     <Compile Include="Model\DOF_Override.cs" />
-    <Compile Include="Model\Fader.cs" />
-    <Compile Include="Model\Fader_3Way.cs" />
+    <Compile Include="Model\Lerp.cs" />
+    <Compile Include="Model\Lerp_3Way.cs" />
     <Compile Include="Model\HighPassNthOrder.cs" />
     <Compile Include="Model\Integrator.cs" />
     <Compile Include="Model\LoaderSaver.cs" />
     <Compile Include="Model\MyTransform.cs" />
     <Compile Include="Model\ScalerModule.cs" />
     <Compile Include="Model\ScalerSystem.cs" />
-    <Compile Include="Model\Structs\Matrix_Struct.cs" />
+    <Compile Include="Model\Structs\ConnectingPoints_Struct.cs" />
+    <Compile Include="Model\Structs\Platforms_Struct.cs" />
     <Compile Include="Model\ZeroMaker.cs" />
     <Compile Include="Model\_Filter.cs" />
     <Compile Include="Model\FilterSystem.cs" />
@@ -116,6 +117,9 @@
     <Compile Include="View\EnumBindingSourceExtension.cs" />
     <Compile Include="View\FiltersWindow.xaml.cs">
       <DependentUpon>FiltersWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MotionControl_Window.xaml.cs">
+      <DependentUpon>MotionControl_Window.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PositionCorrectorWindow.xaml.cs">
       <DependentUpon>PositionCorrectorWindow.xaml</DependentUpon>
@@ -169,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\FiltersWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MotionControl_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

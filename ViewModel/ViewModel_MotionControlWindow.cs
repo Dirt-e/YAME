@@ -12,6 +12,11 @@ namespace MOTUS.ViewModel
 {
     public class ViewModel_MotionControlWindow : _ViewModel
     {
+        public ViewModel_MotionControlWindow(Engine e)
+        {
+            engine = e;
+        }
+
         SolidColorBrush _btnMotionColor = new SolidColorBrush(Colors.DimGray);
         public SolidColorBrush BtnMotionColor
         {
@@ -81,87 +86,5 @@ namespace MOTUS.ViewModel
             }
         }
 
-        //These determine everything:
-        bool _inmotionposition = false;
-        public bool InMotionPosition
-        {
-            get { return _inmotionposition; }
-            set
-            {
-                _inmotionposition = value;
-
-                BtnMotion_ForegroundColor = new SolidColorBrush(Colors.LightGreen);
-                BtnPause_ForegroundColor = new SolidColorBrush(Colors.Black);
-                BtnPark_ForegroundColor = new SolidColorBrush(Colors.Black);
-
-                CursorMotion = Cursors.Arrow;
-                CursorPause = Cursors.Hand;
-                CursorPark = Cursors.No;
-
-                OnPropertyChanged("InMotionPosition");
-            }
-        }
-        bool _inpauseposition = false;
-        public bool InPausePosition
-        {
-            get { return _inpauseposition; }
-            set
-            {
-                _inpauseposition = value;
-
-                BtnMotion_ForegroundColor = new SolidColorBrush(Colors.Black);
-                BtnPause_ForegroundColor = new SolidColorBrush(Colors.LightGreen);
-                BtnPark_ForegroundColor = new SolidColorBrush(Colors.Black);
-
-                CursorMotion = Cursors.Hand;
-                CursorPause = Cursors.Arrow;
-                CursorPark = Cursors.Hand;
-
-                OnPropertyChanged("InPausePosition");
-            }
-        }
-        bool _inparkposition = true;
-        public bool InParkPosition
-        {
-            get { return _inparkposition; }
-            set
-            {
-                _inparkposition = value;
-
-                BtnMotion_ForegroundColor = new SolidColorBrush(Colors.Black);
-                BtnPause_ForegroundColor = new SolidColorBrush(Colors.Black);
-                BtnPark_ForegroundColor = new SolidColorBrush(Colors.LightGreen);
-
-                CursorMotion = Cursors.No;
-                CursorPause = Cursors.Hand;
-                CursorPark = Cursors.Arrow;
-
-                OnPropertyChanged("InParkPosition");
-            }
-        }
-        bool _intransit = true;
-        public bool InTransit
-        {
-            get { return _intransit; }
-            set
-            {
-                _intransit = value;
-
-                BtnMotion_ForegroundColor = new SolidColorBrush(Colors.DarkOrange);
-                BtnPause_ForegroundColor = new SolidColorBrush(Colors.DarkOrange);
-                BtnPark_ForegroundColor = new SolidColorBrush(Colors.DarkOrange);
-
-                CursorMotion = Cursors.Wait;
-                CursorPause = Cursors.Wait;
-                CursorPark = Cursors.Wait;
-
-                OnPropertyChanged("InTransit");
-            }
-        }
-
-        public ViewModel_MotionControlWindow(Engine e)
-        {
-            base.engine = e;
-        }
     }
 }

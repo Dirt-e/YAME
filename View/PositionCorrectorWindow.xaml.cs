@@ -14,9 +14,9 @@ using System.Windows.Shapes;
 
 namespace MOTUS.View
 {
-    public partial class PositionCorrectorWindow : Window
+    public partial class PositionCorrector_Window : Window
     {
-        public PositionCorrectorWindow()
+        public PositionCorrector_Window()
         {
             InitializeComponent();
             DataContext = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine.VM_PositionOffsetCorrector;

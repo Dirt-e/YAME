@@ -1,0 +1,46 @@
+﻿<Window x:Class="MOTUS.View.MotionControl_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MOTUS.View"
+        mc:Ignorable="d"
+        Title="MotionControl_Window" Height="300" Width="200"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown" Loaded="Window_Loaded" Closing="Window_Closing"
+        Style="{StaticResource ChildWindow_Style}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5"></ColumnDefinition>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+
+
+
+        <TextBlock Text="Motion Control:" FontSize="15" FontWeight="Bold"
+                   Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Left"/>
+        <StackPanel Grid.Column="1" Grid.Row="2">
+            <Button x:Name="btn_motion" Content="Motion"
+                    Foreground="{Binding BtnMotion_ForegroundColor}" Background="{Binding BtnMotionColor}"
+                    Style="{StaticResource Button_NoHighlight}" Cursor="{Binding CursorMotion}"
+                    Width="100" Height="25" Margin="2"
+                    Click="btn_motion_Click"/>
+            <Button x:Name="btn_pause"  Content="Pause"
+                    Foreground="{Binding BtnPause_ForegroundColor}" Background="{Binding BtnPauseColor}"
+                    Style="{StaticResource Button_NoHighlight}" Cursor="{Binding CursorPause}"
+                    Width="100" Height="25" Margin="2"
+                    Click="btn_pause_Click"/>
+            <Button x:Name="btn_park"   Content="Park"
+                    Foreground="{Binding BtnPark_ForegroundColor}" Background="{Binding BtnParkColor}"
+                    Style="{StaticResource Button_NoHighlight}" Cursor="{Binding CursorPark}"
+                    Width="100" Height="25" Margin="2"
+                    Click="btn_park_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
