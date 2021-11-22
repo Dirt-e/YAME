@@ -99,10 +99,10 @@ namespace MOTUS.Model
             Lerp_ParkPause.Update();
             Lerp_PauseMotion.Update();
 
-            Output = CreateInperpolation(TF1, TF2, TF3);
+            Output = CreateInterpolation(TF1, TF2, TF3);
         }
 
-        private Transform3D CreateInperpolation(Transform3D tf1, Transform3D tf2, Transform3D tf3)
+        private Transform3D CreateInterpolation(Transform3D tf1, Transform3D tf2, Transform3D tf3)
         {                                               //Park              Pause           Motion
             Transform3D TF_AB = Utility.Lerp(tf1, tf2, Lerp_ParkPause.Ratio_external);
             Transform3D TF_ABC = Utility.Lerp(TF_AB, tf3, Lerp_PauseMotion.Ratio_external);
