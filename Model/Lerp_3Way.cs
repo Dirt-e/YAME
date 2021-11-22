@@ -68,12 +68,18 @@ namespace MOTUS.Model
             Lerp_ParkPause.Duration = TimeSpan.FromSeconds(5);
             Lerp_PauseMotion.Duration = TimeSpan.FromSeconds(5);
             SetToA();
+            //Just switch a cycle to make sure the State gets Updated at first Startup
+            State = Lerp3_State.Dummy;
+            State = Lerp3_State.Park;
         }
         public Lerp_3Way(TimeSpan time_AB, TimeSpan time_BC)
         {
             Lerp_ParkPause.Duration = time_AB;
             Lerp_PauseMotion.Duration = time_BC;
             SetToA();
+            //Just switch a cycle to make sure the State gets Updated at first Startup
+            State = Lerp3_State.Dummy;
+            State = Lerp3_State.Park;
         }
 
         public void SetToA()
@@ -150,7 +156,7 @@ namespace MOTUS.Model
         Park,
         Pause,
         Motion,
-        Transit,
+        Dummy,
         Transit_ParkPause,
         Transit_PauseMotion
     }

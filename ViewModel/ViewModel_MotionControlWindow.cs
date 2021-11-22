@@ -12,6 +12,7 @@ namespace MOTUS.ViewModel
 {
     public class ViewModel_MotionControlWindow : _ViewModel
     {
+        //Logic:
         Lerp3_State _state; 
         public Lerp3_State State
         {
@@ -23,28 +24,70 @@ namespace MOTUS.ViewModel
                     _state = value;
                     OnPropertyChanged("State");
 
-                    switch (State)
+                    switch (value)
                     {
                         case Lerp3_State.Park:
+                            BtnMotion_ForegroundColor = new SolidColorBrush(Colors.Black);
+                            BtnPause_ForegroundColor = new SolidColorBrush(Colors.Black);
+                            BtnPark_ForegroundColor = new SolidColorBrush(Colors.LightGreen);
+                            CursorMotion = Cursors.No;
+                            CursorPause = Cursors.Hand;
+                            CursorPark = Cursors.Arrow;
                             break;
+
                         case Lerp3_State.Pause:
+                            BtnMotion_ForegroundColor = new SolidColorBrush(Colors.Black);
+                            BtnPause_ForegroundColor = new SolidColorBrush(Colors.LightGreen);
+                            BtnPark_ForegroundColor = new SolidColorBrush(Colors.Black);
+                            CursorMotion = Cursors.Hand;
+                            CursorPause = Cursors.Arrow;
+                            CursorPark = Cursors.Hand;
                             break;
+
                         case Lerp3_State.Motion:
+                            BtnMotion_ForegroundColor = new SolidColorBrush(Colors.LightGreen);
+                            BtnPause_ForegroundColor = new SolidColorBrush(Colors.Black);
+                            BtnPark_ForegroundColor = new SolidColorBrush(Colors.Black);
+                            CursorMotion = Cursors.Arrow;
+                            CursorPause = Cursors.Hand;
+                            CursorPark = Cursors.No;
                             break;
-                        case Lerp3_State.Transit:
-                            break;
+
                         case Lerp3_State.Transit_ParkPause:
+                            BtnMotion_ForegroundColor = new SolidColorBrush(Colors.Black);
+                            BtnPause_ForegroundColor = new SolidColorBrush(Colors.DarkOrange);
+                            BtnPark_ForegroundColor = new SolidColorBrush(Colors.DarkOrange);
+                            CursorMotion = Cursors.No;
+                            CursorPause = Cursors.No;
+                            CursorPark = Cursors.No;
                             break;
+
                         case Lerp3_State.Transit_PauseMotion:
+                            BtnMotion_ForegroundColor = new SolidColorBrush(Colors.DarkOrange);
+                            BtnPause_ForegroundColor = new SolidColorBrush(Colors.DarkOrange);
+                            BtnPark_ForegroundColor = new SolidColorBrush(Colors.Black);
+                            CursorMotion = Cursors.No;
+                            CursorPause = Cursors.No;
+                            CursorPark = Cursors.No;
                             break;
+
+                        case Lerp3_State.Dummy:
+                            BtnMotion_ForegroundColor = new SolidColorBrush(Colors.Black);
+                            BtnPause_ForegroundColor = new SolidColorBrush(Colors.Black);
+                            BtnPark_ForegroundColor = new SolidColorBrush(Colors.Black);
+                            CursorMotion = Cursors.No;
+                            CursorPause = Cursors.No;
+                            CursorPark = Cursors.No;
+                            break;
+
                         default:
                             break;
                     }
                 }
             }
-            //set { _state = value; OnPropertyChanged(nameof(State)); }  //Try this some time!!!
         }
 
+        //ViewModel:
         SolidColorBrush _btnMotionColor = new SolidColorBrush(Colors.DimGray);
         public SolidColorBrush BtnMotionColor
         {
@@ -64,7 +107,7 @@ namespace MOTUS.ViewModel
             set { _btnParkColor = value; OnPropertyChanged("BtnParkColor"); }
         }
 
-        SolidColorBrush _btnMotion_ForegroundColor = new SolidColorBrush(Colors.DimGray);
+        SolidColorBrush _btnMotion_ForegroundColor = new SolidColorBrush(Colors.Black);
         public SolidColorBrush BtnMotion_ForegroundColor
         {
             get { return _btnMotion_ForegroundColor; }
