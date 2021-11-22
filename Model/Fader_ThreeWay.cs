@@ -8,123 +8,118 @@ using System.Windows.Media.Media3D;
 
 namespace MOTUS.Model
 {
-    public class Fader_Threeway : MyObject
+    public class Fader_Threeway
     {
-        public Fader Fader_AB = new Fader();
-        public Fader Fader_BC = new Fader();
+        public Fader Fader_ParkPause = new Fader();
+        public Fader Fader_PauseMotion = new Fader();
 
-        FaderState _state;
-        public FaderState State
+        public Fader3_State State
         {
             get
             {
-                return _state;
+                //Steady state:
+                if      (Fader_ParkPause.Ratio_external == 0 && Fader_PauseMotion.Ratio_external == 0) { return Fader3_State.Park; }
+                else if (Fader_ParkPause.Ratio_external == 1 && Fader_PauseMotion.Ratio_external == 0) { return Fader3_State.Pause; }
+                else if (Fader_ParkPause.Ratio_external == 1 && Fader_PauseMotion.Ratio_external == 1) { return Fader3_State.Motion; }
+
+                //All other cases must be Transit states
+                else if (Fader_PauseMotion.Ratio_external == 0) { return Fader3_State.Transit_ParkPause; }
+                else if (Fader_ParkPause.Ratio_external == 1) { return Fader3_State.Transit_PauseMotion; }
+
+                //This should never happen:
+                else { throw new Exception(); }
             }
+        }
+
+        Fader3_Command _command;
+        public Fader3_Command Command
+        {
+            get { return _command; }
             set
             {
-                _state = value;
-                OnPropertyChanged("State");
+                if (value != _command)
+                {
+                    _command = value;
+                    switch (value)
+                    {
+                        case Fader3_Command.Park:
+                            if (State == Fader3_State.Pause) { Fader_ParkPause.Run(); }
+                            break;
+
+                        case Fader3_Command.Pause:
+                            if (State == Fader3_State.Park) { Fader_ParkPause.Run(); }
+                            else if (State == Fader3_State.Motion) { Fader_PauseMotion.Run(); }
+                            break;
+
+                        case Fader3_Command.Motion:
+                            if (State == Fader3_State.Pause) { Fader_PauseMotion.Run(); }
+                            break;
+
+                        default:
+                            throw new Exception();
+                    }
+                }
+
             }
         }
 
-        public Fader_Threeway(TimeSpan time_AB, TimeSpan time_BC)
+        public Fader_Threeway()
         {
-            Fader_AB.Duration = time_AB;
-            Fader_BC.Duration = time_BC;
+            Fader_ParkPause.Duration = TimeSpan.FromSeconds(5);
+            Fader_PauseMotion.Duration = TimeSpan.FromSeconds(5);
             SetToA();
         }
-
-        public void OnPressA()
+        public Fader_Threeway(TimeSpan time_AB, TimeSpan time_BC)
         {
-            if (State == FaderState.B)
-            {
-                Fader_AB.Run();
-                State = FaderState.InTransit;
-            }
-        }
-        public void OnPressB()
-        {
-            if (State == FaderState.A) { Fader_AB.Run(); }
-            else if (State == FaderState.C) { Fader_BC.Run(); }
-        }
-        public void OnPressC()
-        {
-            if (State == FaderState.B) { Fader_BC.Run(); }
+            Fader_ParkPause.Duration = time_AB;
+            Fader_PauseMotion.Duration = time_BC;
+            SetToA();
         }
 
         public void SetToA()
         {
-            Fader_AB.ResetTo_Zero();
-            Fader_BC.ResetTo_Zero();
+            Fader_ParkPause.ResetTo_Zero();
+            Fader_PauseMotion.ResetTo_Zero();
         }
         public void SetToB()
         {
-            Fader_AB.ResetTo_One();
-            Fader_BC.ResetTo_Zero();
+            Fader_ParkPause.ResetTo_One();
+            Fader_PauseMotion.ResetTo_Zero();
         }
         public void SetToC()
         {
-            Fader_AB.ResetTo_One();
-            Fader_BC.ResetTo_One();
-        }
-
-        public Transform3D CreateInperpolation(Transform3D tf1, Transform3D tf2, Transform3D tf3)
-        {                                               //Park              Pause           Motion
-            Transform3D TF_AB = Utility.Lerp(tf1, tf2, Fader_AB.Ratio);
-            Transform3D TF_ABC = Utility.Lerp(TF_AB, tf3, Fader_BC.Ratio);
-
-            return TF_ABC;
+            Fader_ParkPause.ResetTo_One();
+            Fader_PauseMotion.ResetTo_One();
         }
 
         public void Update()
         {
-            DetrmineFaderStatus();
-            SetLightsInPanelMotionControl();
+            Fader_ParkPause.Update();
+            Fader_PauseMotion.Update();
         }
 
-        //Helpers:
-        private void DetrmineFaderStatus()
-        {
-            if (Fader_AB.Ratio == 0 && Fader_BC.Ratio == 0) { State = FaderState.A; }
-            else if (Fader_AB.Ratio == 1 && Fader_BC.Ratio == 0) { State = FaderState.B; }
-            else if (Fader_AB.Ratio == 1 && Fader_BC.Ratio == 1) { State = FaderState.C; }
+        public Transform3D CreateInperpolation(Transform3D tf1, Transform3D tf2, Transform3D tf3)
+        {                                               //Park              Pause           Motion
+            Transform3D TF_AB = Utility.Lerp(tf1, tf2, Fader_ParkPause.Ratio_external);
+            Transform3D TF_ABC = Utility.Lerp(TF_AB, tf3, Fader_PauseMotion.Ratio_external);
 
-            //All other cases must be Transit cases
-            else { State = FaderState.InTransit; }
+            return TF_ABC;
         }
-        private void SetLightsInPanelMotionControl()
-        {
-            //var ViewModel = engine.integrator.VM_MotionControl;
-
-            //switch (_state)
-            //{
-            //    case FaderState.A:
-            //        ViewModel.InParkPosition = true;
-            //        break;
-            //    case FaderState.B:
-            //        ViewModel.InPausePosition = true;
-            //        break;
-            //    case FaderState.C:
-            //        ViewModel.InMotionPosition = true;
-            //        break;
-            //    case FaderState.InTransit:
-            //        ViewModel.InTransit = true;
-            //        break;
-            //    default:
-            //        break;
-            //}
-
-        }
-
     }
 
-
-
-    public enum FaderState
+    public enum Fader3_State
     {
-        A,
-        B,
-        C,
-        InTransit
+        Park,
+        Pause,
+        Motion,
+        Transit,
+        Transit_ParkPause,
+        Transit_PauseMotion
+    }
+    public enum Fader3_Command
+    {
+        Park,
+        Pause,
+        Motion
     }
 }

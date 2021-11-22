@@ -176,6 +176,8 @@ namespace MOTUS.Model
 
             UpdateUI_ViaDispatcherInvoke();
         }
+
+
         private void UpdateUI_ViaDispatcherInvoke()
         {
             if (invoke_timer.ElapsedMilliseconds > 33)      //Update the UI only at ~30fps
@@ -212,7 +214,6 @@ namespace MOTUS.Model
             }
             
         }
-
 
         #region Callback
         private delegate void UpdateViewModel_Callback(Matrix_Struct Mx);

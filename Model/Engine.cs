@@ -95,7 +95,7 @@ namespace MOTUS.Model
                     {
                         UpdateObjects();
                         MeasureLoopTime();
-                        Thread.Sleep(4);
+                        //Thread.Sleep(4);
                     }
                 };
                 backgroundworker.RunWorkerAsync();
