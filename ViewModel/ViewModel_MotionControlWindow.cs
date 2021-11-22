@@ -12,9 +12,37 @@ namespace MOTUS.ViewModel
 {
     public class ViewModel_MotionControlWindow : _ViewModel
     {
-        public ViewModel_MotionControlWindow(Engine e)
+        Lerp3_State _state; 
+        public Lerp3_State State
         {
-            engine = e;
+            get { return _state; }
+            set
+            { 
+                if (_state != value)
+                {
+                    _state = value;
+                    OnPropertyChanged("State");
+
+                    switch (State)
+                    {
+                        case Lerp3_State.Park:
+                            break;
+                        case Lerp3_State.Pause:
+                            break;
+                        case Lerp3_State.Motion:
+                            break;
+                        case Lerp3_State.Transit:
+                            break;
+                        case Lerp3_State.Transit_ParkPause:
+                            break;
+                        case Lerp3_State.Transit_PauseMotion:
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            //set { _state = value; OnPropertyChanged(nameof(State)); }  //Try this some time!!!
         }
 
         SolidColorBrush _btnMotionColor = new SolidColorBrush(Colors.DimGray);
@@ -85,6 +113,5 @@ namespace MOTUS.ViewModel
                 OnPropertyChanged("CursorPark");
             }
         }
-
     }
 }

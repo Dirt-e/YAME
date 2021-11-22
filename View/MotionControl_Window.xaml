@@ -19,10 +19,6 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-
-
-
-
         <TextBlock Text="Motion Control:" FontSize="15" FontWeight="Bold"
                    Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Left"/>
         <StackPanel Grid.Column="1" Grid.Row="2">

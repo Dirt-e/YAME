@@ -73,7 +73,7 @@ namespace MOTUS.Model
             VM_CrashDetector            = new ViewModel_CrashDetector(this);
             VM_PositionOffsetCorrector  = new ViewModel_PositionOffsetCorrector(this);
             VM_FiltersWindow            = new ViewModel_FiltersWindow(this);
-            VM_MotionControlWindow      = new ViewModel_MotionControlWindow(this);
+            VM_MotionControlWindow      = new ViewModel_MotionControlWindow();
             VM_SceneView                = new ViewModel_Sceneview(this);
             //...
             //...
