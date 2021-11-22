@@ -35,8 +35,6 @@ namespace MOTUS.Model
 
         public void Update()
         {
-            Console.WriteLine(_ratio_internal);
-
             DetermineDeltaTime();
 
             if (IsRunning)
