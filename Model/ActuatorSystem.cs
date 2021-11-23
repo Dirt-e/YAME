@@ -57,7 +57,7 @@ namespace MOTUS.Model
             }
         }
 
-        public ActuatorSystem(IK_Module ikm)
+        public ActuatorSystem(ref IK_Module ikm)
         {
             IK_Module = ikm;
         }

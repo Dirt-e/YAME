@@ -35,6 +35,7 @@ namespace MOTUS.Model
         public Integrator               integrator;
         public IK_Module                IK_Module;
         public ActuatorSystem           actuatorsystem;
+        public SerialTalker             serialtalker;
         //...
         //...
         //...
@@ -125,7 +126,8 @@ namespace MOTUS.Model
             loadersaver             = new LoaderSaver(this);
             integrator              = new Integrator();
             IK_Module               = new IK_Module(ref integrator);
-            actuatorsystem          = new ActuatorSystem(IK_Module);
+            actuatorsystem          = new ActuatorSystem(ref IK_Module);
+            serialtalker            = new SerialTalker();
             //...
             //...
             //...
@@ -147,6 +149,7 @@ namespace MOTUS.Model
             Update_Integrator();
             Update_IK_Module();
             Update_ActuatorSystem();
+            Update_SerialTalker();
             //TestCode:
             
             //...
@@ -267,6 +270,10 @@ namespace MOTUS.Model
         private void Update_ActuatorSystem()
         {
             actuatorsystem.Update();
+        }
+        private void Update_SerialTalker()
+        {
+
         }
 
         //Helpers:
