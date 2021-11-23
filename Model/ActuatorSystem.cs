@@ -47,8 +47,14 @@ namespace MOTUS.Model
         public bool AllInLimits
         {
             get { return _allinlimits; }
-            private set { _allinlimits = value; OnPropertyChanged("AllInLimits"); }
-
+            private set
+            {
+                if (_allinlimits != value)
+                {
+                    _allinlimits = value; 
+                    OnPropertyChanged("AllInLimits"); 
+                }
+            }
         }
 
         public ActuatorSystem(IK_Module ikm)
@@ -69,6 +75,7 @@ namespace MOTUS.Model
                 act.MaxLength = MaxLength;
             }
             DetermineSystemStatus();
+            Console.WriteLine(AllInLimits);
         }
 
 

@@ -32,7 +32,7 @@ namespace MOTUS.Model
             }
         }
         float _currentlength;
-        public float CurrentLength           //This is essentially driving the whole object by calling "redraw()".
+        public float CurrentLength           //This is essentially driving the whole object by calling "redraw()"
         {
             get { return _currentlength; }
             set
@@ -71,10 +71,8 @@ namespace MOTUS.Model
         void redraw()
         {
             Extension = CurrentLength - MinLength;
-            Utilisation = DetermineUtilisation();
             Status = DetermineStatus();
-
-            Console.WriteLine(Utilisation);
+            Utilisation = DetermineUtilisation();
         }
 
         ActuatorStatus DetermineStatus()
@@ -90,6 +88,7 @@ namespace MOTUS.Model
             else if (Status == ActuatorStatus.TooShort)     return 0;
             else if ( Status == ActuatorStatus.TooLong)     return 1;
 
+            //This should never happen:
             throw new Exception("Unkown ActuatorStatus: " + Status);
         }
     }

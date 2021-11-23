@@ -311,8 +311,8 @@ namespace MOTUS.Model
             defaults.Dist_B_Upper = engine.integrator.Dist_B_Upper;
             defaults.Dist_A_Lower = engine.integrator.Dist_A_Lower;
             defaults.Dist_B_Lower = engine.integrator.Dist_B_Lower;
-            //defaults.ActuatorSystem_MaxLength = engine.integrator.ActuatorSystem.MaxLength;
-            //defaults.ActuatorSystem_MinLength = engine.integrator.ActuatorSystem.MinLength;
+            defaults.ActuatorSystem_MaxLength = engine.actuatorsystem.MaxLength;
+            defaults.ActuatorSystem_MinLength = engine.actuatorsystem.MinLength;
 
         }
     }
