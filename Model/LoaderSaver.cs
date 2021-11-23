@@ -26,6 +26,7 @@ namespace MOTUS.Model
             LoadZeromakerSettings();
             LoadRigConfiguration();
         }
+
         private void LoadCrashDetectorThresholds()
         {
             var defaults = Properties.Settings.Default;
@@ -152,15 +153,15 @@ namespace MOTUS.Model
         {
             var defaults = Properties.Settings.Default;
 
-            engine.integrator.Offset_Park                   = defaults.Integrator_OffsetPark;
-            engine.integrator.Offset_Pause                  = defaults.Integrator_OffsetPause;
-            engine.integrator.Offset_CoR                    = defaults.Integrator_OffsetCoR;
-            engine.integrator.Dist_A_Upper = defaults.Dist_A_Upper;
-            engine.integrator.Dist_B_Upper = defaults.Dist_B_Upper;
-            engine.integrator.Dist_A_Lower = defaults.Dist_A_Lower;
-            engine.integrator.Dist_B_Lower = defaults.Dist_B_Lower;
-            //engine.integrator.ActuatorSystem.MaxLength = defaults.ActuatorSystem_MaxLength;
-            //engine.integrator.ActuatorSystem.MinLength = defaults.ActuatorSystem_MinLength;
+            engine.integrator.Offset_Park   = defaults.Integrator_OffsetPark;
+            engine.integrator.Offset_Pause  = defaults.Integrator_OffsetPause;
+            engine.integrator.Offset_CoR    = defaults.Integrator_OffsetCoR;
+            engine.integrator.Dist_A_Upper  = defaults.Dist_A_Upper;
+            engine.integrator.Dist_B_Upper  = defaults.Dist_B_Upper;
+            engine.integrator.Dist_A_Lower  = defaults.Dist_A_Lower;
+            engine.integrator.Dist_B_Lower  = defaults.Dist_B_Lower;
+            engine.actuatorsystem.MaxLength = defaults.ActuatorSystem_MaxLength;
+            engine.actuatorsystem.MinLength = defaults.ActuatorSystem_MinLength;
         }
 
         //----------------Save stuff:-----------------------

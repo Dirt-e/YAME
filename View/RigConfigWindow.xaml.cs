@@ -30,7 +30,7 @@ namespace MOTUS.View
             txtbx_OffsetCoR.DataContext         = engine.integrator;
             border_UpperPlatform.DataContext    = engine.integrator;
             border_LowerPlatform.DataContext    = engine.integrator;
-            //border_Actuators.DataContext        = engine.integrator.ActuatorSystem;
+            border_Actuators.DataContext        = engine.actuatorsystem;
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

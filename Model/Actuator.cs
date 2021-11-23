@@ -47,11 +47,7 @@ namespace MOTUS.Model
         public float Stroke
         {
             get { return _stroke; }
-            private set
-            {
-                _stroke = value;
-                OnPropertyChanged("Stroke");
-            }
+            private set { _stroke = value; OnPropertyChanged("Stroke"); }
         }
         float _extension;
         public float Extension
@@ -76,21 +72,11 @@ namespace MOTUS.Model
         {
             Stroke = MaxLength - MinLength;
             Extension = CurrentLength - MinLength;
-            CalculateUtilisation();
+            Utilisation = Extension / Stroke;
+
             DetermineStatus();
         }
 
-        private void CalculateUtilisation()
-        {
-            if (0 <= Stroke)
-            {
-                Utilisation = Extension / Stroke;
-            }
-            else
-            {
-                throw new Exception("Actuator may not have a stroke of zero or less");
-            }
-        }
         void DetermineStatus()
         {
             if (MinLength <= CurrentLength && CurrentLength <= MaxLength)

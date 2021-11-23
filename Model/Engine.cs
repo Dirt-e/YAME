@@ -34,6 +34,7 @@ namespace MOTUS.Model
         public DOF_Override             dof_override;
         public Integrator               integrator;
         public IK_Module                IK_Module;
+        public ActuatorSystem           actuatorsystem;
         //...
         //...
         //...
@@ -124,6 +125,7 @@ namespace MOTUS.Model
             loadersaver             = new LoaderSaver(this);
             integrator              = new Integrator();
             IK_Module               = new IK_Module(ref integrator);
+            actuatorsystem          = new ActuatorSystem(ref IK_Module);
             //...
             //...
             //...
@@ -144,13 +146,13 @@ namespace MOTUS.Model
             Update_DOF_Override();
             Update_Integrator();
             Update_IK_Module();
+            Update_ActuatorSystem();
             //TestCode:
             
             //...
             //...
             //...
         }
-
 
         private void Update_Server()
         {
@@ -261,6 +263,10 @@ namespace MOTUS.Model
         private void Update_IK_Module()
         {
             IK_Module.Update();
+        }
+        private void Update_ActuatorSystem()
+        {
+            actuatorsystem.Update();
         }
 
         //Helpers:

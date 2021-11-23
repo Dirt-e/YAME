@@ -12,7 +12,7 @@ namespace MOTUS.Model
     {
         Integrator integrator;
 
-        public float[] IK_act_lengths= new float[6];
+        public float[] Lengths= new float[6];
 
         Point3D[] LP = new Point3D[6];
         Point3D[] UP = new Point3D[6];
@@ -46,10 +46,8 @@ namespace MOTUS.Model
             //...and then determie the distances between them:
             for (int i = 0; i < 6; i++)
             {
-                IK_act_lengths[i] = DistanceBetween(LP[i], UP[i]);
-                Console.Write(IK_act_lengths[i] + "\t");
+                Lengths[i] = DistanceBetween(LP[i], UP[i]);
             }
-            Console.WriteLine();
         }
     }
 }

@@ -17,6 +17,7 @@ namespace MOTUS.Model
             new Actuator(),
             new Actuator(),
         };
+        IK_Module IK_Module;
 
         //External:
         float _minlength;
@@ -50,9 +51,18 @@ namespace MOTUS.Model
 
         }
 
+        public ActuatorSystem(ref IK_Module ikm)
+        {
+            IK_Module = ikm;
+        }
+
         public void Update()
         {
-            DetermineStatus();
+            for (int i = 0; i < 6; i++)
+            {
+                Actuators[i].CurrentLength = IK_Module.Lengths[i];
+            }
+            DetermineSystemStatus();
         }
 
         public void redraw()
@@ -62,11 +72,11 @@ namespace MOTUS.Model
                 act.MinLength = MinLength;
                 act.MaxLength = MaxLength;
             }
-            DetermineStatus();
+            DetermineSystemStatus();
         }
 
         //Helpers:
-        void DetermineStatus()
+        void DetermineSystemStatus()
         {
             bool temp = true;                                       //Assume things are OK,....
 
