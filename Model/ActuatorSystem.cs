@@ -27,7 +27,7 @@ namespace MOTUS.Model
             set
             {
                 _minlength = Math.Min(MaxLength, value);
-                redraw();
+                //redraw();
                 OnPropertyChanged("MinLength");
             }
         }
@@ -38,7 +38,7 @@ namespace MOTUS.Model
             set
             {
                 _maxlength = Math.Max(MinLength, value);
-                redraw();
+                //redraw();
                 OnPropertyChanged("MaxLength");
             }
         }
@@ -51,7 +51,7 @@ namespace MOTUS.Model
 
         }
 
-        public ActuatorSystem(ref IK_Module ikm)
+        public ActuatorSystem(IK_Module ikm)
         {
             IK_Module = ikm;
         }
@@ -62,11 +62,7 @@ namespace MOTUS.Model
             {
                 Actuators[i].CurrentLength = IK_Module.Lengths[i];
             }
-            DetermineSystemStatus();
-        }
 
-        public void redraw()
-        {
             foreach (Actuator act in Actuators)
             {
                 act.MinLength = MinLength;
@@ -74,6 +70,7 @@ namespace MOTUS.Model
             }
             DetermineSystemStatus();
         }
+
 
         //Helpers:
         void DetermineSystemStatus()

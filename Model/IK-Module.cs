@@ -12,7 +12,7 @@ namespace MOTUS.Model
     {
         Integrator integrator;
 
-        public float[] Lengths= new float[6];
+        public float[] Lengths;
 
         Point3D[] LP = new Point3D[6];
         Point3D[] UP = new Point3D[6];
@@ -20,6 +20,7 @@ namespace MOTUS.Model
         public IK_Module(ref Integrator i)
         {
             integrator = i;
+            Lengths = new float[6];
         }
         public void Update()
         {

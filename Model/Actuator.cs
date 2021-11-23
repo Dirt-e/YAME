@@ -16,7 +16,7 @@ namespace MOTUS.Model
             set
             {
                 _minlength = value;
-                redraw();
+                Stroke = MaxLength - MinLength;
                 OnPropertyChanged("MinLength");
             }
         }
@@ -26,13 +26,13 @@ namespace MOTUS.Model
             get { return _maxlength; }
             set
             {
-                _maxlength = value; ;
-                redraw();
+                _maxlength = value;
+                Stroke = MaxLength - MinLength;
                 OnPropertyChanged("MaxLength");
             }
         }
         float _currentlength;
-        public float CurrentLength
+        public float CurrentLength           //This is essentially driving the whole object by calling "redraw()".
         {
             get { return _currentlength; }
             set
@@ -70,30 +70,27 @@ namespace MOTUS.Model
 
         void redraw()
         {
-            Stroke = MaxLength - MinLength;
             Extension = CurrentLength - MinLength;
-            Utilisation = Extension / Stroke;
+            Utilisation = DetermineUtilisation();
+            Status = DetermineStatus();
 
-            DetermineStatus();
+            Console.WriteLine(Utilisation);
         }
 
-        void DetermineStatus()
+        ActuatorStatus DetermineStatus()
         {
-            if (MinLength <= CurrentLength && CurrentLength <= MaxLength)
-            {
-                Status = ActuatorStatus.Inlimits;
-                return;
-            }
-            else if (CurrentLength <= MinLength)
-            {
-                Status = ActuatorStatus.TooShort;
-                return;
-            }
-            else
-            {
-                Status = ActuatorStatus.TooLong;
-                return;
-            }
+            if (MinLength <= CurrentLength && CurrentLength <= MaxLength)   return ActuatorStatus.Inlimits;
+            else if (CurrentLength <= MinLength)                            return ActuatorStatus.TooShort;
+            else                                                            return ActuatorStatus.TooLong;
+            
+        }
+        float DetermineUtilisation()
+        {
+            if (Status == ActuatorStatus.Inlimits)          return (Extension / Stroke);
+            else if (Status == ActuatorStatus.TooShort)     return 0;
+            else if ( Status == ActuatorStatus.TooLong)     return 1;
+
+            throw new Exception("Unkown ActuatorStatus: " + Status);
         }
     }
 
