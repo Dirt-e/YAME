@@ -33,6 +33,7 @@ namespace MOTUS.Model
         public ZeroMaker                zeromaker;
         public DOF_Override             dof_override;
         public Integrator               integrator;
+        public IK_Module                IK_Module;
         //...
         //...
         //...
@@ -121,7 +122,8 @@ namespace MOTUS.Model
             zeromaker               = new ZeroMaker();
             dof_override            = new DOF_Override();
             loadersaver             = new LoaderSaver(this);
-            integrator              = new Integrator(); 
+            integrator              = new Integrator();
+            IK_Module               = new IK_Module(ref integrator);
             //...
             //...
             //...
@@ -141,7 +143,7 @@ namespace MOTUS.Model
             Update_ZeroMaker();
             Update_DOF_Override();
             Update_Integrator();
-
+            Update_IK_Module();
             //TestCode:
             
             //...
@@ -255,6 +257,10 @@ namespace MOTUS.Model
         private void Update_Integrator()
         {
             integrator.Update(dof_override.Output);
+        }
+        private void Update_IK_Module()
+        {
+            IK_Module.Update();
         }
 
         //Helpers:

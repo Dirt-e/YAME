@@ -45,6 +45,10 @@ public class Utility
     {
         return (value < min) ? min : (value > max) ? max : value;
     }
+    public static double Clamp(double value, double min, double max)
+    {
+        return (value < min) ? min : (value > max) ? max : value;
+    }
 
     public static Quaternion QuaternionFrom(double yaw, double pitch, double roll)
     {
@@ -111,6 +115,24 @@ public class Utility
         Matrix3D m = RtTF.Value;
 
         return EulerFrom(m);
+    }
+
+    public static Point3D PointFrom(Transform3D TF)
+    {
+        float x = (float)TF.Value.OffsetX;
+        float y = (float)TF.Value.OffsetY;
+        float z = (float)TF.Value.OffsetZ;
+
+        return new Point3D(x, y, z);
+    }
+
+    public static float DistanceBetween(Point3D p1, Point3D p2)
+    {
+        double delta_x = p1.X - p2.X;
+        double delta_y = p1.Y - p2.Y;
+        double delta_z = p1.Z - p2.Z;
+
+        return (float)Math.Sqrt(Math.Pow(delta_x, 2) + Math.Pow(delta_y, 2) + Math.Pow(delta_z, 2));
     }
 
     //Lerps:

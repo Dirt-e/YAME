@@ -22,34 +22,33 @@ namespace MOTUS.Model
         Stopwatch invoke_timer = new Stopwatch();
 
         #region ViewModel
-        //THIS BELONGS IN THE IK MODULE!!!
-        //float _dist_a_upper;
-        //public float Dist_A_Upper
-        //{
-        //    get { return _dist_a_upper; }
-        //    set { _dist_a_upper = value; OnPropertyChanged("Dist_A_Upper"); }
-        //}
+        float _dist_a_upper;
+        public float Dist_A_Upper
+        {
+            get { return _dist_a_upper; }
+            set { _dist_a_upper = value; OnPropertyChanged("Dist_A_Upper"); }
+        }
 
-        //float _dist_b_upper;
-        //public float Dist_B_Upper
-        //{
-        //    get { return _dist_b_upper; }
-        //    set { _dist_b_upper = value; OnPropertyChanged("Dist_B_Upper"); }
-        //}
+        float _dist_b_upper;
+        public float Dist_B_Upper
+        {
+            get { return _dist_b_upper; }
+            set { _dist_b_upper = value; OnPropertyChanged("Dist_B_Upper"); }
+        }
 
-        //float _dist_a_lower;
-        //public float Dist_A_Lower
-        //{
-        //    get { return _dist_a_lower; }
-        //    set { _dist_a_lower = value; OnPropertyChanged("Dist_A_Lower"); }
-        //}
+        float _dist_a_lower;
+        public float Dist_A_Lower
+        {
+            get { return _dist_a_lower; }
+            set { _dist_a_lower = value; OnPropertyChanged("Dist_A_Lower"); }
+        }
 
-        //float _dist_b_lower;
-        //public float Dist_B_Lower
-        //{
-        //    get { return _dist_b_lower; }
-        //    set { _dist_b_lower = value; OnPropertyChanged("Dist_B_Lower"); }
-        //}
+        float _dist_b_lower;
+        public float Dist_B_Lower
+        {
+            get { return _dist_b_lower; }
+            set { _dist_b_lower = value; OnPropertyChanged("Dist_B_Lower"); }
+        }
 
         float _offset_park;
         public float Offset_Park
@@ -89,8 +88,8 @@ namespace MOTUS.Model
                         public MyTransform Plat_LFC;
                             public MyTransform Plat_HFC;
                                 public MyTransform Plat_Motion;
-                                    //public ConnectingPoints UpperPoints;
-                //public ConnectingPoints LowerPoints;
+                                    public ConnectingPoints UpperPoints;
+                public ConnectingPoints LowerPoints;
 
                 public MyTransform Plat_Fix_Park;
                 public MyTransform Plat_Float_Physical;
@@ -109,8 +108,8 @@ namespace MOTUS.Model
             Plat_Motion             = new MyTransform();
             Plat_Float_Physical     = new MyTransform();
             Plat_Fix_Park           = new MyTransform();
-            //LowerPoints = new ConnectingPoints();
-            //UpperPoints = new ConnectingPoints();
+            LowerPoints             = new ConnectingPoints();
+            UpperPoints             = new ConnectingPoints();
 
             Lerp_3Way = new Lerp_3Way(     TimeSpan.FromSeconds(fade_duration_ParkToPause_seconds),
                                             TimeSpan.FromSeconds(fade_duration_PauseToMotion_seconds));
@@ -121,15 +120,15 @@ namespace MOTUS.Model
         private void EstablishHierarchy()
         {
             World.IsParentOf(Plat_Fix_Base);
+                Plat_Fix_Base.IsParentOf(Plat_Fix_Park);
                 Plat_Fix_Base.IsParentOf(Plat_Fix_Pause);
                     Plat_Fix_Pause.IsParentOf(Plat_CoR);
                         Plat_CoR.IsParentOf(Plat_LFC);
                             Plat_LFC.IsParentOf(Plat_HFC);
                                 Plat_HFC.IsParentOf(Plat_Motion);
-                Plat_Fix_Base.IsParentOf(Plat_Fix_Park);
+                Plat_Fix_Base.IsParentOf(LowerPoints);
             World.IsParentOf(Plat_Float_Physical);
-                                    //Plat_Motion.IsParentOf(UpperPoints);
-                //Plat_Fix_Base.IsParentOf(LowerPoints);
+                Plat_Float_Physical.IsParentOf(UpperPoints);
         }
 
 
@@ -146,11 +145,11 @@ namespace MOTUS.Model
 
         private void Integrate_Platforms()
         {
-            //UpperPoints.Dist_A = Dist_A_Upper;
-            //UpperPoints.Dist_B = Dist_B_Upper;
+            UpperPoints.Dist_A = Dist_A_Upper;
+            UpperPoints.Dist_B = Dist_B_Upper;
 
-            //LowerPoints.Dist_A = Dist_A_Lower;
-            //LowerPoints.Dist_B = Dist_B_Lower;
+            LowerPoints.Dist_A = Dist_A_Lower;
+            LowerPoints.Dist_B = Dist_B_Lower;
 
             Plat_Fix_Park.SetTranslation(   0,
                                         0,
@@ -205,19 +204,19 @@ namespace MOTUS.Model
                     Mx_Plat_Fix_Park        = Plat_Fix_Park.GetWorldTransform().Value,
                     Mx_Plat_Float_Physical  = Plat_Float_Physical.GetWorldTransform().Value,
 
-                    //Mx_UpperPoints_1    = UpperPoints.P1.GetWorldTransform().Value,
-                    //Mx_UpperPoints_2    = UpperPoints.P2.GetWorldTransform().Value,
-                    //Mx_UpperPoints_3    = UpperPoints.P3.GetWorldTransform().Value,
-                    //Mx_UpperPoints_4    = UpperPoints.P4.GetWorldTransform().Value,
-                    //Mx_UpperPoints_5    = UpperPoints.P5.GetWorldTransform().Value,
-                    //Mx_UpperPoints_6    = UpperPoints.P6.GetWorldTransform().Value,
+                    Mx_UpperPoints_1 = UpperPoints.P1.GetWorldTransform().Value,
+                    Mx_UpperPoints_2 = UpperPoints.P2.GetWorldTransform().Value,
+                    Mx_UpperPoints_3 = UpperPoints.P3.GetWorldTransform().Value,
+                    Mx_UpperPoints_4 = UpperPoints.P4.GetWorldTransform().Value,
+                    Mx_UpperPoints_5 = UpperPoints.P5.GetWorldTransform().Value,
+                    Mx_UpperPoints_6 = UpperPoints.P6.GetWorldTransform().Value,
 
-                    //Mx_LowerPoints_1 = LowerPoints.P1.GetWorldTransform().Value,
-                    //Mx_LowerPoints_2 = LowerPoints.P2.GetWorldTransform().Value,
-                    //Mx_LowerPoints_3 = LowerPoints.P3.GetWorldTransform().Value,
-                    //Mx_LowerPoints_4 = LowerPoints.P4.GetWorldTransform().Value,
-                    //Mx_LowerPoints_5 = LowerPoints.P5.GetWorldTransform().Value,
-                    //Mx_LowerPoints_6 = LowerPoints.P6.GetWorldTransform().Value,
+                    Mx_LowerPoints_1 = LowerPoints.P1.GetWorldTransform().Value,
+                    Mx_LowerPoints_2 = LowerPoints.P2.GetWorldTransform().Value,
+                    Mx_LowerPoints_3 = LowerPoints.P3.GetWorldTransform().Value,
+                    Mx_LowerPoints_4 = LowerPoints.P4.GetWorldTransform().Value,
+                    Mx_LowerPoints_5 = LowerPoints.P5.GetWorldTransform().Value,
+                    Mx_LowerPoints_6 = LowerPoints.P6.GetWorldTransform().Value,
                 };
 
                 Application.Current.Dispatcher.BeginInvoke(new UpdateViewModel_Callback(UpdateViewModel), mx);
@@ -232,8 +231,6 @@ namespace MOTUS.Model
         private void UpdateViewModel(Platforms_Struct Mx)
         {
             //This code runs on the Main thread!
-            //The integrator draws only the airplane symbols (not visible in normal ops).
-            //The InverseKinematics module is responsibe for drawing the actuators!!!
             var mainwindow = Application.Current.MainWindow as MainWindow;
             if (mainwindow != null)
             {
@@ -246,43 +243,43 @@ namespace MOTUS.Model
                 mainwindow.engine.VM_SceneView.PlatMotion           = new MatrixTransform3D(Mx.Mx_Plat_Motion);
                 mainwindow.engine.VM_SceneView.PlatFloatPhysical    = new MatrixTransform3D(Mx.Mx_Plat_Float_Physical);
 
-                //mainwindow.engine.VM_SceneView.Lower1 = new Point3D(Mx.Mx_LowerPoints_1.OffsetX,
-                //                                                        Mx.Mx_LowerPoints_1.OffsetY,
-                //                                                        Mx.Mx_LowerPoints_1.OffsetZ);
-                //mainwindow.engine.VM_SceneView.Lower2 = new Point3D(Mx.Mx_LowerPoints_2.OffsetX,
-                //                                                        Mx.Mx_LowerPoints_2.OffsetY,
-                //                                                        Mx.Mx_LowerPoints_2.OffsetZ);
-                //mainwindow.engine.VM_SceneView.Lower3 = new Point3D(Mx.Mx_LowerPoints_3.OffsetX,
-                //                                                        Mx.Mx_LowerPoints_3.OffsetY,
-                //                                                        Mx.Mx_LowerPoints_3.OffsetZ);
-                //mainwindow.engine.VM_SceneView.Lower4 = new Point3D(Mx.Mx_LowerPoints_4.OffsetX,
-                //                                                        Mx.Mx_LowerPoints_4.OffsetY,
-                //                                                        Mx.Mx_LowerPoints_4.OffsetZ);
-                //mainwindow.engine.VM_SceneView.Lower5 = new Point3D(Mx.Mx_LowerPoints_5.OffsetX,
-                //                                                        Mx.Mx_LowerPoints_5.OffsetY,
-                //                                                        Mx.Mx_LowerPoints_5.OffsetZ);
-                //mainwindow.engine.VM_SceneView.Lower6 = new Point3D(Mx.Mx_LowerPoints_6.OffsetX,
-                //                                                        Mx.Mx_LowerPoints_6.OffsetY,
-                //                                                        Mx.Mx_LowerPoints_6.OffsetZ);
+                mainwindow.engine.VM_SceneView.Lower1 = new Point3D(Mx.Mx_LowerPoints_1.OffsetX,
+                                                                        Mx.Mx_LowerPoints_1.OffsetY,
+                                                                        Mx.Mx_LowerPoints_1.OffsetZ);
+                mainwindow.engine.VM_SceneView.Lower2 = new Point3D(Mx.Mx_LowerPoints_2.OffsetX,
+                                                                        Mx.Mx_LowerPoints_2.OffsetY,
+                                                                        Mx.Mx_LowerPoints_2.OffsetZ);
+                mainwindow.engine.VM_SceneView.Lower3 = new Point3D(Mx.Mx_LowerPoints_3.OffsetX,
+                                                                        Mx.Mx_LowerPoints_3.OffsetY,
+                                                                        Mx.Mx_LowerPoints_3.OffsetZ);
+                mainwindow.engine.VM_SceneView.Lower4 = new Point3D(Mx.Mx_LowerPoints_4.OffsetX,
+                                                                        Mx.Mx_LowerPoints_4.OffsetY,
+                                                                        Mx.Mx_LowerPoints_4.OffsetZ);
+                mainwindow.engine.VM_SceneView.Lower5 = new Point3D(Mx.Mx_LowerPoints_5.OffsetX,
+                                                                        Mx.Mx_LowerPoints_5.OffsetY,
+                                                                        Mx.Mx_LowerPoints_5.OffsetZ);
+                mainwindow.engine.VM_SceneView.Lower6 = new Point3D(Mx.Mx_LowerPoints_6.OffsetX,
+                                                                        Mx.Mx_LowerPoints_6.OffsetY,
+                                                                        Mx.Mx_LowerPoints_6.OffsetZ);
 
-                //mainwindow.engine.VM_SceneView.Upper1 = new Point3D(Mx.Mx_UpperPoints_1.OffsetX,
-                //                                                        Mx.Mx_UpperPoints_1.OffsetY,
-                //                                                        Mx.Mx_UpperPoints_1.OffsetZ);
-                //mainwindow.engine.VM_SceneView.Upper2 = new Point3D(Mx.Mx_UpperPoints_2.OffsetX,
-                //                                                        Mx.Mx_UpperPoints_2.OffsetY,
-                //                                                        Mx.Mx_UpperPoints_2.OffsetZ);
-                //mainwindow.engine.VM_SceneView.Upper3 = new Point3D(Mx.Mx_UpperPoints_3.OffsetX,
-                //                                                        Mx.Mx_UpperPoints_3.OffsetY,
-                //                                                        Mx.Mx_UpperPoints_3.OffsetZ);
-                //mainwindow.engine.VM_SceneView.Upper4 = new Point3D(Mx.Mx_UpperPoints_4.OffsetX,
-                //                                                        Mx.Mx_UpperPoints_4.OffsetY,
-                //                                                        Mx.Mx_UpperPoints_4.OffsetZ);
-                //mainwindow.engine.VM_SceneView.Upper5 = new Point3D(Mx.Mx_UpperPoints_5.OffsetX,
-                //                                                        Mx.Mx_UpperPoints_5.OffsetY,
-                //                                                        Mx.Mx_UpperPoints_5.OffsetZ);
-                //mainwindow.engine.VM_SceneView.Upper6 = new Point3D(Mx.Mx_UpperPoints_6.OffsetX,
-                //                                                        Mx.Mx_UpperPoints_6.OffsetY,
-                //                                                        Mx.Mx_UpperPoints_6.OffsetZ);
+                mainwindow.engine.VM_SceneView.Upper1 = new Point3D(Mx.Mx_UpperPoints_1.OffsetX,
+                                                                        Mx.Mx_UpperPoints_1.OffsetY,
+                                                                        Mx.Mx_UpperPoints_1.OffsetZ);
+                mainwindow.engine.VM_SceneView.Upper2 = new Point3D(Mx.Mx_UpperPoints_2.OffsetX,
+                                                                        Mx.Mx_UpperPoints_2.OffsetY,
+                                                                        Mx.Mx_UpperPoints_2.OffsetZ);
+                mainwindow.engine.VM_SceneView.Upper3 = new Point3D(Mx.Mx_UpperPoints_3.OffsetX,
+                                                                        Mx.Mx_UpperPoints_3.OffsetY,
+                                                                        Mx.Mx_UpperPoints_3.OffsetZ);
+                mainwindow.engine.VM_SceneView.Upper4 = new Point3D(Mx.Mx_UpperPoints_4.OffsetX,
+                                                                        Mx.Mx_UpperPoints_4.OffsetY,
+                                                                        Mx.Mx_UpperPoints_4.OffsetZ);
+                mainwindow.engine.VM_SceneView.Upper5 = new Point3D(Mx.Mx_UpperPoints_5.OffsetX,
+                                                                        Mx.Mx_UpperPoints_5.OffsetY,
+                                                                        Mx.Mx_UpperPoints_5.OffsetZ);
+                mainwindow.engine.VM_SceneView.Upper6 = new Point3D(Mx.Mx_UpperPoints_6.OffsetX,
+                                                                        Mx.Mx_UpperPoints_6.OffsetY,
+                                                                        Mx.Mx_UpperPoints_6.OffsetZ);
             }
         } 
         #endregion
