@@ -49,3 +49,5 @@ D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\MOTUS.exe
 D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\MOTUS.pdb
 D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\View\MotionControl_Window.g.cs
 D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\View\MotionControl_Window.baml
+D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\View\SerialConnection_Window.g.cs
+D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\View\SerialConnection_Window.baml

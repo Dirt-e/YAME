@@ -169,3 +169,5 @@ D:\OneDrive\Frank - PC\GitHub\MOTUS\bin\Debug\HelixToolkit.dll
 D:\OneDrive\Frank - PC\GitHub\MOTUS\bin\Debug\HelixToolkit.Wpf.dll
 D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Debug\View\MotionControl_Window.g.cs
 D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Debug\View\MotionControl_Window.baml
+D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Debug\View\SerialConnection_Window.g.cs
+D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Debug\View\SerialConnection_Window.baml

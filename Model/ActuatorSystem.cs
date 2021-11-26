@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MOTUS.DataFomats;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,15 +9,8 @@ namespace MOTUS.Model
 {
     public class ActuatorSystem : MyObject
     {
-        public List<Actuator> Actuators = new List<Actuator>()
-        {
-            new Actuator(),
-            new Actuator(),
-            new Actuator(),
-            new Actuator(),
-            new Actuator(),
-            new Actuator(),
-        };
+        public List<Actuator> Actuators;
+        public SixSisters Output;
         IK_Module IK_Module;
 
         //External:
@@ -60,40 +54,48 @@ namespace MOTUS.Model
         public ActuatorSystem(ref IK_Module ikm)
         {
             IK_Module = ikm;
+            Actuators = new List<Actuator>() {  new Actuator(),
+                                                new Actuator(),
+                                                new Actuator(),
+                                                new Actuator(),
+                                                new Actuator(),
+                                                new Actuator()  };
+        Output = new SixSisters();
         }
 
         public void Update()
-        {
-            for (int i = 0; i < 6; i++)
-            {
-                Actuators[i].CurrentLength = IK_Module.Lengths[i];
-            }
-
+        {   
             foreach (Actuator act in Actuators)
             {
                 act.MinLength = MinLength;
                 act.MaxLength = MaxLength;
             }
-            DetermineSystemStatus();
-            Console.WriteLine(AllInLimits);
+
+            for (int i = 0; i < 6; i++)
+            {
+                Actuators[i].CurrentLength = IK_Module.Lengths[i];
+            }
+            AllInLimits =  DetermineSystemStatus();
+            CreateOutput();
         }
 
 
         //Helpers:
-        void DetermineSystemStatus()
+        bool DetermineSystemStatus()
         {
-            bool temp = true;                                       //Assume things are OK,....
-
-            foreach (Actuator act in Actuators)                     //...but let each actuator...
+            foreach (Actuator act in Actuators)                             //...but let each actuator speak.
             {
-                if (act.Status != ActuatorStatus.Inlimits)         //...speak. 
-                {
-                    temp = false;                          
-                    break;                                          //A single vote is enough to spoil the party!
-                }
-                
+                if (act.Status != ActuatorStatus.Inlimits)  return false;   //A single vote is enough to spoil the party!
             }
-            AllInLimits = temp; ;
+            return true;                                                    //No objections!
+        }
+
+        void CreateOutput()
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                Output.values[i] = Actuators[i].Utilisation;
+            }
         }
     }
 }

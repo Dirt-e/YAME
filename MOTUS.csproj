@@ -63,6 +63,7 @@
     </ApplicationDefinition>
     <Compile Include="DataFomats\DOF_Data.cs" />
     <Compile Include="DataFomats\PreprocessorData.cs" />
+    <Compile Include="DataFomats\SixSisters.cs" />
     <Compile Include="GlobalVars.cs" />
     <Compile Include="Model\Actuator.cs" />
     <Compile Include="Model\ActuatorSystem.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Model\HighPassNthOrder.cs" />
     <Compile Include="Model\Integrator.cs" />
     <Compile Include="Model\LoaderSaver.cs" />
+    <Compile Include="Model\MessageGenerator_AMC_AASD15A.cs" />
     <Compile Include="Model\MyTransform.cs" />
     <Compile Include="Model\ScalerModule.cs" />
     <Compile Include="Model\ScalerSystem.cs" />
@@ -133,6 +135,9 @@
     </Compile>
     <Compile Include="View\SceneViewWindow.xaml.cs">
       <DependentUpon>SceneViewWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SerialConnection_Window.xaml.cs">
+      <DependentUpon>SerialConnection_Window.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ServerWindow.xaml.cs">
       <DependentUpon>ServerWindow.xaml</DependentUpon>
@@ -194,6 +199,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SceneViewWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SerialConnection_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -73,6 +73,8 @@ namespace MOTUS.Model
             Extension = CurrentLength - MinLength;
             Status = DetermineStatus();
             Utilisation = DetermineUtilisation();
+
+            //Console.WriteLine(Utilisation);
         }
 
         ActuatorStatus DetermineStatus()

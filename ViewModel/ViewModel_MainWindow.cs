@@ -11,6 +11,14 @@ namespace MOTUS.ViewModel
 {
     public class ViewModel_MainWindow : _ViewModel
     {
+        private float _framerate;
+
+        public float FrameRate
+        {
+            get { return _framerate; }
+            set { _framerate = value; OnPropertyChanged(nameof(FrameRate)); }
+        }
+
         float _deltatime_processing;
         public float DeltaTime_Processing
         {
@@ -19,7 +27,8 @@ namespace MOTUS.ViewModel
             {
                 float adoption = 0.01f;
                 _deltatime_processing = value * adoption + _deltatime_processing * (1-adoption);  //Slight LP filtering :-)
-                OnPropertyChanged("DeltaTime_Processing"); 
+                FrameRate = 1000 / DeltaTime_Processing;
+                OnPropertyChanged(nameof(DeltaTime_Processing)); 
             }
         }
 

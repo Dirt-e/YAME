@@ -84,6 +84,6 @@
                     VerticalAlignment="Top" HorizontalAlignment="Left"
                     Click="btn_Test_Click"/>
         <TextBlock  Height=" 20" Width="50" DockPanel.Dock="Top"
-                    Text="{Binding DeltaTime_Processing, StringFormat=N2 }"/>
+                    Text="{Binding FrameRate, StringFormat=N2 }"/>
     </DockPanel>
 </Window>

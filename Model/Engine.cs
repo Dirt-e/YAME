@@ -98,6 +98,7 @@ namespace MOTUS.Model
                         UpdateObjects();
                         MeasureLoopTime();
                         Thread.Sleep(4);
+                        
                     }
                 };
                 backgroundworker.RunWorkerAsync();
@@ -273,7 +274,7 @@ namespace MOTUS.Model
         }
         private void Update_SerialTalker()
         {
-
+            serialtalker.Update(actuatorsystem.Output);
         }
 
         //Helpers:
