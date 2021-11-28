@@ -14,7 +14,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -48,7 +47,7 @@ namespace MOTUS
         {
             engine.StartEngine();
             Thread.Sleep(10);
-            engine.loadersaver.LoadEngineSettingsFromApplication();
+            engine.loadersaver.LoadEngineSettings_Application();
             OpenDefaultChildWindows();
         }
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -56,7 +55,7 @@ namespace MOTUS
             RememberWhichChildWindowsWereOpen();
             CloseAllOpenChildWindows();
             
-            engine.loadersaver.SaveSettingsInApplication();
+            engine.loadersaver.SaveSettings_Application();
             engine.StopEngine();
         }
 
@@ -139,7 +138,17 @@ namespace MOTUS
             }
         }
 
-        //Menu:
+        //Menu/File:
+        private void OnClick_Load(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void OnClick_Save(object sender, RoutedEventArgs e)
+        {
+            engine.loadersaver.SaveSettings_Profile();
+        }
+
+        //Menu/Windows:
         private void mnuRawData_Checked(object sender, RoutedEventArgs e)
         {
             rawDataWindow = new RawDataWindow();
@@ -260,27 +269,11 @@ namespace MOTUS
             motionControlWindow.Close();
         }
 
+        //--------- Buttons -----------
         private void btn_Test_Click(object sender, RoutedEventArgs e)
         {
             //Test Code here
         }
-        private void btn_Load_Click(object sender, RoutedEventArgs e)
-        {
-            //configure save file dialog box
-            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
-            dlg.FileName = "Document"; //default file name
-            dlg.DefaultExt = ".xml"; //default file extension
-            dlg.Filter = "XML documents (.xml)|*.xml"; //filter files by extension
-
-            // Show save file dialog box
-            Nullable<bool> result = dlg.ShowDialog();
-
-            // Process save file dialog box results
-            if (result == true)
-            {
-                // Save document
-                string filename = dlg.FileName;
-            }
-        }
+        
     }
 }

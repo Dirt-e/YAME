@@ -13,8 +13,8 @@
     <DockPanel LastChildFill="true" Margin="0">
         <Menu DockPanel.Dock="Top" Height="Auto">
             <MenuItem Header="_File" x:Name="mnuHdr_File">
-                <MenuItem Header="_Load" />
-                <MenuItem Header="_Save" />
+                <MenuItem Header="_Load" Click="OnClick_Load"/>
+                <MenuItem Header="_Save" Click="OnClick_Save"/>
             </MenuItem>
             <MenuItem Header="_Windows" x:Name="mnuHdr_Windows">
                 
@@ -83,9 +83,6 @@
         <Button     x:Name="btn_Test" Content="Test Code!" Width="75" Height="50"  Margin="5"
                     VerticalAlignment="Top" HorizontalAlignment="Left"
                     Click="btn_Test_Click"/>
-        <Button     x:Name="btn_Load" Content="Load Profile" Width="75" Height="50"  Margin="5"
-                    VerticalAlignment="Top" HorizontalAlignment="Left"
-                    Click="btn_Load_Click"/>
         <TextBlock  Height=" 20" Width="50" DockPanel.Dock="Top"
                     Text="{Binding FrameRate, StringFormat=N2 }"/>
     </DockPanel>

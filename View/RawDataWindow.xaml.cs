@@ -40,7 +40,5 @@ namespace MOTUS.View
 
             Properties.Settings.Default.Save();
         }
-
-        
     }
 }
