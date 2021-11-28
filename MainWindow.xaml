@@ -83,6 +83,9 @@
         <Button     x:Name="btn_Test" Content="Test Code!" Width="75" Height="50"  Margin="5"
                     VerticalAlignment="Top" HorizontalAlignment="Left"
                     Click="btn_Test_Click"/>
+        <Button     x:Name="btn_Load" Content="Load Profile" Width="75" Height="50"  Margin="5"
+                    VerticalAlignment="Top" HorizontalAlignment="Left"
+                    Click="btn_Load_Click"/>
         <TextBlock  Height=" 20" Width="50" DockPanel.Dock="Top"
                     Text="{Binding FrameRate, StringFormat=N2 }"/>
     </DockPanel>
