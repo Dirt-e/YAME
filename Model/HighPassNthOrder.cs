@@ -16,7 +16,8 @@ namespace MOTUS.Model
             set 
             {  
                 _filtervariable = value;
-                if (LP != null) LP.FilterVariable = value;  
+                if (LP != null) LP.FilterVariable = value;
+                OnPropertyChanged("FilterVariable");
             }
         }
 

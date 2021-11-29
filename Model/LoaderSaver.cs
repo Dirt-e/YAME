@@ -358,54 +358,53 @@ namespace MOTUS.Model
             engine.crashdetector.Wy_Crashtrigger = saveObject.Crashdetector_Trigger_Wy;
             engine.crashdetector.Wz_Crashtrigger = saveObject.Crashdetector_Trigger_Wz;
         }
-        private void LoadPositionOffsetCorrectionSettings_Profile()
-        {
-            engine.positionoffsetcorrector.Delta_X = saveObject.PositionOffsetCorrector_Delta_X;
-            engine.positionoffsetcorrector.Delta_Y = saveObject.PositionOffsetCorrector_Delta_Y;
-            engine.positionoffsetcorrector.Delta_Z = saveObject.PositionOffsetCorrector_Delta_Z;
+            private void LoadPositionOffsetCorrectionSettings_Profile()
+            {
+                engine.positionoffsetcorrector.Delta_X = saveObject.PositionOffsetCorrector_Delta_X;
+                engine.positionoffsetcorrector.Delta_Y = saveObject.PositionOffsetCorrector_Delta_Y;
+                engine.positionoffsetcorrector.Delta_Z = saveObject.PositionOffsetCorrector_Delta_Z;
 
-            engine.positionoffsetcorrector.IsActive = saveObject.PositionOffsetCorrector_IsActive;
-        }
-        private void LoadAlphaCompensationValues_Profile()
-        {
-            engine.alphacompensator.AoA_zero                    = saveObject.AlphaCompensator_AOA_Zero;
-            engine.alphacompensator.FadeIn_Start_IAS             = saveObject.AlphaCompensator_FadeIn_Start;
-            engine.alphacompensator.FadeIn_Done_IAS             = saveObject.AlphaCompensator_FadeIn_Done;
-            engine.alphacompensator.AlphaCompensationPercentage = saveObject.AlphaCompensator_CompensationPercentage;
-        }
-        private void LoadFilterSettings_Profile()
-        { 
-            engine.filtersystem.Wx_HP.FilterVariable        = saveObject.FilterSystem_Variable_Wx_HP;
-            engine.filtersystem.Wx_HP_LP.FilterVariable     = saveObject.FilterSystem_Variable_Wx_HP_LP;
+                engine.positionoffsetcorrector.IsActive = saveObject.PositionOffsetCorrector_IsActive;
+            }
+            private void LoadAlphaCompensationValues_Profile()
+            {
+                engine.alphacompensator.AoA_zero                    = saveObject.AlphaCompensator_AOA_Zero;
+                engine.alphacompensator.FadeIn_Start_IAS             = saveObject.AlphaCompensator_FadeIn_Start;
+                engine.alphacompensator.FadeIn_Done_IAS             = saveObject.AlphaCompensator_FadeIn_Done;
+                engine.alphacompensator.AlphaCompensationPercentage = saveObject.AlphaCompensator_CompensationPercentage;
+            }
+            private void LoadFilterSettings_Profile()
+            { 
+                engine.filtersystem.Wx_HP.FilterVariable        = saveObject.FilterSystem_Variable_Wx_HP;
+                engine.filtersystem.Wx_HP_LP.FilterVariable     = saveObject.FilterSystem_Variable_Wx_HP_LP;
 
-            engine.filtersystem.Wy_HP.FilterVariable        = saveObject.FilterSystem_Variable_Wy_HP;
-            engine.filtersystem.Wy_HP_LP.FilterVariable     = saveObject.FilterSystem_Variable_Wy_HP_LP;
+                engine.filtersystem.Wy_HP.FilterVariable        = saveObject.FilterSystem_Variable_Wy_HP;
+                engine.filtersystem.Wy_HP_LP.FilterVariable     = saveObject.FilterSystem_Variable_Wy_HP_LP;
 
-            engine.filtersystem.Wz_HP.FilterVariable        = saveObject.FilterSystem_Variable_Wz_HP;
-            engine.filtersystem.Wz_HP_LP.FilterVariable     = saveObject.FilterSystem_Variable_Wz_HP_LP;
+                engine.filtersystem.Wz_HP.FilterVariable        = saveObject.FilterSystem_Variable_Wz_HP;
+                engine.filtersystem.Wz_HP_LP.FilterVariable     = saveObject.FilterSystem_Variable_Wz_HP_LP;
 
-            engine.filtersystem.Ax_HP.FilterVariable        = saveObject.FilterSystem_Variable_Ax_HP;
-            engine.filtersystem.Ax_HP_LP2.FilterVariable    = saveObject.FilterSystem_Variable_Ax_HP_LP2;
-            engine.filtersystem.Ax_LP3.FilterVariable       = saveObject.FilterSystem_Variable_Ax_LP3;
+                engine.filtersystem.Ax_HP.FilterVariable        = saveObject.FilterSystem_Variable_Ax_HP;
+                engine.filtersystem.Ax_HP_LP2.FilterVariable    = saveObject.FilterSystem_Variable_Ax_HP_LP2;
+                engine.filtersystem.Ax_LP3.FilterVariable       = saveObject.FilterSystem_Variable_Ax_LP3;
 
-            engine.filtersystem.Ay_HP.FilterVariable        = saveObject.FilterSystem_Variable_Ay_HP;
-            engine.filtersystem.Ay_HP_LP2.FilterVariable    = saveObject.FilterSystem_Variable_Ay_HP_LP2;
+                engine.filtersystem.Ay_HP.FilterVariable        = saveObject.FilterSystem_Variable_Ay_HP;
+                engine.filtersystem.Ay_HP_LP2.FilterVariable    = saveObject.FilterSystem_Variable_Ay_HP_LP2;
 
-            engine.filtersystem.Az_HP.FilterVariable        = saveObject.FilterSystem_Variable_Az_HP;
-            engine.filtersystem.Az_HP_LP2.FilterVariable    = saveObject.FilterSystem_Variable_Az_HP_LP2;
-            engine.filtersystem.Az_LP3.FilterVariable       = saveObject.FilterSystem_Variable_Az_LP3;
-
-        }
-        private void LoadCompressionSettings_Profile()
-        {
-        }
-        private void LoadScalerSettings_Profile()
-        {
-        }
-        private void LoadZeromakerSettings_Profile()
-        {
-        }
-        private void LoadRigConfiguration_Profile()
+                engine.filtersystem.Az_HP.FilterVariable        = saveObject.FilterSystem_Variable_Az_HP;
+                engine.filtersystem.Az_HP_LP2.FilterVariable    = saveObject.FilterSystem_Variable_Az_HP_LP2;
+                engine.filtersystem.Az_LP3.FilterVariable       = saveObject.FilterSystem_Variable_Az_LP3;
+            }
+            private void LoadCompressionSettings_Profile()
+            {
+            }
+            private void LoadScalerSettings_Profile()
+            {
+            }
+            private void LoadZeromakerSettings_Profile()
+            {
+            }
+            private void LoadRigConfiguration_Profile()
         {
         }
 

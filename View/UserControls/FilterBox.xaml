@@ -32,7 +32,7 @@
             <TextBlock  Text="{Binding Code}" DockPanel.Dock="Right"
                         VerticalAlignment="Center" Margin="0,0,5,0"/>
         </DockPanel>
-        <TextBox    x:Name="txtbx_FilterVariable" Text="{Binding FilterVariable, UpdateSourceTrigger=LostFocus}"
+        <TextBox    x:Name="txtbx_FilterVariable" Text="{Binding FilterVariable, UpdateSourceTrigger=Default, Mode=TwoWay}"
                     Style="{StaticResource TextBox_Style}"
                     FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Width="40"/>
         <TextBlock  x:Name="txtblk_Outvalue"    Text="{Binding OutValue, StringFormat=N2}"

@@ -23,7 +23,7 @@ namespace MOTUS.View
             InitializeComponent();
 
             SetDataContext();
-            Load_3D_Objects();
+            //Load_3D_Objects();
             SetCamera();
         }
 
@@ -54,22 +54,6 @@ namespace MOTUS.View
         {
             ModelImporter Importer = new ModelImporter();
 
-            #region UpperPoints
-            //Importer.DefaultMaterial = new DiffuseMaterial(new SolidColorBrush(Colors.Red));
-            //Upper1.Content = Importer.Load(@"..\..\Media\Models\Sphere.stl");
-            //Importer.DefaultMaterial = new DiffuseMaterial(new SolidColorBrush(Colors.Blue));
-            //Upper2.Content = Importer.Load(@"..\..\Media\Models\Sphere.stl");
-            //Importer.DefaultMaterial = new DiffuseMaterial(new SolidColorBrush(Colors.Green));
-            //Upper3.Content = Importer.Load(@"..\..\Media\Models\Sphere.stl");
-            //Importer.DefaultMaterial = new DiffuseMaterial(new SolidColorBrush(Colors.Yellow));
-            //Upper4.Content = Importer.Load(@"..\..\Media\Models\Sphere.stl");
-            //Importer.DefaultMaterial = new DiffuseMaterial(new SolidColorBrush(Colors.Black));
-            //Upper5.Content = Importer.Load(@"..\..\Media\Models\Sphere.stl");
-            //Importer.DefaultMaterial = new DiffuseMaterial(new SolidColorBrush(Colors.White));
-            //Upper6.Content = Importer.Load(@"..\..\Media\Models\Sphere.stl");
-            #endregion
-
-            #region Dynamic platforms
             Importer.DefaultMaterial    = Materials.Black;
             Plat_Fix_Park.Content       = Importer.Load(@"..\..\Media\Models\Plane.stl");
 
@@ -90,22 +74,6 @@ namespace MOTUS.View
 
             Importer.DefaultMaterial    = Materials.Rainbow;
             Plat_Physical.Content       = Importer.Load(@"..\..\Media\Models\Plane.stl");
-            #endregion
-
-            #region BasePoints
-            //Importer.DefaultMaterial = new DiffuseMaterial(new SolidColorBrush(Colors.Red));
-            //Base1.Content = Importer.Load(@"..\..\Media\Models\Sphere.stl");
-            //Importer.DefaultMaterial = new DiffuseMaterial(new SolidColorBrush(Colors.Blue));
-            //Base2.Content = Importer.Load(@"..\..\Media\Models\Sphere.stl");
-            //Importer.DefaultMaterial = new DiffuseMaterial(new SolidColorBrush(Colors.Green));
-            //Base3.Content = Importer.Load(@"..\..\Media\Models\Sphere.stl");
-            //Importer.DefaultMaterial = new DiffuseMaterial(new SolidColorBrush(Colors.Yellow));
-            //Base4.Content = Importer.Load(@"..\..\Media\Models\Sphere.stl");
-            //Importer.DefaultMaterial = new DiffuseMaterial(new SolidColorBrush(Colors.Black));
-            //Base5.Content = Importer.Load(@"..\..\Media\Models\Sphere.stl");
-            //Importer.DefaultMaterial = new DiffuseMaterial(new SolidColorBrush(Colors.White));
-            //Base6.Content = Importer.Load(@"..\..\Media\Models\Sphere.stl");
-            #endregion
         }
         private void SetCamera()
         {   
