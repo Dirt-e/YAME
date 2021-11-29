@@ -372,18 +372,87 @@ namespace MOTUS.Model
             }
             private void SaveFilterSettings_Profile()
             {
-            }
+                saveObject.FilterSystem_Variable_Wx_HP      = engine.filtersystem.Wx_HP.FilterVariable;
+                saveObject.FilterSystem_Variable_Wx_HP_LP   = engine.filtersystem.Wx_HP_LP.FilterVariable;
+
+                saveObject.FilterSystem_Variable_Wy_HP      = engine.filtersystem.Wx_HP_LP.FilterVariable;
+                saveObject.FilterSystem_Variable_Wy_HP_LP   = engine.filtersystem.Wx_HP_LP.FilterVariable;
+
+                saveObject.FilterSystem_Variable_Wz_HP      = engine.filtersystem.Wx_HP_LP.FilterVariable;
+                saveObject.FilterSystem_Variable_Wz_HP_LP   = engine.filtersystem.Wx_HP_LP.FilterVariable;
+
+                saveObject.FilterSystem_Variable_Ax_HP      = engine.filtersystem.Ax_HP.FilterVariable;
+                saveObject.FilterSystem_Variable_Ax_HP_LP2  = engine.filtersystem.Ax_HP_LP2.FilterVariable;
+                saveObject.FilterSystem_Variable_Ax_LP3     = engine.filtersystem.Ax_LP3.FilterVariable;
+
+                saveObject.FilterSystem_Variable_Ay_HP      = engine.filtersystem.Ay_HP.FilterVariable;
+                saveObject.FilterSystem_Variable_Ay_HP_LP2  = engine.filtersystem.Ay_HP_LP2.FilterVariable;
+
+                saveObject.FilterSystem_Variable_Az_HP      = engine.filtersystem.Az_HP.FilterVariable;
+                saveObject.FilterSystem_Variable_Az_HP_LP2  = engine.filtersystem.Az_HP_LP2.FilterVariable;
+                saveObject.FilterSystem_Variable_Az_LP3     = engine.filtersystem.Az_LP3.FilterVariable;
+             }
             private void SaveCompressionSettings_Profile()
             {
-            }
+            //Dropdowns:
+                saveObject.CompressionMethod_Roll_HFC   = engine.compressorsystem.CMP_Roll_HFC.Method;
+                saveObject.CompressionMethod_Yaw_HFC    = engine.compressorsystem.CMP_Yaw_HFC.Method;
+                saveObject.CompressionMethod_Pitch_HFC  = engine.compressorsystem.CMP_Pitch_HFC.Method;
+                saveObject.CompressionMethod_Surge_HFC  = engine.compressorsystem.CMP_Surge_HFC.Method;
+                saveObject.CompressionMethod_Heave_HFC  = engine.compressorsystem.CMP_Heave_HFC.Method;
+                saveObject.CompressionMethod_Sway_HFC   = engine.compressorsystem.CMP_Sway_HFC.Method;
+                saveObject.CompressionMethod_Pitch_LFC  = engine.compressorsystem.CMP_Pitch_LFC.Method;
+                saveObject.CompressionMethod_Roll_LFC   = engine.compressorsystem.CMP_Roll_LFC.Method;
+                //Parameters:
+                saveObject.CompressionParameter_Roll_HFC    = engine.compressorsystem.CMP_Roll_HFC.Parameter;
+                saveObject.CompressionParameter_Yaw_HFC     = engine.compressorsystem.CMP_Yaw_HFC.Parameter;
+                saveObject.CompressionParameter_Pitch_HFC   = engine.compressorsystem.CMP_Pitch_HFC.Parameter;
+                saveObject.CompressionParameter_Surge_HFC   = engine.compressorsystem.CMP_Surge_HFC.Parameter;
+                saveObject.CompressionParameter_Heave_HFC   = engine.compressorsystem.CMP_Heave_HFC.Parameter;
+                saveObject.CompressionParameter_Sway_HFC    = engine.compressorsystem.CMP_Sway_HFC.Parameter;
+                saveObject.CompressionParameter_Pitch_LFC   = engine.compressorsystem.CMP_Pitch_LFC.Parameter;
+                saveObject.CompressionParameter_Roll_LFC    = engine.compressorsystem.CMP_Roll_LFC.Parameter;
+                //Limits:
+                saveObject.CompressionLimit_Roll_HFC    = engine.compressorsystem.CMP_Roll_HFC.Limit;
+                saveObject.CompressionLimit_Yaw_HFC     = engine.compressorsystem.CMP_Yaw_HFC.Limit;
+                saveObject.CompressionLimit_Pitch_HFC   = engine.compressorsystem.CMP_Pitch_HFC.Limit;
+                saveObject.CompressionLimit_Surge_HFC   = engine.compressorsystem.CMP_Surge_HFC.Limit;
+                saveObject.CompressionLimit_Heave_HFC   = engine.compressorsystem.CMP_Heave_HFC.Limit;
+                saveObject.CompressionLimit_Sway_HFC    = engine.compressorsystem.CMP_Sway_HFC.Limit;
+                saveObject.CompressionLimit_Pitch_LFC   = engine.compressorsystem.CMP_Pitch_LFC.Limit;
+                saveObject.CompressionLimit_Roll_LFC    = engine.compressorsystem.CMP_Roll_LFC.Limit;
+        }
             private void SaveScalerSettings_Profile()
             {
+                saveObject.Scaler_Gain_Roll_HFC     = engine.scalersystem.SCL_Roll_HFC.Gain;
+                saveObject.Scaler_Gain_Yaw_HFC      = engine.scalersystem.SCL_Yaw_HFC.Gain;
+                saveObject.Scaler_Gain_Pitch_HFC    = engine.scalersystem.SCL_Pitch_HFC.Gain;
+
+                saveObject.Scaler_Gain_Surge_HFC    = engine.scalersystem.SCL_Surge_HFC.Gain;
+                saveObject.Scaler_Gain_Pitch_LFC    = engine.scalersystem.SCL_Pitch_LFC.Gain;
+
+                saveObject.Scaler_Gain_Heave_HFC    = engine.scalersystem.SCL_Heave_HFC.Gain;
+
+                saveObject.Scaler_Gain_Sway_HFC     = engine.scalersystem.SCL_Sway_HFC.Gain;
+                saveObject.Scaler_Gain_Roll_LFC     = engine.scalersystem.SCL_Roll_LFC.Gain;
             }
             private void SaveZeromakerSettings_Profile()
             {
+                saveObject.Zero_Roll_HFC    = engine.zeromaker.Zero_RollHFC;
+                saveObject.Zero_Yaw_HFC     = engine.zeromaker.Zero_YawHFC;
+                saveObject.Zero_Pitch_HFC   = engine.zeromaker.Zero_PitchHFC;
+
+                saveObject.Zero_Surge_HFC   = engine.zeromaker.Zero_SurgeHFC;
+                saveObject.Zero_Pitch_LFC   = engine.zeromaker.Zero_PitchLFC;
+
+                saveObject.Zero_Heave_HFC   = engine.zeromaker.Zero_HeaveHFC;
+
+                saveObject.Zero_Sway_HFC    = engine.zeromaker.Zero_SwayHFC;
+                saveObject.Zero_Roll_LFC    = engine.zeromaker.Zero_RollLFC;
             }
             private void SaveRigConfiguration_Profile()
             {
+                    //To-Do!!!
             }
 
             private void WriteObjectToFile(string path)

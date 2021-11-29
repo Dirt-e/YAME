@@ -69,16 +69,17 @@ namespace MOTUS.View
             #endregion
 
             #region Scalers are bound directly to the Scaler objects
-            sclr_Roll_HFC.DataContext = engine.scalersystem.SCL_Roll_HFC;
-            sclr_Yaw_HFC.DataContext = engine.scalersystem.SCL_Yaw_HFC;
-            sclr_Pitch_HFC.DataContext = engine.scalersystem.SCL_Pitch_HFC;
+            sclr_Roll_HFC.DataContext   = engine.scalersystem.SCL_Roll_HFC;
+            sclr_Yaw_HFC.DataContext    = engine.scalersystem.SCL_Yaw_HFC;
+            sclr_Pitch_HFC.DataContext  = engine.scalersystem.SCL_Pitch_HFC;
 
-            sclr_Surge_HFC.DataContext = engine.scalersystem.SCL_Surge_HFC;
-            sclr_Heave_HFC.DataContext = engine.scalersystem.SCL_Heave_HFC;
-            sclr_Sway_HFC.DataContext = engine.scalersystem.SCL_Sway_HFC;
+            sclr_Surge_HFC.DataContext  = engine.scalersystem.SCL_Surge_HFC;
+            sclr_Pitch_LFC.DataContext  = engine.scalersystem.SCL_Pitch_LFC;
 
-            sclr_Pitch_LFC.DataContext = engine.scalersystem.SCL_Pitch_LFC;
-            sclr_Roll_LFC.DataContext = engine.scalersystem.SCL_Roll_LFC;
+            sclr_Heave_HFC.DataContext  = engine.scalersystem.SCL_Heave_HFC;
+
+            sclr_Sway_HFC.DataContext   = engine.scalersystem.SCL_Sway_HFC;
+            sclr_Roll_LFC.DataContext   = engine.scalersystem.SCL_Roll_LFC;
             #endregion
 
             #region Zeros are bound directly to the ZeroMaker
