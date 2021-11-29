@@ -37,14 +37,14 @@ namespace MOTUS.Model
         }
 
         float _ias_fade_in_start_speed;
-        public float IAS_FadeIn_StartSpeed
+        public float FadeIn_Start_IAS
         {
             get { return _ias_fade_in_start_speed; }
             set { _ias_fade_in_start_speed = value; OnPropertyChanged("IAS_FadeIn_StartSpeed");  }
         }
 
         float _ias_fade_in_done_speed;
-        public float IAS_FadeIn_DoneSpeed
+        public float FadeIn_Done_IAS
         {
             get { return _ias_fade_in_done_speed; }
             set { _ias_fade_in_done_speed = value; OnPropertyChanged("IAS_FadeIn_DoneSpeed"); }
@@ -95,11 +95,11 @@ namespace MOTUS.Model
         private void DetermineFadeInPercentage()
         {
             float IAS = Input.IAS;
-            float IAS_range = IAS_FadeIn_DoneSpeed - IAS_FadeIn_StartSpeed;
+            float IAS_range = FadeIn_Done_IAS - FadeIn_Start_IAS;
 
             if (IAS_range == 0)     //Check this to prevent division by zero later on
             {
-                if (IAS < IAS_FadeIn_StartSpeed)
+                if (IAS < FadeIn_Start_IAS)
                 {
                     FadeIn_Percentage = 0;
                 }
@@ -110,7 +110,7 @@ namespace MOTUS.Model
                 return;
             }
 
-            float IAS_inRange = Utility.Clamp(IAS, IAS_FadeIn_StartSpeed, IAS_FadeIn_DoneSpeed) - IAS_FadeIn_StartSpeed;
+            float IAS_inRange = Utility.Clamp(IAS, FadeIn_Start_IAS, FadeIn_Done_IAS) - FadeIn_Start_IAS;
             FadeIn_Percentage = (IAS_inRange / IAS_range) * 100;
         }
         private void ApplyAlphaCompensation()

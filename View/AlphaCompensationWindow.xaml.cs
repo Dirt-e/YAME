@@ -32,7 +32,6 @@ namespace MOTUS.View
             Left    = Properties.Settings.Default.Window_AlphaCompensation_Position_X;
             Top     = Properties.Settings.Default.Window_AlphaCompensation_Position_Y;
         }
-
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Properties.Settings.Default.Window_AlphaCompensation_Position_X = (float)Left;

@@ -141,7 +141,7 @@ namespace MOTUS
         //Menu/File:
         private void OnClick_Load(object sender, RoutedEventArgs e)
         {
-
+            engine.loadersaver.LoadSettings_Profile();
         }
         private void OnClick_Save(object sender, RoutedEventArgs e)
         {

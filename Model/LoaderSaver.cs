@@ -1,13 +1,8 @@
-﻿using MOTUS.DataFomats;
+﻿using Microsoft.Win32;
+using MOTUS.DataFomats;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.IO;
-using Microsoft.Win32;
+using System.Text.Json;
 
 namespace MOTUS.Model
 {
@@ -23,19 +18,18 @@ namespace MOTUS.Model
         }
 
         #region LastClosed:
-            //------------------ Load ------------------------
-            public void LoadEngineSettings_Application()
-            {
-                LoadCrashDetectorThresholds_Application();
-                LoadPositionOffsetCorrectionSettings_Application();
-                LoadAlphaCompensationValues_Application();
-                LoadFilterSettings_Application();
-                LoadCompressionSettings_Application();
-                LoadScalerSettings_Application();
-                LoadZeromakerSettings_Application();
-                LoadRigConfiguration_Application();
-            }
-
+        //------------------ Load ------------------------
+        public void LoadEngineSettings_Application()
+        {
+            LoadCrashDetectorThresholds_Application();
+            LoadPositionOffsetCorrectionSettings_Application();
+            LoadAlphaCompensationValues_Application();
+            LoadFilterSettings_Application();
+            LoadCompressionSettings_Application();
+            LoadScalerSettings_Application();
+            LoadZeromakerSettings_Application();
+            LoadRigConfiguration_Application();
+        }
             private void LoadCrashDetectorThresholds_Application()
             {
                 var defaults = Properties.Settings.Default;
@@ -65,8 +59,8 @@ namespace MOTUS.Model
 
                 alphacomp.AoA_zero = defaults.AlphaCompensation_AlphaZero;
                 alphacomp.AlphaCompensationPercentage = defaults.AlphaCompensation_CompensationPercentage;
-                alphacomp.IAS_FadeIn_StartSpeed = defaults.AlphaCompensation_FadeIn_Start;
-                alphacomp.IAS_FadeIn_DoneSpeed = defaults.AlphaCompensation_FadeIn_Done;
+                alphacomp.FadeIn_Start_IAS = defaults.AlphaCompensation_FadeIn_Start;
+                alphacomp.FadeIn_Done_IAS = defaults.AlphaCompensation_FadeIn_Done;
                 alphacomp.IsActive = defaults.AlphaCompensation_IsActive;
             }
             private void LoadFilterSettings_Application()
@@ -74,22 +68,22 @@ namespace MOTUS.Model
                 var defaults = Properties.Settings.Default;
                 var filters = engine.filtersystem;
 
-                filters.Wx_HP.FilterVariable        = defaults.Filtervariable_Wx_HP;
-                filters.Wx_HP_LP.FilterVariable     = defaults.Filtervariable_Wx_HP_LP;
-                filters.Wy_HP.FilterVariable        = defaults.FilterVariable_Wy_HP;
-                filters.Wy_HP_LP.FilterVariable     = defaults.Filtervariable_Wy_HP_LP;
-                filters.Wz_HP.FilterVariable        = defaults.Filtervariable_Wz_HP;
-                filters.Wz_HP_LP.FilterVariable     = defaults.Filtervariable_Wz_HP_LP;
+                filters.Wx_HP.FilterVariable = defaults.Filtervariable_Wx_HP;
+                filters.Wx_HP_LP.FilterVariable = defaults.Filtervariable_Wx_HP_LP;
+                filters.Wy_HP.FilterVariable = defaults.FilterVariable_Wy_HP;
+                filters.Wy_HP_LP.FilterVariable = defaults.Filtervariable_Wy_HP_LP;
+                filters.Wz_HP.FilterVariable = defaults.Filtervariable_Wz_HP;
+                filters.Wz_HP_LP.FilterVariable = defaults.Filtervariable_Wz_HP_LP;
 
-                filters.Ax_HP.FilterVariable        = defaults.Filtervariable_Ax_HP;
-                filters.Ax_HP_LP2.FilterVariable    = defaults.Filtervariable_Ax_HP_LP2;
-                filters.Ay_HP.FilterVariable        = defaults.Filtervariable_Ay_HP;
-                filters.Ay_HP_LP2.FilterVariable    = defaults.Filtervariable_Ay_HP_LP2;
-                filters.Az_HP.FilterVariable        = defaults.Filtervariable_Az_HP;
-                filters.Az_HP_LP2.FilterVariable    = defaults.Filtervariable_Az_HP_LP2;
+                filters.Ax_HP.FilterVariable = defaults.Filtervariable_Ax_HP;
+                filters.Ax_HP_LP2.FilterVariable = defaults.Filtervariable_Ax_HP_LP2;
+                filters.Ay_HP.FilterVariable = defaults.Filtervariable_Ay_HP;
+                filters.Ay_HP_LP2.FilterVariable = defaults.Filtervariable_Ay_HP_LP2;
+                filters.Az_HP.FilterVariable = defaults.Filtervariable_Az_HP;
+                filters.Az_HP_LP2.FilterVariable = defaults.Filtervariable_Az_HP_LP2;
 
-                filters.Ax_LP3.FilterVariable       = defaults.Filtervariable_Ax_LP3;
-                filters.Az_LP3.FilterVariable       = defaults.Filtervariable_Az_LP3;
+                filters.Ax_LP3.FilterVariable = defaults.Filtervariable_Ax_LP3;
+                filters.Az_LP3.FilterVariable = defaults.Filtervariable_Az_LP3;
             }
             private void LoadCompressionSettings_Application()
             {
@@ -97,14 +91,14 @@ namespace MOTUS.Model
                 var compression = engine.compressorsystem;
 
                 //Dropdowns
-                compression.CMP_Roll_HFC.Method     = (CompressionMethod)Enum.Parse(typeof(CompressionMethod), defaults.CompressionMethod_Roll_HFC);
-                compression.CMP_Yaw_HFC.Method      = (CompressionMethod)Enum.Parse(typeof(CompressionMethod), defaults.CompressionMethod_Yaw_HFC);
-                compression.CMP_Pitch_HFC.Method    = (CompressionMethod)Enum.Parse(typeof(CompressionMethod), defaults.CompressionMethod_Pitch_HFC);
-                compression.CMP_Surge_HFC.Method    = (CompressionMethod)Enum.Parse(typeof(CompressionMethod), defaults.CompressionMethod_Surge_HFC);
-                compression.CMP_Heave_HFC.Method    = (CompressionMethod)Enum.Parse(typeof(CompressionMethod), defaults.CompressionMethod_Heave_HFC);
-                compression.CMP_Sway_HFC.Method     = (CompressionMethod)Enum.Parse(typeof(CompressionMethod), defaults.CompressionMethod_Sway_HFC);
-                compression.CMP_Pitch_LFC.Method    = (CompressionMethod)Enum.Parse(typeof(CompressionMethod), defaults.CompressionMethod_Pitch_LFC);
-                compression.CMP_Roll_LFC.Method     = (CompressionMethod)Enum.Parse(typeof(CompressionMethod), defaults.CompressionMethod_Roll_LFC);
+                compression.CMP_Roll_HFC.Method = (CompressionMethod)Enum.Parse(typeof(CompressionMethod), defaults.CompressionMethod_Roll_HFC);
+                compression.CMP_Yaw_HFC.Method = (CompressionMethod)Enum.Parse(typeof(CompressionMethod), defaults.CompressionMethod_Yaw_HFC);
+                compression.CMP_Pitch_HFC.Method = (CompressionMethod)Enum.Parse(typeof(CompressionMethod), defaults.CompressionMethod_Pitch_HFC);
+                compression.CMP_Surge_HFC.Method = (CompressionMethod)Enum.Parse(typeof(CompressionMethod), defaults.CompressionMethod_Surge_HFC);
+                compression.CMP_Heave_HFC.Method = (CompressionMethod)Enum.Parse(typeof(CompressionMethod), defaults.CompressionMethod_Heave_HFC);
+                compression.CMP_Sway_HFC.Method = (CompressionMethod)Enum.Parse(typeof(CompressionMethod), defaults.CompressionMethod_Sway_HFC);
+                compression.CMP_Pitch_LFC.Method = (CompressionMethod)Enum.Parse(typeof(CompressionMethod), defaults.CompressionMethod_Pitch_LFC);
+                compression.CMP_Roll_LFC.Method = (CompressionMethod)Enum.Parse(typeof(CompressionMethod), defaults.CompressionMethod_Roll_LFC);
                 //Parameters:
                 compression.CMP_Roll_HFC.Parameter = defaults.CompressionParameter_Roll_HFC;
                 compression.CMP_Yaw_HFC.Parameter = defaults.CompressionParameter_Yaw_HFC;
@@ -146,8 +140,8 @@ namespace MOTUS.Model
                 var defaults = Properties.Settings.Default;
                 var zeromaker = engine.zeromaker;
 
-                zeromaker.Zero_RollHFC  = defaults.Zeromaker_Zero_RollHFC;
-                zeromaker.Zero_YawHFC   = defaults.Zeromaker_Zero_YawHFC;
+                zeromaker.Zero_RollHFC = defaults.Zeromaker_Zero_RollHFC;
+                zeromaker.Zero_YawHFC = defaults.Zeromaker_Zero_YawHFC;
                 zeromaker.Zero_PitchHFC = defaults.Zeromaker_Zero_PitchHFC;
 
                 zeromaker.Zero_SurgeHFC = defaults.Zeromaker_Zero_SurgeHFC;
@@ -155,39 +149,38 @@ namespace MOTUS.Model
 
                 zeromaker.Zero_HeaveHFC = defaults.Zeromaker_Zero_HeaveHFC;
 
-                zeromaker.Zero_SwayHFC  = defaults.Zeromaker_Zero_SwayHFC;
-                zeromaker.Zero_RollLFC  = defaults.Zeromaker_Zero_RollLFC;
+                zeromaker.Zero_SwayHFC = defaults.Zeromaker_Zero_SwayHFC;
+                zeromaker.Zero_RollLFC = defaults.Zeromaker_Zero_RollLFC;
             }
             private void LoadRigConfiguration_Application()
             {
                 var defaults = Properties.Settings.Default;
 
-                engine.integrator.Offset_Park   = defaults.Integrator_OffsetPark;
-                engine.integrator.Offset_Pause  = defaults.Integrator_OffsetPause;
-                engine.integrator.Offset_CoR    = defaults.Integrator_OffsetCoR;
-                engine.integrator.Dist_A_Upper  = defaults.Dist_A_Upper;
-                engine.integrator.Dist_B_Upper  = defaults.Dist_B_Upper;
-                engine.integrator.Dist_A_Lower  = defaults.Dist_A_Lower;
-                engine.integrator.Dist_B_Lower  = defaults.Dist_B_Lower;
+                engine.integrator.Offset_Park = defaults.Integrator_OffsetPark;
+                engine.integrator.Offset_Pause = defaults.Integrator_OffsetPause;
+                engine.integrator.Offset_CoR = defaults.Integrator_OffsetCoR;
+                engine.integrator.Dist_A_Upper = defaults.Dist_A_Upper;
+                engine.integrator.Dist_B_Upper = defaults.Dist_B_Upper;
+                engine.integrator.Dist_A_Lower = defaults.Dist_A_Lower;
+                engine.integrator.Dist_B_Lower = defaults.Dist_B_Lower;
                 engine.actuatorsystem.MaxLength = defaults.ActuatorSystem_MaxLength;
                 engine.actuatorsystem.MinLength = defaults.ActuatorSystem_MinLength;
             }
 
-            //---------------- Save -----------------------
-            public void SaveSettings_Application()
-            {
-                SaveCrashDetectorThresholds();
-                SavePositionCorrectionOffsets();
-                SaveAlphaCompensationValues();
-                SaveFilterSettings();
-                SaveCompressionSettings();
-                SaveScalerSettings();
-                SaveZeromakerSettings();
-                SaveRigConfiguration();
+        //---------------- Save -----------------------
+        public void SaveSettings_Application()
+        {
+            SaveCrashDetectorThresholds();
+            SavePositionCorrectionOffsets();
+            SaveAlphaCompensationValues();
+            SaveFilterSettings();
+            SaveCompressionSettings();
+            SaveScalerSettings();
+            SaveZeromakerSettings();
+            SaveRigConfiguration();
 
-                Properties.Settings.Default.Save();
-            }
-
+            Properties.Settings.Default.Save();
+        }
             private void SaveCrashDetectorThresholds()
             {
                 var defaults = Properties.Settings.Default;
@@ -217,8 +210,8 @@ namespace MOTUS.Model
 
                 defaults.AlphaCompensation_AlphaZero = alphacomp.AoA_zero;
                 defaults.AlphaCompensation_CompensationPercentage = alphacomp.AlphaCompensationPercentage;
-                defaults.AlphaCompensation_FadeIn_Start = alphacomp.IAS_FadeIn_StartSpeed;
-                defaults.AlphaCompensation_FadeIn_Done = alphacomp.IAS_FadeIn_DoneSpeed;
+                defaults.AlphaCompensation_FadeIn_Start = alphacomp.FadeIn_Start_IAS;
+                defaults.AlphaCompensation_FadeIn_Done = alphacomp.FadeIn_Done_IAS;
                 defaults.AlphaCompensation_IsActive = alphacomp.IsActive;
             }
             private void SaveFilterSettings()
@@ -313,9 +306,9 @@ namespace MOTUS.Model
                 var defaults = Properties.Settings.Default;
                 var integrator = engine.integrator;
 
-                defaults.Integrator_OffsetPark      = engine.integrator.Offset_Park;
-                defaults.Integrator_OffsetPause     = engine.integrator.Offset_Pause;
-                defaults.Integrator_OffsetCoR       = engine.integrator.Offset_CoR;
+                defaults.Integrator_OffsetPark = engine.integrator.Offset_Park;
+                defaults.Integrator_OffsetPause = engine.integrator.Offset_Pause;
+                defaults.Integrator_OffsetCoR = engine.integrator.Offset_CoR;
                 defaults.Dist_A_Upper = engine.integrator.Dist_A_Upper;
                 defaults.Dist_B_Upper = engine.integrator.Dist_B_Upper;
                 defaults.Dist_A_Lower = engine.integrator.Dist_A_Lower;
@@ -326,142 +319,244 @@ namespace MOTUS.Model
             }
         #endregion
         #region Profile:
-            public void SaveSettings_Profile()
+        //------------------ Load ------------------------
+        public void LoadSettings_Profile()
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "YAME files|*.yame";
+            ofd.DefaultExt = ".yame";
+            ofd.AddExtension = true;
+            ofd.CheckPathExists = true;
+            ofd.DereferenceLinks = true;
+            //ofd.InitialDirectory = @" ";
+
+            if (ofd.ShowDialog() == true)
             {
-                SaveFileDialog sfd = new SaveFileDialog();
-                    sfd.Filter =    "YAME files|*.yame";
-                    sfd.DefaultExt = ".yame";
-                    sfd.AddExtension = true;
-                    sfd.OverwritePrompt = true;
-                    sfd.CreatePrompt = true;
+                string json = File.ReadAllText(ofd.FileName);
+                saveObject = JsonSerializer.Deserialize<SaveObject>(json);
 
-                if (sfd.ShowDialog() == true)
-                {
-                    SaveCrashDetectorThresholds_Profile();
-                    SavePositionCorrectionOffsets_Profile();
-                    SaveAlphaCompensationValues_Profile();
-                    SaveFilterSettings_Profile();
-                    SaveCompressionSettings_Profile();
-                    SaveScalerSettings_Profile();
-                    SaveZeromakerSettings_Profile();
-                    SaveRigConfiguration_Profile();
-
-                    WriteObjectToFile(sfd.FileName);
-                }
+                LoadCrashDetectorThresholds_Profile();
+                LoadPositionOffsetCorrectionSettings_Profile();
+                LoadAlphaCompensationValues_Profile();
+                LoadFilterSettings_Profile();
+                LoadCompressionSettings_Profile();
+                LoadScalerSettings_Profile();
+                LoadZeromakerSettings_Profile();
+                LoadRigConfiguration_Profile();
             }
 
+            
+        }
+
+        private void LoadCrashDetectorThresholds_Profile()
+        {
+            engine.crashdetector.Ax_Crashtrigger = saveObject.Crashdetector_Trigger_Ax;
+            engine.crashdetector.Ay_Crashtrigger = saveObject.Crashdetector_Trigger_Ay;
+            engine.crashdetector.Az_Crashtrigger = saveObject.Crashdetector_Trigger_Az;
+
+            engine.crashdetector.Wx_Crashtrigger = saveObject.Crashdetector_Trigger_Wx;
+            engine.crashdetector.Wy_Crashtrigger = saveObject.Crashdetector_Trigger_Wy;
+            engine.crashdetector.Wz_Crashtrigger = saveObject.Crashdetector_Trigger_Wz;
+        }
+        private void LoadPositionOffsetCorrectionSettings_Profile()
+        {
+            engine.positionoffsetcorrector.Delta_X = saveObject.PositionOffsetCorrector_Delta_X;
+            engine.positionoffsetcorrector.Delta_Y = saveObject.PositionOffsetCorrector_Delta_Y;
+            engine.positionoffsetcorrector.Delta_Z = saveObject.PositionOffsetCorrector_Delta_Z;
+
+            engine.positionoffsetcorrector.IsActive = saveObject.PositionOffsetCorrector_IsActive;
+        }
+        private void LoadAlphaCompensationValues_Profile()
+        {
+            engine.alphacompensator.AoA_zero                    = saveObject.AlphaCompensator_AOA_Zero;
+            engine.alphacompensator.FadeIn_Start_IAS             = saveObject.AlphaCompensator_FadeIn_Start;
+            engine.alphacompensator.FadeIn_Done_IAS             = saveObject.AlphaCompensator_FadeIn_Done;
+            engine.alphacompensator.AlphaCompensationPercentage = saveObject.AlphaCompensator_CompensationPercentage;
+        }
+        private void LoadFilterSettings_Profile()
+        { 
+            engine.filtersystem.Wx_HP.FilterVariable        = saveObject.FilterSystem_Variable_Wx_HP;
+            engine.filtersystem.Wx_HP_LP.FilterVariable     = saveObject.FilterSystem_Variable_Wx_HP_LP;
+
+            engine.filtersystem.Wy_HP.FilterVariable        = saveObject.FilterSystem_Variable_Wy_HP;
+            engine.filtersystem.Wy_HP_LP.FilterVariable     = saveObject.FilterSystem_Variable_Wy_HP_LP;
+
+            engine.filtersystem.Wz_HP.FilterVariable        = saveObject.FilterSystem_Variable_Wz_HP;
+            engine.filtersystem.Wz_HP_LP.FilterVariable     = saveObject.FilterSystem_Variable_Wz_HP_LP;
+
+            engine.filtersystem.Ax_HP.FilterVariable        = saveObject.FilterSystem_Variable_Ax_HP;
+            engine.filtersystem.Ax_HP_LP2.FilterVariable    = saveObject.FilterSystem_Variable_Ax_HP_LP2;
+            engine.filtersystem.Ax_LP3.FilterVariable       = saveObject.FilterSystem_Variable_Ax_LP3;
+
+            engine.filtersystem.Ay_HP.FilterVariable        = saveObject.FilterSystem_Variable_Ay_HP;
+            engine.filtersystem.Ay_HP_LP2.FilterVariable    = saveObject.FilterSystem_Variable_Ay_HP_LP2;
+
+            engine.filtersystem.Az_HP.FilterVariable        = saveObject.FilterSystem_Variable_Az_HP;
+            engine.filtersystem.Az_HP_LP2.FilterVariable    = saveObject.FilterSystem_Variable_Az_HP_LP2;
+            engine.filtersystem.Az_LP3.FilterVariable       = saveObject.FilterSystem_Variable_Az_LP3;
+
+        }
+        private void LoadCompressionSettings_Profile()
+        {
+        }
+        private void LoadScalerSettings_Profile()
+        {
+        }
+        private void LoadZeromakerSettings_Profile()
+        {
+        }
+        private void LoadRigConfiguration_Profile()
+        {
+        }
+
+
+        //---------------- Save -----------------------
+        public void SaveSettings_Profile()
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "YAME files|*.yame";
+            sfd.DefaultExt = ".yame";
+            sfd.AddExtension = true;
+            sfd.OverwritePrompt = true;
+            sfd.CreatePrompt = true;
+
+            if (sfd.ShowDialog() == true)
+            {
+                SaveCrashDetectorThresholds_Profile();
+                SavePositionCorrectionOffsets_Profile();
+                SaveAlphaCompensationValues_Profile();
+                SaveFilterSettings_Profile();
+                SaveCompressionSettings_Profile();
+                SaveScalerSettings_Profile();
+                SaveZeromakerSettings_Profile();
+                SaveRigConfiguration_Profile();
+
+                var options = new JsonSerializerOptions { WriteIndented = true };
+                string json = JsonSerializer.Serialize(saveObject, options);
+
+                File.WriteAllText(sfd.FileName, json);
+            }
+        }
             private void SaveCrashDetectorThresholds_Profile()
             {
                 saveObject.Crashdetector_Trigger_Ax = engine.crashdetector.Ax_Crashtrigger;
                 saveObject.Crashdetector_Trigger_Ay = engine.crashdetector.Ay_Crashtrigger;
                 saveObject.Crashdetector_Trigger_Az = engine.crashdetector.Az_Crashtrigger;
-            }
+
+                saveObject.Crashdetector_Trigger_Wx = engine.crashdetector.Wx_Crashtrigger;
+                saveObject.Crashdetector_Trigger_Wy = engine.crashdetector.Wy_Crashtrigger;
+                saveObject.Crashdetector_Trigger_Wz = engine.crashdetector.Wz_Crashtrigger;
+        }
             private void SavePositionCorrectionOffsets_Profile()
             {
-                saveObject.PositionOffsetCorrector_Delta_X  = engine.positionoffsetcorrector.Delta_X;
-                saveObject.PositionOffsetCorrector_Delta_Y  = engine.positionoffsetcorrector.Delta_Y;
-                saveObject.PositionOffsetCorrector_Delta_Z  = engine.positionoffsetcorrector.Delta_Z;
+                saveObject.PositionOffsetCorrector_Delta_X = engine.positionoffsetcorrector.Delta_X;
+                saveObject.PositionOffsetCorrector_Delta_Y = engine.positionoffsetcorrector.Delta_Y;
+                saveObject.PositionOffsetCorrector_Delta_Z = engine.positionoffsetcorrector.Delta_Z;
                 saveObject.PositionOffsetCorrector_IsActive = engine.positionoffsetcorrector.IsActive;
             }
             private void SaveAlphaCompensationValues_Profile()
             {
-                saveObject.AlphaCompensator_AOA_Zero                = engine.alphacompensator.AoA_zero;
-                saveObject.AlphaCompensator_FadeIn_Start            = engine.alphacompensator.IAS_FadeIn_StartSpeed;
-                saveObject.AlphaCompensator_FadeIn_Done             = engine.alphacompensator.IAS_FadeIn_DoneSpeed;
-                saveObject.AlphaCompensator_CompensationPercentage  = engine.alphacompensator.AlphaCompensationPercentage;
+                saveObject.AlphaCompensator_AOA_Zero = engine.alphacompensator.AoA_zero;
+                saveObject.AlphaCompensator_FadeIn_Start = engine.alphacompensator.FadeIn_Start_IAS;
+                saveObject.AlphaCompensator_FadeIn_Done = engine.alphacompensator.FadeIn_Done_IAS;
+                saveObject.AlphaCompensator_CompensationPercentage = engine.alphacompensator.AlphaCompensationPercentage;
             }
             private void SaveFilterSettings_Profile()
             {
-                saveObject.FilterSystem_Variable_Wx_HP      = engine.filtersystem.Wx_HP.FilterVariable;
-                saveObject.FilterSystem_Variable_Wx_HP_LP   = engine.filtersystem.Wx_HP_LP.FilterVariable;
+                saveObject.FilterSystem_Variable_Wx_HP = engine.filtersystem.Wx_HP.FilterVariable;
+                saveObject.FilterSystem_Variable_Wx_HP_LP = engine.filtersystem.Wx_HP_LP.FilterVariable;
 
-                saveObject.FilterSystem_Variable_Wy_HP      = engine.filtersystem.Wx_HP_LP.FilterVariable;
-                saveObject.FilterSystem_Variable_Wy_HP_LP   = engine.filtersystem.Wx_HP_LP.FilterVariable;
+                saveObject.FilterSystem_Variable_Wy_HP = engine.filtersystem.Wy_HP.FilterVariable;
+                saveObject.FilterSystem_Variable_Wy_HP_LP = engine.filtersystem.Wy_HP_LP.FilterVariable;
 
-                saveObject.FilterSystem_Variable_Wz_HP      = engine.filtersystem.Wx_HP_LP.FilterVariable;
-                saveObject.FilterSystem_Variable_Wz_HP_LP   = engine.filtersystem.Wx_HP_LP.FilterVariable;
+                saveObject.FilterSystem_Variable_Wz_HP = engine.filtersystem.Wz_HP.FilterVariable;
+                saveObject.FilterSystem_Variable_Wz_HP_LP = engine.filtersystem.Wz_HP_LP.FilterVariable;
 
-                saveObject.FilterSystem_Variable_Ax_HP      = engine.filtersystem.Ax_HP.FilterVariable;
-                saveObject.FilterSystem_Variable_Ax_HP_LP2  = engine.filtersystem.Ax_HP_LP2.FilterVariable;
-                saveObject.FilterSystem_Variable_Ax_LP3     = engine.filtersystem.Ax_LP3.FilterVariable;
+                saveObject.FilterSystem_Variable_Ax_HP = engine.filtersystem.Ax_HP.FilterVariable;
+                saveObject.FilterSystem_Variable_Ax_HP_LP2 = engine.filtersystem.Ax_HP_LP2.FilterVariable;
+                saveObject.FilterSystem_Variable_Ax_LP3 = engine.filtersystem.Ax_LP3.FilterVariable;
 
-                saveObject.FilterSystem_Variable_Ay_HP      = engine.filtersystem.Ay_HP.FilterVariable;
-                saveObject.FilterSystem_Variable_Ay_HP_LP2  = engine.filtersystem.Ay_HP_LP2.FilterVariable;
+                saveObject.FilterSystem_Variable_Ay_HP = engine.filtersystem.Ay_HP.FilterVariable;
+                saveObject.FilterSystem_Variable_Ay_HP_LP2 = engine.filtersystem.Ay_HP_LP2.FilterVariable;
 
-                saveObject.FilterSystem_Variable_Az_HP      = engine.filtersystem.Az_HP.FilterVariable;
-                saveObject.FilterSystem_Variable_Az_HP_LP2  = engine.filtersystem.Az_HP_LP2.FilterVariable;
-                saveObject.FilterSystem_Variable_Az_LP3     = engine.filtersystem.Az_LP3.FilterVariable;
-             }
+                saveObject.FilterSystem_Variable_Az_HP = engine.filtersystem.Az_HP.FilterVariable;
+                saveObject.FilterSystem_Variable_Az_HP_LP2 = engine.filtersystem.Az_HP_LP2.FilterVariable;
+                saveObject.FilterSystem_Variable_Az_LP3 = engine.filtersystem.Az_LP3.FilterVariable;
+            }
             private void SaveCompressionSettings_Profile()
             {
-            //Dropdowns:
-                saveObject.CompressionMethod_Roll_HFC   = engine.compressorsystem.CMP_Roll_HFC.Method;
-                saveObject.CompressionMethod_Yaw_HFC    = engine.compressorsystem.CMP_Yaw_HFC.Method;
-                saveObject.CompressionMethod_Pitch_HFC  = engine.compressorsystem.CMP_Pitch_HFC.Method;
-                saveObject.CompressionMethod_Surge_HFC  = engine.compressorsystem.CMP_Surge_HFC.Method;
-                saveObject.CompressionMethod_Heave_HFC  = engine.compressorsystem.CMP_Heave_HFC.Method;
-                saveObject.CompressionMethod_Sway_HFC   = engine.compressorsystem.CMP_Sway_HFC.Method;
-                saveObject.CompressionMethod_Pitch_LFC  = engine.compressorsystem.CMP_Pitch_LFC.Method;
-                saveObject.CompressionMethod_Roll_LFC   = engine.compressorsystem.CMP_Roll_LFC.Method;
+                //Dropdowns:
+                saveObject.CompressionMethod_Roll_HFC = engine.compressorsystem.CMP_Roll_HFC.Method;
+                saveObject.CompressionMethod_Yaw_HFC = engine.compressorsystem.CMP_Yaw_HFC.Method;
+                saveObject.CompressionMethod_Pitch_HFC = engine.compressorsystem.CMP_Pitch_HFC.Method;
+                saveObject.CompressionMethod_Surge_HFC = engine.compressorsystem.CMP_Surge_HFC.Method;
+                saveObject.CompressionMethod_Heave_HFC = engine.compressorsystem.CMP_Heave_HFC.Method;
+                saveObject.CompressionMethod_Sway_HFC = engine.compressorsystem.CMP_Sway_HFC.Method;
+                saveObject.CompressionMethod_Pitch_LFC = engine.compressorsystem.CMP_Pitch_LFC.Method;
+                saveObject.CompressionMethod_Roll_LFC = engine.compressorsystem.CMP_Roll_LFC.Method;
                 //Parameters:
-                saveObject.CompressionParameter_Roll_HFC    = engine.compressorsystem.CMP_Roll_HFC.Parameter;
-                saveObject.CompressionParameter_Yaw_HFC     = engine.compressorsystem.CMP_Yaw_HFC.Parameter;
-                saveObject.CompressionParameter_Pitch_HFC   = engine.compressorsystem.CMP_Pitch_HFC.Parameter;
-                saveObject.CompressionParameter_Surge_HFC   = engine.compressorsystem.CMP_Surge_HFC.Parameter;
-                saveObject.CompressionParameter_Heave_HFC   = engine.compressorsystem.CMP_Heave_HFC.Parameter;
-                saveObject.CompressionParameter_Sway_HFC    = engine.compressorsystem.CMP_Sway_HFC.Parameter;
-                saveObject.CompressionParameter_Pitch_LFC   = engine.compressorsystem.CMP_Pitch_LFC.Parameter;
-                saveObject.CompressionParameter_Roll_LFC    = engine.compressorsystem.CMP_Roll_LFC.Parameter;
+                saveObject.CompressionParameter_Roll_HFC = engine.compressorsystem.CMP_Roll_HFC.Parameter;
+                saveObject.CompressionParameter_Yaw_HFC = engine.compressorsystem.CMP_Yaw_HFC.Parameter;
+                saveObject.CompressionParameter_Pitch_HFC = engine.compressorsystem.CMP_Pitch_HFC.Parameter;
+                saveObject.CompressionParameter_Surge_HFC = engine.compressorsystem.CMP_Surge_HFC.Parameter;
+                saveObject.CompressionParameter_Heave_HFC = engine.compressorsystem.CMP_Heave_HFC.Parameter;
+                saveObject.CompressionParameter_Sway_HFC = engine.compressorsystem.CMP_Sway_HFC.Parameter;
+                saveObject.CompressionParameter_Pitch_LFC = engine.compressorsystem.CMP_Pitch_LFC.Parameter;
+                saveObject.CompressionParameter_Roll_LFC = engine.compressorsystem.CMP_Roll_LFC.Parameter;
                 //Limits:
-                saveObject.CompressionLimit_Roll_HFC    = engine.compressorsystem.CMP_Roll_HFC.Limit;
-                saveObject.CompressionLimit_Yaw_HFC     = engine.compressorsystem.CMP_Yaw_HFC.Limit;
-                saveObject.CompressionLimit_Pitch_HFC   = engine.compressorsystem.CMP_Pitch_HFC.Limit;
-                saveObject.CompressionLimit_Surge_HFC   = engine.compressorsystem.CMP_Surge_HFC.Limit;
-                saveObject.CompressionLimit_Heave_HFC   = engine.compressorsystem.CMP_Heave_HFC.Limit;
-                saveObject.CompressionLimit_Sway_HFC    = engine.compressorsystem.CMP_Sway_HFC.Limit;
-                saveObject.CompressionLimit_Pitch_LFC   = engine.compressorsystem.CMP_Pitch_LFC.Limit;
-                saveObject.CompressionLimit_Roll_LFC    = engine.compressorsystem.CMP_Roll_LFC.Limit;
-        }
+                saveObject.CompressionLimit_Roll_HFC = engine.compressorsystem.CMP_Roll_HFC.Limit;
+                saveObject.CompressionLimit_Yaw_HFC = engine.compressorsystem.CMP_Yaw_HFC.Limit;
+                saveObject.CompressionLimit_Pitch_HFC = engine.compressorsystem.CMP_Pitch_HFC.Limit;
+                saveObject.CompressionLimit_Surge_HFC = engine.compressorsystem.CMP_Surge_HFC.Limit;
+                saveObject.CompressionLimit_Heave_HFC = engine.compressorsystem.CMP_Heave_HFC.Limit;
+                saveObject.CompressionLimit_Sway_HFC = engine.compressorsystem.CMP_Sway_HFC.Limit;
+                saveObject.CompressionLimit_Pitch_LFC = engine.compressorsystem.CMP_Pitch_LFC.Limit;
+                saveObject.CompressionLimit_Roll_LFC = engine.compressorsystem.CMP_Roll_LFC.Limit;
+            }
             private void SaveScalerSettings_Profile()
             {
-                saveObject.Scaler_Gain_Roll_HFC     = engine.scalersystem.SCL_Roll_HFC.Gain;
-                saveObject.Scaler_Gain_Yaw_HFC      = engine.scalersystem.SCL_Yaw_HFC.Gain;
-                saveObject.Scaler_Gain_Pitch_HFC    = engine.scalersystem.SCL_Pitch_HFC.Gain;
+                saveObject.Scaler_Gain_Roll_HFC = engine.scalersystem.SCL_Roll_HFC.Gain;
+                saveObject.Scaler_Gain_Yaw_HFC = engine.scalersystem.SCL_Yaw_HFC.Gain;
+                saveObject.Scaler_Gain_Pitch_HFC = engine.scalersystem.SCL_Pitch_HFC.Gain;
 
-                saveObject.Scaler_Gain_Surge_HFC    = engine.scalersystem.SCL_Surge_HFC.Gain;
-                saveObject.Scaler_Gain_Pitch_LFC    = engine.scalersystem.SCL_Pitch_LFC.Gain;
+                saveObject.Scaler_Gain_Surge_HFC = engine.scalersystem.SCL_Surge_HFC.Gain;
+                saveObject.Scaler_Gain_Pitch_LFC = engine.scalersystem.SCL_Pitch_LFC.Gain;
 
-                saveObject.Scaler_Gain_Heave_HFC    = engine.scalersystem.SCL_Heave_HFC.Gain;
+                saveObject.Scaler_Gain_Heave_HFC = engine.scalersystem.SCL_Heave_HFC.Gain;
 
-                saveObject.Scaler_Gain_Sway_HFC     = engine.scalersystem.SCL_Sway_HFC.Gain;
-                saveObject.Scaler_Gain_Roll_LFC     = engine.scalersystem.SCL_Roll_LFC.Gain;
+                saveObject.Scaler_Gain_Sway_HFC = engine.scalersystem.SCL_Sway_HFC.Gain;
+                saveObject.Scaler_Gain_Roll_LFC = engine.scalersystem.SCL_Roll_LFC.Gain;
             }
             private void SaveZeromakerSettings_Profile()
             {
-                saveObject.Zero_Roll_HFC    = engine.zeromaker.Zero_RollHFC;
-                saveObject.Zero_Yaw_HFC     = engine.zeromaker.Zero_YawHFC;
-                saveObject.Zero_Pitch_HFC   = engine.zeromaker.Zero_PitchHFC;
+                saveObject.Zero_Roll_HFC = engine.zeromaker.Zero_RollHFC;
+                saveObject.Zero_Yaw_HFC = engine.zeromaker.Zero_YawHFC;
+                saveObject.Zero_Pitch_HFC = engine.zeromaker.Zero_PitchHFC;
 
-                saveObject.Zero_Surge_HFC   = engine.zeromaker.Zero_SurgeHFC;
-                saveObject.Zero_Pitch_LFC   = engine.zeromaker.Zero_PitchLFC;
+                saveObject.Zero_Surge_HFC = engine.zeromaker.Zero_SurgeHFC;
+                saveObject.Zero_Pitch_LFC = engine.zeromaker.Zero_PitchLFC;
 
-                saveObject.Zero_Heave_HFC   = engine.zeromaker.Zero_HeaveHFC;
+                saveObject.Zero_Heave_HFC = engine.zeromaker.Zero_HeaveHFC;
 
-                saveObject.Zero_Sway_HFC    = engine.zeromaker.Zero_SwayHFC;
-                saveObject.Zero_Roll_LFC    = engine.zeromaker.Zero_RollLFC;
+                saveObject.Zero_Sway_HFC = engine.zeromaker.Zero_SwayHFC;
+                saveObject.Zero_Roll_LFC = engine.zeromaker.Zero_RollLFC;
             }
             private void SaveRigConfiguration_Profile()
             {
-                    //To-Do!!!
+                saveObject.RigConfig_Upper_DistA = engine.integrator.Dist_A_Upper;
+                saveObject.RigConfig_Upper_DistB = engine.integrator.Dist_B_Upper;
+
+                saveObject.RigConfig_Lower_DistA = engine.integrator.Dist_A_Lower;
+                saveObject.RigConfig_Lower_DistB = engine.integrator.Dist_B_Lower;
+
+                saveObject.RigConfig_Act_Max = engine.actuatorsystem.MaxLength;
+                saveObject.RigConfig_Act_Min = engine.actuatorsystem.MinLength;
+
+                saveObject.RigConfig_Offset_Park    = engine.integrator.Offset_Park;
+                saveObject.RigConfig_Offset_Pause   = engine.integrator.Offset_Pause;
+                saveObject.RigConfig_Offset_CoR     = engine.integrator.Offset_CoR;
             }
 
-            private void WriteObjectToFile(string path)
-            {
-                var options = new JsonSerializerOptions { WriteIndented = true };
-                string json = JsonSerializer.Serialize(saveObject, options);
-                
-                File.WriteAllText(path, json);
-        }
         #endregion
 
     }

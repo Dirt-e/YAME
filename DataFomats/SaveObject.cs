@@ -1,30 +1,30 @@
 ﻿using MOTUS.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MOTUS.DataFomats
 {
     public class SaveObject
     {
         #region Crashdetector
-        public float Crashdetector_Trigger_Ax { get; set; } 
-        public float Crashdetector_Trigger_Ay { get; set; } 
+        public float Crashdetector_Trigger_Ax { get; set; }
+        public float Crashdetector_Trigger_Ay { get; set; }
         public float Crashdetector_Trigger_Az { get; set; }
+
+        public float Crashdetector_Trigger_Wx { get; set; }
+        public float Crashdetector_Trigger_Wy { get; set; }
+        public float Crashdetector_Trigger_Wz { get; set; }
         #endregion
         #region PositionCorrector
         public float PositionOffsetCorrector_Delta_X { get; set; }
         public float PositionOffsetCorrector_Delta_Y { get; set; }
         public float PositionOffsetCorrector_Delta_Z { get; set; }
+
         public bool PositionOffsetCorrector_IsActive { get; set; }
         #endregion
         #region AlphaCompensator
-        public float AlphaCompensator_AOA_Zero                  { get; set; }    
-        public float AlphaCompensator_FadeIn_Start              { get; set; }    
-        public float AlphaCompensator_FadeIn_Done               { get; set; }    
-        public float AlphaCompensator_CompensationPercentage    { get; set; }
+        public float AlphaCompensator_AOA_Zero { get; set; }
+        public float AlphaCompensator_FadeIn_Start { get; set; }
+        public float AlphaCompensator_FadeIn_Done { get; set; }
+        public float AlphaCompensator_CompensationPercentage { get; set; }
         #endregion
         #region FilterSystem
         public float FilterSystem_Variable_Wx_HP { get; set; }
@@ -112,6 +112,20 @@ namespace MOTUS.DataFomats
 
         public bool Zero_Sway_HFC { get; set; }
         public bool Zero_Roll_LFC { get; set; }
+        #endregion
+        #region RigConfiguration
+        public float RigConfig_Upper_DistA { get; set; }
+        public float RigConfig_Upper_DistB { get; set; }
+
+        public float RigConfig_Lower_DistA { get; set; }
+        public float RigConfig_Lower_DistB { get; set; }
+
+        public float RigConfig_Act_Max { get; set; }
+        public float RigConfig_Act_Min { get; set; }
+
+        public float RigConfig_Offset_Park { get; set; }
+        public float RigConfig_Offset_Pause { get; set; }
+        public float RigConfig_Offset_CoR { get; set; }
         #endregion
     }
 }
