@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 using System.Windows.Media.Media3D;
 
 namespace MOTUS.ViewModel
@@ -138,6 +139,48 @@ namespace MOTUS.ViewModel
             get { return _Upper6; }
             set { _Upper6 = value; OnPropertyChanged("Upper6"); }
         }
+        #endregion
+
+        #region Actuator Colors
+        //These actuator colors are being updated via a Dispatcher callback.
+        //The object making this call is the "engine.actuatorsystem" object.
+        SolidColorBrush act1_brush = new SolidColorBrush(Colors.White);
+        public SolidColorBrush Act1_Brush
+        {
+            get { return act1_brush; }
+            set { act1_brush = value; OnPropertyChanged(nameof(Act1_Brush)); }
+        }
+        SolidColorBrush act2_brush = new SolidColorBrush(Colors.White);
+        public SolidColorBrush Act2_Brush
+        {
+            get { return act2_brush; }
+            set { act2_brush = value; OnPropertyChanged(nameof(Act2_Brush)); }
+        }
+        SolidColorBrush act3_brush = new SolidColorBrush(Colors.White);
+        public SolidColorBrush Act3_Brush
+        {
+            get { return act3_brush; }
+            set { act3_brush = value; OnPropertyChanged(nameof(Act3_Brush)); }
+        }
+        SolidColorBrush act4_brush = new SolidColorBrush(Colors.White);
+        public SolidColorBrush Act4_Brush
+        {
+            get { return act4_brush; }
+            set { act4_brush = value; OnPropertyChanged(nameof(Act4_Brush)); }
+        }
+        SolidColorBrush act5_brush = new SolidColorBrush(Colors.White);
+        public SolidColorBrush Act5_Brush
+        {
+            get { return act5_brush; }
+            set { act5_brush = value; OnPropertyChanged(nameof(Act5_Brush)); }
+        }
+        SolidColorBrush act6_brush = new SolidColorBrush(Colors.White);
+        public SolidColorBrush Act6_Brush
+        {
+            get { return act6_brush; }
+            set { act6_brush = value; OnPropertyChanged(nameof(Act6_Brush)); }
+        }
+
         #endregion
 
         public ViewModel_Sceneview(Engine e)

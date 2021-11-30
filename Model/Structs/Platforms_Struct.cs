@@ -7,6 +7,7 @@ using System.Windows.Media.Media3D;
 
 namespace MOTUS.Model
 {
+    //This struct is used to transmit the positions of all the platforms to the VM_Sceneview via a Dispatcher.BeginInvoke() call.
     public struct Platforms_Struct
     {
         public Matrix3D Mx_Plat_Fix_Base;

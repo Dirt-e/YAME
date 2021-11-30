@@ -118,6 +118,7 @@
     <Compile Include="Model\ScalerModule.cs" />
     <Compile Include="Model\ScalerSystem.cs" />
     <Compile Include="Model\SerialTalker.cs" />
+    <Compile Include="Model\Structs\ActuatorColors_Struct.cs" />
     <Compile Include="Model\Structs\Platforms_Struct.cs" />
     <Compile Include="Model\ZeroMaker.cs" />
     <Compile Include="Model\_Filter.cs" />

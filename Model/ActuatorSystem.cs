@@ -1,9 +1,12 @@
 ﻿using MOTUS.DataFomats;
+using MOTUS.Model.Structs;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MOTUS.Model
 {
@@ -11,6 +14,7 @@ namespace MOTUS.Model
     {
         public List<Actuator> Actuators;
         public SixSisters Output;
+        Stopwatch invoke_timer = new Stopwatch();
         IK_Module IK_Module;
 
         //External:
@@ -60,7 +64,9 @@ namespace MOTUS.Model
                                                 new Actuator(),
                                                 new Actuator(),
                                                 new Actuator()  };
-        Output = new SixSisters();
+            Output = new SixSisters();
+
+            invoke_timer.Start();       //to determine the time to update the "VM_SceneView" (33ms)
         }
 
         public void Update()
@@ -77,6 +83,8 @@ namespace MOTUS.Model
             }
             AllInLimits =  DetermineSystemStatus();
             CreateOutput();
+
+            //UpdateUI_ViaDispatcherInvoke();
         }
 
 
@@ -89,7 +97,6 @@ namespace MOTUS.Model
             }
             return true;                                                    //No objections!
         }
-
         void CreateOutput()
         {
             for (int i = 0; i < 6; i++)
@@ -97,5 +104,42 @@ namespace MOTUS.Model
                 Output.values[i] = Actuators[i].Utilisation;
             }
         }
+
+
+
+
+
+        //private void UpdateUI_ViaDispatcherInvoke()
+        //{
+        //    if (invoke_timer.ElapsedMilliseconds > 33)      //Update the UI only at ~30fps
+        //    {
+        //        ActuatorColors_Struct actColStr = new ActuatorColors_Struct()
+        //        {
+        //            //Act1_ColorBrush = 
+        //            //Act2_ColorBrush = 
+        //            //Act3_ColorBrush = 
+        //            //Act4_ColorBrush = 
+        //            //Act5_ColorBrush = 
+        //            //Act6_ColorBrush = 
+        //        };
+        //        Application.Current.Dispatcher.BeginInvoke(new UpdateViewModel_Callback(UpdateViewModel), actColStr);
+
+        //        invoke_timer.Restart();
+        //    }
+
+        //}
+
+        //#region Callback
+        //private delegate void UpdateViewModel_Callback(Platforms_Struct Mx);
+        //private void UpdateViewModel(Platforms_Struct Mx)
+        //{
+        //    //This code runs on the Main thread!
+        //    var mainwindow = Application.Current.MainWindow as MainWindow;
+        //    if (mainwindow != null)
+        //    {
+                
+        //    }
+        //}
+        //#endregion
     }
 }
