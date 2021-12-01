@@ -11,6 +11,9 @@
         Loaded="Window_Loaded" Closing="Window_Closing"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Style="{StaticResource ChildWindow_Style}">
+    <Window.Resources>
+        <Converters:ActuatorstatusToColorConverter  x:Key="Cnvrtr_ActuatorstatusToColor"/>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
@@ -23,6 +26,7 @@
             <HelixToolkit:SunLight/>
             <!--All Visual3D objects :-->
             <HelixToolkit:GridLinesVisual3D x:Name="World" Width="2000" Length="2000" Thickness="2" MinorDistance="100" MajorDistance="500" Fill="LightGray">
+                <!--Platforms (if needed)-->
                 <ModelVisual3D x:Name="Plat_Fix_Base"/>
                 <ModelVisual3D x:Name="Plat_Fix_Park"   Transform="{Binding PlatFixPark,        UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                 <ModelVisual3D x:Name="Plat_Fix_Pause"  Transform="{Binding PlatFixPause,       UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
@@ -31,47 +35,47 @@
                 <ModelVisual3D x:Name="Plat_HFC"        Transform="{Binding PlatHFC,            UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                 <ModelVisual3D x:Name="Plat_Motion"     Transform="{Binding PlatMotion,         UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                 <ModelVisual3D x:Name="Plat_Physical"   Transform="{Binding PlatFloatPhysical,  UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-
+                <!--Lower Points-->
                 <HelixToolkit:SphereVisual3D Center="{Binding Lower1, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="GreenYellow"/>
                 <HelixToolkit:SphereVisual3D Center="{Binding Lower2, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DimGray"/>
                 <HelixToolkit:SphereVisual3D Center="{Binding Lower3, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DimGray"/>
                 <HelixToolkit:SphereVisual3D Center="{Binding Lower4, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DimGray"/>
                 <HelixToolkit:SphereVisual3D Center="{Binding Lower5, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DimGray"/>
                 <HelixToolkit:SphereVisual3D Center="{Binding Lower6, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="GreenYellow"/>
-
+                <!--Upper Points-->
                 <HelixToolkit:SphereVisual3D Center="{Binding Upper1, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="GreenYellow"/>
                 <HelixToolkit:SphereVisual3D Center="{Binding Upper2, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DimGray"/>
                 <HelixToolkit:SphereVisual3D Center="{Binding Upper3, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DimGray"/>
                 <HelixToolkit:SphereVisual3D Center="{Binding Upper4, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DimGray"/>
                 <HelixToolkit:SphereVisual3D Center="{Binding Upper5, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DimGray"/>
                 <HelixToolkit:SphereVisual3D Center="{Binding Upper6, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="GreenYellow"/>
-
+                <!--Actuators-->
                 <HelixToolkit:PipeVisual3D x:Name="Act1" Diameter="50"
                                            Point1="{    Binding Lower1,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                                            Point2="{    Binding Upper1,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
-                                           Fill="{      Binding Act1_Brush, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"/>
+                                           Fill="{      Binding Act1_Status,UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource Cnvrtr_ActuatorstatusToColor}}"/>
                 <HelixToolkit:PipeVisual3D x:Name="Act2" Diameter="50"
                                            Point1="{    Binding Lower2,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                                            Point2="{    Binding Upper2,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
-                                           Fill="{      Binding Act2_Brush, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"/>
+                                           Fill="{      Binding Act2_Status,UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource Cnvrtr_ActuatorstatusToColor}}"/>
                 <HelixToolkit:PipeVisual3D x:Name="Act3" Diameter="50"
                                            Point1="{    Binding Lower3,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                                            Point2="{    Binding Upper3,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
-                                           Fill="{      Binding Act3_Brush, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"/>
+                                           Fill="{      Binding Act3_Status,UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource Cnvrtr_ActuatorstatusToColor}}"/>
                 <HelixToolkit:PipeVisual3D x:Name="Act4" Diameter="50"
                                            Point1="{    Binding Lower4,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                                            Point2="{    Binding Upper4,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
-                                           Fill="{      Binding Act4_Brush, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"/>
+                                           Fill="{      Binding Act4_Status,UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource Cnvrtr_ActuatorstatusToColor}}"/>
                 <HelixToolkit:PipeVisual3D x:Name="Act5" Diameter="50"
                                            Point1="{    Binding Lower5,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                                            Point2="{    Binding Upper5,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
-                                           Fill="{      Binding Act5_Brush, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"/>
+                                           Fill="{      Binding Act5_Status,UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource Cnvrtr_ActuatorstatusToColor}}"/>
                 <HelixToolkit:PipeVisual3D x:Name="Act6" Diameter="50"
                                            Point1="{    Binding Lower6,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                                            Point2="{    Binding Upper6,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
-                                           Fill="{      Binding Act6_Brush, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"/>
+                                           Fill="{      Binding Act6_Status,UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource Cnvrtr_ActuatorstatusToColor}}"/>
 
-
+                <!--Upper Frame-->
                 <HelixToolkit:PipeVisual3D Diameter="50" Fill="DimGray"
                                            Point1="{Binding Upper1, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                                            Point2="{Binding Upper2, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"/>
@@ -90,7 +94,6 @@
                 <HelixToolkit:PipeVisual3D Diameter="50" Fill="DimGray"
                                            Point1="{Binding Upper6, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                                            Point2="{Binding Upper1, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"/>
-                <!--Add other platforms here-->
             </HelixToolkit:GridLinesVisual3D>
         </HelixToolkit:HelixViewport3D>
         <TextBlock Text="Raw Data:" Grid.Row="0" Padding="2" FontSize="15" FontWeight="Bold"/>

@@ -118,7 +118,7 @@
     <Compile Include="Model\ScalerModule.cs" />
     <Compile Include="Model\ScalerSystem.cs" />
     <Compile Include="Model\SerialTalker.cs" />
-    <Compile Include="Model\Structs\ActuatorColors_Struct.cs" />
+    <Compile Include="Model\Structs\ActuatorStatus_Struct.cs" />
     <Compile Include="Model\Structs\Platforms_Struct.cs" />
     <Compile Include="Model\ZeroMaker.cs" />
     <Compile Include="Model\_Filter.cs" />
@@ -141,6 +141,7 @@
     <Compile Include="View\AlphaCompensationWindow.xaml.cs">
       <DependentUpon>AlphaCompensationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Converters\ActuatorstatusToColorConverter.cs" />
     <Compile Include="View\Converters\BoolToActiveConverter..cs" />
     <Compile Include="View\Converters\BoolToColorBrushConverter.cs" />
     <Compile Include="View\Converters\CharToColorConverter.cs" />

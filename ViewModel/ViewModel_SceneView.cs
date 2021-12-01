@@ -144,43 +144,42 @@ namespace MOTUS.ViewModel
         #region Actuator Colors
         //These actuator colors are being updated via a Dispatcher callback.
         //The object making this call is the "engine.actuatorsystem" object.
-        SolidColorBrush act1_brush = new SolidColorBrush(Colors.White);
-        public SolidColorBrush Act1_Brush
+        ActuatorStatus _act1_status = ActuatorStatus.TooLong;
+        public ActuatorStatus Act1_Status
         {
-            get { return act1_brush; }
-            set { act1_brush = value; OnPropertyChanged(nameof(Act1_Brush)); }
+            get { return _act1_status; }
+            set { _act1_status = value; OnPropertyChanged(nameof(Act1_Status)); }
         }
-        SolidColorBrush act2_brush = new SolidColorBrush(Colors.White);
-        public SolidColorBrush Act2_Brush
+        ActuatorStatus _act2_status = ActuatorStatus.TooLong;
+        public ActuatorStatus Act2_Status
         {
-            get { return act2_brush; }
-            set { act2_brush = value; OnPropertyChanged(nameof(Act2_Brush)); }
+            get { return _act2_status; }
+            set { _act2_status = value; OnPropertyChanged(nameof(Act2_Status)); }
         }
-        SolidColorBrush act3_brush = new SolidColorBrush(Colors.White);
-        public SolidColorBrush Act3_Brush
+        ActuatorStatus _act3_status = ActuatorStatus.TooLong;
+        public ActuatorStatus Act3_Status
         {
-            get { return act3_brush; }
-            set { act3_brush = value; OnPropertyChanged(nameof(Act3_Brush)); }
+            get { return _act3_status; }
+            set { _act3_status = value; OnPropertyChanged(nameof(Act3_Status)); }
         }
-        SolidColorBrush act4_brush = new SolidColorBrush(Colors.White);
-        public SolidColorBrush Act4_Brush
+        ActuatorStatus _act4_status = ActuatorStatus.TooLong;
+        public ActuatorStatus Act4_Status
         {
-            get { return act4_brush; }
-            set { act4_brush = value; OnPropertyChanged(nameof(Act4_Brush)); }
+            get { return _act4_status; }
+            set { _act4_status = value; OnPropertyChanged(nameof(Act4_Status)); }
         }
-        SolidColorBrush act5_brush = new SolidColorBrush(Colors.White);
-        public SolidColorBrush Act5_Brush
+        ActuatorStatus _act5_status = ActuatorStatus.TooLong;
+        public ActuatorStatus Act5_Status
         {
-            get { return act5_brush; }
-            set { act5_brush = value; OnPropertyChanged(nameof(Act5_Brush)); }
+            get { return _act5_status; }
+            set { _act5_status = value; OnPropertyChanged(nameof(Act5_Status)); }
         }
-        SolidColorBrush act6_brush = new SolidColorBrush(Colors.White);
-        public SolidColorBrush Act6_Brush
+        ActuatorStatus _act6_status = ActuatorStatus.TooLong;
+        public ActuatorStatus Act6_Status
         {
-            get { return act6_brush; }
-            set { act6_brush = value; OnPropertyChanged(nameof(Act6_Brush)); }
+            get { return _act6_status; }
+            set { _act6_status = value; OnPropertyChanged(nameof(Act6_Status)); }
         }
-
         #endregion
 
         public ViewModel_Sceneview(Engine e)
