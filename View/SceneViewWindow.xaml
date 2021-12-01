@@ -96,7 +96,7 @@
                                            Point2="{Binding Upper1, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"/>
             </HelixToolkit:GridLinesVisual3D>
         </HelixToolkit:HelixViewport3D>
-        <TextBlock Text="Raw Data:" Grid.Row="0" Padding="2" FontSize="15" FontWeight="Bold"/>
+        <TextBlock Text="Scene View:" Grid.Row="0" Padding="2" FontSize="15" FontWeight="Bold"/>
 
     </Grid>
 </Window>

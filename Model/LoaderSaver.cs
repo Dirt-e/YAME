@@ -397,16 +397,56 @@ namespace MOTUS.Model
             }
             private void LoadCompressionSettings_Profile()
             {
+                //Dropdowns:
+                engine.compressorsystem.CMP_Yaw_HFC.Method      = saveObject.CompressionMethod_Yaw_HFC;
+                engine.compressorsystem.CMP_Pitch_HFC.Method    = saveObject.CompressionMethod_Pitch_HFC;
+                engine.compressorsystem.CMP_Roll_HFC.Method     = saveObject.CompressionMethod_Roll_HFC;
+                engine.compressorsystem.CMP_Surge_HFC.Method    = saveObject.CompressionMethod_Surge_HFC;
+                engine.compressorsystem.CMP_Heave_HFC.Method    = saveObject.CompressionMethod_Heave_HFC;
+                engine.compressorsystem.CMP_Sway_HFC.Method     = saveObject.CompressionMethod_Sway_HFC;
+                engine.compressorsystem.CMP_Pitch_LFC.Method    = saveObject.CompressionMethod_Pitch_LFC;
+                engine.compressorsystem.CMP_Roll_LFC.Method     = saveObject.CompressionMethod_Roll_LFC;
+                //Parameters:
+                engine.compressorsystem.CMP_Roll_HFC.Parameter  = saveObject.CompressionParameter_Roll_HFC;
+                engine.compressorsystem.CMP_Yaw_HFC.Parameter   = saveObject.CompressionParameter_Yaw_HFC;
+                engine.compressorsystem.CMP_Pitch_HFC.Parameter = saveObject.CompressionParameter_Pitch_HFC;
+                engine.compressorsystem.CMP_Surge_HFC.Parameter =saveObject.CompressionParameter_Surge_HFC;
+                engine.compressorsystem.CMP_Heave_HFC.Parameter = saveObject.CompressionParameter_Heave_HFC;
+                engine.compressorsystem.CMP_Sway_HFC.Parameter  = saveObject.CompressionParameter_Sway_HFC;
+                engine.compressorsystem.CMP_Pitch_LFC.Parameter = saveObject.CompressionParameter_Pitch_LFC;
+                engine.compressorsystem.CMP_Roll_LFC.Parameter  = saveObject.CompressionParameter_Roll_LFC;
+            //Limits:
+                engine.compressorsystem.CMP_Roll_HFC.Limit      = saveObject.CompressionLimit_Roll_HFC;
+                engine.compressorsystem.CMP_Yaw_HFC.Limit       = saveObject.CompressionLimit_Yaw_HFC;
+                engine.compressorsystem.CMP_Pitch_HFC.Limit     = saveObject.CompressionLimit_Pitch_HFC;
+                engine.compressorsystem.CMP_Surge_HFC.Limit     = saveObject.CompressionLimit_Surge_HFC;
+                engine.compressorsystem.CMP_Heave_HFC.Limit     = saveObject.CompressionLimit_Heave_HFC;
+                engine.compressorsystem.CMP_Sway_HFC.Limit      = saveObject.CompressionLimit_Sway_HFC;
+                engine.compressorsystem.CMP_Pitch_LFC.Limit     = saveObject.CompressionLimit_Pitch_LFC;
+                engine.compressorsystem.CMP_Roll_LFC.Limit      = saveObject.CompressionLimit_Roll_LFC;
             }
             private void LoadScalerSettings_Profile()
             {
+                engine.scalersystem.SCL_Roll_HFC.Gain = saveObject.Scaler_Gain_Roll_HFC;
+                engine.scalersystem.SCL_Yaw_HFC.Gain = saveObject.Scaler_Gain_Yaw_HFC;
+                engine.scalersystem.SCL_Pitch_HFC.Gain = saveObject.Scaler_Gain_Pitch_HFC;
+
+                engine.scalersystem.SCL_Surge_HFC.Gain = saveObject.Scaler_Gain_Surge_HFC;
+                engine.scalersystem.SCL_Pitch_LFC.Gain = saveObject.Scaler_Gain_Pitch_LFC;
+
+                engine.scalersystem.SCL_Heave_HFC.Gain = saveObject.Scaler_Gain_Heave_HFC;
+
+                engine.scalersystem.SCL_Sway_HFC.Gain = saveObject.Scaler_Gain_Sway_HFC;
+                engine.scalersystem.SCL_Roll_LFC.Gain = saveObject.Scaler_Gain_Roll_LFC;
             }
             private void LoadZeromakerSettings_Profile()
             {
+                throw new NotImplementedException();
             }
             private void LoadRigConfiguration_Profile()
-        {
-        }
+            {
+                throw new NotImplementedException();
+            }
 
 
         //---------------- Save -----------------------
