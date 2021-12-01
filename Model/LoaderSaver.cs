@@ -140,8 +140,8 @@ namespace MOTUS.Model
                 var defaults = Properties.Settings.Default;
                 var zeromaker = engine.zeromaker;
 
-                zeromaker.Zero_RollHFC = defaults.Zeromaker_Zero_RollHFC;
-                zeromaker.Zero_YawHFC = defaults.Zeromaker_Zero_YawHFC;
+                zeromaker.Zero_RollHFC  = defaults.Zeromaker_Zero_RollHFC;
+                zeromaker.Zero_YawHFC   = defaults.Zeromaker_Zero_YawHFC;
                 zeromaker.Zero_PitchHFC = defaults.Zeromaker_Zero_PitchHFC;
 
                 zeromaker.Zero_SurgeHFC = defaults.Zeromaker_Zero_SurgeHFC;
@@ -149,8 +149,8 @@ namespace MOTUS.Model
 
                 zeromaker.Zero_HeaveHFC = defaults.Zeromaker_Zero_HeaveHFC;
 
-                zeromaker.Zero_SwayHFC = defaults.Zeromaker_Zero_SwayHFC;
-                zeromaker.Zero_RollLFC = defaults.Zeromaker_Zero_RollLFC;
+                zeromaker.Zero_SwayHFC  = defaults.Zeromaker_Zero_SwayHFC;
+                zeromaker.Zero_RollLFC  = defaults.Zeromaker_Zero_RollLFC;
             }
             private void LoadRigConfiguration_Application()
             {
@@ -441,11 +441,32 @@ namespace MOTUS.Model
             }
             private void LoadZeromakerSettings_Profile()
             {
-                throw new NotImplementedException();
-            }
+                engine.zeromaker.Zero_RollHFC   = saveObject.Zero_Roll_HFC;
+                engine.zeromaker.Zero_YawHFC    = saveObject.Zero_Yaw_HFC;
+                engine.zeromaker.Zero_PitchHFC  = saveObject.Zero_Pitch_HFC;
+
+                engine.zeromaker.Zero_SurgeHFC  = saveObject.Zero_Surge_HFC;
+                engine.zeromaker.Zero_PitchLFC  = saveObject.Zero_Pitch_LFC;
+
+                engine.zeromaker.Zero_HeaveHFC  = saveObject.Zero_Heave_HFC;
+
+                engine.zeromaker.Zero_SwayHFC   = saveObject.Zero_Sway_HFC;
+                engine.zeromaker.Zero_RollLFC   = saveObject.Zero_Roll_LFC;
+        }
             private void LoadRigConfiguration_Profile()
             {
-                throw new NotImplementedException();
+                 engine.integrator.Dist_A_Upper = saveObject.RigConfig_Upper_DistA;
+                 engine.integrator.Dist_B_Upper = saveObject.RigConfig_Upper_DistB;
+
+                 engine.integrator.Dist_A_Lower = saveObject.RigConfig_Lower_DistA;
+                 engine.integrator.Dist_B_Lower = saveObject.RigConfig_Lower_DistB;
+
+                 engine.actuatorsystem.MaxLength = saveObject.RigConfig_Act_Max;
+                 engine.actuatorsystem.MinLength = saveObject.RigConfig_Act_Min;
+
+                 engine.integrator.Offset_Park  = saveObject.RigConfig_Offset_Park;
+                 engine.integrator.Offset_Pause = saveObject.RigConfig_Offset_Pause;
+                 engine.integrator.Offset_CoR   = saveObject.RigConfig_Offset_CoR;
             }
 
 
@@ -588,8 +609,8 @@ namespace MOTUS.Model
                 saveObject.RigConfig_Lower_DistA = engine.integrator.Dist_A_Lower;
                 saveObject.RigConfig_Lower_DistB = engine.integrator.Dist_B_Lower;
 
-                saveObject.RigConfig_Act_Max = engine.actuatorsystem.MaxLength;
-                saveObject.RigConfig_Act_Min = engine.actuatorsystem.MinLength;
+                saveObject.RigConfig_Act_Max    = engine.actuatorsystem.MaxLength;
+                saveObject.RigConfig_Act_Min    = engine.actuatorsystem.MinLength;
 
                 saveObject.RigConfig_Offset_Park    = engine.integrator.Offset_Park;
                 saveObject.RigConfig_Offset_Pause   = engine.integrator.Offset_Pause;
