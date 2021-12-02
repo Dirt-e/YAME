@@ -23,7 +23,8 @@ namespace MOTUS.Model
         public BackgroundWorker         backgroundworker;
         public Chopper                  chopper;
         public Inverter                 inverter;
-        public CrashDetector            crashdetector;
+        public ExceedanceDetector       exceedancedetector;
+        public RecoveryLogic            recoverlogic;
         public PositionOffsetCorrector  positionoffsetcorrector;
         public Protector                protector;
         public AlphaCompensator         alphacompensator;
@@ -114,7 +115,8 @@ namespace MOTUS.Model
         {
             chopper                 = new Chopper();
             inverter                = new Inverter();
-            crashdetector           = new CrashDetector();
+            exceedancedetector      = new ExceedanceDetector(this);
+            recoverlogic            = new RecoveryLogic();
             positionoffsetcorrector = new PositionOffsetCorrector();
             protector               = new Protector();
             alphacompensator        = new AlphaCompensator();
@@ -137,7 +139,7 @@ namespace MOTUS.Model
             Update_Server();
             Update_Chopper();
             Update_Inverter();
-            Update_Crashdetector();
+            Update_ExceedanceDetector();
             Update_PositionOffsetCorrector();
             Update_Protector();
             Update_Alphacompensator();
@@ -207,29 +209,22 @@ namespace MOTUS.Model
             #endregion
 
         }
-        private void Update_Crashdetector()
+        private void Update_ExceedanceDetector()
         {
-            crashdetector.Process(inverter.Output);
-            VM_CrashDetector.AX_CrashTrigger = crashdetector.Ax_Crashtrigger;
-            VM_CrashDetector.AY_CrashTrigger = crashdetector.Ay_Crashtrigger;
-            VM_CrashDetector.AZ_CrashTrigger = crashdetector.Az_Crashtrigger;
-            VM_CrashDetector.WX_CrashTrigger = crashdetector.Wx_Crashtrigger;
-            VM_CrashDetector.WY_CrashTrigger = crashdetector.Wy_Crashtrigger;
-            VM_CrashDetector.WZ_CrashTrigger = crashdetector.Wz_Crashtrigger;
-            //The rest of the ViewModel is being updated by the StartStopLogic
+            exceedancedetector.Process(inverter.Output);
         }
         private void Update_PositionOffsetCorrector()
         {
-            positionoffsetcorrector.Process(crashdetector.Output, deltatime_processing);
-            #region Update ViewModel
-            VM_PositionOffsetCorrector.Delta_X = positionoffsetcorrector.Delta_X;
-            VM_PositionOffsetCorrector.Delta_Y = positionoffsetcorrector.Delta_Y;
-            VM_PositionOffsetCorrector.Delta_Z = positionoffsetcorrector.Delta_Z;
-            VM_PositionOffsetCorrector.Ax_output = positionoffsetcorrector.Ax_output;
-            VM_PositionOffsetCorrector.Ay_output = positionoffsetcorrector.Ay_output;
-            VM_PositionOffsetCorrector.Az_output = positionoffsetcorrector.Az_output;
-            VM_PositionOffsetCorrector.IsActive = positionoffsetcorrector.IsActive;
-            #endregion
+            positionoffsetcorrector.Process(exceedancedetector.Output, deltatime_processing);
+            //#region Update ViewModel
+            //VM_PositionOffsetCorrector.Delta_X = positionoffsetcorrector.Delta_X;
+            //VM_PositionOffsetCorrector.Delta_Y = positionoffsetcorrector.Delta_Y;
+            //VM_PositionOffsetCorrector.Delta_Z = positionoffsetcorrector.Delta_Z;
+            //VM_PositionOffsetCorrector.Ax_output = positionoffsetcorrector.Ax_output;
+            //VM_PositionOffsetCorrector.Ay_output = positionoffsetcorrector.Ay_output;
+            //VM_PositionOffsetCorrector.Az_output = positionoffsetcorrector.Az_output;
+            //VM_PositionOffsetCorrector.IsActive = positionoffsetcorrector.IsActive;
+            //#endregion
         }
         private void Update_Protector()
         {

@@ -37,17 +37,17 @@
                 <ModelVisual3D x:Name="Plat_Physical"   Transform="{Binding PlatFloatPhysical,  UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                 <!--Lower Points-->
                 <HelixToolkit:SphereVisual3D Center="{Binding Lower1, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="GreenYellow"/>
-                <HelixToolkit:SphereVisual3D Center="{Binding Lower2, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DarkGray"/>
-                <HelixToolkit:SphereVisual3D Center="{Binding Lower3, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DarkGray"/>
-                <HelixToolkit:SphereVisual3D Center="{Binding Lower4, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DarkGray"/>
-                <HelixToolkit:SphereVisual3D Center="{Binding Lower5, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DarkGray"/>
+                <HelixToolkit:SphereVisual3D Center="{Binding Lower2, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DimGray"/>
+                <HelixToolkit:SphereVisual3D Center="{Binding Lower3, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DimGray"/>
+                <HelixToolkit:SphereVisual3D Center="{Binding Lower4, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DimGray"/>
+                <HelixToolkit:SphereVisual3D Center="{Binding Lower5, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DimGray"/>
                 <HelixToolkit:SphereVisual3D Center="{Binding Lower6, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="GreenYellow"/>
                 <!--Upper Points-->
                 <HelixToolkit:SphereVisual3D Center="{Binding Upper1, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="GreenYellow"/>
-                <HelixToolkit:SphereVisual3D Center="{Binding Upper2, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DarkGray"/>
-                <HelixToolkit:SphereVisual3D Center="{Binding Upper3, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DarkGray"/>
-                <HelixToolkit:SphereVisual3D Center="{Binding Upper4, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DarkGray"/>
-                <HelixToolkit:SphereVisual3D Center="{Binding Upper5, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DarkGray"/>
+                <HelixToolkit:SphereVisual3D Center="{Binding Upper2, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DimGray"/>
+                <HelixToolkit:SphereVisual3D Center="{Binding Upper3, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DimGray"/>
+                <HelixToolkit:SphereVisual3D Center="{Binding Upper4, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DimGray"/>
+                <HelixToolkit:SphereVisual3D Center="{Binding Upper5, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="DimGray"/>
                 <HelixToolkit:SphereVisual3D Center="{Binding Upper6, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Radius="40" Fill="GreenYellow"/>
                 <!--Actuators-->
                 <HelixToolkit:PipeVisual3D x:Name="Act1" Diameter="50"

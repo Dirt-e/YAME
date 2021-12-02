@@ -104,7 +104,7 @@
     <Compile Include="Model\CompressorModule.cs" />
     <Compile Include="Model\CompressorSystem.cs" />
     <Compile Include="Model\ConnectingPoints.cs" />
-    <Compile Include="Model\CrashDetector.cs" />
+    <Compile Include="Model\ExceedanceDetector.cs" />
     <Compile Include="DataFomats\FilterData.cs" />
     <Compile Include="Model\DOF_Override.cs" />
     <Compile Include="Model\IK-Module.cs" />
@@ -118,6 +118,7 @@
     <Compile Include="Model\ScalerModule.cs" />
     <Compile Include="Model\ScalerSystem.cs" />
     <Compile Include="Model\SerialTalker.cs" />
+    <Compile Include="Model\RecoveryLogic.cs" />
     <Compile Include="Model\Structs\ActuatorStatus_Struct.cs" />
     <Compile Include="Model\Structs\Platforms_Struct.cs" />
     <Compile Include="Model\ZeroMaker.cs" />
@@ -143,7 +144,8 @@
     </Compile>
     <Compile Include="View\Converters\ActuatorstatusToColorConverter.cs" />
     <Compile Include="View\Converters\BoolToActiveConverter..cs" />
-    <Compile Include="View\Converters\BoolToColorBrushConverter.cs" />
+    <Compile Include="View\Converters\BoolToColorBrushConverter_Actuator.cs" />
+    <Compile Include="View\Converters\BoolToColorBrushConverter_CrashLight.cs" />
     <Compile Include="View\Converters\CharToColorConverter.cs" />
     <Compile Include="View\CrashDetectorWindow.xaml.cs">
       <DependentUpon>CrashDetectorWindow.xaml</DependentUpon>

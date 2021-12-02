@@ -33,14 +33,14 @@ namespace MOTUS.Model
             private void LoadCrashDetectorThresholds_Application()
             {
                 var defaults = Properties.Settings.Default;
-                var Crashdetector = engine.crashdetector;
+                var Crashdetector = engine.exceedancedetector;
 
-                Crashdetector.Ax_Crashtrigger = defaults.CrashDetector_Threshold_Ax;
-                Crashdetector.Ay_Crashtrigger = defaults.CrashDetector_Threshold_Ay;
-                Crashdetector.Az_Crashtrigger = defaults.CrashDetector_Threshold_Az;
-                Crashdetector.Wx_Crashtrigger = defaults.CrashDetector_Threshold_Wx;
-                Crashdetector.Wy_Crashtrigger = defaults.CrashDetector_Threshold_Wy;
-                Crashdetector.Wz_Crashtrigger = defaults.CrashDetector_Threshold_Wz;
+                Crashdetector.AX_CrashTrigger = defaults.CrashDetector_Threshold_Ax;
+                Crashdetector.AY_CrashTrigger = defaults.CrashDetector_Threshold_Ay;
+                Crashdetector.AZ_CrashTrigger = defaults.CrashDetector_Threshold_Az;
+                Crashdetector.WX_CrashTrigger = defaults.CrashDetector_Threshold_Wx;
+                Crashdetector.WY_CrashTrigger = defaults.CrashDetector_Threshold_Wy;
+                Crashdetector.WZ_CrashTrigger = defaults.CrashDetector_Threshold_Wz;
             }
             private void LoadPositionOffsetCorrectionSettings_Application()
             {
@@ -184,14 +184,14 @@ namespace MOTUS.Model
             private void SaveCrashDetectorThresholds()
             {
                 var defaults = Properties.Settings.Default;
-                var Crashdetector = engine.crashdetector;
+                var Crashdetector = engine.exceedancedetector;
 
-                defaults.CrashDetector_Threshold_Ax = Crashdetector.Ax_Crashtrigger;
-                defaults.CrashDetector_Threshold_Ay = Crashdetector.Ay_Crashtrigger;
-                defaults.CrashDetector_Threshold_Az = Crashdetector.Az_Crashtrigger;
-                defaults.CrashDetector_Threshold_Wx = Crashdetector.Wx_Crashtrigger;
-                defaults.CrashDetector_Threshold_Wy = Crashdetector.Wy_Crashtrigger;
-                defaults.CrashDetector_Threshold_Wz = Crashdetector.Wz_Crashtrigger;
+                defaults.CrashDetector_Threshold_Ax = Crashdetector.AX_CrashTrigger;
+                defaults.CrashDetector_Threshold_Ay = Crashdetector.AY_CrashTrigger;
+                defaults.CrashDetector_Threshold_Az = Crashdetector.AZ_CrashTrigger;
+                defaults.CrashDetector_Threshold_Wx = Crashdetector.WX_CrashTrigger;
+                defaults.CrashDetector_Threshold_Wy = Crashdetector.WY_CrashTrigger;
+                defaults.CrashDetector_Threshold_Wz = Crashdetector.WZ_CrashTrigger;
             }
             private void SavePositionCorrectionOffsets()
             {
@@ -347,17 +347,16 @@ namespace MOTUS.Model
 
             
         }
-
-        private void LoadCrashDetectorThresholds_Profile()
-        {
-            engine.crashdetector.Ax_Crashtrigger = saveObject.Crashdetector_Trigger_Ax;
-            engine.crashdetector.Ay_Crashtrigger = saveObject.Crashdetector_Trigger_Ay;
-            engine.crashdetector.Az_Crashtrigger = saveObject.Crashdetector_Trigger_Az;
-
-            engine.crashdetector.Wx_Crashtrigger = saveObject.Crashdetector_Trigger_Wx;
-            engine.crashdetector.Wy_Crashtrigger = saveObject.Crashdetector_Trigger_Wy;
-            engine.crashdetector.Wz_Crashtrigger = saveObject.Crashdetector_Trigger_Wz;
-        }
+            private void LoadCrashDetectorThresholds_Profile()
+            {
+                engine.exceedancedetector.AX_CrashTrigger = saveObject.Crashdetector_Trigger_Ax;
+                engine.exceedancedetector.AY_CrashTrigger = saveObject.Crashdetector_Trigger_Ay;
+                engine.exceedancedetector.AZ_CrashTrigger = saveObject.Crashdetector_Trigger_Az;
+                                             
+                engine.exceedancedetector.WX_CrashTrigger = saveObject.Crashdetector_Trigger_Wx;
+                engine.exceedancedetector.WY_CrashTrigger = saveObject.Crashdetector_Trigger_Wy;
+                engine.exceedancedetector.WZ_CrashTrigger = saveObject.Crashdetector_Trigger_Wz;
+            }
             private void LoadPositionOffsetCorrectionSettings_Profile()
             {
                 engine.positionoffsetcorrector.Delta_X = saveObject.PositionOffsetCorrector_Delta_X;
@@ -499,13 +498,13 @@ namespace MOTUS.Model
         }
             private void SaveCrashDetectorThresholds_Profile()
             {
-                saveObject.Crashdetector_Trigger_Ax = engine.crashdetector.Ax_Crashtrigger;
-                saveObject.Crashdetector_Trigger_Ay = engine.crashdetector.Ay_Crashtrigger;
-                saveObject.Crashdetector_Trigger_Az = engine.crashdetector.Az_Crashtrigger;
-
-                saveObject.Crashdetector_Trigger_Wx = engine.crashdetector.Wx_Crashtrigger;
-                saveObject.Crashdetector_Trigger_Wy = engine.crashdetector.Wy_Crashtrigger;
-                saveObject.Crashdetector_Trigger_Wz = engine.crashdetector.Wz_Crashtrigger;
+                saveObject.Crashdetector_Trigger_Ax = engine.exceedancedetector.AX_CrashTrigger;
+                saveObject.Crashdetector_Trigger_Ay = engine.exceedancedetector.AY_CrashTrigger;
+                saveObject.Crashdetector_Trigger_Az = engine.exceedancedetector.AZ_CrashTrigger;
+                                                                                   
+                saveObject.Crashdetector_Trigger_Wx = engine.exceedancedetector.WX_CrashTrigger;
+                saveObject.Crashdetector_Trigger_Wy = engine.exceedancedetector.WY_CrashTrigger;
+                saveObject.Crashdetector_Trigger_Wz = engine.exceedancedetector.WZ_CrashTrigger;
         }
             private void SavePositionCorrectionOffsets_Profile()
             {

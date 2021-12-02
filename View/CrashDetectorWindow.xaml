@@ -8,7 +8,7 @@
         Title="CrashDetectorWindow"
         Height="226.25" Width="130" WindowStartupLocation="Manual" Top="115" Left="200"
         ResizeMode="NoResize" MouseLeftButtonDown="Window_MouseLeftButtonDown"
-        Loaded="Window_Loaded" Closing="Window_Closing"
+        Loaded="Window_Loaded" Closing="Window_Closing" 
         Style="{StaticResource ChildWindow_Style}">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -41,11 +41,11 @@
         <Label      Content="Wy:" Grid.Column="1"   Grid.Row="7"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
         <Label      Content="Wz:" Grid.Column="1"   Grid.Row="8"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
-        <TextBox    x:Name="txtbx_Ax_Threshold" Text="{ Binding AX_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+        <TextBox    x:Name="txtbx_Ax_Threshold" Text="{ Binding AX_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
                     Grid.Column="3" Grid.Row="2" Margin="1" TextAlignment="Center" Style="{StaticResource TextBox_Style}"/>
-        <TextBox    x:Name="txtbx_Ay_Threshold" Text="{ Binding AY_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+        <TextBox    x:Name="txtbx_Ay_Threshold" Text="{ Binding AY_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
                     Grid.Column="3" Grid.Row="3" Margin="1" TextAlignment="Center" Style="{StaticResource TextBox_Style}"/>
-        <TextBox    x:Name="txtbx_Az_Threshold" Text="{ Binding AZ_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+        <TextBox    x:Name="txtbx_Az_Threshold" Text="{ Binding AZ_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
                     Grid.Column="3" Grid.Row="4" Margin="1" TextAlignment="Center" Style="{StaticResource TextBox_Style}"/>
 
         <TextBox    x:Name="txtbx_Wx_Threshold" Text="{ Binding WX_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
@@ -69,8 +69,8 @@
                     ToolTip="This light indicates when a crash is detected.&#10;It also functions as a reset button." ToolTipService.ShowDuration="10000">
             <Button.Content>
                 <StackPanel>
-                    <TextBlock x:Name="txtblk_Line1" Text="{Binding Line1}" FontWeight="DemiBold" HorizontalAlignment="Center"/>
-                    <TextBlock x:Name="txtblk_Line2" Text="{Binding Line2}" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="txtblk_Line1" Text="{Binding Line1}" Foreground="{Binding TextColor}" FontWeight="Regular" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="txtblk_Line2" Text="{Binding Line2}" Foreground="{Binding TextColor}" FontWeight="Regular" HorizontalAlignment="Center"/>
                 </StackPanel>
             </Button.Content>
             <Button.Style>

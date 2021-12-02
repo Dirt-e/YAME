@@ -31,11 +31,16 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="1" Text="Position Offset:"    Margin="0"  Padding="2"  FontSize="15" FontWeight="Bold" Grid.ColumnSpan="4" HorizontalAlignment="Left"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Position Offset:"
+                   Margin="0"  Padding="2"  FontSize="15" FontWeight="Bold"
+                   Grid.ColumnSpan="4" HorizontalAlignment="Left"/>
 
-        <Label      Content="Delta X:"  Grid.Column="1"     Grid.Row="1"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" Height="16" Margin="0,2,0.667,2" Width="40" />
-        <Label      Content="Delta Y:"  Grid.Column="1"     Grid.Row="2"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" Height="16" Margin="0,2,0.667,2" Width="40" />
-        <Label      Content="Delta Z:"  Grid.Column="1"     Grid.Row="3"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" Height="16" Margin="0,2,0.667,2" Width="40"/>
+        <Label      Content="Delta X:"  Grid.Column="1"     Grid.Row="1"    Padding="0"
+                    HorizontalAlignment="Right" VerticalAlignment="Center" Height="16" Margin="0,2,0.667,2" Width="40" />
+        <Label      Content="Delta Y:"  Grid.Column="1"     Grid.Row="2"    Padding="0"
+                    HorizontalAlignment="Right" VerticalAlignment="Center" Height="16" Margin="0,2,0.667,2" Width="40" />
+        <Label      Content="Delta Z:"  Grid.Column="1"     Grid.Row="3"    Padding="0"
+                    HorizontalAlignment="Right" VerticalAlignment="Center" Height="16" Margin="0,2,0.667,2" Width="40"/>
 
         <Label     Grid.Row="5" Grid.Column="1" Padding="0"   HorizontalAlignment="Right" VerticalAlignment="Center">
             <Label.Style>

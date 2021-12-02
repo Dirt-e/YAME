@@ -7,22 +7,85 @@ using System.Threading.Tasks;
 
 namespace MOTUS.Model
 {
-    public class PositionOffsetCorrector
+    public class PositionOffsetCorrector : MyObject
     {
         public PreprocessorData Output = new PreprocessorData();
         public PreprocessorData PreviousOutput = new PreprocessorData();
         public PreprocessorData Input = new PreprocessorData();
 
-        #region External properties
-        public bool IsActive { get; set; }
+        #region ViewModel
+        bool _isActive;
+        public bool IsActive
+        {
+            get { return _isActive; }
+            set
+            {
+                _isActive = value;
+                OnPropertyChanged(nameof(IsActive));
+            }
+        }
 
-        public float Delta_X { get; set; }
-        public float Delta_Y { get; set; }
-        public float Delta_Z { get; set; }
+        float _delta_x = 0;
+        public float Delta_X
+        {
+            get { return _delta_x; }
+            set
+            {
+                _delta_x = value;
+                OnPropertyChanged(nameof(Delta_X));
+            }
+        }
+        float _delta_y = 0;
+        public float Delta_Y
+        {
+            get { return _delta_y; }
+            set
+            {
+                _delta_y = value;
+                OnPropertyChanged(nameof(Delta_Y));
+            }
+        }
+        float _delta_z = 0;
+        public float Delta_Z
+        {
+            get { return _delta_z; }
+            set
+            {
+                _delta_z = value;
+                OnPropertyChanged(nameof(Delta_Z));
+            }
+        }
 
-        public float Ax_output { get; set; }
-        public float Ay_output { get; set; }
-        public float Az_output { get; set; }
+        float _ax_output;
+        public float Ax_output
+        {
+            get { return _ax_output; }
+            set
+            {
+                _ax_output = value;
+                OnPropertyChanged(nameof(Ax_output));
+            }
+        }
+        float _ay_output;
+        public float Ay_output
+        {
+            get { return _ay_output; }
+            set
+            {
+                _ay_output = value;
+                OnPropertyChanged(nameof(Ay_output));
+            }
+        }
+        float _az_output;
+        public float Az_output
+        {
+            get { return _az_output; }
+            set
+            {
+                _az_output = value;
+                OnPropertyChanged(nameof(Az_output));
+            }
+        }
         #endregion
 
         #region Internal Properties

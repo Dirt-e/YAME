@@ -7,7 +7,7 @@
     <Application.Resources>
         <!--Converters-->
         <converters:BoolToActiveConverter x:Key="cnvrt_BoolToActive"/>
-        <converters:BoolToColorBrushConverter x:Key="cnvrt_BoolToColorBrush"/>
+        <converters:BoolToColorBrushConverter_Actuator x:Key="cnvrt_BoolToColorBrush"/>
         <converters:CharToColorConverter x:Key="cnvrt_CharToColor"/>
         <!--Colors-->
         <Color x:Key="MyDarkGray" A="255" R="30" G="30" B="30"/>

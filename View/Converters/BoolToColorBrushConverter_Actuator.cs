@@ -10,7 +10,7 @@ using System.Windows.Media;
 
 namespace MOTUS.View.Converters
 {
-    public class BoolToColorBrushConverter : IValueConverter
+    public class BoolToColorBrushConverter_Actuator : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

@@ -14,15 +14,7 @@ namespace MOTUS.Model
         public event PropertyChangedEventHandler PropertyChanged;
         private protected void OnPropertyChanged(string propertyName)
         {
-            try
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            }
-            catch (Exception)
-            {
-                Debug.WriteLine("This damn exception!!!");
-                //Ignore :-)
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

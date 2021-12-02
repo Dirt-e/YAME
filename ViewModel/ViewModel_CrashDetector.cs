@@ -11,111 +11,32 @@ namespace MOTUS.ViewModel
 {
     public class ViewModel_CrashDetector : _ViewModel
     {
-        float _ax_crashtrigger;
-        public float AX_CrashTrigger
-        {
-            get
-            {
-                return _ax_crashtrigger;
-            }
-            set
-            {
-                _ax_crashtrigger = value;
-                engine.crashdetector.Ax_Crashtrigger = value;
-                OnPropertyChanged("AX_CrashTrigger");
-            }
-        }
-        float _ay_crashtrigger;
-        public float AY_CrashTrigger
-        {
-            get
-            {
-                return _ay_crashtrigger;
-            }
-            set
-            {
-                _ay_crashtrigger = value;
-                engine.crashdetector.Ay_Crashtrigger = value;
-                OnPropertyChanged("AY_CrashTrigger");
-            }
-        }
-        float _az_crashtrigger;
-        public float AZ_CrashTrigger
-        {
-            get
-            {
-                return _az_crashtrigger;
-            }
-            set
-            {
-                _az_crashtrigger = value;
-                engine.crashdetector.Az_Crashtrigger = value;
-                OnPropertyChanged("AZ_CrashTrigger");
-            }
-        }
-
-        float _wx_crashtrigger;
-        public float WX_CrashTrigger
-        {
-            get
-            {
-                return _wx_crashtrigger;
-            }
-            set
-            {
-                _wx_crashtrigger = value;
-                engine.crashdetector.Wx_Crashtrigger = value;
-                OnPropertyChanged("WX_CrashTrigger");
-            }
-        }
-        float _wy_crashtrigger;
-        public float WY_CrashTrigger
-        {
-            get
-            {
-                return _wy_crashtrigger;
-            }
-            set
-            {
-                _wy_crashtrigger = value;
-                engine.crashdetector.Wy_Crashtrigger = value;
-                OnPropertyChanged("WY_CrashTrigger");
-            }
-        }
-        float _wz_crashtrigger;
-        public float WZ_CrashTrigger
-        {
-            get
-            {
-                return _wz_crashtrigger;
-            }
-            set
-            {
-                _wz_crashtrigger = value;
-                engine.crashdetector.Wz_Crashtrigger = value;
-                OnPropertyChanged("WZ_CrashTrigger");
-            }
-        }
-
-        SolidColorBrush _textcolor ;
+        //"CRASHED" light
+        SolidColorBrush _textcolor = new SolidColorBrush(Colors.Black);
         public SolidColorBrush TextColor
         {
             get { return _textcolor; }
-            set
-            {
-                _textcolor = value;
-                OnPropertyChanged("TextColor");
-            }
+            set { _textcolor = value; OnPropertyChanged(nameof(TextColor)); }
         }
-        SolidColorBrush _lightcolor;
+        SolidColorBrush _lightcolor = new SolidColorBrush(Colors.Red);
         public SolidColorBrush LightColor
         {
-            get  { return _lightcolor; }
-            set
-            {
-                _lightcolor = value;
-                OnPropertyChanged("LightColor");
-            }
+            get { return _lightcolor; }
+            set { _lightcolor = value; OnPropertyChanged(nameof(LightColor)); }
+        }
+
+
+        string _line1 = "Line_One";
+        public string Line1
+        {
+            get { return _line1; }
+            set { _line1 = value; OnPropertyChanged(nameof(Line1)); }
+        }
+        string _line2 = "Line_Two";
+        public string Line2
+        {
+            get { return _line2; }
+            set { _line2 = value; OnPropertyChanged(nameof(Line2)); }
         }
 
         public ViewModel_CrashDetector(Engine e)

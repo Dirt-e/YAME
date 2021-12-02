@@ -19,20 +19,27 @@ namespace MOTUS.View
         public PositionCorrector_Window()
         {
             InitializeComponent();
-            DataContext = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine.VM_PositionOffsetCorrector;
+            SetDatacontext();
+        }
+
+        private void SetDatacontext()
+        {
+            var engine = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine;
+
+            txtbx_DeltaX.DataContext = engine.positionoffsetcorrector;
+            txtbx_DeltaY.DataContext = engine.positionoffsetcorrector;
+            txtbx_DeltaZ.DataContext = engine.positionoffsetcorrector;
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Left    = Properties.Settings.Default.Window_PositionCorrection_Position_X;
             Top     = Properties.Settings.Default.Window_PositionCorrection_Position_Y;
         }
-
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Properties.Settings.Default.Window_PositionCorrection_Position_X    = (float)Left;
