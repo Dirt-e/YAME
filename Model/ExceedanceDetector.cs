@@ -92,25 +92,56 @@ namespace MOTUS.Model
             Output = data;                              //We always pass the data on. This is only a DETECTOR!
         }
 
-        void InformRecoveryLogic()
-        {
-            engine.recoverlogic.State = Recovery_State.Crash_Informed;
-        }
         void CheckLimits(PreprocessorData data)
         {
-            if (Math.Abs(data.AX) >= AX_CrashTrigger)   IsExceedance_Ax = true;
-            else                                        IsExceedance_Ax = false;
-            if (Math.Abs(data.AY) >= AY_CrashTrigger)   IsExceedance_Ay = true;
-            else                                        IsExceedance_Ay = false;
-            if (Math.Abs(data.AZ) >= AZ_CrashTrigger)   IsExceedance_Az = true;
-            else                                        IsExceedance_Az = false;
-
-            if (Math.Abs(data.WX) >= WX_CrashTrigger)   IsExceedance_Wx = true;
-            else                                        IsExceedance_Wx = false;
-            if (Math.Abs(data.WY) >= WY_CrashTrigger)   IsExceedance_Wy = true;
-            else                                        IsExceedance_Wy = false;
-            if (Math.Abs(data.WZ) >= WZ_CrashTrigger)   IsExceedance_Wz = true;
-            else                                        IsExceedance_Wx = false;
+            if (Math.Abs(data.AX) >= AX_CrashTrigger)
+            {
+                IsExceedance_Ax = true; Console.WriteLine("Ax");
+            }
+            else
+            {
+                IsExceedance_Ax = false;
+            }
+            if (Math.Abs(data.AY) >= AY_CrashTrigger)
+            {
+                IsExceedance_Ay = true; Console.WriteLine("Ay");
+            }
+            else
+            {
+                IsExceedance_Ay = false;
+            }
+            if (Math.Abs(data.AZ) >= AZ_CrashTrigger)
+            {
+                IsExceedance_Az = true; Console.WriteLine("Az");
+            }
+            else
+            {
+                IsExceedance_Az = false;
+            }
+            if (Math.Abs(data.WX) >= WX_CrashTrigger)
+            {
+                IsExceedance_Wx = true; Console.WriteLine("Wx");
+            }
+            else
+            {
+                IsExceedance_Wx = false;
+            }
+            if (Math.Abs(data.WY) >= WY_CrashTrigger)
+            {
+                IsExceedance_Wy = true; Console.WriteLine("Wy");
+            }
+            else
+            {
+                IsExceedance_Wy = false;
+            }
+            if (Math.Abs(data.WZ) >= WZ_CrashTrigger)
+            {
+                IsExceedance_Wz = true; Console.WriteLine("Wz");
+            }
+            else
+            {
+                IsExceedance_Wz = false;
+            }
 
             IsAnyExceedancePresent = (  IsExceedance_Ax ||
                                         IsExceedance_Ay ||
@@ -123,6 +154,10 @@ namespace MOTUS.Model
         {
             engine.protector.IsLatched = true;      //This only latches the protector. It will
                                                     //be un-latched by the recovery-logic
+        }
+        void InformRecoveryLogic()
+        {
+            engine.recoverlogic.State = Recovery_State.Crash_Informed;
         }
     }
 }
