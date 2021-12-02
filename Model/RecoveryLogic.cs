@@ -12,7 +12,17 @@ namespace MOTUS.Model
         public Recovery_State State
         { 
             get { return _state; }
-            set { _state = value; OnPropertyChanged(nameof(State)); }
+            set
+            {
+                //Need better logic here!
+                throw new NotImplementedException();
+
+                if (value != _state)
+                {
+                    _state = value;
+                    OnPropertyChanged(nameof(State)); 
+                }
+            }
         }
     }
 
@@ -20,7 +30,6 @@ namespace MOTUS.Model
     {
         Dormant,
         Crash_Informed,
-        Recovering,
-        Resetting
+        Recovering
     }
 }

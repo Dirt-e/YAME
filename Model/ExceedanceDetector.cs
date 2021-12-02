@@ -18,12 +18,12 @@ namespace MOTUS.Model
             get { return _isanyexceedancepresent; }
             set
             {
-                if (value != _isanyexceedancepresent)                   //Was there a change?
+                if (value != _isanyexceedancepresent)                   //Only when it changes...
                 {
-                    _isanyexceedancepresent = value;                    //Set the value...
-                    OnPropertyChanged(nameof(IsAnyExceedancePresent));  //...and talk about it.
+                    _isanyexceedancepresent = value;
+                    OnPropertyChanged(nameof(IsAnyExceedancePresent));
 
-                    if (value)                                          //This happens only once
+                    if (value)                                          //...to the positive.
                     {
                         LatchProtector();
                         InformRecoveryLogic();
