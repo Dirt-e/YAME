@@ -19,7 +19,7 @@ namespace MOTUS.Model
         //via a Dispatcher.invoke() call. All inverse kinematics are done in the IK Module!!!
 
         public DOF_Data Input = new DOF_Data();
-        Stopwatch invoke_timer = new Stopwatch();
+        Stopwatch invoke_timer = Stopwatch.StartNew();
 
         #region ViewModel
         float _dist_a_upper;
@@ -115,7 +115,7 @@ namespace MOTUS.Model
                                             TimeSpan.FromSeconds(fade_duration_PauseToMotion_seconds));
             EstablishHierarchy();
 
-            invoke_timer.Start();
+            //nvoke_timer.Start();
         }
         private void EstablishHierarchy()
         {
@@ -137,9 +137,7 @@ namespace MOTUS.Model
             Input = new DOF_Data(data);
 
             Integrate_Platforms();
-
             LerpPhysical_Between_ParkPauseMotion();
-
             UpdateUI_ViaDispatcherInvoke();
         }
 
@@ -189,20 +187,21 @@ namespace MOTUS.Model
             Plat_Float_Physical.Transform = Lerp_3Way.Output;
         }
 
+        #region Callback
         private void UpdateUI_ViaDispatcherInvoke()
         {
             if (invoke_timer.ElapsedMilliseconds > 33)      //Update the UI only at ~30fps
             {
                 Platforms_Struct mx = new Platforms_Struct()
                 {
-                    Mx_Plat_Fix_Base        = Plat_Fix_Base.GetWorldTransform().Value,
-                    Mx_Plat_Fix_Pause       = Plat_Fix_Pause.GetWorldTransform().Value,
-                    Mx_Plat_CoR             = Plat_CoR.GetWorldTransform().Value,
-                    Mx_Plat_LFC             = Plat_LFC.GetWorldTransform().Value,
-                    Mx_Plat_HFC             = Plat_HFC.GetWorldTransform().Value,
-                    Mx_Plat_Motion          = Plat_Motion.GetWorldTransform().Value,
-                    Mx_Plat_Fix_Park        = Plat_Fix_Park.GetWorldTransform().Value,
-                    Mx_Plat_Float_Physical  = Plat_Float_Physical.GetWorldTransform().Value,
+                    Mx_Plat_Fix_Base = Plat_Fix_Base.GetWorldTransform().Value,
+                    Mx_Plat_Fix_Pause = Plat_Fix_Pause.GetWorldTransform().Value,
+                    Mx_Plat_CoR = Plat_CoR.GetWorldTransform().Value,
+                    Mx_Plat_LFC = Plat_LFC.GetWorldTransform().Value,
+                    Mx_Plat_HFC = Plat_HFC.GetWorldTransform().Value,
+                    Mx_Plat_Motion = Plat_Motion.GetWorldTransform().Value,
+                    Mx_Plat_Fix_Park = Plat_Fix_Park.GetWorldTransform().Value,
+                    Mx_Plat_Float_Physical = Plat_Float_Physical.GetWorldTransform().Value,
 
                     Mx_UpperPoints_1 = UpperPoints.P1.GetWorldTransform().Value,
                     Mx_UpperPoints_2 = UpperPoints.P2.GetWorldTransform().Value,
@@ -220,19 +219,16 @@ namespace MOTUS.Model
                 };
 
                 Application.Current.Dispatcher.BeginInvoke(new UpdateViewModel_Callback(UpdateViewModel), mx);
-            
+
                 invoke_timer.Restart();
             }
-            
-        }
 
-        #region Callback
+        }
         private delegate void UpdateViewModel_Callback(Platforms_Struct Mx);
         private void UpdateViewModel(Platforms_Struct Mx)
         {
             //This code runs on the Main thread!
-            var mainwindow = Application.Current.MainWindow as MainWindow;
-            if (mainwindow != null)
+            if (Application.Current.MainWindow is MainWindow mainwindow)
             {
                 mainwindow.engine.VM_SceneView.PlatFixBase          = new MatrixTransform3D(Mx.Mx_Plat_Fix_Base);
                 mainwindow.engine.VM_SceneView.PlatFixPause         = new MatrixTransform3D(Mx.Mx_Plat_Fix_Pause);

@@ -12,13 +12,13 @@ namespace MOTUS.ViewModel
     public class ViewModel_CrashDetector : _ViewModel
     {
         //"CRASHED" light
-        SolidColorBrush _textcolor = new SolidColorBrush(Colors.Black);
+        SolidColorBrush _textcolor;
         public SolidColorBrush TextColor
         {
             get { return _textcolor; }
             set { _textcolor = value; OnPropertyChanged(nameof(TextColor)); }
         }
-        SolidColorBrush _lightcolor = new SolidColorBrush(Colors.Red);
+        SolidColorBrush _lightcolor;
         public SolidColorBrush LightColor
         {
             get { return _lightcolor; }

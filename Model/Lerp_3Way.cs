@@ -37,7 +37,7 @@ namespace MOTUS.Model
             get { return _command; }
             set
             {
-                if (value != _command)
+                if (value != _command)                  //Only CHANGES are executed here
                 {
                     _command = value;
                     switch (value)

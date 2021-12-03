@@ -10,6 +10,9 @@ namespace MOTUS.Model
 {
     public class MyObject : INotifyPropertyChanged
     {
+
+        protected Engine engine;
+
         //INotifyPropertyChanged:
         public event PropertyChangedEventHandler PropertyChanged;
         private protected void OnPropertyChanged(string propertyName)

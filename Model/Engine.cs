@@ -24,7 +24,7 @@ namespace MOTUS.Model
         public Chopper                  chopper;
         public Inverter                 inverter;
         public ExceedanceDetector       exceedancedetector;
-        public RecoveryLogic            recoverlogic;
+        public RecoveryLogic            recoverylogic;
         public PositionOffsetCorrector  positionoffsetcorrector;
         public Protector                protector;
         public AlphaCompensator         alphacompensator;
@@ -116,7 +116,7 @@ namespace MOTUS.Model
             chopper                 = new Chopper();
             inverter                = new Inverter();
             exceedancedetector      = new ExceedanceDetector(this);
-            recoverlogic            = new RecoveryLogic();
+            recoverylogic           = new RecoveryLogic(this);
             positionoffsetcorrector = new PositionOffsetCorrector();
             protector               = new Protector();
             alphacompensator        = new AlphaCompensator();
@@ -140,6 +140,7 @@ namespace MOTUS.Model
             Update_Chopper();
             Update_Inverter();
             Update_ExceedanceDetector();
+            Update_RecoveryLogic();
             Update_PositionOffsetCorrector();
             Update_Protector();
             Update_Alphacompensator();
@@ -212,6 +213,10 @@ namespace MOTUS.Model
         private void Update_ExceedanceDetector()
         {
             exceedancedetector.Process(inverter.Output);
+        }
+        private void Update_RecoveryLogic()
+        {
+            recoverylogic.Update();
         }
         private void Update_PositionOffsetCorrector()
         {

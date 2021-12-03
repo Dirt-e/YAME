@@ -1,0 +1,270 @@
+﻿++Solution 'MOTUS' ‎(1 of 1 project)
+i:{00000000-0000-0000-0000-000000000000}:MOTUS.sln
+++MOTUS
+i:{00000000-0000-0000-0000-000000000000}:MOTUS
+++Properties
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\properties\
+++References
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++DataFomats
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\datafomats\
+++Media
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\media\
+++Model
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\
+++Structs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\structs\
+++_Filter.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\_filter.cs
+++_MyObject.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\_myobject.cs
+++Actuator.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\actuator.cs
+++ActuatorSystem.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\actuatorsystem.cs
+++AlphaCompensator.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\alphacompensator.cs
+++Chopper.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\chopper.cs
+++CompressorModule.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\compressormodule.cs
+++CompressorSystem.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\compressorsystem.cs
+++ConnectingPoints.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\connectingpoints.cs
+++DOF_Override.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\dof_override.cs
+++Engine.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\engine.cs
+++ExceedanceDetector.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\exceedancedetector.cs
+++FilterSystem.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\filtersystem.cs
+++HighPassNthOrder.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\highpassnthorder.cs
+++IK-Module.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\ik-module.cs
+++Integrator.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\integrator.cs
+++Inverter.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\inverter.cs
+++Lerp.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\lerp.cs
+++Lerp_3Way.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\lerp_3way.cs
+++LoaderSaver.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\loadersaver.cs
+++LowPassModule.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\lowpassmodule.cs
+++LowPassNthOrder.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\lowpassnthorder.cs
+++MessageGenerator_AMC_AASD15A.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\messagegenerator_amc_aasd15a.cs
+++MyTransform.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\mytransform.cs
+++PositionOffsetCorrector.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\positionoffsetcorrector.cs
+++Protector.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\protector.cs
+++RecoveryLogic.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\recoverylogic.cs
+++ScalerModule.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\scalermodule.cs
+++ScalerSystem.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\scalersystem.cs
+++SerialTalker.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\serialtalker.cs
+++Server.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\server.cs
+++ZeroMaker.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\zeromaker.cs
+++View
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\
+++ViewModel
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\viewmodel\
+++_ViewModel.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\viewmodel\_viewmodel.cs
+++ViewModel_CrashDetector.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\viewmodel\viewmodel_crashdetector.cs
+++ViewModel_FiltersWindow.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\viewmodel\viewmodel_filterswindow.cs
+++ViewModel_MainWindow.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\viewmodel\viewmodel_mainwindow.cs
+++ViewModel_MotionControlWindow.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\viewmodel\viewmodel_motioncontrolwindow.cs
+++ViewModel_PositionOffsetCorrector.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\viewmodel\viewmodel_positionoffsetcorrector.cs
+++ViewModel_RawData.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\viewmodel\viewmodel_rawdata.cs
+++ViewModel_SceneView.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\viewmodel\viewmodel_sceneview.cs
+++App.config
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\app.config
+++App.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\app.xaml
+++GlobalVars.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\globalvars.cs
+++MainWindow.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\mainwindow.xaml
+++MainWindow.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\mainwindow.xaml.cs
+++packages.config
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\packages.config
+++Utility.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\utility.cs
+++AssemblyInfo.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\properties\assemblyinfo.cs
+++Resources.resx
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\properties\resources.resx
+++Settings.settings
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\properties\settings.settings
+++HelixToolkit
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++HelixToolkit.Wpf
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++Microsoft.Bcl.AsyncInterfaces
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++Microsoft.CSharp
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++PresentationCore
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++PresentationFramework
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++System
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++System.Buffers
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++System.Core
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++System.Data
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++System.Data.DataSetExtensions
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++System.Memory
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++System.Net.Http
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++System.Numerics
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++System.Numerics.Vectors
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++System.Runtime.CompilerServices.Unsafe
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++System.Text.Encodings.Web
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++System.Text.Json
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++System.Threading.Tasks.Extensions
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++System.ValueTuple
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++System.Windows.Forms
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++System.Xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++System.Xml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++System.Xml.Linq
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++WindowsBase
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++DOF_Data.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\datafomats\dof_data.cs
+++FilterData.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\datafomats\filterdata.cs
+++PreprocessorData.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\datafomats\preprocessordata.cs
+++SaveObject.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\datafomats\saveobject.cs
+++SixSisters.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\datafomats\sixsisters.cs
+++Models
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\media\models\
+++ActuatorStatus_Struct.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\structs\actuatorstatus_struct.cs
+++Platforms_Struct.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\model\structs\platforms_struct.cs
+++Converters
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\converters\
+++UserControls
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\usercontrols\
+++AlphaCompensationWindow.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\alphacompensationwindow.xaml
+++CrashDetectorWindow.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\crashdetectorwindow.xaml
+++DOF_Window.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\dof_window.xaml
+++EnumBindingSourceExtension.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\enumbindingsourceextension.cs
+++FiltersWindow.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\filterswindow.xaml
+++MotionControl_Window.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\motioncontrol_window.xaml
+++PositionCorrectorWindow.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\positioncorrectorwindow.xaml
+++RawDataWindow.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\rawdatawindow.xaml
+++RigConfigWindow.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\rigconfigwindow.xaml
+++SceneViewWindow.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\sceneviewwindow.xaml
+++SerialConnection_Window.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\serialconnection_window.xaml
+++ServerWindow.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\serverwindow.xaml
+++App.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\app.xaml.cs
+++Resources.Designer.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\properties\resources.designer.cs
+++Settings.Designer.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\properties\settings.designer.cs
+++Plane.stl
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\media\models\plane.stl
+++ActuatorstatusToColorConverter.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\converters\actuatorstatustocolorconverter.cs
+++BoolToActiveConverter..cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\converters\booltoactiveconverter..cs
+++BoolToColorBrushConverter_Actuator.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\converters\booltocolorbrushconverter_actuator.cs
+++BoolToColorBrushConverter_CrashLight.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\converters\booltocolorbrushconverter_crashlight.cs
+++CharToColorConverter.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\converters\chartocolorconverter.cs
+++CompressionBox.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\usercontrols\compressionbox.xaml
+++FilterBox.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\usercontrols\filterbox.xaml
+++ScalerBox.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\usercontrols\scalerbox.xaml
+++ToggleSwitch.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\usercontrols\toggleswitch.xaml
+++AlphaCompensationWindow.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\alphacompensationwindow.xaml.cs
+++CrashDetectorWindow.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\crashdetectorwindow.xaml.cs
+++DOF_Window.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\dof_window.xaml.cs
+++FiltersWindow.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\filterswindow.xaml.cs
+++MotionControl_Window.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\motioncontrol_window.xaml.cs
+++PositionCorrectorWindow.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\positioncorrectorwindow.xaml.cs
+++RawDataWindow.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\rawdatawindow.xaml.cs
+++RigConfigWindow.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\rigconfigwindow.xaml.cs
+++SceneViewWindow.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\sceneviewwindow.xaml.cs
+++SerialConnection_Window.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\serialconnection_window.xaml.cs
+++ServerWindow.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\serverwindow.xaml.cs
+++CompressionBox.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\usercontrols\compressionbox.xaml.cs
+++FilterBox.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\usercontrols\filterbox.xaml.cs
+++ScalerBox.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\usercontrols\scalerbox.xaml.cs
+++ToggleSwitch.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\motus\view\usercontrols\toggleswitch.xaml.cs

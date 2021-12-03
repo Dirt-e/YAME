@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MOTUS.Model
 {
-    public class AlphaCompensator :INotifyPropertyChanged
+    public class AlphaCompensator : MyObject
     {
         //The AlphaCompensator takes PreprocessorData in and gives MotionData out
         private PreprocessorData Input = new PreprocessorData();
@@ -142,12 +142,5 @@ namespace MOTUS.Model
                             Utility.RAD_from_DEG(AoA_fuselage)));
         }
 
-
-        //INotifyPropertyChanged:
-        public event PropertyChangedEventHandler PropertyChanged;
-        private protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }

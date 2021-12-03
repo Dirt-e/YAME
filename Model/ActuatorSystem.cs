@@ -12,7 +12,6 @@ namespace MOTUS.Model
 {
     public class ActuatorSystem : MyObject
     {
-        //public List<Actuator> Actuators;
         Actuator A1 = new Actuator();   
         Actuator A2 = new Actuator();   
         Actuator A3 = new Actuator();   
@@ -52,16 +51,7 @@ namespace MOTUS.Model
         public bool AllInLimits
         {
             get { return _allinlimits; }
-            private set
-            {
-                if (_allinlimits != value)
-                {
-                    _allinlimits = value; 
-                    OnPropertyChanged("AllInLimits");
-                    //Debug:
-                    Console.WriteLine("Status: " + AllInLimits.ToString());
-                }
-            }
+            private set { if (_allinlimits != value)_allinlimits = value; OnPropertyChanged("AllInLimits"); }
         }
 
         public ActuatorSystem(ref IK_Module ikm)

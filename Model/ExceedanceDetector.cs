@@ -31,7 +31,6 @@ namespace MOTUS.Model
                 }
             }
         }
-        Engine engine;
 
         #region Trigger thresholds (VM)
         float _ax_crashtrigger = float.PositiveInfinity;
@@ -157,7 +156,7 @@ namespace MOTUS.Model
         }
         void InformRecoveryLogic()
         {
-            engine.recoverlogic.State = Recovery_State.Crash_Informed;
+            engine.recoverylogic.State = Recovery_State.Crash_Informed;
         }
     }
 }
