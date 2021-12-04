@@ -35,7 +35,6 @@ namespace MOTUS.Model
                         if (value == Recovery_State.Recovering)
                         {
                             _state = Recovery_State.Recovering;
-                            
                         }
                         break;
                     case Recovery_State.Recovering:
@@ -66,7 +65,11 @@ namespace MOTUS.Model
         //Helpers:
         void MoveRigToPause()
         {
-            engine.integrator.Lerp_3Way.Command = Lerp3_Command.Pause;
+            if (engine.integrator.Lerp_3Way.State == Lerp3_State.Motion)
+            {
+                engine.integrator.Lerp_3Way.Command = Lerp3_Command.Pause;
+            }
+            
         }
         void CleanUp()
         {

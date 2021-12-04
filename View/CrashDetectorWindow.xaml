@@ -66,10 +66,11 @@
         <Button     Name="btn_Indicator" Grid.Row="9" Width="100" Margin="10" Cursor="Hand"
                     Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Center"
                     Foreground="{Binding TextColor}" Background="{Binding LightColor}" 
-                    ToolTip="This light indicates when a crash is detected.&#10;It also functions as a reset button." ToolTipService.ShowDuration="10000">
+                    ToolTip="This light indicates when a crash is detected.&#10;It also functions as a reset button to recover the rig into a motion-ready state."
+                    ToolTipService.ShowDuration="10000">
             <Button.Content>
                 <StackPanel>
-                    <TextBlock x:Name="txtblk_Line1" Text="{Binding Line1}" Foreground="{Binding TextColor}" FontWeight="Regular" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="txtblk_Line1" Text="{Binding Line1}" Foreground="{Binding TextColor}" FontFamily="Courier" FontWeight="Bold" HorizontalAlignment="Center"/>
                     <TextBlock x:Name="txtblk_Line2" Text="{Binding Line2}" Foreground="{Binding TextColor}" FontWeight="Regular" HorizontalAlignment="Center"/>
                 </StackPanel>
             </Button.Content>
