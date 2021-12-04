@@ -15,30 +15,31 @@ namespace MOTUS.Model
         public Recovery_State State
         { 
             get { return _state; }
-            set     //State can only run in circles  Dormant->Informed->Revocering->Dormant
+            set 
             {
-                if (value == _state) return;        //Nothing to do
+                if (value == _state) return;        //No Change -> Nothing to do.
 
-                switch (State)                      //These run only ONCE when the State CHANGES!
+                //State can only run in circles:
+                //Dormant->CrashInformed->Revocering->WaitingForAcknoledgement->Acknoledged->CleanedUp->Dormant
+                switch (State)                      
                 {
                     case Recovery_State.Dormant:
-                        if (value == Recovery_State.Crash_Informed)
-                        {
-                            _state = Recovery_State.Crash_Informed;
-                            SetLight(Colors.Red);
-                            SetLight("CRASHED", "Press to reset");
-                            SetText(Colors.Black);
-                            MoveRigToPause();
-                        }
+                        if (value == Recovery_State.Crash_Informed)             _state = Recovery_State.Crash_Informed;
                         break;
                     case Recovery_State.Crash_Informed:
-                        if (value == Recovery_State.Recovering)
-                        {
-                            _state = Recovery_State.Recovering;
-                        }
+                        if (value == Recovery_State.Recovering)                 _state = Recovery_State.Recovering;
                         break;
                     case Recovery_State.Recovering:
-                        if (value == Recovery_State.Dormant) _state = Recovery_State.Dormant;
+                        if (value == Recovery_State.WaitingForAcknoledgement)   _state = Recovery_State.WaitingForAcknoledgement;
+                        break;
+                    case Recovery_State.WaitingForAcknoledgement:
+                        if (value == Recovery_State.Acknoledged)                _state = Recovery_State.Acknoledged;
+                        break;
+                    case Recovery_State.Acknoledged:
+                        if (value == Recovery_State.Cleaned_Up)                  _state = Recovery_State.Cleaned_Up;
+                        break;
+                    case Recovery_State.Cleaned_Up:
+                        if (value == Recovery_State.Dormant)                    _state = Recovery_State.Dormant; 
                         break;
                     default:
                         throw new ArgumentException("WTF is " + State + "?");
@@ -53,18 +54,44 @@ namespace MOTUS.Model
 
         public void Update()
         {
-            if (State == Recovery_State.Recovering)
+            switch (State)
             {
-                if (engine.integrator.Lerp_3Way.State == Lerp3_State.Pause)     //When the rig reaches PAUSE...
-                {
-                    CleanUp();                                                  //Clean
-                }
+                case Recovery_State.Dormant:                                        //Do nothing. Will move on when informed about Crash.
+                    break;
+                case Recovery_State.Crash_Informed:
+                    SetLight(Colors.Red);
+                    SetText(Colors.Black);
+                    SetText("CRASHED", "Wait for recovery");
+                    MoveRigToPause();
+                    State = Recovery_State.Recovering;
+                    goto case Recovery_State.Recovering;                             //Move on.
+                case Recovery_State.Recovering:
+                    if (engine.integrator.Lerp_3Way.State == Lerp3_State.Pause)     //Do nothing. Will move on when the rig reaches PAUSE...
+                    {
+                        SetText("CRASHED", "Press to reset");
+                        State = Recovery_State.WaitingForAcknoledgement;
+                        goto case Recovery_State.WaitingForAcknoledgement;          //...move on.
+                    }
+                    break;
+                case Recovery_State.WaitingForAcknoledgement:                       //Do nothing. Will move on when Button is pushed
+                    break;
+                case Recovery_State.Acknoledged:
+                    CleanUp();                                                      //Clean up.
+                    State = Recovery_State.Cleaned_Up;
+                    goto case Recovery_State.Cleaned_Up;                            //Move on.
+                case Recovery_State.Cleaned_Up:
+                    State = Recovery_State.Dormant;                                 //Move on.
+                    break;
+                default:
+                    break;
             }
         }
 
         //Helpers:
         void MoveRigToPause()
         {
+            //To-do: WHat happens, if the rig is in Transit or still in Park?
+            //Maybe the integrator needs a CRASH function to take care of that.
             if (engine.integrator.Lerp_3Way.State == Lerp3_State.Motion)
             {
                 engine.integrator.Lerp_3Way.Command = Lerp3_Command.Pause;
@@ -74,12 +101,13 @@ namespace MOTUS.Model
         void CleanUp()
         {
             //Switch all lights off
+            //Reset all Filters (equilibrium)
         }
         void SetLight(Color col)
         {
             Application.Current.Dispatcher.BeginInvoke(new UpdateViewModel_Callback_color(UpdateViewModel_Light_Color), col);
         }
-        void SetLight(string s1,string s2)
+        void SetText(string s1,string s2)
         {
             Application.Current.Dispatcher.BeginInvoke(new UpdateViewModel_Callback_string(UpdateViewModel_Light_Text), s1,s2);
         }
@@ -122,7 +150,9 @@ namespace MOTUS.Model
     {
         Dormant,
         Crash_Informed,
+        Recovering,
+        WaitingForAcknoledgement,
         Acknoledged,
-        Recovering
+        Cleaned_Up
     }
 }
