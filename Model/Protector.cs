@@ -19,7 +19,7 @@ namespace MOTUS.Model
         {
             Input = data;
 
-            if (!IsLatched)     //Normal Path
+            if (!IsLatched)                 //Normal Path
             {
                 RememberLastGoodValues();
                 LetItFlow();

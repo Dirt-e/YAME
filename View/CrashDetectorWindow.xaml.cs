@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MOTUS.Model;
 
 namespace MOTUS.View
 {
@@ -54,5 +55,10 @@ namespace MOTUS.View
             Properties.Settings.Default.Save();
         }
 
+        private void btn_Indicator_Click(object sender, RoutedEventArgs e)
+        {
+            var engine = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine;
+            engine.recoverylogic.State = Recovery_State.Acknoledged;
+        }
     }
 }

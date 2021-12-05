@@ -18,15 +18,14 @@ namespace MOTUS.Model
             get { return _isanyexceedancepresent; }
             set
             {
-                if (value != _isanyexceedancepresent)                   //Only when it changes...
+                if (value != _isanyexceedancepresent)                                       //Only when it changes...
                 {
                     _isanyexceedancepresent = value;
                     OnPropertyChanged(nameof(IsAnyExceedancePresent));
 
-                    if (value)                                          //...to the positive.
+                    if (value)                                                              //...to the positive...
                     {
-                        LatchProtector();
-                        InformRecoveryLogic();
+                        engine.recoverylogic.State = Recovery_State.Crash_Informed;         //...should you inform the RecoveryLogic
                     }
                 }
             }
@@ -112,15 +111,6 @@ namespace MOTUS.Model
                                         IsExceedance_Wx ||
                                         IsExceedance_Wy ||
                                         IsExceedance_Wz     );
-        }
-        void LatchProtector()
-        {
-            engine.protector.IsLatched = true;      //This only latches the protector. It will
-                                                    //be un-latched by the recovery-logic
-        }
-        void InformRecoveryLogic()
-        {
-            engine.recoverylogic.State = Recovery_State.Crash_Informed;
         }
     }
 }

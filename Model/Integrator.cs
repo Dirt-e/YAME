@@ -115,7 +115,6 @@ namespace MOTUS.Model
                                             TimeSpan.FromSeconds(fade_duration_PauseToMotion_seconds));
             EstablishHierarchy();
 
-            //nvoke_timer.Start();
         }
         private void EstablishHierarchy()
         {
