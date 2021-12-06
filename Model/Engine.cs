@@ -57,7 +57,7 @@ namespace MOTUS.Model
         //Internal properties:
 
         float deltatime_processing;
-        Stopwatch stopwatch = new Stopwatch();
+        Stopwatch stopwatch = Stopwatch.StartNew();
 
         public Engine()
         {
@@ -89,7 +89,6 @@ namespace MOTUS.Model
             if (!backgroundworker.IsBusy)
             {
                 server.StartServer();
-                stopwatch.Start();
 
                 backgroundworker.DoWork += (object sender, DoWorkEventArgs e) =>
                 {
@@ -282,7 +281,23 @@ namespace MOTUS.Model
             var looptime = (float)stopwatch.Elapsed.TotalMilliseconds;
             deltatime_processing = looptime;
             VM_MainWindow.DeltaTime_Processing = looptime;
+
+            if (looptime >= 10)
+            {
+                Console.WriteLine($"Alarm! Looptime was: {looptime} ms");
+            }
             stopwatch.Restart();
+        }
+        private static void BlockThread(double ms)
+        {
+            //Hic sunt dracones!
+            var durationTicks = Math.Round((ms / 1000) * Stopwatch.Frequency);
+            var sw = Stopwatch.StartNew();
+
+            while (sw.ElapsedTicks < durationTicks)
+            {
+
+            }
         }
     }
 }

@@ -26,6 +26,7 @@ namespace MOTUS.ViewModel
             set
             {
                 float adoption = 0.01f;
+                //float adoption = 1.0f;
                 _deltatime_processing = value * adoption + _deltatime_processing * (1-adoption);  //Slight LP filtering :-)
                 FrameRate = 1000 / DeltaTime_Processing;
                 OnPropertyChanged(nameof(DeltaTime_Processing)); 

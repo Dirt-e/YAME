@@ -24,8 +24,8 @@ namespace MOTUS.Model
             set
             {
                 if (_state != value)
-                { 
-                    _state = value; 
+                {
+                    _state = value;
                     UpdateUI_ViaDispatcherInvoke();
                 }
             }
@@ -37,7 +37,6 @@ namespace MOTUS.Model
             get { return _command; }
             set
             {
-                if (value != _command)                  //Only CHANGES are executed here
                 {
                     _command = value;
                     switch (value)
@@ -52,14 +51,17 @@ namespace MOTUS.Model
                             break;
 
                         case Lerp3_Command.Motion:
-                            if (State == Lerp3_State.Pause) { Lerp_PauseMotion.Run(); }
+                            if (State == Lerp3_State.Pause)
+                            { 
+                                //To-Do: Make sure no crash is detected, only then...
+                                Lerp_PauseMotion.Run(); 
+                            }
                             break;
 
                         default:
                             throw new Exception();
                     }
                 }
-
             }
         }
 
@@ -98,6 +100,13 @@ namespace MOTUS.Model
             Lerp_PauseMotion.ResetTo_One();
         }
 
+        public void EMERGENCY_OnCrashDetected()
+        {
+            if (State == Lerp3_State.Motion) Command = Lerp3_Command.Pause;                     //Just like pushing the button
+            if (State == Lerp3_State.Transit_Pause2Motion) Lerp_PauseMotion.Reverse();          //Hard option!!! To-do: give the Lerp a 3rd order LP transition 
+        }
+
+
         public void LerpBetween(Transform3D TF1, Transform3D TF2, Transform3D TF3)
         {
             Lerp_ParkPause.Update();
@@ -106,20 +115,24 @@ namespace MOTUS.Model
             State = DetermineState();
             Output = CreateInterpolation(TF1, TF2, TF3);
         }
-
         private Lerp3_State DetermineState()
         {
             //Steady state:
-            if (Lerp_ParkPause.Ratio_external == 0 && Lerp_PauseMotion.Ratio_external == 0)         { return Lerp3_State.Park; }
-            else if (Lerp_ParkPause.Ratio_external == 1 && Lerp_PauseMotion.Ratio_external == 0)    { return Lerp3_State.Pause; }
-            else if (Lerp_ParkPause.Ratio_external == 1 && Lerp_PauseMotion.Ratio_external == 1)    { return Lerp3_State.Motion; }
+            if (Lerp_ParkPause.IsFullDown && Lerp_PauseMotion.IsFullDown)                   return Lerp3_State.Park;
+            if (Lerp_ParkPause.IsFullUp && Lerp_PauseMotion.IsFullDown)                     return Lerp3_State.Pause;
+            if (Lerp_ParkPause.IsFullUp && Lerp_PauseMotion.IsFullUp)                       return Lerp3_State.Motion;
 
             //All other cases must be Transit states
-            else if (Lerp_PauseMotion.Ratio_external == 0)  { return Lerp3_State.Transit_ParkPause; }
-            else if (Lerp_ParkPause.Ratio_external == 1)    { return Lerp3_State.Transit_PauseMotion; }
+            if (Lerp_ParkPause.IsMovingUpwards && Lerp_PauseMotion.IsFullDown)              return Lerp3_State.Transit_Park2Pause;
+            if (Lerp_ParkPause.IsMovingDownwards)   return Lerp3_State.Transit_Pause2Park;
+            
+            if (Lerp_PauseMotion.IsMovingUpwards)   return Lerp3_State.Transit_Pause2Motion;
+            if (Lerp_PauseMotion.IsMovingDownwards) return Lerp3_State.Transit_Motion2Pause;
+            
 
-            //This should never happen:
-            else { throw new Exception(); }
+            //You should never get here!
+            throw new Exception("Unhandled State! ");
+            
         }
         private Transform3D CreateInterpolation(Transform3D tf1, Transform3D tf2, Transform3D tf3)
         {                                               //Park              Pause           Motion
@@ -129,8 +142,6 @@ namespace MOTUS.Model
             return TF_ABC;
         }
         
-
-
         //-----------------------------------------------------------------------------------------------
         private void UpdateUI_ViaDispatcherInvoke()
         {
@@ -156,9 +167,11 @@ namespace MOTUS.Model
         Park,
         Pause,
         Motion,
-        Dummy,
-        Transit_ParkPause,
-        Transit_PauseMotion
+        Dummy,                          //This is necessary to switch a "dummy-cycle" during the construction (see constructor above)
+        Transit_Park2Pause,
+        Transit_Pause2Park,
+        Transit_Pause2Motion,
+        Transit_Motion2Pause
     }
     public enum Lerp3_Command
     {

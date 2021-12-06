@@ -11,16 +11,22 @@ namespace MOTUS.Model
     public class Lerp
     {
         public TimeSpan Duration { get; set; }
-        public LerpOverMethod Method { get; set; } = LerpOverMethod.Cosine;
+        public LerpOverMethod Method { get; set; } = LerpOverMethod.PerlinSmoothStep;
         Stopwatch stopwatch = new Stopwatch();
         float Deltatime;
 
-        float _ratio_internal { get; set; }             //always linear.
-        public float Ratio_external { get; set; }       //Depends on the FadeOver Method. Can be non linear!  
+        float _ratio_linear     { get; set; }           //Always linear.   
+        public float Ratio_external { get; set; }       //Depends on the FadeOver Method and is non linear!  
 
-        public bool IsRunning { get; set; }
-        public bool Direction { get; set; } = true;
-
+        public bool IsRunning           { get; set; }
+        public bool Direction           { get; set; } = true;
+        public bool IsMovingUpwards     { get { return (IsRunning && Direction); }  }
+        public bool IsMovingDownwards   { get { return (IsRunning && !Direction); }  }
+        public bool IsPausedUpwards     { get { return (!IsRunning && Direction) && IsInBetween; }  }
+        public bool IsPausedDownwards   { get { return (!IsRunning && !Direction) && IsInBetween; }  }
+        public bool IsFullUp            { get { return (Ratio_external == 1); }  }
+        public bool IsFullDown          { get { return (Ratio_external == 0); }  }
+        public bool IsInBetween         { get { return (!IsFullUp && !IsFullDown); }  }
         //Constructor:
         public Lerp()
         {
@@ -39,35 +45,38 @@ namespace MOTUS.Model
 
             if (IsRunning)
             {
-                float percentageStepForThisFrame = Deltatime / (float)Duration.TotalMilliseconds;
+                float percentageStepForThisFrame = Deltatime / (float)Duration.TotalMilliseconds;       //Always positive
+                if (!Direction)
+                {
+                    percentageStepForThisFrame *= -1.0f;                                                //Are we going backwards? In this case we make a negative step
+                }
 
-                if (Direction) { _ratio_internal += percentageStepForThisFrame; }
-                else { _ratio_internal -= percentageStepForThisFrame; }
+                _ratio_linear += percentageStepForThisFrame;
 
                 switch (Method)
                 {
                     case LerpOverMethod.linear:
-                        Ratio_external = _ratio_internal;
+                        Ratio_external = _ratio_linear;
                         break;
                     case LerpOverMethod.Cosine:
-                        Ratio_external = Utility.CosInterpolation(_ratio_internal);
+                        Ratio_external = Utility.CosInterpolation(_ratio_linear);
                         break;
                     case LerpOverMethod.SmoothStep:
-                        Ratio_external = Utility.SmoothStep(_ratio_internal);
+                        Ratio_external = Utility.SmoothStep(_ratio_linear);
                         break;
                     case LerpOverMethod.PerlinSmoothStep:
-                        Ratio_external = Utility.PerlinSmoothStep(_ratio_internal);
+                        Ratio_external = Utility.PerlinSmoothStep(_ratio_linear);
                         break;
                     default:
                         throw new Exception("Method " + Method + " not found.");
                 }
 
-                if (_ratio_internal > 1)                  //Endstop to prevent slight overshoots!
+                if (_ratio_linear >= 1)                  //Endstop to prevent slight overshoots!
                 {
                     ResetTo_One();
                     return;
                 }
-                if (_ratio_internal < 0)
+                if (_ratio_linear <= 0)
                 {
                     ResetTo_Zero();
                     return;
@@ -91,24 +100,34 @@ namespace MOTUS.Model
             Direction = direction;
             IsRunning = true;
         }
-        public void Pause()
+        public void Stop()
         {
             IsRunning = false;
         }
+        public void Pause_Toggle()
+        {
+            if (IsInBetween)
+            {
+                IsRunning = !IsRunning;
+            }
+        }
         public void Reverse()
         {
-            Direction = !Direction;
+            if (0 < _ratio_linear && _ratio_linear < 1)
+            {
+                Direction = !Direction;
+            }
         }
         public void ResetTo_Zero()
         {
-            _ratio_internal = 0;
+            _ratio_linear = 0;
             Ratio_external = 0;
             Direction = true;               //It can only go up from here
             IsRunning = false;
         }
         public void ResetTo_One()
         {
-            _ratio_internal = 1;
+            _ratio_linear = 1;
             Ratio_external = 1;
             Direction = false;               //It can only go down from here
             IsRunning = false;
@@ -121,6 +140,6 @@ namespace MOTUS.Model
         linear,
         Cosine,
         SmoothStep,
-        PerlinSmoothStep,
+        PerlinSmoothStep
     }
 }

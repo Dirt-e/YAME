@@ -53,7 +53,7 @@ namespace MOTUS.ViewModel
                             CursorPark = Cursors.No;
                             break;
 
-                        case Lerp3_State.Transit_ParkPause:
+                        case Lerp3_State.Transit_Park2Pause: case Lerp3_State.Transit_Pause2Park:
                             BtnMotion_ForegroundColor = new SolidColorBrush(Colors.Black);
                             BtnPause_ForegroundColor = new SolidColorBrush(Colors.DarkOrange);
                             BtnPark_ForegroundColor = new SolidColorBrush(Colors.DarkOrange);
@@ -62,7 +62,7 @@ namespace MOTUS.ViewModel
                             CursorPark = Cursors.No;
                             break;
 
-                        case Lerp3_State.Transit_PauseMotion:
+                        case Lerp3_State.Transit_Pause2Motion:  case Lerp3_State.Transit_Motion2Pause:
                             BtnMotion_ForegroundColor = new SolidColorBrush(Colors.DarkOrange);
                             BtnPause_ForegroundColor = new SolidColorBrush(Colors.DarkOrange);
                             BtnPark_ForegroundColor = new SolidColorBrush(Colors.Black);

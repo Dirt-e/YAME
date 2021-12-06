@@ -26,13 +26,13 @@ namespace MOTUS.ViewModel
         }
 
 
-        string _line1 = "Line_One";
+        string _line1;
         public string Line1
         {
             get { return _line1; }
             set { _line1 = value; OnPropertyChanged(nameof(Line1)); }
         }
-        string _line2 = "Line_Two";
+        string _line2;
         public string Line2
         {
             get { return _line2; }
