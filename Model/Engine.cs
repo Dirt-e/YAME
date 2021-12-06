@@ -125,7 +125,7 @@ namespace MOTUS.Model
             zeromaker               = new ZeroMaker();
             dof_override            = new DOF_Override();
             loadersaver             = new LoaderSaver(this);
-            integrator              = new Integrator();
+            integrator              = new Integrator(this);
             IK_Module               = new IK_Module(ref integrator);
             actuatorsystem          = new ActuatorSystem(ref IK_Module);
             serialtalker            = new SerialTalker();

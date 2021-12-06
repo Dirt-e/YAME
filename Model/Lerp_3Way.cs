@@ -11,7 +11,7 @@ using System.Windows.Media.Media3D;
 
 namespace MOTUS.Model
 {
-    public class Lerp_3Way
+    public class Lerp_3Way : MyObject
     {
         public Transform3D Output { get; set; }
         public Lerp Lerp_ParkPause = new Lerp();
@@ -51,10 +51,12 @@ namespace MOTUS.Model
                             break;
 
                         case Lerp3_Command.Motion:
-                            if (State == Lerp3_State.Pause)
+                            bool ExceedancePresent = engine.exceedancedetector.IsAnyExceedancePresent;
+                            bool AcknoledgementOpen = engine.recoverylogic.State == Recovery_State.WaitingForAcknoledgement;
+                            bool InPauseState = State == Lerp3_State.Pause;
+                            if ((!ExceedancePresent && !AcknoledgementOpen) && InPauseState)
                             { 
-                                //To-Do: Make sure no crash is detected, only then...
-                                Lerp_PauseMotion.Run(); 
+                                Lerp_PauseMotion.Run();
                             }
                             break;
 
@@ -65,8 +67,10 @@ namespace MOTUS.Model
             }
         }
 
-        public Lerp_3Way()
+        public Lerp_3Way(Engine e)
         {
+            engine = e;     //To access other objects
+
             Lerp_ParkPause.Duration = TimeSpan.FromSeconds(5);
             Lerp_PauseMotion.Duration = TimeSpan.FromSeconds(5);
             SetToA();
@@ -74,8 +78,10 @@ namespace MOTUS.Model
             State = Lerp3_State.Dummy;
             State = Lerp3_State.Park;
         }
-        public Lerp_3Way(TimeSpan time_AB, TimeSpan time_BC)
+        public Lerp_3Way(TimeSpan time_AB, TimeSpan time_BC, Engine e)
         {
+            engine = e;     //To access other objects
+
             Lerp_ParkPause.Duration = time_AB;
             Lerp_PauseMotion.Duration = time_BC;
             SetToA();

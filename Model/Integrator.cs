@@ -97,8 +97,10 @@ namespace MOTUS.Model
         #endregion
 
 
-        public Integrator()
+        public Integrator(Engine e)
         {
+            engine = e;         //To accesss other Objects
+
             World                   = new MyTransform();
             Plat_Fix_Base           = new MyTransform();
             Plat_Fix_Pause          = new MyTransform(); //(50% extension position)
@@ -112,7 +114,8 @@ namespace MOTUS.Model
             UpperPoints             = new ConnectingPoints();
 
             Lerp_3Way = new Lerp_3Way(     TimeSpan.FromSeconds(fade_duration_ParkToPause_seconds),
-                                            TimeSpan.FromSeconds(fade_duration_PauseToMotion_seconds));
+                                            TimeSpan.FromSeconds(fade_duration_PauseToMotion_seconds),
+                                            engine);
             EstablishHierarchy();
 
         }

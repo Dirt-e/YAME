@@ -62,13 +62,16 @@ namespace MOTUS.Model
                 case Recovery_State.Crash_Informed:
                     engine.protector.IsLatched = true;
                     SetLight(Colors.Red, Colors.Black, "CRASHED", "Wait for recovery");
-                    MoveRigToPause();
+                    RecoverRig();
                     State = Recovery_State.Recovering;
-                    goto case Recovery_State.Recovering;                             //Move on.
+                    goto case Recovery_State.Recovering;                            //Move on.
                 case Recovery_State.Recovering:
-                    if (engine.integrator.Lerp_3Way.State == Lerp3_State.Pause)     //Do nothing. Will move on when the rig reaches PAUSE...
+                    if (engine.integrator.Lerp_3Way.State == Lerp3_State.Pause || 
+                        engine.integrator.Lerp_3Way.State == Lerp3_State.Park ||
+                        engine.integrator.Lerp_3Way.State == Lerp3_State.Transit_Park2Pause ||
+                        engine.integrator.Lerp_3Way.State == Lerp3_State.Transit_Pause2Park)      //Do nothing. Will move on
                     {
-                        SetLight(Colors.Red, Colors.Black, "RIG RECOVERED", "Press to Acknoledge");
+                        SetLight(Colors.Orange, Colors.Black, "RIG RECOVERED", "Press to reset");
                         State = Recovery_State.WaitingForAcknoledgement;
                         goto case Recovery_State.WaitingForAcknoledgement;          //...move on.
                     }
@@ -78,7 +81,7 @@ namespace MOTUS.Model
                 case Recovery_State.Acknoledged:
                     SetLight(Color.FromArgb(255,50,50,50), Colors.LightGreen, "READY", "for Motion");
                     //Reset all Filters (equilibrium)
-                    engine.protector.IsLatched = false;                                                      //Clean up.
+                    engine.protector.IsLatched = false;                             //Clean up.
                     State = Recovery_State.Cleaned_Up;
                     goto case Recovery_State.Cleaned_Up;                            //Move on.
                 case Recovery_State.Cleaned_Up:
@@ -90,13 +93,12 @@ namespace MOTUS.Model
         }
 
         //Helpers:
-        void MoveRigToPause()
+        void RecoverRig()
         {
             if (engine.integrator.Lerp_3Way.State == Lerp3_State.Motion)
-            {
-                engine.integrator.Lerp_3Way.Command = Lerp3_Command.Pause;
-            }
-            
+                engine.integrator.Lerp_3Way.Command = Lerp3_Command.Pause;      //Soft option
+            if (engine.integrator.Lerp_3Way.State == Lerp3_State.Transit_Pause2Motion)
+                engine.integrator.Lerp_3Way.EMERGENCY_OnCrashDetected();        //Hard option
         }
         void SetLight(Color lgt_col, Color txt_col, string line1, string line2)
         {
