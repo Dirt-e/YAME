@@ -106,7 +106,6 @@ namespace MOTUS.Model
             if (State == Lerp3_State.Transit_Pause2Motion) Lerp_PauseMotion.Reverse();          //Hard option!!! To-do: give the Lerp a 3rd order LP transition 
         }
 
-
         public void LerpBetween(Transform3D TF1, Transform3D TF2, Transform3D TF3)
         {
             Lerp_ParkPause.Update();

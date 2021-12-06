@@ -50,6 +50,7 @@ namespace MOTUS.Model
         public RecoveryLogic(Engine e)
         {
             engine = e;
+            SetLight(Color.FromArgb(255, 50, 50, 50), Colors.LightGreen, "READY", "for Motion");
         }
 
         public void Update()
@@ -75,7 +76,7 @@ namespace MOTUS.Model
                 case Recovery_State.WaitingForAcknoledgement:                       //Do nothing. Will move on when Button is pushed
                     break;
                 case Recovery_State.Acknoledged:
-                    SetLight(Color.FromArgb(255,50,50,50), Colors.LightGreen, "READY", "FOR MOTION");
+                    SetLight(Color.FromArgb(255,50,50,50), Colors.LightGreen, "READY", "for Motion");
                     //Reset all Filters (equilibrium)
                     engine.protector.IsLatched = false;                                                      //Clean up.
                     State = Recovery_State.Cleaned_Up;
@@ -91,8 +92,6 @@ namespace MOTUS.Model
         //Helpers:
         void MoveRigToPause()
         {
-            //To-do: What happens, if the rig is in Transit or still in Park?
-            //Maybe the integrator needs a CRASH function to take care of that.
             if (engine.integrator.Lerp_3Way.State == Lerp3_State.Motion)
             {
                 engine.integrator.Lerp_3Way.Command = Lerp3_Command.Pause;

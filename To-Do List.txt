@@ -1,0 +1,4 @@
+﻿To-Do:
+- Make sure the Crash-Light has it's default Content (READY) on Startup
+- Do not allow to lerp to MOTION while exceedance present.
+- If Crash triggered while lerping from PAUSE to MOTION --> Reverse direction (potential hard reversal!)
