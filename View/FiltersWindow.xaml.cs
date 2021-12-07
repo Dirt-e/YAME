@@ -107,11 +107,7 @@ namespace MOTUS.View
             #endregion
 
         }
-
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
+        //---------- Buttons ----------
         private void btn_isol_wx_Click(object sender, RoutedEventArgs e)
         {
             chkbx_zero_RollHFC.IsChecked = false;
@@ -200,7 +196,6 @@ namespace MOTUS.View
             chkbx_zero_SwayHFC.IsChecked = true;
             chkbx_zero_RollLFC.IsChecked = false;
         }
-
         private void btn_AllActive_Click(object sender, RoutedEventArgs e)
         {
             chkbx_zero_RollHFC.IsChecked = false;
@@ -212,13 +207,18 @@ namespace MOTUS.View
             chkbx_zero_SwayHFC.IsChecked = false;
             chkbx_zero_RollLFC.IsChecked = false;
         }
+        
+        //---------- Mouse ----------
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Left    = Properties.Settings.Default.Window_Filters_Position_X;
             Top     = Properties.Settings.Default.Window_Filters_Position_Y;
         }
-
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Properties.Settings.Default.Window_Filters_Position_X = (float)Left;

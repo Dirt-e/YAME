@@ -25,6 +25,7 @@ namespace MOTUS
     public partial class MainWindow : Window
     {
         public Engine engine = new Engine();
+        Mutex single_instance_mutex;
 
         RawDataWindow           rawDataWindow;
         CrashDetectorWindow     crashDetectorWindow;
@@ -40,6 +41,8 @@ namespace MOTUS
         {
             InitializeComponent();
             DataContext = engine.VM_MainWindow;
+
+            MoveWindowToLowerRight();
         }
 
         //Events
@@ -269,11 +272,43 @@ namespace MOTUS
             motionControlWindow.Close();
         }
 
-        //--------- Buttons -----------
+        //---------- Other Functions ------------
+        private void EnforceSingleInstance()
+        {
+            //To-Do: This is still untested!!!
+            string mutexname = "YAME_SingleInstanceMutex";
+            try
+            {
+                single_instance_mutex = Mutex.OpenExisting(mutexname);
+            }
+            catch (WaitHandleCannotBeOpenedException)
+            {
+                single_instance_mutex = new Mutex(false, mutexname);
+            }
+
+            if (!single_instance_mutex.WaitOne(0))
+            {
+                MessageBox.Show("YAME is already running!!! Only one instance allowed");
+                Application.Current.Shutdown();
+            }
+        }
+        public void MoveWindowToLowerRight(int x = 0, int y = 0)
+        {
+            //To-Do: Why does this not work yet???
+            var desktopWorkingArea = SystemParameters.WorkArea;
+            this.Left = desktopWorkingArea.Right - this.Width - x;
+            this.Top = desktopWorkingArea.Bottom - this.Height - y;
+        }
+
+        //---------- Buttons -----------
         private void btn_Test_Click(object sender, RoutedEventArgs e)
         {
-            //Test Code here
+            this.Close();   
         }
-        
+        // --------- Mouse Events ---------
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
     }
 }

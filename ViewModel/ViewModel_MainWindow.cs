@@ -11,9 +11,15 @@ namespace MOTUS.ViewModel
 {
     public class ViewModel_MainWindow : _ViewModel
     {
-        private float _framerate;
+        string _tilte_string;
+        public string TitleString
+        {
+            get { return _tilte_string; }
+            set { _tilte_string = value; OnPropertyChanged(nameof(TitleString)); }
+        }
 
-        public float FrameRate
+        int _framerate;
+        public int FrameRate
         {
             get { return _framerate; }
             set { _framerate = value; OnPropertyChanged(nameof(FrameRate)); }
@@ -28,7 +34,8 @@ namespace MOTUS.ViewModel
                 float adoption = 0.01f;
                 //float adoption = 1.0f;
                 _deltatime_processing = value * adoption + _deltatime_processing * (1-adoption);  //Slight LP filtering :-)
-                FrameRate = 1000 / DeltaTime_Processing;
+                FrameRate = (int)(1000 / DeltaTime_Processing);
+                TitleString = $"YAME running @{FrameRate} FPS";
                 OnPropertyChanged(nameof(DeltaTime_Processing)); 
             }
         }

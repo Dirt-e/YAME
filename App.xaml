@@ -39,6 +39,7 @@
 
         <!--Styles-->
         <Style TargetType="Window" x:Key="MainWindow_Style">
+            <Setter Property="WindowStyle" Value="None"/>
             <Setter Property="Background" Value="{StaticResource MyDimGrayBrush}"/>
             <Setter Property="Foreground" Value="{StaticResource MyPaleWhiteBrush}"/>
             <Setter Property="ResizeMode" Value="NoResize"/>

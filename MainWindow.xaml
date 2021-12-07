@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:MOTUS"
         mc:Ignorable="d"
         xmlns:HelixToolkit="clr-namespace:HelixToolkit.Wpf;assembly=HelixToolkit.Wpf"
-        Title="MOTUS" Height="450" Width="800" WindowStartupLocation="CenterScreen"
+        Title="{Binding TitleString}" Height="100" Width="300"
         Loaded="Window_Loaded" Closing="Window_Closing" 
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Style="{StaticResource MainWindow_Style}">
     
     <DockPanel LastChildFill="true" Margin="0">
@@ -84,6 +85,6 @@
                     VerticalAlignment="Top" HorizontalAlignment="Left"
                     Click="btn_Test_Click"/>
         <TextBlock  Height=" 20" Width="50" DockPanel.Dock="Top"
-                    Text="{Binding FrameRate, StringFormat=N2 }"/>
+                    Text="{Binding FrameRate, StringFormat=N0 }"/>
     </DockPanel>
 </Window>
