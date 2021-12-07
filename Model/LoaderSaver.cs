@@ -328,7 +328,20 @@ namespace MOTUS.Model
             ofd.AddExtension = true;
             ofd.CheckPathExists = true;
             ofd.DereferenceLinks = true;
-            //ofd.InitialDirectory = @" ";
+            ofd.RestoreDirectory = true;        //Only used if no InitialDirectory is set!
+            
+            //Saved Games:
+            ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            ofd.InitialDirectory += "\\Saved Games\\YAME Motion Engine";
+            //APP Data:
+            //ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            //ofd.InitialDirectory += "\\AppData\\Roaming\\MOTUS";
+            
+            if (!Directory.Exists(ofd.InitialDirectory))
+            {
+                Directory.CreateDirectory(ofd.InitialDirectory);
+            }
+            
 
             if (ofd.ShowDialog() == true)
             {
@@ -344,8 +357,6 @@ namespace MOTUS.Model
                 LoadZeromakerSettings_Profile();
                 LoadRigConfiguration_Profile();
             }
-
-            
         }
             private void LoadCrashDetectorThresholds_Profile()
             {
@@ -477,7 +488,19 @@ namespace MOTUS.Model
             sfd.DefaultExt = ".yame";
             sfd.AddExtension = true;
             sfd.OverwritePrompt = true;
-            sfd.CreatePrompt = true;
+            sfd.CreatePrompt = false;
+
+            //Saved Games:
+            sfd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            sfd.InitialDirectory += "\\Saved Games\\YAME Motion Engine";
+            //APP Data:
+            //sfd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            //sfd.InitialDirectory += "\\AppData\\Roaming\\MOTUS";
+
+            if (!Directory.Exists(sfd.InitialDirectory))
+            {
+                Directory.CreateDirectory(sfd.InitialDirectory);
+            }
 
             if (sfd.ShowDialog() == true)
             {
