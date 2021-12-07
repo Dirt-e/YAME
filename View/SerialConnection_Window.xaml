@@ -14,7 +14,7 @@
             <ColumnDefinition Width="5"></ColumnDefinition>
             <ColumnDefinition Width="80"></ColumnDefinition>
             <ColumnDefinition Width="5"></ColumnDefinition>
-            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="80"></ColumnDefinition>
             <ColumnDefinition Width="80"></ColumnDefinition>
             <ColumnDefinition Width="40"></ColumnDefinition>
             <ColumnDefinition Width="40"></ColumnDefinition>
@@ -35,7 +35,8 @@
         <Label      Content="COM Port:" VerticalAlignment="Center" HorizontalAlignment="Right"
                     Grid.Column="1" Grid.Row="2" Padding="0"/>
         <ComboBox   x:Name="cmbbx_Ports" Grid.Column="3" Grid.Row="2" DropDownOpened="cmbbx_Ports_DropDownOpened"
-                    SelectedItem="{Binding ComPort}" Style="{StaticResource ComboBox_Style}"/>
+                    SelectedItem="{Binding COM_Port, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                    Style="{StaticResource ComboBox_Style}"/>
 
         <Label      Content="Open:" VerticalAlignment="Center" HorizontalAlignment="Right"
                     Grid.Column="4" Grid.Row="2" Padding="0"/>
@@ -43,7 +44,7 @@
                                Grid.Column="5" Grid.Row="2" Height="15" MouseLeftButtonDown="tgl_Active_MouseLeftButtonDown"/>
 
         <Border     Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="7" BorderThickness="0.7" CornerRadius="5" Background="Gray">
-            <TextBlock  Text="{Binding Message, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Center"
+            <TextBlock  Text="{Binding UI_Message, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Center"
                         Foreground="Black" FontFamily="Courier New" Padding="0"/>
         </Border>
 

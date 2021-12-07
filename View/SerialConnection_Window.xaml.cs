@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,18 +20,40 @@ namespace MOTUS.View
         public SerialConnection_Window()
         {
             InitializeComponent();
+            SetDataContext();
         }
 
-        private void cmbbx_Ports_DropDownOpened(object sender, EventArgs e)
+        void SetDataContext()
         {
-
+            var engine = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine;
+            DataContext = engine.serialtalker;
         }
 
         private void tgl_Active_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
+            if (cmbbx_Ports.SelectedItem == null)
+            {
+                tgl_Active.IsOn = false;
+            }
+            e.Handled = true;       //Do nothing else with this mouse click.
         }
-
+        private void cmbbx_Ports_DropDownOpened(object sender, EventArgs e)
+        {
+            if (tgl_Active.IsOn)
+            {
+                MessageBoxResult result = MessageBox.Show(  $"You cannot change the COM port " +
+                                                            "while a connection is open!\n" +
+                                                            "First close the serial connection, then try again.", 
+                                                            "WTF",
+                                                            MessageBoxButton.OK,
+                                                            MessageBoxImage.Exclamation);
+            }
+            else
+            {
+                PopulateDropdownList();
+            }
+            
+        }
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
@@ -42,7 +65,6 @@ namespace MOTUS.View
             Left = Properties.Settings.Default.Window_SerialConnection_Position_X;
             Top = Properties.Settings.Default.Window_SerialConnection_Position_Y;
         }
-
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             //LastClosed values
@@ -51,5 +73,18 @@ namespace MOTUS.View
 
             Properties.Settings.Default.Save();
         }
+
+        //---------- Helpers ----------
+        private void PopulateDropdownList()
+        {
+            cmbbx_Ports.Items.Clear();
+
+            var ports = SerialPort.GetPortNames();
+            foreach (string port in ports)
+            {
+                cmbbx_Ports.Items.Add(port);
+            }
+        }
+        
     }
 }

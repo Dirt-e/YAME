@@ -2,48 +2,105 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MOTUS.Model
 {
-    public class SerialTalker
+    public class SerialTalker : MyObject
     {
         public SerialPort serialport = new SerialPort();
         public MessageGenerator_AMC_AASD15A messagegenerator = new MessageGenerator_AMC_AASD15A();
 
-        public string COM_Port { get; set; } = "COM5";
-        public string UI_message { get; set; }
-        private const int BaudRate = 250000;
-        private const int WriteTimeout = 2000;
-
-        StringBuilder sb = new StringBuilder();
-
+        #region ViewModel
+        string _com_port;
+        public string COM_Port
+        {
+            get { return _com_port; } 
+            set
+            {
+                _com_port = value; OnPropertyChanged(nameof(COM_Port));
+            }
+        }
+        string _ui_message;
+        public string UI_Message
+        {
+            get { return _ui_message; }
+            set
+            {
+                if(value != _ui_message)
+                {
+                    _ui_message = value; OnPropertyChanged(nameof(UI_Message));
+                }
+            }
+        }
         bool _isopen;
         public bool IsOpen
         {
             get { return _isopen; }
             set
             {
-                _isopen = value;
+                
+                if (value)      //Wanna switch it on?
+                {
+                    if (serialport.IsOpen)
+                    {
+                        Console.WriteLine("Serialport already open.");       //???
+                        value = true;
+                    }
+                    else if (COM_Port == null)
+                    {
+                        MessageBoxResult result = MessageBox.Show(  "You have to select a COM port from the " +
+                                                                    "dropdown list before you can open it.",
+                                                                    "No COM port selected!",
+                                                                    MessageBoxButton.OK,
+                                                                    MessageBoxImage.Exclamation);
+                        value = false;
+                    }
+                    else            //Normal path:
+                    {
+                        try
+                        {
+                            serialport.PortName = COM_Port;
+                            serialport.BaudRate = BaudRate;
+                            serialport.WriteTimeout = WriteTimeout;
 
-                if (value)
-                {
-                    if (!serialport.IsOpen) { Open(); }
+                            serialport.Open();
+                            value = true;
+                        }
+                        catch (Exception)
+                        {
+                            MessageBoxResult result = MessageBox.Show(  $"Unable to open {COM_Port}. Are you " +
+                                                                        "sure that this is the " +
+                                                                        "controller you're looking for?",
+                                                                        "Unable to open COM port",
+                                                                        MessageBoxButton.OK,
+                                                                        MessageBoxImage.Error);
+                            serialport.Close();
+                            value = false;
+                        }
+                    }
                 }
-                else
+                else            //Wanna switch it off?
                 {
-                    if (serialport.IsOpen) { Close(); }
+                    if (serialport.IsOpen) serialport.Close();
+                    value = false;
                 }
+
+                _isopen = value; OnPropertyChanged(nameof(IsOpen));
             }
         }
+        #endregion
 
-
+        private const int BaudRate = 250000;
+        private const int WriteTimeout = 2000;
+        
         public void Update(SixSisters ss)
         {
-            IsOpen = true;                  //TESTING!!!
             if (serialport.IsOpen)
             {
                 byte[] bytes = messagegenerator.ComposeMessageFrom(ss);
@@ -53,39 +110,10 @@ namespace MOTUS.Model
             }
             else
             {
-                UI_message = "- - Serial port closed - -";
+                UI_Message = "- - Serial port closed - -";
             }
 
         }
-
-        void Open()
-        {
-            if (serialport.IsOpen)
-            {
-                Console.WriteLine("Serialport already open.");
-            }
-            else
-            {
-                serialport.PortName = COM_Port;
-                serialport.BaudRate = BaudRate;
-                serialport.WriteTimeout = WriteTimeout;
-
-                serialport.Open();
-            }
-
-        }
-        void Close()
-        {
-            if (serialport.IsOpen)
-            {
-                serialport.Close();
-            }
-            else
-            {
-                throw new Exception("Serialport alredy closed.");
-            }
-        }
-
         void Write(byte[] msg)
         {
             if (serialport.IsOpen)
@@ -96,7 +124,15 @@ namespace MOTUS.Model
                 }
                 catch (Exception)
                 {
-                    throw new Exception();
+                    IsOpen = false;
+                    UI_Message = "Conection timed out";
+                    
+                    MessageBoxResult result = MessageBox.Show(
+                        $"Write timeout after {WriteTimeout}ms.\n" +
+                        $"Looks like the device on {COM_Port} is not responding.",
+                        "Write Timeout",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Exclamation);
                 }
             }
             else
@@ -108,6 +144,7 @@ namespace MOTUS.Model
         //Helper functions:
         void ShowMessageInUI(byte[] bytes)
         {
+            StringBuilder sb = new StringBuilder();
             sb.Clear();             //Tabula rasa!!!
 
             foreach (byte b in bytes)
@@ -116,7 +153,7 @@ namespace MOTUS.Model
 
                 sb.Append("<" + s3 + ">");
             }
-            UI_message = sb.ToString();
+            UI_Message = sb.ToString();
         }
         string ConvertToThreeDigitNumber(byte b)
         {

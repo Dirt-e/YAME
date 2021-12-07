@@ -12,3 +12,8 @@
 
 
 - Show the values in the Crashdetector/RawData Window that triggered the Exceedance in red color/font.
+
+
+SERIALTALKER:
+- Prevent user from changing COM port while Port is Open
+- Provide ErrorMessage when Connection times out
