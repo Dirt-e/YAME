@@ -8,4 +8,7 @@
 - Implement a "Save Resources" button to...
 		- Close all windows
 		- Resize MainWindow
-		- Maybe create a screen overlay?
+		- Maybe create a screen overlay
+
+
+- Show the values in the Crashdetector/RawData Window that triggered the Exceedance in red color/font.

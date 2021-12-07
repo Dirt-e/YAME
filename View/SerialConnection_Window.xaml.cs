@@ -30,5 +30,26 @@ namespace MOTUS.View
         {
 
         }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            //LastClosed values
+            Left = Properties.Settings.Default.Window_SerialConnection_Position_X;
+            Top = Properties.Settings.Default.Window_SerialConnection_Position_Y;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            //LastClosed values
+            Properties.Settings.Default.Window_SerialConnection_Position_X = (float)Left;
+            Properties.Settings.Default.Window_SerialConnection_Position_Y = (float)Top;
+
+            Properties.Settings.Default.Save();
+        }
     }
 }

@@ -36,6 +36,7 @@ namespace MOTUS
         SceneViewWindow         sceneViewWindow;
         RigConfigWindow         rigConfigWindow;
         MotionControl_Window    motionControlWindow;
+        SerialConnection_Window serialConnectionWindow;
 
         public MainWindow()
         {
@@ -81,6 +82,7 @@ namespace MOTUS
             if (Properties.Settings.Default.Window_SceneView_IsOpen)            mnuSceneView.IsChecked = true;
             if (Properties.Settings.Default.Window_RigConfig_IsOpen)            mnuRigConfig.IsChecked = true;
             if (Properties.Settings.Default.Window_MotionControl_IsOpen)        mnuMotionControl.IsChecked = true;
+            if (Properties.Settings.Default.Window_SerialConnection_IsOpen)     mnuSerialConnection.IsChecked = true;
         }
         //Window_Closing:
         private void RememberWhichChildWindowsWereOpen()
@@ -96,6 +98,7 @@ namespace MOTUS
             Properties.Settings.Default.Window_SceneView_IsOpen             = false;
             Properties.Settings.Default.Window_RigConfig_IsOpen             = false;
             Properties.Settings.Default.Window_MotionControl_IsOpen         = false;
+            Properties.Settings.Default.Window_SerialConnection_IsOpen      = false;
 
             //Then set only the ones that were open to "true"
             foreach (Window w in this.OwnedWindows)
@@ -131,6 +134,9 @@ namespace MOTUS
                         break;
                     case "MotionControlWindow":
                         Properties.Settings.Default.Window_MotionControl_IsOpen         = true;
+                        break;
+                    case "SerialConnectionWindow":
+                        Properties.Settings.Default.Window_SerialConnection_IsOpen      = true;
                         break;
                     default:
                         throw new Exception("Unknown Window Name: " + w.Name);    
@@ -275,7 +281,19 @@ namespace MOTUS
         }
         private void mnuMotionControl_Unchecked(object sender, RoutedEventArgs e)
         {
-            motionControlWindow.Close();
+            motionControlWindow?.Close();
+        }
+
+        private void mnuSerialConnection_Checked(object sender, RoutedEventArgs e)
+        {
+            serialConnectionWindow = new SerialConnection_Window();
+            serialConnectionWindow.Owner = this;
+            serialConnectionWindow.Name = "SerialConnectionWindow";
+            serialConnectionWindow.Show();
+        }
+        private void mnuSerialConnection_Unchecked(object sender, RoutedEventArgs e)
+        {
+            serialConnectionWindow?.Close();
         }
 
         //---------- Other Functions ------------
@@ -316,5 +334,7 @@ namespace MOTUS
         {
             DragMove();
         }
+
+
     }
 }

@@ -67,18 +67,24 @@
                             IsChecked="False"
                             Checked="mnuSceneView_Checked"
                             Unchecked="mnuSceneView_Unchecked"/>
-                <MenuItem   Header="_RigConfig"
+                <MenuItem   Header="_Rig Config"
                             x:Name="mnuRigConfig"
                             IsCheckable="True"
                             IsChecked="False"
                             Checked="mnuRigConfig_Checked"
                             Unchecked="mnuRigConfig_Unchecked"/>
-                <MenuItem   Header="_MotionControl"
+                <MenuItem   Header="_Motion Control"
                             x:Name="mnuMotionControl"
                             IsCheckable="True"
                             IsChecked="False"
                             Checked="mnuMotionControl_Checked"
                             Unchecked="mnuMotionControl_Unchecked"/>
+                <MenuItem   Header="_Serial Connection"
+                            x:Name="mnuSerialConnection"
+                            IsCheckable="True"
+                            IsChecked="False"
+                            Checked="mnuSerialConnection_Checked"
+                            Unchecked="mnuSerialConnection_Unchecked"/>
             </MenuItem>
         </Menu>
         <Button     x:Name="btn_Test" Content="Test Code!" Width="75" Height="50"  Margin="5"

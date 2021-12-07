@@ -1318,5 +1318,41 @@ namespace MOTUS.Properties {
                 this["Window_MotionControl_Position_Y"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_SerialConnection_Position_X {
+            get {
+                return ((float)(this["Window_SerialConnection_Position_X"]));
+            }
+            set {
+                this["Window_SerialConnection_Position_X"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_SerialConnection_Position_Y {
+            get {
+                return ((float)(this["Window_SerialConnection_Position_Y"]));
+            }
+            set {
+                this["Window_SerialConnection_Position_Y"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Window_SerialConnection_IsOpen {
+            get {
+                return ((bool)(this["Window_SerialConnection_IsOpen"]));
+            }
+            set {
+                this["Window_SerialConnection_IsOpen"] = value;
+            }
+        }
     }
 }

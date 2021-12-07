@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MOTUS.View"
         xmlns:Controls="clr-namespace:MOTUS.View.UserControls"
-        mc:Ignorable="d"
+        mc:Ignorable="d" MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        Loaded="Window_Loaded" Closing="Window_Closing"
         Title="SerialConnection_Window" Height="100" Width="750"
         Style="{StaticResource ChildWindow_Style}">
     <Grid Margin="0">

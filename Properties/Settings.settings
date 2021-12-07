@@ -326,5 +326,14 @@
     <Setting Name="Window_MotionControl_Position_Y" Type="System.Single" Scope="User">
       <Value Profile="(Default)">100</Value>
     </Setting>
+    <Setting Name="Window_SerialConnection_Position_X" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="Window_SerialConnection_Position_Y" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="Window_SerialConnection_IsOpen" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
