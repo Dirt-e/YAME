@@ -1,6 +1,11 @@
 ﻿To-Do:
 + Do not allow to lerp to MOTION while...
-		+exceedance present or
-		+previous Crash state not acknoledged.
+		+ exceedance present or
+		+ previous Crash state not acknoledged.
 + If Crash triggered while lerping from PAUSE to MOTION --> Reverse direction (potential hard reversal!)
-- Display framerate in Mainwindow Titlebar
++ Display framerate in Mainwindow Titlebar
+- open Sceneview once on Startup to prevent framerate drop to 60FPS
+- Implement a "Save Resources" button to...
+		- Close all windows
+		- Resize MainWindow
+		- Maybe create a screen overlay?

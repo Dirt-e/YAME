@@ -65,6 +65,12 @@ namespace MOTUS
         //Window_Loaded:
         private void OpenDefaultChildWindows()
         {
+            //Open the SceneView Window once to prevent the mysterious drop in framerates to 60 FPS: 
+            mnuSceneView.IsChecked = true;
+            Thread.Sleep(10);
+            mnuSceneView.IsChecked = false;
+
+            //Then open all the windows that were open when you last closed the application:
             if (Properties.Settings.Default.Window_RawData_IsOpen)              mnuRawData.IsChecked = true;
             if (Properties.Settings.Default.Window_CrashDetector_IsOpen)        mnuCrashDetector.IsChecked = true;
             if (Properties.Settings.Default.Window_PositionCorrection_IsOpen)   mnuPositionCorrection.IsChecked = true;
