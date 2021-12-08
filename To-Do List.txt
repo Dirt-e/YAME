@@ -3,6 +3,7 @@
 		+ exceedance present or
 		+ previous Crash state not acknoledged.
 + If Crash triggered while lerping from PAUSE to MOTION --> Reverse direction (potential hard reversal!)
+- Dot allow Crash reset while exceedance is present
 + Display framerate in Mainwindow Titlebar
 + open Sceneview once on Startup to prevent framerate drop to 60FPS
 - Implement a "Save Resources" button to...

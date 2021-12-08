@@ -145,7 +145,6 @@ namespace MOTUS.Model
         void ShowMessageInUI(byte[] bytes)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Clear();             //Tabula rasa!!!
 
             foreach (byte b in bytes)
             {

@@ -79,6 +79,8 @@ namespace MOTUS.Model
                 case Recovery_State.WaitingForAcknoledgement:                       //Do nothing. Will move on when Button is pushed
                     break;
                 case Recovery_State.Acknoledged:
+                    if (engine.exceedancedetector.IsAnyExceedancePresent)
+                        goto case Recovery_State.WaitingForAcknoledgement;          //Go Back!
                     SetLight(Color.FromArgb(255,50,50,50), Colors.LightGreen, "READY", "for Motion");
                     //Reset all Filters (equilibrium)
                     engine.protector.IsLatched = false;                             //Clean up.
