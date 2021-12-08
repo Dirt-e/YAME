@@ -51,18 +51,21 @@ namespace MOTUS.Model
                 {
                     if (serialport.IsOpen)
                     {
-                        Console.WriteLine("Serialport already open.");       //???
-                        value = true;
+                        MessageBox.Show(    "You are trying to open a serial connection that is already open! That is very strange. If you can consistently reproduce this, definitely shoot me an email.",
+                                            "Serial port already open :-/",
+                                            MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        return;
                     }
-                    else if (COM_Port == null)
+                    if (COM_Port == null)
                     {
                         MessageBoxResult result = MessageBox.Show(  "You have to select a COM port from the dropdown list before you can open it.",
                                                                     "No COM port selected!",
                                                                     MessageBoxButton.OK,
                                                                     MessageBoxImage.Exclamation);
-                        value = false;
+                        _isopen = false;
+                        return;
                     }
-                    else if (!engine.actuatorsystem.Is_AllActuatorsFullyRetracted)
+                    if (!engine.actuatorsystem.Is_AllActuatorsFullyRetracted)
                     {
                         MessageBoxResult result = MessageBox.Show(  "Look Honey. You're tryin' to send data to that sweet little controller of yours to make it drive them servos. Nothin' inherently wrong with that.\n " +
                                                                     "It's just that right now (!!!) the data you're about to send is telling the controller to instantly move the rig to a position where it most probably isn't at this moment. If your controller is active and operational, your rig could potentionally make a huge jolt!\n" +
@@ -72,39 +75,38 @@ namespace MOTUS.Model
                                                                     MessageBoxButton.YesNo, MessageBoxImage.Stop);
                         if (result == MessageBoxResult.No)
                         {
-                            value = false;                   //You want it? You get it!
-                            
+                            _isopen = false;
+                            return;
                         }
-                        
                     }
-                    else            //Normal path:
-                    {
-                        try
-                        {
-                            serialport.PortName = COM_Port;
-                            serialport.BaudRate = BaudRate;
-                            serialport.WriteTimeout = WriteTimeout;
 
-                            serialport.Open();
-                            value = true;
-                        }
-                        catch (Exception)
-                        {
-                            MessageBoxResult result = MessageBox.Show(  $"Unable to open {COM_Port}. Are you sure that this is the controller you're looking for?",
-                                                                        "Unable to open COM port",
-                                                                        MessageBoxButton.OK, MessageBoxImage.Error);
-                            serialport.Close();
-                            value = false;
-                        }
+                    //If you made it here, you really deserve it to be opened
+                    try
+                    {
+                        serialport.PortName = COM_Port;
+                        serialport.BaudRate = BaudRate;
+                        serialport.WriteTimeout = WriteTimeout;
+
+                        serialport.Open();
+                        _isopen = true;
                     }
+                    catch (Exception)
+                    {
+                        MessageBoxResult result = MessageBox.Show(  $"Unable to open {COM_Port}. Are you sure that this is the controller you're looking for?",
+                                                                    "Unable to open COM port",
+                                                                    MessageBoxButton.OK, MessageBoxImage.Error);
+                        serialport.Close();
+                        _isopen = false;
+                    }
+                    
                 }
                 else            //Wanna switch it off?
                 {
                     if (serialport.IsOpen) serialport.Close();
-                    value = false;
+                    _isopen = false;
                 }
 
-                _isopen = value; OnPropertyChanged(nameof(IsOpen));
+                OnPropertyChanged(nameof(IsOpen));
             }
         }
         #endregion
