@@ -1,20 +1,36 @@
 ﻿To-Do:
+
+MAIN WINDOW:
++ Display framerate in Mainwindow Titlebar
++ open Sceneview once on Startup to prevent framerate drop to 60FPS
+- Implement a "Save Resources" button to...
+		- Close all child windows
+		- Resize MainWindow
+		- Maybe create a screen overlay?
+- Save "SimName in profile
+- Show name of active profile in MainWindow when loaded
+
+CRASH DETECTION & RECOVERY:
 + Do not allow to lerp to MOTION while...
 		+ exceedance present or
 		+ previous Crash state not acknoledged.
 + If Crash triggered while lerping from PAUSE to MOTION --> Reverse direction (potential hard reversal!)
-- Dot allow Crash reset while exceedance is present
-+ Display framerate in Mainwindow Titlebar
-+ open Sceneview once on Startup to prevent framerate drop to 60FPS
-- Implement a "Save Resources" button to...
-		- Close all windows
-		- Resize MainWindow
-		- Maybe create a screen overlay
++ Do not allow Crash reset while exceedance is present
+- Show the values in the Crashdetector/RawData Window that triggered the exceedance in red color/font.
 
-
-- Show the values in the Crashdetector/RawData Window that triggered the Exceedance in red color/font.
-
+INTEGRATOR:
+- Implement some sort of DOF limit to keep the Transform3D from exceeding reasonable values (+/- 30° or so), because 
+	excessive angles could lead to erratic "snapping" during the quaternion interpolation (shortest path problem)
 
 SERIALTALKER:
-+ Prevent user from changing COM port while Port is Open
-+ Provide ErrorMessage when Connection times out
++ Prevent user from changing COM port while port is open
++ Provide ErrorMessage when serial connection times out
+- IMPORTANT! Do not allow SerialPort to be openend while the MessaGegenerator produces anything 
+	other than <0><0> on all actuators. 
+
+RIG CONFIGURATION:
+- Do not allow RigConfig to be changed while a SerialConnection is open.
+- Add a slew mode for apropriate offsets. May be used during an open serial connection!
+
+LOADER/SAVER:
+- Do not allow to load a profile while a serial connection is open (potential hard-over!)

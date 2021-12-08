@@ -16,6 +16,9 @@ namespace MOTUS.Model
         public SerialPort serialport = new SerialPort();
         public MessageGenerator_AMC_AASD15A messagegenerator = new MessageGenerator_AMC_AASD15A();
 
+        private const int BaudRate = 250000;
+        private const int WriteTimeout = 2000;
+
         #region ViewModel
         string _com_port;
         public string COM_Port
@@ -44,7 +47,6 @@ namespace MOTUS.Model
             get { return _isopen; }
             set
             {
-                
                 if (value)      //Wanna switch it on?
                 {
                     if (serialport.IsOpen)
@@ -54,12 +56,26 @@ namespace MOTUS.Model
                     }
                     else if (COM_Port == null)
                     {
-                        MessageBoxResult result = MessageBox.Show(  "You have to select a COM port from the " +
-                                                                    "dropdown list before you can open it.",
+                        MessageBoxResult result = MessageBox.Show(  "You have to select a COM port from the dropdown list before you can open it.",
                                                                     "No COM port selected!",
                                                                     MessageBoxButton.OK,
                                                                     MessageBoxImage.Exclamation);
                         value = false;
+                    }
+                    else if (!engine.actuatorsystem.Is_AllActuatorsFullyRetracted)
+                    {
+                        MessageBoxResult result = MessageBox.Show(  "Look Honey. You're tryin' to send data to that sweet little controller of yours to make it drive them servos. Nothin' inherently wrong with that.\n " +
+                                                                    "It's just that right now (!!!) the data you're about to send is telling the controller to instantly move the rig to a position where it most probably isn't at this moment. If your controller is active and operational, your rig could potentionally make a huge jolt!\n" +
+                                                                    "\n" +
+                                                                    "Do you really know what you're doing?",
+                                                                    "BAD IDEA WARNING",
+                                                                    MessageBoxButton.YesNo, MessageBoxImage.Stop);
+                        if (result == MessageBoxResult.No)
+                        {
+                            value = false;                   //You want it? You get it!
+                            
+                        }
+                        
                     }
                     else            //Normal path:
                     {
@@ -74,12 +90,9 @@ namespace MOTUS.Model
                         }
                         catch (Exception)
                         {
-                            MessageBoxResult result = MessageBox.Show(  $"Unable to open {COM_Port}. Are you " +
-                                                                        "sure that this is the " +
-                                                                        "controller you're looking for?",
+                            MessageBoxResult result = MessageBox.Show(  $"Unable to open {COM_Port}. Are you sure that this is the controller you're looking for?",
                                                                         "Unable to open COM port",
-                                                                        MessageBoxButton.OK,
-                                                                        MessageBoxImage.Error);
+                                                                        MessageBoxButton.OK, MessageBoxImage.Error);
                             serialport.Close();
                             value = false;
                         }
@@ -96,9 +109,11 @@ namespace MOTUS.Model
         }
         #endregion
 
-        private const int BaudRate = 250000;
-        private const int WriteTimeout = 2000;
-        
+        public SerialTalker(Engine e)
+        {
+            engine = e;
+        }
+
         public void Update(SixSisters ss)
         {
             if (serialport.IsOpen)

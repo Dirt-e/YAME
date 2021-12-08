@@ -20,10 +20,10 @@ namespace MOTUS.Model
         Actuator A6 = new Actuator();   
 
         public SixSisters Output;
-        Stopwatch invoke_timer = new Stopwatch();
+        Stopwatch invoke_timer = Stopwatch.StartNew();      //to determine the time to update the "VM_SceneView" (33ms)
         IK_Module IK_Module;
 
-        //External:
+        //ViewModel:
         float _minlength;
         public float MinLength
         {
@@ -31,7 +31,14 @@ namespace MOTUS.Model
             set
             {
                 _minlength = Math.Min(MaxLength, value);
-                //redraw();
+
+                A1.MinLength = value;
+                A2.MinLength = value;
+                A3.MinLength = value;
+                A4.MinLength = value;
+                A5.MinLength = value;
+                A6.MinLength = value;
+
                 OnPropertyChanged("MinLength");
             }
         }
@@ -42,16 +49,41 @@ namespace MOTUS.Model
             set
             {
                 _maxlength = Math.Max(MinLength, value);
-                //redraw();
+
+                A1.MaxLength = MaxLength;
+                A2.MaxLength = MaxLength;
+                A3.MaxLength = MaxLength;
+                A4.MaxLength = MaxLength;
+                A5.MaxLength = MaxLength;
+                A6.MaxLength = MaxLength;
+
                 OnPropertyChanged("MaxLength");
             }
         }
-        //Internal:
-        bool _allinlimits;
+        //Non-UI:
         public bool AllInLimits
         {
-            get { return _allinlimits; }
-            private set { if (_allinlimits != value)_allinlimits = value; OnPropertyChanged("AllInLimits"); }
+            get
+            {
+                return (A1.Status == ActuatorStatus.Inlimits &&
+                        A2.Status == ActuatorStatus.Inlimits &&
+                        A3.Status == ActuatorStatus.Inlimits &&
+                        A4.Status == ActuatorStatus.Inlimits &&
+                        A5.Status == ActuatorStatus.Inlimits &&
+                        A6.Status == ActuatorStatus.Inlimits);
+            }
+        }
+        public bool Is_AllActuatorsFullyRetracted
+        {
+            get
+            {
+                return  A1.Utilisation == 0 &&
+                        A2.Utilisation == 0 &&
+                        A3.Utilisation == 0 &&
+                        A4.Utilisation == 0 &&
+                        A5.Utilisation == 0 &&
+                        A6.Utilisation == 0;
+            }
         }
 
         public ActuatorSystem(ref IK_Module ikm)
@@ -65,28 +97,11 @@ namespace MOTUS.Model
             A5 = new Actuator();
             A6 = new Actuator();
 
-            Output = new SixSisters();
-
-            invoke_timer.Start();       //to determine the time to update the "VM_SceneView" (33ms)
+            Output = new SixSisters();     
         }
 
         public void Update()
         {   
-             A1.MinLength = MinLength;
-            A2.MinLength = MinLength;
-            A3.MinLength = MinLength;
-            A4.MinLength = MinLength;
-            A5.MinLength = MinLength;
-            A6.MinLength = MinLength;
-
-            A1.MaxLength = MaxLength;
-            A2.MaxLength = MaxLength;
-            A3.MaxLength = MaxLength;
-            A4.MaxLength = MaxLength;
-            A5.MaxLength = MaxLength;
-            A6.MaxLength = MaxLength;
-            
-            
             A1.CurrentLength = IK_Module.Lengths[0];
             A2.CurrentLength = IK_Module.Lengths[1];
             A3.CurrentLength = IK_Module.Lengths[2];
@@ -94,23 +109,12 @@ namespace MOTUS.Model
             A5.CurrentLength = IK_Module.Lengths[4];
             A6.CurrentLength = IK_Module.Lengths[5];
 
-            AllInLimits =  DetermineSystemStatus();
             CreateOutput();
-
             UpdateUI_ViaDispatcherInvoke();
         }
 
 
         //Helpers:
-        bool DetermineSystemStatus()
-        {
-            return (A1.Status == ActuatorStatus.Inlimits &&
-                    A2.Status == ActuatorStatus.Inlimits &&
-                    A3.Status == ActuatorStatus.Inlimits &&
-                    A4.Status == ActuatorStatus.Inlimits &&
-                    A5.Status == ActuatorStatus.Inlimits &&
-                    A6.Status == ActuatorStatus.Inlimits    );
-        }
         void CreateOutput()
         {
             Output.values[0] = A1.Utilisation;
