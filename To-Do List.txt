@@ -25,12 +25,13 @@ INTEGRATOR:
 SERIALTALKER:
 + Prevent user from changing COM port while port is open
 + Provide ErrorMessage when serial connection times out
-- IMPORTANT! Do not allow SerialPort to be openend while the MessaGegenerator produces anything 
-	other than <0><0> on all actuators. 
++ IMPORTANT! Do not allow SerialPort to be openend while the MessaGegenerator produces anything 
+	other than <0><0> on all actuators.
+- Add support for M4S controller. 
 
 RIG CONFIGURATION:
 - Do not allow RigConfig to be changed while a SerialConnection is open.
 - Add a slew mode for apropriate offsets. May be used during an open serial connection!
 
 LOADER/SAVER:
-- Do not allow to load a profile while a serial connection is open (potential hard-over!)
++ Do not allow to load a profile while a serial connection is open (potential hard-over!)

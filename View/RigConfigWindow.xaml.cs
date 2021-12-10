@@ -25,12 +25,13 @@ namespace MOTUS.View
         private void SetDataContexts()
         {
             var engine = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine;
-            txtbx_OffsetPark.DataContext        = engine.integrator;
-            txtbx_OffsetPause.DataContext       = engine.integrator;
-            txtbx_OffsetCoR.DataContext         = engine.integrator;
             border_UpperPlatform.DataContext    = engine.integrator;
             border_LowerPlatform.DataContext    = engine.integrator;
             border_Actuators.DataContext        = engine.actuatorsystem;
+            txtbx_OffsetPark.DataContext        = engine.integrator;
+            txtbx_OffsetPause.DataContext       = engine.integrator;
+            txtbx_OffsetCoR.DataContext         = engine.integrator;
+            img_warning.DataContext             = engine.serialtalker;
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -45,7 +46,6 @@ namespace MOTUS.View
 
             Properties.Settings.Default.Save();
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Left = Properties.Settings.Default.Window_RigConfig_Position_X;

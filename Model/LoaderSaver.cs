@@ -3,6 +3,7 @@ using MOTUS.DataFomats;
 using System;
 using System.IO;
 using System.Text.Json;
+using System.Windows;
 
 namespace MOTUS.Model
 {
@@ -322,27 +323,16 @@ namespace MOTUS.Model
         //------------------ Load ------------------------
         public void LoadSettings_Profile()
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "YAME files|*.yame";
-            ofd.DefaultExt = ".yame";
-            ofd.AddExtension = true;
-            ofd.CheckPathExists = true;
-            ofd.DereferenceLinks = true;
-            ofd.RestoreDirectory = true;        //Only used if no InitialDirectory is set!
-            
-            //Saved Games:
-            ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            ofd.InitialDirectory += "\\Saved Games\\YAME Motion Engine";
-            //APP Data:
-            //ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            //ofd.InitialDirectory += "\\AppData\\Roaming\\MOTUS";
-            
-            if (!Directory.Exists(ofd.InitialDirectory))
+            if (engine.serialtalker.IsOpen)
             {
-                Directory.CreateDirectory(ofd.InitialDirectory);
+                MessageBox.Show(    "You wanna load a profile while the rig is hot? I'm tellin'ya that is not going to go well.\n" +
+                                    "Move the rig to PARK, then close the serial connection. ONLY THEN should you change the profile.",
+                                    "HOT RIG WARNING",
+                                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
-            
 
+            OpenFileDialog ofd = MyOpenFileDialog();
             if (ofd.ShowDialog() == true)
             {
                 string json = File.ReadAllText(ofd.FileName);
@@ -358,7 +348,8 @@ namespace MOTUS.Model
                 LoadRigConfiguration_Profile();
             }
         }
-            private void LoadCrashDetectorThresholds_Profile()
+
+        private void LoadCrashDetectorThresholds_Profile()
             {
                 engine.exceedancedetector.AX_CrashTrigger = saveObject.Crashdetector_Trigger_Ax;
                 engine.exceedancedetector.AY_CrashTrigger = saveObject.Crashdetector_Trigger_Ay;
@@ -640,6 +631,28 @@ namespace MOTUS.Model
             }
 
         #endregion
+        //---------- Helpers ----------
+        private OpenFileDialog MyOpenFileDialog()
+        {
+            OpenFileDialog ofd = new OpenFileDialog
+            {
+                Filter = "YAME files|*.yame",
+                DefaultExt = ".yame",
+                AddExtension = true,
+                CheckPathExists = true,
+                DereferenceLinks = true,
+                RestoreDirectory = true,        //Only used if no InitialDirectory is used!
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)
+            };
 
+            //Saved Games:
+            ofd.InitialDirectory += "\\Saved Games\\YAME Motion Engine";
+            //APP Data:
+            //ofd.InitialDirectory += "\\AppData\\Roaming\\MOTUS";
+
+            if (!Directory.Exists(ofd.InitialDirectory)) Directory.CreateDirectory(ofd.InitialDirectory);
+
+            return ofd;
+        }
     }
 }

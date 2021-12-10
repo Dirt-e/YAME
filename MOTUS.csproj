@@ -146,6 +146,7 @@
     <Compile Include="View\Converters\BoolToActiveConverter..cs" />
     <Compile Include="View\Converters\BoolToColorBrushConverter_Actuator.cs" />
     <Compile Include="View\Converters\BoolToColorBrushConverter_CrashLight.cs" />
+    <Compile Include="View\Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="View\Converters\CharToColorConverter.cs" />
     <Compile Include="View\CrashDetectorWindow.xaml.cs">
       <DependentUpon>CrashDetectorWindow.xaml</DependentUpon>
@@ -295,6 +296,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="To-Do List.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\BlockeWhileSerial.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />

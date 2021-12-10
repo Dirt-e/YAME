@@ -9,6 +9,7 @@
         <converters:BoolToActiveConverter x:Key="cnvrt_BoolToActive"/>
         <converters:BoolToColorBrushConverter_Actuator x:Key="cnvrt_BoolToColorBrush"/>
         <converters:CharToColorConverter x:Key="cnvrt_CharToColor"/>
+        <converters:BoolToVisibilityConverter x:Key="cnvrt_BoolToVisibility"/>
         <!--Colors-->
         <Color x:Key="MyDarkGray" A="255" R="30" G="30" B="30"/>
         <Color x:Key="MyDimGray" A="255" R="50" G="50" B="50"/>

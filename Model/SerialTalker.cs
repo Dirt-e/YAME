@@ -58,21 +58,22 @@ namespace MOTUS.Model
                     }
                     if (COM_Port == null)
                     {
-                        MessageBoxResult result = MessageBox.Show(  "You have to select a COM port from the dropdown list before you can open it.",
-                                                                    "No COM port selected!",
-                                                                    MessageBoxButton.OK,
-                                                                    MessageBoxImage.Exclamation);
+                        MessageBox.Show(    "You have to select a COM port from the dropdown list before you can open it.",
+                                            "No COM port selected!",
+                                            MessageBoxButton.OK,
+                                            MessageBoxImage.Exclamation);
                         _isopen = false;
                         return;
                     }
                     if (!engine.actuatorsystem.Is_AllActuatorsFullyRetracted)
                     {
-                        MessageBoxResult result = MessageBox.Show(  "Look Honey. You're tryin' to send data to that sweet little controller of yours to make it drive them servos. Nothin' inherently wrong with that.\n " +
-                                                                    "It's just that right now (!!!) the data you're about to send is telling the controller to instantly move the rig to a position where it most probably isn't at this moment. If your controller is active and operational, your rig could potentionally make a huge jolt!\n" +
-                                                                    "\n" +
-                                                                    "Do you really know what you're doing?",
-                                                                    "BAD IDEA WARNING",
-                                                                    MessageBoxButton.YesNo, MessageBoxImage.Stop);
+                        MessageBoxResult result = MessageBox.Show(  
+                                            "Look Honey. You're tryin' to send data to that sweet little controller of yours to make it drive them servos. Nothin' inherently wrong with that.\n " +
+                                            "It's just that right now (!!!) the data you're about to send is telling the controller to instantly move the rig to a position where it most probably isn't at this moment. If your controller is active and operational, YOUR RIG COULD POTENTIALLY MAKE A HUGE JOLT!\n" +
+                                            "\n" +
+                                            "Do you really know what you're doing?",
+                                            "HOT RIG WARNING",
+                                            MessageBoxButton.YesNo, MessageBoxImage.Stop);
                         if (result == MessageBoxResult.No)
                         {
                             _isopen = false;
