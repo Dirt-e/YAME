@@ -114,6 +114,7 @@
     <Compile Include="Model\Integrator.cs" />
     <Compile Include="Model\LoaderSaver.cs" />
     <Compile Include="Model\MessageGenerator_AMC_AASD15A.cs" />
+    <Compile Include="Model\Messagegenerator_M4S.cs" />
     <Compile Include="Model\MyTransform.cs" />
     <Compile Include="Model\ScalerModule.cs" />
     <Compile Include="Model\ScalerSystem.cs" />

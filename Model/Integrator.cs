@@ -113,9 +113,9 @@ namespace MOTUS.Model
             LowerPoints             = new ConnectingPoints();
             UpperPoints             = new ConnectingPoints();
 
-            Lerp_3Way = new Lerp_3Way(     TimeSpan.FromSeconds(fade_duration_ParkToPause_seconds),
-                                            TimeSpan.FromSeconds(fade_duration_PauseToMotion_seconds),
-                                            engine);
+            Lerp_3Way = new Lerp_3Way(  TimeSpan.FromSeconds(fade_duration_ParkToPause_seconds),
+                                        TimeSpan.FromSeconds(fade_duration_PauseToMotion_seconds),
+                                        engine);
             EstablishHierarchy();
 
         }

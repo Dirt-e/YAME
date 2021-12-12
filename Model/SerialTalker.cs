@@ -14,7 +14,8 @@ namespace MOTUS.Model
     public class SerialTalker : MyObject
     {
         public SerialPort serialport = new SerialPort();
-        public MessageGenerator_AMC_AASD15A messagegenerator = new MessageGenerator_AMC_AASD15A();
+        public MessageGenerator_AMC_AASD15A messagegenerator_amc = new MessageGenerator_AMC_AASD15A();
+        public Messagegenerator_M4S messagegenerator_m4s = new Messagegenerator_M4S();
 
         private const int BaudRate = 250000;
         private const int WriteTimeout = 2000;
@@ -121,7 +122,7 @@ namespace MOTUS.Model
         {
             if (serialport.IsOpen)
             {
-                byte[] bytes = messagegenerator.ComposeMessageFrom(ss);
+                byte[] bytes = messagegenerator_m4s.ComposeMessageFrom(ss);
                 Write(bytes);
 
                 ShowMessageInUI(bytes);
