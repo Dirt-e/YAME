@@ -69,8 +69,9 @@ namespace MOTUS.Model
                     if (!engine.actuatorsystem.Is_AllActuatorsFullyRetracted)
                     {
                         MessageBoxResult result = MessageBox.Show(  
-                                            "Look Honey. You're tryin' to send data to that sweet little controller of yours to make it drive them servos. Nothin' inherently wrong with that.\n " +
-                                            "It's just that right now (!!!) the data you're about to send is telling the controller to instantly move the rig to a position where it most probably isn't at this moment. If your controller is active and operational, YOUR RIG COULD POTENTIALLY MAKE A HUGE JOLT!\n" +
+                                            "You're trying to send data to the motion controller. However, the data you're about to send " +
+                                            "is telling the controller to move the rig to a position where it most probably isn't " +
+                                            "at this moment. If your controller is active and online YOUR RIG COULD POTENTIALLY MAKE A HUGE JOLT!\n" +
                                             "\n" +
                                             "Do you really know what you're doing?",
                                             "HOT RIG WARNING",
@@ -168,7 +169,6 @@ namespace MOTUS.Model
             foreach (byte b in bytes)
             {
                 string s3 = ConvertToThreeDigitNumber(b);
-
                 sb.Append("<" + s3 + ">");
             }
             UI_Message = sb.ToString();

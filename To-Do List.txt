@@ -27,10 +27,11 @@ SERIALTALKER:
 + Provide ErrorMessage when serial connection times out
 + IMPORTANT! Do not allow SerialPort to be openend while the MessaGegenerator produces anything 
 	other than <0><0> on all actuators.
-- Add support for M4S controller. 
++ Add support for M4S controller.
+- Make the SerialTalker remember the last used COM port (If that is available in the dropdown list)
 
 RIG CONFIGURATION:
-- Do not allow RigConfig to be changed while a SerialConnection is open.
++ Do not allow RigConfig to be changed while a SerialConnection is open.
 - Add a slew mode for apropriate offsets. May be used during an open serial connection!
 
 LOADER/SAVER:
