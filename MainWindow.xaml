@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:MOTUS"
         mc:Ignorable="d"
         xmlns:HelixToolkit="clr-namespace:HelixToolkit.Wpf;assembly=HelixToolkit.Wpf"
-        Title="{Binding TitleString}" Height="100" Width="300"
+        Title="{Binding TitleString}" Height="200" Width="300"
         Loaded="Window_Loaded" Closing="Window_Closing" 
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Style="{StaticResource MainWindow_Style}">
     
-    <DockPanel LastChildFill="true" Margin="0">
+    <StackPanel Margin="0">
         <Menu DockPanel.Dock="Top" Height="Auto">
             <MenuItem Header="_File" x:Name="mnuHdr_File">
                 <MenuItem Header="_Load" Click="OnClick_Load"/>
@@ -90,7 +90,16 @@
         <Button     x:Name="btn_Test" Content="Test Code!" Width="75" Height="50"  Margin="5"
                     VerticalAlignment="Top" HorizontalAlignment="Left"
                     Click="btn_Test_Click"/>
-        <TextBlock  Height=" 20" Width="50" DockPanel.Dock="Top"
-                    Text="{Binding FrameRate, StringFormat=N0 }"/>
-    </DockPanel>
+        <TextBlock  Height=" 20" Width="235" DockPanel.Dock="Top"
+                    Text="{Binding TitleString, StringFormat=N0 }"/>
+        <Border Style="{StaticResource BorderStyle}" Margin="10" Width="170" HorizontalAlignment="Left">
+            <StackPanel>
+                <TextBlock Text="Timing Method:" HorizontalAlignment="left" Margin="5"/>
+                <RadioButton Margin="10,0,0,0" Foreground="{StaticResource MyPaleWhiteBrush}"
+                             IsChecked="{Binding IsChecked_ShortSleep}">Short Sleep (~200fps)</RadioButton>
+                <RadioButton Margin="10,0,0,0" Foreground="{StaticResource MyPaleWhiteBrush}"
+                             IsChecked="{Binding IsChecked_HotIdle}">Hot Idle (500fps)</RadioButton>
+            </StackPanel>
+        </Border>
+    </StackPanel>
 </Window>

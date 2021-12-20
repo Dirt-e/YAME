@@ -96,7 +96,8 @@ namespace MOTUS.Model
                     while (!backgroundworker.CancellationPending)
                     {
                         UpdateObjects();
-                        WaitForTargetFramerate(200);
+                        if (VM_MainWindow.IsChecked_HotIdle) WaitForTargetFramerate(500);
+                        else if (VM_MainWindow.IsChecked_ShortSleep) ShortSleep(3);
                     }
                 };
                 backgroundworker.RunWorkerAsync();
@@ -286,6 +287,14 @@ namespace MOTUS.Model
                 //DoNothing();
             }
 
+            var looptime = (float)stopwatch.Elapsed.TotalMilliseconds;
+            deltatime_processing = looptime;
+            VM_MainWindow.DeltaTime_Processing = looptime;
+            stopwatch.Restart();
+        }
+        private void ShortSleep(int ms)
+        {
+            Thread.Sleep(ms);
             var looptime = (float)stopwatch.Elapsed.TotalMilliseconds;
             deltatime_processing = looptime;
             VM_MainWindow.DeltaTime_Processing = looptime;

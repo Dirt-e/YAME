@@ -74,7 +74,7 @@
                     <ColumnDefinition Width="25"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock  Text="Lower Platform" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"
-                    Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Margin="27.778,2.798"/>
+                    Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"/>
                 <TextBlock  Text="Distance A" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
                 <TextBlock  Text="Distance B" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"/>
                 <TextBox    Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Style="{StaticResource TextBox_Style}"
