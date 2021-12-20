@@ -96,9 +96,7 @@ namespace MOTUS.Model
                     while (!backgroundworker.CancellationPending)
                     {
                         UpdateObjects();
-                        MeasureLoopTime();
-                        Thread.Sleep(4);
-                        //BlockThread(2.5f);
+                        WaitForTargetFramerate(200);
                     }
                 };
                 backgroundworker.RunWorkerAsync();
@@ -277,28 +275,21 @@ namespace MOTUS.Model
         }
 
         //Helpers:
-        private void MeasureLoopTime()
+        private void WaitForTargetFramerate(int fps)
         {
+            //Hic sunt dracones!
+            var targetTicksPerFrame = Stopwatch.Frequency / fps;
+            //var sw = Stopwatch.StartNew();
+            
+            while (stopwatch.ElapsedTicks < targetTicksPerFrame)
+            {
+                //DoNothing();
+            }
+
             var looptime = (float)stopwatch.Elapsed.TotalMilliseconds;
             deltatime_processing = looptime;
             VM_MainWindow.DeltaTime_Processing = looptime;
-
-            if (looptime >= 10)
-            {
-                Console.WriteLine($"Alarm! Looptime was: {looptime} ms");
-            }
             stopwatch.Restart();
-        }
-        private static void BlockThread(double ms)
-        {
-            //Hic sunt dracones!
-            var durationTicks = Math.Round((ms / 1000) * Stopwatch.Frequency);
-            var sw = Stopwatch.StartNew();
-
-            while (sw.ElapsedTicks < durationTicks)
-            {
-
-            }
         }
     }
 }
