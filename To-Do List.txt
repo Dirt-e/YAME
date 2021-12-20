@@ -1,21 +1,15 @@
 ﻿To-Do:
 
 MAIN WINDOW:
-+ Display framerate in Mainwindow Titlebar
-+ open Sceneview once on Startup to prevent framerate drop to 60FPS
 - Implement a "Save Resources" button to...
 		- Close all child windows
 		- Resize MainWindow
 		- Maybe create a screen overlay?
 - Save "SimName in profile
 - Show name of active profile in MainWindow when loaded
+- Regulate framerate ~200Fps. May require control loop and/or "BlockThread(.f)"
 
 CRASH DETECTION & RECOVERY:
-+ Do not allow to lerp to MOTION while...
-		+ exceedance present or
-		+ previous Crash state not acknoledged.
-+ If Crash triggered while lerping from PAUSE to MOTION --> Reverse direction (potential hard reversal!)
-+ Do not allow Crash reset while exceedance is present
 - Show the values in the Crashdetector/RawData Window that triggered the exceedance in red color/font.
 
 INTEGRATOR:
@@ -23,16 +17,15 @@ INTEGRATOR:
 	excessive angles could lead to erratic "snapping" during the quaternion interpolation (shortest path problem)
 
 SERIALTALKER:
-+ Prevent user from changing COM port while port is open
-+ Provide ErrorMessage when serial connection times out
-+ IMPORTANT! Do not allow SerialPort to be openend while the MessaGegenerator produces anything 
-	other than <0><0> on all actuators.
-+ Add support for M4S controller.
 - Make the SerialTalker remember the last used COM port (If that is available in the dropdown list)
 
 RIG CONFIGURATION:
-+ Do not allow RigConfig to be changed while a SerialConnection is open.
 - Add a slew mode for apropriate offsets. May be used during an open serial connection!
 
 LOADER/SAVER:
-+ Do not allow to load a profile while a serial connection is open (potential hard-over!)
+
+ALPHA_COMPENSATION:
+- FadeInStart seems not to be taken into account. Debug
+
+POSITION OFFSET CORRECTION:
+- Check offset correction working. Debug
