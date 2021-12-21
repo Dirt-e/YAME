@@ -10,7 +10,7 @@ namespace MOTUS.Model
 {
     public class AlphaCompensator : MyObject
     {
-        //The AlphaCompensator takes PreprocessorData in and gives MotionData out
+        //The AlphaCompensator takes PreprocessorData in and gives FilterData out
         private PreprocessorData Input = new PreprocessorData();
         public FilterData Output = new FilterData();
 
