@@ -92,12 +92,12 @@
                     Click="btn_Test_Click"/>
         <TextBlock  Height=" 20" Width="235" DockPanel.Dock="Top"
                     Text="{Binding TitleString, StringFormat=N0 }"/>
-        <Border Style="{StaticResource BorderStyle}" Margin="10" Width="170" HorizontalAlignment="Left">
+        <Border Style="{StaticResource BorderStyle}" Margin="10" Width="170" HorizontalAlignment="Left" Padding="5">
             <StackPanel>
-                <TextBlock Text="Timing Method:" HorizontalAlignment="left" Margin="5"/>
-                <RadioButton Margin="10,0,0,0" Foreground="{StaticResource MyPaleWhiteBrush}"
+                <TextBlock Text="Timing Method:" HorizontalAlignment="left" Margin="0,0,0,4"/>
+                <RadioButton Foreground="{StaticResource MyPaleWhiteBrush}" Margin="1"
                              IsChecked="{Binding IsChecked_ShortSleep}">Short Sleep (~200fps)</RadioButton>
-                <RadioButton Margin="10,0,0,0" Foreground="{StaticResource MyPaleWhiteBrush}"
+                <RadioButton Foreground="{StaticResource MyPaleWhiteBrush}" Margin="1"
                              IsChecked="{Binding IsChecked_HotIdle}">Hot Idle (500fps)</RadioButton>
             </StackPanel>
         </Border>
