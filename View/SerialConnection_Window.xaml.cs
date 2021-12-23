@@ -105,19 +105,12 @@ namespace MOTUS.View
         }
         private void TryLoad_LastUsedComPort_Application()
         {
+            PopulateDropdownList();
+
             string LastUsedComPort = Properties.Settings.Default.SerialTalker_LastUsedComPort;
+            int index = cmbbx_Ports.Items.IndexOf(LastUsedComPort);             //-1 indicates a NoFind!
 
-            if (LastUsedComPort != "")
-            {
-                PopulateDropdownList();
-
-                int index = cmbbx_Ports.Items.IndexOf(LastUsedComPort);
-
-                if (index >= 0)
-                {
-                    cmbbx_Ports.SelectedItem = cmbbx_Ports.Items[index];
-                }
-            }
+            if (index >= 0)  cmbbx_Ports.SelectedItem = cmbbx_Ports.Items[index];
         }
     }
 }

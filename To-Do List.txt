@@ -17,7 +17,6 @@ INTEGRATOR:
 	excessive angles could lead to erratic "snapping" during the quaternion interpolation (shortest path problem)
 
 SERIALTALKER:
-- Make the SerialTalker remember the last used COM port (If that is available in the dropdown list)
 
 RIG CONFIGURATION:
 - Add a slew mode for apropriate offsets. May be used during an open serial connection!
