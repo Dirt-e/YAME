@@ -335,5 +335,8 @@
     <Setting Name="Window_SerialConnection_IsOpen" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="SerialTalker_LastUsedComPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">""</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

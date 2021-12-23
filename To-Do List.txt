@@ -25,7 +25,6 @@ RIG CONFIGURATION:
 LOADER/SAVER:
 
 ALPHA_COMPENSATION:
-- FadeInStart seems not to be taken into account. Debug
 
 POSITION OFFSET CORRECTION:
 - Check offset correction working. Debug

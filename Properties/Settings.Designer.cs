@@ -1354,5 +1354,17 @@ namespace MOTUS.Properties {
                 this["Window_SerialConnection_IsOpen"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\"\"")]
+        public string SerialTalker_LastUsedComPort {
+            get {
+                return ((string)(this["SerialTalker_LastUsedComPort"]));
+            }
+            set {
+                this["SerialTalker_LastUsedComPort"] = value;
+            }
+        }
     }
 }

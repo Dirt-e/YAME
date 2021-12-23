@@ -62,12 +62,16 @@ namespace MOTUS.View
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //LastClosed values
+            TryLoad_LastUsedComPort_Application();
+
             Left = Properties.Settings.Default.Window_SerialConnection_Position_X;
             Top = Properties.Settings.Default.Window_SerialConnection_Position_Y;
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             //LastClosed values
+            SaveLastUsedComPort_Application();
+
             Properties.Settings.Default.Window_SerialConnection_Position_X = (float)Left;
             Properties.Settings.Default.Window_SerialConnection_Position_Y = (float)Top;
 
@@ -85,6 +89,35 @@ namespace MOTUS.View
                 cmbbx_Ports.Items.Add(port);
             }
         }
-        
+        private void SaveLastUsedComPort_Application()
+        {
+            //Save the state of the SerialTalker so that it has the same COM port preselected on next start
+            var SelectedItem = cmbbx_Ports.SelectedItem;
+            
+            if (SelectedItem != null)
+            {
+                Properties.Settings.Default.SerialTalker_LastUsedComPort = SelectedItem.ToString();
+            }
+            else
+            {
+                Properties.Settings.Default.SerialTalker_LastUsedComPort = String.Empty;
+            }
+        }
+        private void TryLoad_LastUsedComPort_Application()
+        {
+            string LastUsedComPort = Properties.Settings.Default.SerialTalker_LastUsedComPort;
+
+            if (LastUsedComPort != "")
+            {
+                PopulateDropdownList();
+
+                int index = cmbbx_Ports.Items.IndexOf(LastUsedComPort);
+
+                if (index >= 0)
+                {
+                    cmbbx_Ports.SelectedItem = cmbbx_Ports.Items[index];
+                }
+            }
+        }
     }
 }

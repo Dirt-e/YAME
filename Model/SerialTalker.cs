@@ -27,7 +27,8 @@ namespace MOTUS.Model
             get { return _com_port; } 
             set
             {
-                _com_port = value; OnPropertyChanged(nameof(COM_Port));
+                _com_port = value; 
+                OnPropertyChanged(nameof(COM_Port));
             }
         }
         string _ui_message;
@@ -43,7 +44,7 @@ namespace MOTUS.Model
             }
         }
         bool _isopen;
-        public bool IsOpen
+        public bool IsOpen              //Heavy lifter!!!
         {
             get { return _isopen; }
             set
@@ -162,7 +163,7 @@ namespace MOTUS.Model
         }
 
         //Helper functions:
-        void ShowMessageInUI(byte[] bytes)
+        private void ShowMessageInUI(byte[] bytes)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -173,7 +174,7 @@ namespace MOTUS.Model
             }
             UI_Message = sb.ToString();
         }
-        string ConvertToThreeDigitNumber(byte b)
+        private string ConvertToThreeDigitNumber(byte b)
         {
             if (b < 10)
             {
@@ -188,5 +189,7 @@ namespace MOTUS.Model
                 return b.ToString();
             }
         }
+        
+        
     }
 }

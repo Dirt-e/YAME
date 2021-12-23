@@ -171,18 +171,18 @@ namespace MOTUS.Model
         //---------------- Save -----------------------
         public void SaveSettings_Application()
         {
-            SaveCrashDetectorThresholds();
-            SavePositionCorrectionOffsets();
-            SaveAlphaCompensationValues();
-            SaveFilterSettings();
-            SaveCompressionSettings();
-            SaveScalerSettings();
-            SaveZeromakerSettings();
-            SaveRigConfiguration();
+            SaveCrashDetectorThresholds_Application();
+            SavePositionCorrectionOffsets_Application();
+            SaveAlphaCompensationValues_Application();
+            SaveFilterSettings_Application();
+            SaveCompressionSettings_Application();
+            SaveScalerSettings_Application();
+            SaveZeromakerSettings_Application();
+            SaveRigConfiguration_Application();
 
             Properties.Settings.Default.Save();
         }
-            private void SaveCrashDetectorThresholds()
+            private void SaveCrashDetectorThresholds_Application()
             {
                 var defaults = Properties.Settings.Default;
                 var Crashdetector = engine.exceedancedetector;
@@ -194,7 +194,7 @@ namespace MOTUS.Model
                 defaults.CrashDetector_Threshold_Wy = Crashdetector.WY_CrashTrigger;
                 defaults.CrashDetector_Threshold_Wz = Crashdetector.WZ_CrashTrigger;
             }
-            private void SavePositionCorrectionOffsets()
+            private void SavePositionCorrectionOffsets_Application()
             {
                 var defaults = Properties.Settings.Default;
                 var PosCorr = engine.positionoffsetcorrector;
@@ -204,7 +204,7 @@ namespace MOTUS.Model
                 defaults.PositionOffsetCorrection_DeltaZ = PosCorr.Delta_Z;
                 defaults.PositionOffsetCorrection_IsActive = PosCorr.IsActive;
             }
-            private void SaveAlphaCompensationValues()
+            private void SaveAlphaCompensationValues_Application()
             {
                 var defaults = Properties.Settings.Default;
                 var alphacomp = engine.alphacompensator;
@@ -215,7 +215,7 @@ namespace MOTUS.Model
                 defaults.AlphaCompensation_FadeIn_Done = alphacomp.FadeIn_Done_IAS;
                 defaults.AlphaCompensation_IsActive = alphacomp.IsActive;
             }
-            private void SaveFilterSettings()
+            private void SaveFilterSettings_Application()
             {
                 var defaults = Properties.Settings.Default;
                 var filters = engine.filtersystem;
@@ -237,7 +237,7 @@ namespace MOTUS.Model
                 defaults.Filtervariable_Ax_LP3 = filters.Ax_LP3.FilterVariable;
                 defaults.Filtervariable_Az_LP3 = filters.Az_LP3.FilterVariable;
             }
-            private void SaveCompressionSettings()
+            private void SaveCompressionSettings_Application()
             {
                 var defaults = Properties.Settings.Default;
                 var compression = engine.compressorsystem;
@@ -270,7 +270,7 @@ namespace MOTUS.Model
                 defaults.CompressionLimit_Pitch_LFC = compression.CMP_Pitch_LFC.Limit;
                 defaults.CompressionLimit_Roll_LFC = compression.CMP_Roll_LFC.Limit;
             }
-            private void SaveScalerSettings()
+            private void SaveScalerSettings_Application()
             {
                 var defaults = Properties.Settings.Default;
                 var scaler = engine.scalersystem;
@@ -285,7 +285,7 @@ namespace MOTUS.Model
                 defaults.Scaler_Gain_PitchLFC = scaler.SCL_Pitch_LFC.Gain;
                 defaults.Scaler_Gain_RollLFC = scaler.SCL_Roll_LFC.Gain;
             }
-            private void SaveZeromakerSettings()
+            private void SaveZeromakerSettings_Application()
             {
                 var defaults = Properties.Settings.Default;
                 var zeromaker = engine.zeromaker;
@@ -302,7 +302,7 @@ namespace MOTUS.Model
                 defaults.Zeromaker_Zero_SwayHFC = zeromaker.Zero_SwayHFC;
                 defaults.Zeromaker_Zero_RollLFC = zeromaker.Zero_RollLFC;
             }
-            private void SaveRigConfiguration()
+            private void SaveRigConfiguration_Application()
             {
                 var defaults = Properties.Settings.Default;
                 var integrator = engine.integrator;
@@ -318,6 +318,7 @@ namespace MOTUS.Model
                 defaults.ActuatorSystem_MinLength = engine.actuatorsystem.MinLength;
 
             }
+            
         #endregion
         #region Profile:
         //------------------ Load ------------------------
