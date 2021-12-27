@@ -15,11 +15,6 @@ D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\View\UserControls\ScalerBox.g.cs
 D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\View\UserControls\ToggleSwitch.g.cs
 D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\App.g.cs
 D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\GeneratedInternalTypeHelper.g.cs
-D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\MOTUS_MarkupCompile.cache
-D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\MOTUS_MarkupCompile.lref
-D:\OneDrive\Frank - PC\GitHub\MOTUS\bin\Release\MOTUS.exe.config
-D:\OneDrive\Frank - PC\GitHub\MOTUS\bin\Release\MOTUS.exe
-D:\OneDrive\Frank - PC\GitHub\MOTUS\bin\Release\MOTUS.pdb
 D:\OneDrive\Frank - PC\GitHub\MOTUS\bin\Release\HelixToolkit.dll
 D:\OneDrive\Frank - PC\GitHub\MOTUS\bin\Release\HelixToolkit.Wpf.dll
 D:\OneDrive\Frank - PC\GitHub\MOTUS\bin\Release\HelixToolkit.xml
@@ -40,13 +35,10 @@ D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\View\UserControls\CompressionBox
 D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\View\UserControls\FilterBox.baml
 D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\View\UserControls\ScalerBox.baml
 D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\View\UserControls\ToggleSwitch.baml
-D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\MOTUS.g.resources
 D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\MOTUS.Properties.Resources.resources
 D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\MOTUS.csproj.GenerateResource.cache
 D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\MOTUS.csproj.CoreCompileInputs.cache
 D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\MOTUS.csproj.CopyComplete
-D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\MOTUS.exe
-D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\MOTUS.pdb
 D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\View\MotionControl_Window.g.cs
 D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\View\MotionControl_Window.baml
 D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\View\SerialConnection_Window.g.cs
@@ -69,3 +61,11 @@ D:\OneDrive\Frank - PC\GitHub\MOTUS\bin\Release\System.Text.Encodings.Web.xml
 D:\OneDrive\Frank - PC\GitHub\MOTUS\bin\Release\System.Text.Json.xml
 D:\OneDrive\Frank - PC\GitHub\MOTUS\bin\Release\System.Threading.Tasks.Extensions.xml
 D:\OneDrive\Frank - PC\GitHub\MOTUS\bin\Release\System.ValueTuple.xml
+D:\OneDrive\Frank - PC\GitHub\MOTUS\bin\Release\YAME.exe.config
+D:\OneDrive\Frank - PC\GitHub\MOTUS\bin\Release\YAME.exe
+D:\OneDrive\Frank - PC\GitHub\MOTUS\bin\Release\YAME.pdb
+D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\YAME_MarkupCompile.cache
+D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\YAME_MarkupCompile.lref
+D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\YAME.g.resources
+D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\YAME.exe
+D:\OneDrive\Frank - PC\GitHub\MOTUS\obj\Release\YAME.pdb

@@ -116,7 +116,7 @@ namespace MOTUS.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MOTUS;component/view/dof_window.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/YAME;component/view/dof_window.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\View\DOF_Window.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

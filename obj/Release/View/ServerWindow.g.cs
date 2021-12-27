@@ -52,7 +52,7 @@ namespace MOTUS.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MOTUS;component/view/serverwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/YAME;component/view/serverwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\View\ServerWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

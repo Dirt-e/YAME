@@ -50,7 +50,7 @@ namespace MOTUS.Model
         public RecoveryLogic(Engine e)
         {
             engine = e;
-            SetLight(Color.FromArgb(255, 50, 50, 50), Colors.LightGreen, "READY", "for Motion");
+            SetCrashLight(Color.FromArgb(255, 50, 50, 50), Colors.LightGreen, "READY", "for Motion");
         }
 
         public void Update()
@@ -61,7 +61,8 @@ namespace MOTUS.Model
                     break;
                 case Recovery_State.Crash_Informed:
                     engine.protector.IsLatched = true;
-                    SetLight(Colors.Red, Colors.Black, "CRASHED", "Wait for recovery");
+                    SetCrashLight(Colors.Red, Colors.Black, "CRASHED", "Wait for recovery");
+                    SetExceedanceHighlight_CrashDetector();
                     RecoverRig();
                     State = Recovery_State.Recovering;
                     goto case Recovery_State.Recovering;                            //Move on.
@@ -71,7 +72,7 @@ namespace MOTUS.Model
                         engine.integrator.Lerp_3Way.State == Lerp3_State.Transit_Park2Pause ||
                         engine.integrator.Lerp_3Way.State == Lerp3_State.Transit_Pause2Park)      //Do nothing. Will move on
                     {
-                        SetLight(Colors.Orange, Colors.Black, "RIG RECOVERED", "Press to reset");
+                        SetCrashLight(Colors.Orange, Colors.Black, "RIG RECOVERED", "Press to reset");
                         State = Recovery_State.WaitingForAcknoledgement;
                         goto case Recovery_State.WaitingForAcknoledgement;          //...move on.
                     }
@@ -81,9 +82,10 @@ namespace MOTUS.Model
                 case Recovery_State.Acknoledged:
                     if (engine.exceedancedetector.IsAnyExceedancePresent)
                         goto case Recovery_State.WaitingForAcknoledgement;          //Go Back!
-                    SetLight(Color.FromArgb(255,50,50,50), Colors.LightGreen, "READY", "for Motion");
+                    SetCrashLight(Color.FromArgb(255,50,50,50), Colors.LightGreen, "READY", "for Motion");
                     //Reset all Filters (equilibrium)
-                    engine.protector.IsLatched = false;                             //Clean up.
+                    ClearExceedanceHighlight_CrashDetector();                       //Clean up.
+                    engine.protector.IsLatched = false;
                     State = Recovery_State.Cleaned_Up;
                     goto case Recovery_State.Cleaned_Up;                            //Move on.
                 case Recovery_State.Cleaned_Up:
@@ -94,6 +96,8 @@ namespace MOTUS.Model
             }
         }
 
+        
+
         //Helpers:
         void RecoverRig()
         {
@@ -102,11 +106,49 @@ namespace MOTUS.Model
             if (engine.integrator.Lerp_3Way.State == Lerp3_State.Transit_Pause2Motion)
                 engine.integrator.Lerp_3Way.EMERGENCY_OnCrashDetected();        //Hard option
         }
-        void SetLight(Color lgt_col, Color txt_col, string line1, string line2)
+        void SetCrashLight(Color lgt_col, Color txt_col, string line1, string line2)
         {
             Application.Current.Dispatcher.BeginInvoke(new UpdateViewModel_Callback_color(UpdateViewModel_Light_Color), lgt_col);
             Application.Current.Dispatcher.BeginInvoke(new UpdateViewModel_Callback_color(UpdateViewModel_Text_Color), txt_col);
             Application.Current.Dispatcher.BeginInvoke(new UpdateViewModel_Callback_string(UpdateViewModel_Light_Text), line1, line2);
+        }
+        void SetExceedanceHighlight_CrashDetector()
+        {
+            //Runs once, when exceedance is triggered (Crash_Informed).
+            var ViewModel = engine.VM_CrashDetector;
+            var detector = engine.exceedancedetector;
+
+            ViewModel.ExceedanceValue_displayed_Ax = detector.ExceedanceValue_Ax;
+            ViewModel.ExceedanceValue_displayed_Ay = detector.ExceedanceValue_Ay;
+            ViewModel.ExceedanceValue_displayed_Az = detector.ExceedanceValue_Az;
+            ViewModel.ExceedanceValue_displayed_Wx = detector.ExceedanceValue_Wx;
+            ViewModel.ExceedanceValue_displayed_Wy = detector.ExceedanceValue_Wy;
+            ViewModel.ExceedanceValue_displayed_Wz = detector.ExceedanceValue_Wz;
+
+            ViewModel.Visible_exc_ax = detector.IsExceedance_Ax;
+            ViewModel.Visible_exc_ay = detector.IsExceedance_Ay;
+            ViewModel.Visible_exc_az = detector.IsExceedance_Az;
+            ViewModel.Visible_exc_wx = detector.IsExceedance_Wx;
+            ViewModel.Visible_exc_wy = detector.IsExceedance_Wy;
+            ViewModel.Visible_exc_wz = detector.IsExceedance_Wz;
+        }
+        void ClearExceedanceHighlight_CrashDetector()
+        {
+            var ViewModel = engine.VM_CrashDetector;
+
+            ViewModel.ExceedanceValue_displayed_Ax = float.NaN;
+            ViewModel.ExceedanceValue_displayed_Ay = float.NaN;
+            ViewModel.ExceedanceValue_displayed_Az = float.NaN;
+            ViewModel.ExceedanceValue_displayed_Wx = float.NaN;
+            ViewModel.ExceedanceValue_displayed_Wy = float.NaN;
+            ViewModel.ExceedanceValue_displayed_Wz = float.NaN;
+
+            ViewModel.Visible_exc_ax = false;
+            ViewModel.Visible_exc_ay = false;
+            ViewModel.Visible_exc_az = false;
+            ViewModel.Visible_exc_wx = false;
+            ViewModel.Visible_exc_wy = false;
+            ViewModel.Visible_exc_wz = false;
         }
 
         #region UI_Callbacks

@@ -87,7 +87,7 @@
                             Unchecked="mnuSerialConnection_Unchecked"/>
             </MenuItem>
         </Menu>
-        <Button     x:Name="btn_Test" Content="Test Code!" Width="75" Height="50"  Margin="5"
+        <Button     x:Name="btn_Test" Content="Close Application" Width="110" Height="30"  Margin="5"
                     VerticalAlignment="Top" HorizontalAlignment="Left"
                     Click="btn_Test_Click"/>
         <TextBlock  Height=" 20" Width="235" DockPanel.Dock="Top"

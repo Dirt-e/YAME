@@ -117,7 +117,7 @@ namespace MOTUS.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MOTUS;component/view/positioncorrectorwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/YAME;component/view/positioncorrectorwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\View\PositionCorrectorWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

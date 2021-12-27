@@ -133,7 +133,7 @@ namespace MOTUS.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MOTUS;component/view/rigconfigwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/YAME;component/view/rigconfigwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\View\RigConfigWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

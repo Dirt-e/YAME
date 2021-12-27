@@ -68,7 +68,7 @@ namespace MOTUS.View.UserControls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MOTUS;component/view/usercontrols/scalerbox.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/YAME;component/view/usercontrols/scalerbox.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\UserControls\ScalerBox.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -7,10 +7,10 @@ MAIN WINDOW:
 		- Maybe create a screen overlay?
 - Save "SimName in profile
 - Show name of active profile in MainWindow when loaded
+- Show version number somewhere
 - Regulate framerate ~200Fps. May require control loop and/or "BlockThread(.f)"
 
 CRASH DETECTION & RECOVERY:
-- Show the values in the Crashdetector/RawData Window that triggered the exceedance in red color/font.
 
 INTEGRATOR:
 - Implement some sort of DOF limit to keep the Transform3D from exceeding reasonable values (+/- 30° or so), because 
