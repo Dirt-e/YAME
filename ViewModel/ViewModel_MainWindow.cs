@@ -37,24 +37,24 @@ namespace MOTUS.ViewModel
                 OnPropertyChanged(nameof(DeltaTime_Processing)); 
             }
         }
-        bool _is_checked_EventDriven;       //Unused
-        public bool IsChecked_EventDriven
-        {
-            get { return _is_checked_EventDriven;}
-            set { _is_checked_EventDriven = value; OnPropertyChanged(nameof(IsChecked_EventDriven)); }
-        }
-        bool _is_checked_short_sleep;
-        public bool IsChecked_ShortSleep
-        {
-            get { return _is_checked_short_sleep; }
-            set { _is_checked_short_sleep = value; OnPropertyChanged(nameof(IsChecked_ShortSleep)); }
-        }
-        bool _is_checked_hot_idle = true;
-        public bool IsChecked_HotIdle
-        {
-            get { return _is_checked_hot_idle; }
-            set { _is_checked_hot_idle = value; OnPropertyChanged(nameof(IsChecked_HotIdle)); }
-        }
+        //bool _is_checked_EventDriven;       //Unused
+        //public bool IsChecked_EventDriven
+        //{
+        //    get { return _is_checked_EventDriven;}
+        //    set { _is_checked_EventDriven = value; OnPropertyChanged(nameof(IsChecked_EventDriven)); }
+        //}
+        //bool _is_checked_short_sleep;
+        //public bool IsChecked_ShortSleep
+        //{
+        //    get { return _is_checked_short_sleep; }
+        //    set { _is_checked_short_sleep = value; OnPropertyChanged(nameof(IsChecked_ShortSleep)); }
+        //}
+        //bool _is_checked_hot_idle = true;
+        //public bool IsChecked_HotIdle
+        //{
+        //    get { return _is_checked_hot_idle; }
+        //    set { _is_checked_hot_idle = value; OnPropertyChanged(nameof(IsChecked_HotIdle)); }
+        //}
 
         public ViewModel_MainWindow(Engine e)
         {

@@ -10,15 +10,21 @@
         Loaded="Window_Loaded" Closing="Window_Closing" 
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Style="{StaticResource MainWindow_Style}">
-    
-    <StackPanel Margin="0">
-        <Menu DockPanel.Dock="Top" Height="Auto">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu Height="Auto">
             <MenuItem Header="_File" x:Name="mnuHdr_File">
                 <MenuItem Header="_Load" Click="OnClick_Load"/>
                 <MenuItem Header="_Save" Click="OnClick_Save"/>
+                <Separator />
+                <MenuItem Header="_Quit" Click="OnClick_Quit"/>
             </MenuItem>
             <MenuItem Header="_Windows" x:Name="mnuHdr_Windows">
-                
+
                 <MenuItem   Header="_Raw Data"
                             x:Name="mnuRawData"
                             IsCheckable="True"
@@ -87,12 +93,13 @@
                             Unchecked="mnuSerialConnection_Unchecked"/>
             </MenuItem>
         </Menu>
-        <Button     x:Name="btn_Test" Content="Close Application" Width="110" Height="30"  Margin="5"
-                    VerticalAlignment="Top" HorizontalAlignment="Left"
-                    Click="btn_Test_Click"/>
+        <!--<Rectangle Grid.Column="2" Grid.Row="0" Width="10" Height="10" Margin="2" Fill="red" RadiusX="3" RadiusY="3"/>-->
+        <Button     x:Name="btn_Test" Content="Test code" Width="80" Height="30"  Margin="5"
+                    Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"
+                    VerticalAlignment="Top" HorizontalAlignment="Left" Click="btn_Test_Click"/>
         <TextBlock  Height=" 20" Width="235" DockPanel.Dock="Top"
                     Text="{Binding TitleString, StringFormat=N0 }"/>
-        <Border Style="{StaticResource BorderStyle}" Margin="10" Width="170" HorizontalAlignment="Left" Padding="5">
+        <!--<Border Style="{StaticResource BorderStyle}" Margin="10" Width="170" HorizontalAlignment="Left" Padding="5">
             <StackPanel>
                 <TextBlock Text="Timing Method:" HorizontalAlignment="left" Margin="0,0,0,4"/>
                 <RadioButton Foreground="{StaticResource MyPaleWhiteBrush}" Margin="1"
@@ -100,6 +107,6 @@
                 <RadioButton Foreground="{StaticResource MyPaleWhiteBrush}" Margin="1"
                              IsChecked="{Binding IsChecked_HotIdle}">Hot Idle (500fps)</RadioButton>
             </StackPanel>
-        </Border>
-    </StackPanel>
+        </Border>-->
+    </Grid>
 </Window>

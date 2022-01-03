@@ -83,7 +83,7 @@ namespace MOTUS.Model
             //...
             //...
         }
-
+        
         public void StartEngine()
         {
             if (!backgroundworker.IsBusy)
@@ -96,8 +96,9 @@ namespace MOTUS.Model
                     while (!backgroundworker.CancellationPending)
                     {
                         UpdateObjects();
-                        if (VM_MainWindow.IsChecked_HotIdle) WaitForTargetFramerate(500);
-                        else if (VM_MainWindow.IsChecked_ShortSleep) ShortSleep(3);
+                        WaitForTargetFramerate(500);
+                        //if (VM_MainWindow.IsChecked_HotIdle) WaitForTargetFramerate(500);
+                        //else if (VM_MainWindow.IsChecked_ShortSleep) ShortSleep(3);
                     }
                 };
                 backgroundworker.RunWorkerAsync();
@@ -280,7 +281,6 @@ namespace MOTUS.Model
         {
             //Hic sunt dracones!
             var targetTicksPerFrame = Stopwatch.Frequency / fps;
-            //var sw = Stopwatch.StartNew();
             
             while (stopwatch.ElapsedTicks < targetTicksPerFrame)
             {

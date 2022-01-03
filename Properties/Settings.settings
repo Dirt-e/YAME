@@ -338,5 +338,8 @@
     <Setting Name="SerialTalker_LastUsedComPort" Type="System.String" Scope="User">
       <Value Profile="(Default)">""</Value>
     </Setting>
+    <Setting Name="Version" Type="System.String" Scope="User">
+      <Value Profile="(Default)">v0.02_alpha_</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

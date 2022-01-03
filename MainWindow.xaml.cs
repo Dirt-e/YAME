@@ -324,19 +324,20 @@ namespace MOTUS
             this.Top = desktopWorkingArea.Bottom - this.Height - y;
         }
 
-        //---------- Buttons -----------
-        private void btn_Test_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();   
-        }
         // --------- Mouse Events ---------
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
         }
 
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        //---------- Buttons -----------
+        private void OnClick_Quit(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
+        private void btn_Test_Click(object sender, RoutedEventArgs e)
+        {
+            //Test code here:
 
         }
     }

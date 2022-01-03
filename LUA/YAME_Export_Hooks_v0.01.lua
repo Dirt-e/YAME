@@ -1,9 +1,7 @@
 ---------------------------------------------------------------------------------------------------
 -- Data export script for YAME
 -- Version 0.01
--- created by @Dirty, find me here: https://www.xsimulator.net/community/members/dirty.27556/
 
---
 -- Changes:
 -- Initial version
 ---------------------------------------------------------------------------------------------------
@@ -47,7 +45,7 @@ function YAME_Callbacks.onSimulationFrame()
 	Machnumber = 		Export.LoGetMachNumber()
 	TAS = 				Export.LoGetTrueAirSpeed()
 	vv = 				Export.LoGetVectorVelocity()
-	GS = 					math.sqrt( math.pow(vv.x,2) + math.pow(vv.z,2))
+	GS = 					math.sqrt( (vv.x * vv.x) + (vv.z * vv.z) )
 	AOA = 				Export.LoGetAngleOfAttack()
 	VerticalSpeed = 	Export.LoGetVerticalVelocity()
 	Height = 			Export.LoGetAltitudeAboveGroundLevel()
