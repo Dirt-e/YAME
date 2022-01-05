@@ -1,8 +1,8 @@
-﻿<Application x:Class="MOTUS.App"
+﻿<Application x:Class="YAME.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:MOTUS"
-             xmlns:converters="clr-namespace:MOTUS.View.Converters"
+             xmlns:local="clr-namespace:YAME"
+             xmlns:converters="clr-namespace:YAME.View.Converters"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <!--Converters-->

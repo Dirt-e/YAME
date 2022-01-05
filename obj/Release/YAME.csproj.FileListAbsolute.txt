@@ -139,3 +139,5 @@ D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\YAME.csproj.CoreCompileInputs.cac
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\YAME.csproj.CopyComplete
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\YAME.exe
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\YAME.pdb
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\AboutWindow.g.cs
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\AboutWindow.baml

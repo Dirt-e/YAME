@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
-namespace MOTUS.Model
+namespace YAME.Model
 {
     public class RecoveryLogic : MyObject
     {

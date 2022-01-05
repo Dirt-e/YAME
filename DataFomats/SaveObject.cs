@@ -1,6 +1,6 @@
-﻿using MOTUS.Model;
+﻿using YAME.Model;
 
-namespace MOTUS.DataFomats
+namespace YAME.DataFomats
 {
     public class SaveObject
     {

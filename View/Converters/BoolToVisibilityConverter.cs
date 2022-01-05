@@ -9,7 +9,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace MOTUS.View.Converters
+namespace YAME.View.Converters
 {
     public class BoolToVisibilityConverter : IValueConverter
     {

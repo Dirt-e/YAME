@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MOTUS.Model
+namespace YAME.Model
 {
     public class Server
     {

@@ -1,4 +1,4 @@
-﻿using MOTUS.DataFomats;
+﻿using YAME.DataFomats;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace MOTUS.Model
+namespace YAME.Model
 {
     public class SerialTalker : MyObject
     {

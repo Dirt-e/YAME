@@ -1,4 +1,4 @@
-﻿using MOTUS.DataFomats;
+﻿using YAME.DataFomats;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Math;
 
-namespace MOTUS.Model
+namespace YAME.Model
 {
     public class DOF_Override : MyObject
     {

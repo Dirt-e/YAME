@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
 using System.Windows.Shapes;
 
-namespace MOTUS.View
+namespace YAME.View
 {
     public partial class SceneViewWindow : Window
     {

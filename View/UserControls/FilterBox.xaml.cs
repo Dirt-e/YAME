@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MOTUS.View.UserControls
+namespace YAME.View.UserControls
 {
     public partial class FilterBox : UserControl
     {

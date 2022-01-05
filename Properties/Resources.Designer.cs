@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MOTUS.Properties {
+namespace YAME.Properties {
     using System;
     
     

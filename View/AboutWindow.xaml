@@ -1,0 +1,33 @@
+﻿<Window x:Class="YAME.View.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YAME.View"
+        mc:Ignorable="d"
+        Title="AboutWindow" Height="415" Width="800" WindowStartupLocation="CenterScreen" Topmost="True"
+        Style="{StaticResource ChildWindow_Style}">
+    <StackPanel Height="415" Margin="0,0,-2,0">
+        <Grid Height="30" Background="LightSkyBlue">
+            <TextBlock FontSize="15" FontWeight="Bold" Foreground="{StaticResource MyDimGrayBrush}" 
+                       HorizontalAlignment="Stretch"  VerticalAlignment="Center" TextAlignment="Center">
+                About YAME
+            </TextBlock>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="350"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="/Media/Logo Dodecahedron 2276x2146.png" Margin="30,30,10,10" />
+            <TextBlock Grid.Column="1" Margin="10" TextWrapping="Wrap" TextAlignment="Center"><Run FontSize="18" Text="YAME - Yet Another Motion Engine"/><LineBreak/><LineBreak/><LineBreak/><Run Text="version:"/><LineBreak/><Run Text="v0.0"/><Run Language="de-de" Text="3"/><Run Text="_alpha_"/><LineBreak/><Hyperlink Foreground="#FF6D6D6D" NavigateUri="https://hexago-motion.com/downloads/" TextDecorations="Underline"/><LineBreak/><LineBreak/><Run Text="published:"/><LineBreak/><Run Text="Jan-05-2022"/><LineBreak/><LineBreak/><Run Text="web:"/><LineBreak/><Hyperlink Foreground="#FF6D6D6D" NavigateUri="https://www.hexago-motion.com" TextDecorations="Underline"/><LineBreak/><LineBreak/><Run Text="mail:"/><LineBreak/><Hyperlink Foreground="#FF6D6D6D" NavigateUri="mailto:software@hexago-motion.com" TextDecorations="Underline"/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/></TextBlock>
+            <TextBlock Grid.Column="1" TextWrapping="Wrap" Height="20"
+                       TextAlignment="Center" VerticalAlignment="Bottom">
+                © 2022 HexaGo <LineBreak/>
+            </TextBlock>
+            
+        </Grid>
+        <Button Content="Close" Width="100" Height="30" Click="ButtonClick_Close" Margin="10"/>
+    </StackPanel>
+    
+</Window>

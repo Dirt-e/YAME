@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
-using MOTUS.Model;
+using YAME.Model;
 
-namespace MOTUS.Viewmodel
+namespace YAME.Viewmodel
 {
     public class _ViewModel : INotifyPropertyChanged
     {

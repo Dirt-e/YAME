@@ -1,5 +1,5 @@
-﻿using MOTUS.DataFomats;
-using MOTUS.ViewModel;
+﻿using YAME.DataFomats;
+using YAME.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,7 +11,7 @@ using System.Windows.Media.Media3D;
 using System.Windows.Threading;
 using static Utility;
 
-namespace MOTUS.Model
+namespace YAME.Model
 {
     public class Integrator : MyObject
     {

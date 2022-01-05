@@ -1,7 +1,7 @@
 ﻿using Microsoft.Win32;
-using MOTUS.Model;
-using MOTUS.View;
-using MOTUS.ViewModel;
+using YAME.Model;
+using YAME.View;
+using YAME.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +20,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MOTUS
+namespace YAME
 {
     public partial class MainWindow : Window
     {
@@ -37,6 +37,7 @@ namespace MOTUS
         RigConfigWindow         rigConfigWindow;
         MotionControl_Window    motionControlWindow;
         SerialConnection_Window serialConnectionWindow;
+        AboutWindow             aboutWindow;
 
         public MainWindow()
         {
@@ -138,6 +139,9 @@ namespace MOTUS
                     case "SerialConnectionWindow":
                         Properties.Settings.Default.Window_SerialConnection_IsOpen      = true;
                         break;
+                    case "AboutWindow":
+                        //Do nothing
+                        break;
                     default:
                         throw new Exception("Unknown Window Name: " + w.Name);    
                         ;
@@ -161,6 +165,10 @@ namespace MOTUS
         private void OnClick_Save(object sender, RoutedEventArgs e)
         {
             engine.loadersaver.SaveSettings_Profile();
+        }
+        private void OnClick_Quit(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
         //Menu/Windows:
@@ -296,6 +304,16 @@ namespace MOTUS
             serialConnectionWindow?.Close();
         }
 
+        //---------- ? ------------
+        private void mnuHdr_QM_Click(object sender, RoutedEventArgs e)
+        {
+            aboutWindow = new AboutWindow();
+            aboutWindow.Owner = this;
+            aboutWindow.Name = "AboutWindow";
+            aboutWindow.Show();
+            //asdf jklö
+        }
+
         //---------- Other Functions ------------
         private void EnforceSingleInstance()
         {
@@ -331,10 +349,6 @@ namespace MOTUS
         }
 
         //---------- Buttons -----------
-        private void OnClick_Quit(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
         private void btn_Test_Click(object sender, RoutedEventArgs e)
         {
             //Test code here:

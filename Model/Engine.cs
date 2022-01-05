@@ -1,5 +1,5 @@
-﻿using MOTUS.DataFomats;
-using MOTUS.ViewModel;
+﻿using YAME.DataFomats;
+using YAME.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
 
-namespace MOTUS.Model
+namespace YAME.Model
 {
     public class Engine
     {   

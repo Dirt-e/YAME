@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MOTUS.DataFomats;
+using YAME.DataFomats;
 using static Utility;
 
-namespace MOTUS.Model
+namespace YAME.Model
 {
     public class Messagegenerator_M4S
     {

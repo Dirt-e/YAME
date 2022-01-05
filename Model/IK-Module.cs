@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Media.Media3D;
 using static Utility;
 
-namespace MOTUS.Model
+namespace YAME.Model
 {
     public class IK_Module
     {

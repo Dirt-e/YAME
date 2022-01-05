@@ -1,11 +1,11 @@
 ﻿using Microsoft.Win32;
-using MOTUS.DataFomats;
+using YAME.DataFomats;
 using System;
 using System.IO;
 using System.Text.Json;
 using System.Windows;
 
-namespace MOTUS.Model
+namespace YAME.Model
 {
     public class LoaderSaver
     {

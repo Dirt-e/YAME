@@ -1,12 +1,12 @@
-﻿<UserControl x:Class="MOTUS.View.UserControls.CompressionBox"
+﻿<UserControl x:Class="YAME.View.UserControls.CompressionBox"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MOTUS.View.UserControls"
+             xmlns:local="clr-namespace:YAME.View.UserControls"
              mc:Ignorable="d" 
-             xmlns:view="clr-namespace:MOTUS.View"
-             xmlns:model="clr-namespace:MOTUS.Model"
+             xmlns:view="clr-namespace:YAME.View"
+             xmlns:model="clr-namespace:YAME.Model"
              d:DesignHeight="60" d:DesignWidth="160" MinWidth="140">
     <Grid Width="Auto" Height="Auto" Margin="1">
         <Grid.RowDefinitions>

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace MOTUS.View.Converters
+namespace YAME.View.Converters
 {
     public class BoolToColorBrushConverter_Actuator : IValueConverter
     {

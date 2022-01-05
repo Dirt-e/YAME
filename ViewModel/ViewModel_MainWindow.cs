@@ -1,5 +1,5 @@
-﻿using MOTUS.Model;
-using MOTUS.Viewmodel;
+﻿using YAME.Model;
+using YAME.Viewmodel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MOTUS.ViewModel
+namespace YAME.ViewModel
 {
     public class ViewModel_MainWindow : _ViewModel
     {

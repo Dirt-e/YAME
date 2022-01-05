@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Markup;
 
-namespace MOTUS.View
+namespace YAME.View
 {
     public class EnumBindingSourceExtension : MarkupExtension
     {

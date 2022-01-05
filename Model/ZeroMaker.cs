@@ -1,4 +1,4 @@
-﻿using MOTUS.DataFomats;
+﻿using YAME.DataFomats;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MOTUS.Model
+namespace YAME.Model
 {
     public class ZeroMaker : INotifyPropertyChanged
     {

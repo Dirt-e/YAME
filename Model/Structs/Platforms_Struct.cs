@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Media3D;
 
-namespace MOTUS.Model
+namespace YAME.Model
 {
     //This struct is used to transmit the positions of all the platforms to the VM_Sceneview via a Dispatcher.BeginInvoke() call.
     public struct Platforms_Struct

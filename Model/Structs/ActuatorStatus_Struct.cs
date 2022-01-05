@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
-namespace MOTUS.Model.Structs
+namespace YAME.Model.Structs
 {
     public struct ActuatorStatus_Struct
     {

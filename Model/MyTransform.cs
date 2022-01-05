@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Media3D;
 
-namespace MOTUS.Model
+namespace YAME.Model
 {
     public class MyTransform : MyObject
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MOTUS.Model
+namespace YAME.Model
 {
     public class LowPassNthOrder : Filter
     {

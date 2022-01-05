@@ -1,5 +1,5 @@
-﻿using MOTUS.DataFomats;
-using MOTUS.Model.Structs;
+﻿using YAME.DataFomats;
+using YAME.Model.Structs;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace MOTUS.Model
+namespace YAME.Model
 {
     public class ActuatorSystem : MyObject
     {

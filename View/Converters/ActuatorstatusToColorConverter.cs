@@ -1,4 +1,4 @@
-﻿using MOTUS.Model;
+﻿using YAME.Model;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace MOTUS.View.Converters
+namespace YAME.View.Converters
 {
     public class ActuatorstatusToColorConverter : IValueConverter
     {

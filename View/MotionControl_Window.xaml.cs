@@ -11,9 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using MOTUS.Model;
+using YAME.Model;
 
-namespace MOTUS.View
+namespace YAME.View
 {
     public partial class MotionControl_Window : Window
     {
