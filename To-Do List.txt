@@ -7,8 +7,6 @@ MAIN WINDOW:
 		- Maybe create a screen overlay?
 - Save "SimName in profile
 - Show name of active profile in MainWindow when loaded
-- Show version number somewhere
-- Regulate framerate ~200Fps. May require control loop and/or "BlockThread(.f)"
 
 CRASH DETECTION & RECOVERY:
 
@@ -27,3 +25,17 @@ ALPHA_COMPENSATION:
 
 POSITION OFFSET CORRECTION:
 - Check offset correction working. Debug
+
+
+
+
+
+
+Changelog:
+
+	Version 0.03:
+	-Added "Aabout page
+
+	Version 0.04:
+	-Serial output supports M4S and Thanos format
+	-

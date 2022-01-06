@@ -37,6 +37,17 @@ namespace YAME.View
             }
             e.Handled = true;       //Do nothing else with this mouse click.
         }
+        private void cmbbx_Controller_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var serialtalker =  Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine.serialtalker;
+            if (serialtalker.IsOpen)
+            {
+                MessageBox.Show(    "You are trying to select another controller while a serial " +
+                    "connection is open!?! Close the serial connection, THEN select your controller.",
+                           "Serial Connection Open!!!",
+                           MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+        }
         private void cmbbx_Ports_DropDownOpened(object sender, EventArgs e)
         {
             if (tgl_Active.IsOn)
@@ -50,7 +61,7 @@ namespace YAME.View
             }
             else
             {
-                PopulateDropdownList();
+                PopulateDropdownList_Ports();
             }
             
         }
@@ -79,7 +90,7 @@ namespace YAME.View
         }
 
         //---------- Helpers ----------
-        private void PopulateDropdownList()
+        private void PopulateDropdownList_Ports()
         {
             cmbbx_Ports.Items.Clear();
 
@@ -105,12 +116,14 @@ namespace YAME.View
         }
         private void TryLoad_LastUsedComPort_Application()
         {
-            PopulateDropdownList();
+            PopulateDropdownList_Ports();
 
             string LastUsedComPort = Properties.Settings.Default.SerialTalker_LastUsedComPort;
             int index = cmbbx_Ports.Items.IndexOf(LastUsedComPort);             //-1 indicates a NoFind!
 
             if (index >= 0)  cmbbx_Ports.SelectedItem = cmbbx_Ports.Items[index];
         }
+
+        
     }
 }

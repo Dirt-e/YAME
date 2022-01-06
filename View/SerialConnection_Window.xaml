@@ -5,17 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YAME.View"
         xmlns:Controls="clr-namespace:YAME.View.UserControls"
+        xmlns:view="clr-namespace:YAME.View"
+        xmlns:model="clr-namespace:YAME.Model"
         mc:Ignorable="d" MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Loaded="Window_Loaded" Closing="Window_Closing"
-        Title="SerialConnection_Window" Height="100" Width="750"
+        Title="SerialConnection_Window" Height="300" Width="250"
         Style="{StaticResource ChildWindow_Style}">
     <Grid Margin="0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5"></ColumnDefinition>
-            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
             <ColumnDefinition Width="5"></ColumnDefinition>
-            <ColumnDefinition Width="80"></ColumnDefinition>
-            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition Width="70"></ColumnDefinition>
             <ColumnDefinition Width="40"></ColumnDefinition>
             <ColumnDefinition Width="40"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -27,23 +28,33 @@
             <RowDefinition Height="20"/>
             <RowDefinition Height="10"/>
             <RowDefinition Height="20"/>
+            <RowDefinition Height="10"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Serial Connection:" FontSize="15" FontWeight="Bold"
                    Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Left"/>
 
         <Label      Content="COM Port:" VerticalAlignment="Center" HorizontalAlignment="Right"
-                    Grid.Column="1" Grid.Row="2" Padding="0"/>
-        <ComboBox   x:Name="cmbbx_Ports" Grid.Column="3" Grid.Row="2" DropDownOpened="cmbbx_Ports_DropDownOpened"
+                    Grid.Column="1" Grid.Row="4" Padding="0"/>
+        <ComboBox   x:Name="cmbbx_Ports" Grid.Column="3" Grid.Row="4" DropDownOpened="cmbbx_Ports_DropDownOpened"
                     SelectedItem="{Binding COM_Port, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                     Style="{StaticResource ComboBox_Style}"/>
-
+        <Label      Content="Controller:" VerticalAlignment="Center" HorizontalAlignment="Right"
+                    Grid.Column="1" Grid.Row="2" Padding="0"/>
+        <ComboBox   x:Name="cmbbx_Controller" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="3"
+                    PreviewMouseLeftButtonDown="cmbbx_Controller_MouseLeftButtonDown"
+                    ItemsSource="{view:EnumBindingSource model:ControllerType}"
+                    SelectedItem="{Binding Controller, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                    Style="{StaticResource ComboBox_Style}">
+        </ComboBox>
+        
+        
         <Label      Content="Open:" VerticalAlignment="Center" HorizontalAlignment="Right"
-                    Grid.Column="4" Grid.Row="2" Padding="0"/>
+                    Grid.Column="4" Grid.Row="4" Padding="0"/>
         <Controls:ToggleSwitch x:Name="tgl_Active" IsOn="{Binding IsOpen, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                               Grid.Column="5" Grid.Row="2" Height="15" MouseLeftButtonDown="tgl_Active_MouseLeftButtonDown"/>
+                               Grid.Column="5" Grid.Row="4" Height="15" MouseLeftButtonDown="tgl_Active_MouseLeftButtonDown"/>
 
-        <Border     Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="7" BorderThickness="0.7" CornerRadius="5" Background="Gray">
+        <Border     Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="7" Margin="4" BorderThickness="0.7" CornerRadius="5" Background="Gray">
             <TextBlock  Text="{Binding UI_Message, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Center"
                         Foreground="Black" FontFamily="Courier New" Padding="0"/>
         </Border>

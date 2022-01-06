@@ -160,6 +160,21 @@ public class Utility
             return Bytes_3;
         }
     }
+    public static string ThreeDigitNumber_from(byte b)
+    {
+        if (b < 10)
+        {
+            return "00" + b.ToString(); ;
+        }
+        else if (b < 100)
+        {
+            return "0" + b.ToString(); ;
+        }
+        else
+        {
+            return b.ToString();
+        }
+    }
 
     //Lerps:
     public static float Lerp(float v1, float v2, float t)

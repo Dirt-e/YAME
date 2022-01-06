@@ -14,6 +14,53 @@ namespace YAME.Model
         byte[] StartBlock = new byte[] { 255, 255 };
         byte[] Additionals = new byte[] { 0, 0, 0, 0, 0, 0 };
         byte[] EndBlock = new byte[] { 10, 13 };
+        public string UI_Message
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+
+                sb.Append($"<{ThreeDigitNumber_from(Message[0])}>");        //Start block
+                sb.Append($"<{ThreeDigitNumber_from(Message[1])}>");
+                sb.Append($"\n");
+                sb.Append($"<{ThreeDigitNumber_from(Message[2])}>");        //Actuator1
+                sb.Append($"<{ThreeDigitNumber_from(Message[3])}>");
+                sb.Append($"<{ThreeDigitNumber_from(Message[4])}>");
+                sb.Append($"\n");
+                sb.Append($"<{ThreeDigitNumber_from(Message[5])}>");        //Actuator2    
+                sb.Append($"<{ThreeDigitNumber_from(Message[6])}>");    
+                sb.Append($"<{ThreeDigitNumber_from(Message[7])}>");    
+                sb.Append($"\n");
+                sb.Append($"<{ThreeDigitNumber_from(Message[8])}>");        //Actuator3     
+                sb.Append($"<{ThreeDigitNumber_from(Message[9])}>");      
+                sb.Append($"<{ThreeDigitNumber_from(Message[10])}>");     
+                sb.Append($"\n");
+                sb.Append($"<{ThreeDigitNumber_from(Message[11])}>");       //Actuator4    
+                sb.Append($"<{ThreeDigitNumber_from(Message[12])}>");     
+                sb.Append($"<{ThreeDigitNumber_from(Message[13])}>");     
+                sb.Append($"\n");
+                sb.Append($"<{ThreeDigitNumber_from(Message[14])}>");       //Actuator5   
+                sb.Append($"<{ThreeDigitNumber_from(Message[15])}>");     
+                sb.Append($"<{ThreeDigitNumber_from(Message[16])}>");     
+                sb.Append($"\n");
+                sb.Append($"<{ThreeDigitNumber_from(Message[17])}>");       //Actuator6   
+                sb.Append($"<{ThreeDigitNumber_from(Message[18])}>");     
+                sb.Append($"<{ThreeDigitNumber_from(Message[19])}>");     
+                sb.Append($"\n");
+                sb.Append($"<{ThreeDigitNumber_from(Message[20])}>");       //Additionals1   
+                sb.Append($"<{ThreeDigitNumber_from(Message[21])}>");
+                sb.Append($"<{ThreeDigitNumber_from(Message[22])}>");
+                sb.Append($"\n");
+                sb.Append($"<{ThreeDigitNumber_from(Message[23])}>");       //Additionals1     
+                sb.Append($"<{ThreeDigitNumber_from(Message[24])}>");
+                sb.Append($"<{ThreeDigitNumber_from(Message[25])}>");
+                sb.Append($"\n");
+                sb.Append($"<{ThreeDigitNumber_from(Message[26])}>");       //End block   
+                sb.Append($"<{ThreeDigitNumber_from(Message[27])}>");
+
+                return sb.ToString();
+            }
+        }
 
         public byte[] ComposeMessageFrom(SixSisters ss)
         {

@@ -20,7 +20,24 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Image Source="/Media/Logo Dodecahedron 2276x2146.png" Margin="30,30,10,10" />
-            <TextBlock Grid.Column="1" Margin="10" TextWrapping="Wrap" TextAlignment="Center"><Run FontSize="18" Text="YAME - Yet Another Motion Engine"/><LineBreak/><LineBreak/><LineBreak/><Run Text="version:"/><LineBreak/><Run Text="v0.0"/><Run Language="de-de" Text="3"/><Run Text="_alpha_"/><LineBreak/><Hyperlink Foreground="#FF6D6D6D" NavigateUri="https://hexago-motion.com/downloads/" TextDecorations="Underline"/><LineBreak/><LineBreak/><Run Text="published:"/><LineBreak/><Run Text="Jan-05-2022"/><LineBreak/><LineBreak/><Run Text="web:"/><LineBreak/><Hyperlink Foreground="#FF6D6D6D" NavigateUri="https://www.hexago-motion.com" TextDecorations="Underline"/><LineBreak/><LineBreak/><Run Text="mail:"/><LineBreak/><Hyperlink Foreground="#FF6D6D6D" NavigateUri="mailto:software@hexago-motion.com" TextDecorations="Underline"/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/></TextBlock>
+            <TextBlock Grid.Column="1" Margin="10" TextWrapping="Wrap" TextAlignment="Center">
+                <Run FontSize="18" Text="YAME - Yet Another Motion Engine"/><LineBreak/>
+                <LineBreak/>
+                <LineBreak/>
+                version:<LineBreak/>
+                v0.03_alpha_<LineBreak/>
+                <Hyperlink NavigateUri="https://www.hexago-motion.com/downloads/" RequestNavigate="Hyperlink_RequestNavigate"  TextDecorations="Underline">check latest</Hyperlink>
+                <LineBreak/>
+                <LineBreak/>
+                published: <LineBreak/>
+                Jan-05-2022<LineBreak/>
+                <LineBreak/>
+                web:<LineBreak/>
+                <Hyperlink NavigateUri="https://www.hexago-motion.com" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="Underline">www.hexago-motion.com</Hyperlink>                <LineBreak/>
+                <LineBreak/>
+                feedback:<LineBreak/>
+                <Hyperlink NavigateUri="mailto:software@hexago-motion.com" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="Underline">software@hexago-motion.com</Hyperlink>
+            </TextBlock>
             <TextBlock Grid.Column="1" TextWrapping="Wrap" Height="20"
                        TextAlignment="Center" VerticalAlignment="Bottom">
                 © 2022 HexaGo <LineBreak/>

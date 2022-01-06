@@ -31,6 +31,16 @@ namespace YAME.Model
                 OnPropertyChanged(nameof(COM_Port));
             }
         }
+        ControllerType _controller;
+        public ControllerType Controller
+        {
+            get { return _controller; }
+            set
+            {
+                _controller = value;
+                OnPropertyChanged(nameof(Controller));
+            }
+        }
         string _ui_message;
         public string UI_Message
         {
@@ -53,7 +63,9 @@ namespace YAME.Model
                 {
                     if (serialport.IsOpen)
                     {
-                        MessageBox.Show(    "You are trying to open a serial connection that is already open! That is very strange. If you can consistently reproduce this, definitely shoot me an email.",
+                        MessageBox.Show(    "You are trying to open a serial connection that is already open! " +
+                            "That is very strange. If you can consistently reproduce this, definitely shoot us an " +
+                            "email to bugs@hexago-motion.com.",
                                             "Serial port already open :-/",
                                             MessageBoxButton.OK, MessageBoxImage.Exclamation);
                         return;
@@ -124,10 +136,21 @@ namespace YAME.Model
         {
             if (serialport.IsOpen)
             {
-                byte[] bytes = messagegenerator_m4s.ComposeMessageFrom(ss);
-                Write(bytes);
-
-                ShowMessageInUI(bytes);
+                switch (Controller)
+                {
+                    case ControllerType.Motion4Sim:
+                        byte[] bytes_M4S = messagegenerator_m4s.ComposeMessageFrom(ss);
+                        UI_Message = messagegenerator_m4s.UI_Message;
+                        Write(bytes_M4S);
+                        break;
+                    case ControllerType.Thanos_AMC:
+                        byte[] bytes_AMC = messagegenerator_amc.ComposeMessageFrom(ss);
+                        UI_Message = messagegenerator_amc.UI_Message;
+                        Write(bytes_AMC);
+                        break;
+                    default:
+                        throw new Exception("Unknown controller type: " + Controller.ToString());
+                }
             }
             else
             {
@@ -163,33 +186,23 @@ namespace YAME.Model
         }
 
         //Helper functions:
-        private void ShowMessageInUI(byte[] bytes)
-        {
-            StringBuilder sb = new StringBuilder();
+        //private void ShowMessageInUI(byte[] bytes)
+        //{
+        //    StringBuilder sb = new StringBuilder();
 
-            foreach (byte b in bytes)
-            {
-                string s3 = ConvertToThreeDigitNumber(b);
-                sb.Append("<" + s3 + ">");
-            }
-            UI_Message = sb.ToString();
-        }
-        private string ConvertToThreeDigitNumber(byte b)
-        {
-            if (b < 10)
-            {
-                return "00" + b.ToString(); ;
-            }
-            else if (b < 100)
-            {
-                return "0" + b.ToString(); ;
-            }
-            else
-            {
-                return b.ToString();
-            }
-        }
+        //    foreach (byte b in bytes)
+        //    {
+        //        string s3 = ConvertToThreeDigitNumber(b);
+        //        sb.Append("<" + s3 + ">");
+        //    }
+        //    UI_Message = sb.ToString();
+        //}
         
-        
+    }
+
+    public enum ControllerType
+    {
+        Motion4Sim,
+        Thanos_AMC
     }
 }

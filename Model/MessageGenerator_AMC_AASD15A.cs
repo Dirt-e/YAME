@@ -14,6 +14,45 @@ namespace YAME.Model
         byte[] StartBlock = new byte[] { 255, 255 };
         byte[] Additionals = new byte[] { 0, 0, 0, 0 };
         byte[] EndBlock = new byte[] { 10, 13 };
+        public string UI_Message
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+
+                sb.Append($"<{ThreeDigitNumber_from(Message[0])}>");        //Start block
+                sb.Append($"<{ThreeDigitNumber_from(Message[1])}>");
+                sb.Append($"\n");
+                sb.Append($"<{ThreeDigitNumber_from(Message[2])}>");        //Actuator1
+                sb.Append($"<{ThreeDigitNumber_from(Message[3])}>");
+                sb.Append($"\n");
+                sb.Append($"<{ThreeDigitNumber_from(Message[4])}>");        //Actuator2    
+                sb.Append($"<{ThreeDigitNumber_from(Message[5])}>");
+                sb.Append($"\n");
+                sb.Append($"<{ThreeDigitNumber_from(Message[6])}>");        //Actuator3     
+                sb.Append($"<{ThreeDigitNumber_from(Message[7])}>");
+                sb.Append($"\n");
+                sb.Append($"<{ThreeDigitNumber_from(Message[8])}>");       //Actuator4    
+                sb.Append($"<{ThreeDigitNumber_from(Message[9])}>");
+                sb.Append($"\n");
+                sb.Append($"<{ThreeDigitNumber_from(Message[10])}>");       //Actuator5   
+                sb.Append($"<{ThreeDigitNumber_from(Message[11])}>");
+                sb.Append($"\n");
+                sb.Append($"<{ThreeDigitNumber_from(Message[12])}>");       //Actuator6   
+                sb.Append($"<{ThreeDigitNumber_from(Message[13])}>");
+                sb.Append($"\n");
+                sb.Append($"<{ThreeDigitNumber_from(Message[14])}>");       //Additionals1   
+                sb.Append($"<{ThreeDigitNumber_from(Message[15])}>");
+                sb.Append($"\n");
+                sb.Append($"<{ThreeDigitNumber_from(Message[16])}>");       //Additionals1     
+                sb.Append($"<{ThreeDigitNumber_from(Message[17])}>");
+                sb.Append($"\n");
+                sb.Append($"<{ThreeDigitNumber_from(Message[18])}>");       //End block   
+                sb.Append($"<{ThreeDigitNumber_from(Message[19])}>");
+
+                return sb.ToString();
+            }
+        }
 
         public byte[] ComposeMessageFrom(SixSisters ss)
         {

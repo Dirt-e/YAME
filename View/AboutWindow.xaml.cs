@@ -26,7 +26,7 @@ namespace YAME.View
         {
             this.Close();
         }
-        private void Hyperlink_ReqestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+        private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
         {
             Process.Start(e.Uri.ToString());
         }
