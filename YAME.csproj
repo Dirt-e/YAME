@@ -157,7 +157,6 @@
     <Compile Include="ViewModel\ViewModel_FiltersWindow.cs" />
     <Compile Include="ViewModel\ViewModel_MainWindow.cs" />
     <Compile Include="ViewModel\ViewModel_MotionControlWindow.cs" />
-    <Compile Include="ViewModel\ViewModel_PositionOffsetCorrector.cs" />
     <Compile Include="ViewModel\ViewModel_RawData.cs" />
     <Compile Include="ViewModel\ViewModel_SceneView.cs" />
     <Compile Include="ViewModel\_ViewModel.cs" />

@@ -45,7 +45,6 @@ namespace YAME.Model
         public ViewModel_MainWindow                 VM_MainWindow;
         public ViewModel_RawData                    VM_Rawdata;
         public ViewModel_CrashDetector              VM_CrashDetector;
-        public ViewModel_PositionOffsetCorrector    VM_PositionOffsetCorrector;
         public ViewModel_FiltersWindow              VM_FiltersWindow;
         public ViewModel_MotionControlWindow        VM_MotionControlWindow;
         public ViewModel_Sceneview                  VM_SceneView;
@@ -75,7 +74,6 @@ namespace YAME.Model
             VM_MainWindow               = new ViewModel_MainWindow(this);
             VM_Rawdata                  = new ViewModel_RawData(this);
             VM_CrashDetector            = new ViewModel_CrashDetector(this);
-            VM_PositionOffsetCorrector  = new ViewModel_PositionOffsetCorrector(this);
             VM_FiltersWindow            = new ViewModel_FiltersWindow(this);
             VM_MotionControlWindow      = new ViewModel_MotionControlWindow();
             VM_SceneView                = new ViewModel_Sceneview(this);

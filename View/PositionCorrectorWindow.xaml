@@ -125,8 +125,8 @@
         <Controls:ToggleSwitch x:Name="tgl_Active" IsOn="{Binding IsActive, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                Grid.Column="1" Grid.Row="8" Height="15"/>
         <TextBlock  x:Name="txtblk_CorrectionActive" Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"
-                    Foreground="{Binding IsActive, Converter={StaticResource cnvrt_BoolToColorBrush}}"
-                    Text="{Binding IsActive, Converter={StaticResource cnvrt_BoolToActive }}" />
+                    Text="{Binding IsActive, Converter={StaticResource cnvrt_BoolToActive }}"
+                    Foreground="{Binding IsActive, Converter={StaticResource cnvrt_BoolToColorBrush}}"/>
     </Grid>
 
 </Window>

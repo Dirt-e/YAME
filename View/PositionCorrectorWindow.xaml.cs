@@ -24,11 +24,12 @@ namespace YAME.View
 
         private void SetDatacontext()
         {
-            var engine = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine;
+            this.DataContext = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine.positionoffsetcorrector;
+            //var engine = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine;
 
-            txtbx_DeltaX.DataContext = engine.positionoffsetcorrector;
-            txtbx_DeltaY.DataContext = engine.positionoffsetcorrector;
-            txtbx_DeltaZ.DataContext = engine.positionoffsetcorrector;
+            //txtbx_DeltaX.DataContext = engine.positionoffsetcorrector;
+            //txtbx_DeltaY.DataContext = engine.positionoffsetcorrector;
+            //txtbx_DeltaZ.DataContext = engine.positionoffsetcorrector;
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

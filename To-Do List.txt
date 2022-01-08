@@ -15,7 +15,7 @@ INTEGRATOR:
 	excessive angles could lead to erratic "snapping" during the quaternion interpolation (shortest path problem)
 
 SERIALTALKER:
--SerialConnectionWindow: "OPEN" should indicate green
+
 
 RIG CONFIGURATION:
 - Add a slew mode for apropriate offsets. May be used during an open serial connection!
@@ -25,8 +25,6 @@ LOADER/SAVER:
 ALPHA_COMPENSATION:
 
 POSITION OFFSET CORRECTION:
-- Check offset correction working. Debug
-- Toggle needs a green "Active" indicator (like the a-compensation)
 
 
 
@@ -36,9 +34,12 @@ POSITION OFFSET CORRECTION:
 Changelog:
 
 	Version 0.03:
-	-Added "Aabout page
-	-File->Quit closes application
+	- Added "Aabout page
+	- File->Quit closes application
 
 	Version 0.04:
-	-Serial output supports M4S and Thanos format
-	-Added splashscreen on app start
+	- Serial output supports M4S and Thanos format
+	- Added splashscreen on app start
+	- SerialConnectionWindow: "OPEN" indicates green
+	- Bugfixed offset correction 
+	- OffsetCorrectionWindow: Green "Active" toggle
