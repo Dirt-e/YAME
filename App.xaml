@@ -7,6 +7,7 @@
     <Application.Resources>
         <!--Converters-->
         <converters:BoolToActiveConverter x:Key="cnvrt_BoolToActive"/>
+        <converters:BoolToOpenConverter x:Key="cnvrt_BoolToOpen"/>
         <converters:BoolToColorBrushConverter_Actuator x:Key="cnvrt_BoolToColorBrush"/>
         <converters:CharToColorConverter x:Key="cnvrt_CharToColor"/>
         <converters:BoolToVisibilityConverter x:Key="cnvrt_BoolToVisibility"/>

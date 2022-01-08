@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{ACA3412A-22DA-4039-AEA3-CED6097011C1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>MOTUS</RootNamespace>
+    <RootNamespace>YAME</RootNamespace>
     <AssemblyName>YAME</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -168,6 +168,7 @@
     <Compile Include="View\Converters\BoolToActiveConverter..cs" />
     <Compile Include="View\Converters\BoolToColorBrushConverter_Actuator.cs" />
     <Compile Include="View\Converters\BoolToColorBrushConverter_CrashLight.cs" />
+    <Compile Include="View\Converters\BoolToOpenConverter_SerialConnection.cs" />
     <Compile Include="View\Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="View\Converters\CharToColorConverter.cs" />
     <Compile Include="View\CrashDetectorWindow.xaml.cs">

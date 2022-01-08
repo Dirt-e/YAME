@@ -17,7 +17,7 @@
             <ColumnDefinition Width="60"></ColumnDefinition>
             <ColumnDefinition Width="5"></ColumnDefinition>
             <ColumnDefinition Width="70"></ColumnDefinition>
-            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
             <ColumnDefinition Width="40"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="5"/>
@@ -47,9 +47,11 @@
                     SelectedItem="{Binding Controller, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                     Style="{StaticResource ComboBox_Style}">
         </ComboBox>
-        
-        
-        <Label      Content="Open:" VerticalAlignment="Center" HorizontalAlignment="Right"
+
+
+        <TextBlock  Text="{Binding IsOpen, Converter={StaticResource cnvrt_BoolToOpen }}"
+                    Foreground="{Binding IsOpen, Converter={StaticResource cnvrt_BoolToColorBrush}}"
+                    VerticalAlignment="Center" HorizontalAlignment="Right"
                     Grid.Column="4" Grid.Row="4" Padding="0"/>
         <Controls:ToggleSwitch x:Name="tgl_Active" IsOn="{Binding IsOpen, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                Grid.Column="5" Grid.Row="4" Height="15" MouseLeftButtonDown="tgl_Active_MouseLeftButtonDown"/>

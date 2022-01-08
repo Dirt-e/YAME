@@ -70,12 +70,7 @@ namespace YAME
         //Window_Loaded:
         private void OpenDefaultChildWindows()
         {
-            //Open the SceneView Window once to prevent the mysterious drop in framerates to 60 FPS: 
-            mnuSceneView.IsChecked = true;
-            Thread.Sleep(10);
-            mnuSceneView.IsChecked = false;
-
-            //Then open all the windows that were open when you last closed the application:
+            //Open all the windows that were open when you last closed the application:
             if (Properties.Settings.Default.Window_RawData_IsOpen)              mnuRawData.IsChecked = true;
             if (Properties.Settings.Default.Window_CrashDetector_IsOpen)        mnuCrashDetector.IsChecked = true;
             if (Properties.Settings.Default.Window_PositionCorrection_IsOpen)   mnuPositionCorrection.IsChecked = true;
@@ -143,7 +138,7 @@ namespace YAME
                         Properties.Settings.Default.Window_SerialConnection_IsOpen      = true;
                         break;
                     case "AboutWindow":
-                        //Do nothing
+                        //Do nothing, this does not need to be remembered
                         break;
                     default:
                         throw new Exception("Unknown Window Name: " + w.Name);    
@@ -310,10 +305,13 @@ namespace YAME
         //---------- ? ------------
         private void mnuHdr_QM_Click(object sender, RoutedEventArgs e)
         {
-            aboutWindow = new AboutWindow();
-            aboutWindow.Owner = this;
-            aboutWindow.Name = "AboutWindow";
-            aboutWindow.Show();
+            if (aboutWindow == null)
+            {
+                aboutWindow = new AboutWindow();
+                aboutWindow.Owner = this;
+                aboutWindow.Name = "AboutWindow";
+                aboutWindow.Show();
+            }
         }
 
         //---------- Other Functions ------------
@@ -345,6 +343,8 @@ namespace YAME
         }
         private void ShowAboutWindowOnAppStart(int ms)
         {
+            this.Hide();
+
             aboutWindow = new AboutWindow();
             aboutWindow.Owner = this;
             aboutWindow.Name = "AboutWindow";
@@ -353,6 +353,8 @@ namespace YAME
             Thread.Sleep(ms);
 
             aboutWindow.Close();
+
+            this.Show();
         }
 
         // --------- Mouse Events ---------

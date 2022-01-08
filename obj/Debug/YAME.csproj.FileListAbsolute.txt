@@ -63,7 +63,6 @@ D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\UserControls\FilterBox.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\UserControls\ScalerBox.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\UserControls\ToggleSwitch.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\YAME.g.resources
-D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\MOTUS.Properties.Resources.resources
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\YAME.csproj.GenerateResource.cache
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\YAME.csproj.CoreCompileInputs.cache
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\YAME.csproj.CopyComplete
@@ -71,3 +70,4 @@ D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\YAME.exe
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\YAME.pdb
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\AboutWindow.g.cs
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\AboutWindow.baml
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\YAME.Properties.Resources.resources
