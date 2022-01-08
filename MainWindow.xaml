@@ -94,21 +94,11 @@
             </MenuItem>
             <MenuItem Header="_?" x:Name="mnuHdr_QM" Click="mnuHdr_QM_Click"/>
         </Menu>
-        <!--<Rectangle Grid.Column="2" Grid.Row="0" Width="10" Height="10" Margin="2" Fill="red" RadiusX="3" RadiusY="3"/>-->
         <Button     x:Name="btn_Test" Content="Test code" Width="80" Height="30"  Margin="5"
                     Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"
                     VerticalAlignment="Top" HorizontalAlignment="Left" Click="btn_Test_Click"/>
         <TextBlock  Height=" 20" Width="235"
                     Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"
                     Text="{Binding TitleString, StringFormat=N0 }"/>
-        <!--<Border Style="{StaticResource BorderStyle}" Margin="10" Width="170" HorizontalAlignment="Left" Padding="5">
-            <StackPanel>
-                <TextBlock Text="Timing Method:" HorizontalAlignment="left" Margin="0,0,0,4"/>
-                <RadioButton Foreground="{StaticResource MyPaleWhiteBrush}" Margin="1"
-                             IsChecked="{Binding IsChecked_ShortSleep}">Short Sleep (~200fps)</RadioButton>
-                <RadioButton Foreground="{StaticResource MyPaleWhiteBrush}" Margin="1"
-                             IsChecked="{Binding IsChecked_HotIdle}">Hot Idle (500fps)</RadioButton>
-            </StackPanel>
-        </Border>-->
     </Grid>
 </Window>
