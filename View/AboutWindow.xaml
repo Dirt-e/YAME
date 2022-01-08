@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:YAME.View"
         mc:Ignorable="d"
         Title="AboutWindow" Height="415" Width="800" WindowStartupLocation="CenterScreen" Topmost="True"
-        Style="{StaticResource ChildWindow_Style}">
-    <StackPanel Height="415" Margin="0,0,-2,0">
+        Style="{StaticResource ChildWindow_Style}"
+        Loaded="Window_Loaded" Closed="Window_Closed">
+    <StackPanel>
         <Grid Height="30" Background="LightSkyBlue">
             <TextBlock FontSize="15" FontWeight="Bold" Foreground="{StaticResource MyDimGrayBrush}" 
                        HorizontalAlignment="Stretch"  VerticalAlignment="Center" TextAlignment="Center">
@@ -20,31 +21,48 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Image Source="/Media/Logo Dodecahedron 2276x2146.png" Margin="30,30,10,10" />
-            <TextBlock Grid.Column="1" Margin="10" TextWrapping="Wrap" TextAlignment="Center">
-                <Run FontSize="18" Text="YAME - Yet Another Motion Engine"/><LineBreak/>
-                <LineBreak/>
-                <LineBreak/>
-                version:<LineBreak/>
-                v0.03_alpha_<LineBreak/>
-                <Hyperlink NavigateUri="https://www.hexago-motion.com/downloads/" RequestNavigate="Hyperlink_RequestNavigate"  TextDecorations="Underline">check latest</Hyperlink>
-                <LineBreak/>
-                <LineBreak/>
-                published: <LineBreak/>
-                Jan-05-2022<LineBreak/>
-                <LineBreak/>
-                web:<LineBreak/>
-                <Hyperlink NavigateUri="https://www.hexago-motion.com" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="Underline">www.hexago-motion.com</Hyperlink>                <LineBreak/>
-                <LineBreak/>
-                feedback:<LineBreak/>
-                <Hyperlink NavigateUri="mailto:software@hexago-motion.com" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="Underline">software@hexago-motion.com</Hyperlink>
-            </TextBlock>
-            <TextBlock Grid.Column="1" TextWrapping="Wrap" Height="20"
-                       TextAlignment="Center" VerticalAlignment="Bottom">
-                © 2022 HexaGo <LineBreak/>
+            <StackPanel Grid.Column="1" Margin="10">
+                <TextBlock TextAlignment="Center" FontSize="18"
+                           Text="YAME - Yet Another Motion Engine"/>
+                <TextBlock/>
+                <TextBlock/>
+                <TextBlock TextAlignment="Center"
+                           Text="version:"/>
+                <TextBlock TextAlignment="Center"
+                           Text="{Binding Version}"/>
+                <TextBlock/>
+                <TextBlock/>
+                <TextBlock TextAlignment="Center"
+                           Text="frames/sec.:"/>
+                <TextBlock TextAlignment="Center" x:Name="txtblk_framerate"
+                           Text="{Binding FPS, StringFormat=N2}"/>
+                <TextBlock/>
+                <TextBlock/>
+                <TextBlock TextAlignment="Center"
+                           Text="web:"/>
+                <TextBlock TextAlignment="Center">
+                    <Hyperlink NavigateUri="https://www.hexago-motion.com" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="Underline">www.hexago-motion.com</Hyperlink>
+                </TextBlock>
+                <TextBlock/>
+                <TextBlock/>
+                <TextBlock TextAlignment="Center"
+                           Text="feedback:"/>
+                <TextBlock TextAlignment="Center">
+                    <Hyperlink NavigateUri="mailto:software@hexago-motion.com" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="Underline">software@hexago-motion.com</Hyperlink>                    <LineBreak/>
+                </TextBlock>
+            </StackPanel>
+            <TextBlock Grid.Column="1" TextWrapping="Wrap" Height="20" TextAlignment="Center" VerticalAlignment="Bottom">
+                © 2022 HexaGo
             </TextBlock>
             
         </Grid>
-        <Button Content="Close" Width="100" Height="30" Click="ButtonClick_Close" Margin="10"/>
+        <Button Content="Close" Width="100" Height="25" Click="ButtonClick_Close" Margin="10">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </StackPanel>
     
 </Window>

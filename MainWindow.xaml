@@ -94,11 +94,20 @@
             </MenuItem>
             <MenuItem Header="_?" x:Name="mnuHdr_QM" Click="mnuHdr_QM_Click"/>
         </Menu>
-        <Button     x:Name="btn_Test" Content="Test code" Width="80" Height="30"  Margin="5"
+        <StackPanel Grid.Row="1">
+            <Button     x:Name="btn_Test" Content="Test code" Width="80" Height="30"  Margin="5"
                     Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"
-                    VerticalAlignment="Top" HorizontalAlignment="Left" Click="btn_Test_Click"/>
-        <TextBlock  Height=" 20" Width="235"
-                    Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"
-                    Text="{Binding TitleString, StringFormat=N0 }"/>
+                    VerticalAlignment="Top" HorizontalAlignment="Left" Click="btn_Test_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <!--<TextBlock  Height="20" Width="235"
+                        Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"
+                        Text="{Binding FrameRate, StringFormat=N0 }"/>-->
+        </StackPanel>
+
     </Grid>
 </Window>

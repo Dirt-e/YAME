@@ -305,7 +305,7 @@ namespace YAME
         //---------- ? ------------
         private void mnuHdr_QM_Click(object sender, RoutedEventArgs e)
         {
-            if (aboutWindow == null)
+            if (!aboutWindow.IsOpen)
             {
                 aboutWindow = new AboutWindow();
                 aboutWindow.Owner = this;

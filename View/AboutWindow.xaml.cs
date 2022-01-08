@@ -17,10 +17,16 @@ namespace YAME.View
 {
     public partial class AboutWindow : Window
     {
+        public bool IsOpen;
+
         public AboutWindow()
         {
             InitializeComponent();
+            var engine = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine;
+            DataContext = engine.VM_MainWindow;
+            txtblk_framerate.DataContext = engine;
         }
+
 
         private void ButtonClick_Close(object sender, RoutedEventArgs e)
         {
@@ -29,6 +35,15 @@ namespace YAME.View
         private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
         {
             Process.Start(e.Uri.ToString());
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            IsOpen = true;
+        }
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            IsOpen=false;
         }
     }
 }

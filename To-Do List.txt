@@ -7,6 +7,7 @@ MAIN WINDOW:
 		- Maybe create a screen overlay?
 - Save "SimName in profile
 - Show name of active profile in MainWindow when loaded
+- rename to Mainwindow
 
 CRASH DETECTION & RECOVERY:
 
@@ -43,3 +44,4 @@ Changelog:
 	- SerialConnectionWindow: "OPEN" indicates green
 	- Bugfixed offset correction 
 	- OffsetCorrectionWindow: Green "Active" toggle
+	- show fps in About Window

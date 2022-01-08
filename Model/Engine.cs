@@ -13,7 +13,7 @@ using System.Windows.Threading;
 
 namespace YAME.Model
 {
-    public class Engine
+    public class Engine : MyObject
     {   
         //UI-thread objects:
         public Server                   server;
@@ -55,7 +55,22 @@ namespace YAME.Model
 
         //Internal properties:
 
-        float deltatime_processing;
+        float _deltatime_processing;
+        public float DeltatimeProcessing
+        {
+            get { return _deltatime_processing; }
+            private set
+            {
+                _deltatime_processing = value; OnPropertyChanged(nameof(DeltatimeProcessing));
+                FPS = 1000.0f / DeltatimeProcessing; ;
+            }
+        }
+        float _fps;
+        public float FPS
+        {
+            get { return _fps; }
+            set { _fps = value; OnPropertyChanged(nameof(FPS)); }
+        }
         Stopwatch stopwatch = Stopwatch.StartNew();
 
         public Engine()
@@ -218,16 +233,7 @@ namespace YAME.Model
         }
         private void Update_PositionOffsetCorrector()
         {
-            positionoffsetcorrector.Process(exceedancedetector.Output, deltatime_processing);
-            //#region Update ViewModel
-            //VM_PositionOffsetCorrector.Delta_X = positionoffsetcorrector.Delta_X;
-            //VM_PositionOffsetCorrector.Delta_Y = positionoffsetcorrector.Delta_Y;
-            //VM_PositionOffsetCorrector.Delta_Z = positionoffsetcorrector.Delta_Z;
-            //VM_PositionOffsetCorrector.Ax_output = positionoffsetcorrector.Ax_output;
-            //VM_PositionOffsetCorrector.Ay_output = positionoffsetcorrector.Ay_output;
-            //VM_PositionOffsetCorrector.Az_output = positionoffsetcorrector.Az_output;
-            //VM_PositionOffsetCorrector.IsActive = positionoffsetcorrector.IsActive;
-            //#endregion
+            positionoffsetcorrector.Process(exceedancedetector.Output, DeltatimeProcessing);
         }
         private void Update_Protector()
         {
@@ -286,7 +292,7 @@ namespace YAME.Model
             }
 
             var looptime = (float)stopwatch.Elapsed.TotalMilliseconds;
-            deltatime_processing = looptime;
+            DeltatimeProcessing = looptime;
             VM_MainWindow.DeltaTime_Processing = looptime;
             stopwatch.Restart();
         }
@@ -294,7 +300,7 @@ namespace YAME.Model
         {
             Thread.Sleep(ms);
             var looptime = (float)stopwatch.Elapsed.TotalMilliseconds;
-            deltatime_processing = looptime;
+            DeltatimeProcessing = looptime;
             VM_MainWindow.DeltaTime_Processing = looptime;
             stopwatch.Restart();
         }
