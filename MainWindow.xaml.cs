@@ -53,6 +53,9 @@ namespace YAME
             engine.StartEngine();
             Thread.Sleep(10);
             engine.loadersaver.LoadEngineSettings_Application();
+
+            ShowAboutWindowOnAppStart(2000);
+
             OpenDefaultChildWindows();
         }
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -311,7 +314,6 @@ namespace YAME
             aboutWindow.Owner = this;
             aboutWindow.Name = "AboutWindow";
             aboutWindow.Show();
-            //asdf jklö
         }
 
         //---------- Other Functions ------------
@@ -340,6 +342,17 @@ namespace YAME
             var desktopWorkingArea = SystemParameters.WorkArea;
             this.Left = desktopWorkingArea.Right - this.Width - x;
             this.Top = desktopWorkingArea.Bottom - this.Height - y;
+        }
+        private void ShowAboutWindowOnAppStart(int ms)
+        {
+            aboutWindow = new AboutWindow();
+            aboutWindow.Owner = this;
+            aboutWindow.Name = "AboutWindow";
+            aboutWindow.Show();
+
+            Thread.Sleep(ms);
+
+            aboutWindow.Close();
         }
 
         // --------- Mouse Events ---------
