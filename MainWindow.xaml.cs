@@ -61,12 +61,6 @@ namespace YAME
             ShowAboutWindowOnAppStart(2000);
             OpenDefaultChildWindows();
         }
-
-        private void SetDataContexts()
-        {
-            txtblk_simulator.DataContext = engine.chopper;
-        }
-
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             RememberWhichChildWindowsWereOpen();
@@ -75,21 +69,26 @@ namespace YAME
             engine.loadersaver.SaveSettings_Application();
             engine.StopEngine();
         }
+        
+        private void SetDataContexts()
+        {
+            txtblk_simulator.DataContext = engine.chopper;
+        }
 
         //Window_Loaded:
         private void OpenDefaultChildWindows()
         {
             //Open all the windows that were open when you last closed the application:
-            if (Properties.Settings.Default.Window_RawData_IsOpen)              mnuRawData.IsChecked = true;
-            if (Properties.Settings.Default.Window_CrashDetector_IsOpen)        mnuCrashDetector.IsChecked = true;
-            if (Properties.Settings.Default.Window_PositionCorrection_IsOpen)   mnuPositionCorrection.IsChecked = true;
-            if (Properties.Settings.Default.Window_Filters_IsOpen)              mnuFilters.IsChecked = true;
             if (Properties.Settings.Default.Window_AlphaCompensation_IsOpen)    mnuAlphaCompensation.IsChecked = true;
-            if (Properties.Settings.Default.Window_Graphs_IsOpen)               mnuGraphs.IsChecked = true;
+            if (Properties.Settings.Default.Window_CrashDetector_IsOpen)        mnuCrashDetector.IsChecked = true;
             if (Properties.Settings.Default.Window_DOFs_IsOpen)                 mnuDOFs.IsChecked = true;
-            if (Properties.Settings.Default.Window_SceneView_IsOpen)            mnuSceneView.IsChecked = true;
-            if (Properties.Settings.Default.Window_RigConfig_IsOpen)            mnuRigConfig.IsChecked = true;
+            if (Properties.Settings.Default.Window_Filters_IsOpen)              mnuFilters.IsChecked = true;
+            if (Properties.Settings.Default.Window_Graphs_IsOpen)               mnuGraphs.IsChecked = true;
             if (Properties.Settings.Default.Window_MotionControl_IsOpen)        mnuMotionControl.IsChecked = true;
+            if (Properties.Settings.Default.Window_PositionCorrection_IsOpen)   mnuPositionCorrection.IsChecked = true;
+            if (Properties.Settings.Default.Window_RawData_IsOpen)              mnuRawData.IsChecked = true;
+            if (Properties.Settings.Default.Window_RigConfig_IsOpen)            mnuRigConfig.IsChecked = true;
+            if (Properties.Settings.Default.Window_SceneView_IsOpen)            mnuSceneView.IsChecked = true;
             if (Properties.Settings.Default.Window_SerialConnection_IsOpen)     mnuSerialConnection.IsChecked = true;
         }
         //Window_Closing:

@@ -937,7 +937,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("490")]
+        [global::System.Configuration.DefaultSettingValueAttribute("400")]
         public float Window_RigConfig_Position_X {
             get {
                 return ((float)(this["Window_RigConfig_Position_X"]));
@@ -949,7 +949,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("400")]
         public float Window_RigConfig_Position_Y {
             get {
                 return ((float)(this["Window_RigConfig_Position_Y"]));
@@ -985,7 +985,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("350")]
         public float Window_RawData_Position_X {
             get {
                 return ((float)(this["Window_RawData_Position_X"]));
@@ -997,7 +997,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("350")]
         public float Window_RawData_Position_Y {
             get {
                 return ((float)(this["Window_RawData_Position_Y"]));
@@ -1009,7 +1009,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("450")]
         public float Window_SceneView_Position_X {
             get {
                 return ((float)(this["Window_SceneView_Position_X"]));
@@ -1021,7 +1021,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("360")]
+        [global::System.Configuration.DefaultSettingValueAttribute("450")]
         public float Window_SceneView_Position_Y {
             get {
                 return ((float)(this["Window_SceneView_Position_Y"]));
@@ -1033,7 +1033,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool Window_RawData_IsOpen {
             get {
                 return ((bool)(this["Window_RawData_IsOpen"]));
@@ -1045,7 +1045,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool Window_SceneView_IsOpen {
             get {
                 return ((bool)(this["Window_SceneView_IsOpen"]));
@@ -1057,7 +1057,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool Window_RigConfig_IsOpen {
             get {
                 return ((bool)(this["Window_RigConfig_IsOpen"]));
@@ -1069,7 +1069,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool Window_CrashDetector_IsOpen {
             get {
                 return ((bool)(this["Window_CrashDetector_IsOpen"]));
@@ -1081,7 +1081,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("200")]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
         public float Window_CrashDetector_Position_X {
             get {
                 return ((float)(this["Window_CrashDetector_Position_X"]));
@@ -1093,7 +1093,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
         public float Window_CrashDetector_Position_Y {
             get {
                 return ((float)(this["Window_CrashDetector_Position_Y"]));
@@ -1105,7 +1105,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("330")]
+        [global::System.Configuration.DefaultSettingValueAttribute("300")]
         public float Window_PositionCorrection_Position_X {
             get {
                 return ((float)(this["Window_PositionCorrection_Position_X"]));
@@ -1117,7 +1117,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("300")]
         public float Window_PositionCorrection_Position_Y {
             get {
                 return ((float)(this["Window_PositionCorrection_Position_Y"]));
@@ -1129,7 +1129,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool Window_PositionCorrection_IsOpen {
             get {
                 return ((bool)(this["Window_PositionCorrection_IsOpen"]));
@@ -1141,7 +1141,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool Window_AlphaCompensation_IsOpen {
             get {
                 return ((bool)(this["Window_AlphaCompensation_IsOpen"]));
@@ -1153,7 +1153,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("330")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public float Window_AlphaCompensation_Position_X {
             get {
                 return ((float)(this["Window_AlphaCompensation_Position_X"]));
@@ -1177,7 +1177,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool Window_Filters_IsOpen {
             get {
                 return ((bool)(this["Window_Filters_IsOpen"]));
@@ -1189,7 +1189,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("835")]
+        [global::System.Configuration.DefaultSettingValueAttribute("150")]
         public float Window_Filters_Position_X {
             get {
                 return ((float)(this["Window_Filters_Position_X"]));
@@ -1201,7 +1201,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("150")]
         public float Window_Filters_Position_Y {
             get {
                 return ((float)(this["Window_Filters_Position_Y"]));
@@ -1225,7 +1225,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("200")]
         public float Window_Graphs_Position_X {
             get {
                 return ((float)(this["Window_Graphs_Position_X"]));
@@ -1237,7 +1237,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("200")]
         public float Window_Graphs_Position_Y {
             get {
                 return ((float)(this["Window_Graphs_Position_Y"]));
@@ -1285,7 +1285,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool Window_MotionControl_IsOpen {
             get {
                 return ((bool)(this["Window_MotionControl_IsOpen"]));
@@ -1297,7 +1297,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("635")]
+        [global::System.Configuration.DefaultSettingValueAttribute("250")]
         public float Window_MotionControl_Position_X {
             get {
                 return ((float)(this["Window_MotionControl_Position_X"]));
@@ -1309,7 +1309,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("260")]
+        [global::System.Configuration.DefaultSettingValueAttribute("250")]
         public float Window_MotionControl_Position_Y {
             get {
                 return ((float)(this["Window_MotionControl_Position_Y"]));
@@ -1321,7 +1321,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("835")]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
         public float Window_SerialConnection_Position_X {
             get {
                 return ((float)(this["Window_SerialConnection_Position_X"]));
@@ -1333,7 +1333,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
         public float Window_SerialConnection_Position_Y {
             get {
                 return ((float)(this["Window_SerialConnection_Position_Y"]));
@@ -1345,7 +1345,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool Window_SerialConnection_IsOpen {
             get {
                 return ((bool)(this["Window_SerialConnection_IsOpen"]));

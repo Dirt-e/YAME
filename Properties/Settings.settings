@@ -231,10 +231,10 @@
       <Value Profile="(Default)">1000</Value>
     </Setting>
     <Setting Name="Window_RigConfig_Position_X" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">490</Value>
+      <Value Profile="(Default)">400</Value>
     </Setting>
     <Setting Name="Window_RigConfig_Position_Y" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">400</Value>
     </Setting>
     <Setting Name="ActuatorSystem_MaxLength" Type="System.Single" Scope="User">
       <Value Profile="(Default)">1400</Value>
@@ -243,70 +243,70 @@
       <Value Profile="(Default)">850</Value>
     </Setting>
     <Setting Name="Window_RawData_Position_X" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">350</Value>
     </Setting>
     <Setting Name="Window_RawData_Position_Y" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">350</Value>
     </Setting>
     <Setting Name="Window_SceneView_Position_X" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">450</Value>
     </Setting>
     <Setting Name="Window_SceneView_Position_Y" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">360</Value>
+      <Value Profile="(Default)">450</Value>
     </Setting>
     <Setting Name="Window_RawData_IsOpen" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Window_SceneView_IsOpen" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Window_RigConfig_IsOpen" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Window_CrashDetector_IsOpen" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Window_CrashDetector_Position_X" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">200</Value>
+      <Value Profile="(Default)">50</Value>
     </Setting>
     <Setting Name="Window_CrashDetector_Position_Y" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">50</Value>
     </Setting>
     <Setting Name="Window_PositionCorrection_Position_X" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">330</Value>
+      <Value Profile="(Default)">300</Value>
     </Setting>
     <Setting Name="Window_PositionCorrection_Position_Y" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">300</Value>
     </Setting>
     <Setting Name="Window_PositionCorrection_IsOpen" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Window_AlphaCompensation_IsOpen" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Window_AlphaCompensation_Position_X" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">330</Value>
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Window_AlphaCompensation_Position_Y" Type="System.Single" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Window_Filters_IsOpen" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Window_Filters_Position_X" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">835</Value>
+      <Value Profile="(Default)">150</Value>
     </Setting>
     <Setting Name="Window_Filters_Position_Y" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">150</Value>
     </Setting>
     <Setting Name="Window_Graphs_IsOpen" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Window_Graphs_Position_X" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">200</Value>
     </Setting>
     <Setting Name="Window_Graphs_Position_Y" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">200</Value>
     </Setting>
     <Setting Name="Window_DOFs_IsOpen" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -318,22 +318,22 @@
       <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="Window_MotionControl_IsOpen" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Window_MotionControl_Position_X" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">635</Value>
+      <Value Profile="(Default)">250</Value>
     </Setting>
     <Setting Name="Window_MotionControl_Position_Y" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">260</Value>
+      <Value Profile="(Default)">250</Value>
     </Setting>
     <Setting Name="Window_SerialConnection_Position_X" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">835</Value>
+      <Value Profile="(Default)">500</Value>
     </Setting>
     <Setting Name="Window_SerialConnection_Position_Y" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">500</Value>
     </Setting>
     <Setting Name="Window_SerialConnection_IsOpen" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="SerialTalker_LastUsedComPort" Type="System.String" Scope="User">
       <Value Profile="(Default)">""</Value>
