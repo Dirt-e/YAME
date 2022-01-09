@@ -7,13 +7,267 @@ using System.Threading.Tasks;
 
 namespace YAME.Model
 {
-    public class Chopper
+    public class Chopper : MyObject
     {
         public PreprocessorData Output= new PreprocessorData();
-        public string Simulator { get; set; }
-        
+
+        #region ViewModel
+        //Airdata
+        float _ias;
+        public float IAS
+        {
+            get
+            {
+                return _ias;
+            }
+            set
+            {
+                _ias = value;
+                OnPropertyChanged("IAS");
+            }
+        }
+        float _mach;
+        public float MACH
+        {
+            get
+            {
+                return _mach;
+            }
+            set
+            {
+                _mach = value;
+                OnPropertyChanged("MACH");
+            }
+        }
+        float _tas;
+        public float TAS
+        {
+            get
+            {
+                return _tas;
+            }
+            set
+            {
+                _tas = value;
+                OnPropertyChanged("TAS");
+            }
+        }
+        float _gs;
+        public float GS
+        {
+            get
+            {
+                return _gs;
+            }
+            set
+            {
+                _gs = value;
+                OnPropertyChanged("GS");
+            }
+        }
+        float _aoa;
+        public float AOA
+        {
+            get
+            {
+                return _aoa;
+            }
+            set
+            {
+                _aoa = value;
+                OnPropertyChanged("AOA");
+            }
+        }
+        float _vs;
+        public float VS
+        {
+            get
+            {
+                return _vs;
+            }
+            set
+            {
+                _vs = value;
+                OnPropertyChanged("VS");
+            }
+        }
+        float _hgt;
+        public float HGT
+        {
+            get
+            {
+                return _hgt;
+            }
+            set
+            {
+                _hgt = value;
+                OnPropertyChanged("HGT");
+            }
+        }
+        //Euler
+        float _hdg;
+        public float HDG
+        {
+            get
+            {
+                return _hdg;
+            }
+            set
+            {
+                _hdg = value;
+                OnPropertyChanged("HDG");
+            }
+        }
+        float _pitch;
+        public float PITCH
+        {
+            get
+            {
+                return _pitch;
+            }
+            set
+            {
+                _pitch = value;
+                OnPropertyChanged("PITCH");
+            }
+        }
+        float _bank;
+        public float BANK
+        {
+            get
+            {
+                return _bank;
+            }
+            set
+            {
+                _bank = value;
+                OnPropertyChanged("BANK");
+            }
+        }
+        //Rates
+        float _wx;
+        public float WX
+        {
+            get
+            {
+                return _wx;
+            }
+            set
+            {
+                _wx = value;
+                OnPropertyChanged("WX");
+            }
+        }
+        float _wy;
+        public float WY
+        {
+            get
+            {
+                return _wy;
+            }
+            set
+            {
+                _wy = value;
+                OnPropertyChanged("WY");
+            }
+        }
+        float _wz;
+        public float WZ
+        {
+            get
+            {
+                return _wz;
+            }
+            set
+            {
+                _wz = value;
+                OnPropertyChanged("WZ");
+            }
+        }
+        //Acccels
+        float _ax;
+        public float AX
+        {
+            get
+            {
+                return _ax;
+            }
+            set
+            {
+                _ax = value;
+                OnPropertyChanged("AX");
+            }
+        }
+        float _ay;
+        public float AY
+        {
+            get
+            {
+                return _ay;
+            }
+            set
+            {
+                _ay = value;
+                OnPropertyChanged("AY");
+            }
+        }
+        float _az;
+        public float AZ
+        {
+            get
+            {
+                return _az;
+            }
+            set
+            {
+                _az = value;
+                OnPropertyChanged("AZ");
+            }
+        }
+        //Meta
+        float _time;
+        public float TIME
+        {
+            get
+            {
+                return _time;
+            }
+            set
+            {
+                _time = value;
+                OnPropertyChanged("TIME");
+            }
+        }
+        float _counter;
+        public float COUNTER
+        {
+            get
+            {
+                return _counter;
+            }
+            set
+            {
+                _counter = value;
+                OnPropertyChanged("COUNTER");
+            }
+        }
+        string _sim;
+        public string SIM
+        {
+            get
+            {
+                return _sim;
+            }
+            set
+            {
+                _sim = value;
+                OnPropertyChanged("SIM");
+            }
+        }
+        #endregion
+
         private string[] Chunks = new string[19];
-        private float[] Floats = new float[19];
+        //private float[] Floats = new float[19];
 
         public void ChopParseAndPackage(string rawdatastring)
         {
@@ -27,42 +281,62 @@ namespace YAME.Model
             Chunks = s.Split(',');
         }
         private void ParseChunks()
-        {   
-            Simulator = Chunks[18];
-            Chunks = Chunks.Take(18).ToArray();     //We don't need the last 2 elements anymore. Thosa are only "Simulator" and "\n"
-            
-            for (int i = 0; i < Chunks.Length; i++)
-            {
-                Floats[i] = Convert.ToSingle(Chunks[i], GlobalVars.myNumberFormat(7));
-            }
+        {
+            //Airdata
+            IAS     = Convert.ToSingle(Chunks[0], GlobalVars.myNumberFormat(7));
+            MACH    = Convert.ToSingle(Chunks[1], GlobalVars.myNumberFormat(7));
+            TAS     = Convert.ToSingle(Chunks[2], GlobalVars.myNumberFormat(7));
+            GS      = Convert.ToSingle(Chunks[3], GlobalVars.myNumberFormat(7));
+            AOA     = Convert.ToSingle(Chunks[4], GlobalVars.myNumberFormat(7));
+            VS      = Convert.ToSingle(Chunks[5], GlobalVars.myNumberFormat(7));
+            HGT     = Convert.ToSingle(Chunks[6], GlobalVars.myNumberFormat(7));
+                    //Euler
+            BANK    = Convert.ToSingle(Chunks[7], GlobalVars.myNumberFormat(7));
+            HDG     = Convert.ToSingle(Chunks[8], GlobalVars.myNumberFormat(7));
+            PITCH   = Convert.ToSingle(Chunks[9], GlobalVars.myNumberFormat(7));
+
+            //Rates
+            WX      = Convert.ToSingle(Chunks[10], GlobalVars.myNumberFormat(7));
+            WY      = Convert.ToSingle(Chunks[11], GlobalVars.myNumberFormat(7));
+            WZ      = Convert.ToSingle(Chunks[12], GlobalVars.myNumberFormat(7));
+            //Accels
+            AX      = Convert.ToSingle(Chunks[13], GlobalVars.myNumberFormat(7));
+            AY      = Convert.ToSingle(Chunks[14], GlobalVars.myNumberFormat(7));
+            AZ      = Convert.ToSingle(Chunks[15], GlobalVars.myNumberFormat(7));
+            //Meta
+            TIME    = Convert.ToSingle(Chunks[16], GlobalVars.myNumberFormat(7));
+            COUNTER = Convert.ToSingle(Chunks[17], GlobalVars.myNumberFormat(7));
+
+            SIM     = Chunks[18];
+
         }
         private void PackIntoData()
         {
             //Airdata
-            Output.IAS      = Floats[0];
-            Output.MACH     = Floats[1];
-            Output.TAS      = Floats[2];
-            Output.GS       = Floats[3];
-            Output.AOA      = Floats[4];
-            Output.VS       = Floats[5];
-            Output.HGT      = Floats[6];
-            //Euler
-            Output.BANK     = Floats[7];
-            Output.HDG      = Floats[8];
-            Output.PITCH    = Floats[9];
+            Output.IAS      = IAS;
+            Output.MACH     = MACH;
+            Output.TAS      = TAS;
+            Output.GS       = GS;
+            Output.AOA      = AOA;
+            Output.VS       = VS;
+            Output.HGT      = HGT;
+            //Euler                 
+            Output.BANK     = BANK;
+            Output.HDG      = HDG;
+            Output.PITCH    = PITCH;
 
             //Rates
-            Output.WX       = Floats[10];
-            Output.WY       = Floats[11];
-            Output.WZ       = Floats[12];
-            //Accels
-            Output.AX       = Floats[13];
-            Output.AY       = Floats[14];
-            Output.AZ       = Floats[15];
+            Output.WX       = WX;
+            Output.WY       = WY;
+            Output.WZ       = WZ;
+            //Accels          
+            Output.AX       = AX;
+            Output.AY       = AY;
+            Output.AZ       = AZ;
             //Meta
-            Output.TIME     = Floats[16];
-            Output.COUNTER  = Floats[17];
-            Output.SIMULATOR = Simulator; 
+            Output.TIME     = TIME;
+            Output.COUNTER  = COUNTER;
+            Output.SIM      = SIM; 
         }
     }
 

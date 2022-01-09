@@ -24,6 +24,8 @@ namespace YAME
 {
     public partial class MainWindow : Window
     {
+
+
         public Engine engine = new Engine();
         Mutex single_instance_mutex;
 
@@ -54,10 +56,17 @@ namespace YAME
             Thread.Sleep(10);
             engine.loadersaver.LoadEngineSettings_Application();
 
-            ShowAboutWindowOnAppStart(2000);
+            SetDataContexts();
 
+            ShowAboutWindowOnAppStart(2000);
             OpenDefaultChildWindows();
         }
+
+        private void SetDataContexts()
+        {
+            txtblk_simulator.DataContext = engine.chopper;
+        }
+
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             RememberWhichChildWindowsWereOpen();

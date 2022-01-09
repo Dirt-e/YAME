@@ -31,7 +31,7 @@ namespace YAME.DataFomats
         //Meta
         public float TIME { get; set; }
         public float COUNTER { get; set; }
-        public string SIMULATOR { get; set; }
+        public string SIM { get; set; }
 
         //Constructor
         public PreprocessorData() { }
@@ -60,7 +60,7 @@ namespace YAME.DataFomats
             //Meta
             TIME = p.TIME;
             COUNTER = p.COUNTER;
-            SIMULATOR = p.SIMULATOR;
+            SIM = p.SIM;
         }
     }
 }

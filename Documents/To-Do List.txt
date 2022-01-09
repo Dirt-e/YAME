@@ -1,10 +1,6 @@
 ﻿To-Do:
 
 MAIN WINDOW:
-- Implement a "Save Resources" button to...
-		- Close all child windows
-		- Resize MainWindow
-		- Maybe create a screen overlay?
 - Save "SimName in profile
 - Show name of active profile in MainWindow when loaded
 - rename to Mainwindow
@@ -35,7 +31,7 @@ POSITION OFFSET CORRECTION:
 Changelog:
 
 	Version 0.03:
-	- Added "Aabout page
+	- Added "About page
 	- File->Quit closes application
 
 	Version 0.04:
@@ -45,3 +41,4 @@ Changelog:
 	- Bugfixed offset correction 
 	- OffsetCorrectionWindow: Green "Active" toggle
 	- show fps in About Window
+	- show Profile/SIM/FPS in Main Window

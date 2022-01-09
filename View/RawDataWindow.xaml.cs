@@ -19,7 +19,7 @@ namespace YAME.View
         public RawDataWindow()
         {
             InitializeComponent();
-            DataContext = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine.VM_Rawdata;
+            DataContext = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine.chopper;
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

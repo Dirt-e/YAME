@@ -43,7 +43,6 @@ namespace YAME.Model
 
         //ViewModels:
         public ViewModel_MainWindow                 VM_MainWindow;
-        public ViewModel_RawData                    VM_Rawdata;
         public ViewModel_CrashDetector              VM_CrashDetector;
         public ViewModel_FiltersWindow              VM_FiltersWindow;
         public ViewModel_MotionControlWindow        VM_MotionControlWindow;
@@ -87,7 +86,6 @@ namespace YAME.Model
         private void InstantiateViewModels()
         {
             VM_MainWindow               = new ViewModel_MainWindow(this);
-            VM_Rawdata                  = new ViewModel_RawData(this);
             VM_CrashDetector            = new ViewModel_CrashDetector(this);
             VM_FiltersWindow            = new ViewModel_FiltersWindow(this);
             VM_MotionControlWindow      = new ViewModel_MotionControlWindow();
@@ -180,33 +178,6 @@ namespace YAME.Model
         private void Update_Chopper()
         {
             chopper.ChopParseAndPackage(server.RawDatastring);
-
-            #region update ViewModel
-            VM_Rawdata.IAS = chopper.Output.IAS;
-            VM_Rawdata.MACH = chopper.Output.MACH;
-            VM_Rawdata.TAS = chopper.Output.TAS;
-            VM_Rawdata.GS = chopper.Output.GS;
-            VM_Rawdata.AOA = chopper.Output.AOA;
-            VM_Rawdata.VS = chopper.Output.VS;
-            VM_Rawdata.HGT = chopper.Output.HGT;
-
-            VM_Rawdata.HDG = chopper.Output.HDG;
-            VM_Rawdata.PITCH = chopper.Output.PITCH;
-            VM_Rawdata.BANK = chopper.Output.BANK;
-
-            VM_Rawdata.WX = chopper.Output.WX;
-            VM_Rawdata.WY = chopper.Output.WY;
-            VM_Rawdata.WZ = chopper.Output.WZ;
-
-            VM_Rawdata.AX = chopper.Output.AX;
-            VM_Rawdata.AY = chopper.Output.AY;
-            VM_Rawdata.AZ = chopper.Output.AZ;
-
-            VM_Rawdata.TIME = chopper.Output.TIME;
-            VM_Rawdata.COUNTER = chopper.Output.COUNTER;
-            VM_Rawdata.SIM = chopper.Output.SIMULATOR;
-            #endregion
-            
         }
         private void Update_Inverter()
         {
@@ -291,17 +262,7 @@ namespace YAME.Model
                 //DoNothing();
             }
 
-            var looptime = (float)stopwatch.Elapsed.TotalMilliseconds;
-            DeltatimeProcessing = looptime;
-            VM_MainWindow.DeltaTime_Processing = looptime;
-            stopwatch.Restart();
-        }
-        private void ShortSleep(int ms)
-        {
-            Thread.Sleep(ms);
-            var looptime = (float)stopwatch.Elapsed.TotalMilliseconds;
-            DeltatimeProcessing = looptime;
-            VM_MainWindow.DeltaTime_Processing = looptime;
+            DeltatimeProcessing = (float)stopwatch.Elapsed.TotalMilliseconds;
             stopwatch.Restart();
         }
     }

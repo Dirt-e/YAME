@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MOTUS.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="YAME.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="CrashDetector_Threshold_Ax" Type="System.Single" Scope="User">
@@ -337,9 +337,6 @@
     </Setting>
     <Setting Name="SerialTalker_LastUsedComPort" Type="System.String" Scope="User">
       <Value Profile="(Default)">""</Value>
-    </Setting>
-    <Setting Name="Version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">v0.02_alpha_</Value>
     </Setting>
   </Settings>
 </SettingsFile>

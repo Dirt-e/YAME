@@ -11,7 +11,7 @@ namespace YAME.ViewModel
 {
     public class ViewModel_MainWindow : _ViewModel
     {
-         string _tilte_string = "Main Window";
+        string _tilte_string = "Main Window";
         public string TitleString
         {
             get { return _tilte_string; }
@@ -24,25 +24,18 @@ namespace YAME.ViewModel
             get { return _version; }
         }
 
-        int _framerate;
-        public int FrameRate
+        string _profile = "-";
+        public string Profile
         {
-            get { return _framerate; }
-            set { _framerate = value; OnPropertyChanged(nameof(FrameRate)); }
+            get { return _profile; }
+            set { _profile = value; OnPropertyChanged(nameof(Profile)); }
         }
 
-        float _deltatime_processing;
-        public float DeltaTime_Processing
+        string _aircraft = "-";
+        public string Aircraft
         {
-            get { return _deltatime_processing; }
-            set
-            {
-                //float adoption = 0.1f;
-                float adoption = 1.0f;
-                _deltatime_processing = value * adoption + _deltatime_processing * (1-adoption);  //Slight LP filtering :-)
-                FrameRate = (int)(1000 / DeltaTime_Processing);
-                OnPropertyChanged(nameof(DeltaTime_Processing)); 
-            }
+            get { return _aircraft; }
+            set { _aircraft = value; OnPropertyChanged(nameof(Aircraft)); }
         }
 
         public ViewModel_MainWindow(Engine e)
