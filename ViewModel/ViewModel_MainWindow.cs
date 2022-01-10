@@ -18,7 +18,7 @@ namespace YAME.ViewModel
             set { _tilte_string = value; OnPropertyChanged(nameof(TitleString)); }
         }
 
-        const string _version = "v0.04_alpha_";
+        const string _version = "v0.05_alpha_";
         public string Version
         {
             get { return _version; }

@@ -1,1 +1,0 @@
-Copy the folder "XPlaneGetter" together with all its contents into ...X-Plane 11\Resources\plugins"

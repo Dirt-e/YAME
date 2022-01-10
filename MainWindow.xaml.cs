@@ -24,8 +24,6 @@ namespace YAME
 {
     public partial class MainWindow : Window
     {
-
-
         public Engine engine = new Engine();
         Mutex single_instance_mutex;
 
