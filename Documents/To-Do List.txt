@@ -41,3 +41,6 @@ Changelog:
 	- OffsetCorrectionWindow: Green "Active" toggle
 	- show fps in About Window
 	- show Profile/SIM/FPS in Main Window.
+
+	Version 0.05
+	- Added patch/unpatch routine for DCS
