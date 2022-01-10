@@ -372,10 +372,17 @@ namespace YAME
         }
 
         //---------- Buttons -----------
-        private void btn_Test_Click(object sender, RoutedEventArgs e)
+        private void btn_Patch_Click(object sender, RoutedEventArgs e)
         {
             //Test code here:
+            Patcher.PatchDCS();
+            Patcher.PatchDCS_openbeta();
+        }
 
+        private void btn_Unpatch_Click(object sender, RoutedEventArgs e)
+        {
+            Patcher.UnPatchDCS();
+            Patcher.UnPatchDCS_openbeta();
         }
     }
 }

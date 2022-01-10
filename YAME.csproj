@@ -150,6 +150,7 @@
     <Compile Include="Model\MessageGenerator_AMC_AASD15A.cs" />
     <Compile Include="Model\Messagegenerator_M4S.cs" />
     <Compile Include="Model\MyTransform.cs" />
+    <Compile Include="Model\Patcher.cs" />
     <Compile Include="Model\ScalerModule.cs" />
     <Compile Include="Model\ScalerSystem.cs" />
     <Compile Include="Model\SerialTalker.cs" />
@@ -165,6 +166,11 @@
     <Compile Include="Model\PositionOffsetCorrector.cs" />
     <Compile Include="Model\Protector.cs" />
     <Compile Include="Model\_MyObject.cs" />
+    <Compile Include="Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
     <Compile Include="Utility.cs" />
     <Compile Include="ViewModel\ViewModel_CrashDetector.cs" />
     <Compile Include="ViewModel\ViewModel_FiltersWindow.cs" />
@@ -325,13 +331,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="LUA\YAME_Export_Hooks_v0.01.lua" />
     <None Include="Media\Models\Plane.stl" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <EmbeddedResource Include="Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DCS\YAME_Export_Hook.lua" />
     <None Include="YAME_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

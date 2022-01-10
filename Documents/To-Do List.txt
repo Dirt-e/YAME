@@ -3,7 +3,6 @@
 MAIN WINDOW:
 - Save "SimName in profile
 - Show name of active profile in MainWindow when loaded
-- rename to Mainwindow
 
 CRASH DETECTION & RECOVERY:
 
@@ -41,4 +40,4 @@ Changelog:
 	- Bugfixed offset correction 
 	- OffsetCorrectionWindow: Green "Active" toggle
 	- show fps in About Window
-	- show Profile/SIM/FPS in Main Window
+	- show Profile/SIM/FPS in Main Window.

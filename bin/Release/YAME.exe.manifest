@@ -175,14 +175,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="YAME.exe" size="820672">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="YAME.exe" size="832960">
       <assemblyIdentity name="YAME" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>AZaUhR39Y8KYe2kdSPVJmJr5vdLyYGgYxmAuUAESdJ0=</dsig:DigestValue>
+        <dsig:DigestValue>0YLHxZdNoi9Ep5U/hOsma2eFX9+FqWk/5H8ixJs1vkk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -1,7 +1,9 @@
 ---------------------------------------------------------------------------------------------------
--- Data export script for YAME
+-- Data export script for MOTUS
 -- Version 0.01
+-- created by @Dirty, find me here: https://www.xsimulator.net/community/members/dirty.27556/
 
+--
 -- Changes:
 -- Initial version
 ---------------------------------------------------------------------------------------------------
@@ -19,11 +21,11 @@ YouPreferKnotsOverMetersPerSecond = false
 YouPreferMetersPerSecondSquaredOverG = true
 
 --The callbacks to be registered with DCS
-local YAME_Callbacks = {}
+local MOTUS_Callbacks = {}
 
-function YAME_Callbacks.onSimulationStart()
+function MOTUS_Callbacks.onSimulationStart()
 
-	log.write('YAME', log.INFO, "Starting motion data export to YAME. Export script " .. Version)
+	log.write('MOTUS', log.INFO, "Starting motion data export to MOTUS. Export script " .. Version)
 	
 	package.path = package.path..";.\\LuaSocket\\?.lua"
 	package.cpath = package.cpath..";.\\LuaSocket\\?.dll"
@@ -38,14 +40,14 @@ function YAME_Callbacks.onSimulationStart()
 	Counter = 0
 end
 
-function YAME_Callbacks.onSimulationFrame()
+function MOTUS_Callbacks.onSimulationFrame()
 
 	--Airdata:
 	IAS = 				Export.LoGetIndicatedAirSpeed()
 	Machnumber = 		Export.LoGetMachNumber()
 	TAS = 				Export.LoGetTrueAirSpeed()
 	vv = 				Export.LoGetVectorVelocity()
-	GS = 					math.sqrt( (vv.x * vv.x) + (vv.z * vv.z) )
+	GS = 					math.sqrt( math.pow(vv.x,2) + math.pow(vv.z,2))
 	AOA = 				Export.LoGetAngleOfAttack()
 	VerticalSpeed = 	Export.LoGetVerticalVelocity()
 	Height = 			Export.LoGetAltitudeAboveGroundLevel()
@@ -143,9 +145,9 @@ function YAME_Callbacks.onSimulationFrame()
 	end
 end
 
-function YAME_Callbacks.onSimulationStop()
+function MOTUS_Callbacks.onSimulationStop()
 	
-	log.write('YAME', log.INFO, "Motion data export stopped")
+	log.write('MOTUS', log.INFO, "Motion data export stopped")
 
 	if MySocket then
 		MySocket:close()
@@ -153,7 +155,7 @@ function YAME_Callbacks.onSimulationStop()
 end
 
 --register these callbacks with DCS to be called at the appropriate moment.
-DCS.setUserCallbacks(YAME_Callbacks)
+DCS.setUserCallbacks(MOTUS_Callbacks)
 
 
 
