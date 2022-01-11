@@ -92,21 +92,13 @@
                             Checked="mnuSerialConnection_Checked"
                             Unchecked="mnuSerialConnection_Unchecked"/>
             </MenuItem>
+            <MenuItem Header="_Patcher" x:Name="mnuHdr_Patcher" Click="mnuHdr_Patcher_Click"/>
             <MenuItem Header="_?" x:Name="mnuHdr_QM" Click="mnuHdr_QM_Click"/>
         </Menu>
         <StackPanel Grid.Row="1">
-            <Button     x:Name="btn_Patch" Content="Patch DCS" Width="80" Height="25"  Margin="5"
+            <Button     x:Name="btn_Test" Content="Test Code" Width="80" Height="25"  Margin="5"
                     Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"
-                    VerticalAlignment="Top" HorizontalAlignment="Left" Click="btn_Patch_Click">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-            <Button     x:Name="btn_Unpatch" Content="Unpatch DCS" Width="80" Height="25"  Margin="5"
-                    Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"
-                    VerticalAlignment="Top" HorizontalAlignment="Left" Click="btn_Unpatch_Click">
+                    VerticalAlignment="Top" HorizontalAlignment="Left" Click="btn_Test_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>

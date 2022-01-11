@@ -1,4 +1,4 @@
-﻿<Window x:Class="YAME.View.Patch_Window"
+﻿<Window x:Class="YAME.View.Window_Patcher"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -29,22 +29,35 @@
         <TextBlock Text="DCS.openbeta"  Grid.Row="2" Grid.Column="1" FontSize="12" VerticalAlignment="Center" />
         <TextBlock Text="X-Plane"       Grid.Row="3" Grid.Column="1" FontSize="12" VerticalAlignment="Center" />
         
-        <Button     x:Name="btn_Patch_DCS" Content="Patch" Width="80" Height="25" Style="{StaticResource Button_NoHighlight}"
-                    Grid.Row="1" Grid.Column="2"
-                    VerticalAlignment="Top" HorizontalAlignment="Left" Click="btn_Patch_DCS_Click">
+        <Button     x:Name="btn_Patch_DCS" Content="Patch"  Style="{StaticResource Button_NoHighlight}"
+                    Grid.Row="1" Grid.Column="2" Margin="3"
+                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Patch_DCS_Click">
         </Button>
-        <Button     x:Name="btn_Patch_DCSopenbeta" Content="Patch" Width="80" Height="25" Style="{StaticResource Button_NoHighlight}"
-                    Grid.Row="2" Grid.Column="2"
-                    VerticalAlignment="Top" HorizontalAlignment="Left" Click="btn_Patch_DCSopenbeta_Click">
+        <Button     x:Name="btn_Unpatch_DCS" Content="Unpatch" Style="{StaticResource Button_NoHighlight}"
+                    Grid.Row="1" Grid.Column="3" Margin="3"
+                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Unpatch_DCS_Click">
+        </Button>
+        
+        <Button     x:Name="btn_Patch_DCSopenbeta" Content="Patch" Style="{StaticResource Button_NoHighlight}"
+                    Grid.Row="2" Grid.Column="2" Margin="3"
+                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Patch_DCSopenbeta_Click">
+        </Button>
+        <Button     x:Name="btn_Unpatch_DCSopenbeta" Content="Unpatch" Style="{StaticResource Button_NoHighlight}"
+                    Grid.Row="2" Grid.Column="3" Margin="3"
+                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Unpatch_DCSopenbeta_Click">
         </Button>
 
-        <Button     x:Name="btn_Unpatch_DCS" Content="Unpatch" Width="80" Height="25" Style="{StaticResource Button_NoHighlight}"
-                    Grid.Row="1" Grid.Column="3"
-                    VerticalAlignment="Top" HorizontalAlignment="Left" Click="btn_Unpatch_DCS_Click">
+        <Button     x:Name="btn_Patch_XPlane" Content="Patch"  Style="{StaticResource Button_NoHighlight}"
+                    Grid.Row="3" Grid.Column="2" Margin="3"
+                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Patch_XPlane_Click">
         </Button>
-        <Button     x:Name="btn_Unpatch_DCSopenbeta" Content="Unpatch" Width="80" Height="25" Style="{StaticResource Button_NoHighlight}"
-                    Grid.Row="2" Grid.Column="3"
-                    VerticalAlignment="Top" HorizontalAlignment="Left" Click="btn_Unpatch_DCSopenbeta_Click">
+        <Button     x:Name="btn_Unpatch_XPlane" Content="Unpatch" Style="{StaticResource Button_NoHighlight}"
+                    Grid.Row="3" Grid.Column="3" Margin="3"
+                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Unpatch_XPlane_Click">
         </Button>
+
+        <Button     x:Name="btn_Close" Content="Close" Style="{StaticResource Button_NoHighlight}"
+                    Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Margin="3"
+                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Close_Click"/>
     </Grid>
 </Window>

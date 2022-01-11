@@ -76,3 +76,14 @@ D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\YAME.application
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\YAME.exe.manifest
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\YAME.application
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\YAME.Resource.resources
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\Window_Patch.g.cs
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\Window_Patch.baml
+D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\Microsoft.WindowsAPICodePack.dll
+D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.dll
+D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\Microsoft.WindowsAPICodePack.pdb
+D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\Microsoft.WindowsAPICodePack.xml
+D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\Microsoft.WindowsAPICodePack.Shell.pdb
+D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
+D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
+D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.xml

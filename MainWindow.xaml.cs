@@ -88,6 +88,7 @@ namespace YAME
             if (Properties.Settings.Default.Window_RigConfig_IsOpen)            mnuRigConfig.IsChecked = true;
             if (Properties.Settings.Default.Window_SceneView_IsOpen)            mnuSceneView.IsChecked = true;
             if (Properties.Settings.Default.Window_SerialConnection_IsOpen)     mnuSerialConnection.IsChecked = true;
+            if (Properties.Settings.Default.Window_Patcher_IsOpen)              mnuHdr_Patcher_Click(this, new EventArgs() as RoutedEventArgs);
         }
         //Window_Closing:
         private void RememberWhichChildWindowsWereOpen()
@@ -104,6 +105,7 @@ namespace YAME
             Properties.Settings.Default.Window_RigConfig_IsOpen             = false;
             Properties.Settings.Default.Window_MotionControl_IsOpen         = false;
             Properties.Settings.Default.Window_SerialConnection_IsOpen      = false;
+            Properties.Settings.Default.Window_Patcher_IsOpen               = false;
 
             //Then set only the ones that were open to "true"
             foreach (Window w in this.OwnedWindows)
@@ -142,6 +144,9 @@ namespace YAME
                         break;
                     case "SerialConnectionWindow":
                         Properties.Settings.Default.Window_SerialConnection_IsOpen      = true;
+                        break;
+                    case "PatcherWindow":
+                        Properties.Settings.Default.Window_Patcher_IsOpen               = true;
                         break;
                     case "AboutWindow":
                         //Do nothing, this does not need to be remembered
@@ -319,8 +324,15 @@ namespace YAME
                 aboutWindow.Show();
             }
         }
+        private void mnuHdr_Patcher_Click(object sender, RoutedEventArgs e)
+        {
+            Window_Patcher window_Patcher = new Window_Patcher();
+            window_Patcher.Owner = this;
+            window_Patcher.Name = "PatcherWindow";
+            window_Patcher.Show();
+        }
 
-        //---------- Other Functions ------------
+        //---------- Helpers ------------
         private void EnforceSingleInstance()
         {
             //To-Do: This is still untested!!!
@@ -340,7 +352,7 @@ namespace YAME
                 Application.Current.Shutdown();
             }
         }
-        public void MoveWindowToLowerRight(int x = 0, int y = 0)
+        private void MoveWindowToLowerRight(int x = 0, int y = 0)
         {
             //To-Do: Why does this not work yet???
             var desktopWorkingArea = SystemParameters.WorkArea;
@@ -370,17 +382,11 @@ namespace YAME
         }
 
         //---------- Buttons -----------
-        private void btn_Patch_Click(object sender, RoutedEventArgs e)
+        private void btn_Test_Click(object sender, RoutedEventArgs e)
         {
             //Test code here:
-            Patcher.Patch_DCS();
-            Patcher.Patch_DCSopenbeta();
+            
         }
 
-        private void btn_Unpatch_Click(object sender, RoutedEventArgs e)
-        {
-            Patcher.UnPatch_DCS();
-            Patcher.UnPatch_DCSopenbeta();
-        }
     }
 }

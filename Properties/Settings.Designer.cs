@@ -1366,5 +1366,41 @@ namespace YAME.Properties {
                 this["SerialTalker_LastUsedComPort"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Window_Patcher_IsOpen {
+            get {
+                return ((bool)(this["Window_Patcher_IsOpen"]));
+            }
+            set {
+                this["Window_Patcher_IsOpen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_Patcher_Position_X {
+            get {
+                return ((float)(this["Window_Patcher_Position_X"]));
+            }
+            set {
+                this["Window_Patcher_Position_X"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public float Window_Patcher_Position_Y {
+            get {
+                return ((float)(this["Window_Patcher_Position_Y"]));
+            }
+            set {
+                this["Window_Patcher_Position_Y"] = value;
+            }
+        }
     }
 }
