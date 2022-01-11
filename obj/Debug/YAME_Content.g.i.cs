@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("media/logo_notypo.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/x-plane/win.pdb")]
 
 

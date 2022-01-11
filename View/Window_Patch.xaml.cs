@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using YAME.Model;
+using Path = System.IO.Path;
 
 namespace YAME.View
 {
@@ -24,6 +26,7 @@ namespace YAME.View
             InitializeComponent();
         }
 
+        //---------- DCS ----------
         private void btn_Patch_DCS_Click(object sender, RoutedEventArgs e)
         {
             if (IsPatched_DCS())
@@ -84,7 +87,6 @@ namespace YAME.View
                             "DCS patched",
                             MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        
         private void btn_Unpatch_DCS_Click(object sender, RoutedEventArgs e)
         {
             string DCS = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Saved Games\\DCS";
@@ -142,37 +144,57 @@ namespace YAME.View
                             "DCS.openbeta patch removed",
                             MessageBoxButton.OK, MessageBoxImage.Information);
         }
+        private bool IsPatched_DCS()
+        {
+            string ExpScript = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)
+                                + "\\Saved Games\\DCS\\Scripts\\Hooks\\YAME_Export_Hook.lua";
+
+            if (File.Exists(ExpScript)) return true;
+            return false;
+        }
+        private bool IsPatched_DCSopenbeta()
+        {
+            string ExpScript = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)
+                                + "\\Saved Games\\DCS.openbeta\\Scripts\\Hooks\\YAME_Export_Hook.lua";
+
+            if (File.Exists(ExpScript)) return true;
+            return false;
+        }
+        
+        //---------- X-Plane ----------
+        const string xPlane9  = "x-plane_install.txt";
+        const string xPlane10 = "x-plane_install_10.txt";
+        const string xPlane11 = "x-plane_install_11.txt";
+        const string xPlane12 = "x-plane_install_12.txt";
         private void btn_Patch_XPlane_Click(object sender, RoutedEventArgs e)
         {
+            if (!IsInstalled_XPlane())
+            {
+                MessageBox.Show("Looks like you don't have X-Plane installed :-/",
+                                "Can't find X-Plane",
+                                MessageBoxButton.OK, MessageBoxImage.Warning);
+
+                return;
+            }
+
+            Patch_XPlane();
+        }
+        private void Patch_XPlane()
+        {
             string userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            string installs_xp9 = userFolder + "\\AppData\\Local\\x-plane_install.txt";
-            string installs_xp10 = userFolder + "\\AppData\\Local\\x-plane_install_10.txt";
-            string installs_xp11 = userFolder + "\\AppData\\Local\\x-plane_install_11.txt";
+            string installs_xp9 = userFolder + "\\AppData\\Local\\" + xPlane9;
+            string installs_xp10 = userFolder + "\\AppData\\Local\\" + xPlane10;
+            string installs_xp11 = userFolder + "\\AppData\\Local\\" + xPlane11;
+            string installs_xp12 = userFolder + "\\AppData\\Local\\" + xPlane12;
 
             List<string> allFiles = new List<string>();
-            List<string> allPaths = new List<string>();
-            allPaths.DefaultIfEmpty<string>("C:");
-            
             allFiles.Add(installs_xp9);
             allFiles.Add(installs_xp10);
             allFiles.Add(installs_xp11);
 
-            //Is it even installed?
-            foreach (var file in allFiles)              
-            {
-                if (File.Exists(file)) goto IsInstalled;
-            }
-            
-            MessageBox.Show("Looks like you don't have X-Plane installed :-/",
-                            "Can't find X-Plane",
-                            MessageBoxButton.OK, MessageBoxImage.Warning);
-            return;
+            List<string> allPaths = new List<string>();
+            allPaths.DefaultIfEmpty<string>("C:");
 
-            //---------------------------------------------------------------------------
-            
-            IsInstalled:
-
-            //Collect all paths
             foreach (var file in allFiles)
             {
                 if (File.Exists(file))
@@ -195,65 +217,201 @@ namespace YAME.View
                 "That's great! I can even help you with that. All you gotta do is " +
                 "point me to your X-Plane installation folder.\n\n" +
                 "In case you don't know where that is, I have a sneakin' suspicion you're " +
-                "gonna find it in one these locations:\n\n" +
+                "gonna find it in one of these locations:\n\n" +
                 $"{list}\n" +
-                "...but YOU get to have the last word on where I will install the patch. \n\n" +
                 "Now point me to your X-Plane install folder, will you.",
                             "Need your help!",
                             MessageBoxButton.OK, MessageBoxImage.Information);
 
-            string mostProbablePath = allPaths.Last();
-
-            asdfsf
-
-            for (int i = mostProbablePath.Length; i < 0; i--)
-            {
-                if ((char)mostProbablePath[i] != '\\')
-                {
-                    mostProbablePath = mostProbablePath.Substring(0, mostProbablePath.Length - 1);
-                }
-            }
+            string mostProbablePath = allPaths.Last();                                  //X-Plane install directory
+            string mostProbableContainingFolder = RemoveLastDirectory(mostProbablePath);          //Where to open the file browser
 
             CommonOpenFileDialog dialog = new CommonOpenFileDialog()
             {
-                InitialDirectory = mostProbablePath,
+                InitialDirectory = mostProbableContainingFolder,
                 IsFolderPicker = true,
             };
+            var Result = dialog.ShowDialog();
 
-            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            if (Result != CommonFileDialogResult.Ok)
             {
-                string xplane_install = dialog.FileName;
+                return;     //End Process
+            }
+
+            if (!Isconfirmed_XPlaneFolder(dialog.FileName))
+            {
+                MessageBox.Show("This is not an X-Plane installation folder! It does not contain " +
+                                "all the usual subfolder structure that I expect to see :-/\n\n" +
+                                "X-Plane was NOT patched!",
+                                "Not an X-Plane installation Folder",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
 
 
-                //Check if "Aircraft", "Airfoils" and "Resources" folder exists
+            Prevent double extraction here!
+            ZipFile.ExtractToDirectory(@".\Resources\\X-Plane\\XPlaneGetter.zip",
+                                        dialog.FileName + "\\Resources\\plugins");
+
+            MessageBox.Show("X-Plane was successfully patched for motion data export to YAME.",
+                            "Patch successful",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
         private void btn_Unpatch_XPlane_Click(object sender, RoutedEventArgs e)
         {
+            if (!IsInstalled_XPlane())
+            {
+                MessageBox.Show("Looks like you don't have X-Plane installed on your computer :-/",
+                                "Can't find X-Plane",
+                                MessageBoxButton.OK, MessageBoxImage.Warning);
+
+                return;
+            }
+            
+            Unpatch_XPlane();
+        }
+
+        private void Unpatch_XPlane()
+        {
+            string userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            string installs_xp9 = userFolder + "\\AppData\\Local\\" + xPlane9;
+            string installs_xp10 = userFolder + "\\AppData\\Local\\" + xPlane10;
+            string installs_xp11 = userFolder + "\\AppData\\Local\\" + xPlane11;
+            string installs_xp12 = userFolder + "\\AppData\\Local\\" + xPlane12;
+
+            List<string> allFiles = new List<string>();
+            allFiles.Add(installs_xp9);
+            allFiles.Add(installs_xp10);
+            allFiles.Add(installs_xp11);
+
+            List<string> allPaths = new List<string>();
+            allPaths.DefaultIfEmpty<string>("C:");
+
+            foreach (var file in allFiles)
+            {
+                if (File.Exists(file))
+                {
+                    var paths = File.ReadAllLines(file);
+                    foreach (var path in paths)
+                    {
+                        allPaths.Add(path);
+                    }
+                }
+            }
+
+            StringBuilder list = new StringBuilder();
+            foreach (var path in allPaths)
+            {
+                list.AppendLine(path);
+            }
+
+            MessageBox.Show("So, you want to remove the motion export patch for X-Plane?\n" +
+                "I can do that for you! All you gotta do is " +
+                "point me to your X-Plane installation folder.\n\n" +
+                "In case you don't know where that is, I have a sneakin' suspicion you're " +
+                "gonna find it in one of these locations:\n\n" +
+                $"{list}\n" +
+                "Now point me to your X-Plane install folder, will you.",
+                            "Need your help!",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
+
+            string mostProbablePath = allPaths.Last();                                      //X-Plane install directory
+            string mostProbableContainingFolder = RemoveLastDirectory(mostProbablePath);    //Where to open the file browser
+
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog()
+            {
+                InitialDirectory = mostProbableContainingFolder,
+                IsFolderPicker = true,
+            };
+            var Result = dialog.ShowDialog();
+
+            if (Result != CommonFileDialogResult.Ok)
+            {
+                return;     //End Process
+            }
+
+            if (!Isconfirmed_XPlaneFolder(dialog.FileName))
+            {
+                MessageBox.Show("This is not an X-Plane installation folder! It does not contain " +
+                                "all the usual subfolder structure that I expect to see :-/\n\n" +
+                                "I did NOT make any changes to your X-Plane installation, if you have one.",
+                                "Not an X-Plane installation Folder",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (!Directory.Exists(dialog.FileName + "\\Resources\\plugins\\XPlaneGetter"))
+            {
+                MessageBox.Show("This lookes like an X-Plane installation Folder, but there " +
+                    "was no patch to remove. I did not make any changes to your X-Plane installation.",
+                                "No patch found",
+                                MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            Directory.Delete(dialog.FileName + "\\Resources\\plugins\\XPlaneGetter", true);
+
+            MessageBox.Show("X-Plane was successfully un-patched. No more motion Data " +
+                            "is being exported to YAME.",
+                            "Patch removed successfully",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
 
         }
 
+
+        //---------- Helpers ----------
+        private bool IsInstalled_XPlane()
+        {
+            //Function checks if X-Plane is installed on the computer
+            string userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            string installs_xp9 = userFolder + "\\AppData\\Local\\x-plane_install.txt";
+            string installs_xp10 = userFolder + "\\AppData\\Local\\x-plane_install_10.txt";
+            string installs_xp11 = userFolder + "\\AppData\\Local\\x-plane_install_11.txt";
+
+            List<string> allFiles = new List<string>();
+            List<string> allPaths = new List<string>();
+            allPaths.DefaultIfEmpty<string>("C:");
+
+            allFiles.Add(installs_xp9);
+            allFiles.Add(installs_xp10);
+            allFiles.Add(installs_xp11);
+
+            //Is it even installed?
+            foreach (var file in allFiles)
+            {
+                if (File.Exists(file)) return true;
+            }
+
+            return false;
+        }
+        private bool Isconfirmed_XPlaneFolder(string path)
+        {
+            if (Directory.Exists(path + "\\Airfoils") && Directory.Exists(path + "\\Aircraft"))
+            {
+                return true;
+            }
+            return false;
+        }
+        private static string RemoveLastDirectory(string FilePath)
+        {
+            for (int i = FilePath.Length - 1; i > 0; i--)
+            {
+                if ((char)FilePath[i] != '\\')
+                {
+                    FilePath = FilePath.Substring(0, FilePath.Length - 1);
+                    continue;
+                }
+                else break;
+            }
+
+            return FilePath;
+        }
+
+        //---------- Close ----------
         private void btn_Close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        //---------- Helpers ----------
-        public bool IsPatched_DCS()
-        {
-            string ExpScript = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)
-                                + "\\Saved Games\\DCS\\Scripts\\Hooks\\YAME_Export_Hook.lua";
-
-            if (File.Exists(ExpScript)) return true;
-            return false;
-        }
-        public bool IsPatched_DCSopenbeta()
-        {
-            string ExpScript = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)
-                                + "\\Saved Games\\DCS.openbeta\\Scripts\\Hooks\\YAME_Export_Hook.lua";
-
-            if (File.Exists(ExpScript)) return true;
-            return false;
         }
     }
 }

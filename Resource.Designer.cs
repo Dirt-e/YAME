@@ -63,6 +63,16 @@ namespace YAME {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] XPlaneGetter {
+            get {
+                object obj = ResourceManager.GetObject("XPlaneGetter", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] YAME_Export_Hook {
             get {
                 object obj = ResourceManager.GetObject("YAME_Export_Hook", resourceCulture);
