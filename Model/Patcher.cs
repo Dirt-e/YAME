@@ -21,7 +21,7 @@ namespace YAME.Model
 {
     public static class Patcher
     {
-        public static void PatchDCS()
+        public static void Patch_DCS()
         {
             string DCS = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Saved Games\\DCS";
             
@@ -43,29 +43,7 @@ namespace YAME.Model
                                 MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
-        public static void PatchDCS_openbeta()
-        {
-            string DCS_ob = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Saved Games\\DCS.openbeta";
-            if (Directory.Exists(DCS_ob))                                                       //Is DCS installed?
-            {
-                Directory.CreateDirectory(DCS_ob + "\\Scripts\\Hooks");                         //Make sure directory is there 
-
-                var content = YAME.Resource.YAME_Export_Hook;                                   //Grab content...
-                File.WriteAllBytes(DCS_ob + "\\Scripts\\Hooks\\YAME_Export_Hook.lua", content); //...and write it to file.
-
-                MessageBox.Show("Patched DCS.openbeta for motion data export.",                 //Brag about it :-)
-                                "DCS.openbeta patched",
-                                MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            else
-            {
-                MessageBox.Show("DCS.openbeta is not installed on your system.",
-                                "DCS.openbeta patch failed!",
-                                MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-        }
-
-        public static void UnPatchDCS()
+        public static void UnPatch_DCS()
         {
             string DCS = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Saved Games\\DCS";
 
@@ -95,7 +73,29 @@ namespace YAME.Model
 
             
         }
-        public static void UnPatchDCS_openbeta()
+
+        public static void Patch_DCSopenbeta()
+        {
+            string DCS_ob = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Saved Games\\DCS.openbeta";
+            if (Directory.Exists(DCS_ob))                                                       //Is DCS installed?
+            {
+                Directory.CreateDirectory(DCS_ob + "\\Scripts\\Hooks");                         //Make sure directory is there 
+
+                var content = YAME.Resource.YAME_Export_Hook;                                   //Grab content...
+                File.WriteAllBytes(DCS_ob + "\\Scripts\\Hooks\\YAME_Export_Hook.lua", content); //...and write it to file.
+
+                MessageBox.Show("Patched DCS.openbeta for motion data export.",                 //Brag about it :-)
+                                "DCS.openbeta patched",
+                                MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("DCS.openbeta is not installed on your system.",
+                                "DCS.openbeta patch failed!",
+                                MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+        public static void UnPatch_DCSopenbeta()
         {
             string DCS_ob = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Saved Games\\DCS.openbeta";
 
@@ -122,6 +122,13 @@ namespace YAME.Model
                             "DCS.openbeta unpatch failed!",
                             MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+        }
+
+        public static void Patch_XPlane()
+        {
+            //Find X-Plane install folder: C:\Users\[Name]\AppData\Local\x-plane_install_11.txt
+                //Check if "Aircraft", "Airfoils" and "Resources" folder exists
+
         }
     }
 }

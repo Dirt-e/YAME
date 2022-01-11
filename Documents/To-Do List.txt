@@ -44,3 +44,6 @@ Changelog:
 
 	Version 0.05
 	- Added patch/unpatch routine for DCS
+
+	Version 0.06
+	- Added PatchWindow

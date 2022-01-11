@@ -373,14 +373,14 @@ namespace YAME
         private void btn_Patch_Click(object sender, RoutedEventArgs e)
         {
             //Test code here:
-            Patcher.PatchDCS();
-            Patcher.PatchDCS_openbeta();
+            Patcher.Patch_DCS();
+            Patcher.Patch_DCSopenbeta();
         }
 
         private void btn_Unpatch_Click(object sender, RoutedEventArgs e)
         {
-            Patcher.UnPatchDCS();
-            Patcher.UnPatchDCS_openbeta();
+            Patcher.UnPatch_DCS();
+            Patcher.UnPatch_DCSopenbeta();
         }
     }
 }

@@ -47,7 +47,7 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="1" Text="Raw Data:"    Padding="2"  FontSize="15" FontWeight="Bold" Grid.ColumnSpan="5"/>
 
-        <TextBlock Grid.Row="2" Grid.Column="1" Text="IAS:" HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="IAS:"  HorizontalAlignment="Right"/>
         <TextBlock Grid.Row="3" Grid.Column="1" Text="MACH:" HorizontalAlignment="Right"/>
         <TextBlock Grid.Row="4" Grid.Column="1" Text="TAS:"  HorizontalAlignment="Right"/>
         <TextBlock Grid.Row="5" Grid.Column="1" Text="GS:"   HorizontalAlignment="Right"/>

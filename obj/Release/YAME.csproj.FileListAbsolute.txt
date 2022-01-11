@@ -173,3 +173,5 @@ D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\YAME.application
 D:\OneDrive\Frank - PC\GitHub\YAME\bin\Release\YAME.exe.manifest
 D:\OneDrive\Frank - PC\GitHub\YAME\bin\Release\YAME.application
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\YAME.Resource.resources
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\Window_Patch.g.cs
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\Window_Patch.baml

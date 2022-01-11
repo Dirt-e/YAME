@@ -199,6 +199,9 @@
     <Compile Include="View\MotionControl_Window.xaml.cs">
       <DependentUpon>MotionControl_Window.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Window_Patch.xaml.cs">
+      <DependentUpon>Window_Patch.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PositionCorrectorWindow.xaml.cs">
       <DependentUpon>PositionCorrectorWindow.xaml</DependentUpon>
     </Compile>
@@ -261,6 +264,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\MotionControl_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Window_Patch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
