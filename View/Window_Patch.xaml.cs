@@ -157,6 +157,7 @@ namespace YAME.View
         const string xPlane10 = "x-plane_install_10.txt";
         const string xPlane11 = "x-plane_install_11.txt";
         const string xPlane12 = "x-plane_install_12.txt";
+
         private void btn_Patch_XPlane_Click(object sender, RoutedEventArgs e)
         {
             if (!IsInstalled_XPlane())
@@ -248,27 +249,6 @@ namespace YAME.View
                             "Patch successful",
                             MessageBoxButton.OK, MessageBoxImage.Information);
         }
-
-        public void ExtractPluginToFolder(string folder)
-        {
-            string plugin = ".\\Resources\\X-Plane\\XPlaneGetter.zip";
-            string destination = folder + "\\Resources\\plugins\\";
-                
-            if (Directory.Exists(destination + "XPlaneGetter"))
-            {
-                MessageBox.Show("X-Plane is already patched for motion data export. I'm " +
-                    "gonna re-apply the patch, just to be sure.",
-                                "Overwriting Patch",
-                                MessageBoxButton.OK, MessageBoxImage.Information);
-                Directory.Delete(destination + "XPlaneGetter", true);
-            }
-
-            ZipFile.ExtractToDirectory(plugin, destination);
-        }
-
-
-
-
         private void btn_Unpatch_XPlane_Click(object sender, RoutedEventArgs e)
         {
             if (!IsInstalled_XPlane())
@@ -369,6 +349,22 @@ namespace YAME.View
 
         }
 
+        public void ExtractPluginToFolder(string folder)
+        {
+            string plugin = ".\\Resources\\X-Plane\\XPlaneGetter.zip";
+            string destination = folder + "\\Resources\\plugins\\";
+                
+            if (Directory.Exists(destination + "XPlaneGetter"))
+            {
+                MessageBox.Show("X-Plane is already patched for motion data export. I'm " +
+                                "gonna re-apply the patch, just to be sure.",
+                                "Overwriting Patch",
+                                MessageBoxButton.OK, MessageBoxImage.Information);
+                Directory.Delete(destination + "XPlaneGetter", true);
+            }
+
+            ZipFile.ExtractToDirectory(plugin, destination);
+        }
 
         //---------- Helpers ----------
         private bool IsInstalled_XPlane()
