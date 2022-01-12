@@ -73,6 +73,7 @@ namespace YAME
         private void SetDataContexts()
         {
             txtblk_simulator.DataContext = engine.chopper;
+            rct_OnAirLight.DataContext = engine.server;
         }
 
         //Window_Loaded:
@@ -328,6 +329,11 @@ namespace YAME
         }
         private void mnuHdr_Patcher_Click(object sender, RoutedEventArgs e)
         {
+            foreach (Window w in OwnedWindows)
+            {
+                if (w.Name == "PatcherWindow") return;      //It's open already!
+            }
+
             Window_Patcher window_Patcher = new Window_Patcher();
             window_Patcher.Owner = this;
             window_Patcher.Name = "PatcherWindow";
@@ -389,6 +395,33 @@ namespace YAME
             //Test code here:
 
         }
-
+        private void mnuOpenAll_Click(object sender, RoutedEventArgs e)
+        {
+            mnuAlphaCompensation.IsChecked  = true;
+            mnuCrashDetector.IsChecked      = true;
+            mnuDOFs.IsChecked               = true;
+            mnuFilters.IsChecked            = true;
+            mnuGraphs.IsChecked             = true;
+            mnuMotionControl.IsChecked      = true;
+            mnuPositionCorrection.IsChecked = true;
+            mnuRawData.IsChecked            = true;
+            mnuRigConfig.IsChecked          = true;
+            mnuSceneView.IsChecked          = true;
+            mnuSerialConnection.IsChecked   = true;
+        }
+        private void mnuCloseAll_Click(object sender, RoutedEventArgs e)
+        {
+            mnuAlphaCompensation.IsChecked  = false;
+            mnuCrashDetector.IsChecked      = false;
+            mnuDOFs.IsChecked               = false;
+            mnuFilters.IsChecked            = false;
+            mnuGraphs.IsChecked             = false;
+            mnuMotionControl.IsChecked      = false;
+            mnuPositionCorrection.IsChecked = false;
+            mnuRawData.IsChecked            = false;
+            mnuRigConfig.IsChecked          = false;
+            mnuSceneView.IsChecked          = false;
+            mnuSerialConnection.IsChecked   = false;
+        }
     }
 }

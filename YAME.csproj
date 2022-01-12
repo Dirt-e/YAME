@@ -28,8 +28,8 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>5</ApplicationRevision>
-    <ApplicationVersion>0.0.5.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>0.0.6.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -200,8 +200,9 @@
     </Compile>
     <Compile Include="View\Converters\ActuatorstatusToColorConverter.cs" />
     <Compile Include="View\Converters\BoolToActiveConverter..cs" />
+    <Compile Include="View\Converters\BoolToColorBrushConverter.cs" />
+    <Compile Include="View\Converters\BoolToColorBrushConverter_OnAirLight.cs" />
     <Compile Include="View\Converters\BoolToColorBrushConverter_Actuator.cs" />
-    <Compile Include="View\Converters\BoolToColorBrushConverter_CrashLight.cs" />
     <Compile Include="View\Converters\BoolToOpenConverter_SerialConnection.cs" />
     <Compile Include="View\Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="View\Converters\CharToColorConverter.cs" />

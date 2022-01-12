@@ -7,8 +7,10 @@ MAIN WINDOW:
 CRASH DETECTION & RECOVERY:
 
 INTEGRATOR:
-- Implement some sort of DOF limit to keep the Transform3D from exceeding reasonable values (+/- 30° or so), because 
-	excessive angles could lead to erratic "snapping" during the quaternion interpolation (shortest path problem)
+- Implement some sort of DOF limit to keep the Transform3D from
+  exceeding reasonable values (+/- 30° or so), because
+  excessive angles could lead to erratic "snapping" during 
+  quaternion interpolation (shortest path problem)
 
 SERIALTALKER:
 
@@ -22,11 +24,7 @@ ALPHA_COMPENSATION:
 
 POSITION OFFSET CORRECTION:
 
-
-
-
-
-
+--------------------------------------------------------
 Changelog:
 
 	Version 0.03:
@@ -42,10 +40,13 @@ Changelog:
 	- show fps in About Window
 	- show Profile/SIM/FPS in Main Window.
 
-	Version 0.05
+	Version 0.05:
 	- Added patch/unpatch routine for DCS
 
-	Version 0.06
+	Version 0.06:
 	- Added PatchWindow
 	- Added convenience patching for DCS
 	- Added convenience patching for X-Plane
+
+	Version 0.07
+	- Added "receiving Data Light" in MainWindow

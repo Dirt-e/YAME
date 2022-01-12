@@ -10,10 +10,16 @@ using System.Threading.Tasks;
 
 namespace YAME.Model
 {
-    public class Server
+    public class Server : MyObject
     {
         public string RawDatastring { get; set; }
         public int Port { get; set; } = 31090;
+        bool _data_flowing;
+        public bool DataFlowing
+        { 
+            get { return _data_flowing; }
+            set { _data_flowing = value; OnPropertyChanged(nameof(DataFlowing)); }
+        }
 
         public string defaultDataString = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,9.806,0,0,0,nil";        //The 9.806 is for vertical acceleration (1G)
         Stopwatch stopwatch = new Stopwatch();                                                  //To determine the timeout for the default values
@@ -34,12 +40,16 @@ namespace YAME.Model
             {
                 Byte[] bytes = Client.Receive(ref MyEndPoint);
                 RawDatastring = Encoding.ASCII.GetString(bytes);
+
+                DataFlowing = true;
+
                 stopwatch.Restart();
             }
             
             if (stopwatch.ElapsedMilliseconds >= 500)
             {
                 RawDatastring = defaultDataString;
+                DataFlowing = false;
             }
         }
         public void StopServer()

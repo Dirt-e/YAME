@@ -18,7 +18,7 @@ namespace YAME.View
         }
 
         //---------- DCS ----------
-        private void btn_Patch_DCS_Click(object sender, RoutedEventArgs e)
+        void btn_Patch_DCS_Click(object sender, RoutedEventArgs e)
         {
             if (IsPatched_DCS())
             {
@@ -48,7 +48,7 @@ namespace YAME.View
                             "DCS patched",
                             MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        private void btn_Patch_DCSopenbeta_Click(object sender, RoutedEventArgs e)
+        void btn_Patch_DCSopenbeta_Click(object sender, RoutedEventArgs e)
         {
             if (IsPatched_DCSopenbeta())
             {
@@ -78,7 +78,7 @@ namespace YAME.View
                             "DCS patched",
                             MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        private void btn_Unpatch_DCS_Click(object sender, RoutedEventArgs e)
+        void btn_Unpatch_DCS_Click(object sender, RoutedEventArgs e)
         {
             string DCS = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Saved Games\\DCS";
 
@@ -106,7 +106,7 @@ namespace YAME.View
                                 "DCS patch removed",
                                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        private void btn_Unpatch_DCSopenbeta_Click(object sender, RoutedEventArgs e)
+        void btn_Unpatch_DCSopenbeta_Click(object sender, RoutedEventArgs e)
         {
             string DCSob = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Saved Games\\DCS.openbeta";
 
@@ -135,7 +135,7 @@ namespace YAME.View
                             "DCS.openbeta patch removed",
                             MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        private bool IsPatched_DCS()
+        bool IsPatched_DCS()
         {
             string ExpScript = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)
                                 + "\\Saved Games\\DCS\\Scripts\\Hooks\\YAME_Export_Hook.lua";
@@ -143,7 +143,7 @@ namespace YAME.View
             if (File.Exists(ExpScript)) return true;
             return false;
         }
-        private bool IsPatched_DCSopenbeta()
+        bool IsPatched_DCSopenbeta()
         {
             string ExpScript = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)
                                 + "\\Saved Games\\DCS.openbeta\\Scripts\\Hooks\\YAME_Export_Hook.lua";
@@ -158,7 +158,7 @@ namespace YAME.View
         const string xPlane11 = "x-plane_install_11.txt";
         const string xPlane12 = "x-plane_install_12.txt";
 
-        private void btn_Patch_XPlane_Click(object sender, RoutedEventArgs e)
+        void btn_Patch_XPlane_Click(object sender, RoutedEventArgs e)
         {
             if (!IsInstalled_XPlane())
             {
@@ -171,7 +171,7 @@ namespace YAME.View
 
             Patch_XPlane();
         }
-        private void Patch_XPlane()
+        void Patch_XPlane()
         {
             string userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
             string installs_xp9 = userFolder + "\\AppData\\Local\\" + xPlane9;
@@ -258,7 +258,7 @@ namespace YAME.View
                             "Patch successful",
                             MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        private void btn_Unpatch_XPlane_Click(object sender, RoutedEventArgs e)
+        void btn_Unpatch_XPlane_Click(object sender, RoutedEventArgs e)
         {
             if (!IsInstalled_XPlane())
             {
@@ -271,7 +271,7 @@ namespace YAME.View
             
             Unpatch_XPlane();
         }
-        private void Unpatch_XPlane()
+        void Unpatch_XPlane()
         {
             string userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
             string installs_xp9 = userFolder + "\\AppData\\Local\\" + xPlane9;
@@ -357,33 +357,7 @@ namespace YAME.View
                             MessageBoxButton.OK, MessageBoxImage.Information);
 
         }
-
-        public void ExtractPluginToFolder(string folder)
-        {
-            string _tempZipFile = Environment.GetEnvironmentVariable("TEMP") + @"\XPlaneGetter.zip";
-            var res = Resource.XPlaneGetter;
-            
-            using (FileStream fs = new FileStream(_tempZipFile, FileMode.Create))
-            {
-                fs.Write(res, 0, res.Length);
-            }
-
-            string destination = folder + "\\Resources\\plugins\\";
-                
-            if (Directory.Exists(destination + "XPlaneGetter"))
-            {
-                MessageBox.Show("X-Plane is already patched for motion data export. I'm " +
-                                "gonna re-apply the patch, just to be sure.",
-                                "Overwriting Patch",
-                                MessageBoxButton.OK, MessageBoxImage.Information);
-                Directory.Delete(destination + "XPlaneGetter", true);
-            }
-
-            ZipFile.ExtractToDirectory(_tempZipFile, destination);
-        }
-
-        //---------- Helpers ----------
-        private bool IsInstalled_XPlane()
+        bool IsInstalled_XPlane()
         {
             //Function checks if X-Plane is installed on the computer
             string userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
@@ -407,7 +381,7 @@ namespace YAME.View
 
             return false;
         }
-        private bool Isconfirmed_XPlaneFolder(string path)
+        bool Isconfirmed_XPlaneFolder(string path)
         {
             if (Directory.Exists(path + "\\Airfoils") && Directory.Exists(path + "\\Aircraft"))
             {
@@ -415,7 +389,38 @@ namespace YAME.View
             }
             return false;
         }
-        private static string RemoveLastDirectoryFrom(string FolderPath)
+        void ExtractPluginToFolder(string folder)
+        {
+            string _tempZipFile = Environment.GetEnvironmentVariable("TEMP") + @"\XPlaneGetter.zip";
+            var res = Resource.XPlaneGetter;
+            
+            using (FileStream fs = new FileStream(_tempZipFile, FileMode.Create))
+            {
+                fs.Write(res, 0, res.Length);
+            }
+
+            string destination = folder + "\\Resources\\plugins\\";
+                
+            if (Directory.Exists(destination + "XPlaneGetter"))
+            {
+                MessageBox.Show("X-Plane is already patched for motion data export. I'm " +
+                                "gonna re-apply the patch, just to be sure.",
+                                "Overwriting Patch",
+                                MessageBoxButton.OK, MessageBoxImage.Information);
+                Directory.Delete(destination + "XPlaneGetter", true);
+            }
+
+            ZipFile.ExtractToDirectory(_tempZipFile, destination);
+        }
+
+        //---------- Window ----------
+        void Window_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        //---------- Helpers ----------
+        static string RemoveLastDirectoryFrom(string FolderPath)
         {
             if (FolderPath.EndsWith("/")  || FolderPath.EndsWith("\\"))
             {
@@ -432,9 +437,10 @@ namespace YAME.View
         }
 
         //---------- Close ----------
-        private void btn_Close_Click(object sender, RoutedEventArgs e)
+        void btn_Close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+
     }
 }

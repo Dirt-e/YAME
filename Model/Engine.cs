@@ -108,8 +108,6 @@ namespace YAME.Model
                     {
                         UpdateObjects();
                         WaitForTargetFramerate(500);
-                        //if (VM_MainWindow.IsChecked_HotIdle) WaitForTargetFramerate(500);
-                        //else if (VM_MainWindow.IsChecked_ShortSleep) ShortSleep(3);
                     }
                 };
                 backgroundworker.RunWorkerAsync();

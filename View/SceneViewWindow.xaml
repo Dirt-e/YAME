@@ -11,9 +11,6 @@
         Loaded="Window_Loaded" Closing="Window_Closing"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Style="{StaticResource ChildWindow_Style}">
-    <Window.Resources>
-        <Converters:ActuatorstatusToColorConverter  x:Key="Cnvrtr_ActuatorstatusToColor"/>
-    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
@@ -53,27 +50,27 @@
                 <HelixToolkit:PipeVisual3D x:Name="Act1" Diameter="50"
                                            Point1="{    Binding Lower1,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                                            Point2="{    Binding Upper1,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
-                                           Fill="{      Binding Act1_Status,UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource Cnvrtr_ActuatorstatusToColor}}"/>
+                                           Fill="{      Binding Act1_Status,UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource cnvrtr_ActuatorstatusToColor}}"/>
                 <HelixToolkit:PipeVisual3D x:Name="Act2" Diameter="50"
                                            Point1="{    Binding Lower2,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                                            Point2="{    Binding Upper2,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
-                                           Fill="{      Binding Act2_Status,UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource Cnvrtr_ActuatorstatusToColor}}"/>
+                                           Fill="{      Binding Act2_Status,UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource cnvrtr_ActuatorstatusToColor}}"/>
                 <HelixToolkit:PipeVisual3D x:Name="Act3" Diameter="50"
                                            Point1="{    Binding Lower3,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                                            Point2="{    Binding Upper3,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
-                                           Fill="{      Binding Act3_Status,UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource Cnvrtr_ActuatorstatusToColor}}"/>
+                                           Fill="{      Binding Act3_Status,UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource cnvrtr_ActuatorstatusToColor}}"/>
                 <HelixToolkit:PipeVisual3D x:Name="Act4" Diameter="50"
                                            Point1="{    Binding Lower4,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                                            Point2="{    Binding Upper4,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
-                                           Fill="{      Binding Act4_Status,UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource Cnvrtr_ActuatorstatusToColor}}"/>
+                                           Fill="{      Binding Act4_Status,UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource cnvrtr_ActuatorstatusToColor}}"/>
                 <HelixToolkit:PipeVisual3D x:Name="Act5" Diameter="50"
                                            Point1="{    Binding Lower5,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                                            Point2="{    Binding Upper5,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
-                                           Fill="{      Binding Act5_Status,UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource Cnvrtr_ActuatorstatusToColor}}"/>
+                                           Fill="{      Binding Act5_Status,UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource cnvrtr_ActuatorstatusToColor}}"/>
                 <HelixToolkit:PipeVisual3D x:Name="Act6" Diameter="50"
                                            Point1="{    Binding Lower6,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                                            Point2="{    Binding Upper6,     UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
-                                           Fill="{      Binding Act6_Status,UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource Cnvrtr_ActuatorstatusToColor}}"/>
+                                           Fill="{      Binding Act6_Status,UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource cnvrtr_ActuatorstatusToColor}}"/>
 
                 <!--Upper Frame-->
                 <HelixToolkit:PipeVisual3D Diameter="50" Fill="DimGray"

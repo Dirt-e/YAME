@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:YAME"
         mc:Ignorable="d"
         xmlns:HelixToolkit="clr-namespace:HelixToolkit.Wpf;assembly=HelixToolkit.Wpf"
+        xmlns:Converters="clr-namespace:YAME.View.Converters"
         Title="{Binding TitleString}" Height="200" Width="300"
         Loaded="Window_Loaded" Closing="Window_Closing" 
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
@@ -23,7 +24,7 @@
                 <Separator />
                 <MenuItem Header="_Quit" Click="OnClick_Quit"/>
             </MenuItem>
-            <MenuItem Header="_Windows" x:Name="mnuHdr_Windows">
+            <MenuItem Header="_Modules" x:Name="mnuHdr_Windows">
 
                 <MenuItem   Header="_Raw Data"
                             x:Name="mnuRawData"
@@ -91,6 +92,13 @@
                             IsChecked="False"
                             Checked="mnuSerialConnection_Checked"
                             Unchecked="mnuSerialConnection_Unchecked"/>
+                <Separator />
+                <MenuItem   Header="_Open All"
+                            x:Name="mnuOpenAll"
+                            Click="mnuOpenAll_Click"/>
+                <MenuItem   Header="_Close All"
+                            x:Name="mnuCloseAll"
+                            Click="mnuCloseAll_Click"/>
             </MenuItem>
             <MenuItem Header="_Patcher" x:Name="mnuHdr_Patcher" Click="mnuHdr_Patcher_Click"/>
             <MenuItem Header="_?" x:Name="mnuHdr_QM" Click="mnuHdr_QM_Click"/>
@@ -124,6 +132,8 @@
                                Text="Sim:"/>
                     <TextBlock Grid.Row="2" TextAlignment="Right" VerticalAlignment="Center" Padding="1" 
                                Text="Aircraft:"/>
+                    <TextBlock Grid.Row="3" TextAlignment="Right" VerticalAlignment="Center" Padding="1" 
+                               Text="Receiving data:"/>
 
                     <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Left" VerticalAlignment="Center" Padding="1"
                                Text="{Binding Profile}" x:Name="txtblk_profile"/>
@@ -131,6 +141,10 @@
                                Text="{Binding SIM}" x:Name="txtblk_simulator"/>
                     <TextBlock Grid.Row="2" Grid.Column="1" TextAlignment="Left" VerticalAlignment="Center" Padding="1"
                                Text="{Binding Aircraft}" x:Name="txtblk_aircraft"/>
+                    <Rectangle Grid.Row="3" Grid.Column="1" Width="14" Height="14" x:Name="rct_OnAirLight"
+                               RadiusX="7" RadiusY="7" HorizontalAlignment="Left" Margin="5,0,0,0"
+                               Stroke="{StaticResource MyDarkGrayBrush}"
+                               Fill="{Binding DataFlowing, Converter={StaticResource cnvrt_BoolToColorBrush}}"/>
                 </Grid>
             </Border>
         </StackPanel>

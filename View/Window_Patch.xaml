@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YAME.View"
         mc:Ignorable="d" Style="{StaticResource ChildWindow_Style}"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Title="PatchWindow" Height="300" Width="400">
     <Grid>
         <Grid.RowDefinitions>
@@ -23,7 +24,7 @@
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Patch Window"  Grid.Row="0" Grid.Column="1" FontSize="15" FontWeight="Bold" Grid.ColumnSpan="5"/>
+        <TextBlock Text="Patcher"  Grid.Row="0" Grid.Column="1" FontSize="15" FontWeight="Bold" Grid.ColumnSpan="5"/>
 
         <TextBlock Text="DCS"           Grid.Row="1" Grid.Column="1" FontSize="12" VerticalAlignment="Center" />
         <TextBlock Text="DCS.openbeta"  Grid.Row="2" Grid.Column="1" FontSize="12" VerticalAlignment="Center" />

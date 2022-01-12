@@ -165,7 +165,6 @@ D:\OneDrive\Frank - PC\GitHub\YAME\Release\System.Text.Encodings.Web.xml
 D:\OneDrive\Frank - PC\GitHub\YAME\Release\System.Text.Json.xml
 D:\OneDrive\Frank - PC\GitHub\YAME\Release\System.Threading.Tasks.Extensions.xml
 D:\OneDrive\Frank - PC\GitHub\YAME\Release\System.ValueTuple.xml
-D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\YAME.Properties.Resources.resources
 D:\OneDrive\Frank - PC\GitHub\YAME\Release\YAME.exe.manifest
 D:\OneDrive\Frank - PC\GitHub\YAME\Release\YAME.application
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\YAME.exe.manifest
