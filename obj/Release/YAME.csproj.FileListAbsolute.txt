@@ -175,3 +175,14 @@ D:\OneDrive\Frank - PC\GitHub\YAME\bin\Release\YAME.application
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\YAME.Resource.resources
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\Window_Patch.g.cs
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\Window_Patch.baml
+D:\OneDrive\Frank - PC\GitHub\YAME\bin\Release\Resources\DCS\YAME_Export_Hook.lua
+D:\OneDrive\Frank - PC\GitHub\YAME\bin\Release\Resources\X-Plane\XPlaneGetter.zip
+D:\OneDrive\Frank - PC\GitHub\YAME\bin\Release\Microsoft.WindowsAPICodePack.dll
+D:\OneDrive\Frank - PC\GitHub\YAME\bin\Release\Microsoft.WindowsAPICodePack.Shell.dll
+D:\OneDrive\Frank - PC\GitHub\YAME\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.dll
+D:\OneDrive\Frank - PC\GitHub\YAME\bin\Release\Microsoft.WindowsAPICodePack.pdb
+D:\OneDrive\Frank - PC\GitHub\YAME\bin\Release\Microsoft.WindowsAPICodePack.xml
+D:\OneDrive\Frank - PC\GitHub\YAME\bin\Release\Microsoft.WindowsAPICodePack.Shell.pdb
+D:\OneDrive\Frank - PC\GitHub\YAME\bin\Release\Microsoft.WindowsAPICodePack.Shell.xml
+D:\OneDrive\Frank - PC\GitHub\YAME\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
+D:\OneDrive\Frank - PC\GitHub\YAME\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.xml

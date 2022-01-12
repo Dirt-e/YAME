@@ -5,17 +5,8 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using YAME.Model;
-using Path = System.IO.Path;
+
 
 namespace YAME.View
 {
@@ -206,7 +197,7 @@ namespace YAME.View
                     }
                 }
             }
-
+            //----------------------------------------------------------------------------------Create ALl paths()
             StringBuilder list = new StringBuilder();
             foreach (var path in allPaths)
             {
@@ -223,8 +214,8 @@ namespace YAME.View
                             "Need your help!",
                             MessageBoxButton.OK, MessageBoxImage.Information);
 
-            string mostProbablePath = allPaths.Last();                                  //X-Plane install directory
-            string mostProbableContainingFolder = RemoveLastDirectory(mostProbablePath);          //Where to open the file browser
+            string mostProbablePath = allPaths.Last();                                          //X-Plane install directory
+            string mostProbableContainingFolder = RemoveLastDirectoryFrom(mostProbablePath);    //Where to open the file browser
 
             CommonOpenFileDialog dialog = new CommonOpenFileDialog()
             {
@@ -235,9 +226,12 @@ namespace YAME.View
 
             if (Result != CommonFileDialogResult.Ok)
             {
-                return;     //End Process
+                MessageBox.Show("You aborted the patch routine.\n\n" +
+                                "X-Plane was NOT patched!",
+                                "Patch aborted",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                return;                                                                     //End Process
             }
-
             if (!Isconfirmed_XPlaneFolder(dialog.FileName))
             {
                 MessageBox.Show("This is not an X-Plane installation folder! It does not contain " +
@@ -248,15 +242,32 @@ namespace YAME.View
                 return;
             }
 
-
-            Prevent double extraction here!
-            ZipFile.ExtractToDirectory(@".\Resources\\X-Plane\\XPlaneGetter.zip",
-                                        dialog.FileName + "\\Resources\\plugins");
+            ExtractPluginToFolder(dialog.FileName);
 
             MessageBox.Show("X-Plane was successfully patched for motion data export to YAME.",
                             "Patch successful",
                             MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        public void ExtractPluginToFolder(string folder)
+        {
+            string plugin = ".\\Resources\\X-Plane\\XPlaneGetter.zip";
+            string destination = folder + "\\Resources\\plugins\\";
+                
+            if (Directory.Exists(destination + "XPlaneGetter"))
+            {
+                MessageBox.Show("X-Plane is already patched for motion data export. I'm " +
+                    "gonna re-apply the patch, just to be sure.",
+                                "Overwriting Patch",
+                                MessageBoxButton.OK, MessageBoxImage.Information);
+                Directory.Delete(destination + "XPlaneGetter", true);
+            }
+
+            ZipFile.ExtractToDirectory(plugin, destination);
+        }
+
+
+
 
         private void btn_Unpatch_XPlane_Click(object sender, RoutedEventArgs e)
         {
@@ -271,7 +282,6 @@ namespace YAME.View
             
             Unpatch_XPlane();
         }
-
         private void Unpatch_XPlane()
         {
             string userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
@@ -317,7 +327,7 @@ namespace YAME.View
                             MessageBoxButton.OK, MessageBoxImage.Information);
 
             string mostProbablePath = allPaths.Last();                                      //X-Plane install directory
-            string mostProbableContainingFolder = RemoveLastDirectory(mostProbablePath);    //Where to open the file browser
+            string mostProbableContainingFolder = RemoveLastDirectoryFrom(mostProbablePath);    //Where to open the file browser
 
             CommonOpenFileDialog dialog = new CommonOpenFileDialog()
             {
@@ -393,19 +403,20 @@ namespace YAME.View
             }
             return false;
         }
-        private static string RemoveLastDirectory(string FilePath)
+        private static string RemoveLastDirectoryFrom(string FolderPath)
         {
-            for (int i = FilePath.Length - 1; i > 0; i--)
+            if (FolderPath.EndsWith("/")  || FolderPath.EndsWith("\\"))
             {
-                if ((char)FilePath[i] != '\\')
-                {
-                    FilePath = FilePath.Substring(0, FilePath.Length - 1);
-                    continue;
-                }
-                else break;
+                FolderPath = Path.GetDirectoryName(FolderPath);
             }
+            FolderPath = Path.GetDirectoryName(FolderPath);
 
-            return FilePath;
+            if (FolderPath.EndsWith("/") || FolderPath.EndsWith("\\"))
+            {
+                return FolderPath;
+            }
+           
+            return FolderPath + "/";
         }
 
         //---------- Close ----------
