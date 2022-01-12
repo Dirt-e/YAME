@@ -20,6 +20,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Reflection;
+using System.IO.Compression;
 
 namespace YAME
 {
@@ -386,37 +387,8 @@ namespace YAME
         private void btn_Test_Click(object sender, RoutedEventArgs e)
         {
             //Test code here:
-            ExtractZip();
 
         }
 
-
-
-
-        private string _tempPath = Environment.GetEnvironmentVariable("TEMP") + @"\";
-        private string _zipPath = Environment.GetEnvironmentVariable("TEMP") + @"\" + @"MyZip.zip";
-
-
-        private void ExtractZip()
-        {
-            try
-            {
-                //write the resource zip file to the temp directory
-
-                var res = Resource.XPlaneGetter;
-                using (FileStream fs = new FileStream(_zipPath, FileMode.Create))
-                {
-                    fs.Write(res, 0, res.Length); 
-                }
-                 
-                //extract the contents of the file we created
-                System.IO.Compression.ZipFile.ExtractToDirectory(_zipPath, _tempPath);
-
-            }
-            catch (Exception e)
-            {
-                //handle the error
-            }
-        }
     }
 }

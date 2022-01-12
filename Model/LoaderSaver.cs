@@ -349,8 +349,7 @@ namespace YAME.Model
                 LoadRigConfiguration_Profile();
             }
         }
-
-        private void LoadCrashDetectorThresholds_Profile()
+            private void LoadCrashDetectorThresholds_Profile()
             {
                 engine.exceedancedetector.AX_CrashTrigger = saveObject.Crashdetector_Trigger_Ax;
                 engine.exceedancedetector.AY_CrashTrigger = saveObject.Crashdetector_Trigger_Ay;

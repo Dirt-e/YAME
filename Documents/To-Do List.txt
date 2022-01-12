@@ -47,3 +47,5 @@ Changelog:
 
 	Version 0.06
 	- Added PatchWindow
+	- Added convenience patching for DCS
+	- Added convenience patching for X-Plane

@@ -243,7 +243,16 @@ namespace YAME.View
                 return;
             }
 
-            ExtractPluginToFolder(dialog.FileName);
+            try
+            {
+                ExtractPluginToFolder(dialog.FileName);
+            }
+            catch (Exception)
+            {
+
+                return;
+            }
+            
 
             MessageBox.Show("X-Plane was successfully patched for motion data export to YAME.",
                             "Patch successful",
@@ -333,7 +342,7 @@ namespace YAME.View
 
             if (!Directory.Exists(dialog.FileName + "\\Resources\\plugins\\XPlaneGetter"))
             {
-                MessageBox.Show("This lookes like an X-Plane installation Folder, but there " +
+                MessageBox.Show("This looks like an X-Plane installation Folder, but there " +
                     "was no patch to remove. I did not make any changes to your X-Plane installation.",
                                 "No patch found",
                                 MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -351,7 +360,14 @@ namespace YAME.View
 
         public void ExtractPluginToFolder(string folder)
         {
-            string plugin = ".\\Resources\\X-Plane\\XPlaneGetter.zip";
+            string _tempZipFile = Environment.GetEnvironmentVariable("TEMP") + @"\XPlaneGetter.zip";
+            var res = Resource.XPlaneGetter;
+            
+            using (FileStream fs = new FileStream(_tempZipFile, FileMode.Create))
+            {
+                fs.Write(res, 0, res.Length);
+            }
+
             string destination = folder + "\\Resources\\plugins\\";
                 
             if (Directory.Exists(destination + "XPlaneGetter"))
@@ -363,7 +379,7 @@ namespace YAME.View
                 Directory.Delete(destination + "XPlaneGetter", true);
             }
 
-            ZipFile.ExtractToDirectory(plugin, destination);
+            ZipFile.ExtractToDirectory(_tempZipFile, destination);
         }
 
         //---------- Helpers ----------

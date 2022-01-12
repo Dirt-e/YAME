@@ -70,7 +70,6 @@ D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\YAME.exe
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\YAME.pdb
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\AboutWindow.g.cs
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\AboutWindow.baml
-D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\YAME.Properties.Resources.resources
 D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\YAME.exe.manifest
 D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\YAME.application
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\YAME.exe.manifest

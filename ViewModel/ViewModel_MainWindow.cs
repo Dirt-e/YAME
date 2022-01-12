@@ -18,10 +18,11 @@ namespace YAME.ViewModel
             set { _tilte_string = value; OnPropertyChanged(nameof(TitleString)); }
         }
 
-        const string _version = "v0.05_alpha_";
+        string _version;
         public string Version
         {
             get { return _version; }
+            set { _version = value; OnPropertyChanged(nameof(Version));}
         }
 
         string _profile = "-";
@@ -41,6 +42,7 @@ namespace YAME.ViewModel
         public ViewModel_MainWindow(Engine e)
         {
             base.engine = e;
+            Version = Properties.Settings.Default.Version;
         }
     }
 }
