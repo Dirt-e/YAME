@@ -7,6 +7,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace YAME.Model
 {
@@ -30,7 +31,22 @@ namespace YAME.Model
         public void StartServer()
         {
             MyEndPoint = new IPEndPoint(IPAddress.Any, Port);
-            Client = new UdpClient(MyEndPoint);
+            try
+            {
+                Client = new UdpClient(MyEndPoint);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(    "It looks like the port YAME wants to use for communication " +
+                                    $"(Port {Properties.Settings.Default.Server_Port_UDP}) is in use already.\n\n" +
+                                    "Shoot us an email to software@hexago-motion.com. We will get you a fix.",
+                                    "Port occupied",
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Exclamation);
+                
+                Application.Current.Shutdown();     //THE END!!!!
+            }
+            
 
             RawDatastring = defaultDataString;
         }

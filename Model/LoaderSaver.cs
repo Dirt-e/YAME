@@ -18,7 +18,7 @@ namespace YAME.Model
             saveObject = new SaveObject();
         }
 
-        #region LastClosed:
+        #region From Settings:
         //------------------ Load ------------------------
         public void LoadEngineSettings_Application()
         {
@@ -320,7 +320,7 @@ namespace YAME.Model
             }
             
         #endregion
-        #region Profile:
+        #region From Profile:
         //------------------ Load ------------------------
         public void LoadSettings_Profile()
         {
@@ -334,6 +334,7 @@ namespace YAME.Model
             }
 
             OpenFileDialog ofd = MyOpenFileDialog();
+
             if (ofd.ShowDialog() == true)
             {
                 string json = File.ReadAllText(ofd.FileName);
@@ -474,24 +475,7 @@ namespace YAME.Model
         //---------------- Save -----------------------
         public void SaveSettings_Profile()
         {
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "YAME files|*.yame";
-            sfd.DefaultExt = ".yame";
-            sfd.AddExtension = true;
-            sfd.OverwritePrompt = true;
-            sfd.CreatePrompt = false;
-
-            //Saved Games:
-            sfd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            sfd.InitialDirectory += "\\Saved Games\\YAME Motion Engine";
-            //APP Data:
-            //sfd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            //sfd.InitialDirectory += "\\AppData\\Roaming\\MOTUS";
-
-            if (!Directory.Exists(sfd.InitialDirectory))
-            {
-                Directory.CreateDirectory(sfd.InitialDirectory);
-            }
+            SaveFileDialog sfd = MySaveFileDialog();
 
             if (sfd.ShowDialog() == true)
             {
@@ -653,6 +637,27 @@ namespace YAME.Model
             if (!Directory.Exists(ofd.InitialDirectory)) Directory.CreateDirectory(ofd.InitialDirectory);
 
             return ofd;
+        }
+        private SaveFileDialog MySaveFileDialog()
+        {
+            SaveFileDialog sfd = new SaveFileDialog()
+            {
+                Filter = "YAME files|*.yame",
+                DefaultExt = ".yame",
+                AddExtension = true,
+                OverwritePrompt = true,
+                CreatePrompt = false,
+                //Saved Games:
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) +
+                                    "\\Saved Games\\YAME Motion Engine",
+                //APP Data:
+                //InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) +
+                //                    "\\AppData\\Local\\HexaGo",
+        };
+
+            if (!Directory.Exists(sfd.InitialDirectory)) Directory.CreateDirectory(sfd.InitialDirectory);
+
+            return sfd;
         }
     }
 }

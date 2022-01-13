@@ -37,8 +37,8 @@ Changelog:
 	- SerialConnectionWindow: "OPEN" indicates green
 	- Bugfixed offset correction 
 	- OffsetCorrectionWindow: Green "Active" toggle
-	- show fps in About Window
-	- show Profile/SIM/FPS in Main Window.
+	- Show fps in About Window
+	- Show Profile/SIM/FPS in Main Window.
 
 	Version 0.05:
 	- Added patch/unpatch routine for DCS
@@ -49,4 +49,6 @@ Changelog:
 	- Added convenience patching for X-Plane
 
 	Version 0.07
-	- Added "receiving Data Light" in MainWindow
+	- Added "Receiving data" light in MainWindow
+	- Propper error message given to user when application shuts down because of occupied UDP port
+	- Enforced single instance

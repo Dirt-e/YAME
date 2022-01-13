@@ -441,6 +441,19 @@ namespace YAME.View
         {
             this.Close();
         }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            //LastClosed values
+            Left = Properties.Settings.Default.Window_Patcher_Position_X;
+            Top  = Properties.Settings.Default.Window_Patcher_Position_Y;
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            //LastClosed values
+            Properties.Settings.Default.Window_Patcher_Position_X = (float)Left;
+            Properties.Settings.Default.Window_Patcher_Position_Y = (float)Top;
 
+            Properties.Settings.Default.Save();
+        }
     }
 }

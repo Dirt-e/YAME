@@ -52,6 +52,8 @@ namespace YAME
         //Events
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            EnforceSingleInstance();
+
             engine.StartEngine();
             Thread.Sleep(10);
             engine.loadersaver.LoadEngineSettings_Application();
@@ -331,7 +333,12 @@ namespace YAME
         {
             foreach (Window w in OwnedWindows)
             {
-                if (w.Name == "PatcherWindow") return;      //It's open already!
+                if (w.Name == "PatcherWindow")      //If it's open already!
+                {
+                    w.Close();                      //Close it!
+                    return;      
+                }
+                
             }
 
             Window_Patcher window_Patcher = new Window_Patcher();
@@ -356,7 +363,14 @@ namespace YAME
 
             if (!single_instance_mutex.WaitOne(0))
             {
-                MessageBox.Show("YAME is already running!!! Only one instance allowed");
+                MessageBox.Show("Hmmm,.... It looks like you are trying to run two instances of YAME.exe! " +
+                                    "We can't let you do that, because it would screw up all that neat network " +
+                                    "code that we wrote.\n\n" +
+                                    "Check in Task Manager for a process called \"YAME.exe\" or reboot your " +
+                                    "computer to have certainty that there is no other instance of YAME running.",
+                                    "Multiple Instances detected",
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Exclamation);
                 Application.Current.Shutdown();
             }
         }

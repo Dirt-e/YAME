@@ -1414,5 +1414,17 @@ namespace YAME.Properties {
                 this["Version"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("31090")]
+        public int Server_Port_UDP {
+            get {
+                return ((int)(this["Server_Port_UDP"]));
+            }
+            set {
+                this["Server_Port_UDP"] = value;
+            }
+        }
     }
 }
