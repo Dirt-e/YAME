@@ -1,4 +1,6 @@
 ﻿To-Do:
+GENERAL:
+- Implement window snapping when draging
 
 MAIN WINDOW:
 - Save "SimName in profile
@@ -14,6 +16,8 @@ INTEGRATOR:
 
 SERIALTALKER:
 
+FILTERS WINDOW:
+- Add input motion data on left side of window (Ax, Ay, Az,.....)
 
 RIG CONFIGURATION:
 - Add a slew mode for apropriate offsets. May be used during an open serial connection!

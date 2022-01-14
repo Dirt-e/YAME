@@ -219,16 +219,16 @@
       <Value Profile="(Default)">300</Value>
     </Setting>
     <Setting Name="Dist_A_Upper" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">1000</Value>
+      <Value Profile="(Default)">1136</Value>
     </Setting>
     <Setting Name="Dist_B_Upper" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">178</Value>
     </Setting>
     <Setting Name="Dist_A_Lower" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">110</Value>
     </Setting>
     <Setting Name="Dist_B_Lower" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">1000</Value>
+      <Value Profile="(Default)">1391</Value>
     </Setting>
     <Setting Name="Window_RigConfig_Position_X" Type="System.Single" Scope="User">
       <Value Profile="(Default)">400</Value>
@@ -237,10 +237,10 @@
       <Value Profile="(Default)">400</Value>
     </Setting>
     <Setting Name="ActuatorSystem_MaxLength" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">1400</Value>
+      <Value Profile="(Default)">1454</Value>
     </Setting>
     <Setting Name="ActuatorSystem_MinLength" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">850</Value>
+      <Value Profile="(Default)">970</Value>
     </Setting>
     <Setting Name="Window_RawData_Position_X" Type="System.Single" Scope="User">
       <Value Profile="(Default)">350</Value>
@@ -348,7 +348,7 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">v0.06_alpha_</Value>
+      <Value Profile="(Default)">v0.07_alpha_</Value>
     </Setting>
     <Setting Name="Server_Port_UDP" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">31090</Value>

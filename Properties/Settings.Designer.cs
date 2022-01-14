@@ -889,7 +889,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1136")]
         public float Dist_A_Upper {
             get {
                 return ((float)(this["Dist_A_Upper"]));
@@ -901,7 +901,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("178")]
         public float Dist_B_Upper {
             get {
                 return ((float)(this["Dist_B_Upper"]));
@@ -913,7 +913,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("110")]
         public float Dist_A_Lower {
             get {
                 return ((float)(this["Dist_A_Lower"]));
@@ -925,7 +925,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1391")]
         public float Dist_B_Lower {
             get {
                 return ((float)(this["Dist_B_Lower"]));
@@ -961,7 +961,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1400")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1454")]
         public float ActuatorSystem_MaxLength {
             get {
                 return ((float)(this["ActuatorSystem_MaxLength"]));
@@ -973,7 +973,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("850")]
+        [global::System.Configuration.DefaultSettingValueAttribute("970")]
         public float ActuatorSystem_MinLength {
             get {
                 return ((float)(this["ActuatorSystem_MinLength"]));
@@ -1405,7 +1405,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("v0.06_alpha_")]
+        [global::System.Configuration.DefaultSettingValueAttribute("v0.07_alpha_")]
         public string Version {
             get {
                 return ((string)(this["Version"]));
