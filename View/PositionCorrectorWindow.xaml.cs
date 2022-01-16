@@ -11,11 +11,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using YAME.Model;
 
 namespace YAME.View
 {
     public partial class PositionCorrector_Window : Window
     {
+        SnappyDragger snappyDragger;
+
         public PositionCorrector_Window()
         {
             InitializeComponent();
@@ -24,20 +27,13 @@ namespace YAME.View
 
         private void SetDatacontext()
         {
-            this.DataContext = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine.positionoffsetcorrector;
-            //var engine = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine;
-
-            //txtbx_DeltaX.DataContext = engine.positionoffsetcorrector;
-            //txtbx_DeltaY.DataContext = engine.positionoffsetcorrector;
-            //txtbx_DeltaZ.DataContext = engine.positionoffsetcorrector;
+            DataContext = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine.positionoffsetcorrector;
         }
 
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            snappyDragger = new SnappyDragger(this);
+
             Left    = Properties.Settings.Default.Window_PositionCorrection_Position_X;
             Top     = Properties.Settings.Default.Window_PositionCorrection_Position_Y;
         }
@@ -47,6 +43,15 @@ namespace YAME.View
             Properties.Settings.Default.Window_PositionCorrection_Position_Y    = (float)Top;
 
             Properties.Settings.Default.Save();
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            snappyDragger.StartDrag();
+        }
+        private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            snappyDragger.StopDrag();
         }
     }
 }

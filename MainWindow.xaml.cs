@@ -63,6 +63,7 @@ namespace YAME
             ShowAboutWindowOnAppStart(2000);
             OpenDefaultChildWindows();
         }
+
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             RememberWhichChildWindowsWereOpen();
@@ -376,7 +377,6 @@ namespace YAME
         }
         private void MoveWindowToLowerRight(int x = 0, int y = 0)
         {
-            //To-Do: Why does this not work yet???
             var desktopWorkingArea = SystemParameters.WorkArea;
             this.Left = desktopWorkingArea.Right - this.Width - x;
             this.Top = desktopWorkingArea.Bottom - this.Height - y;

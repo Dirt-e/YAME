@@ -17,6 +17,8 @@ namespace YAME.View
 {
     public partial class DOF_Window : Window
     {
+        SnappyDragger SnappyDragger;
+
         Engine engine;
 
         public DOF_Window()
@@ -28,10 +30,6 @@ namespace YAME.View
             
         }
 
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
 
         private void ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -53,6 +51,8 @@ namespace YAME.View
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            SnappyDragger = new SnappyDragger(this);
+
             Left    = Properties.Settings.Default.Window_DOFs_Position_X;
             Top     = Properties.Settings.Default.Window_DOFs_Position_Y;
         }
@@ -63,6 +63,15 @@ namespace YAME.View
             Properties.Settings.Default.Window_DOFs_Position_Y = (float)Top;
 
             Properties.Settings.Default.Save();
+        }
+        
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            SnappyDragger.StartDrag();
+        }
+        private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            SnappyDragger.StopDrag();
         }
     }
 }

@@ -6,10 +6,11 @@
         xmlns:local="clr-namespace:YAME"
         xmlns:Controls="clr-namespace:YAME.View.UserControls"
         xmlns:Converters="clr-namespace:YAME.View.Converters"
-        xmlns:HelixToolkit="clr-namespace:HelixToolkit.Wpf;assembly=HelixToolkit.Wpf"        mc:Ignorable="d"
-        Title="SceneView" Height="450" Width="800" WindowStartupLocation="Manual"  Left="0" Top="400"
+        xmlns:HelixToolkit="clr-namespace:HelixToolkit.Wpf;assembly=HelixToolkit.Wpf"        
+        mc:Ignorable="d"
+        Title="SceneView" Height="450" Width="800" WindowStartupLocation="Manual"
         Loaded="Window_Loaded" Closing="Window_Closing"
-        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseLeftButtonUp="Window_MouseLeftButtonUp"
         Style="{StaticResource ChildWindow_Style}">
     <Grid>
         <Grid.RowDefinitions>

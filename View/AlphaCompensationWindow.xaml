@@ -7,9 +7,9 @@
         xmlns:Controls="clr-namespace:YAME.View.UserControls"
         mc:Ignorable="d"
         Title="AlphaCompensationWindow"
-        Height="200" Width="160" WindowStartupLocation="Manual" Top="200" Left="330"
-        ResizeMode="NoResize" MouseLeftButtonDown="Window_MouseLeftButtonDown"
-        Loaded="Window_Loaded" Closing="Window_Closing"
+        Height="200" Width="160" WindowStartupLocation="Manual" Top="200" Left="330" ResizeMode="NoResize" 
+        MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseLeftButtonUp="Window_MouseLeftButtonUp"
+        Loaded="Window_Loaded" Closing="Window_Closing" 
         Style="{StaticResource ChildWindow_Style}">
 
     <Grid Margin="0">

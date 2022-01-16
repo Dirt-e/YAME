@@ -88,3 +88,5 @@ D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\Microsoft.WindowsAPICodePack.ShellE
 D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.xml
 D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\Resources\X-Plane\XPlaneGetter.zip
 D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\Resources\DCS\YAME_Export_Hook.lua
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\Window_Test.g.cs
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\Window_Test.baml

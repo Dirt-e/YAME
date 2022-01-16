@@ -13,23 +13,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
 using System.Windows.Shapes;
+using YAME.Model;
 
 namespace YAME.View
 {
     public partial class SceneViewWindow : Window
     {
+        SnappyDragger snappyDragger;
+
         public SceneViewWindow()
         {
             InitializeComponent();
 
-            SetDataContext();
-            //Load_3D_Objects();
-            SetCamera();
-        }
+            snappyDragger = new SnappyDragger(this);
 
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
+            SetDataContext();
+            //LoadPlaneObjectsForDebug();
+            SetCamera();
         }
         
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -50,7 +50,7 @@ namespace YAME.View
         {
             DataContext = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine.VM_SceneView;
         }
-        private void Load_3D_Objects()
+        private void LoadPlaneObjectsForDebug()
         {
             ModelImporter Importer = new ModelImporter();
 
@@ -78,6 +78,15 @@ namespace YAME.View
         private void SetCamera()
         {   
             Viewport.Camera.LookDirection = new Vector3D(-1000, 2000, -1000);
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            snappyDragger.StartDrag();
+        }
+        private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            snappyDragger.StopDrag();
         }
     }
 }

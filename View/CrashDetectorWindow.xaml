@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:YAME.View"
         mc:Ignorable="d"
         Title="CrashDetectorWindow"
-        Height="226.25" Width="180" WindowStartupLocation="Manual" Top="115" Left="200"
-        ResizeMode="NoResize" MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        Height="230" Width="180" WindowStartupLocation="Manual" ResizeMode="NoResize" 
+        MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseLeftButtonUp="Window_MouseLeftButtonUp"
         Loaded="Window_Loaded" Closing="Window_Closing" 
         Style="{StaticResource ChildWindow_Style}">
     <Grid>

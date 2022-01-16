@@ -7,8 +7,8 @@
         xmlns:Controls="clr-namespace:YAME.View.UserControls"
         xmlns:view="clr-namespace:YAME.View"
         xmlns:model="clr-namespace:YAME.Model"
-        mc:Ignorable="d" MouseLeftButtonDown="Window_MouseLeftButtonDown"
-        Loaded="Window_Loaded" Closing="Window_Closing"
+        mc:Ignorable="d" Loaded="Window_Loaded" Closing="Window_Closing"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseLeftButtonUp="Window_MouseLeftButtonUp"
         Title="SerialConnection_Window" Height="300" Width="250"
         Style="{StaticResource ChildWindow_Style}">
     <Grid Margin="0">

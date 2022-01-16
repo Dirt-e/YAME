@@ -17,6 +17,8 @@ namespace YAME.View
 {
     public partial class CrashDetectorWindow : Window
     {
+        SnappyDragger snappydragger;
+
         public CrashDetectorWindow()
         {
             InitializeComponent();
@@ -36,12 +38,10 @@ namespace YAME.View
             txtbx_Wz_Threshold.DataContext = engine.exceedancedetector;
         }
 
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
+        
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            snappydragger = new SnappyDragger(this);
             //LastClosed values
             Left = Properties.Settings.Default.Window_CrashDetector_Position_X;
             Top = Properties.Settings.Default.Window_CrashDetector_Position_Y;
@@ -59,6 +59,15 @@ namespace YAME.View
         {
             var engine = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine;
             engine.recoverylogic.State = Recovery_State.Acknoledged;
+        }
+        
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            snappydragger.StartDrag();
+        }
+        private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            snappydragger.StopDrag();
         }
     }
 }

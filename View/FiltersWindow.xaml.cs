@@ -11,11 +11,13 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using YAME.Model;
 
 namespace YAME.View
 {
     public partial class FiltersWindow : Window
     {
+        SnappyDragger SnappyDragger;
         public FiltersWindow()
         {
             InitializeComponent();
@@ -211,11 +213,17 @@ namespace YAME.View
         //---------- Mouse ----------
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            SnappyDragger.StartDrag();
+        }
+        private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            SnappyDragger.StopDrag();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            SnappyDragger = new SnappyDragger(this);
+
             Left    = Properties.Settings.Default.Window_Filters_Position_X;
             Top     = Properties.Settings.Default.Window_Filters_Position_Y;
         }

@@ -12,15 +12,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using YAME.Model;
 
 namespace YAME.View
 {
     public partial class SerialConnection_Window : Window
     {
+        SnappyDragger snappydragger;
+
         public SerialConnection_Window()
         {
             InitializeComponent();
             SetDataContext();
+
+            snappydragger = new SnappyDragger(this);
         }
 
         void SetDataContext()
@@ -64,10 +69,6 @@ namespace YAME.View
                 PopulateDropdownList_Ports();
             }
             
-        }
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -124,6 +125,13 @@ namespace YAME.View
             if (index >= 0)  cmbbx_Ports.SelectedItem = cmbbx_Ports.Items[index];
         }
 
-        
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            snappydragger.StartDrag();
+        }
+        private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            snappydragger.StopDrag();   
+        }
     }
 }

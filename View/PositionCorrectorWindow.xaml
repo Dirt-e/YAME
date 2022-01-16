@@ -7,8 +7,8 @@
         xmlns:Controls="clr-namespace:YAME.View.UserControls"
         mc:Ignorable="d"
         Title="PositionOffsetCorrectorWindow"
-        Height="200" Width="160" WindowStartupLocation="Manual" Top="0" Left="330"
-        ResizeMode="NoResize" MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        Height="200" Width="160" WindowStartupLocation="Manual" ResizeMode="NoResize" 
+        MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseLeftButtonUp="Window_MouseLeftButtonUp"
         Loaded="Window_Loaded" Closing="Window_Closing"
         Style="{StaticResource ChildWindow_Style}">
     <Grid Margin="0">

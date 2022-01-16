@@ -11,15 +11,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using YAME.Model;
 
 namespace YAME.View
 {
     public partial class RigConfigWindow : Window
     {
+        SnappyDragger snappydragger;
+
         public RigConfigWindow()
         {
             InitializeComponent();
             SetDataContexts();
+            
+            snappydragger = new SnappyDragger(this);
         }
         
         private void SetDataContexts()
@@ -34,11 +39,6 @@ namespace YAME.View
             img_warning.DataContext             = engine.serialtalker;
         }
 
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
-
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Properties.Settings.Default.Window_RigConfig_Position_X = (float)Left;
@@ -50,6 +50,15 @@ namespace YAME.View
         {
             Left = Properties.Settings.Default.Window_RigConfig_Position_X;
             Top = Properties.Settings.Default.Window_RigConfig_Position_Y;
+        }
+        
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            snappydragger.StartDrag();
+        }
+        private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            snappydragger.StopDrag();
         }
     }
 }

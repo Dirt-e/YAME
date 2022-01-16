@@ -11,24 +11,24 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using YAME.Model;
 
 namespace YAME.View
 {
     public partial class RawDataWindow : Window
     {
+        SnappyDragger snappyDragger;    
         public RawDataWindow()
         {
             InitializeComponent();
-            DataContext = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine.chopper;
+            MainWindow mw = Application.Current.MainWindow as MainWindow;
+            DataContext = mw.engine.chopper;
         }
 
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
-        
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            snappyDragger = new SnappyDragger(this);
+
             Left = Properties.Settings.Default.Window_RawData_Position_X;
             Top = Properties.Settings.Default.Window_RawData_Position_Y;
         }
@@ -39,6 +39,15 @@ namespace YAME.View
             Properties.Settings.Default.Window_RawData_Position_Y = (float)Top;
 
             Properties.Settings.Default.Save();
+        }
+        
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            snappyDragger.StartDrag();
+        }
+        private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            snappyDragger.StopDrag();
         }
     }
 }
