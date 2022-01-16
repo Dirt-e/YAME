@@ -22,9 +22,11 @@ namespace YAME.View
         public AboutWindow()
         {
             InitializeComponent();
-            var engine = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine;
-            DataContext = engine.VM_MainWindow;
-            txtblk_framerate.DataContext = engine;
+
+            //var engine = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine;
+            MainWindow mw = Application.Current.MainWindow as MainWindow;
+            DataContext = mw.engine.VM_MainWindow;
+            txtblk_framerate.DataContext = mw.engine;
         }
 
 
@@ -44,6 +46,12 @@ namespace YAME.View
         private void Window_Closed(object sender, EventArgs e)
         {
             IsOpen=false;
+        }
+
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Process.Start("https://creativecommons.org/licenses/by-nc-nd/3.0/deed.en");
+            Topmost = false;
         }
     }
 }

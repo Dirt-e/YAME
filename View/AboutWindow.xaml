@@ -5,64 +5,78 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YAME.View"
         mc:Ignorable="d"
-        Title="AboutWindow" Height="415" Width="800" WindowStartupLocation="CenterScreen" Topmost="True"
+        Title="AboutWindow" Height="500
+        " Width="800" WindowStartupLocation="CenterScreen" Topmost="True"
         Style="{StaticResource ChildWindow_Style}"
         Loaded="Window_Loaded" Closed="Window_Closed">
-    <StackPanel>
-        <Grid Height="30" Background="LightSkyBlue">
-            <TextBlock FontSize="15" FontWeight="Bold" Foreground="{StaticResource MyDimGrayBrush}" 
-                       HorizontalAlignment="Stretch"  VerticalAlignment="Center" TextAlignment="Center">
-                About YAME
-            </TextBlock>
-        </Grid>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="350"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Image Source="/Media/Logo Dodecahedron 2276x2146.png" Margin="30,30,10,10" />
-            <StackPanel Grid.Column="1" Margin="10">
-                <TextBlock TextAlignment="Center" FontSize="18"
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label  Content="About YAME" FontSize="15" Grid.Row="0" Grid.ColumnSpan="2"
+                HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" 
+                VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                Foreground="{StaticResource MyDimGrayBrush}" Background="LightSkyBlue"/>
+        <Image  Source="/Media/Logo Dodecahedron 2276x2146.png" Margin="30,30,10,30"
+                Grid.Row="1"/>
+        <StackPanel Grid.Column="1" Grid.Row="1" Margin="10">
+            <TextBlock TextAlignment="Center" FontSize="18"
                            Text="YAME - Yet Another Motion Engine"/>
-                <TextBlock/>
-                <TextBlock/>
-                <TextBlock TextAlignment="Center"
+            <TextBlock/>
+            <TextBlock/>
+            <TextBlock TextAlignment="Center"
                            Text="version:"/>
-                <TextBlock TextAlignment="Center"
+            <TextBlock TextAlignment="Center"
                            Text="{Binding Version}"/>
-                <TextBlock/>
-                <TextBlock/>
-                <TextBlock TextAlignment="Center"
+            <TextBlock/>
+            <TextBlock/>
+            <TextBlock TextAlignment="Center"
                            Text="frames/sec.:"/>
-                <TextBlock TextAlignment="Center" x:Name="txtblk_framerate"
+            <TextBlock TextAlignment="Center" x:Name="txtblk_framerate"
                            Text="{Binding FPS, StringFormat=N2}"/>
-                <TextBlock/>
-                <TextBlock/>
-                <TextBlock TextAlignment="Center"
-                           Text="web:"/>
-                <TextBlock TextAlignment="Center">
+            <TextBlock/>
+            <TextBlock/>
+            <TextBlock Text="web:" TextAlignment="Center" />
+            <TextBlock TextAlignment="Center">
                     <Hyperlink NavigateUri="https://www.hexago-motion.com" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="Underline">www.hexago-motion.com</Hyperlink>
-                </TextBlock>
-                <TextBlock/>
-                <TextBlock/>
-                <TextBlock TextAlignment="Center"
-                           Text="feedback:"/>
-                <TextBlock TextAlignment="Center">
-                    <Hyperlink NavigateUri="mailto:software@hexago-motion.com" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="Underline">software@hexago-motion.com</Hyperlink>                    <LineBreak/>
-                </TextBlock>
-            </StackPanel>
-            <TextBlock Grid.Column="1" TextWrapping="Wrap" Height="20" TextAlignment="Center" VerticalAlignment="Bottom">
-                © 2022 HexaGo
             </TextBlock>
-            
-        </Grid>
-        <Button Content="Close" Width="100" Height="25" Click="ButtonClick_Close" Margin="10">
+            <TextBlock/>
+            <TextBlock/>
+            <TextBlock Text="feedback:" TextAlignment="Center" />
+            <TextBlock TextAlignment="Center">
+                    <Hyperlink NavigateUri="mailto:software@hexago-motion.com" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="Underline">software@hexago-motion.com</Hyperlink>
+            </TextBlock>
+            <TextBlock/>
+            <TextBlock/>
+            <TextBlock Text="license:" TextAlignment="Center" />
+            <Image  Source="\Media\CC BY-NC-ND 3.0.png" Grid.Column="1" Grid.Row="2" 
+                    HorizontalAlignment="Center" Width="200"
+                    MouseLeftButtonDown="Image_MouseLeftButtonDown" Cursor="Hand"/>
+            <TextBlock TextAlignment="Center" FontSize="10">
+                    <Hyperlink NavigateUri="https://creativecommons.org/licenses/by-nc-nd/3.0/legalcode" RequestNavigate="Hyperlink_RequestNavigate">see license details</Hyperlink>
+            </TextBlock>
+        </StackPanel>
+        
+
+        <Button Content="Close" Width="100" Height="25" VerticalAlignment="Top" Margin="5"
+                Grid.Row="2" Grid.ColumnSpan="2"  Click="ButtonClick_Close">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
         </Button>
-    </StackPanel>
+        <TextBlock  Text="© 2022 HexaGo" Grid.Row="2" Grid.ColumnSpan="2" Height="20"
+                    Foreground="{StaticResource MyBrightGrayBrush}"
+                    TextAlignment="Center" VerticalAlignment="Bottom"/>
+        
+    </Grid>
     
+   
 </Window>

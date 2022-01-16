@@ -8,6 +8,21 @@
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Loaded="Window_Loaded" Closing="Window_Closing"
         Title="PatchWindow" Height="300" Width="400">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="Button_NoHighlight_Rounded">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="DimGray" BorderThickness="1"
+                                CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -30,35 +45,35 @@
         <TextBlock Text="DCS"           Grid.Row="1" Grid.Column="1" FontSize="12" VerticalAlignment="Center" />
         <TextBlock Text="DCS.openbeta"  Grid.Row="2" Grid.Column="1" FontSize="12" VerticalAlignment="Center" />
         <TextBlock Text="X-Plane"       Grid.Row="3" Grid.Column="1" FontSize="12" VerticalAlignment="Center" />
-        
-        <Button     x:Name="btn_Patch_DCS" Content="Patch"  Style="{StaticResource Button_NoHighlight}"
+
+        <Button     x:Name="btn_Patch_DCS" Content="Patch"  Style="{StaticResource Button_NoHighlight_Rounded}"
                     Grid.Row="1" Grid.Column="2" Margin="3"
                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Patch_DCS_Click">
         </Button>
-        <Button     x:Name="btn_Unpatch_DCS" Content="Unpatch" Style="{StaticResource Button_NoHighlight}"
+        <Button     x:Name="btn_Unpatch_DCS" Content="Unpatch" Style="{StaticResource Button_NoHighlight_Rounded}"
                     Grid.Row="1" Grid.Column="3" Margin="3"
                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Unpatch_DCS_Click">
         </Button>
-        
-        <Button     x:Name="btn_Patch_DCSopenbeta" Content="Patch" Style="{StaticResource Button_NoHighlight}"
+
+        <Button     x:Name="btn_Patch_DCSopenbeta" Content="Patch" Style="{StaticResource Button_NoHighlight_Rounded}"
                     Grid.Row="2" Grid.Column="2" Margin="3"
                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Patch_DCSopenbeta_Click">
         </Button>
-        <Button     x:Name="btn_Unpatch_DCSopenbeta" Content="Unpatch" Style="{StaticResource Button_NoHighlight}"
+        <Button     x:Name="btn_Unpatch_DCSopenbeta" Content="Unpatch" Style="{StaticResource Button_NoHighlight_Rounded}"
                     Grid.Row="2" Grid.Column="3" Margin="3"
                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Unpatch_DCSopenbeta_Click">
         </Button>
 
-        <Button     x:Name="btn_Patch_XPlane" Content="Patch"  Style="{StaticResource Button_NoHighlight}"
+        <Button     x:Name="btn_Patch_XPlane" Content="Patch"  Style="{StaticResource Button_NoHighlight_Rounded}"
                     Grid.Row="3" Grid.Column="2" Margin="3"
                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Patch_XPlane_Click">
         </Button>
-        <Button     x:Name="btn_Unpatch_XPlane" Content="Unpatch" Style="{StaticResource Button_NoHighlight}"
+        <Button     x:Name="btn_Unpatch_XPlane" Content="Unpatch" Style="{StaticResource Button_NoHighlight_Rounded}"
                     Grid.Row="3" Grid.Column="3" Margin="3"
                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Unpatch_XPlane_Click">
         </Button>
 
-        <Button     x:Name="btn_Close" Content="Close" Style="{StaticResource Button_NoHighlight}"
+        <Button     x:Name="btn_Close" Content="Close" Style="{StaticResource Button_NoHighlight_Rounded}"
                     Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Margin="3"
                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Close_Click"/>
     </Grid>

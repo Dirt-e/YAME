@@ -349,6 +349,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Media\Images\hotaswarthog-flightstick.webp" />
+    <None Include="Media\Images\Untitled Diagram.drawio" />
     <None Include="Media\Models\Plane.stl" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -371,7 +373,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Documents\To-Do List.txt" />
+    <Resource Include="To-Do List.txt" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Media\BlockeWhileSerial.png" />
@@ -394,7 +396,22 @@
   <ItemGroup>
     <Resource Include="Media\Logo Dodecahedron 2276x2146.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Media\Images\Aero Vodochody L-39C Albatros SIDE.png" />
+    <Resource Include="Media\Images\c0left.png" />
+    <Resource Include="Media\Images\Desktop-PC.svg.png" />
+    <Resource Include="Media\Images\Projector.png" />
+    <Resource Include="Media\Images\Schematics1.png" />
+    <Resource Include="Media\Images\Schematics2.png" />
+    <Resource Include="Media\Images\Screenshot 2021-12-07 at 20.48.58.png" />
+    <Resource Include="Media\Images\Screenshot 2021-12-07 at 20.54.50 1.png" />
+    <Resource Include="Media\Images\Screenshot 2021-12-07 at 20.56.10.png" />
+    <Resource Include="Media\Images\Screenshot 2021-12-07 at 20.58.44.png" />
+    <Resource Include="Media\Images\valveindex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\CC BY-NC-ND 3.0.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\System.Text.Json.6.0.1\build\System.Text.Json.targets" Condition="Exists('packages\System.Text.Json.6.0.1\build\System.Text.Json.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

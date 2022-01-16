@@ -180,7 +180,7 @@
         <Image  x:Name="img_warning" Grid.Row="1" Grid.Column="0" Grid.RowSpan="7" Grid.ColumnSpan="6" Margin="-40,0,-40,0"
                 Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center"
                 Visibility="{Binding IsOpen, Converter={StaticResource cnvrt_BoolToVisibility}}"
-                Source="D:\OneDrive\Frank - PC\GitHub\MOTUS\Media\BlockeWhileSerial.png">
+                Source="\Media\BlockeWhileSerial.png">
         </Image>
     </Grid>
 </Window>

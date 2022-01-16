@@ -51,10 +51,6 @@
             <Setter Property="FontFamily" Value="Bahnschrift Light"/>
         </Style>
         <Style TargetType="Window" x:Key="ChildWindow_Style" BasedOn="{StaticResource MainWindow_Style}">
-            <Setter Property="Background" Value="{StaticResource MyDimGrayBrush}"/>
-            <Setter Property="Foreground" Value="{StaticResource MyPaleWhiteBrush}"/>
-            <Setter Property="WindowStyle" Value="None"/>
-            <Setter Property="FontFamily" Value="Bahnschrift Light"/>
             <Setter Property="BorderThickness" Value="1"/>
         </Style>
         <Style TargetType="TextBox" x:Key="TextBox_Style">
@@ -99,8 +95,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border Background="{TemplateBinding Background}"
-                                BorderBrush="DimGray" BorderThickness="1"
-                                CornerRadius="5">
+                                BorderBrush="DimGray" BorderThickness="1">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
