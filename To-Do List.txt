@@ -1,6 +1,7 @@
 ﻿To-Do:
 GENERAL:
-- Implement window snapping when draging
+- SnappyDragger: Snap Windows to borders of screen
+- SnappyDragger: Make Windows snap independently in vertical and horizontal direction
 
 MAIN WINDOW:
 - Save "SimName in profile
@@ -20,9 +21,10 @@ FILTERS WINDOW:
 
 RIG CONFIGURATION:
 - Add a slew mode for apropriate offsets. May be used during an open serial connection!
-- Warning image should show while Serial connection open -> Debug
+- Let user set "Stroke" instead of MaxLength
 
 LOADER/SAVER:
+- Split Load/Save routine up into "Rig" and "Filters"
 
 ALPHA_COMPENSATION:
 
@@ -61,4 +63,6 @@ Changelog:
 	- SnappyDragger makes windows snap to other windows when borders are close.
 	- Defined UDP Port in Settings file
 	- Defined DefaultDataString in Settings file
+	- Added Input datastreams (A_lon, A_lat, etc...) to Filters Window
+	- Added ViewCube to SceneView
 

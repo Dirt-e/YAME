@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:YAME.View"
         xmlns:controls="clr-namespace:YAME.View.UserControls"
         mc:Ignorable="d"
-        Title="FiltersWindow" Height="620" Width="680" WindowStartupLocation="Manual"
+        Title="FiltersWindow" Height="620" Width="750" WindowStartupLocation="Manual"
         MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseLeftButtonUp="Window_MouseLeftButtonUp"
         Loaded="Window_Loaded" Closing="Window_Closing"
         Style="{StaticResource ChildWindow_Style}">
@@ -14,7 +14,8 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5"/>
-            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="35"/>
             <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="70"/>
             <ColumnDefinition Width="70"/>
@@ -23,10 +24,10 @@
             <ColumnDefinition Width="80"/>
             <ColumnDefinition Width="80"/>
             <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="070"/>
+            <ColumnDefinition Width="40"/>
             <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0"/>
@@ -45,138 +46,146 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <!--Headers-->
-        <TextBlock  Text="Inv:" Grid.Column="1"  Grid.Row="1" HorizontalAlignment="Center"  VerticalAlignment="Center"
+        <TextBlock  Text="Inv:" Grid.Column="2"  Grid.Row="1" HorizontalAlignment="Center"  VerticalAlignment="Center"
                     FontSize="15" FontWeight="Bold"/>
-        <Border     Grid.Column="1" Grid.Row="1" BorderBrush="Gray" Margin="2" BorderThickness="0,0,0,2"/>
-        <TextBlock  Text="Filters:"  Grid.Row="1" Grid.Column="3"
-                    FontSize="15" FontWeight="Bold" Grid.ColumnSpan="3" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
-        <Border     Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="3" BorderBrush="Gray" Margin="2" BorderThickness="0,0,0,2"/>
-        <TextBlock  Text="Compression:"  Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="2"
+        <Border     Grid.Column="2" Grid.Row="1" BorderBrush="Gray" Margin="2,2,2,2" BorderThickness="0,0,0,2" Grid.ColumnSpan="2"/>
+        <TextBlock  Text="Filters:"  Grid.Row="1" Grid.Column="5"
                     FontSize="15" FontWeight="Bold" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
-        <Border     Grid.Column="7" Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="Gray" Margin="2" BorderThickness="0,0,0,2"/>
-        <TextBlock  Text="Scaling:"  Grid.Row="1" Grid.Column="10"
+        <Border     Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="3" BorderBrush="Gray" Margin="2,2,2,2" BorderThickness="0,0,0,2"/>
+        <TextBlock  Text="Compression:"  Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2"
+                    FontSize="15" FontWeight="Bold" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="34,0,0,0"/>
+        <Border     Grid.Column="8" Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="Gray" Margin="2,2,2,2" BorderThickness="0,0,0,2"/>
+        <TextBlock  Text="Scaling:"  Grid.Row="1" Grid.Column="11"
                     FontSize="15" FontWeight="Bold" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
-        <Border     Grid.Column="10" Grid.Row="1" BorderBrush="Gray" Margin="2" BorderThickness="0,0,0,2"/>
+        <Border     Grid.Column="11" Grid.Row="1" BorderBrush="Gray" Margin="2,2,2,2" BorderThickness="0,0,0,2"/>
+        <TextBlock  Text="Zero:"  Grid.Row="1" Grid.Column="12" FontSize="15" FontWeight="Bold"
+                    HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+        <Border     Grid.Column="12" Grid.Row="1" BorderBrush="Gray" Margin="2,2,2,2" BorderThickness="0,0,0,2"/>
+        <TextBlock  Text="Isolate:"  Grid.Row="1" Grid.Column="13" FontSize="15" FontWeight="Bold"
+                    HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+        <Border     Grid.Column="13" Grid.Row="1" BorderBrush="Gray" Margin="2,2,2,2" BorderThickness="0,0,0,2"/>
+
+        <!--Input Streams-->
+        <TextBlock  Text="ω_lon   >>" FontSize="15" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock  Text="ω_vrt   >>" FontSize="15" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock  Text="ω_lat   >>" FontSize="15" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <TextBlock  Text="acc_lon   >>" FontSize="15" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.RowSpan="2"/>
+        <TextBlock  Text="acc_vrt   >>" FontSize="15" Grid.Row="9" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock  Text="acc_lat   >>" FontSize="15" Grid.Row="11" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.RowSpan="2"/>
 
         <!--Inversion Checkboxes-->
-        <CheckBox x:Name="chkbx_invert_Wx"      Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"     
+        <CheckBox x:Name="chkbx_invert_Wx"  Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"     
                   IsChecked="{Binding InvertWx, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
-        <CheckBox x:Name="chkbx_invert_Wy"      Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"    
+        <CheckBox x:Name="chkbx_invert_Wy"  Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"    
                   IsChecked="{Binding InvertWy, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
-        <CheckBox x:Name="chkbx_invert_Wz"      Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center"     
+        <CheckBox x:Name="chkbx_invert_Wz"  Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center"     
                   IsChecked="{Binding InvertWz, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
-        <CheckBox x:Name="chkbx_invert_Ax"  Grid.Column="1" Grid.Row="6" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"     
+        <CheckBox x:Name="chkbx_invert_Ax"  Grid.Column="2" Grid.Row="6" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"     
                   IsChecked="{Binding InvertAx, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
-        <CheckBox x:Name="chkbx_invert_Ay"  Grid.Column="1" Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Center"     
+        <CheckBox x:Name="chkbx_invert_Ay"  Grid.Column="2" Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Center"     
                   IsChecked="{Binding InvertAy, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
-        <CheckBox x:Name="chkbx_invert_Az"  Grid.Column="1" Grid.Row="11" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"    
+        <CheckBox x:Name="chkbx_invert_Az"  Grid.Column="2" Grid.Row="11" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"    
                   IsChecked="{Binding InvertAz, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
         <!--Filtering-->
-        <controls:FilterBox x:Name="filterbox_wx_HP"        Grid.Column="3" Grid.Row="2"/>
-        <controls:FilterBox x:Name="filterbox_wx_HP_LP"     Grid.Column="4" Grid.Row="2" />
-        <controls:FilterBox x:Name="filterbox_wy_HP"        Grid.Column="3" Grid.Row="3"/>
-        <controls:FilterBox x:Name="filterbox_wy_HP_LP"     Grid.Column="4" Grid.Row="3"/>
-        <controls:FilterBox x:Name="filterbox_wz_HP"        Grid.Column="3" Grid.Row="4"/>
-        <controls:FilterBox x:Name="filterbox_wz_HP_LP"     Grid.Column="4" Grid.Row="4"/>
+        <controls:FilterBox x:Name="filterbox_wx_HP"        Grid.Column="4" Grid.Row="2"/>
+        <controls:FilterBox x:Name="filterbox_wx_HP_LP"     Grid.Column="5" Grid.Row="2" />
+        <controls:FilterBox x:Name="filterbox_wy_HP"        Grid.Column="4" Grid.Row="3"/>
+        <controls:FilterBox x:Name="filterbox_wy_HP_LP"     Grid.Column="5" Grid.Row="3"/>
+        <controls:FilterBox x:Name="filterbox_wz_HP"        Grid.Column="4" Grid.Row="4"/>
+        <controls:FilterBox x:Name="filterbox_wz_HP_LP"     Grid.Column="5" Grid.Row="4"/>
 
-        <controls:FilterBox x:Name="filterbox_ax_HP"        Grid.Column="3" Grid.Row="6"/>
-        <controls:FilterBox x:Name="filterbox_ax_HP_LP2"    Grid.Column="4" Grid.Row="6" Grid.ColumnSpan="2"/>
-        <controls:FilterBox x:Name="filterbox_ax_LP3"       Grid.Column="3" Grid.Row="7" Grid.ColumnSpan="3"/>
+        <controls:FilterBox x:Name="filterbox_ax_HP"        Grid.Column="4" Grid.Row="6"/>
+        <controls:FilterBox x:Name="filterbox_ax_HP_LP2"    Grid.Column="5" Grid.Row="6" Grid.ColumnSpan="2"/>
+        <controls:FilterBox x:Name="filterbox_ax_LP3"       Grid.Column="4" Grid.Row="7" Grid.ColumnSpan="3"/>
 
-        <controls:FilterBox x:Name="filterbox_ay_HP"        Grid.Column="3" Grid.Row="9"/>
-        <controls:FilterBox x:Name="filterbox_ay_HP_LP2"    Grid.Column="4" Grid.Row="9" Grid.ColumnSpan="2"/>
+        <controls:FilterBox x:Name="filterbox_ay_HP"        Grid.Column="4" Grid.Row="9"/>
+        <controls:FilterBox x:Name="filterbox_ay_HP_LP2"    Grid.Column="5" Grid.Row="9" Grid.ColumnSpan="2"/>
 
-        <controls:FilterBox x:Name="filterbox_az_HP"        Grid.Column="3" Grid.Row="11"/>
-        <controls:FilterBox x:Name="filterbox_az_HP_LP2"    Grid.Column="4" Grid.Row="11" Grid.ColumnSpan="2"/>
-        <controls:FilterBox x:Name="filterbox_az_LP3"       Grid.Column="3" Grid.Row="12" Grid.ColumnSpan="3"/>
+        <controls:FilterBox x:Name="filterbox_az_HP"        Grid.Column="4" Grid.Row="11"/>
+        <controls:FilterBox x:Name="filterbox_az_HP_LP2"    Grid.Column="5" Grid.Row="11" Grid.ColumnSpan="2"/>
+        <controls:FilterBox x:Name="filterbox_az_LP3"       Grid.Column="4" Grid.Row="12" Grid.ColumnSpan="3"/>
 
         <!--Compression-->
-        <controls:CompressionBox x:Name="cmprbx_Roll_HFC"   Grid.Column="7" Grid.Row="2" Grid.ColumnSpan="2"/>
-        <controls:CompressionBox x:Name="cmprbx_Yaw_HFC"    Grid.Column="7" Grid.Row="3" Grid.ColumnSpan="2"/>
-        <controls:CompressionBox x:Name="cmprbx_Pitch_HFC"  Grid.Column="7" Grid.Row="4" Grid.ColumnSpan="2"/>
+        <controls:CompressionBox x:Name="cmprbx_Roll_HFC"   Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <controls:CompressionBox x:Name="cmprbx_Yaw_HFC"    Grid.Column="8" Grid.Row="3" Grid.ColumnSpan="2"/>
+        <controls:CompressionBox x:Name="cmprbx_Pitch_HFC"  Grid.Column="8" Grid.Row="4" Grid.ColumnSpan="2"/>
 
-        <controls:CompressionBox x:Name="cmprbx_Surge_HFC"   Grid.Column="7" Grid.Row="6" Grid.ColumnSpan="2"/>
-        <controls:CompressionBox x:Name="cmprbx_Pitch_LFC"   Grid.Column="7" Grid.Row="7" Grid.ColumnSpan="2"/>
+        <controls:CompressionBox x:Name="cmprbx_Surge_HFC"  Grid.Column="8" Grid.Row="6" Grid.ColumnSpan="2"/>
+        <controls:CompressionBox x:Name="cmprbx_Pitch_LFC"  Grid.Column="8" Grid.Row="7" Grid.ColumnSpan="2"/>
 
-        <controls:CompressionBox x:Name="cmprbx_Heave_HFC"   Grid.Column="7" Grid.Row="9" Grid.ColumnSpan="2"/>
+        <controls:CompressionBox x:Name="cmprbx_Heave_HFC"  Grid.Column="8" Grid.Row="9" Grid.ColumnSpan="2"/>
 
-        <controls:CompressionBox x:Name="cmprbx_Sway_HFC"   Grid.Column="7" Grid.Row="11" Grid.ColumnSpan="2"/>
-        <controls:CompressionBox x:Name="cmprbx_Roll_LFC"   Grid.Column="7" Grid.Row="12" Grid.ColumnSpan="2"/>
+        <controls:CompressionBox x:Name="cmprbx_Sway_HFC"   Grid.Column="8" Grid.Row="11" Grid.ColumnSpan="2"/>
+        <controls:CompressionBox x:Name="cmprbx_Roll_LFC"   Grid.Column="8" Grid.Row="12" Grid.ColumnSpan="2"/>
 
         <!--Scaling-->
-        <controls:ScalerBox x:Name="sclr_Roll_HFC"      Grid.Column="10" Grid.Row="2"/>
-        <controls:ScalerBox x:Name="sclr_Yaw_HFC"       Grid.Column="10" Grid.Row="3"/>
-        <controls:ScalerBox x:Name="sclr_Pitch_HFC"     Grid.Column="10" Grid.Row="4"/>
+        <controls:ScalerBox x:Name="sclr_Roll_HFC"      Grid.Column="11" Grid.Row="2"/>
+        <controls:ScalerBox x:Name="sclr_Yaw_HFC"       Grid.Column="11" Grid.Row="3"/>
+        <controls:ScalerBox x:Name="sclr_Pitch_HFC"     Grid.Column="11" Grid.Row="4"/>
 
-        <controls:ScalerBox x:Name="sclr_Surge_HFC"     Grid.Column="10" Grid.Row="6"/>
-        <controls:ScalerBox x:Name="sclr_Pitch_LFC"     Grid.Column="10" Grid.Row="7"/>
+        <controls:ScalerBox x:Name="sclr_Surge_HFC"     Grid.Column="11" Grid.Row="6"/>
+        <controls:ScalerBox x:Name="sclr_Pitch_LFC"     Grid.Column="11" Grid.Row="7"/>
 
-        <controls:ScalerBox x:Name="sclr_Heave_HFC"     Grid.Column="10" Grid.Row="9"/>
+        <controls:ScalerBox x:Name="sclr_Heave_HFC"     Grid.Column="11" Grid.Row="9"/>
 
-        <controls:ScalerBox x:Name="sclr_Sway_HFC"     Grid.Column="10" Grid.Row="11"/>
-        <controls:ScalerBox x:Name="sclr_Roll_LFC"     Grid.Column="10" Grid.Row="12"/>
+        <controls:ScalerBox x:Name="sclr_Sway_HFC"      Grid.Column="11" Grid.Row="11"/>
+        <controls:ScalerBox x:Name="sclr_Roll_LFC"      Grid.Column="11" Grid.Row="12"/>
 
         <!--Zeros-->
-        <TextBlock  Text="Zero:"  Grid.Row="1" Grid.Column="11" FontSize="15" FontWeight="Bold"
-                        HorizontalAlignment="Center"  VerticalAlignment="Center"/>
-        <Border     Grid.Column="11" Grid.Row="1" BorderBrush="Gray" Margin="2" BorderThickness="0,0,0,2">
 
-        </Border>
-        <CheckBox x:Name="chkbx_zero_RollHFC" Grid.Column="11" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"     
+        <CheckBox x:Name="chkbx_zero_RollHFC" Grid.Column="12" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"     
                   IsChecked="{Binding Zero_RollHFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
-        <CheckBox x:Name="chkbx_zero_YawHFC" Grid.Column="11" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"     
+        <CheckBox x:Name="chkbx_zero_YawHFC" Grid.Column="12" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"     
                   IsChecked="{Binding Zero_YawHFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
-        <CheckBox x:Name="chkbx_zero_PitchHFC" Grid.Column="11" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center"     
+        <CheckBox x:Name="chkbx_zero_PitchHFC" Grid.Column="12" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center"     
                   IsChecked="{Binding Zero_PitchHFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
-        <CheckBox x:Name="chkbx_zero_SurgeHFC" Grid.Column="11" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center"     
+        <CheckBox x:Name="chkbx_zero_SurgeHFC" Grid.Column="12" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center"     
                   IsChecked="{Binding Zero_SurgeHFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
-        <CheckBox x:Name="chkbx_zero_PitchLFC" Grid.Column="11" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Center"     
+        <CheckBox x:Name="chkbx_zero_PitchLFC" Grid.Column="12" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Center"     
                   IsChecked="{Binding Zero_PitchLFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
-        <CheckBox x:Name="chkbx_zero_HeaveHFC" Grid.Column="11" Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Center"     
+        <CheckBox x:Name="chkbx_zero_HeaveHFC" Grid.Column="12" Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Center"     
                   IsChecked="{Binding Zero_HeaveHFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
-        <CheckBox x:Name="chkbx_zero_SwayHFC" Grid.Column="11" Grid.Row="11" VerticalAlignment="Center" HorizontalAlignment="Center"     
+        <CheckBox x:Name="chkbx_zero_SwayHFC" Grid.Column="12" Grid.Row="11" VerticalAlignment="Center" HorizontalAlignment="Center"     
                   IsChecked="{Binding Zero_SwayHFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
-        <CheckBox x:Name="chkbx_zero_RollLFC" Grid.Column="11" Grid.Row="12" VerticalAlignment="Center" HorizontalAlignment="Center"     
+        <CheckBox x:Name="chkbx_zero_RollLFC" Grid.Column="12" Grid.Row="12" VerticalAlignment="Center" HorizontalAlignment="Center"     
                   IsChecked="{Binding Zero_RollLFC, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
 
         <!--Isolation-->
-        <TextBlock  Text="Isolate:"  Grid.Row="1" Grid.Column="12" FontSize="15" FontWeight="Bold"
-                        HorizontalAlignment="Center"  VerticalAlignment="Center"/>
-        <Border     Grid.Column="12" Grid.Row="1" BorderBrush="Gray" Margin="2" BorderThickness="0,0,0,2"/>
-        <Button     x:Name="btn_isol_wx"        Content="Isolate" FontSize="10"  Grid.Column="12" Grid.Row="2" Width="40" Height="20" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="btn_isol_wx_Click"/>
-        <Button     x:Name="btn_isol_wy"        Content="Isolate" FontSize="10"  Grid.Column="12" Grid.Row="3" Width="40" Height="20" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="btn_isol_wy_Click"/>
-        <Button     x:Name="btn_isol_wz"        Content="Isolate" FontSize="10"  Grid.Column="12" Grid.Row="4" Width="40" Height="20" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="btn_isol_wz_Click"/>
-        <Button     x:Name="btn_isol_ax_hfc"    Content="Isolate" FontSize="10"  Grid.Column="12" Grid.Row="6" Width="40" Height="20" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="btn_isol_ax_hfc_Click"/>
-        <Button     x:Name="btn_isol_ax_lfc"    Content="Isolate" FontSize="10"  Grid.Column="12" Grid.Row="7" Width="40" Height="20" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="btn_isol_ax_lfc_Click"/>
-        <Button     x:Name="btn_isol_ay_hfc"    Content="Isolate" FontSize="10"  Grid.Column="12" Grid.Row="9" Width="40" Height="20" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="btn_isol_ay_hfc_Click"/>
-        <Button     x:Name="btn_isol_az_hfc"    Content="Isolate" FontSize="10"  Grid.Column="12" Grid.Row="11" Width="40" Height="20" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="btn_isol_az_hfc_Click"/>
-        <Button     x:Name="btn_isol_az_lfc"    Content="Isolate" FontSize="10"  Grid.Column="12" Grid.Row="12" Width="40" Height="20" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="btn_isol_az_lfc_Click"/>
 
-        <Button     x:Name="btn_AllActive"    Content="All Active" FontSize="10" Grid.Column="11" Grid.Row="13" Grid.ColumnSpan="2" Margin="20,5,5,5" Height="20" Click="btn_AllActive_Click"/>
+        <Button     x:Name="btn_isol_wx"        Content="Isolate" FontSize="10"  Grid.Column="13" Grid.Row="2"  Width="40" Height="20" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="btn_isol_wx_Click"/>
+        <Button     x:Name="btn_isol_wy"        Content="Isolate" FontSize="10"  Grid.Column="13" Grid.Row="3"  Width="40" Height="20" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="btn_isol_wy_Click"/>
+        <Button     x:Name="btn_isol_wz"        Content="Isolate" FontSize="10"  Grid.Column="13" Grid.Row="4"  Width="40" Height="20" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="btn_isol_wz_Click"/>
+        <Button     x:Name="btn_isol_ax_hfc"    Content="Isolate" FontSize="10"  Grid.Column="13" Grid.Row="6"  Width="40" Height="20" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="btn_isol_ax_hfc_Click"/>
+        <Button     x:Name="btn_isol_ax_lfc"    Content="Isolate" FontSize="10"  Grid.Column="13" Grid.Row="7"  Width="40" Height="20" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="btn_isol_ax_lfc_Click"/>
+        <Button     x:Name="btn_isol_ay_hfc"    Content="Isolate" FontSize="10"  Grid.Column="13" Grid.Row="9"  Width="40" Height="20" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="btn_isol_ay_hfc_Click"/>
+        <Button     x:Name="btn_isol_az_hfc"    Content="Isolate" FontSize="10"  Grid.Column="13" Grid.Row="11" Width="40" Height="20" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="btn_isol_az_hfc_Click"/>
+        <Button     x:Name="btn_isol_az_lfc"    Content="Isolate" FontSize="10"  Grid.Column="13" Grid.Row="12" Width="40" Height="20" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="btn_isol_az_lfc_Click"/>
+
+        <Button     x:Name="btn_AllActive"    Content="All Active" FontSize="10" Grid.Column="12" Grid.Row="13" Grid.ColumnSpan="2" Margin="20,14,5,14" Height="20" Click="btn_AllActive_Click"/>
 
         <!--Output-->
-        <TextBlock x:Name="txtblk_output_wx"        Text="{Binding RollHFC,     StringFormat=N2}" Grid.Column="13" Grid.Row="2"     HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
-        <TextBlock x:Name="txtblk_output_wy"        Text="{Binding YawHFC,      StringFormat=N2}" Grid.Column="13" Grid.Row="3"     HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
-        <TextBlock x:Name="txtblk_output_wz"        Text="{Binding PitchHFC,    StringFormat=N2}" Grid.Column="13" Grid.Row="4"     HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
-        <TextBlock x:Name="txtblk_output_ax_hfc"    Text="{Binding SurgeHFC,    StringFormat=N2}" Grid.Column="13" Grid.Row="6"     HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
-        <TextBlock x:Name="txtblk_output_ax_lfc"    Text="{Binding PitchLFC,    StringFormat=N2}" Grid.Column="13" Grid.Row="7"     HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
-        <TextBlock x:Name="txtblk_output_ay_hfc"    Text="{Binding HeaveHFC,    StringFormat=N2}" Grid.Column="13" Grid.Row="9"     HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
-        <TextBlock x:Name="txtblk_output_az_hfc"    Text="{Binding SwayHFC,     StringFormat=N2}" Grid.Column="13" Grid.Row="11"    HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
-        <TextBlock x:Name="txtblk_output_az_lfc"    Text="{Binding RollLFC,     StringFormat=N2}" Grid.Column="13" Grid.Row="12"    HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
-
+        <TextBlock x:Name="txtblk_output_wx"        Text="{Binding RollHFC,     StringFormat=N2}" Grid.Column="14" Grid.Row="2"     HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_output_wy"        Text="{Binding YawHFC,      StringFormat=N2}" Grid.Column="14" Grid.Row="3"     HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_output_wz"        Text="{Binding PitchHFC,    StringFormat=N2}" Grid.Column="14" Grid.Row="4"     HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_output_ax_hfc"    Text="{Binding SurgeHFC,    StringFormat=N2}" Grid.Column="14" Grid.Row="6"     HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_output_ax_lfc"    Text="{Binding PitchLFC,    StringFormat=N2}" Grid.Column="14" Grid.Row="7"     HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_output_ay_hfc"    Text="{Binding HeaveHFC,    StringFormat=N2}" Grid.Column="14" Grid.Row="9"     HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_output_az_hfc"    Text="{Binding SwayHFC,     StringFormat=N2}" Grid.Column="14" Grid.Row="11"    HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_output_az_lfc"    Text="{Binding RollLFC,     StringFormat=N2}" Grid.Column="14" Grid.Row="12"    HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
     </Grid>
 </Window>

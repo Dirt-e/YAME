@@ -17,9 +17,11 @@
             <RowDefinition Height="20"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <HelixToolkit:HelixViewport3D x:Name="Viewport" ZoomExtentsWhenLoaded="true" Grid.Row="0" Grid.RowSpan="2"
-                                      ShowCoordinateSystem="True" ShowViewCube="False" CameraRotationMode="Turntable" Title="SceneView"
-                                      ShowCameraInfo="true" ShowCameraTarget="True" 
+        <HelixToolkit:HelixViewport3D x:Name="Viewport" Title="SceneView" Grid.Row="0" Grid.RowSpan="2" ZoomExtentsWhenLoaded="True"
+                                      ShowCoordinateSystem="True" CoordinateSystemLabelX="Right" CoordinateSystemLabelY="Fwd" CoordinateSystemLabelZ="Up"
+                                      ShowViewCube="True" IsViewCubeEdgeClicksEnabled="true"  ViewCubeHeight="100" ViewCubeWidth="100"
+                                      ViewCubeBackText="L" ViewCubeLeftText="F" ViewCubeFrontText="R" ViewCubeRightText="B"
+                                      CameraRotationMode="Turntable" ShowCameraInfo="false" ShowCameraTarget="True" 
                                       Background="{StaticResource MyDimGrayBrush}">
             <HelixToolkit:SunLight/>
             <!--All Visual3D objects :-->
