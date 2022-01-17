@@ -18,21 +18,19 @@ namespace YAME.ViewModel
             set { _tilte_string = value; OnPropertyChanged(nameof(TitleString)); }
         }
 
-        string _version;
         public string Version
         {
-            get { return _version; }
-            set { _version = value; OnPropertyChanged(nameof(Version));}
+            get { return Properties.Settings.Default.Version; }
         }
 
-        string _profile = "-";
+        string _profile = "N/A";
         public string Profile
         {
             get { return _profile; }
             set { _profile = value; OnPropertyChanged(nameof(Profile)); }
         }
 
-        string _aircraft = "-";
+        string _aircraft = "N/A";
         public string Aircraft
         {
             get { return _aircraft; }
@@ -42,7 +40,6 @@ namespace YAME.ViewModel
         public ViewModel_MainWindow(Engine e)
         {
             base.engine = e;
-            Version = Properties.Settings.Default.Version;
         }
     }
 }

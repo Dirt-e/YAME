@@ -56,7 +56,7 @@ namespace YAME
 
             engine.StartEngine();
             Thread.Sleep(10);
-            engine.loadersaver.LoadEngineSettings_Application();
+            engine.loadersaver.Load_Settings();
 
             SetDataContexts();
 
@@ -69,7 +69,7 @@ namespace YAME
             RememberWhichChildWindowsWereOpen();
             CloseAllOpenChildWindows();
             
-            engine.loadersaver.SaveSettings_Application();
+            engine.loadersaver.Save_Settings();
             engine.StopEngine();
         }
         
@@ -175,11 +175,11 @@ namespace YAME
         //Menu/File:
         private void OnClick_Load(object sender, RoutedEventArgs e)
         {
-            engine.loadersaver.LoadSettings_Profile();
+            engine.loadersaver.Load_Profile();
         }
         private void OnClick_Save(object sender, RoutedEventArgs e)
         {
-            engine.loadersaver.SaveSettings_Profile();
+            engine.loadersaver.Save_Profile();
         }
         private void OnClick_Quit(object sender, RoutedEventArgs e)
         {

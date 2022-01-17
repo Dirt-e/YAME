@@ -20,7 +20,7 @@ namespace YAME.Model
 
         #region From Settings:
         //------------------ Load ------------------------
-        public void LoadEngineSettings_Application()
+        public void Load_Settings()
         {
             LoadCrashDetectorThresholds_Application();
             LoadPositionOffsetCorrectionSettings_Application();
@@ -169,7 +169,7 @@ namespace YAME.Model
             }
 
         //---------------- Save -----------------------
-        public void SaveSettings_Application()
+        public void Save_Settings()
         {
             SaveCrashDetectorThresholds_Application();
             SavePositionCorrectionOffsets_Application();
@@ -322,7 +322,7 @@ namespace YAME.Model
         #endregion
         #region From Profile:
         //------------------ Load ------------------------
-        public void LoadSettings_Profile()
+        public void Load_Profile()
         {
             if (engine.serialtalker.IsOpen)
             {
@@ -473,7 +473,7 @@ namespace YAME.Model
 
 
         //---------------- Save -----------------------
-        public void SaveSettings_Profile()
+        public void Save_Profile()
         {
             SaveFileDialog sfd = MySaveFileDialog();
 
