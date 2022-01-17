@@ -193,7 +193,6 @@
     </Compile>
     <Compile Include="Utility.cs" />
     <Compile Include="ViewModel\ViewModel_CrashDetector.cs" />
-    <Compile Include="ViewModel\ViewModel_FiltersWindow.cs" />
     <Compile Include="ViewModel\ViewModel_MainWindow.cs" />
     <Compile Include="ViewModel\ViewModel_MotionControlWindow.cs" />
     <Compile Include="ViewModel\ViewModel_SceneView.cs" />

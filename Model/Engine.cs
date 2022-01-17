@@ -44,7 +44,6 @@ namespace YAME.Model
         //ViewModels:
         public ViewModel_MainWindow                 VM_MainWindow;
         public ViewModel_CrashDetector              VM_CrashDetector;
-        public ViewModel_FiltersWindow              VM_FiltersWindow;
         public ViewModel_MotionControlWindow        VM_MotionControlWindow;
         public ViewModel_Sceneview                  VM_SceneView;
         //...
@@ -53,6 +52,15 @@ namespace YAME.Model
 
 
         //Internal properties:
+
+        int _target_framerate = Properties.Settings.Default.Engine_TargetFramerate;
+        public int TargetFramerate
+        {
+            get { return _target_framerate; }
+            set { _target_framerate = value; OnPropertyChanged(nameof(TargetFramerate)); }
+        }
+
+        public DOF_Data DOF_Injection { get; set; } = null;
 
         float _deltatime_processing;
         public float DeltatimeProcessing
@@ -64,12 +72,14 @@ namespace YAME.Model
                 FPS = 1000.0f / DeltatimeProcessing; ;
             }
         }
+
         float _fps;
         public float FPS
         {
             get { return _fps; }
             set { _fps = value; OnPropertyChanged(nameof(FPS)); }
         }
+
         Stopwatch stopwatch = Stopwatch.StartNew();
 
         public Engine()
@@ -85,14 +95,11 @@ namespace YAME.Model
         
         private void InstantiateViewModels()
         {
+            //You may want to make these obsolete at some point!
             VM_MainWindow               = new ViewModel_MainWindow(this);
             VM_CrashDetector            = new ViewModel_CrashDetector(this);
-            VM_FiltersWindow            = new ViewModel_FiltersWindow(this);
             VM_MotionControlWindow      = new ViewModel_MotionControlWindow();
             VM_SceneView                = new ViewModel_Sceneview(this);
-            //...
-            //...
-            //...
         }
         
         public void StartEngine()
@@ -107,7 +114,7 @@ namespace YAME.Model
                     while (!backgroundworker.CancellationPending)
                     {
                         UpdateObjects();
-                        WaitForTargetFramerate(500);
+                        WaitForTargetFramerate(TargetFramerate);
                     }
                 };
                 backgroundworker.RunWorkerAsync();
@@ -145,110 +152,50 @@ namespace YAME.Model
         }
         private void UpdateObjects()
         {
-            Update_Server();
-            Update_Chopper();
-            Update_Inverter();
-            Update_ExceedanceDetector();
-            Update_RecoveryLogic();
-            Update_PositionOffsetCorrector();
-            Update_Protector();
-            Update_Alphacompensator();
-            Update_Filtersystem();
-            Update_CompressorSytem();
-            Update_ScalerSystem();
-            Update_ZeroMaker();
-            Update_DOF_Override();
-            Update_Integrator();
-            Update_IK_Module();
-            Update_ActuatorSystem();
-            Update_SerialTalker();
+            if (DOF_Injection ==  null)
+            {
+                NormalProcessing();
+            }
+            else
+            {
+                PhantomProcessing(DOF_Injection);
+            }
+
+
             //TestCode:
-            
+
             //...
             //...
             //...
         }
 
-        private void Update_Server()
+        private void NormalProcessing()
         {
             server.Read();
-        }
-        private void Update_Chopper()
-        {
             chopper.ChopParseAndPackage(server.RawDatastring);
-        }
-        private void Update_Inverter()
-        {
             inverter.InvertDataAsNeeded(chopper.Output);
-
-            #region Update ViewModel
-            VM_FiltersWindow.InvertWx = inverter.Invert_Wx;
-            VM_FiltersWindow.InvertWy = inverter.Invert_Wy;
-            VM_FiltersWindow.InvertWz = inverter.Invert_Wz; 
-
-            VM_FiltersWindow.InvertAx = inverter.Invert_Ax;
-            VM_FiltersWindow.InvertAy = inverter.Invert_Ay;
-            VM_FiltersWindow.InvertAz = inverter.Invert_Az;
-            #endregion
-
-        }
-        private void Update_ExceedanceDetector()
-        {
             exceedancedetector.Process(inverter.Output);
-        }
-        private void Update_RecoveryLogic()
-        {
             recoverylogic.Update();
-        }
-        private void Update_PositionOffsetCorrector()
-        {
             positionoffsetcorrector.Process(exceedancedetector.Output, DeltatimeProcessing);
-        }
-        private void Update_Protector()
-        {
             protector.Process(positionoffsetcorrector.Output);
-        }
-        private void Update_Alphacompensator()
-        {
             alphacompensator.Process(protector.Output);
-        }
-        private void Update_Filtersystem()
-        {
             filtersystem.Process(alphacompensator.Output);
-        }
-        private void Update_CompressorSytem()
-        {
             compressorsystem.Process(filtersystem.Output);
-        }
-        private void Update_ScalerSystem()
-        {
             scalersystem.Process(compressorsystem.Output);
-        }
-        private void Update_ZeroMaker()
-        {
             zeromaker.Process(scalersystem.Output);
-        }
-        private void Update_DOF_Override()
-        {
             dof_override.Process(zeromaker.Output);
-        }
-        private void Update_Integrator()
-        {
             integrator.Update(dof_override.Output);
-        }
-        private void Update_IK_Module()
-        {
             IK_Module.Update();
-        }
-        private void Update_ActuatorSystem()
-        {
             actuatorsystem.Update();
-        }
-        private void Update_SerialTalker()
-        {
             serialtalker.Update(actuatorsystem.Output);
         }
-
+        private void PhantomProcessing(DOF_Data dof_injection)
+        {
+            dof_override.Process(dof_injection);
+            integrator.Update(dof_override.Output);
+            IK_Module.Update();
+            actuatorsystem.Update();
+        }
         //Helpers:
         private void WaitForTargetFramerate(int fps)
         {

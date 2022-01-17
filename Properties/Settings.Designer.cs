@@ -1438,5 +1438,17 @@ namespace YAME.Properties {
                 this["Server_DefaulDataString"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
+        public int Engine_TargetFramerate {
+            get {
+                return ((int)(this["Engine_TargetFramerate"]));
+            }
+            set {
+                this["Engine_TargetFramerate"] = value;
+            }
+        }
     }
 }

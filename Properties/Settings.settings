@@ -356,5 +356,8 @@
     <Setting Name="Server_DefaulDataString" Type="System.String" Scope="User">
       <Value Profile="(Default)">0,0,0,0,0,0,0,0,0,0,0,0,0,0,9.806,0,0,0,nil</Value>
     </Setting>
+    <Setting Name="Engine_TargetFramerate" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">500</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
