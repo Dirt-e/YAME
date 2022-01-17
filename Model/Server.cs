@@ -14,7 +14,14 @@ namespace YAME.Model
     public class Server : MyObject
     {
         public string RawDatastring { get; set; }
-        public int Port { get; set; } = 31090;
+        public readonly string defaultDataString = Properties.Settings.Default.Server_DefaulDataString;
+        
+        readonly int _port = Properties.Settings.Default.Server_Port_UDP;
+        public int Port
+        {
+            get { return _port; }
+        }
+
         bool _data_flowing;
         public bool DataFlowing
         { 
@@ -22,8 +29,7 @@ namespace YAME.Model
             set { _data_flowing = value; OnPropertyChanged(nameof(DataFlowing)); }
         }
 
-        public string defaultDataString = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,9.806,0,0,0,nil";        //The 9.806 is for vertical acceleration (1G)
-        Stopwatch stopwatch = new Stopwatch();                                                  //To determine the timeout for the default values
+        Stopwatch stopwatch = new Stopwatch();  //To determine the timeout for the default values
 
         IPEndPoint MyEndPoint;
         UdpClient Client;
@@ -38,7 +44,7 @@ namespace YAME.Model
             catch (Exception)
             {
                 MessageBox.Show(    "It looks like the port YAME wants to use for communication " +
-                                    $"(Port {Properties.Settings.Default.Server_Port_UDP}) is in use already.\n\n" +
+                                    $"(Port {Port}) is in use already.\n\n" +
                                     "Shoot us an email to software@hexago-motion.com. We will get you a fix.",
                                     "Port occupied",
                                     MessageBoxButton.OK,

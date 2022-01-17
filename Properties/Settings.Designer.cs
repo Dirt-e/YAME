@@ -1405,7 +1405,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("v0.07_alpha_")]
+        [global::System.Configuration.DefaultSettingValueAttribute("v0.08_alpha_")]
         public string Version {
             get {
                 return ((string)(this["Version"]));
@@ -1424,6 +1424,18 @@ namespace YAME.Properties {
             }
             set {
                 this["Server_Port_UDP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0,0,0,0,0,0,0,0,0,0,0,0,0,9.806,0,0,0,nil")]
+        public string Server_DefaulDataString {
+            get {
+                return ((string)(this["Server_DefaulDataString"]));
+            }
+            set {
+                this["Server_DefaulDataString"] = value;
             }
         }
     }

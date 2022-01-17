@@ -348,10 +348,13 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">v0.07_alpha_</Value>
+      <Value Profile="(Default)">v0.08_alpha_</Value>
     </Setting>
     <Setting Name="Server_Port_UDP" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">31090</Value>
+    </Setting>
+    <Setting Name="Server_DefaulDataString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0,0,0,0,0,0,0,0,0,0,0,0,0,0,9.806,0,0,0,nil</Value>
     </Setting>
   </Settings>
 </SettingsFile>

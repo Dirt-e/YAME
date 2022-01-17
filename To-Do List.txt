@@ -4,7 +4,6 @@ GENERAL:
 
 MAIN WINDOW:
 - Save "SimName in profile
-- Show name of active profile in MainWindow when loaded
 
 CRASH DETECTION & RECOVERY:
 
@@ -60,4 +59,6 @@ Changelog:
 
 	Version 0.08
 	- SnappyDragger makes windows snap to other windows when borders are close.
+	- Defined UDP Port in Settings file
+	- Defined DefaultDataString in Settings file
 
