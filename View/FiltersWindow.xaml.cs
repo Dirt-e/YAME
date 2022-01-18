@@ -28,13 +28,13 @@ namespace YAME.View
         {
             var engine = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine;
 
-            #region Inverters are bound directly to the inverters
-            chkbx_invert_Wx.DataContext = engine.inverter;
-            chkbx_invert_Wy.DataContext = engine.inverter;
-            chkbx_invert_Wz.DataContext = engine.inverter;
-            chkbx_invert_Ax.DataContext = engine.inverter;
-            chkbx_invert_Ay.DataContext = engine.inverter;
-            chkbx_invert_Az.DataContext = engine.inverter;
+            #region Inverters are bound to the ViewModel
+            chkbx_invert_Wx.DataContext = engine.VM_FiltersWindow;
+            chkbx_invert_Wy.DataContext = engine.VM_FiltersWindow;
+            chkbx_invert_Wz.DataContext = engine.VM_FiltersWindow;
+            chkbx_invert_Ax.DataContext = engine.VM_FiltersWindow;
+            chkbx_invert_Ay.DataContext = engine.VM_FiltersWindow;
+            chkbx_invert_Az.DataContext = engine.VM_FiltersWindow;
             #endregion
 
             #region Filters are bound directly to the Filter-objects 

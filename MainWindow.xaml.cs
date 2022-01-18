@@ -319,35 +319,6 @@ namespace YAME
             serialConnectionWindow?.Close();
         }
 
-        private void mnuOpenAll_Click(object sender, RoutedEventArgs e)
-        {
-            mnuAlphaCompensation.IsChecked  = true;
-            mnuCrashDetector.IsChecked      = true;
-            mnuDOFs.IsChecked               = true;
-            mnuFilters.IsChecked            = true;
-            mnuGraphs.IsChecked             = true;
-            mnuMotionControl.IsChecked      = true;
-            mnuPositionCorrection.IsChecked = true;
-            mnuRawData.IsChecked            = true;
-            mnuRigConfig.IsChecked          = true;
-            mnuSceneView.IsChecked          = true;
-            mnuSerialConnection.IsChecked   = true;
-        }
-        private void mnuCloseAll_Click(object sender, RoutedEventArgs e)
-        {
-            mnuAlphaCompensation.IsChecked  = false;
-            mnuCrashDetector.IsChecked      = false;
-            mnuDOFs.IsChecked               = false;
-            mnuFilters.IsChecked            = false;
-            mnuGraphs.IsChecked             = false;
-            mnuMotionControl.IsChecked      = false;
-            mnuPositionCorrection.IsChecked = false;
-            mnuRawData.IsChecked            = false;
-            mnuRigConfig.IsChecked          = false;
-            mnuSceneView.IsChecked          = false;
-            mnuSerialConnection.IsChecked   = false;
-        }
-
         //---------- ? ------------
         private void mnuHdr_QM_Click(object sender, RoutedEventArgs e)
         {
@@ -437,6 +408,34 @@ namespace YAME
         {
             //Test code here:
 
+        }
+        private void mnuOpenAll_Click(object sender, RoutedEventArgs e)
+        {
+            mnuAlphaCompensation.IsChecked  = true;
+            mnuCrashDetector.IsChecked      = true;
+            mnuDOFs.IsChecked               = true;
+            mnuFilters.IsChecked            = true;
+            mnuGraphs.IsChecked             = true;
+            mnuMotionControl.IsChecked      = true;
+            mnuPositionCorrection.IsChecked = true;
+            mnuRawData.IsChecked            = true;
+            mnuRigConfig.IsChecked          = true;
+            mnuSceneView.IsChecked          = true;
+            mnuSerialConnection.IsChecked   = true;
+        }
+        private void mnuCloseAll_Click(object sender, RoutedEventArgs e)
+        {
+            mnuAlphaCompensation.IsChecked  = false;
+            mnuCrashDetector.IsChecked      = false;
+            mnuDOFs.IsChecked               = false;
+            mnuFilters.IsChecked            = false;
+            mnuGraphs.IsChecked             = false;
+            mnuMotionControl.IsChecked      = false;
+            mnuPositionCorrection.IsChecked = false;
+            mnuRawData.IsChecked            = false;
+            mnuRigConfig.IsChecked          = false;
+            mnuSceneView.IsChecked          = false;
+            mnuSerialConnection.IsChecked   = false;
         }
     }
 }
