@@ -44,7 +44,6 @@ namespace YAME.Model
         //ViewModels:
         public ViewModel_MainWindow                 VM_MainWindow;
         public ViewModel_CrashDetector              VM_CrashDetector;
-        public ViewModel_FiltersWindow              VM_FiltersWindow;
         public ViewModel_MotionControlWindow        VM_MotionControlWindow;
         public ViewModel_Sceneview                  VM_SceneView;
         //...
@@ -87,7 +86,6 @@ namespace YAME.Model
         {
             VM_MainWindow               = new ViewModel_MainWindow(this);
             VM_CrashDetector            = new ViewModel_CrashDetector(this);
-            VM_FiltersWindow            = new ViewModel_FiltersWindow(this);
             VM_MotionControlWindow      = new ViewModel_MotionControlWindow();
             VM_SceneView                = new ViewModel_Sceneview(this);
             //...
@@ -180,16 +178,6 @@ namespace YAME.Model
         private void Update_Inverter()
         {
             inverter.InvertDataAsNeeded(chopper.Output);
-
-            #region Update ViewModel
-            VM_FiltersWindow.InvertWx = inverter.Invert_Wx;
-            VM_FiltersWindow.InvertWy = inverter.Invert_Wy;
-            VM_FiltersWindow.InvertWz = inverter.Invert_Wz; 
-
-            VM_FiltersWindow.InvertAx = inverter.Invert_Ax;
-            VM_FiltersWindow.InvertAy = inverter.Invert_Ay;
-            VM_FiltersWindow.InvertAz = inverter.Invert_Az;
-            #endregion
 
         }
         private void Update_ExceedanceDetector()
