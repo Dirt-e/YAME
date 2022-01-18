@@ -143,99 +143,27 @@ namespace YAME.Model
         }
         private void UpdateObjects()
         {
-            Update_Server();
-            Update_Chopper();
-            Update_Inverter();
-            Update_ExceedanceDetector();
-            Update_RecoveryLogic();
-            Update_PositionOffsetCorrector();
-            Update_Protector();
-            Update_Alphacompensator();
-            Update_Filtersystem();
-            Update_CompressorSytem();
-            Update_ScalerSystem();
-            Update_ZeroMaker();
-            Update_DOF_Override();
-            Update_Integrator();
-            Update_IK_Module();
-            Update_ActuatorSystem();
-            Update_SerialTalker();
-            //TestCode:
-            
-            //...
-            //...
-            //...
-        }
-
-        private void Update_Server()
-        {
             server.Read();
-        }
-        private void Update_Chopper()
-        {
             chopper.ChopParseAndPackage(server.RawDatastring);
-        }
-        private void Update_Inverter()
-        {
             inverter.InvertDataAsNeeded(chopper.Output);
-
-        }
-        private void Update_ExceedanceDetector()
-        {
             exceedancedetector.Process(inverter.Output);
-        }
-        private void Update_RecoveryLogic()
-        {
             recoverylogic.Update();
-        }
-        private void Update_PositionOffsetCorrector()
-        {
             positionoffsetcorrector.Process(exceedancedetector.Output, DeltatimeProcessing);
-        }
-        private void Update_Protector()
-        {
             protector.Process(positionoffsetcorrector.Output);
-        }
-        private void Update_Alphacompensator()
-        {
             alphacompensator.Process(protector.Output);
-        }
-        private void Update_Filtersystem()
-        {
             filtersystem.Process(alphacompensator.Output);
-        }
-        private void Update_CompressorSytem()
-        {
             compressorsystem.Process(filtersystem.Output);
-        }
-        private void Update_ScalerSystem()
-        {
             scalersystem.Process(compressorsystem.Output);
-        }
-        private void Update_ZeroMaker()
-        {
             zeromaker.Process(scalersystem.Output);
-        }
-        private void Update_DOF_Override()
-        {
             dof_override.Process(zeromaker.Output);
-        }
-        private void Update_Integrator()
-        {
             integrator.Update(dof_override.Output);
-        }
-        private void Update_IK_Module()
-        {
             IK_Module.Update();
-        }
-        private void Update_ActuatorSystem()
-        {
             actuatorsystem.Update();
-        }
-        private void Update_SerialTalker()
-        {
             serialtalker.Update(actuatorsystem.Output);
         }
+
+            
+        
 
         //Helpers:
         private void WaitForTargetFramerate(int fps)
