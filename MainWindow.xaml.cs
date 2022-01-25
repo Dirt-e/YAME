@@ -21,6 +21,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Reflection;
 using System.IO.Compression;
+using YAME.DataFomats;
+using System.Windows.Media.Media3D;
 
 namespace YAME
 {
@@ -434,9 +436,22 @@ namespace YAME
         //---------- Buttons -----------
         private void btn_Test_Click(object sender, RoutedEventArgs e)
         {
-            //Test code here:
+            //This code creates a phantom rig:
+            Integrator_basic ib     = new Integrator_basic(engine.integrator);
+            ib.Plat_Motion.IsParentOf(ib.UpperPoints);                                  //To not have to Lerp.
 
+            IK_Module ikm           = new IK_Module(ib);
+
+            ActuatorSystem ActSys   = new ActuatorSystem(ikm);
+            ActSys.MaxLength        = engine.actuatorsystem.MaxLength;
+            ActSys.MinLength        = engine.actuatorsystem.MinLength;
+            
+            
+            //...and moves it around:
+            DOF_Data dof_data = new DOF_Data(500,0,0,0,0,0,0,0);
+            ib.Update(dof_data);
+            ikm.Update();
+            ActSys.Update();
         }
-        
     }
 }

@@ -52,7 +52,7 @@ namespace YAME.Model
         }
 
         //-Dist-Dist-
-        float _dist_a;
+        float _dist_a = 1;
         public float Dist_A
         {
             get { return _dist_a; }
@@ -63,7 +63,7 @@ namespace YAME.Model
                 Redraw();
             }
         }
-        float _dist_b;
+        float _dist_b = 1;
         public float Dist_B
         {
             get { return _dist_b; }

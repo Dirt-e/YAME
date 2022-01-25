@@ -86,7 +86,7 @@ namespace YAME.Model
             }
         }
 
-        public ActuatorSystem(ref IK_Module ikm)
+        public ActuatorSystem(IK_Module ikm)
         {
             IK_Module = ikm;
             

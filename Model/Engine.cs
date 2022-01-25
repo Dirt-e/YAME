@@ -134,8 +134,8 @@ namespace YAME.Model
             dof_override            = new DOF_Override();
             loadersaver             = new LoaderSaver(this);
             integrator              = new Integrator(this);
-            IK_Module               = new IK_Module(ref integrator);
-            actuatorsystem          = new ActuatorSystem(ref IK_Module);
+            IK_Module               = new IK_Module(integrator as Integrator_basic);
+            actuatorsystem          = new ActuatorSystem(IK_Module);
             serialtalker            = new SerialTalker(this);
             //...
             //...

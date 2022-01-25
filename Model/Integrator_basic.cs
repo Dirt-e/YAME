@@ -86,6 +86,7 @@ namespace YAME.Model
 
         #endregion
 
+        //Constructor
         public Integrator_basic()
         {
             World = new MyTransform();
@@ -103,6 +104,33 @@ namespace YAME.Model
             EstablishHierarchy();
 
         }
+        //Copy Constructor
+        public Integrator_basic(Integrator_basic int_bas)
+        {
+            Dist_A_Upper    = int_bas.Dist_A_Upper;
+            Dist_B_Upper    = int_bas.Dist_B_Upper;
+            Dist_A_Lower    = int_bas.Dist_A_Lower;
+            Dist_B_Lower    = int_bas.Dist_B_Lower;
+            Offset_Park     = int_bas.Offset_Park;
+            Offset_Pause    = int_bas.Offset_Pause;
+            Offset_CoR      = int_bas.Offset_CoR;
+
+            World = new MyTransform();
+            Plat_Fix_Base = new MyTransform();
+            Plat_Fix_Pause = new MyTransform(); //(50% extension position)
+            Plat_CoR = new MyTransform();
+            Plat_LFC = new MyTransform();
+            Plat_HFC = new MyTransform();
+            Plat_Motion = new MyTransform();
+            Plat_Float_Physical = new MyTransform();
+            Plat_Fix_Park = new MyTransform();
+            LowerPoints = new ConnectingPoints();
+            UpperPoints = new ConnectingPoints();
+
+            EstablishHierarchy();
+
+        }
+        
         private void EstablishHierarchy()
         {
             World.IsParentOf(Plat_Fix_Base);
@@ -116,7 +144,6 @@ namespace YAME.Model
             World.IsParentOf(Plat_Float_Physical);
             Plat_Float_Physical.IsParentOf(UpperPoints);
         }
-
 
         public void Update(DOF_Data data)
         {
@@ -133,30 +160,30 @@ namespace YAME.Model
             LowerPoints.Dist_A = Dist_A_Lower;
             LowerPoints.Dist_B = Dist_B_Lower;
 
-            Plat_Fix_Park.SetTranslation(0,
+            Plat_Fix_Park.SetTranslation(   0,
                                             0,
                                             Offset_Park);
 
-            Plat_Fix_Pause.SetTranslation(0,
+            Plat_Fix_Pause.SetTranslation(  0,
                                             0,
                                             Offset_Pause);
 
-            Plat_CoR.SetTranslation(0,
+            Plat_CoR.SetTranslation(        0,
                                             0,
                                             Offset_CoR);
 
-            Plat_LFC.SetOrientation(0,
+            Plat_LFC.SetOrientation(        0,
                                             RAD_from_DEG(Input.LFC_Pitch),
                                             -RAD_from_DEG(Input.LFC_Roll));     //Negative sign, because a positive accel (right) shall tilt the platform towards negative roll (left)
 
-            Plat_HFC.SetTranslation(Input.HFC_Sway,
+            Plat_HFC.SetTranslation(        Input.HFC_Sway,
                                             Input.HFC_Surge,
                                             Input.HFC_Heave);
-            Plat_HFC.SetOrientation(RAD_from_DEG(Input.HFC_Yaw),
+            Plat_HFC.SetOrientation(        RAD_from_DEG(Input.HFC_Yaw),
                                             RAD_from_DEG(Input.HFC_Pitch),
                                             RAD_from_DEG(Input.HFC_Roll));
 
-            Plat_Motion.SetTranslation(0,
+            Plat_Motion.SetTranslation(     0,
                                             0,
                                             -Offset_CoR);
         }

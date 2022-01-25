@@ -38,5 +38,19 @@ namespace YAME.DataFomats
             LFC_Pitch = dof_data.LFC_Pitch;
             LFC_Roll = dof_data.LFC_Roll;
         }
+        public DOF_Data(float surge, float heave, float sway, float yaw, float pitch, float roll, float pitch_lfc, float roll_lfc)
+        {
+            //HFC
+            HFC_Surge   = surge;
+            HFC_Heave   = heave;
+            HFC_Sway    = sway;
+            HFC_Yaw     = yaw;
+            HFC_Pitch   = pitch;
+            HFC_Roll    = roll;
+
+            //LFC
+            LFC_Pitch   = pitch_lfc;
+            LFC_Roll    = roll_lfc;
+        }
     }
 }

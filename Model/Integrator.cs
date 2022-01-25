@@ -18,65 +18,22 @@ namespace YAME.Model
         //The Integrator ONLY generates the different platforms (Airplane.STL) and displays them
         //via a Dispatcher.invoke() call. All inverse kinematics are done in the IK Module!!!
 
-        //public DOF_Data Input = new DOF_Data();
         Stopwatch invoke_timer = Stopwatch.StartNew();
 
         public Lerp_3Way Lerp_3Way;
         float fade_duration_ParkToPause_seconds = 5;
         float fade_duration_PauseToMotion_seconds = 5;
 
-        //#region MyTransforms
-        //public MyTransform World;
-        //    public MyTransform Plat_Fix_Base;
-        //        public MyTransform Plat_Fix_Pause;
-        //            public MyTransform Plat_CoR;
-        //                public MyTransform Plat_LFC;
-        //                    public MyTransform Plat_HFC;
-        //                        public MyTransform Plat_Motion;
-        //                            public ConnectingPoints UpperPoints;
-        //        public ConnectingPoints LowerPoints;
-
-        //        public MyTransform Plat_Fix_Park;
-        //        public MyTransform Plat_Float_Physical;
-        
-        //#endregion
-
 
         public Integrator(Engine e)
         {
             engine = e;         //To accesss other Objects
 
-            //World                   = new MyTransform();
-            //Plat_Fix_Base           = new MyTransform();
-            //Plat_Fix_Pause          = new MyTransform(); //(50% extension position)
-            //Plat_CoR                = new MyTransform();
-            //Plat_LFC                = new MyTransform();
-            //Plat_HFC                = new MyTransform();
-            //Plat_Motion             = new MyTransform();
-            //Plat_Float_Physical     = new MyTransform();
-            //Plat_Fix_Park           = new MyTransform();
-            //LowerPoints             = new ConnectingPoints();
-            //UpperPoints             = new ConnectingPoints();
-
             Lerp_3Way = new Lerp_3Way(  TimeSpan.FromSeconds(fade_duration_ParkToPause_seconds),
                                         TimeSpan.FromSeconds(fade_duration_PauseToMotion_seconds),
                                         engine);
-            //EstablishHierarchy();
 
         }
-        //private void EstablishHierarchy()
-        //{
-        //    World.IsParentOf(Plat_Fix_Base);
-        //        Plat_Fix_Base.IsParentOf(Plat_Fix_Park);
-        //        Plat_Fix_Base.IsParentOf(Plat_Fix_Pause);
-        //            Plat_Fix_Pause.IsParentOf(Plat_CoR);
-        //                Plat_CoR.IsParentOf(Plat_LFC);
-        //                    Plat_LFC.IsParentOf(Plat_HFC);
-        //                        Plat_HFC.IsParentOf(Plat_Motion);
-        //        Plat_Fix_Base.IsParentOf(LowerPoints);
-        //    World.IsParentOf(Plat_Float_Physical);
-        //        Plat_Float_Physical.IsParentOf(UpperPoints);
-        //}
 
 
         new public void Update(DOF_Data data)
