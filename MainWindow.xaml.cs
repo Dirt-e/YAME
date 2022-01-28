@@ -62,7 +62,11 @@ namespace YAME
 
             SetDataContexts();
 
-            ShowAboutWindowOnAppStart(2000);
+            if (Properties.Settings.Default.SplashScreen)
+            {
+                ShowAboutWindowOnAppStart(2000);
+            }
+            
             OpenDefaultChildWindows();
         }
         private void Window_Closing(object sender, CancelEventArgs e)

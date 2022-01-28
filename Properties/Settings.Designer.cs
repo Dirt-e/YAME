@@ -1438,5 +1438,17 @@ namespace YAME.Properties {
                 this["Server_DefaulDataString"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SplashScreen {
+            get {
+                return ((bool)(this["SplashScreen"]));
+            }
+            set {
+                this["SplashScreen"] = value;
+            }
+        }
     }
 }
