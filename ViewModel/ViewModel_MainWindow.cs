@@ -11,7 +11,7 @@ namespace YAME.ViewModel
 {
     public class ViewModel_MainWindow : _ViewModel
     {
-        string _tilte_string = "Main Window";
+        string _tilte_string = "YAME Main Window";
         public string TitleString
         {
             get { return _tilte_string; }
@@ -23,14 +23,14 @@ namespace YAME.ViewModel
             get { return Properties.Settings.Default.Version; }
         }
 
-        string _profile = "N/A";
+        string _profile = "nil";
         public string Profile
         {
             get { return _profile; }
             set { _profile = value; OnPropertyChanged(nameof(Profile)); }
         }
 
-        string _aircraft = "N/A";
+        string _aircraft = "nil";
         public string Aircraft
         {
             get { return _aircraft; }

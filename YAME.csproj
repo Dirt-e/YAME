@@ -158,6 +158,7 @@
     <Compile Include="Model\CompressorModule.cs" />
     <Compile Include="Model\CompressorSystem.cs" />
     <Compile Include="Model\ConnectingPoints.cs" />
+    <Compile Include="Model\DOF.cs" />
     <Compile Include="Model\ExceedanceDetector.cs" />
     <Compile Include="DataFomats\FilterData.cs" />
     <Compile Include="Model\DOF_Override.cs" />
@@ -171,6 +172,7 @@
     <Compile Include="Model\MessageGenerator_AMC_AASD15A.cs" />
     <Compile Include="Model\Messagegenerator_M4S.cs" />
     <Compile Include="Model\MyTransform.cs" />
+    <Compile Include="Model\PhantomRig.cs" />
     <Compile Include="Model\ScalerModule.cs" />
     <Compile Include="Model\ScalerSystem.cs" />
     <Compile Include="Model\SerialTalker.cs" />

@@ -90,7 +90,7 @@ namespace YAME.Model
             Plat_Float_Physical.Transform = Lerp_3Way.Output;
         }
 
-        #region Callback
+        #region Update UI Callback
         private void UpdateUI_ViaDispatcherInvoke()
         {
             if (invoke_timer.ElapsedMilliseconds > 33)      //Update the UI only at ~30fps

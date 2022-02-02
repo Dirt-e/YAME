@@ -357,7 +357,7 @@
       <Value Profile="(Default)">0,0,0,0,0,0,0,0,0,0,0,0,0,0,9.806,0,0,0,nil</Value>
     </Setting>
     <Setting Name="SplashScreen" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

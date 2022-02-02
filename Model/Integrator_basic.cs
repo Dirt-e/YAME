@@ -116,7 +116,7 @@ namespace YAME.Model
             Offset_CoR      = int_bas.Offset_CoR;
 
             World = new MyTransform();
-            Plat_Fix_Base = new MyTransform();
+            Plat_Fix_Base = new MyTransform();  //(0% extension position)
             Plat_Fix_Pause = new MyTransform(); //(50% extension position)
             Plat_CoR = new MyTransform();
             Plat_LFC = new MyTransform();
@@ -128,7 +128,6 @@ namespace YAME.Model
             UpperPoints = new ConnectingPoints();
 
             EstablishHierarchy();
-
         }
         
         private void EstablishHierarchy()
@@ -148,7 +147,6 @@ namespace YAME.Model
         public void Update(DOF_Data data)
         {
             Input = new DOF_Data(data);
-
             Integrate_Platforms();
         }
 

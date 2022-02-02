@@ -20,7 +20,12 @@
       "ProjectGuid": "323e4cc7-375f-40cb-80ec-16f805e92b38",
       "DisplayName": "SimPatcher",
       "ColorIndex": 2
+    },
+    "9fb122dc-c816-48b9-a5e0-7d1ecf317a69": {
+      "ProjectGuid": "9fb122dc-c816-48b9-a5e0-7d1ecf317a69",
+      "DisplayName": "ExcelCharts",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 3
+  "NextColorIndex": 4
 }

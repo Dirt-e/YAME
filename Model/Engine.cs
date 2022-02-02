@@ -162,8 +162,6 @@ namespace YAME.Model
             serialtalker.Update(actuatorsystem.Output);
         }
 
-            
-        
 
         //Helpers:
         private void WaitForTargetFramerate(int fps)
@@ -174,6 +172,8 @@ namespace YAME.Model
             while (stopwatch.ElapsedTicks < targetTicksPerFrame)
             {
                 //DoNothing();
+
+                Thread.Sleep(100);
             }
 
             DeltatimeProcessing = (float)stopwatch.Elapsed.TotalMilliseconds;

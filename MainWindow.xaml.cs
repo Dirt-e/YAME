@@ -23,12 +23,14 @@ using System.Reflection;
 using System.IO.Compression;
 using YAME.DataFomats;
 using System.Windows.Media.Media3D;
+using System.Diagnostics;
 
 namespace YAME
 {
     public partial class MainWindow : Window
     {
         public Engine engine = new Engine();
+        PhantomRig phantom;
         Mutex single_instance_mutex;
 
         RawDataWindow           rawDataWindow;
@@ -57,8 +59,9 @@ namespace YAME
             EnforceSingleInstance();
 
             engine.StartEngine();
-            Thread.Sleep(10);
+            Thread.Sleep(100);
             engine.loadersaver.Load_Settings();
+            phantom = new PhantomRig();
 
             SetDataContexts();
 
@@ -356,14 +359,23 @@ namespace YAME
         //---------- ? ------------
         private void mnuHdr_QM_Click(object sender, RoutedEventArgs e)
         {
-            if (!aboutWindow.IsOpen)
-            {
-                aboutWindow = new AboutWindow();
-                aboutWindow.Owner = this;
-                aboutWindow.Name = "AboutWindow";
-                aboutWindow.Show();
-            }
+            if (aboutWindow != null && aboutWindow.IsOpen) return;
+            
+            CreateAboutWindow();
         }
+        void CreateAboutWindow()
+        {
+            aboutWindow = new AboutWindow();
+            aboutWindow.Owner = this;
+            aboutWindow.Name = "AboutWindow";
+            aboutWindow.Show();
+        }
+        void CloseAboutWindow()
+        {
+            aboutWindow.Close();
+        }
+
+        //---------- Patcher ---------- 
         private void mnuHdr_Patcher_Click(object sender, RoutedEventArgs e)
         {
             foreach (Window w in OwnedWindows)
@@ -419,14 +431,9 @@ namespace YAME
         {
             this.Hide();
 
-            aboutWindow = new AboutWindow();
-            aboutWindow.Owner = this;
-            aboutWindow.Name = "AboutWindow";
-            aboutWindow.Show();
-
+            CreateAboutWindow();
             Thread.Sleep(ms);
-
-            aboutWindow.Close();
+            CloseAboutWindow();
 
             this.Show();
         }
@@ -440,22 +447,7 @@ namespace YAME
         //---------- Buttons -----------
         private void btn_Test_Click(object sender, RoutedEventArgs e)
         {
-            //This code creates a phantom rig:
-            Integrator_basic ib     = new Integrator_basic(engine.integrator);
-            ib.Plat_Motion.IsParentOf(ib.UpperPoints);                                  //To not have to Lerp.
-
-            IK_Module ikm           = new IK_Module(ib);
-
-            ActuatorSystem ActSys   = new ActuatorSystem(ikm);
-            ActSys.MaxLength        = engine.actuatorsystem.MaxLength;
-            ActSys.MinLength        = engine.actuatorsystem.MinLength;
-            
-            
-            //...and moves it around:
-            DOF_Data dof_data = new DOF_Data(500,0,0,0,0,0,0,0);
-            ib.Update(dof_data);
-            ikm.Update();
-            ActSys.Update();
+            phantom.RootSearchLimit(DOF.heave, 20);
         }
     }
 }

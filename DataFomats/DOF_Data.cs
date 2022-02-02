@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YAME.Model;
 
 namespace YAME.DataFomats
 {
@@ -21,7 +22,6 @@ namespace YAME.DataFomats
         public float LFC_Pitch { get; set; }
         public float LFC_Roll { get; set; }
 
-
         //Constructor
         public DOF_Data() { }
         public DOF_Data(DOF_Data dof_data)
@@ -38,7 +38,7 @@ namespace YAME.DataFomats
             LFC_Pitch = dof_data.LFC_Pitch;
             LFC_Roll = dof_data.LFC_Roll;
         }
-        public DOF_Data(float surge, float heave, float sway, float yaw, float pitch, float roll, float pitch_lfc, float roll_lfc)
+        public DOF_Data(float surge = 0, float heave = 0, float sway = 0, float yaw = 0, float pitch = 0, float roll = 0, float pitch_lfc = 0, float roll_lfc = 0)
         {
             //HFC
             HFC_Surge   = surge;
@@ -52,5 +52,31 @@ namespace YAME.DataFomats
             LFC_Pitch   = pitch_lfc;
             LFC_Roll    = roll_lfc;
         }
+
+        public float report(DOF dof)
+        {
+            switch (dof)
+            {
+                case DOF.surge:
+                    return HFC_Surge;
+                case DOF.heave:
+                    return HFC_Heave;
+                case DOF.sway:
+                    return HFC_Sway;
+                case DOF.yaw:
+                    return HFC_Yaw;
+                case DOF.pitch:
+                    return HFC_Pitch;
+                case DOF.roll:
+                    return HFC_Roll;
+                case DOF.pitch_lfc:
+                    return LFC_Pitch;
+                case DOF.roll_lfc:
+                    return LFC_Roll;
+                default:
+                    throw new Exception($"Unknown DOF: {dof}");
+            }
+        }
+    
     }
 }
