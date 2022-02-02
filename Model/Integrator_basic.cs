@@ -133,15 +133,15 @@ namespace YAME.Model
         private void EstablishHierarchy()
         {
             World.IsParentOf(Plat_Fix_Base);
-            Plat_Fix_Base.IsParentOf(Plat_Fix_Park);
-            Plat_Fix_Base.IsParentOf(Plat_Fix_Pause);
-            Plat_Fix_Pause.IsParentOf(Plat_CoR);
-            Plat_CoR.IsParentOf(Plat_LFC);
-            Plat_LFC.IsParentOf(Plat_HFC);
-            Plat_HFC.IsParentOf(Plat_Motion);
-            Plat_Fix_Base.IsParentOf(LowerPoints);
+                Plat_Fix_Base.IsParentOf(Plat_Fix_Park);
+                Plat_Fix_Base.IsParentOf(Plat_Fix_Pause);
+                    Plat_Fix_Pause.IsParentOf(Plat_CoR);
+                        Plat_CoR.IsParentOf(Plat_LFC);
+                            Plat_LFC.IsParentOf(Plat_HFC);
+                                Plat_HFC.IsParentOf(Plat_Motion);
+                Plat_Fix_Base.IsParentOf(LowerPoints);
             World.IsParentOf(Plat_Float_Physical);
-            Plat_Float_Physical.IsParentOf(UpperPoints);
+                Plat_Float_Physical.IsParentOf(UpperPoints);
         }
 
         public void Update(DOF_Data data)

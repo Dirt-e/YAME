@@ -15,6 +15,9 @@ namespace YAME.Model
         IK_Module ik_module;
         ActuatorSystem ActSys;
 
+        int step_translations = 20;     //mm!
+        int step_rotations = 5;         //degrees,... I think :-/   BETTER CONFIRM!
+
         DOF_Data dof_data = new DOF_Data();
         public bool IsInlimits
         { 
@@ -112,7 +115,7 @@ namespace YAME.Model
                     value *= -0.5f;
                     withinEnvelope = IsInlimits;
                     level++;
-                    if (level >= 5) done = true;            //Magic Constant
+                    if (level >= 11) done = true;            //Magic Constant
                 }
             }
             float limit = dof_data.report(dof);
@@ -140,9 +143,25 @@ namespace YAME.Model
                 }
             }  
             float limit = dof_data.report(dof);
-            Debug.WriteLine(limit);
-
             return limit; 
+        }
+        public float RootSearchParkPosition_FromFlatRig()
+        { 
+            float pauseHeight = integrator_basic.Offset_Pause;                  //Remember for later
+            integrator_basic.Offset_Pause = 0;                                  //Just temporarily! To create a flat rig.
+            Update();
+
+            if (IsInlimits) throw new Exception("A flat rig should be out of Limits!");
+
+            float parkHeight = RootSearchBoundary_FromOutside(DOF.heave, step_translations);    //Now you know!
+            integrator_basic.Offset_Pause = pauseHeight;                                        //Set it back
+            Update();
+
+            return parkHeight;
+        }
+        public void AutoSet_ParkPosition()
+        {
+            integrator_basic.Offset_Park = RootSearchParkPosition_FromFlatRig(20);
         }
     }
 }

@@ -1,4 +1,8 @@
-﻿using Microsoft.Win32;
+﻿#if !DEBUG 
+#define RELEASE
+#endif
+
+using Microsoft.Win32;
 using YAME.Model;
 using YAME.View;
 using YAME.ViewModel;
@@ -30,7 +34,6 @@ namespace YAME
     public partial class MainWindow : Window
     {
         public Engine engine = new Engine();
-        PhantomRig phantom;
         Mutex single_instance_mutex;
 
         RawDataWindow           rawDataWindow;
@@ -61,16 +64,11 @@ namespace YAME
             engine.StartEngine();
             Thread.Sleep(100);
             engine.loadersaver.Load_Settings();
-            Thread.Sleep(100);
-            phantom = new PhantomRig();
 
             SetDataContexts();
 
-            if (Properties.Settings.Default.SplashScreen)
-            {
-                ShowAboutWindowOnAppStart(2000);
-            }
-            
+            ShowAboutWindowOnAppStart(2000);
+
             OpenDefaultChildWindows();
         }
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -428,6 +426,7 @@ namespace YAME
             this.Left = desktopWorkingArea.Right - this.Width - x;
             this.Top = desktopWorkingArea.Bottom - this.Height - y;
         }
+        [Conditional("RELEASE")]
         private void ShowAboutWindowOnAppStart(int ms)
         {
             this.Hide();
@@ -448,7 +447,9 @@ namespace YAME
         //---------- Buttons -----------
         private void btn_Test_Click(object sender, RoutedEventArgs e)
         {
-            phantom.RootSearchBoundary_FromWithin(DOF.heave, 20);
+            PhantomRig phantom = new PhantomRig();
+            float x = phantom.RootSearchParkPosition_FromFlatRig();
+
         }
     }
 }
