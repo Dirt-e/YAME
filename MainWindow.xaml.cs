@@ -61,6 +61,7 @@ namespace YAME
             engine.StartEngine();
             Thread.Sleep(100);
             engine.loadersaver.Load_Settings();
+            Thread.Sleep(100);
             phantom = new PhantomRig();
 
             SetDataContexts();
@@ -447,7 +448,7 @@ namespace YAME
         //---------- Buttons -----------
         private void btn_Test_Click(object sender, RoutedEventArgs e)
         {
-            phantom.RootSearchLimit(DOF.heave, 20);
+            phantom.RootSearchBoundary_FromWithin(DOF.heave, 20);
         }
     }
 }

@@ -39,6 +39,8 @@ namespace YAME.Model
             integrator_basic.Plat_Motion.IsParentOf(integrator_basic.UpperPoints);
             ActSys.MaxLength = engine.actuatorsystem.MaxLength;
             ActSys.MinLength = engine.actuatorsystem.MinLength;
+
+            Update();
         }
         
         void Update()
@@ -53,7 +55,6 @@ namespace YAME.Model
             dof_data = new DOF_Data(surge, heave, sway, yaw, pitch, roll, pitch_lfc, roll_lfc);
             Update();
         }
-
         public bool CanHandle(float surge = 0, float heave = 0, float sway = 0, float yaw = 0, float pitch = 0, float roll = 0, float pitch_lfc = 0, float roll_lfc = 0)
         {
             Process(surge, heave, sway, yaw, pitch, roll, pitch_lfc, roll_lfc);
@@ -61,7 +62,6 @@ namespace YAME.Model
             if (IsInlimits) return true;
             return false;
         }
-
         public void Increment(DOF dof, float value)
         {
             switch (dof)
@@ -95,8 +95,32 @@ namespace YAME.Model
             }
             Update();
         }
+        public float RootSearchBoundary_FromOutside(DOF dof, float value)
+        {
+            //This algorithm searches the Pause Position (50%) starting from a "flat rig"
+            if (IsInlimits) throw new Exception("This function must start from outside envelope. (Flat rig!)");
 
-        public float RootSearchLimit(DOF dof, float value)
+            bool withinEnvelope = false;
+            bool done = false;
+            int level = 0;
+
+            while (!done)
+            {
+                Increment(dof, value);
+                if (IsInlimits != withinEnvelope)
+                {
+                    value *= -0.5f;
+                    withinEnvelope = IsInlimits;
+                    level++;
+                    if (level >= 5) done = true;            //Magic Constant
+                }
+            }
+            float limit = dof_data.report(dof);
+            Debug.WriteLine(limit);
+
+            return limit;
+        }
+        public float RootSearchBoundary_FromWithin(DOF dof, float value)
         {
             if (!IsInlimits) throw new Exception("Root search must start from within envelope.");
             
@@ -112,7 +136,7 @@ namespace YAME.Model
                     value *= -0.5f;
                     withinEnvelope = IsInlimits;
                     level++;
-                    if (level >= 4) done = true;
+                    if (level >= 10) done = true;            //Magic Constant
                 }
             }  
             float limit = dof_data.report(dof);
