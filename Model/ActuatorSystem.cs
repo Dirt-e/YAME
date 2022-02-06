@@ -93,12 +93,12 @@ namespace YAME.Model
         {
             get
             {
-                return (A1.Status == ActuatorStatus.Inlimits &&
-                        A2.Status == ActuatorStatus.Inlimits &&
-                        A3.Status == ActuatorStatus.Inlimits &&
-                        A4.Status == ActuatorStatus.Inlimits &&
-                        A5.Status == ActuatorStatus.Inlimits &&
-                        A6.Status == ActuatorStatus.Inlimits);
+                return (A1.InLimits &&
+                        A2.InLimits &&
+                        A3.InLimits &&
+                        A4.InLimits &&
+                        A5.InLimits &&
+                        A6.InLimits);
             }
         }
         public bool Is_AllActuatorsFullyRetracted

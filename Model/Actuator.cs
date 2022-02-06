@@ -61,6 +61,17 @@ namespace YAME.Model
             get { return _utilisation; }
             private set { _utilisation = value; OnPropertyChanged("Utilisation"); }
         }
+
+        float bufferzone { get; set; } = 0.001f;     //to trigger the "End" and "Center" states
+        public bool InLimits
+        { 
+            get 
+            {
+                return (Status != ActuatorStatus.TooLong &&
+                        Status != ActuatorStatus.TooShort);
+            } 
+        }
+
         ActuatorStatus _status;
         public ActuatorStatus Status
         {
@@ -71,32 +82,44 @@ namespace YAME.Model
         void redraw()
         {
             Extension = CurrentLength - MinLength;
-            Status = DetermineStatus();
-            Utilisation = DetermineUtilisation();
-        }
 
-        ActuatorStatus DetermineStatus()
-        {
-            if (MinLength <= CurrentLength && CurrentLength <= MaxLength)   return ActuatorStatus.Inlimits;
-            else if (CurrentLength <= MinLength)                            return ActuatorStatus.TooShort;
-            else                                                            return ActuatorStatus.TooLong;
-            
+            Utilisation = DetermineUtilisation();
+            Status = DetermineStatus();
         }
+        
         float DetermineUtilisation()
         {
-            if (Status == ActuatorStatus.Inlimits)          return (Extension / Stroke);
-            else if (Status == ActuatorStatus.TooShort)     return 0;
-            else if ( Status == ActuatorStatus.TooLong)     return 1;
-
-            //This should never happen:
-            throw new Exception("Unkown ActuatorStatus: " + Status);
+            if (MinLength <= CurrentLength && CurrentLength <= MaxLength)   return (Extension / Stroke);
+            else if (CurrentLength <= MinLength)                            return 0;
+            else                                                            return 1;
         }
+        ActuatorStatus DetermineStatus()
+        {
+            if (Utilisation == 0)                                           return ActuatorStatus.TooShort;
+            if (Utilisation == 1)                                           return ActuatorStatus.TooLong;
+            
+            float Lower_max = 0.0f + bufferzone;
+            if (Utilisation < Lower_max)                                    return ActuatorStatus.FullyRetracted;
+
+            float Upper_min = 1.0f - bufferzone;
+            if (Utilisation > Upper_min)                                    return ActuatorStatus.FullyExtended;
+
+            float Center_min = 0.5f - bufferzone;
+            float Center_max = 0.5f + bufferzone;
+            if (Center_min <= Utilisation && Utilisation <= Center_max)     return ActuatorStatus.Centered;
+
+            else                                                            return ActuatorStatus.InBetween;
+        }
+        
     }
 
     public enum ActuatorStatus
     {
         TooLong,
         TooShort,
-        Inlimits
+        FullyRetracted,
+        FullyExtended,
+        Centered,
+        InBetween
     }
 }

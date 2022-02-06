@@ -23,8 +23,14 @@ namespace YAME.View.Converters
                 case ActuatorStatus.TooLong:
                     return new SolidColorBrush(Colors.Red);
                 case ActuatorStatus.TooShort:
-                    return new SolidColorBrush(Colors.DeepSkyBlue);
-                case ActuatorStatus.Inlimits:
+                    return new SolidColorBrush(Colors.Red);
+                case ActuatorStatus.FullyRetracted:
+                    return new SolidColorBrush(Colors.SkyBlue);
+                case ActuatorStatus.FullyExtended:
+                    return new SolidColorBrush(Colors.Orange);
+                case ActuatorStatus.Centered:
+                    return new SolidColorBrush(Colors.LightGreen);
+                case ActuatorStatus.InBetween:
                     return new SolidColorBrush(Colors.WhiteSmoke);
                 default:
                     throw new ArgumentException("Unknown Actuatorstatus: " + status.ToString());
