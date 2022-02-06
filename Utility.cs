@@ -36,6 +36,19 @@ public class Utility
         if (hdg < 180) return hdg + 180;
         else return hdg - 180;
     }
+    public static float getStandardDeviation(List<float> floatList)
+    {
+        float average = floatList.Average();
+        float sumOfDerivation = 0;
+        foreach (float value in floatList)
+        {
+            sumOfDerivation += (value) * (value);
+        }
+        float sumOfDerivationAverage = sumOfDerivation / (floatList.Count - 1);
+        float result = sumOfDerivationAverage - (average * average);
+   
+        return (float)Math.Sqrt(result);
+    }
 
     public static int Clamp(int value, int min, int max)
     {

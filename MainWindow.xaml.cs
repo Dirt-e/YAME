@@ -447,8 +447,6 @@ namespace YAME
         //---------- Buttons -----------
         private void btn_Test_Click(object sender, RoutedEventArgs e)
         {
-            PhantomRig phantom = new PhantomRig();
-            float x = phantom.RootSearchParkPosition_FromFlatRig();
 
         }
     }

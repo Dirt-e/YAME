@@ -14,19 +14,17 @@ namespace YAME.Model
         Integrator_basic integrator_basic;
         IK_Module ik_module;
         ActuatorSystem ActSys;
-
+        DOF_Data dof_data = new DOF_Data();
+        
         int step_translations = 20;     //mm!
         int step_rotations = 5;         //degrees,... I think :-/   BETTER CONFIRM!
+        float stepsize_trans_min = 0.01f;
+        float stepsize_rot_min = 0.1f;
 
-        DOF_Data dof_data = new DOF_Data();
-        public bool IsInlimits
-        { 
-            get
-            {
-                return ActSys.AllInLimits;
-            }
-        }
-
+        public bool IsInlimits      { get { return ActSys.AllInLimits; } }
+        public float ParkPos_Ideal  { get { return integrator_basic.Offset_Park; } }
+        public float PausePos_Ideal { get { return integrator_basic.Offset_Pause; } }
+        
         //Constructor
         public PhantomRig()
         {
@@ -42,8 +40,9 @@ namespace YAME.Model
             integrator_basic.Plat_Motion.IsParentOf(integrator_basic.UpperPoints);
             ActSys.MaxLength = engine.actuatorsystem.MaxLength;
             ActSys.MinLength = engine.actuatorsystem.MinLength;
-
             Update();
+
+            calibrate();
         }
         
         void Update()
@@ -52,19 +51,133 @@ namespace YAME.Model
             ik_module.Update();
             ActSys.Update();
         }
-
-        public void Process(float surge = 0, float heave = 0, float sway = 0, float yaw = 0, float pitch = 0, float roll = 0, float pitch_lfc = 0, float roll_lfc = 0)
+        
+        void calibrate()
         {
-            dof_data = new DOF_Data(surge, heave, sway, yaw, pitch, roll, pitch_lfc, roll_lfc);
+            Calibrate_OffsetPark();
+            Calibrate_OffsetPause();
+        }
+
+        void Calibrate_OffsetPark()
+        {
+            //This algorithm finds AND SETS the Park Position (0% Actuator)
+
+            ZeroAll_DOFs();
+
+            //Attach UpperPoints to Plat_Park
+            integrator_basic.Plat_Fix_Park.IsParentOf(integrator_basic.UpperPoints);
+            
+            //Flatten
+            integrator_basic.Offset_Park = 0;
+            Update();
+
+            //Check plausibility
+            if (IsInlimits) throw new Exception("A flat rig should be out of Limits!");
+
+            //Root search
+            float stepsize = step_translations;
+            bool withinEnvelope = false;
+            bool done = false;
+
+            while (!done)
+            {
+                integrator_basic.Offset_Park += stepsize;
+                Update();
+
+                if (IsInlimits != withinEnvelope)               //Crossed a boundary?    
+                {                                   
+                    stepsize *= -0.5f;                          //Reverse and tighten search
+                    withinEnvelope = IsInlimits;
+                    if (Math.Abs(stepsize) < stepsize_trans_min && IsInlimits)
+                    {
+                        done = true;
+                    }
+                }
+            }
+            
+            //Restore state
+            integrator_basic.Plat_Motion.IsParentOf(integrator_basic.UpperPoints);
             Update();
         }
-        public bool CanHandle(float surge = 0, float heave = 0, float sway = 0, float yaw = 0, float pitch = 0, float roll = 0, float pitch_lfc = 0, float roll_lfc = 0)
+        void Calibrate_OffsetPause()
         {
-            Process(surge, heave, sway, yaw, pitch, roll, pitch_lfc, roll_lfc);
+            //This algorithm searches AND SETS the Pause Position (50% Actuator).
+            //It relies upon the ParkPosition to be WITHIN THE ENVELOPE!!!
 
-            if (IsInlimits) return true;
-            return false;
+            //Attach UpperPoints to Plat_Pause
+            integrator_basic.Plat_Fix_Pause.IsParentOf(integrator_basic.UpperPoints);
+
+            //Start from Park Position
+            integrator_basic.Offset_Pause = integrator_basic.Offset_Park;
+            Update();
+
+            //Check plausibility
+            if (!IsInlimits) throw new Exception("The search for Pause Position must begin from within the envelpope");
+
+            //Root search
+            float stepsize = step_translations;
+            bool below50pct = true;
+            bool done = false;
+
+            while (!done)
+            {
+                integrator_basic.Offset_Pause += stepsize;
+                Update();
+
+                bool crossingUpWards = ActSys.UtilisationList.Average() > 0.5f && below50pct;    //Crossing UP?
+                bool crossingDownWards = ActSys.UtilisationList.Average() < 0.5f && !below50pct;   //Crossing DOWN?
+
+                if (crossingUpWards || crossingDownWards)       //Crossing just took place
+                {
+                    stepsize *= -0.5f;
+                }
+                if (crossingUpWards) below50pct = false;
+                if (crossingDownWards) below50pct = true;
+
+                if (Math.Abs(stepsize) < stepsize_trans_min) done = true;
+            }
         }
+
+        float ProbeMargin_FromWithin(DOF dof, bool IsPositive = true)
+        {
+            //This function probes the DISTANCE to the boundary from a given starting point by manipulating a
+            //given dof. It returns a value indicating how far it can go in that direction on a given dof.
+            if (!IsInlimits) throw new Exception("Boundary search must start from within envelope.");
+
+            float stepsize;
+            float stepsize_min;
+            if (dof == DOF.surge || dof == DOF.heave || dof == DOF.heave)
+            {
+                stepsize = step_translations;
+                stepsize_min = stepsize_trans_min;
+            }  
+            else
+            {
+                stepsize = step_rotations;
+                stepsize_min = stepsize_rot_min;
+            }
+
+            if (!IsPositive) stepsize *= -1;
+
+            bool withinEnvelope = true;
+            bool done = false;
+
+            while (!done)
+            {
+                Increment(dof, stepsize);
+                if (IsInlimits != withinEnvelope)
+                {
+                    stepsize *= -0.5f;
+                    withinEnvelope = IsInlimits;
+                    if (stepsize <stepsize_min && IsInlimits) done = true;   
+                }
+            }  
+            float limit = dof_data.report(dof);
+            dof_data.SetZero();
+            return limit; 
+        }
+
+        //DOF manipulators
         public void Increment(DOF dof, float value)
         {
             switch (dof)
@@ -98,70 +211,33 @@ namespace YAME.Model
             }
             Update();
         }
-        public float RootSearchBoundary_FromOutside(DOF dof, float value)
+        public void Process(float surge = 0, float heave = 0, float sway = 0, float yaw = 0, float pitch = 0, float roll = 0, float pitch_lfc = 0, float roll_lfc = 0)
         {
-            //This algorithm searches the Pause Position (50%) starting from a "flat rig"
-            if (IsInlimits) throw new Exception("This function must start from outside envelope. (Flat rig!)");
-
-            bool withinEnvelope = false;
-            bool done = false;
-            int level = 0;
-
-            while (!done)
-            {
-                Increment(dof, value);
-                if (IsInlimits != withinEnvelope)
-                {
-                    value *= -0.5f;
-                    withinEnvelope = IsInlimits;
-                    level++;
-                    if (level >= 11) done = true;            //Magic Constant
-                }
-            }
-            float limit = dof_data.report(dof);
-            Debug.WriteLine(limit);
-
-            return limit;
-        }
-        public float RootSearchBoundary_FromWithin(DOF dof, float value)
-        {
-            if (!IsInlimits) throw new Exception("Root search must start from within envelope.");
-            
-            bool withinEnvelope = true;
-            bool done = false;
-            int level = 0;  
-
-            while (!done)
-            {
-                Increment(dof, value);
-                if (IsInlimits != withinEnvelope)
-                {
-                    value *= -0.5f;
-                    withinEnvelope = IsInlimits;
-                    level++;
-                    if (level >= 10) done = true;            //Magic Constant
-                }
-            }  
-            float limit = dof_data.report(dof);
-            return limit; 
-        }
-        public float RootSearchParkPosition_FromFlatRig()
-        { 
-            float pauseHeight = integrator_basic.Offset_Pause;                  //Remember for later
-            integrator_basic.Offset_Pause = 0;                                  //Just temporarily! To create a flat rig.
+            dof_data = new DOF_Data(surge, heave, sway, yaw, pitch, roll, pitch_lfc, roll_lfc);
             Update();
-
-            if (IsInlimits) throw new Exception("A flat rig should be out of Limits!");
-
-            float parkHeight = RootSearchBoundary_FromOutside(DOF.heave, step_translations);    //Now you know!
-            integrator_basic.Offset_Pause = pauseHeight;                                        //Set it back
-            Update();
-
-            return parkHeight;
         }
-        public void AutoSet_ParkPosition()
+        public void ZeroTranslations()
         {
-            integrator_basic.Offset_Park = RootSearchParkPosition_FromFlatRig(20);
+            Process(0, 0, 0, dof_data.HFC_Yaw, dof_data.HFC_Pitch, dof_data.HFC_Roll, dof_data.LFC_Pitch, dof_data.LFC_Roll);
         }
+        public void ZeroRotations()
+        {
+            Process(dof_data.HFC_Surge, dof_data.HFC_Heave, dof_data.HFC_Sway, 0, 0, 0, 0, 0);
+        }
+        public void ZeroAll_DOFs()
+        {
+            ZeroTranslations();
+            ZeroRotations();
+        }
+
+        //Helpers
+        public bool CanHandle(float surge = 0, float heave = 0, float sway = 0, float yaw = 0, float pitch = 0, float roll = 0, float pitch_lfc = 0, float roll_lfc = 0)
+        {
+            Process(surge, heave, sway, yaw, pitch, roll, pitch_lfc, roll_lfc);
+
+            if (IsInlimits) return true;
+            return false;
+        }
+
     }
 }

@@ -77,6 +77,19 @@ namespace YAME.DataFomats
                     throw new Exception($"Unknown DOF: {dof}");
             }
         }
-    
+        public void SetZero()
+        {
+            //HFC
+            HFC_Surge   = 0;
+            HFC_Heave   = 0;
+            HFC_Sway    = 0;
+            HFC_Yaw     = 0;
+            HFC_Pitch   = 0;
+            HFC_Roll    = 0;
+                        
+            //LFC        
+            LFC_Pitch   = 0;
+            LFC_Roll    = 0;
+        }
     }
 }

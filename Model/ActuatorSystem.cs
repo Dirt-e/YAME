@@ -61,6 +61,34 @@ namespace YAME.Model
             }
         }
         //Non-UI:
+        public List<float> UtilisationList
+        {
+            get
+            {
+                List<float> UtilList = new List<float>
+                {
+                    A1.Utilisation,
+                    A2.Utilisation,
+                    A3.Utilisation,
+                    A4.Utilisation,
+                    A5.Utilisation,
+                    A6.Utilisation
+                };
+
+                return UtilList;
+            }
+        }
+        public bool IsPrettymuchLevel
+        {
+            get
+            {
+                //deternmine std. deviation...
+                double StdDev = Utility.getStandardDeviation(UtilisationList);
+
+                throw new NotImplementedException();
+                //return StdDev < 0.1f;
+            }
+        }
         public bool AllInLimits
         {
             get
@@ -113,7 +141,6 @@ namespace YAME.Model
             UpdateUI_ViaDispatcherInvoke();
         }
 
-
         //Helpers:
         void CreateOutput()
         {
@@ -124,8 +151,8 @@ namespace YAME.Model
             Output.values[4] = A5.Utilisation;
             Output.values[5] = A6.Utilisation;
         }
-
-
+        
+        #region Callback
         private void UpdateUI_ViaDispatcherInvoke()
         {
             if (invoke_timer.ElapsedMilliseconds > 33)      //Update the UI only at ~30fps
@@ -145,8 +172,6 @@ namespace YAME.Model
             }
 
         }
-
-        #region Callback
         private delegate void UpdateViewModel_Callback(ActuatorStatus_Struct ass);
         private void UpdateViewModel(ActuatorStatus_Struct ass)
         {

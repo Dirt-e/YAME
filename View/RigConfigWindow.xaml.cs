@@ -36,7 +36,7 @@ namespace YAME.View
             txtbx_OffsetPark.DataContext        = engine.integrator;
             txtbx_OffsetPause.DataContext       = engine.integrator;
             txtbx_OffsetCoR.DataContext         = engine.integrator;
-            img_warning.DataContext             = engine.serialtalker;
+            //img_warning.DataContext             = engine.serialtalker;
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -59,6 +59,21 @@ namespace YAME.View
         private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             snappydragger.StopDrag();
+        }
+
+        private void CalibPark_Click(object sender, RoutedEventArgs e)
+        {
+            PhantomRig pr = new PhantomRig();
+
+            var mw = Application.Current.MainWindow as MainWindow;
+            mw.engine.integrator.Offset_Park = pr.ParkPos_Ideal;
+        }
+        private void CalibPause_Click(object sender, RoutedEventArgs e)
+        {
+            PhantomRig pr = new PhantomRig();
+
+            var mw = Application.Current.MainWindow as MainWindow;
+            mw.engine.integrator.Offset_Pause = pr.PausePos_Ideal;
         }
     }
 }

@@ -853,7 +853,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("500")]
+        [global::System.Configuration.DefaultSettingValueAttribute("717")]
         public float Integrator_OffsetPark {
             get {
                 return ((float)(this["Integrator_OffsetPark"]));
@@ -865,7 +865,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("850")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1021")]
         public float Integrator_OffsetPause {
             get {
                 return ((float)(this["Integrator_OffsetPause"]));

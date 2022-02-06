@@ -25,7 +25,12 @@
       "ProjectGuid": "9fb122dc-c816-48b9-a5e0-7d1ecf317a69",
       "DisplayName": "ExcelCharts",
       "ColorIndex": 3
+    },
+    "36da21fd-c620-498a-a588-1026b9b74232": {
+      "ProjectGuid": "36da21fd-c620-498a-a588-1026b9b74232",
+      "DisplayName": "Rigalyser",
+      "ColorIndex": 4
     }
   },
-  "NextColorIndex": 4
+  "NextColorIndex": 5
 }

@@ -210,10 +210,10 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Integrator_OffsetPark" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">500</Value>
+      <Value Profile="(Default)">717</Value>
     </Setting>
     <Setting Name="Integrator_OffsetPause" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">850</Value>
+      <Value Profile="(Default)">1021</Value>
     </Setting>
     <Setting Name="Integrator_OffsetCoR" Type="System.Single" Scope="User">
       <Value Profile="(Default)">300</Value>
