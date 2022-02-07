@@ -30,8 +30,9 @@ namespace YAME.Model
             get { return _minlength; }
             set
             {
-                _minlength = Math.Min(MaxLength, value);
-
+                _minlength = value;
+                if (MaxLength <= value) MaxLength = value + 1;
+                
                 A1.MinLength = value;
                 A2.MinLength = value;
                 A3.MinLength = value;
@@ -48,7 +49,8 @@ namespace YAME.Model
             get { return _maxlength; }
             set
             {
-                _maxlength = Math.Max(MinLength, value);
+                _maxlength = value;
+                if (MinLength >= value) MinLength = value - 1;
 
                 A1.MaxLength = MaxLength;
                 A2.MaxLength = MaxLength;
