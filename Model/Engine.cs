@@ -105,7 +105,7 @@ namespace YAME.Model
                     while (!backgroundworker.CancellationPending)
                     {
                         UpdateObjects();
-                        WaitForTargetFramerate(500);
+                        WaitForTargetFramerate();
                     }
                 };
                 backgroundworker.RunWorkerAsync();
@@ -164,16 +164,15 @@ namespace YAME.Model
 
 
         //Helpers:
-        private void WaitForTargetFramerate(int fps)
+        private void WaitForTargetFramerate()
         {
             //Hic sunt dracones!
+            int fps = Properties.Settings.Default.Processing_Framerate;
             var targetTicksPerFrame = Stopwatch.Frequency / fps;
             
             while (stopwatch.ElapsedTicks < targetTicksPerFrame)
             {
                 //DoNothing();
-
-                Thread.Sleep(100);
             }
 
             DeltatimeProcessing = (float)stopwatch.Elapsed.TotalMilliseconds;

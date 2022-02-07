@@ -62,7 +62,6 @@ namespace YAME.Model
             private set { _utilisation = value; OnPropertyChanged("Utilisation"); }
         }
 
-        float bufferzone { get; set; } = 0.001f;     //to trigger the "End" and "Center" states
         public bool InLimits
         { 
             get 
@@ -95,17 +94,19 @@ namespace YAME.Model
         }
         ActuatorStatus DetermineStatus()
         {
+            float triggerzone = Properties.Settings.Default.Actuator_TriggerZone;
+
             if (Utilisation == 0)                                           return ActuatorStatus.TooShort;
             if (Utilisation == 1)                                           return ActuatorStatus.TooLong;
             
-            float Lower_max = 0.0f + bufferzone;
+            float Lower_max = 0.0f + triggerzone;
             if (Utilisation < Lower_max)                                    return ActuatorStatus.FullyRetracted;
 
-            float Upper_min = 1.0f - bufferzone;
+            float Upper_min = 1.0f - triggerzone;
             if (Utilisation > Upper_min)                                    return ActuatorStatus.FullyExtended;
 
-            float Center_min = 0.5f - bufferzone;
-            float Center_max = 0.5f + bufferzone;
+            float Center_min = 0.5f - triggerzone;
+            float Center_max = 0.5f + triggerzone;
             if (Center_min <= Utilisation && Utilisation <= Center_max)     return ActuatorStatus.Centered;
 
             else                                                            return ActuatorStatus.InBetween;

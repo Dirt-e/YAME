@@ -1405,7 +1405,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("v0.08_alpha_")]
+        [global::System.Configuration.DefaultSettingValueAttribute("v0.09_alpha_")]
         public string Version {
             get {
                 return ((string)(this["Version"]));
@@ -1448,6 +1448,30 @@ namespace YAME.Properties {
             }
             set {
                 this["SplashScreen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
+        public int Processing_Framerate {
+            get {
+                return ((int)(this["Processing_Framerate"]));
+            }
+            set {
+                this["Processing_Framerate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.001")]
+        public float Actuator_TriggerZone {
+            get {
+                return ((float)(this["Actuator_TriggerZone"]));
+            }
+            set {
+                this["Actuator_TriggerZone"] = value;
             }
         }
     }

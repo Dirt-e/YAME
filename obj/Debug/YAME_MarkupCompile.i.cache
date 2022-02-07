@@ -12,9 +12,9 @@ DEBUG;TRACE
 D:\OneDrive\Frank - PC\GitHub\YAME\App.xaml
 181742107446
 
-83991481780
+84-1902257993
 1351348659112
 MainWindow.xaml;View\AlphaCompensationWindow.xaml;View\CrashDetectorWindow.xaml;View\DOF_Window.xaml;View\FiltersWindow.xaml;View\MotionControl_Window.xaml;View\Window_Patch.xaml;View\PositionCorrectorWindow.xaml;View\RawDataWindow.xaml;View\RigConfigWindow.xaml;View\SceneViewWindow.xaml;View\SerialConnection_Window.xaml;View\ServerWindow.xaml;View\UserControls\CompressionBox.xaml;View\UserControls\FilterBox.xaml;View\UserControls\ScalerBox.xaml;View\UserControls\ToggleSwitch.xaml;View\AboutWindow.xaml;
 
-False
+True
 

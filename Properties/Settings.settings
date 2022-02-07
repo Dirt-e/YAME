@@ -348,7 +348,7 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">v0.08_alpha_</Value>
+      <Value Profile="(Default)">v0.09_alpha_</Value>
     </Setting>
     <Setting Name="Server_Port_UDP" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">31090</Value>
@@ -358,6 +358,12 @@
     </Setting>
     <Setting Name="SplashScreen" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Processing_Framerate" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">500</Value>
+    </Setting>
+    <Setting Name="Actuator_TriggerZone" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0.001</Value>
     </Setting>
   </Settings>
 </SettingsFile>

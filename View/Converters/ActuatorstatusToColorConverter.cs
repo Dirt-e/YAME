@@ -23,7 +23,7 @@ namespace YAME.View.Converters
                 case ActuatorStatus.TooLong:
                     return new SolidColorBrush(Colors.Red);
                 case ActuatorStatus.TooShort:
-                    return new SolidColorBrush(Colors.Red);
+                    return new SolidColorBrush(Colors.Blue);
                 case ActuatorStatus.FullyRetracted:
                     return new SolidColorBrush(Colors.SkyBlue);
                 case ActuatorStatus.FullyExtended:
