@@ -63,6 +63,55 @@ public class Utility
         return (value < min) ? min : (value > max) ? max : value;
     }
 
+    public static bool IsRotation(DOF dof)
+    {
+        switch (dof)
+        {
+            case DOF.surge:
+                return false;
+            case DOF.heave:
+                return false;
+            case DOF.sway:
+                return false;
+            case DOF.yaw:
+                return true;
+            case DOF.pitch:
+                return true;
+            case DOF.roll:
+                return true;
+            case DOF.pitch_lfc:
+                return true;
+            case DOF.roll_lfc:
+                return true;
+            default:
+                throw new Exception($"Unknown DOF: {dof}");
+        }
+    }
+    public static bool IsTranslation(DOF dof)
+    {
+        switch (dof)
+        {
+            case DOF.surge:
+                return true;
+            case DOF.heave:
+                return true;
+            case DOF.sway:
+                return true;
+            case DOF.yaw:
+                return false;
+            case DOF.pitch:
+                return false;
+            case DOF.roll:
+                return false;
+            case DOF.pitch_lfc:
+                return false;
+            case DOF.roll_lfc:
+                return false;
+            default:
+                throw new Exception($"Unknown DOF: {dof}");
+        }
+    }
+
     public static Quaternion QuaternionFrom(double yaw, double pitch, double roll)
     {
         // All angles in radians!
@@ -138,7 +187,6 @@ public class Utility
 
         return new Point3D(x, y, z);
     }
-
     public static float DistanceBetween(Point3D p1, Point3D p2)
     {
         double delta_x = p1.X - p2.X;

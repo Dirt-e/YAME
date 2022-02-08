@@ -2,6 +2,7 @@
 GENERAL:
 - SnappyDragger: Snap Windows to borders of screen
 - SnappyDragger: Make Windows snap independently in vertical and horizontal direction
+- Add "ActuatorWindow" to show individual actuators
 
 MAIN WINDOW:
 - Save "SimName in profile
@@ -15,7 +16,6 @@ INTEGRATOR:
   quaternion interpolation (shortest path problem)
 
 SERIALTALKER:
-- Rememmber last used Hardware Controller
 
 FILTERS WINDOW:
 
@@ -76,5 +76,6 @@ Changelog:
 	Version 10
 	- Updater working
 	- Version and Build visible in AboutWindow
+	- SerialConnectionWindow remembers last used HardwareController
 
 

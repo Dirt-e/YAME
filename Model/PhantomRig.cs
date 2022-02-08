@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using YAME.DataFomats;
+using static Utility;
 
 namespace YAME.Model
 {
@@ -57,7 +58,6 @@ namespace YAME.Model
             Calibrate_OffsetPark();
             Calibrate_OffsetPause();
         }
-
         void Calibrate_OffsetPark()
         {
             //This algorithm finds AND SETS the Park Position (0% Actuator)
@@ -136,47 +136,80 @@ namespace YAME.Model
 
                 if (Math.Abs(stepsize) < stepsize_trans_min) done = true;
             }
+
+            //Restore state
+            integrator_basic.Plat_Motion.IsParentOf(integrator_basic.UpperPoints);
+            Update();
         }
 
-        float ProbeMargin_FromWithin(DOF dof, bool IsPositive = true)
+        //Probes
+        public float ProbeMargin_FromWithin(DOF dof, bool IsPositive = true)
         {
             //This function probes the DISTANCE to the boundary from a given starting point by manipulating a
             //given dof. It returns a value indicating how far it can go in that direction on a given dof.
             if (!IsInlimits) throw new Exception("Boundary search must start from within envelope.");
-
+            
+            bool withinEnvelope = true;
+            bool done = false;
             float stepsize;
-            float stepsize_min;
-            if (dof == DOF.surge || dof == DOF.heave || dof == DOF.heave)
+            float stepsize_abort;
+
+            //Remember
+            DOF_Data dof_data_old = new DOF_Data(dof_data);
+
+            if (IsTranslation(dof))
             {
                 stepsize = step_translations;
-                stepsize_min = stepsize_trans_min;
+                stepsize_abort = stepsize_trans_min;
             }  
             else
             {
                 stepsize = step_rotations;
-                stepsize_min = stepsize_rot_min;
+                stepsize_abort = stepsize_rot_min;
             }
 
             if (!IsPositive) stepsize *= -1;
 
-            bool withinEnvelope = true;
-            bool done = false;
-
+            //Root search:
             while (!done)
             {
                 Increment(dof, stepsize);
-                if (IsInlimits != withinEnvelope)
+                if (IsInlimits != withinEnvelope)       //We crossed a boundary
                 {
                     stepsize *= -0.5f;
                     withinEnvelope = IsInlimits;
-                    if (stepsize <stepsize_min && IsInlimits) done = true;   
+                    if (stepsize < stepsize_abort && IsInlimits) done = true;
                 }
             }  
-            float limit = dof_data.report(dof);
-            dof_data.SetZero();
+
+            float limit = dof_data.report(dof);         //We have a result!
+            GoTo(dof_data_old);                         //Restore state                          
+
             return limit; 
         }
+        public bool CanHandle(float surge = 0, float heave = 0, float sway = 0, float yaw = 0, float pitch = 0, float roll = 0, float pitch_lfc = 0, float roll_lfc = 0)
+        {
+            DOF_Data Temp =  new DOF_Data(  surge,
+                                            heave,
+                                            sway,
+                                            yaw,
+                                            pitch,
+                                            roll,
+                                            pitch_lfc,
+                                            roll_lfc);
+            return CanHandle(Temp);
+        }
+        public bool CanHandle(DOF_Data dd)
+        {
+            DOF_Data dof_data_old = new DOF_Data(dof_data);     //Remember
 
+            GoTo(dd);                                           //Go    
+            bool canHandle = IsInlimits;                        //Check
+            GoTo(dof_data_old);                                 //Restore
+
+            return canHandle;
+        }
+        
         //DOF manipulators
         public void Increment(DOF dof, float value)
         {
@@ -211,33 +244,28 @@ namespace YAME.Model
             }
             Update();
         }
-        public void Process(float surge = 0, float heave = 0, float sway = 0, float yaw = 0, float pitch = 0, float roll = 0, float pitch_lfc = 0, float roll_lfc = 0)
+        public void GoTo(float surge = 0, float heave = 0, float sway = 0, float yaw = 0, float pitch = 0, float roll = 0, float pitch_lfc = 0, float roll_lfc = 0)
         {
             dof_data = new DOF_Data(surge, heave, sway, yaw, pitch, roll, pitch_lfc, roll_lfc);
             Update();
         }
-        public void ZeroTranslations()
+        public void GoTo(DOF_Data dd)
         {
-            Process(0, 0, 0, dof_data.HFC_Yaw, dof_data.HFC_Pitch, dof_data.HFC_Roll, dof_data.LFC_Pitch, dof_data.LFC_Roll);
-        }
-        public void ZeroRotations()
-        {
-            Process(dof_data.HFC_Surge, dof_data.HFC_Heave, dof_data.HFC_Sway, 0, 0, 0, 0, 0);
+            dof_data = dd;
+            Update();
         }
         public void ZeroAll_DOFs()
         {
             ZeroTranslations();
             ZeroRotations();
         }
-
-        //Helpers
-        public bool CanHandle(float surge = 0, float heave = 0, float sway = 0, float yaw = 0, float pitch = 0, float roll = 0, float pitch_lfc = 0, float roll_lfc = 0)
+        public void ZeroTranslations()
         {
-            Process(surge, heave, sway, yaw, pitch, roll, pitch_lfc, roll_lfc);
-
-            if (IsInlimits) return true;
-            return false;
+            GoTo(0, 0, 0, dof_data.HFC_Yaw, dof_data.HFC_Pitch, dof_data.HFC_Roll, dof_data.LFC_Pitch, dof_data.LFC_Roll);
         }
-
+        public void ZeroRotations()
+        {
+            GoTo(dof_data.HFC_Surge, dof_data.HFC_Heave, dof_data.HFC_Sway, 0, 0, 0, 0, 0);
+        }
     }
 }

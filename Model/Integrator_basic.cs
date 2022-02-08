@@ -185,6 +185,5 @@ namespace YAME.Model
                                             0,
                                             -Offset_CoR);
         }
-
     }
 }

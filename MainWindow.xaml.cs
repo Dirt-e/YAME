@@ -447,7 +447,17 @@ namespace YAME
         //---------- Buttons -----------
         private void btn_Test_Click(object sender, RoutedEventArgs e)
         {
+            PhantomRig pr = new PhantomRig();
+            
+            float pos1 = pr.ProbeMargin_FromWithin(DOF.surge);
+            float neg1 = pr.ProbeMargin_FromWithin(DOF.surge, false);
 
+            pr.GoTo(200);
+
+            float pos2 = pr.ProbeMargin_FromWithin(DOF.surge);
+            float neg2 = pr.ProbeMargin_FromWithin(DOF.surge, false);
+
+            Why are they the same???
         }
     }
 }
