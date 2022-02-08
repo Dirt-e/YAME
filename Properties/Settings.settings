@@ -236,8 +236,8 @@
     <Setting Name="Window_RigConfig_Position_Y" Type="System.Single" Scope="User">
       <Value Profile="(Default)">400</Value>
     </Setting>
-    <Setting Name="ActuatorSystem_MaxLength" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">1454</Value>
+    <Setting Name="ActuatorSystem_Stroke" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">520</Value>
     </Setting>
     <Setting Name="ActuatorSystem_MinLength" Type="System.Single" Scope="User">
       <Value Profile="(Default)">970</Value>
@@ -346,9 +346,6 @@
     </Setting>
     <Setting Name="Window_Patcher_Position_Y" Type="System.Single" Scope="User">
       <Value Profile="(Default)">0</Value>
-    </Setting>
-    <Setting Name="Version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">v0.10_alpha_</Value>
     </Setting>
     <Setting Name="Server_Port_UDP" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">31090</Value>

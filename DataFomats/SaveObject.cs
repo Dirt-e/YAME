@@ -120,7 +120,7 @@ namespace YAME.DataFomats
         public float RigConfig_Lower_DistA { get; set; }
         public float RigConfig_Lower_DistB { get; set; }
 
-        public float RigConfig_Act_Max { get; set; }
+        public float RigConfig_Act_Stroke { get; set; }
         public float RigConfig_Act_Min { get; set; }
 
         public float RigConfig_Offset_Park { get; set; }

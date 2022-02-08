@@ -18,7 +18,7 @@ namespace YAME.Model
             saveObject = new SaveObject();
         }
 
-        #region From Settings:
+        #region To/from Settings:
         //------------------ Load ------------------------
         public void Load_Settings()
         {
@@ -157,14 +157,14 @@ namespace YAME.Model
             {
                 var defaults = Properties.Settings.Default;
 
-                engine.integrator.Offset_Park = defaults.Integrator_OffsetPark;
-                engine.integrator.Offset_Pause = defaults.Integrator_OffsetPause;
-                engine.integrator.Offset_CoR = defaults.Integrator_OffsetCoR;
-                engine.integrator.Dist_A_Upper = defaults.Dist_A_Upper;
-                engine.integrator.Dist_B_Upper = defaults.Dist_B_Upper;
-                engine.integrator.Dist_A_Lower = defaults.Dist_A_Lower;
-                engine.integrator.Dist_B_Lower = defaults.Dist_B_Lower;
-                engine.actuatorsystem.MaxLength = defaults.ActuatorSystem_MaxLength;
+                engine.integrator.Offset_Park   = defaults.Integrator_OffsetPark;
+                engine.integrator.Offset_Pause  = defaults.Integrator_OffsetPause;
+                engine.integrator.Offset_CoR    = defaults.Integrator_OffsetCoR;
+                engine.integrator.Dist_A_Upper  = defaults.Dist_A_Upper;
+                engine.integrator.Dist_B_Upper  = defaults.Dist_B_Upper;
+                engine.integrator.Dist_A_Lower  = defaults.Dist_A_Lower;
+                engine.integrator.Dist_B_Lower  = defaults.Dist_B_Lower;
+                engine.actuatorsystem.Stroke    = defaults.ActuatorSystem_Stroke;
                 engine.actuatorsystem.MinLength = defaults.ActuatorSystem_MinLength;
             }
 
@@ -307,20 +307,19 @@ namespace YAME.Model
                 var defaults = Properties.Settings.Default;
                 var integrator = engine.integrator;
 
-                defaults.Integrator_OffsetPark = engine.integrator.Offset_Park;
-                defaults.Integrator_OffsetPause = engine.integrator.Offset_Pause;
-                defaults.Integrator_OffsetCoR = engine.integrator.Offset_CoR;
-                defaults.Dist_A_Upper = engine.integrator.Dist_A_Upper;
-                defaults.Dist_B_Upper = engine.integrator.Dist_B_Upper;
-                defaults.Dist_A_Lower = engine.integrator.Dist_A_Lower;
-                defaults.Dist_B_Lower = engine.integrator.Dist_B_Lower;
-                defaults.ActuatorSystem_MaxLength = engine.actuatorsystem.MaxLength;
-                defaults.ActuatorSystem_MinLength = engine.actuatorsystem.MinLength;
-
+                defaults.Integrator_OffsetPark      = engine.integrator.Offset_Park;
+                defaults.Integrator_OffsetPause     = engine.integrator.Offset_Pause;
+                defaults.Integrator_OffsetCoR       = engine.integrator.Offset_CoR;
+                defaults.Dist_A_Upper               = engine.integrator.Dist_A_Upper;
+                defaults.Dist_B_Upper               = engine.integrator.Dist_B_Upper;
+                defaults.Dist_A_Lower               = engine.integrator.Dist_A_Lower;
+                defaults.Dist_B_Lower               = engine.integrator.Dist_B_Lower;
+                defaults.ActuatorSystem_Stroke      = engine.actuatorsystem.Stroke;
+                defaults.ActuatorSystem_MinLength   = engine.actuatorsystem.MinLength;
             }
             
         #endregion
-        #region From Profile:
+        #region To/from Profile:
         //------------------ Load ------------------------
         public void Load_Profile()
         {
@@ -457,18 +456,18 @@ namespace YAME.Model
         }
             private void LoadRigConfiguration_Profile()
             {
-                 engine.integrator.Dist_A_Upper = saveObject.RigConfig_Upper_DistA;
-                 engine.integrator.Dist_B_Upper = saveObject.RigConfig_Upper_DistB;
+                 engine.integrator.Dist_A_Upper     = saveObject.RigConfig_Upper_DistA;
+                 engine.integrator.Dist_B_Upper     = saveObject.RigConfig_Upper_DistB;
 
-                 engine.integrator.Dist_A_Lower = saveObject.RigConfig_Lower_DistA;
-                 engine.integrator.Dist_B_Lower = saveObject.RigConfig_Lower_DistB;
+                 engine.integrator.Dist_A_Lower     = saveObject.RigConfig_Lower_DistA;
+                 engine.integrator.Dist_B_Lower     = saveObject.RigConfig_Lower_DistB;
 
-                 engine.actuatorsystem.MaxLength = saveObject.RigConfig_Act_Max;
-                 engine.actuatorsystem.MinLength = saveObject.RigConfig_Act_Min;
+                 engine.actuatorsystem.Stroke       = saveObject.RigConfig_Act_Stroke;
+                 engine.actuatorsystem.MinLength    = saveObject.RigConfig_Act_Min;
 
-                 engine.integrator.Offset_Park  = saveObject.RigConfig_Offset_Park;
-                 engine.integrator.Offset_Pause = saveObject.RigConfig_Offset_Pause;
-                 engine.integrator.Offset_CoR   = saveObject.RigConfig_Offset_CoR;
+                 engine.integrator.Offset_Park      = saveObject.RigConfig_Offset_Park;
+                 engine.integrator.Offset_Pause     = saveObject.RigConfig_Offset_Pause;
+                 engine.integrator.Offset_CoR       = saveObject.RigConfig_Offset_CoR;
             }
 
 
@@ -600,14 +599,14 @@ namespace YAME.Model
             }
             private void SaveRigConfiguration_Profile()
             {
-                saveObject.RigConfig_Upper_DistA = engine.integrator.Dist_A_Upper;
-                saveObject.RigConfig_Upper_DistB = engine.integrator.Dist_B_Upper;
+                saveObject.RigConfig_Upper_DistA    = engine.integrator.Dist_A_Upper;
+                saveObject.RigConfig_Upper_DistB    = engine.integrator.Dist_B_Upper;
 
-                saveObject.RigConfig_Lower_DistA = engine.integrator.Dist_A_Lower;
-                saveObject.RigConfig_Lower_DistB = engine.integrator.Dist_B_Lower;
+                saveObject.RigConfig_Lower_DistA    = engine.integrator.Dist_A_Lower;
+                saveObject.RigConfig_Lower_DistB    = engine.integrator.Dist_B_Lower;
 
-                saveObject.RigConfig_Act_Max    = engine.actuatorsystem.MaxLength;
-                saveObject.RigConfig_Act_Min    = engine.actuatorsystem.MinLength;
+                saveObject.RigConfig_Act_Stroke     = engine.actuatorsystem.Stroke;
+                saveObject.RigConfig_Act_Min        = engine.actuatorsystem.MinLength;
 
                 saveObject.RigConfig_Offset_Park    = engine.integrator.Offset_Park;
                 saveObject.RigConfig_Offset_Pause   = engine.integrator.Offset_Pause;
@@ -615,6 +614,7 @@ namespace YAME.Model
             }
 
         #endregion
+        
         //---------- Helpers ----------
         private OpenFileDialog MyOpenFileDialog()
         {

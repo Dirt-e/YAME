@@ -21,7 +21,6 @@ FILTERS WINDOW:
 RIG CONFIGURATION:
 - Add a slew mode for apropriate offsets. May be used during an open serial connection!
 - Let user set "Stroke" instead of MaxLength
-- Loosen safety logic (Blocked while Serial). No blocking necessary when Rig is "FullyRetracted"
 
 LOADER/SAVER:
 - Split Load/Save routine up into "Rig" and "Filters"

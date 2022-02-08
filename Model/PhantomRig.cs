@@ -38,7 +38,7 @@ namespace YAME.Model
 
             //Settings:
             integrator_basic.Plat_Motion.IsParentOf(integrator_basic.UpperPoints);
-            ActSys.MaxLength = engine.actuatorsystem.MaxLength;
+            ActSys.Stroke = engine.actuatorsystem.Stroke;
             ActSys.MinLength = engine.actuatorsystem.MinLength;
             Update();
 

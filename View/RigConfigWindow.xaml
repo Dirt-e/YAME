@@ -101,9 +101,9 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock  Text="Actuators" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"
                             Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"/>
-                <TextBlock  Text="Max Length" FontWeight="DemiBold" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
+                <TextBlock  Text="Stroke" FontWeight="DemiBold" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
                 <TextBox    Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Style="{StaticResource TextBox_Style}"
-                            Text="{Binding MaxLength, UpdateSourceTrigger=LostFocus}"/>
+                            Text="{Binding Stroke, UpdateSourceTrigger=LostFocus}"/>
                 <TextBlock  Text="Min Length" FontWeight="DemiBold" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"/>
                 <TextBox    Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Style="{StaticResource TextBox_Style}"
                             Text="{Binding MinLength, UpdateSourceTrigger=LostFocus}"/>

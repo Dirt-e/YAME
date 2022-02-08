@@ -16,19 +16,19 @@ namespace YAME.Model
             set
             {
                 _minlength = value;
-                Stroke = MaxLength - MinLength;
+                MaxLength = MinLength + Stroke;
                 OnPropertyChanged("MinLength");
             }
         }
-        float _maxlength;
-        public float MaxLength
+        float _stroke;
+        public float Stroke
         {
-            get { return _maxlength; }
+            get { return _stroke; }
             set
-            {
-                _maxlength = value;
-                Stroke = MaxLength - MinLength;
-                OnPropertyChanged("MaxLength");
+            { 
+                _stroke = value;
+                MaxLength = MinLength + Stroke; 
+                OnPropertyChanged("Stroke"); 
             }
         }
         float _currentlength;
@@ -38,16 +38,21 @@ namespace YAME.Model
             set
             {
                 _currentlength = value;
-                redraw();
                 OnPropertyChanged("Currentlength");
+
+                redraw();
             }
         }
         //Internal:
-        float _stroke;
-        public float Stroke
+        float _maxlength;
+        public float MaxLength
         {
-            get { return _stroke; }
-            private set { _stroke = value; OnPropertyChanged("Stroke"); }
+            get { return _maxlength; }
+            private set
+            {
+                _maxlength = value;
+                OnPropertyChanged("MaxLength");
+            }
         }
         float _extension;
         public float Extension
@@ -111,7 +116,6 @@ namespace YAME.Model
 
             else                                                            return ActuatorStatus.InBetween;
         }
-        
     }
 
     public enum ActuatorStatus

@@ -961,13 +961,13 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1454")]
-        public float ActuatorSystem_MaxLength {
+        [global::System.Configuration.DefaultSettingValueAttribute("520")]
+        public float ActuatorSystem_Stroke {
             get {
-                return ((float)(this["ActuatorSystem_MaxLength"]));
+                return ((float)(this["ActuatorSystem_Stroke"]));
             }
             set {
-                this["ActuatorSystem_MaxLength"] = value;
+                this["ActuatorSystem_Stroke"] = value;
             }
         }
         
@@ -1400,18 +1400,6 @@ namespace YAME.Properties {
             }
             set {
                 this["Window_Patcher_Position_Y"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("v0.10_alpha_")]
-        public string Version {
-            get {
-                return ((string)(this["Version"]));
-            }
-            set {
-                this["Version"] = value;
             }
         }
         

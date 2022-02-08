@@ -30,8 +30,8 @@ namespace YAME.Model
             get { return _minlength; }
             set
             {
-                _minlength = value;
-                if (MaxLength <= value) MaxLength = value + 1;
+                if (value < 0)  _minlength = 0;
+                else            _minlength = value;
                 
                 A1.MinLength = value;
                 A2.MinLength = value;
@@ -43,23 +43,23 @@ namespace YAME.Model
                 OnPropertyChanged("MinLength");
             }
         }
-        float _maxlength;
-        public float MaxLength
+        float _stroke;
+        public float Stroke
         {
-            get { return _maxlength; }
+            get { return _stroke; }
             set
             {
-                _maxlength = value;
-                if (MinLength >= value) MinLength = value - 1;
+                if (value > 0)  _stroke = value;
+                else            _stroke = 1;
+                
+                A1.Stroke = Stroke;
+                A2.Stroke = Stroke;
+                A3.Stroke = Stroke;
+                A4.Stroke = Stroke;
+                A5.Stroke = Stroke;
+                A6.Stroke = Stroke;
 
-                A1.MaxLength = MaxLength;
-                A2.MaxLength = MaxLength;
-                A3.MaxLength = MaxLength;
-                A4.MaxLength = MaxLength;
-                A5.MaxLength = MaxLength;
-                A6.MaxLength = MaxLength;
-
-                OnPropertyChanged("MaxLength");
+                OnPropertyChanged("Stroke");
             }
         }
         //Non-UI:
