@@ -396,7 +396,6 @@ namespace YAME
         //---------- Helpers ------------
         private void EnforceSingleInstance()
         {
-            //To-Do: This is still untested!!!
             string mutexname = "YAME_SingleInstanceMutex";
             try
             {
@@ -409,14 +408,15 @@ namespace YAME
 
             if (!single_instance_mutex.WaitOne(0))
             {
-                MessageBox.Show("Hmmm,.... It looks like you are trying to run two instances of YAME.exe! " +
+                MessageBox.Show(    "Hmmm,.... It looks like you are trying to run two instances of YAME.exe! " +
                                     "We can't let you do that, because it would screw up all that neat network " +
                                     "code that we wrote.\n\n" +
                                     "Check in Task Manager for a process called \"YAME.exe\" or reboot your " +
                                     "computer to have certainty that there is no other instance of YAME running.",
                                     "Multiple Instances detected",
                                     MessageBoxButton.OK,
-                                    MessageBoxImage.Exclamation);
+                                    MessageBoxImage.Exclamation     );
+
                 Application.Current.Shutdown();
             }
         }
