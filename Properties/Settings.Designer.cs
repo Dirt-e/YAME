@@ -1405,7 +1405,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("v0.09_alpha_")]
+        [global::System.Configuration.DefaultSettingValueAttribute("v0.10_alpha_")]
         public string Version {
             get {
                 return ((string)(this["Version"]));

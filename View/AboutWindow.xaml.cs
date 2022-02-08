@@ -23,7 +23,6 @@ namespace YAME.View
         {
             InitializeComponent();
 
-            //var engine = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine;
             MainWindow mw = Application.Current.MainWindow as MainWindow;
             DataContext = mw.engine.VM_MainWindow;
             txtblk_framerate.DataContext = mw.engine;

@@ -348,7 +348,7 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">v0.09_alpha_</Value>
+      <Value Profile="(Default)">v0.10_alpha_</Value>
     </Setting>
     <Setting Name="Server_Port_UDP" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">31090</Value>

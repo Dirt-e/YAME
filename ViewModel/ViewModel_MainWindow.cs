@@ -6,6 +6,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Deployment.Application;
+using System.Reflection;
 
 namespace YAME.ViewModel
 {
@@ -18,9 +20,11 @@ namespace YAME.ViewModel
             set { _tilte_string = value; OnPropertyChanged(nameof(TitleString)); }
         }
 
+        string _version;
         public string Version
         {
-            get { return Properties.Settings.Default.Version; }
+            get { return _version; }
+            set { _version = value; OnPropertyChanged(nameof(Version)); }
         }
 
         string _profile = "nil";
@@ -40,6 +44,19 @@ namespace YAME.ViewModel
         public ViewModel_MainWindow(Engine e)
         {
             base.engine = e;
+            Version = getRunningVersion().ToString();
+        }
+
+        Version getRunningVersion()
+        {
+            try
+            {
+                return ApplicationDeployment.CurrentDeployment.CurrentVersion;
+            }
+            catch (Exception)
+            {
+                return Assembly.GetExecutingAssembly().GetName().Version;
+            }
         }
     }
 }

@@ -73,5 +73,8 @@ Changelog:
 	- Actuator color-coding TriggerZones are controlled from Settings file
 	- Processing framerate set from Settings file
 
+	Version 10
+	- Updater working
+	- Version and Build visible in AboutWindow
 
 
