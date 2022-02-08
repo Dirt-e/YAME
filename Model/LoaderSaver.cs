@@ -11,6 +11,7 @@ namespace YAME.Model
     {
         Engine engine;
         SaveObject saveObject;
+        
 
         public LoaderSaver(Engine e)
         {
@@ -30,6 +31,7 @@ namespace YAME.Model
             LoadScalerSettings_Application();
             LoadZeromakerSettings_Application();
             LoadRigConfiguration_Application();
+            LoadSerialTalkerSettings_Application();
         }
             private void LoadCrashDetectorThresholds_Application()
             {
@@ -167,6 +169,14 @@ namespace YAME.Model
                 engine.actuatorsystem.Stroke    = defaults.ActuatorSystem_Stroke;
                 engine.actuatorsystem.MinLength = defaults.ActuatorSystem_MinLength;
             }
+            private void LoadSerialTalkerSettings_Application()
+            {
+                //COM port is handled inside "SerialConnectionWindow.xaml.cs",
+                //because COM ports are assigned during runtime
+
+                string name = Properties.Settings.Default.SerialTalker_LastUsed_HardwareController;
+                engine.serialtalker.Controller = (ControllerType)Enum.Parse(typeof(ControllerType), name);
+            }
 
         //---------------- Save -----------------------
         public void Save_Settings()
@@ -179,6 +189,7 @@ namespace YAME.Model
             SaveScalerSettings_Application();
             SaveZeromakerSettings_Application();
             SaveRigConfiguration_Application();
+            SaveSerialTalkerSettings_Application();
 
             Properties.Settings.Default.Save();
         }
@@ -243,32 +254,32 @@ namespace YAME.Model
                 var compression = engine.compressorsystem;
 
                 //Dropdowns:
-                defaults.CompressionMethod_Roll_HFC = compression.CMP_Roll_HFC.Method.ToString();
-                defaults.CompressionMethod_Yaw_HFC = compression.CMP_Yaw_HFC.Method.ToString();
-                defaults.CompressionMethod_Pitch_HFC = compression.CMP_Pitch_HFC.Method.ToString();
-                defaults.CompressionMethod_Surge_HFC = compression.CMP_Surge_HFC.Method.ToString();
-                defaults.CompressionMethod_Heave_HFC = compression.CMP_Heave_HFC.Method.ToString();
-                defaults.CompressionMethod_Sway_HFC = compression.CMP_Sway_HFC.Method.ToString();
-                defaults.CompressionMethod_Pitch_LFC = compression.CMP_Pitch_LFC.Method.ToString();
-                defaults.CompressionMethod_Roll_LFC = compression.CMP_Roll_LFC.Method.ToString();
+                defaults.CompressionMethod_Roll_HFC     = compression.CMP_Roll_HFC.Method.ToString();
+                defaults.CompressionMethod_Yaw_HFC      = compression.CMP_Yaw_HFC.Method.ToString();
+                defaults.CompressionMethod_Pitch_HFC    = compression.CMP_Pitch_HFC.Method.ToString();
+                defaults.CompressionMethod_Surge_HFC    = compression.CMP_Surge_HFC.Method.ToString();
+                defaults.CompressionMethod_Heave_HFC    = compression.CMP_Heave_HFC.Method.ToString();
+                defaults.CompressionMethod_Sway_HFC     = compression.CMP_Sway_HFC.Method.ToString();
+                defaults.CompressionMethod_Pitch_LFC    = compression.CMP_Pitch_LFC.Method.ToString();
+                defaults.CompressionMethod_Roll_LFC     = compression.CMP_Roll_LFC.Method.ToString();
                 //Parameters:
-                defaults.CompressionParameter_Roll_HFC = compression.CMP_Roll_HFC.Parameter;
-                defaults.CompressionParameter_Yaw_HFC = compression.CMP_Yaw_HFC.Parameter;
+                defaults.CompressionParameter_Roll_HFC  = compression.CMP_Roll_HFC.Parameter;
+                defaults.CompressionParameter_Yaw_HFC   = compression.CMP_Yaw_HFC.Parameter;
                 defaults.CompressionParameter_Pitch_HFC = compression.CMP_Pitch_HFC.Parameter;
                 defaults.CompressionParameter_Surge_HFC = compression.CMP_Surge_HFC.Parameter;
                 defaults.CompressionParameter_Heave_HFC = compression.CMP_Heave_HFC.Parameter;
-                defaults.CompressionParameter_Sway_HFC = compression.CMP_Sway_HFC.Parameter;
+                defaults.CompressionParameter_Sway_HFC  = compression.CMP_Sway_HFC.Parameter;
                 defaults.CompressionParameter_Pitch_LFC = compression.CMP_Pitch_LFC.Parameter;
-                defaults.CompressionParameter_Roll_LFC = compression.CMP_Roll_LFC.Parameter;
+                defaults.CompressionParameter_Roll_LFC  = compression.CMP_Roll_LFC.Parameter;
                 //Limits:
-                defaults.CompressionLimit_Roll_HFC = compression.CMP_Roll_HFC.Limit;
-                defaults.CompressionLimit_Yaw_HFC = compression.CMP_Yaw_HFC.Limit;
-                defaults.CompressionLimit_Pitch_HFC = compression.CMP_Pitch_HFC.Limit;
-                defaults.CompressionLimit_Surge_HFC = compression.CMP_Surge_HFC.Limit;
-                defaults.CompressionLimit_Heave_HFC = compression.CMP_Heave_HFC.Limit;
-                defaults.CompressionLimit_Sway_HFC = compression.CMP_Sway_HFC.Limit;
-                defaults.CompressionLimit_Pitch_LFC = compression.CMP_Pitch_LFC.Limit;
-                defaults.CompressionLimit_Roll_LFC = compression.CMP_Roll_LFC.Limit;
+                defaults.CompressionLimit_Roll_HFC      = compression.CMP_Roll_HFC.Limit;
+                defaults.CompressionLimit_Yaw_HFC       = compression.CMP_Yaw_HFC.Limit;
+                defaults.CompressionLimit_Pitch_HFC     = compression.CMP_Pitch_HFC.Limit;
+                defaults.CompressionLimit_Surge_HFC     = compression.CMP_Surge_HFC.Limit;
+                defaults.CompressionLimit_Heave_HFC     = compression.CMP_Heave_HFC.Limit;
+                defaults.CompressionLimit_Sway_HFC      = compression.CMP_Sway_HFC.Limit;
+                defaults.CompressionLimit_Pitch_LFC     = compression.CMP_Pitch_LFC.Limit;
+                defaults.CompressionLimit_Roll_LFC      = compression.CMP_Roll_LFC.Limit;
             }
             private void SaveScalerSettings_Application()
             {
@@ -317,6 +328,10 @@ namespace YAME.Model
                 defaults.ActuatorSystem_Stroke      = engine.actuatorsystem.Stroke;
                 defaults.ActuatorSystem_MinLength   = engine.actuatorsystem.MinLength;
             }
+            private void SaveSerialTalkerSettings_Application()
+            {
+                Properties.Settings.Default.SerialTalker_LastUsed_HardwareController = engine.serialtalker.Controller.ToString();
+            }
             
         #endregion
         #region To/from Profile:
@@ -347,6 +362,7 @@ namespace YAME.Model
                 LoadScalerSettings_Profile();
                 LoadZeromakerSettings_Profile();
                 LoadRigConfiguration_Profile();
+                LoadSerialTalkerSettings_Profile();
             }
         }
             private void LoadCrashDetectorThresholds_Profile()
@@ -469,7 +485,13 @@ namespace YAME.Model
                  engine.integrator.Offset_Pause     = saveObject.RigConfig_Offset_Pause;
                  engine.integrator.Offset_CoR       = saveObject.RigConfig_Offset_CoR;
             }
+            private void LoadSerialTalkerSettings_Profile()
+            {
+                //COM port is handled inside "SerialConnectionWindow.xaml.cs",
+                //because COM ports are assigned during runtime
 
+                engine.serialtalker.Controller = saveObject.SerialTalker_ControllerType;
+            }
 
         //---------------- Save -----------------------
         public void Save_Profile()
@@ -486,6 +508,7 @@ namespace YAME.Model
                 SaveScalerSettings_Profile();
                 SaveZeromakerSettings_Profile();
                 SaveRigConfiguration_Profile();
+                SaveSerialTalkerSettings_Profile();
 
                 var options = new JsonSerializerOptions { WriteIndented = true };
                 string json = JsonSerializer.Serialize(saveObject, options);
@@ -612,9 +635,12 @@ namespace YAME.Model
                 saveObject.RigConfig_Offset_Pause   = engine.integrator.Offset_Pause;
                 saveObject.RigConfig_Offset_CoR     = engine.integrator.Offset_CoR;
             }
-
+            private void SaveSerialTalkerSettings_Profile()
+            {
+                saveObject.SerialTalker_ControllerType = engine.serialtalker.Controller;
+            }
         #endregion
-        
+
         //---------- Helpers ----------
         private OpenFileDialog MyOpenFileDialog()
         {

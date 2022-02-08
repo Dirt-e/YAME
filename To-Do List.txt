@@ -15,6 +15,7 @@ INTEGRATOR:
   quaternion interpolation (shortest path problem)
 
 SERIALTALKER:
+- Rememmber last used Hardware Controller
 
 FILTERS WINDOW:
 

@@ -30,8 +30,8 @@ namespace YAME.View
 
         void SetDataContext()
         {
-            var engine = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine;
-            DataContext = engine.serialtalker;
+            var mw = Application.Current.MainWindow as MainWindow;
+            DataContext = mw.engine.serialtalker;
         }
 
         private void tgl_Active_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -108,18 +108,18 @@ namespace YAME.View
             
             if (SelectedItem != null)
             {
-                Properties.Settings.Default.SerialTalker_LastUsedComPort = SelectedItem.ToString();
+                Properties.Settings.Default.SerialTalker_LastUsed_ComPort = SelectedItem.ToString();
             }
             else
             {
-                Properties.Settings.Default.SerialTalker_LastUsedComPort = String.Empty;
+                Properties.Settings.Default.SerialTalker_LastUsed_ComPort = String.Empty;
             }
         }
         private void TryLoad_LastUsedComPort_Application()
         {
             PopulateDropdownList_Ports();
 
-            string LastUsedComPort = Properties.Settings.Default.SerialTalker_LastUsedComPort;
+            string LastUsedComPort = Properties.Settings.Default.SerialTalker_LastUsed_ComPort;
             int index = cmbbx_Ports.Items.IndexOf(LastUsedComPort);             //-1 indicates a NoFind!
 
             if (index >= 0)  cmbbx_Ports.SelectedItem = cmbbx_Ports.Items[index];

@@ -127,5 +127,8 @@ namespace YAME.DataFomats
         public float RigConfig_Offset_Pause { get; set; }
         public float RigConfig_Offset_CoR { get; set; }
         #endregion
+        #region SerialTalker
+        public ControllerType SerialTalker_ControllerType { get; set; }
+        #endregion
     }
 }

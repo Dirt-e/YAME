@@ -203,6 +203,6 @@ namespace YAME.Model
     public enum ControllerType
     {
         Motion4Sim,
-        Thanos_AMC
+        Thanos_AMC,
     }
 }

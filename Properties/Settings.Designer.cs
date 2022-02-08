@@ -1358,12 +1358,12 @@ namespace YAME.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("\"\"")]
-        public string SerialTalker_LastUsedComPort {
+        public string SerialTalker_LastUsed_ComPort {
             get {
-                return ((string)(this["SerialTalker_LastUsedComPort"]));
+                return ((string)(this["SerialTalker_LastUsed_ComPort"]));
             }
             set {
-                this["SerialTalker_LastUsedComPort"] = value;
+                this["SerialTalker_LastUsed_ComPort"] = value;
             }
         }
         
@@ -1460,6 +1460,18 @@ namespace YAME.Properties {
             }
             set {
                 this["Actuator_TriggerZone"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Motion4Sim")]
+        public string SerialTalker_LastUsed_HardwareController {
+            get {
+                return ((string)(this["SerialTalker_LastUsed_HardwareController"]));
+            }
+            set {
+                this["SerialTalker_LastUsed_HardwareController"] = value;
             }
         }
     }

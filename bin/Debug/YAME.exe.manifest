@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="YAME.exe" version="0.0.10.18" publicKeyToken="0000000000000000" language="en-GB" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="YAME.exe" version="0.0.10.21" publicKeyToken="0000000000000000" language="en-GB" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="drawing_shaded.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -211,14 +211,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="YAME.exe" size="4761024">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="YAME.exe" size="4762048">
       <assemblyIdentity name="YAME" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>NHK1nJ2ODGY7ARrBXQvtpsD+C+Gl5OJdY6JJP2fanyw=</dsig:DigestValue>
+        <dsig:DigestValue>3NMjaFVKiQmGZr40i3Q0tDBV2/frYhW47zW4NAar9Ts=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -231,13 +231,13 @@
       <dsig:DigestValue>nCH9ZVocIsoCPK8zj2TSLSFiKIa7y9i1i55WrZZ4tcA=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="YAME.exe.config" size="33400">
+  <file name="YAME.exe.config" size="33560">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>6xb0omTkf6qVnB01FFPGq0w3ltcmU6gnYXvtXo9ocFI=</dsig:DigestValue>
+      <dsig:DigestValue>hVoK65uwVoZJGfNmeaV8SOubMndOOH748IyrK8CGy5I=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
