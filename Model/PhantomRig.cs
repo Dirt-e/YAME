@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -19,9 +21,9 @@ namespace YAME.Model
         DOF_Data dof_data = new DOF_Data();
         static Random Random = new Random();
         
-        int step_translations = 20;     //mm!
+        int step_translations = 200;     //mm!
         int step_rotations = 5;         //degrees,... I think :-/   BETTER CONFIRM!
-        float stepsize_trans_min = 0.01f;
+        float stepsize_trans_min = 0.1f;
         float stepsize_rot_min = 0.1f;
         int numberOfPointsOnList = 100;
 
@@ -306,7 +308,7 @@ namespace YAME.Model
         }
 
         //Explorers
-        public List<Point> Explore(DOF dof_x, DOF dof_y)
+        public List<Point> Explore(DOF dof_y, DOF dof_x)
         {
             List<Point> list = new List<Point> ();
 
@@ -342,8 +344,94 @@ namespace YAME.Model
                 float pointOnRange_y = min_y + (float)Random.NextDouble() * range_y;
                 SetDOF(dof_y, pointOnRange_y);
             }
+            PrintList(list);
 
             return list;
+        }
+        void PrintList(List<Point> list)
+        {
+            StringBuilder sb = new StringBuilder(); 
+
+            foreach (Point p in list)
+            {
+                sb.AppendLine(p.ToString());
+            }
+
+            SaveFileDialog sfd = MySaveFileDialog();
+            if (sfd.ShowDialog() == true)
+            {
+                File.WriteAllText(sfd.FileName, sb.ToString());
+            }
+        }
+        
+        //Helpers
+        private SaveFileDialog MySaveFileDialog()
+        {
+            SaveFileDialog sfd = new SaveFileDialog()
+            {
+                Filter = "CSV|*.csv",
+                DefaultExt = ".csv",
+                AddExtension = true,
+                OverwritePrompt = true,
+                CreatePrompt = false,
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) +
+                                    "\\Saved Games\\YAME Motion Engine",
+                //APP Data:
+                //InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) +
+                //                    "\\AppData\\Local\\HexaGo",
+            };
+
+            if (!Directory.Exists(sfd.InitialDirectory)) Directory.CreateDirectory(sfd.InitialDirectory);
+
+            return sfd;
+        }
+        public static bool IsRotation(DOF dof)
+        {
+            switch (dof)
+            {
+                case DOF.surge:
+                    return false;
+                case DOF.heave:
+                    return false;
+                case DOF.sway:
+                    return false;
+                case DOF.yaw:
+                    return true;
+                case DOF.pitch:
+                    return true;
+                case DOF.roll:
+                    return true;
+                case DOF.pitch_lfc:
+                    return true;
+                case DOF.roll_lfc:
+                    return true;
+                default:
+                    throw new Exception($"Unknown DOF: {dof}");
+            }
+        }
+        public static bool IsTranslation(DOF dof)
+        {
+            switch (dof)
+            {
+                case DOF.surge:
+                    return true;
+                case DOF.heave:
+                    return true;
+                case DOF.sway:
+                    return true;
+                case DOF.yaw:
+                    return false;
+                case DOF.pitch:
+                    return false;
+                case DOF.roll:
+                    return false;
+                case DOF.pitch_lfc:
+                    return false;
+                case DOF.roll_lfc:
+                    return false;
+                default:
+                    throw new Exception($"Unknown DOF: {dof}");
+            }
         }
     }
 }

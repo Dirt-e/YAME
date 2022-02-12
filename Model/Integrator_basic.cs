@@ -48,25 +48,21 @@ namespace YAME.Model
         public float Offset_Park
         {
             get { return _offset_park; }
-            set
-            {
-                _offset_park = value;
-                OnPropertyChanged("Offset_Park");
-            }
+            set { _offset_park = value; OnPropertyChanged(nameof(Offset_Park)); }
         }
 
         float _offset_pause;
         public float Offset_Pause
         {
             get { return _offset_pause; }
-            set { _offset_pause = value; OnPropertyChanged("Offset_Pause"); }
+            set { _offset_pause = value; OnPropertyChanged(nameof(Offset_Pause)); }
         }
 
         float _offset_cor;
         public float Offset_CoR
         {
             get { return _offset_cor; }
-            set { _offset_cor = value; OnPropertyChanged("Offset_CoR"); }
+            set { _offset_cor = value; OnPropertyChanged(nameof(Offset_CoR)); }
         }
         #endregion
 

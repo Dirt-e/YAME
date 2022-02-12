@@ -30,7 +30,12 @@
       "ProjectGuid": "36da21fd-c620-498a-a588-1026b9b74232",
       "DisplayName": "Rigalyser",
       "ColorIndex": 4
+    },
+    "1f8a67ac-4d1a-479c-9a4a-bdef5e71edbb": {
+      "ProjectGuid": "1f8a67ac-4d1a-479c-9a4a-bdef5e71edbb",
+      "DisplayName": "Rig-O-Meter",
+      "ColorIndex": 5
     }
   },
-  "NextColorIndex": 5
+  "NextColorIndex": 6
 }

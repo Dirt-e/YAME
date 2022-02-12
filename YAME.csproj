@@ -153,11 +153,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="..\GlobalVars.cs">
+      <Link>GlobalVars.cs</Link>
+    </Compile>
+    <Compile Include="..\Utility.cs">
+      <Link>Utility.cs</Link>
+    </Compile>
     <Compile Include="DataFomats\DOF_Data.cs" />
     <Compile Include="DataFomats\PreprocessorData.cs" />
     <Compile Include="DataFomats\SaveObject.cs" />
     <Compile Include="DataFomats\SixSisters.cs" />
-    <Compile Include="GlobalVars.cs" />
     <Compile Include="Model\Actuator.cs" />
     <Compile Include="Model\ActuatorSystem.cs" />
     <Compile Include="Model\AlphaCompensator.cs" />
@@ -202,7 +207,6 @@
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="Utility.cs" />
     <Compile Include="ViewModel\ViewModel_CrashDetector.cs" />
     <Compile Include="ViewModel\ViewModel_MainWindow.cs" />
     <Compile Include="ViewModel\ViewModel_MotionControlWindow.cs" />

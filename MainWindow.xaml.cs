@@ -447,8 +447,8 @@ namespace YAME
         //---------- Buttons -----------
         private void btn_Test_Click(object sender, RoutedEventArgs e)
         {
-            PhantomRig pr = new PhantomRig();
-            var x = pr.Explore(DOF.surge, DOF.heave);
+            //PhantomRig pr = new PhantomRig();
+            //var x = pr.Explore(DOF.pitch, DOF.roll);
         }
     }
 }

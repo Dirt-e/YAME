@@ -44,41 +44,6 @@ namespace YAME.Model
             UpdateUI_ViaDispatcherInvoke();
         }
 
-        //private void Integrate_Platforms()
-        //{
-        //    UpperPoints.Dist_A = Dist_A_Upper;
-        //    UpperPoints.Dist_B = Dist_B_Upper;
-
-        //    LowerPoints.Dist_A = Dist_A_Lower;
-        //    LowerPoints.Dist_B = Dist_B_Lower;
-
-        //    Plat_Fix_Park.SetTranslation(   0,
-        //                                    0,
-        //                                    Offset_Park);
-
-        //    Plat_Fix_Pause.SetTranslation(  0,
-        //                                    0,
-        //                                    Offset_Pause                    );
-
-        //    Plat_CoR.SetTranslation(        0,
-        //                                    0,
-        //                                    Offset_CoR                      );
-
-        //    Plat_LFC.SetOrientation(        0,      
-        //                                    RAD_from_DEG(Input.LFC_Pitch), 
-        //                                    -RAD_from_DEG(Input.LFC_Roll)    );     //Negative sign, because a positive accel (right) shall tilt the platform towards negative roll (left)
-            
-        //    Plat_HFC.SetTranslation(        Input.HFC_Sway, 
-        //                                    Input.HFC_Surge, 
-        //                                    Input.HFC_Heave                 );
-        //    Plat_HFC.SetOrientation(        RAD_from_DEG(Input.HFC_Yaw), 
-        //                                    RAD_from_DEG(Input.HFC_Pitch), 
-        //                                    RAD_from_DEG(Input.HFC_Roll)    );
-
-        //    Plat_Motion.SetTranslation(     0,
-        //                                    0,
-        //                                    -Offset_CoR                      );
-        //}
         private void LerpPhysical_Between_ParkPauseMotion()
         {   
             //Plat_Float_Physical lives inside "World"! That's why we only use World coordinates
