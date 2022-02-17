@@ -165,7 +165,6 @@ namespace YAME.View
                 MessageBox.Show("Looks like you don't have X-Plane installed :-/",
                                 "Can't find X-Plane",
                                 MessageBoxButton.OK, MessageBoxImage.Warning);
-
                 return;
             }
 
@@ -198,7 +197,7 @@ namespace YAME.View
                     }
                 }
             }
-            //----------------------------------------------------------------------------------Create ALl paths()
+            //----------------------------------------------------------------------------------Create All paths()
             StringBuilder list = new StringBuilder();
             foreach (var path in allPaths)
             {
@@ -206,7 +205,7 @@ namespace YAME.View
             }
 
             MessageBox.Show("So, you want to patch X-Plane for motion data export?\n" +
-                "That's great! I can even help you with that. All you gotta do is " +
+                "That's great! Let me help you with that. All you gotta do is " +
                 "point me to your X-Plane installation folder.\n\n" +
                 "In case you don't know where that is, I have a sneakin' suspicion you're " +
                 "gonna find it in one of these locations:\n\n" +
@@ -249,7 +248,11 @@ namespace YAME.View
             }
             catch (Exception)
             {
-
+                MessageBox.Show("Some undefined behavior caused this error. To be honest, we never thought this would be possible. " +
+                                "If you happen to have a few minutes to spare, send us an email to software@hexago-motion.com. We would love to take a look at this.\n\n" +
+                                "X-Plane was NOT patched!",
+                                "Something went wrong",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             
@@ -403,7 +406,7 @@ namespace YAME.View
                 
             if (Directory.Exists(destination + "XPlaneGetter"))
             {
-                MessageBox.Show("X-Plane is already patched for motion data export. I'm " +
+                MessageBox.Show("X-Plane is already patched for motion data export. But I'm " +
                                 "gonna re-apply the patch, just to be sure.",
                                 "Overwriting Patch",
                                 MessageBoxButton.OK, MessageBoxImage.Information);

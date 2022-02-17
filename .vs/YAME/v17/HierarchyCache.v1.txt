@@ -3,87 +3,123 @@ i:{00000000-0000-0000-0000-000000000000}:YAME.sln
 ++YAME
 i:{00000000-0000-0000-0000-000000000000}:YAME
 ++Properties
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\properties\
-++AssemblyInfo.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\properties\assemblyinfo.cs
-++Settings.settings
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\properties\settings.settings
-++Settings.Designer.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\properties\settings.designer.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\properties\
 ++References
 i:{aca3412a-22da-4039-aea3-ced6097011c1}:
 ++DataFomats
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\datafomats\
-++Documents
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\documents\
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\datafomats\
 ++Media
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\media\
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\media\
 ++Model
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\
+++Structs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\structs\
+++_Filter.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\_filter.cs
+++_MyObject.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\_myobject.cs
+++Actuator.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\actuator.cs
+++ActuatorSystem.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\actuatorsystem.cs
+++AlphaCompensator.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\alphacompensator.cs
+++Chopper.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\chopper.cs
+++CompressorModule.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\compressormodule.cs
+++CompressorSystem.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\compressorsystem.cs
+++ConnectingPoints.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\connectingpoints.cs
+++DOF.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\dof.cs
+++DOF_Override.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\dof_override.cs
+++Engine.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\engine.cs
+++ExceedanceDetector.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\exceedancedetector.cs
+++FilterSystem.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\filtersystem.cs
+++HighPassNthOrder.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\highpassnthorder.cs
+++IK-Module.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\ik-module.cs
+++Integrator.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\integrator.cs
+++Integrator_basic.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\integrator_basic.cs
+++Inverter.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\inverter.cs
+++Lerp.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\lerp.cs
+++Lerp_3Way.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\lerp_3way.cs
+++LoaderSaver.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\loadersaver.cs
+++LowPassModule.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\lowpassmodule.cs
+++LowPassNthOrder.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\lowpassnthorder.cs
+++MessageGenerator_AMC_AASD15A.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\messagegenerator_amc_aasd15a.cs
+++Messagegenerator_M4S.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\messagegenerator_m4s.cs
+++MyTransform.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\mytransform.cs
+++PhantomRig.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\phantomrig.cs
+++PositionOffsetCorrector.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\positionoffsetcorrector.cs
+++Protector.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\protector.cs
+++RecoveryLogic.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\recoverylogic.cs
+++ScalerModule.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\scalermodule.cs
+++ScalerSystem.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\scalersystem.cs
+++SerialTalker.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\serialtalker.cs
+++Server.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\server.cs
+++SnappyDragger.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\snappydragger.cs
+++ZeroMaker.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\zeromaker.cs
 ++Resources
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\resources\
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\resources\
 ++View
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\
-++Converters
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\converters\
-++UserControls
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\usercontrols\
-++AboutWindow.xaml
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\aboutwindow.xaml
-++AlphaCompensationWindow.xaml
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\alphacompensationwindow.xaml
-++CrashDetectorWindow.xaml
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\crashdetectorwindow.xaml
-++DOF_Window.xaml
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\dof_window.xaml
-++EnumBindingSourceExtension.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\enumbindingsourceextension.cs
-++FiltersWindow.xaml
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\filterswindow.xaml
-++MotionControl_Window.xaml
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\motioncontrol_window.xaml
-++PositionCorrectorWindow.xaml
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\positioncorrectorwindow.xaml
-++RawDataWindow.xaml
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\rawdatawindow.xaml
-++RigConfigWindow.xaml
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\rigconfigwindow.xaml
-++SceneViewWindow.xaml
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\sceneviewwindow.xaml
-++SerialConnection_Window.xaml
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\serialconnection_window.xaml
-++SerialConnection_Window.xaml.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\serialconnection_window.xaml.cs
-++ServerWindow.xaml
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\serverwindow.xaml
-++Window_Patch.xaml
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\window_patch.xaml
-++Window_Patch.xaml.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\window_patch.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\
 ++ViewModel
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\viewmodel\
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\viewmodel\
 ++App.config
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\app.config
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\app.config
 ++App.xaml
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\app.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\app.xaml
 ++drawing_shaded.ico
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\drawing_shaded.ico
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\drawing_shaded.ico
 ++GlobalVars.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\globalvars.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\globalvars.cs
 ++MainWindow.xaml
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\mainwindow.xaml
-++MainWindow.xaml.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\mainwindow.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\mainwindow.xaml
 ++packages.config
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\packages.config
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\packages.config
 ++Resource.resx
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\resource.resx
-++Resource.Designer.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\resource.designer.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\resource.resx
+++Settings.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\settings.cs
+++To-Do List.txt
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\to-do list.txt
 ++Utility.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\utility.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\utility.cs
 ++YAME_TemporaryKey.pfx
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\yame_temporarykey.pfx
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\yame_temporarykey.pfx
+++AssemblyInfo.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\properties\assemblyinfo.cs
+++Settings.settings
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\properties\settings.settings
 ++HelixToolkit
 i:{aca3412a-22da-4039-aea3-ced6097011c1}:
 ++HelixToolkit.Wpf
@@ -111,6 +147,10 @@ i:{aca3412a-22da-4039-aea3-ced6097011c1}:
 ++System.Data
 i:{aca3412a-22da-4039-aea3-ced6097011c1}:
 ++System.Data.DataSetExtensions
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++System.Deployment
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:
+++System.Drawing
 i:{aca3412a-22da-4039-aea3-ced6097011c1}:
 ++System.IO.Compression
 i:{aca3412a-22da-4039-aea3-ced6097011c1}:
@@ -147,170 +187,170 @@ i:{aca3412a-22da-4039-aea3-ced6097011c1}:
 ++WindowsBase
 i:{aca3412a-22da-4039-aea3-ced6097011c1}:
 ++DOF_Data.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\datafomats\dof_data.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\datafomats\dof_data.cs
 ++FilterData.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\datafomats\filterdata.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\datafomats\filterdata.cs
 ++PreprocessorData.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\datafomats\preprocessordata.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\datafomats\preprocessordata.cs
 ++SaveObject.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\datafomats\saveobject.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\datafomats\saveobject.cs
 ++SixSisters.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\datafomats\sixsisters.cs
-++To-Do List.txt
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\documents\to-do list.txt
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\datafomats\sixsisters.cs
+++Images
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\media\images\
 ++Models
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\media\models\
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\media\models\
 ++BlockeWhileSerial.png
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\media\blockewhileserial.png
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\media\blockewhileserial.png
+++CC BY-NC-ND 3.0.png
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\media\cc by-nc-nd 3.0.png
 ++Logo Dodecahedron 2276x2146.png
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\media\logo dodecahedron 2276x2146.png
-++Structs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\structs\
-++_Filter.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\_filter.cs
-++_MyObject.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\_myobject.cs
-++Actuator.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\actuator.cs
-++ActuatorSystem.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\actuatorsystem.cs
-++AlphaCompensator.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\alphacompensator.cs
-++Chopper.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\chopper.cs
-++CompressorModule.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\compressormodule.cs
-++CompressorSystem.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\compressorsystem.cs
-++ConnectingPoints.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\connectingpoints.cs
-++DOF_Override.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\dof_override.cs
-++Engine.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\engine.cs
-++ExceedanceDetector.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\exceedancedetector.cs
-++FilterSystem.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\filtersystem.cs
-++HighPassNthOrder.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\highpassnthorder.cs
-++IK-Module.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\ik-module.cs
-++Integrator.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\integrator.cs
-++Inverter.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\inverter.cs
-++Lerp.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\lerp.cs
-++Lerp_3Way.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\lerp_3way.cs
-++LoaderSaver.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\loadersaver.cs
-++LowPassModule.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\lowpassmodule.cs
-++LowPassNthOrder.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\lowpassnthorder.cs
-++MessageGenerator_AMC_AASD15A.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\messagegenerator_amc_aasd15a.cs
-++Messagegenerator_M4S.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\messagegenerator_m4s.cs
-++MyTransform.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\mytransform.cs
-++PositionOffsetCorrector.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\positionoffsetcorrector.cs
-++Protector.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\protector.cs
-++RecoveryLogic.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\recoverylogic.cs
-++ScalerModule.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\scalermodule.cs
-++ScalerSystem.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\scalersystem.cs
-++SerialTalker.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\serialtalker.cs
-++Server.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\server.cs
-++ZeroMaker.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\zeromaker.cs
-++DCS
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\resources\dcs\
-++X-Plane
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\resources\x-plane\
-++ActuatorstatusToColorConverter.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\converters\actuatorstatustocolorconverter.cs
-++BoolToActiveConverter..cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\converters\booltoactiveconverter..cs
-++BoolToColorBrushConverter.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\converters\booltocolorbrushconverter.cs
-++BoolToColorBrushConverter_Actuator.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\converters\booltocolorbrushconverter_actuator.cs
-++BoolToColorBrushConverter_OnAirLight.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\converters\booltocolorbrushconverter_onairlight.cs
-++BoolToOpenConverter_SerialConnection.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\converters\booltoopenconverter_serialconnection.cs
-++BoolToVisibilityConverter.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\converters\booltovisibilityconverter.cs
-++CharToColorConverter.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\converters\chartocolorconverter.cs
-++CompressionBox.xaml
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\usercontrols\compressionbox.xaml
-++FilterBox.xaml
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\usercontrols\filterbox.xaml
-++ScalerBox.xaml
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\usercontrols\scalerbox.xaml
-++ToggleSwitch.xaml
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\usercontrols\toggleswitch.xaml
-++AboutWindow.xaml.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\aboutwindow.xaml.cs
-++AlphaCompensationWindow.xaml.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\alphacompensationwindow.xaml.cs
-++CrashDetectorWindow.xaml.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\crashdetectorwindow.xaml.cs
-++DOF_Window.xaml.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\dof_window.xaml.cs
-++FiltersWindow.xaml.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\filterswindow.xaml.cs
-++MotionControl_Window.xaml.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\motioncontrol_window.xaml.cs
-++PositionCorrectorWindow.xaml.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\positioncorrectorwindow.xaml.cs
-++RawDataWindow.xaml.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\rawdatawindow.xaml.cs
-++RigConfigWindow.xaml.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\rigconfigwindow.xaml.cs
-++SceneViewWindow.xaml.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\sceneviewwindow.xaml.cs
-++ServerWindow.xaml.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\serverwindow.xaml.cs
-++_ViewModel.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\viewmodel\_viewmodel.cs
-++ViewModel_CrashDetector.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\viewmodel\viewmodel_crashdetector.cs
-++ViewModel_FiltersWindow.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\viewmodel\viewmodel_filterswindow.cs
-++ViewModel_MainWindow.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\viewmodel\viewmodel_mainwindow.cs
-++ViewModel_MotionControlWindow.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\viewmodel\viewmodel_motioncontrolwindow.cs
-++ViewModel_SceneView.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\viewmodel\viewmodel_sceneview.cs
-++App.xaml.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\app.xaml.cs
-++Plane.stl
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\media\models\plane.stl
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\media\logo dodecahedron 2276x2146.png
 ++ActuatorStatus_Struct.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\structs\actuatorstatus_struct.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\structs\actuatorstatus_struct.cs
 ++Platforms_Struct.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\structs\platforms_struct.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\model\structs\platforms_struct.cs
+++DCS
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\resources\dcs\
+++X-Plane
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\resources\x-plane\
+++Converters
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\converters\
+++UserControls
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\usercontrols\
+++AboutWindow.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\aboutwindow.xaml
+++AlphaCompensationWindow.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\alphacompensationwindow.xaml
+++CrashDetectorWindow.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\crashdetectorwindow.xaml
+++DOF_Window.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\dof_window.xaml
+++EnumBindingSourceExtension.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\enumbindingsourceextension.cs
+++FiltersWindow.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\filterswindow.xaml
+++MotionControl_Window.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\motioncontrol_window.xaml
+++PositionCorrectorWindow.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\positioncorrectorwindow.xaml
+++RawDataWindow.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\rawdatawindow.xaml
+++RigConfigWindow.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\rigconfigwindow.xaml
+++SceneViewWindow.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\sceneviewwindow.xaml
+++SerialConnection_Window.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\serialconnection_window.xaml
+++ServerWindow.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\serverwindow.xaml
+++Window_Patch.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\window_patch.xaml
+++_ViewModel.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\viewmodel\_viewmodel.cs
+++ViewModel_CrashDetector.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\viewmodel\viewmodel_crashdetector.cs
+++ViewModel_MainWindow.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\viewmodel\viewmodel_mainwindow.cs
+++ViewModel_MotionControlWindow.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\viewmodel\viewmodel_motioncontrolwindow.cs
+++ViewModel_SceneView.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\viewmodel\viewmodel_sceneview.cs
+++App.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\app.xaml.cs
+++MainWindow.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\mainwindow.xaml.cs
+++Resource.Designer.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\resource.designer.cs
+++Settings.Designer.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\properties\settings.designer.cs
+++Aero Vodochody L-39C Albatros SIDE.png
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\media\images\aero vodochody l-39c albatros side.png
+++c0left.png
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\media\images\c0left.png
+++Desktop-PC.svg.png
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\media\images\desktop-pc.svg.png
+++hotaswarthog-flightstick.webp
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\media\images\hotaswarthog-flightstick.webp
+++Projector.png
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\media\images\projector.png
+++Schematics1.png
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\media\images\schematics1.png
+++Schematics2.png
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\media\images\schematics2.png
+++Screenshot 2021-12-07 at 20.48.58.png
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\media\images\screenshot 2021-12-07 at 20.48.58.png
+++Screenshot 2021-12-07 at 20.54.50 1.png
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\media\images\screenshot 2021-12-07 at 20.54.50 1.png
+++Screenshot 2021-12-07 at 20.56.10.png
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\media\images\screenshot 2021-12-07 at 20.56.10.png
+++Screenshot 2021-12-07 at 20.58.44.png
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\media\images\screenshot 2021-12-07 at 20.58.44.png
+++Untitled Diagram.drawio
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\media\images\untitled diagram.drawio
+++valveindex.png
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\media\images\valveindex.png
+++Plane.stl
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\media\models\plane.stl
 ++YAME_Export_Hook.lua
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\resources\dcs\yame_export_hook.lua
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\resources\dcs\yame_export_hook.lua
 ++XPlaneGetter.zip
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\resources\x-plane\xplanegetter.zip
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\resources\x-plane\xplanegetter.zip
+++ActuatorstatusToColorConverter.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\converters\actuatorstatustocolorconverter.cs
+++BoolToActiveConverter..cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\converters\booltoactiveconverter..cs
+++BoolToColorBrushConverter.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\converters\booltocolorbrushconverter.cs
+++BoolToColorBrushConverter_Actuator.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\converters\booltocolorbrushconverter_actuator.cs
+++BoolToColorBrushConverter_OnAirLight.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\converters\booltocolorbrushconverter_onairlight.cs
+++BoolToOpenConverter_SerialConnection.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\converters\booltoopenconverter_serialconnection.cs
+++BoolToVisibilityConverter.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\converters\booltovisibilityconverter.cs
+++CharToColorConverter.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\converters\chartocolorconverter.cs
+++CompressionBox.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\usercontrols\compressionbox.xaml
+++FilterBox.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\usercontrols\filterbox.xaml
+++ScalerBox.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\usercontrols\scalerbox.xaml
+++ToggleSwitch.xaml
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\usercontrols\toggleswitch.xaml
+++AboutWindow.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\aboutwindow.xaml.cs
+++AlphaCompensationWindow.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\alphacompensationwindow.xaml.cs
+++CrashDetectorWindow.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\crashdetectorwindow.xaml.cs
+++DOF_Window.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\dof_window.xaml.cs
+++FiltersWindow.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\filterswindow.xaml.cs
+++MotionControl_Window.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\motioncontrol_window.xaml.cs
+++PositionCorrectorWindow.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\positioncorrectorwindow.xaml.cs
+++RawDataWindow.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\rawdatawindow.xaml.cs
+++RigConfigWindow.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\rigconfigwindow.xaml.cs
+++SceneViewWindow.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\sceneviewwindow.xaml.cs
+++SerialConnection_Window.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\serialconnection_window.xaml.cs
+++ServerWindow.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\serverwindow.xaml.cs
+++Window_Patch.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\window_patch.xaml.cs
 ++CompressionBox.xaml.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\usercontrols\compressionbox.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\usercontrols\compressionbox.xaml.cs
 ++FilterBox.xaml.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\usercontrols\filterbox.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\usercontrols\filterbox.xaml.cs
 ++ScalerBox.xaml.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\usercontrols\scalerbox.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\usercontrols\scalerbox.xaml.cs
 ++ToggleSwitch.xaml.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\view\usercontrols\toggleswitch.xaml.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:\\mac\home\onedrive\frank - pc\github\yame\view\usercontrols\toggleswitch.xaml.cs
