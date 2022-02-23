@@ -35,7 +35,7 @@
         <TextBox    x:Name="txtbx_FilterVariable" Text="{Binding FilterVariable, UpdateSourceTrigger=Default, Mode=TwoWay}"
                     Style="{StaticResource TextBox_Style}"
                     FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Width="40"/>
-        <TextBlock  x:Name="txtblk_Outvalue"    Text="{Binding OutValue, StringFormat=N2}"
+        <TextBlock  x:Name="txtblk_Outvalue"    Text="{Binding OutValue, StringFormat=N3}"
                     FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Margin="0,0,5,0"/>
     </Grid>
 

@@ -3,16 +3,16 @@
   <Profiles />
   <Settings>
     <Setting Name="CrashDetector_Threshold_Ax" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">10</Value>
-    </Setting>
-    <Setting Name="CrashDetector_Threshold_Ay" Type="System.Single" Scope="User">
       <Value Profile="(Default)">30</Value>
     </Setting>
+    <Setting Name="CrashDetector_Threshold_Ay" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">120</Value>
+    </Setting>
     <Setting Name="CrashDetector_Threshold_Az" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">10</Value>
+      <Value Profile="(Default)">20</Value>
     </Setting>
     <Setting Name="CrashDetector_Threshold_Wx" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">180</Value>
     </Setting>
     <Setting Name="CrashDetector_Threshold_Wy" Type="System.Single" Scope="User">
       <Value Profile="(Default)">100</Value>
@@ -21,13 +21,13 @@
       <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="PositionOffsetCorrection_DeltaX" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">10</Value>
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="PositionOffsetCorrection_DeltaY" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">10</Value>
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="PositionOffsetCorrection_DeltaZ" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">10</Value>
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="PositionOffsetCorrection_IsActive" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -48,46 +48,46 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Filtervariable_Wx_HP" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">500</Value>
     </Setting>
     <Setting Name="Filtervariable_Wx_HP_LP" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">500</Value>
     </Setting>
     <Setting Name="FilterVariable_Wy_HP" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">500</Value>
     </Setting>
     <Setting Name="Filtervariable_Wy_HP_LP" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">500</Value>
     </Setting>
     <Setting Name="Filtervariable_Wz_HP" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">500</Value>
     </Setting>
     <Setting Name="Filtervariable_Wz_HP_LP" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">500</Value>
     </Setting>
     <Setting Name="Filtervariable_Ax_HP" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">500</Value>
     </Setting>
     <Setting Name="Filtervariable_Ax_HP_LP2" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">500</Value>
     </Setting>
     <Setting Name="Filtervariable_Ay_HP" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">500</Value>
     </Setting>
     <Setting Name="Filtervariable_Ay_HP_LP2" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">500</Value>
     </Setting>
     <Setting Name="Filtervariable_Az_HP" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">500</Value>
     </Setting>
     <Setting Name="Filtervariable_Az_HP_LP2" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">500</Value>
     </Setting>
     <Setting Name="Filtervariable_Ax_LP3" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">500</Value>
     </Setting>
     <Setting Name="Filtervariable_Az_LP3" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">100</Value>
+      <Value Profile="(Default)">500</Value>
     </Setting>
     <Setting Name="CompressionMethod_Roll_HFC" Type="System.String" Scope="User">
       <Value Profile="(Default)">None</Value>
@@ -216,7 +216,7 @@
       <Value Profile="(Default)">1021</Value>
     </Setting>
     <Setting Name="Integrator_OffsetCoR" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">300</Value>
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Dist_A_Upper" Type="System.Single" Scope="User">
       <Value Profile="(Default)">1136</Value>

@@ -31,10 +31,10 @@
     <InstallUrl>https://raw.githubusercontent.com/Dirt-e/YAME_release/main/Files/</InstallUrl>
     <UpdateUrl>https://raw.githubusercontent.com/Dirt-e/YAME_release/main/Files/</UpdateUrl>
     <TargetCulture>en-GB</TargetCulture>
+    <ProductName>YAME</ProductName>
     <PublisherName>HexaGo</PublisherName>
-    <WebPage>publish.htm</WebPage>
-    <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>24</ApplicationRevision>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>35</ApplicationRevision>
     <ApplicationVersion>0.0.10.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>

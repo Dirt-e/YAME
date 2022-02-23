@@ -267,7 +267,6 @@ namespace YAME.Model
         #endregion
 
         private string[] Chunks = new string[19];
-        //private float[] Floats = new float[19];
 
         public void ChopParseAndPackage(string rawdatastring)
         {

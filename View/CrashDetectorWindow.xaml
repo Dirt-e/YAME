@@ -13,7 +13,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"></ColumnDefinition>
-            <ColumnDefinition Width="30"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
             <ColumnDefinition Width="10"></ColumnDefinition>
             <ColumnDefinition Width="40"></ColumnDefinition>
             <ColumnDefinition Width="40"></ColumnDefinition>
@@ -34,12 +34,12 @@
 
         <TextBlock  Text="Crash Detector:" Grid.Column="0" Grid.ColumnSpan="5"  Margin="5,0,0,0" FontSize="15" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
-        <Label      Content="Ax:" Grid.Column="1"   Grid.Row="2"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-        <Label      Content="Ay:" Grid.Column="1"   Grid.Row="3"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-        <Label      Content="Az:" Grid.Column="1"   Grid.Row="4"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-        <Label      Content="Wx:" Grid.Column="1"   Grid.Row="6"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-        <Label      Content="Wy:" Grid.Column="1"   Grid.Row="7"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-        <Label      Content="Wz:" Grid.Column="1"   Grid.Row="8"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBlock  Text="Acc_lon:"   Grid.Column="1"   Grid.Row="2"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBlock  Text="Acc_vert:"  Grid.Column="1"   Grid.Row="3"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBlock  Text="Acc_lat:"   Grid.Column="1"   Grid.Row="4"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBlock  Text="ω_lon:"   Grid.Column="1"   Grid.Row="6"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBlock  Text="ω_vert:"  Grid.Column="1"   Grid.Row="7"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBlock  Text="ω_lat:"   Grid.Column="1"   Grid.Row="8"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
         <TextBox    x:Name="txtbx_Ax_Threshold" Text="{ Binding AX_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
                     Grid.Column="3" Grid.Row="2" Margin="1" TextAlignment="Center" Style="{StaticResource TextBox_Style}"/>

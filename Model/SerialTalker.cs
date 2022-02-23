@@ -64,8 +64,8 @@ namespace YAME.Model
                     if (serialport.IsOpen)
                     {
                         MessageBox.Show(    "You are trying to open a serial connection that is already open! " +
-                            "That is very strange. If you can consistently reproduce this, definitely shoot us an " +
-                            "email to bugs@hexago-motion.com.",
+                                            "That is very strange. If you can consistently reproduce this, definitely shoot us an " +
+                                            "email to bugs@hexago-motion.com.",
                                             "Serial port already open :-/",
                                             MessageBoxButton.OK, MessageBoxImage.Exclamation);
                         return;
@@ -108,9 +108,9 @@ namespace YAME.Model
                     }
                     catch (Exception)
                     {
-                        MessageBoxResult result = MessageBox.Show(  $"Unable to open {COM_Port}. Are you sure that this is the controller you're looking for?",
-                                                                    "Unable to open COM port",
-                                                                    MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(    $"Unable to open {COM_Port}. Are you sure that this is the controller you're looking for?",
+                                            "Unable to open COM port",
+                                            MessageBoxButton.OK, MessageBoxImage.Error);
                         serialport.Close();
                         _isopen = false;
                     }
@@ -171,12 +171,11 @@ namespace YAME.Model
                     IsOpen = false;
                     UI_Message = "Conection timed out";
                     
-                    MessageBoxResult result = MessageBox.Show(
-                        $"Write timeout after {WriteTimeout}ms.\n" +
-                        $"Looks like the device on {COM_Port} is not responding.",
-                        "Write Timeout",
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Exclamation);
+                    MessageBox.Show(    $"Write timeout after {WriteTimeout}ms.\n" +
+                                        $"Looks like the device on {COM_Port} is not responding.",
+                                        "Write Timeout",
+                                        MessageBoxButton.OK,
+                                        MessageBoxImage.Exclamation);
                 }
             }
             else

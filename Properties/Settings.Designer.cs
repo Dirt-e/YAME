@@ -25,7 +25,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("30")]
         public float CrashDetector_Threshold_Ax {
             get {
                 return ((float)(this["CrashDetector_Threshold_Ax"]));
@@ -37,7 +37,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("120")]
         public float CrashDetector_Threshold_Ay {
             get {
                 return ((float)(this["CrashDetector_Threshold_Ay"]));
@@ -49,7 +49,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("20")]
         public float CrashDetector_Threshold_Az {
             get {
                 return ((float)(this["CrashDetector_Threshold_Az"]));
@@ -61,7 +61,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("180")]
         public float CrashDetector_Threshold_Wx {
             get {
                 return ((float)(this["CrashDetector_Threshold_Wx"]));
@@ -97,7 +97,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public float PositionOffsetCorrection_DeltaX {
             get {
                 return ((float)(this["PositionOffsetCorrection_DeltaX"]));
@@ -109,7 +109,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public float PositionOffsetCorrection_DeltaY {
             get {
                 return ((float)(this["PositionOffsetCorrection_DeltaY"]));
@@ -121,7 +121,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public float PositionOffsetCorrection_DeltaZ {
             get {
                 return ((float)(this["PositionOffsetCorrection_DeltaZ"]));
@@ -205,7 +205,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
         public float Filtervariable_Wx_HP {
             get {
                 return ((float)(this["Filtervariable_Wx_HP"]));
@@ -217,7 +217,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
         public float Filtervariable_Wx_HP_LP {
             get {
                 return ((float)(this["Filtervariable_Wx_HP_LP"]));
@@ -229,7 +229,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
         public float FilterVariable_Wy_HP {
             get {
                 return ((float)(this["FilterVariable_Wy_HP"]));
@@ -241,7 +241,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
         public float Filtervariable_Wy_HP_LP {
             get {
                 return ((float)(this["Filtervariable_Wy_HP_LP"]));
@@ -253,7 +253,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
         public float Filtervariable_Wz_HP {
             get {
                 return ((float)(this["Filtervariable_Wz_HP"]));
@@ -265,7 +265,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
         public float Filtervariable_Wz_HP_LP {
             get {
                 return ((float)(this["Filtervariable_Wz_HP_LP"]));
@@ -277,7 +277,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
         public float Filtervariable_Ax_HP {
             get {
                 return ((float)(this["Filtervariable_Ax_HP"]));
@@ -289,7 +289,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
         public float Filtervariable_Ax_HP_LP2 {
             get {
                 return ((float)(this["Filtervariable_Ax_HP_LP2"]));
@@ -301,7 +301,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
         public float Filtervariable_Ay_HP {
             get {
                 return ((float)(this["Filtervariable_Ay_HP"]));
@@ -313,7 +313,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
         public float Filtervariable_Ay_HP_LP2 {
             get {
                 return ((float)(this["Filtervariable_Ay_HP_LP2"]));
@@ -325,7 +325,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
         public float Filtervariable_Az_HP {
             get {
                 return ((float)(this["Filtervariable_Az_HP"]));
@@ -337,7 +337,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
         public float Filtervariable_Az_HP_LP2 {
             get {
                 return ((float)(this["Filtervariable_Az_HP_LP2"]));
@@ -349,7 +349,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
         public float Filtervariable_Ax_LP3 {
             get {
                 return ((float)(this["Filtervariable_Ax_LP3"]));
@@ -361,7 +361,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
         public float Filtervariable_Az_LP3 {
             get {
                 return ((float)(this["Filtervariable_Az_LP3"]));
@@ -877,7 +877,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("300")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public float Integrator_OffsetCoR {
             get {
                 return ((float)(this["Integrator_OffsetCoR"]));

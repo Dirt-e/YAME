@@ -38,8 +38,6 @@ namespace YAME.Model
         public ActuatorSystem           actuatorsystem;
         public SerialTalker             serialtalker;
         //...
-        //...
-        //...
 
         //ViewModels:
         public ViewModel_MainWindow                 VM_MainWindow;
@@ -47,9 +45,6 @@ namespace YAME.Model
         public ViewModel_MotionControlWindow        VM_MotionControlWindow;
         public ViewModel_Sceneview                  VM_SceneView;
         //...
-        //...
-        //...
-
 
         //Internal properties:
 
@@ -88,8 +83,6 @@ namespace YAME.Model
             VM_CrashDetector            = new ViewModel_CrashDetector(this);
             VM_MotionControlWindow      = new ViewModel_MotionControlWindow();
             VM_SceneView                = new ViewModel_Sceneview(this);
-            //...
-            //...
             //...
         }
         
@@ -137,9 +130,6 @@ namespace YAME.Model
             IK_Module               = new IK_Module(integrator as Integrator_basic);
             actuatorsystem          = new ActuatorSystem(IK_Module);
             serialtalker            = new SerialTalker(this);
-            //...
-            //...
-            //...
         }
         private void UpdateObjects()
         {
@@ -162,15 +152,14 @@ namespace YAME.Model
             serialtalker.Update(actuatorsystem.Output);
         }
 
-
         //Helpers:
         private void WaitForTargetFramerate()
         {
             //Hic sunt dracones!
-            int fps = Properties.Settings.Default.Processing_Framerate;
-            var targetTicksPerFrame = Stopwatch.Frequency / fps;
+            int fps_target = Properties.Settings.Default.Processing_Framerate;
+            var TicksPerFrame_target = Stopwatch.Frequency / fps_target;
             
-            while (stopwatch.ElapsedTicks < targetTicksPerFrame)
+            while (stopwatch.ElapsedTicks < TicksPerFrame_target)
             {
                 //DoNothing();
             }
