@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("drawing_shaded.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("yame.ico")]
 
 
