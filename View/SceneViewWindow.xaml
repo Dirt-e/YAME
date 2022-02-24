@@ -18,7 +18,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <HelixToolkit:HelixViewport3D x:Name="Viewport" Title="SceneView" Grid.Row="0" Grid.RowSpan="2" ZoomExtentsWhenLoaded="True"
-                                      ShowCoordinateSystem="True" CoordinateSystemLabelX="Right" CoordinateSystemLabelY="Fwd" CoordinateSystemLabelZ="Up"
+                                      ShowCoordinateSystem="True" CoordinateSystemLabelForeground="Gray"
+                                      CoordinateSystemLabelX="Right" CoordinateSystemLabelY="Fwd" CoordinateSystemLabelZ="Up" 
                                       ShowViewCube="True" IsViewCubeEdgeClicksEnabled="true"  ViewCubeHeight="100" ViewCubeWidth="100"
                                       ViewCubeBackText="L" ViewCubeLeftText="F" ViewCubeFrontText="R" ViewCubeRightText="B"
                                       CameraRotationMode="Turntable" ShowCameraInfo="false" ShowCameraTarget="True" 

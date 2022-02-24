@@ -48,7 +48,8 @@ namespace YAME.View
         //Helpers:
         private void SetDataContext()
         {
-            DataContext = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine.VM_SceneView;
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            DataContext = mainWindow.engine.VM_SceneView;
         }
         private void LoadPlaneObjectsForDebug()
         {
