@@ -6,15 +6,20 @@ using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Windows;
-
+using System.Windows.Input;
+using YAME.Model;
 
 namespace YAME.View
 {
     public partial class Window_Patcher : Window
     {
+        SnappyDragger snappyDragger;
+
         public Window_Patcher()
         {
             InitializeComponent();
+
+            snappyDragger = new SnappyDragger(this);
         }
 
         //---------- DCS ----------
@@ -417,9 +422,13 @@ namespace YAME.View
         }
 
         //---------- Window ----------
-        void Window_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            snappyDragger.StartDrag();
+        }
+        private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            snappyDragger.StopDrag();
         }
 
         //---------- Helpers ----------
