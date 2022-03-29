@@ -253,8 +253,9 @@ namespace YAME.View
             }
             catch (Exception)
             {
-                MessageBox.Show("Some undefined behavior caused this error. To be honest, we never thought this would be possible. " +
-                                "If you happen to have a few minutes to spare, send us an email to software@hexago-motion.com. We would love to take a look at this.\n\n" +
+                MessageBox.Show("I was unable to apply the motion data patch to X-Plane. Usually this happens, when you " +
+                                "have X-Plane running while trying to apply the patch. Make sure X-Plane is NOT running!" +
+                                "You might even have to reboot to be absolutely sure. \n\n" +
                                 "X-Plane was NOT patched!",
                                 "Something went wrong",
                                 MessageBoxButton.OK, MessageBoxImage.Error);
