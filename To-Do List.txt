@@ -22,7 +22,9 @@ FILTERS WINDOW:
 
 RIG CONFIGURATION:
 - Add a slew mode for apropriate offsets. May be used during an open serial connection!
-
+- Make sure the calibration feature is used only when either...
+	- ...no data is coming in from the sim
+	- ...sim data is not taken into account for the calibration process
 
 LOADER/SAVER:
 - Split Load/Save routine up into "Rig" and "Filters"

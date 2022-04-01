@@ -107,12 +107,12 @@ namespace YAME.Model
         {
             get
             {
-                return  A1.Utilisation == 0 &&
-                        A2.Utilisation == 0 &&
-                        A3.Utilisation == 0 &&
-                        A4.Utilisation == 0 &&
-                        A5.Utilisation == 0 &&
-                        A6.Utilisation == 0;
+                return  A1.Status == ActuatorStatus.FullyRetracted &&
+                        A2.Status == ActuatorStatus.FullyRetracted &&
+                        A3.Status == ActuatorStatus.FullyRetracted &&
+                        A4.Status == ActuatorStatus.FullyRetracted &&
+                        A5.Status == ActuatorStatus.FullyRetracted &&
+                        A6.Status == ActuatorStatus.FullyRetracted;
             }
         }
 

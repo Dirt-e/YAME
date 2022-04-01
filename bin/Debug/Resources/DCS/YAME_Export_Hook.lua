@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------------------------------------
--- Data export script for MOTUS
+-- Data export script for YAME
 -- Version 0.01
 -- created by @Dirty, find me here: https://www.xsimulator.net/community/members/dirty.27556/
 
@@ -21,11 +21,11 @@ YouPreferKnotsOverMetersPerSecond = false
 YouPreferMetersPerSecondSquaredOverG = true
 
 --The callbacks to be registered with DCS
-local MOTUS_Callbacks = {}
+local YAME_Callbacks = {}
 
-function MOTUS_Callbacks.onSimulationStart()
+function YAME_Callbacks.onSimulationStart()
 
-	log.write('MOTUS', log.INFO, "Starting motion data export to MOTUS. Export script " .. Version)
+	log.write('YAME', log.INFO, "Starting motion data export to YAME. Export script " .. Version)
 	
 	package.path = package.path..";.\\LuaSocket\\?.lua"
 	package.cpath = package.cpath..";.\\LuaSocket\\?.dll"
@@ -40,7 +40,7 @@ function MOTUS_Callbacks.onSimulationStart()
 	Counter = 0
 end
 
-function MOTUS_Callbacks.onSimulationFrame()
+function YAME_Callbacks.onSimulationFrame()
 
 	--Airdata:
 	IAS = 				Export.LoGetIndicatedAirSpeed()
@@ -145,9 +145,9 @@ function MOTUS_Callbacks.onSimulationFrame()
 	end
 end
 
-function MOTUS_Callbacks.onSimulationStop()
+function YAME_Callbacks.onSimulationStop()
 	
-	log.write('MOTUS', log.INFO, "Motion data export stopped")
+	log.write('YAME', log.INFO, "Motion data export stopped")
 
 	if MySocket then
 		MySocket:close()
@@ -155,7 +155,7 @@ function MOTUS_Callbacks.onSimulationStop()
 end
 
 --register these callbacks with DCS to be called at the appropriate moment.
-DCS.setUserCallbacks(MOTUS_Callbacks)
+DCS.setUserCallbacks(YAME_Callbacks)
 
 
 

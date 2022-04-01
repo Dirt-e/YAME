@@ -37,6 +37,7 @@ namespace YAME.Model
         public IK_Module                IK_Module;
         public ActuatorSystem           actuatorsystem;
         public SerialTalker             serialtalker;
+        public Logger                   logger;
         //...
 
         //ViewModels:
@@ -130,6 +131,7 @@ namespace YAME.Model
             IK_Module               = new IK_Module(integrator as Integrator_basic);
             actuatorsystem          = new ActuatorSystem(IK_Module);
             serialtalker            = new SerialTalker(this);
+            logger                  = new Logger(this);
         }
         private void UpdateObjects()
         {
@@ -150,6 +152,7 @@ namespace YAME.Model
             IK_Module.Update();
             actuatorsystem.Update();
             serialtalker.Update(actuatorsystem.Output);
+            logger.Update();
         }
 
         //Helpers:

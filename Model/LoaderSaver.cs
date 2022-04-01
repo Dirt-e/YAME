@@ -7,12 +7,10 @@ using System.Windows;
 
 namespace YAME.Model
 {
-    public class LoaderSaver
+    public class LoaderSaver : MyObject
     {
-        Engine engine;
         SaveObject saveObject;
         
-
         public LoaderSaver(Engine e)
         {
             engine = e;

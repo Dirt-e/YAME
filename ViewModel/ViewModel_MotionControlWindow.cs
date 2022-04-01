@@ -22,7 +22,7 @@ namespace YAME.ViewModel
                 if (_state != value)
                 {
                     _state = value;
-                    OnPropertyChanged("State");
+                    OnPropertyChanged(nameof(State));
 
                     switch (value)
                     {

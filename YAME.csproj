@@ -34,7 +34,7 @@
     <ProductName>YAME</ProductName>
     <PublisherName>HexaGo</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>40</ApplicationRevision>
+    <ApplicationRevision>41</ApplicationRevision>
     <ApplicationVersion>0.0.10.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -181,6 +181,7 @@
     <Compile Include="Model\HighPassNthOrder.cs" />
     <Compile Include="Model\Integrator.cs" />
     <Compile Include="Model\LoaderSaver.cs" />
+    <Compile Include="Model\Logger.cs" />
     <Compile Include="Model\MessageGenerator_AMC_AASD15A.cs" />
     <Compile Include="Model\Messagegenerator_M4S.cs" />
     <Compile Include="Model\MyTransform.cs" />

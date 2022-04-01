@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Media.Media3D;
 using System.Windows.Threading;
 using static Utility;
+using System.Windows.Input;
 
 namespace YAME.Model
 {
@@ -24,7 +25,6 @@ namespace YAME.Model
         float fade_duration_ParkToPause_seconds = 5;
         float fade_duration_PauseToMotion_seconds = 5;
 
-
         public Integrator(Engine e)
         {
             engine = e;         //To accesss other Objects
@@ -34,7 +34,6 @@ namespace YAME.Model
                                         engine);
 
         }
-
 
         new public void Update(DOF_Data data)
         {
@@ -107,41 +106,41 @@ namespace YAME.Model
                 mainwindow.engine.VM_SceneView.PlatMotion           = new MatrixTransform3D(Mx.Mx_Plat_Motion);
                 mainwindow.engine.VM_SceneView.PlatFloatPhysical    = new MatrixTransform3D(Mx.Mx_Plat_Float_Physical);
 
-                mainwindow.engine.VM_SceneView.Lower1 = new Point3D(Mx.Mx_LowerPoints_1.OffsetX,
+                mainwindow.engine.VM_SceneView.Lower1 = new Point3D(    Mx.Mx_LowerPoints_1.OffsetX,
                                                                         Mx.Mx_LowerPoints_1.OffsetY,
                                                                         Mx.Mx_LowerPoints_1.OffsetZ);
-                mainwindow.engine.VM_SceneView.Lower2 = new Point3D(Mx.Mx_LowerPoints_2.OffsetX,
+                mainwindow.engine.VM_SceneView.Lower2 = new Point3D(    Mx.Mx_LowerPoints_2.OffsetX,
                                                                         Mx.Mx_LowerPoints_2.OffsetY,
                                                                         Mx.Mx_LowerPoints_2.OffsetZ);
-                mainwindow.engine.VM_SceneView.Lower3 = new Point3D(Mx.Mx_LowerPoints_3.OffsetX,
+                mainwindow.engine.VM_SceneView.Lower3 = new Point3D(    Mx.Mx_LowerPoints_3.OffsetX,
                                                                         Mx.Mx_LowerPoints_3.OffsetY,
                                                                         Mx.Mx_LowerPoints_3.OffsetZ);
-                mainwindow.engine.VM_SceneView.Lower4 = new Point3D(Mx.Mx_LowerPoints_4.OffsetX,
+                mainwindow.engine.VM_SceneView.Lower4 = new Point3D(    Mx.Mx_LowerPoints_4.OffsetX,
                                                                         Mx.Mx_LowerPoints_4.OffsetY,
                                                                         Mx.Mx_LowerPoints_4.OffsetZ);
-                mainwindow.engine.VM_SceneView.Lower5 = new Point3D(Mx.Mx_LowerPoints_5.OffsetX,
+                mainwindow.engine.VM_SceneView.Lower5 = new Point3D(    Mx.Mx_LowerPoints_5.OffsetX,
                                                                         Mx.Mx_LowerPoints_5.OffsetY,
                                                                         Mx.Mx_LowerPoints_5.OffsetZ);
-                mainwindow.engine.VM_SceneView.Lower6 = new Point3D(Mx.Mx_LowerPoints_6.OffsetX,
+                mainwindow.engine.VM_SceneView.Lower6 = new Point3D(    Mx.Mx_LowerPoints_6.OffsetX,
                                                                         Mx.Mx_LowerPoints_6.OffsetY,
                                                                         Mx.Mx_LowerPoints_6.OffsetZ);
 
-                mainwindow.engine.VM_SceneView.Upper1 = new Point3D(Mx.Mx_UpperPoints_1.OffsetX,
+                mainwindow.engine.VM_SceneView.Upper1 = new Point3D(    Mx.Mx_UpperPoints_1.OffsetX,
                                                                         Mx.Mx_UpperPoints_1.OffsetY,
                                                                         Mx.Mx_UpperPoints_1.OffsetZ);
-                mainwindow.engine.VM_SceneView.Upper2 = new Point3D(Mx.Mx_UpperPoints_2.OffsetX,
+                mainwindow.engine.VM_SceneView.Upper2 = new Point3D(    Mx.Mx_UpperPoints_2.OffsetX,
                                                                         Mx.Mx_UpperPoints_2.OffsetY,
                                                                         Mx.Mx_UpperPoints_2.OffsetZ);
-                mainwindow.engine.VM_SceneView.Upper3 = new Point3D(Mx.Mx_UpperPoints_3.OffsetX,
+                mainwindow.engine.VM_SceneView.Upper3 = new Point3D(    Mx.Mx_UpperPoints_3.OffsetX,
                                                                         Mx.Mx_UpperPoints_3.OffsetY,
                                                                         Mx.Mx_UpperPoints_3.OffsetZ);
-                mainwindow.engine.VM_SceneView.Upper4 = new Point3D(Mx.Mx_UpperPoints_4.OffsetX,
+                mainwindow.engine.VM_SceneView.Upper4 = new Point3D(    Mx.Mx_UpperPoints_4.OffsetX,
                                                                         Mx.Mx_UpperPoints_4.OffsetY,
                                                                         Mx.Mx_UpperPoints_4.OffsetZ);
-                mainwindow.engine.VM_SceneView.Upper5 = new Point3D(Mx.Mx_UpperPoints_5.OffsetX,
+                mainwindow.engine.VM_SceneView.Upper5 = new Point3D(    Mx.Mx_UpperPoints_5.OffsetX,
                                                                         Mx.Mx_UpperPoints_5.OffsetY,
                                                                         Mx.Mx_UpperPoints_5.OffsetZ);
-                mainwindow.engine.VM_SceneView.Upper6 = new Point3D(Mx.Mx_UpperPoints_6.OffsetX,
+                mainwindow.engine.VM_SceneView.Upper6 = new Point3D(    Mx.Mx_UpperPoints_6.OffsetX,
                                                                         Mx.Mx_UpperPoints_6.OffsetY,
                                                                         Mx.Mx_UpperPoints_6.OffsetZ);
             }
