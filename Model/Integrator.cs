@@ -35,9 +35,13 @@ namespace YAME.Model
 
         }
 
+          
+
         new public void Update(DOF_Data data)
         {
             base.Update(data);
+
+            
 
             LerpPhysical_Between_ParkPauseMotion();
             UpdateUI_ViaDispatcherInvoke();
