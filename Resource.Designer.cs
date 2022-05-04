@@ -66,7 +66,13 @@ namespace YAME {
         ///	&lt;Descr&gt;SimConnect&lt;/Descr&gt;
         ///	&lt;Filename&gt;SimConnect.xml&lt;/Filename&gt;
         ///	&lt;Disabled&gt;False&lt;/Disabled&gt;
-        ///	
+        ///
+        ///		&lt;Launch.Addon&gt;
+        ///			&lt;Name&gt;YAME Motion Data Exporter&lt;/Name&gt;
+        ///			&lt;Disabled&gt;False&lt;/Disabled&gt;
+        ///			&lt;Path&gt;null&lt;/Path&gt;
+        ///			&lt;CommandLine&gt;&lt;/CommandLine&gt;
+        ///		&lt;/Launch.Addon&gt;
         ///&lt;/SimBase.Document&gt;.
         /// </summary>
         public static string exe_xml_Example_BLANK {
@@ -101,16 +107,6 @@ namespace YAME {
         public static byte[] YAME_Export_Hook {
             get {
                 object obj = ResourceManager.GetObject("YAME_Export_Hook", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] YAME_Export_Hook___v0_02_UNTESTED {
-            get {
-                object obj = ResourceManager.GetObject("YAME_Export_Hook___v0_02_UNTESTED", resourceCulture);
                 return ((byte[])(obj));
             }
         }

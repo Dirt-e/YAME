@@ -130,7 +130,4 @@
   <data name="YAME_Export_Hook" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\DCS\YAME_Export_Hook.lua;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="YAME_Export_Hook___v0_02_UNTESTED" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>resources\dcs\yame_export_hook - v0.02 untested.lua;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
 </root>
