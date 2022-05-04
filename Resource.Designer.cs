@@ -61,6 +61,21 @@ namespace YAME {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;Windows-1252&quot;?&gt;
+        ///&lt;SimBase.Document Type=&quot;SimConnect&quot; version=&quot;1,0&quot;&gt;
+        ///	&lt;Descr&gt;SimConnect&lt;/Descr&gt;
+        ///	&lt;Filename&gt;SimConnect.xml&lt;/Filename&gt;
+        ///	&lt;Disabled&gt;False&lt;/Disabled&gt;
+        ///	
+        ///&lt;/SimBase.Document&gt;.
+        /// </summary>
+        public static string exe_xml_Example_BLANK {
+            get {
+                return ResourceManager.GetString("exe_xml_Example_BLANK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         public static byte[] FS2020_MotionExporter {

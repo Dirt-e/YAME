@@ -1474,5 +1474,53 @@ namespace YAME.Properties {
                 this["SerialTalker_LastUsed_HardwareController"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\Saved Games\\YAME Motion Engine\\Exporters")]
+        public string Patcher_FS2020_ExportersFolder {
+            get {
+                return ((string)(this["Patcher_FS2020_ExportersFolder"]));
+            }
+            set {
+                this["Patcher_FS2020_ExportersFolder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\FS2020_MotionExporter.exe")]
+        public string Patcher_FS2020_Exporter_exe {
+            get {
+                return ((string)(this["Patcher_FS2020_Exporter_exe"]));
+            }
+            set {
+                this["Patcher_FS2020_Exporter_exe"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\AppData\\Local\\Packages\\Microsoft.FlightSimulator_8wekyb3d8bbwe\\LocalCache")]
+        public string Patcher_FS2020_STORE_Folder {
+            get {
+                return ((string)(this["Patcher_FS2020_STORE_Folder"]));
+            }
+            set {
+                this["Patcher_FS2020_STORE_Folder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\AppData\\Roaming\\Microsoft Flight Simulator")]
+        public string Patcher_FS2020_STEAM_Folder {
+            get {
+                return ((string)(this["Patcher_FS2020_STEAM_Folder"]));
+            }
+            set {
+                this["Patcher_FS2020_STEAM_Folder"] = value;
+            }
+        }
     }
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<SimBase.Document Type="SimConnect" version="1,0">
+	<Descr>SimConnect</Descr>
+	<Filename>SimConnect.xml</Filename>
+	<Disabled>False</Disabled>
+
+		<Launch.Addon>
+			<Name>YAME Motion Data Exporter</Name>
+			<Disabled>False</Disabled>
+			<Path>null</Path>
+			<CommandLine></CommandLine>
+		</Launch.Addon>
+</SimBase.Document>

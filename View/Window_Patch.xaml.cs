@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
+using System.Xml;
 using YAME.Model;
 using static Folders;
 
@@ -439,67 +440,135 @@ namespace YAME.View
             }
 
             Create_FS2020_Motion_Exporter_EXE();
-            if (IsInstalled_FS2020_STORE())     Patch_FS2020_STORE();
-            if (IsInstalled_FS2020_STEAM())     Patch_FS2020_STEAM();
+            if (IsInstalled_FS2020(false))  Patch_FS2020(false);
+            if (IsInstalled_FS2020(true))   Patch_FS2020(true);
         }
         void btn_Unpatch_FS2020_Click(object sender, RoutedEventArgs e)
         {
+            if (!IsInstalled_FS2020_ANY())
+            {
+                MessageBox.Show("FS2020 is not installed on your system.",
+                                "Operation aborted",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
+            if (IsInstalled_FS2020(false))  unPatch_FS2020(false);
+            if (IsInstalled_FS2020(true))   unPatch_FS2020(true);
         }
-        void Patch_FS2020_STORE()
+        private void Patch_FS2020(bool steam = false)
         {
-            if (exe_xml_Exists_STORE()) exe_xml_Modify();
-            else                        exe_xml_Create();
+            switch (steam)
+            {
+                case false:
+                    if (IsPatchedFS2020(false))     unPatch_FS2020(false);
+                    break;
+                case true:
+                    if (IsPatchedFS2020(true))      unPatch_FS2020(true);
+                    break;
+            }
+
+            string filePath = string.Empty;
+            if (steam)  filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder + @"\exe.xml";
+            else        filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder + @"\exe.xml";
             
-        }
-        
-        private void exe_xml_Modify()
-        {
-            throw new NotImplementedException();
-        }
-        private void exe_xml_Create()
-        {
-            throw new NotImplementedException();
-        }
-        void Patch_FS2020_STEAM()
-        {
+            if (!File.Exists(filePath))
+            {
+                File.WriteAllText(filePath, Resource.exe_xml_Example_BLANK);
+            }
 
+            Modify_exe_xml(filePath);
+            
+            check THIS!!!!
+            MessageBox.Show("Patched FS2020 for motion data export",
+                                "FS2020 patched",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
         }
-        bool IsInstalled_FS2020_ANY()
-        {
-            return (IsInstalled_FS2020_STEAM() || IsInstalled_FS2020_STORE());
-        }
-        bool IsInstalled_FS2020_STORE()
+        private void unPatch_FS2020(bool steam = false)
         {   
-            string userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            string Directory_Store = userFolder + @"\AppData\Local\Packages\Microsoft.FlightSimulator_8wekyb3d8bbwe";
+            string filePath     = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder + @"\exe.xml";
+            if (steam)
+            {
+                filePath        = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder + @"\exe.xml";
+            }
+            
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filePath);
 
-            return Directory.Exists(Directory_Store);
+            XmlNode SimBaseDocument = doc.SelectSingleNode("SimBase.Document");
+            if (SimBaseDocument != null)
+            {
+                XmlNodeList Nodes = SimBaseDocument.ChildNodes;
+                foreach (XmlNode Node in Nodes)
+                {
+                    if (Node.Name == "Launch.Addon")
+                    {
+                        XmlNodeList LaunchNodes = Node.ChildNodes;
+                        foreach (XmlNode LaunchNode in LaunchNodes)
+                        {
+                            if (LaunchNode.InnerText == "YAME Motion Data Exporter")
+                            {
+                                SimBaseDocument.RemoveChild(Node);
+                            }
+                        }
+                    }
+                }
+            }
+
+            doc.Save(filePath);
         }
-        bool IsInstalled_FS2020_STEAM()
+        private bool IsInstalled_FS2020_ANY()
+        {
+            return (IsInstalled_FS2020(false) || IsInstalled_FS2020(true));
+        }
+        private bool IsInstalled_FS2020(bool steam = false)
+        {   
+            if (steam)  return Directory.Exists(Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder);
+            else        return Directory.Exists(Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder);
+        }
+        private bool IsPatchedFS2020(bool steam = false)
+        {
+            string filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder + @"\exe.xml";
+
+            if (steam)
+            {
+                filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder + @"\exe.xml";
+            }
+            
+            if (!File.Exists(filePath))
+            {
+                return false;
+            }
+            
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filePath);
+
+            XmlNode SimBaseDocument = doc.SelectSingleNode("SimBase.Document");
+            if (SimBaseDocument != null)
+            {
+                XmlNodeList Nodes = SimBaseDocument.ChildNodes;
+                foreach (XmlNode Node in Nodes)
+                {
+                    if (Node.Name == "Launch.Addon")
+                    {
+                        XmlNodeList LaunchNodes = Node.ChildNodes;
+                        foreach (XmlNode LaunchNode in LaunchNodes)
+                        {
+                            if (LaunchNode.InnerText == "YAME Motion Data Exporter")
+                            {
+                                return true;
+                            }
+                        }    
+                    }
+                }
+            }
+            return false;
+        }
+        private void Create_FS2020_Motion_Exporter_EXE()
         {
             string userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            string Directory_Steam = userFolder + @"\AppData\Roaming\Microsoft Flight Simulator";
-
-            return Directory.Exists(Directory_Steam);
-        }
-        bool exe_xml_Exists_STORE()
-        {
-            string filePath = Folders.UserFolder + @"\AppData\Local\Packages\Microsoft.FlightSimulator_8wekyb3d8bbwe\exe.xml";
-
-            return File.Exists(filePath);
-        }
-        bool exe_xml_Exists_STEAM()
-        {
-            string filePath = Folders.UserFolder + @"\AppData\Roaming\Microsoft Flight Simulator\exe.xml";
-
-            return File.Exists(filePath);
-        }
-        void Create_FS2020_Motion_Exporter_EXE()
-        {
-            string userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            string ExportersFolder = userFolder + @"\Saved Games\YAME Motion Engine\Exporters";
-            string Exporter_EXE = ExportersFolder + @"\FS2020_MotionExporter.exe";
+            string ExportersFolder = userFolder + Properties.Settings.Default.Patcher_FS2020_ExportersFolder;
+            string Exporter_EXE = ExportersFolder + Properties.Settings.Default.Patcher_FS2020_Exporter_exe;
 
             Directory.CreateDirectory(ExportersFolder);
             
@@ -508,6 +577,40 @@ namespace YAME.View
             {
                 fs.Write(res, 0, res.Length);
             }
+        }
+        private void Modify_exe_xml(string filePath)
+        {
+            //Open XML document:
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filePath);
+
+            //Create all the XML elements:
+            XmlElement Name = doc.CreateElement("Name");
+            Name.InnerText = "YAME Motion Data Exporter";
+
+            XmlElement Disabled = doc.CreateElement("Disabled");
+            Disabled.InnerText = "False";
+
+            XmlElement Path = doc.CreateElement("Path");
+            Path.InnerText = Folders.UserFolder
+                + Properties.Settings.Default.Patcher_FS2020_ExportersFolder
+                + Properties.Settings.Default.Patcher_FS2020_Exporter_exe;
+
+            XmlElement CommandLine = doc.CreateElement("CommandLine");
+            CommandLine.InnerText = " ";
+
+            //Combine elements to one 'Launch.Addon' element
+            XmlElement LaunchAddon = doc.CreateElement("Launch.Addon");
+            LaunchAddon.AppendChild(Name);
+            LaunchAddon.AppendChild(Disabled);
+            LaunchAddon.AppendChild(Path);
+            LaunchAddon.AppendChild(CommandLine);
+
+            //...and append it to the parent element ('Simbase.Document')
+            XmlNode SimBaseDocument = doc.SelectSingleNode("SimBase.Document");
+            SimBaseDocument.AppendChild(LaunchAddon);
+
+            doc.Save(filePath);
         }
         //---------- Window ----------
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

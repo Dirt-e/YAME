@@ -365,5 +365,17 @@
     <Setting Name="SerialTalker_LastUsed_HardwareController" Type="System.String" Scope="User">
       <Value Profile="(Default)">Motion4Sim</Value>
     </Setting>
+    <Setting Name="Patcher_FS2020_ExportersFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\Saved Games\YAME Motion Engine\Exporters</Value>
+    </Setting>
+    <Setting Name="Patcher_FS2020_Exporter_exe" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\FS2020_MotionExporter.exe</Value>
+    </Setting>
+    <Setting Name="Patcher_FS2020_STORE_Folder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\AppData\Local\Packages\Microsoft.FlightSimulator_8wekyb3d8bbwe\LocalCache</Value>
+    </Setting>
+    <Setting Name="Patcher_FS2020_STEAM_Folder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\AppData\Roaming\Microsoft Flight Simulator</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
