@@ -479,10 +479,9 @@ namespace YAME.View
 
             Modify_exe_xml(filePath);
             
-            check THIS!!!!
-            MessageBox.Show("Patched FS2020 for motion data export",
+            MessageBox.Show(    "Patched FS2020 for motion data export.",
                                 "FS2020 patched",
-                                MessageBoxButton.OK, MessageBoxImage.Error);
+                                MessageBoxButton.OK, MessageBoxImage.Information);
         }
         private void unPatch_FS2020(bool steam = false)
         {   
@@ -516,6 +515,10 @@ namespace YAME.View
             }
 
             doc.Save(filePath);
+
+            MessageBox.Show(    "Removed FS2020 motion data patch.",
+                                "FS2020 unpatched",
+                                MessageBoxButton.OK, MessageBoxImage.Information);
         }
         private bool IsInstalled_FS2020_ANY()
         {
