@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="BlockedWhileSerial.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.77771465"
+     inkscape:cx="64.933842"
+     inkscape:cy="560.61693"
+     inkscape:window-width="3840"
+     inkscape:window-height="2066"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g40712" />
+  <defs
+     id="defs2">
+    <rect
+       x="-180.01462"
+       y="-236.59063"
+       width="579.28629"
+       height="183.40435"
+       id="rect16091" />
+    <rect
+       x="250.73462"
+       y="-223.73245"
+       width="520.75648"
+       height="209.58843"
+       id="rect8583" />
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips1_1"
+       id="pattern2923"
+       patternTransform="matrix(6.3749985,6.4089856,-8.1167937,8.0737502,400.39147,97.639175)" />
+    <pattern
+       inkscape:collect="always"
+       patternUnits="userSpaceOnUse"
+       width="2"
+       height="1"
+       patternTransform="translate(0,0) scale(10,10)"
+       id="Strips1_1"
+       inkscape:stockid="Stripes 1:1">
+      <rect
+         style="fill:black;stroke:none"
+         x="0"
+         y="-0.5"
+         width="1"
+         height="2"
+         id="rect1924" />
+    </pattern>
+  </defs>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:url(#pattern2923);fill-opacity:1;fill-rule:evenodd;stroke-width:0.0840049"
+       id="rect31"
+       width="158.75"
+       height="158.75"
+       x="251.33264"
+       y="1.6524962" />
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text8581"
+       style="fill:black;fill-opacity:1;line-height:1.25;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;white-space:pre;shape-inside:url(#rect8583)" />
+    <g
+       id="g40712"
+       transform="translate(-135.82833,46.595249)">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect2947"
+         width="137.78349"
+         height="55.453606"
+         x="397.64423"
+         y="6.7054443" />
+      <text
+         xml:space="preserve"
+         transform="matrix(0.29535817,0,0,0.29535817,433.5793,89.448175)"
+         id="text16089"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect16091);fill:#000000;fill-opacity:1;stroke:none"
+         x="196.58203"
+         y="0"><tspan
+           x="-87.978516"
+           y="-200.09663"
+           id="tspan40856">Blocked while serial </tspan><tspan
+           x="-54.941406"
+           y="-150.09663"
+           id="tspan40858">connection open</tspan></text>
+    </g>
+  </g>
+</svg>

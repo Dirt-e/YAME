@@ -63,6 +63,16 @@ namespace YAME {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] FS2020_MotionExporter {
+            get {
+                object obj = ResourceManager.GetObject("FS2020_MotionExporter", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] XPlaneGetter {
             get {
                 object obj = ResourceManager.GetObject("XPlaneGetter", resourceCulture);
@@ -76,6 +86,16 @@ namespace YAME {
         public static byte[] YAME_Export_Hook {
             get {
                 object obj = ResourceManager.GetObject("YAME_Export_Hook", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] YAME_Export_Hook___v0_02_UNTESTED {
+            get {
+                object obj = ResourceManager.GetObject("YAME_Export_Hook___v0_02_UNTESTED", resourceCulture);
                 return ((byte[])(obj));
             }
         }

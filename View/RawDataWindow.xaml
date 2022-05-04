@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:YAME.View"
         mc:Ignorable="d" Title="RawDataWindow"
         Loaded="Window_Loaded" Closing="Window_Closing"
-        Height="360" Width="200" WindowStartupLocation="Manual" ResizeMode="NoResize" 
+        Height="420" Width="200" WindowStartupLocation="Manual" ResizeMode="NoResize" 
         MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseLeftButtonUp="Window_MouseLeftButtonUp"
         Style="{StaticResource ChildWindow_Style}"
         >
@@ -22,6 +22,10 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition Height="5"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="15"/>
             <RowDefinition Height="15"/>
             <RowDefinition Height="15"/>
             <RowDefinition Height="15"/>
@@ -63,11 +67,15 @@
         <TextBlock Grid.Row="15" Grid.Column="1" Text="ω_vrt:"      HorizontalAlignment="Right"/>
         <TextBlock Grid.Row="16" Grid.Column="1" Text="ω_lat:"      HorizontalAlignment="Right"/>
 
-        <TextBlock Grid.Row="18" Grid.Column="1" Text="A_lon:"      HorizontalAlignment="Right"/>
-        <TextBlock Grid.Row="19" Grid.Column="1" Text="A_vrt:"      HorizontalAlignment="Right"/>
-        <TextBlock Grid.Row="20" Grid.Column="1" Text="A_lat:"      HorizontalAlignment="Right"/>
-        
-        <TextBlock Grid.Row="22" Grid.Column="1" Text="Sim:"      HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="18" Grid.Column="1" Text="ω_lon°:"      HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="19" Grid.Column="1" Text="ω_vrt°:"      HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="20" Grid.Column="1" Text="ω_lat°:"      HorizontalAlignment="Right"/>
+
+        <TextBlock Grid.Row="22" Grid.Column="1" Text="A_lon:"      HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="23" Grid.Column="1" Text="A_vrt:"      HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="24" Grid.Column="1" Text="A_lat:"      HorizontalAlignment="Right"/>
+
+        <TextBlock Grid.Row="26" Grid.Column="1" Text="Sim:"      HorizontalAlignment="Right"/>
 
 
 
@@ -86,12 +94,16 @@
         <TextBlock x:Name="txtblk_RawData_Wx"       Grid.Row="14" Grid.Column="3"   TextAlignment="Right"   Text="{Binding WX,      StringFormat=N1,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
         <TextBlock x:Name="txtblk_RawData_Wy"       Grid.Row="15" Grid.Column="3"   TextAlignment="Right"   Text="{Binding WY,      StringFormat=N1,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
         <TextBlock x:Name="txtblk_RawData_Wz"       Grid.Row="16" Grid.Column="3"   TextAlignment="Right"   Text="{Binding WZ,      StringFormat=N1,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
+        
+        <TextBlock x:Name="txtblk_RawData_Wx_dot"       Grid.Row="18" Grid.Column="3"   TextAlignment="Right"   Text="{Binding WX_dot,      StringFormat=N1,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_RawData_Wy_dot"       Grid.Row="19" Grid.Column="3"   TextAlignment="Right"   Text="{Binding WY_dot,      StringFormat=N1,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_RawData_Wz_dot"       Grid.Row="20" Grid.Column="3"   TextAlignment="Right"   Text="{Binding WZ_dot,      StringFormat=N1,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
 
-        <TextBlock x:Name="txtblk_RawData_Ax"       Grid.Row="18" Grid.Column="3"   TextAlignment="Right"   Text="{Binding AX,      StringFormat=N2,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
-        <TextBlock x:Name="txtblk_RawData_Ay"       Grid.Row="19" Grid.Column="3"   TextAlignment="Right"   Text="{Binding AY,      StringFormat=N2,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
-        <TextBlock x:Name="txtblk_RawData_Az"       Grid.Row="20" Grid.Column="3"   TextAlignment="Right"   Text="{Binding AZ,      StringFormat=N2,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_RawData_Ax"       Grid.Row="22" Grid.Column="3"   TextAlignment="Right"   Text="{Binding AX,      StringFormat=N2,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_RawData_Ay"       Grid.Row="23" Grid.Column="3"   TextAlignment="Right"   Text="{Binding AY,      StringFormat=N2,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_RawData_Az"       Grid.Row="24" Grid.Column="3"   TextAlignment="Right"   Text="{Binding AZ,      StringFormat=N2,    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
 
-        <TextBlock x:Name="txtblk_Sim"              Grid.Row="22" Grid.Column="3"   TextAlignment="Right"   Text="{Binding SIM,   StringFormat={},    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_Sim"              Grid.Row="26" Grid.Column="3"   TextAlignment="Right"   Text="{Binding SIM,   StringFormat={},    UpdateSourceTrigger=PropertyChanged}" FontFamily="Courier"/>
 
 
 
@@ -111,8 +123,12 @@
         <TextBlock Grid.Row="15" Grid.Column="5" Text="°/s"/>
         <TextBlock Grid.Row="16" Grid.Column="5" Text="°/s"/>
 
-        <TextBlock Grid.Row="18" Grid.Column="5" Text="m/s²"/>
-        <TextBlock Grid.Row="19" Grid.Column="5" Text="m/s²"/>
-        <TextBlock Grid.Row="20" Grid.Column="5" Text="m/s²"/>
+        <TextBlock Grid.Row="18" Grid.Column="5" Text="°/s²"/>
+        <TextBlock Grid.Row="19" Grid.Column="5" Text="°/s²"/>
+        <TextBlock Grid.Row="20" Grid.Column="5" Text="°/s²"/>
+
+        <TextBlock Grid.Row="22" Grid.Column="5" Text="m/s²"/>
+        <TextBlock Grid.Row="23" Grid.Column="5" Text="m/s²"/>
+        <TextBlock Grid.Row="24" Grid.Column="5" Text="m/s²"/>
     </Grid>
 </Window>

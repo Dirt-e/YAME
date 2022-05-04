@@ -654,7 +654,7 @@ namespace YAME.Model
             };
 
             //Saved Games:
-            ofd.InitialDirectory += "\\Saved Games\\YAME Motion Engine";
+            ofd.InitialDirectory += @"\Saved Games\YAME Motion Engine\Profiles";
             //APP Data:
             //ofd.InitialDirectory += "\\AppData\\Roaming\\MOTUS";
 
@@ -673,7 +673,7 @@ namespace YAME.Model
                 CreatePrompt = false,
                 //Saved Games:
                 InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) +
-                                    "\\Saved Games\\YAME Motion Engine",
+                                    @"\Saved Games\YAME Motion Engine\Profiles",
                 //APP Data:
                 //InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) +
                 //                    "\\AppData\\Local\\HexaGo",

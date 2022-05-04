@@ -45,7 +45,8 @@
 
         <TextBlock Text="DCS"           Grid.Row="1" Grid.Column="1" FontSize="12" VerticalAlignment="Center" />
         <TextBlock Text="DCS.openbeta"  Grid.Row="2" Grid.Column="1" FontSize="12" VerticalAlignment="Center" />
-        <TextBlock Text="X-Plane"       Grid.Row="3" Grid.Column="1" FontSize="12" VerticalAlignment="Center" />
+        <TextBlock Text="FS2020"        Grid.Row="3" Grid.Column="1" FontSize="12" VerticalAlignment="Center" />
+        <TextBlock Text="X-Plane"       Grid.Row="4" Grid.Column="1" FontSize="12" VerticalAlignment="Center" />
 
         <Button     x:Name="btn_Patch_DCS" Content="Patch"  Style="{StaticResource Button_NoHighlight_Rounded}"
                     Grid.Row="1" Grid.Column="2" Margin="3"
@@ -65,12 +66,21 @@
                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Unpatch_DCSopenbeta_Click">
         </Button>
 
-        <Button     x:Name="btn_Patch_XPlane" Content="Patch"  Style="{StaticResource Button_NoHighlight_Rounded}"
+        <Button     x:Name="btn_Patch_FS2020" Content="Patch"  Style="{StaticResource Button_NoHighlight_Rounded}"
                     Grid.Row="3" Grid.Column="2" Margin="3"
+                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Patch_FS2020_Click">
+        </Button>
+        <Button     x:Name="btn_Unpatch_FS2020" Content="Unpatch" Style="{StaticResource Button_NoHighlight_Rounded}"
+                    Grid.Row="3" Grid.Column="3" Margin="3"
+                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Unpatch_FS2020_Click">
+        </Button>
+
+        <Button     x:Name="btn_Patch_XPlane" Content="Patch"  Style="{StaticResource Button_NoHighlight_Rounded}"
+                    Grid.Row="4" Grid.Column="2" Margin="3"
                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Patch_XPlane_Click">
         </Button>
         <Button     x:Name="btn_Unpatch_XPlane" Content="Unpatch" Style="{StaticResource Button_NoHighlight_Rounded}"
-                    Grid.Row="3" Grid.Column="3" Margin="3"
+                    Grid.Row="4" Grid.Column="3" Margin="3"
                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Unpatch_XPlane_Click">
         </Button>
 

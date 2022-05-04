@@ -9,7 +9,7 @@ namespace YAME.Model
 {
     public class Chopper : MyObject
     {
-        public PreprocessorData Output= new PreprocessorData();
+        public PreprocessorData Output = new PreprocessorData();
 
         #region ViewModel
         //Airdata
@@ -184,6 +184,46 @@ namespace YAME.Model
                 OnPropertyChanged("WZ");
             }
         }
+        //Angular Accelerations
+        float _wx_dot;
+        public float WX_dot
+        {
+            get
+            {
+                return _wx_dot;
+            }
+            set
+            {
+                _wx_dot = value;
+                OnPropertyChanged(nameof(WX_dot));
+            }
+        }
+        float _wy_dot;
+        public float WY_dot
+        {
+            get
+            {
+                return _wy_dot;
+            }
+            set
+            {
+                _wy_dot = value;
+                OnPropertyChanged(nameof(WY_dot));
+            }
+        }
+        float _wz_dot;
+        public float WZ_dot
+        {
+            get
+            {
+                return _wz_dot;
+            }
+            set
+            {
+                _wz_dot = value;
+                OnPropertyChanged(nameof(WZ_dot));
+            }
+        }
         //Acccels
         float _ax;
         public float AX
@@ -238,6 +278,19 @@ namespace YAME.Model
                 OnPropertyChanged("TIME");
             }
         }
+        float _deltatime;
+        public float DELTATIME
+        {
+            get
+            {
+                return _deltatime;
+            }
+            set
+            {
+                _deltatime = value;
+                OnPropertyChanged(nameof(DELTATIME));
+            }
+        }
         float _counter;
         public float COUNTER
         {
@@ -282,31 +335,40 @@ namespace YAME.Model
         private void ParseChunks()
         {
             //Airdata
-            IAS     = Convert.ToSingle(Chunks[0], GlobalVars.myNumberFormat(7));
-            MACH    = Convert.ToSingle(Chunks[1], GlobalVars.myNumberFormat(7));
-            TAS     = Convert.ToSingle(Chunks[2], GlobalVars.myNumberFormat(7));
-            GS      = Convert.ToSingle(Chunks[3], GlobalVars.myNumberFormat(7));
-            AOA     = Convert.ToSingle(Chunks[4], GlobalVars.myNumberFormat(7));
-            VS      = Convert.ToSingle(Chunks[5], GlobalVars.myNumberFormat(7));
-            HGT     = Convert.ToSingle(Chunks[6], GlobalVars.myNumberFormat(7));
-                    //Euler
-            BANK    = Convert.ToSingle(Chunks[7], GlobalVars.myNumberFormat(7));
-            HDG     = Convert.ToSingle(Chunks[8], GlobalVars.myNumberFormat(7));
-            PITCH   = Convert.ToSingle(Chunks[9], GlobalVars.myNumberFormat(7));
+            IAS         = Convert.ToSingle(Chunks[0], GlobalVars.myNumberFormat(7));
+            MACH        = Convert.ToSingle(Chunks[1], GlobalVars.myNumberFormat(7));
+            TAS         = Convert.ToSingle(Chunks[2], GlobalVars.myNumberFormat(7));
+            GS          = Convert.ToSingle(Chunks[3], GlobalVars.myNumberFormat(7));
+            AOA         = Convert.ToSingle(Chunks[4], GlobalVars.myNumberFormat(7));
+            VS          = Convert.ToSingle(Chunks[5], GlobalVars.myNumberFormat(7));
+            HGT         = Convert.ToSingle(Chunks[6], GlobalVars.myNumberFormat(7));
+
+            //Euler
+            BANK        = Convert.ToSingle(Chunks[7], GlobalVars.myNumberFormat(7));
+            HDG         = Convert.ToSingle(Chunks[8], GlobalVars.myNumberFormat(7));
+            PITCH       = Convert.ToSingle(Chunks[9], GlobalVars.myNumberFormat(7));
 
             //Rates
-            WX      = Convert.ToSingle(Chunks[10], GlobalVars.myNumberFormat(7));
-            WY      = Convert.ToSingle(Chunks[11], GlobalVars.myNumberFormat(7));
-            WZ      = Convert.ToSingle(Chunks[12], GlobalVars.myNumberFormat(7));
-            //Accels
-            AX      = Convert.ToSingle(Chunks[13], GlobalVars.myNumberFormat(7));
-            AY      = Convert.ToSingle(Chunks[14], GlobalVars.myNumberFormat(7));
-            AZ      = Convert.ToSingle(Chunks[15], GlobalVars.myNumberFormat(7));
-            //Meta
-            TIME    = Convert.ToSingle(Chunks[16], GlobalVars.myNumberFormat(7));
-            COUNTER = Convert.ToSingle(Chunks[17], GlobalVars.myNumberFormat(7));
+            WX          = Convert.ToSingle(Chunks[10], GlobalVars.myNumberFormat(7));
+            WY          = Convert.ToSingle(Chunks[11], GlobalVars.myNumberFormat(7));
+            WZ          = Convert.ToSingle(Chunks[12], GlobalVars.myNumberFormat(7));
 
-            SIM     = Chunks[18];
+            //Angular Acceleration
+            WX_dot      = Convert.ToSingle(Chunks[13], GlobalVars.myNumberFormat(7));
+            WY_dot      = Convert.ToSingle(Chunks[14], GlobalVars.myNumberFormat(7));
+            WZ_dot      = Convert.ToSingle(Chunks[15], GlobalVars.myNumberFormat(7));
+
+            //Accels
+            AX           = Convert.ToSingle(Chunks[16], GlobalVars.myNumberFormat(7));
+            AY           = Convert.ToSingle(Chunks[17], GlobalVars.myNumberFormat(7));
+            AZ           = Convert.ToSingle(Chunks[18], GlobalVars.myNumberFormat(7));
+
+            //Meta
+            TIME        = Convert.ToSingle(Chunks[19], GlobalVars.myNumberFormat(7));
+            DELTATIME   = Convert.ToSingle(Chunks[20], GlobalVars.myNumberFormat(7));
+            COUNTER     = Convert.ToSingle(Chunks[21], GlobalVars.myNumberFormat(7));
+
+            SIM         = Chunks[22];
 
         }
         private void PackIntoData()
@@ -328,6 +390,12 @@ namespace YAME.Model
             Output.WX       = WX;
             Output.WY       = WY;
             Output.WZ       = WZ;
+
+            //Angular Acceleration
+            Output.WX_dot = WX_dot;
+            Output.WY_dot = WY_dot;
+            Output.WZ_dot = WZ_dot;
+
             //Accels          
             Output.AX       = AX;
             Output.AY       = AY;

@@ -20,16 +20,21 @@ namespace YAME.DataFomats
         public float HDG { get; set; }
         public float PITCH { get; set; }
         public float BANK { get; set; }
-        //Rates
+        //Angular Rates
         public float WX { get; set; }
         public float WY { get; set; }
         public float WZ { get; set; }
+        //Angular Acceleration
+        public float WX_dot { get; set; }
+        public float WY_dot { get; set; }
+        public float WZ_dot { get; set; }
         //Acccels
         public float AX { get; set; }
         public float AY { get; set; }
         public float AZ { get; set; }
         //Meta
         public float TIME { get; set; }
+        public float DELTATIME { get; set; }
         public float COUNTER { get; set; }
         public string SIM { get; set; }
 
@@ -53,12 +58,17 @@ namespace YAME.DataFomats
             WX = p.WX;
             WY = p.WY;
             WZ = p.WZ;
+            //Angular rates
+            WX_dot = p.WX_dot;
+            WY_dot = p.WY_dot;
+            WZ_dot = p.WZ_dot;
             //Accels
             AX = p.AX;
             AY = p.AY;
             AZ = p.AZ;
             //Meta
             TIME = p.TIME;
+            DELTATIME = p.DELTATIME;
             COUNTER = p.COUNTER;
             SIM = p.SIM;
         }

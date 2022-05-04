@@ -4,10 +4,6 @@ i:{00000000-0000-0000-0000-000000000000}:YAME.sln
 i:{00000000-0000-0000-0000-000000000000}:YAME
 ++Properties
 i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\properties\
-++AssemblyInfo.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\properties\assemblyinfo.cs
-++Settings.settings
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\properties\settings.settings
 ++References
 i:{aca3412a-22da-4039-aea3-ced6097011c1}:
 ++DataFomats
@@ -127,8 +123,10 @@ i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\yame
 i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\media\yame.ico
 ++YAME_TemporaryKey.pfx
 i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\yame_temporarykey.pfx
-++Settings.Designer.cs
-i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\properties\settings.designer.cs
+++AssemblyInfo.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\properties\assemblyinfo.cs
+++Settings.settings
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\properties\settings.settings
 ++HelixToolkit
 i:{aca3412a-22da-4039-aea3-ced6097011c1}:
 ++HelixToolkit.Wpf
@@ -221,6 +219,8 @@ i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\mode
 i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\model\structs\platforms_struct.cs
 ++DCS
 i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\resources\dcs\
+++FS2020
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\resources\fs2020\
 ++X-Plane
 i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\resources\x-plane\
 ++Converters
@@ -271,6 +271,8 @@ i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\app.
 i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\mainwindow.xaml.cs
 ++Resource.Designer.cs
 i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\resource.designer.cs
+++Settings.Designer.cs
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\properties\settings.designer.cs
 ++Aero Vodochody L-39C Albatros SIDE.png
 i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\media\images\aero vodochody l-39c albatros side.png
 ++c0left.png
@@ -301,6 +303,8 @@ i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\medi
 i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\media\models\plane.stl
 ++YAME_Export_Hook.lua
 i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\resources\dcs\yame_export_hook.lua
+++FS2020_MotionExporter.exe
+i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\resources\fs2020\fs2020_motionexporter.exe
 ++XPlaneGetter.zip
 i:{aca3412a-22da-4039-aea3-ced6097011c1}:d:\onedrive\frank - pc\github\yame\resources\x-plane\xplanegetter.zip
 ++ActuatorstatusToColorConverter.cs

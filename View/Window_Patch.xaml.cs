@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Input;
 using YAME.Model;
+using static Folders;
 
 namespace YAME.View
 {
@@ -49,37 +50,8 @@ namespace YAME.View
             var content = Resource.YAME_Export_Hook;                                        //Grab content...
             File.WriteAllBytes(DCS + "\\Scripts\\Hooks\\YAME_Export_Hook.lua", content);    //...and write it to file.
 
-            MessageBox.Show("Patched DCS for motion data export.",                          //Brag about it :-)
-                            "DCS patched",
-                            MessageBoxButton.OK, MessageBoxImage.Information);
-        }
-        void btn_Patch_DCSopenbeta_Click(object sender, RoutedEventArgs e)
-        {
-            if (IsPatched_DCSopenbeta())
-            {
-                MessageBox.Show("DCS.openbeta is already patched for motion data export.\n" +
-                                "There's really nothing for me to do here.",
-                                "Patched already",
-                                MessageBoxButton.OK, MessageBoxImage.Information);
-                return;
-            }
-
-            string DCSob = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Saved Games\\DCS.openbeta";
-
-            if (!Directory.Exists(DCSob))                                                   //Is DCS installed?
-            {
-                MessageBox.Show("DCS.openbeta is not installed on your system.",
-                                "DCS.openbeta patch failed!",
-                                MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            Directory.CreateDirectory(DCSob + "\\Scripts\\Hooks");                          //Make sure directory is there 
-
-            var content = Resource.YAME_Export_Hook;                                        //Grab content...
-            File.WriteAllBytes(DCSob + "\\Scripts\\Hooks\\YAME_Export_Hook.lua", content);  //...and write it to file.
-
-            MessageBox.Show("Patched DCS.openbeta for motion data export.",                          //Brag about it :-)
+            MessageBox.Show("Patched DCS for motion data export.\n" +
+                            "Restart DCS now!",                                             //Brag about it :-)
                             "DCS patched",
                             MessageBoxButton.OK, MessageBoxImage.Information);
         }
@@ -106,10 +78,51 @@ namespace YAME.View
 
             File.Delete(DCS + "\\Scripts\\Hooks\\YAME_Export_Hook.lua");
 
-                MessageBox.Show("Unpatched DCS.\n " +
+                MessageBox.Show("Unpatched DCS.\n" +
                                 "Motion data export suspended.",
                                 "DCS patch removed",
                                 MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+        bool IsPatched_DCS()
+        {
+            string ExpScript = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)
+                                + "\\Saved Games\\DCS\\Scripts\\Hooks\\YAME_Export_Hook.lua";
+
+            if (File.Exists(ExpScript)) return true;
+            return false;
+        }
+
+        //---------- DCS openbeta ----------
+        void btn_Patch_DCSopenbeta_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsPatched_DCSopenbeta())
+            {
+                MessageBox.Show("DCS.openbeta is already patched for motion data export.\n" +
+                                "There's really nothing for me to do here.",
+                                "Patched already",
+                                MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            string DCSob = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Saved Games\\DCS.openbeta";
+
+            if (!Directory.Exists(DCSob))                                                   //Is DCS installed?
+            {
+                MessageBox.Show("DCS.openbeta is not installed on your system.",
+                                "DCS.openbeta patch failed!",
+                                MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            Directory.CreateDirectory(DCSob + "\\Scripts\\Hooks");                          //Make sure directory is there 
+
+            var content = Resource.YAME_Export_Hook;                                        //Grab content...
+            File.WriteAllBytes(DCSob + "\\Scripts\\Hooks\\YAME_Export_Hook.lua", content);  //...and write it to file.
+
+            MessageBox.Show("Patched DCS.openbeta for motion data export.\n" +
+                            "Restart DCS now!",                                             //Brag about it :-)
+                            "DCS patched",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
         }
         void btn_Unpatch_DCSopenbeta_Click(object sender, RoutedEventArgs e)
         {
@@ -140,14 +153,6 @@ namespace YAME.View
                             "DCS.openbeta patch removed",
                             MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        bool IsPatched_DCS()
-        {
-            string ExpScript = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)
-                                + "\\Saved Games\\DCS\\Scripts\\Hooks\\YAME_Export_Hook.lua";
-
-            if (File.Exists(ExpScript)) return true;
-            return false;
-        }
         bool IsPatched_DCSopenbeta()
         {
             string ExpScript = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)
@@ -156,7 +161,7 @@ namespace YAME.View
             if (File.Exists(ExpScript)) return true;
             return false;
         }
-        
+
         //---------- X-Plane ----------
         const string xPlane9  = "x-plane_install.txt";
         const string xPlane10 = "x-plane_install_10.txt";
@@ -422,6 +427,88 @@ namespace YAME.View
             ZipFile.ExtractToDirectory(_tempZipFile, destination);
         }
 
+        //---------- FS2020 ----------
+        void btn_Patch_FS2020_Click(object sender, RoutedEventArgs e)
+        {
+            if (!IsInstalled_FS2020_ANY())
+            {
+                MessageBox.Show("FS2020 is not installed on your system.",
+                                "Patch aborted",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            Create_FS2020_Motion_Exporter_EXE();
+            if (IsInstalled_FS2020_STORE())     Patch_FS2020_STORE();
+            if (IsInstalled_FS2020_STEAM())     Patch_FS2020_STEAM();
+        }
+        void btn_Unpatch_FS2020_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        void Patch_FS2020_STORE()
+        {
+            if (exe_xml_Exists_STORE()) exe_xml_Modify();
+            else                        exe_xml_Create();
+            
+        }
+        
+        private void exe_xml_Modify()
+        {
+            throw new NotImplementedException();
+        }
+        private void exe_xml_Create()
+        {
+            throw new NotImplementedException();
+        }
+        void Patch_FS2020_STEAM()
+        {
+
+        }
+        bool IsInstalled_FS2020_ANY()
+        {
+            return (IsInstalled_FS2020_STEAM() || IsInstalled_FS2020_STORE());
+        }
+        bool IsInstalled_FS2020_STORE()
+        {   
+            string userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            string Directory_Store = userFolder + @"\AppData\Local\Packages\Microsoft.FlightSimulator_8wekyb3d8bbwe";
+
+            return Directory.Exists(Directory_Store);
+        }
+        bool IsInstalled_FS2020_STEAM()
+        {
+            string userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            string Directory_Steam = userFolder + @"\AppData\Roaming\Microsoft Flight Simulator";
+
+            return Directory.Exists(Directory_Steam);
+        }
+        bool exe_xml_Exists_STORE()
+        {
+            string filePath = Folders.UserFolder + @"\AppData\Local\Packages\Microsoft.FlightSimulator_8wekyb3d8bbwe\exe.xml";
+
+            return File.Exists(filePath);
+        }
+        bool exe_xml_Exists_STEAM()
+        {
+            string filePath = Folders.UserFolder + @"\AppData\Roaming\Microsoft Flight Simulator\exe.xml";
+
+            return File.Exists(filePath);
+        }
+        void Create_FS2020_Motion_Exporter_EXE()
+        {
+            string userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            string ExportersFolder = userFolder + @"\Saved Games\YAME Motion Engine\Exporters";
+            string Exporter_EXE = ExportersFolder + @"\FS2020_MotionExporter.exe";
+
+            Directory.CreateDirectory(ExportersFolder);
+            
+            var res = Resource.FS2020_MotionExporter;
+            using (FileStream fs = new FileStream(Exporter_EXE, FileMode.Create))
+            {
+                fs.Write(res, 0, res.Length);
+            }
+        }
         //---------- Window ----------
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -468,5 +555,7 @@ namespace YAME.View
 
             Properties.Settings.Default.Save();
         }
+
+        
     }
 }

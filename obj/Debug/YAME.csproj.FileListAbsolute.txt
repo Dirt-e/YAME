@@ -178,3 +178,5 @@ D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\Resources\DCS\YAME_Export_Hook.lua
 \\Mac\Home\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\YAME.csproj.CopyComplete
 \\Mac\Home\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\YAME.exe
 \\Mac\Home\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\YAME.pdb
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\YAME_Content.g.cs
+D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\Resources\DCS\YAME_Export_Hook - v0.02 UNTESTED.lua
