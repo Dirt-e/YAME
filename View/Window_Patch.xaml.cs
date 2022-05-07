@@ -570,7 +570,9 @@ namespace YAME.View
         }
         private void Create_FS2020_Motion_Exporter_EXE()
         {
-            string userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            Delete_FS2020_Motion_Exporter_EXE();            //Cleanup
+
+            string userFolder = Folders.UserFolder;
             string ExportersFolder = userFolder + Properties.Settings.Default.Patcher_FS2020_ExportersFolder;
             string Exporter_EXE = ExportersFolder + Properties.Settings.Default.Patcher_FS2020_Exporter_exe;
 
@@ -580,6 +582,17 @@ namespace YAME.View
             using (FileStream fs = new FileStream(Exporter_EXE, FileMode.Create))
             {
                 fs.Write(res, 0, res.Length);
+            }
+        }
+        private void Delete_FS2020_Motion_Exporter_EXE()
+        {
+            string userFolder = Folders.UserFolder;
+            string ExportersFolder = userFolder + Properties.Settings.Default.Patcher_FS2020_ExportersFolder;
+            string Exporter_EXE = ExportersFolder + Properties.Settings.Default.Patcher_FS2020_Exporter_exe;
+
+            if (File.Exists(Exporter_EXE))
+            {
+                File.Delete(Exporter_EXE);
             }
         }
         private void Modify_exe_xml(string filePath)
@@ -616,6 +629,7 @@ namespace YAME.View
 
             doc.Save(filePath);
         }
+        
         //---------- Window ----------
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {

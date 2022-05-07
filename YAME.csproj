@@ -34,7 +34,7 @@
     <ProductName>YAME</ProductName>
     <PublisherName>HexaGo</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>45</ApplicationRevision>
+    <ApplicationRevision>47</ApplicationRevision>
     <ApplicationVersion>0.0.10.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -438,6 +438,7 @@
     <Resource Include="YAME.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\FS2020_MotionExporter.exe" />
     <None Include="Resources\FS2020\exe.xml_Example_BLANK.xml" />
     <Content Include="Resources\FS2020\FS2020_MotionExporter.exe" />
   </ItemGroup>

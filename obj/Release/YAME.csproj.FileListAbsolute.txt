@@ -185,3 +185,4 @@ D:\OneDrive\Frank - PC\GitHub\YAME\bin\Release\Microsoft.WindowsAPICodePack.Shel
 D:\OneDrive\Frank - PC\GitHub\YAME\bin\Release\Microsoft.WindowsAPICodePack.Shell.xml
 D:\OneDrive\Frank - PC\GitHub\YAME\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
 D:\OneDrive\Frank - PC\GitHub\YAME\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.xml
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\YAME_Content.g.cs

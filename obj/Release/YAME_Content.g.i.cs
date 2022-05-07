@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("yame.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/fs2020/fs2020_motionexporter.exe")]
 
 

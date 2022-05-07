@@ -122,7 +122,7 @@
     <value>Resources\FS2020\exe.xml_Example_BLANK.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="FS2020_MotionExporter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\FS2020\FS2020_MotionExporter.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>Resources\FS2020_MotionExporter.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="XPlaneGetter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>resources\x-plane\xplanegetter.zip;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
