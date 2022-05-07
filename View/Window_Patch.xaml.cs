@@ -183,11 +183,12 @@ namespace YAME.View
         }
         void Patch_XPlane()
         {
-            string userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            string installs_xp9 = userFolder + "\\AppData\\Local\\" + xPlane9;
-            string installs_xp10 = userFolder + "\\AppData\\Local\\" + xPlane10;
-            string installs_xp11 = userFolder + "\\AppData\\Local\\" + xPlane11;
-            string installs_xp12 = userFolder + "\\AppData\\Local\\" + xPlane12;
+            //string userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            string userFolder       = Folders.UserFolder;
+            string installs_xp9     = userFolder + "\\AppData\\Local\\" + xPlane9;
+            string installs_xp10    = userFolder + "\\AppData\\Local\\" + xPlane10;
+            string installs_xp11    = userFolder + "\\AppData\\Local\\" + xPlane11;
+            string installs_xp12    = userFolder + "\\AppData\\Local\\" + xPlane12;
 
             List<string> allFiles = new List<string>();
             allFiles.Add(installs_xp9);
@@ -260,7 +261,7 @@ namespace YAME.View
             catch (Exception)
             {
                 MessageBox.Show("I was unable to apply the motion data patch to X-Plane. Usually this happens, when you " +
-                                "have X-Plane running while trying to apply the patch. Make sure X-Plane is NOT running!" +
+                                "have X-Plane running while trying to apply the patch. Make sure X-Plane is NOT running! " +
                                 "You might even have to reboot to be absolutely sure. \n\n" +
                                 "X-Plane was NOT patched!",
                                 "Something went wrong",

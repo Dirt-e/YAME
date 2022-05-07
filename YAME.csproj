@@ -383,9 +383,6 @@
     <EmbeddedResource Include="Resources\X-Plane\XPlaneGetter.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\DCS\YAME_Export_Hook - v0.02 UNTESTED.lua">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
     <None Include="YAME_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
