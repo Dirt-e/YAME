@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         xmlns:HelixToolkit="clr-namespace:HelixToolkit.Wpf;assembly=HelixToolkit.Wpf"
         xmlns:Converters="clr-namespace:YAME.View.Converters"
-        Title="{Binding TitleString}" Height="200" Width="300"
+        Title="{Binding TitleString}" Height="130" Width="300"
         Loaded="Window_Loaded" Closing="Window_Closing" 
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Style="{StaticResource MainWindow_Style}">
@@ -105,7 +105,7 @@
             <MenuItem Header="_?" x:Name="mnuHdr_QM" Click="mnuHdr_QM_Click"/>
         </Menu>
         <StackPanel Grid.Row="1">
-            <Button     x:Name="btn_Test" Content="Test Code" Width="80" Height="25"  Margin="5"
+            <!--<Button     x:Name="btn_Test" Content="Test Code" Width="80" Height="25"  Margin="5"
                     Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"
                     VerticalAlignment="Top" HorizontalAlignment="Left" Click="btn_Test_Click">
                 <Button.Resources>
@@ -113,7 +113,7 @@
                         <Setter Property="CornerRadius" Value="5"/>
                     </Style>
                 </Button.Resources>
-            </Button>
+            </Button>-->
             <Border Height="100" Margin="5" Style="{StaticResource BorderStyle}">
                 <Grid>
                     <Grid.ColumnDefinitions>
