@@ -1534,5 +1534,17 @@ namespace YAME.Properties {
                 this["LoaderSaver_ProfilePath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\Scripts\\Hooks\\YAME_Export_Hook.lua")]
+        public string Patcher_DCS_YAME {
+            get {
+                return ((string)(this["Patcher_DCS_YAME"]));
+            }
+            set {
+                this["Patcher_DCS_YAME"] = value;
+            }
+        }
     }
 }

@@ -9,7 +9,6 @@ using System.Windows;
 using System.Windows.Input;
 using System.Xml;
 using YAME.Model;
-using static Folders;
 
 namespace YAME.View
 {
@@ -27,18 +26,51 @@ namespace YAME.View
         //---------- DCS ----------
         void btn_Patch_DCS_Click(object sender, RoutedEventArgs e)
         {
-            if (IsPatched_DCS())
+            if (IsPatched_DCS()) unPatch_DCS();
+            
+            patch_DCS();
+        }
+        void btn_Unpatch_DCS_Click(object sender, RoutedEventArgs e)
+        {
+            string DCS = Folders.SavedGamesFolder + @"\DCS";
+            string ExportScript = DCS + Properties.Settings.Default.Patcher_DCS_YAME;
+
+            if (!Directory.Exists(DCS))
             {
-                MessageBox.Show("DCS is already patched for motion data export.\n" +
-                                "There's really nothing for me to do here.",
-                                "Patched already",
-                                MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(
+                    "Could not unpatch DCS. It is not installed on your system.",
+                    "DCS not found",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+
                 return;
             }
 
-            string DCS = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Saved Games\\DCS";
+            if (!File.Exists(ExportScript))
+            {
+                MessageBox.Show(
+                    "DCS was already unpatched.",
+                    "No patch found",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+                return;
+            }
 
-            if (!Directory.Exists(DCS))                                                          //Is DCS installed?
+            unPatch_DCS();
+
+            MessageBox.Show(
+                "Unpatched DCS.\n" +
+                "Motion data export suspended.",
+                "DCS patch removed",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information);
+        }
+        private void patch_DCS()
+        {
+            string DCS = Folders.SavedGamesFolder + @"\DCS";
+            string ExportScript = DCS + Properties.Settings.Default.Patcher_DCS_YAME;
+
+            if (!IsInstalled_DCS())                                                          //Is DCS installed?
             {
                 MessageBox.Show("DCS is not installed on your system.",
                                 "DCS patch failed!",
@@ -46,121 +78,139 @@ namespace YAME.View
                 return;
             }
 
-            Directory.CreateDirectory(DCS + "\\Scripts\\Hooks");                            //Make sure directory is there 
+            if (!Directory.Exists(Path.GetDirectoryName(ExportScript)))
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(ExportScript));             //Make sure directory is there 
+            }
+            
 
             var content = Resource.YAME_Export_Hook;                                        //Grab content...
-            File.WriteAllBytes(DCS + "\\Scripts\\Hooks\\YAME_Export_Hook.lua", content);    //...and write it to file.
+            File.WriteAllBytes(ExportScript, content);                                      //...and write it to file.
 
-            MessageBox.Show("Patched DCS for motion data export.\n" +
-                            "Restart DCS now!",                                             //Brag about it :-)
-                            "DCS patched",
-                            MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(
+                "Patched DCS for motion data export.\n" +
+                "Restart DCS now!",                                                         //Brag about it :-)
+                "DCS patched",
+                MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        void btn_Unpatch_DCS_Click(object sender, RoutedEventArgs e)
+        private void unPatch_DCS()
         {
-            string DCS = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Saved Games\\DCS";
+            string DCS = Folders.SavedGamesFolder + @"\DCS";
+            string ExportScript = DCS + Properties.Settings.Default.Patcher_DCS_YAME;
 
-            if (!Directory.Exists(DCS))
+            if (File.Exists(ExportScript))
             {
-                MessageBox.Show("Could not patch DCS. It is not installed on your system.",
-                                "DCS not found",
-                                MessageBoxButton.OK, MessageBoxImage.Warning);
-
-                return;
+                File.Delete(ExportScript);
             }
-
-            if (!File.Exists(DCS + "\\Scripts\\Hooks\\YAME_Export_Hook.lua"))
-            {
-                MessageBox.Show("DCS was already unpatched.",
-                                "DCS patch failed!",
-                                MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            File.Delete(DCS + "\\Scripts\\Hooks\\YAME_Export_Hook.lua");
-
-                MessageBox.Show("Unpatched DCS.\n" +
-                                "Motion data export suspended.",
-                                "DCS patch removed",
-                                MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        bool IsPatched_DCS()
+        private bool IsPatched_DCS()
         {
-            string ExpScript = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)
-                                + "\\Saved Games\\DCS\\Scripts\\Hooks\\YAME_Export_Hook.lua";
+            string DCS = Folders.SavedGamesFolder + @"\DCS";
+            string ExportScript = DCS + Properties.Settings.Default.Patcher_DCS_YAME;
 
-            if (File.Exists(ExpScript)) return true;
+            if (File.Exists(ExportScript)) return true;
             return false;
+        }
+        private bool IsInstalled_DCS()
+        {
+            string DCS = Folders.SavedGamesFolder + @"\DCS";
+
+            return Directory.Exists(DCS);                                                   //Is DCS installed?
         }
 
         //---------- DCS openbeta ----------
-        void btn_Patch_DCSopenbeta_Click(object sender, RoutedEventArgs e)
+        void btn_Patch_DCS_openbeta_Click(object sender, RoutedEventArgs e)
         {
-            if (IsPatched_DCSopenbeta())
+            if (IsPatched_DCS_openbeta()) unPatch_DCS_openbeta();
+
+            patch_DCS_openbeta();
+        }
+        void btn_Unpatch_DCS_openbeta_Click(object sender, RoutedEventArgs e)
+        {
+            string DCS_openbeta = Folders.SavedGamesFolder + @"\DCS_openbeta";
+            string ExportScript = DCS_openbeta + Properties.Settings.Default.Patcher_DCS_YAME;
+
+            if (!Directory.Exists(DCS_openbeta))
             {
-                MessageBox.Show("DCS.openbeta is already patched for motion data export.\n" +
-                                "There's really nothing for me to do here.",
-                                "Patched already",
-                                MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(
+                    "Could not unpatch DCS_openbeta. It is not installed on your system.",
+                    "DCS_openbeta not found",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+
                 return;
             }
 
-            string DCSob = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Saved Games\\DCS.openbeta";
-
-            if (!Directory.Exists(DCSob))                                                   //Is DCS installed?
+            if (!File.Exists(ExportScript))
             {
-                MessageBox.Show("DCS.openbeta is not installed on your system.",
-                                "DCS.openbeta patch failed!",
+                MessageBox.Show(
+                    "DCS_openbeta was already unpatched.",
+                    "No patch found",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+                return;
+            }
+
+            unPatch_DCS_openbeta();
+
+            MessageBox.Show(
+                "Unpatched DCS_openbeta.\n" +
+                "Motion data export suspended.",
+                "DCS_openbeta patch removed",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information);
+        }
+        private void patch_DCS_openbeta()
+        {
+            string DCS_openbeta = Folders.SavedGamesFolder + @"\DCS_openbeta";
+            string ExportScript = DCS_openbeta + Properties.Settings.Default.Patcher_DCS_YAME;
+
+            if (!IsInstalled_DCS_openbeta())                                                          //Is DCS installed?
+            {
+                MessageBox.Show("DCS_openbeta is not installed on your system.",
+                                "DCS_openbeta patch failed!",
                                 MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
-            Directory.CreateDirectory(DCSob + "\\Scripts\\Hooks");                          //Make sure directory is there 
+            if (!Directory.Exists(Path.GetDirectoryName(ExportScript)))
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(ExportScript));             //Make sure directory is there 
+            }
+
 
             var content = Resource.YAME_Export_Hook;                                        //Grab content...
-            File.WriteAllBytes(DCSob + "\\Scripts\\Hooks\\YAME_Export_Hook.lua", content);  //...and write it to file.
+            File.WriteAllBytes(ExportScript, content);                                      //...and write it to file.
 
-            MessageBox.Show("Patched DCS.openbeta for motion data export.\n" +
-                            "Restart DCS now!",                                             //Brag about it :-)
-                            "DCS patched",
-                            MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(
+                "Patched DCS for motion data export.\n" +
+                "Restart DCS now!",                                                         //Brag about it :-)
+                "DCS patched",
+                MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        void btn_Unpatch_DCSopenbeta_Click(object sender, RoutedEventArgs e)
+        private void unPatch_DCS_openbeta()
         {
-            string DCSob = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Saved Games\\DCS.openbeta";
+            string DCS_openbeta = Folders.SavedGamesFolder + @"\DCS_openbeta";
+            string ExportScript = DCS_openbeta + Properties.Settings.Default.Patcher_DCS_YAME;
 
-            if (!Directory.Exists(DCSob))
+            if (File.Exists(ExportScript))
             {
-                MessageBox.Show("Could not unpatch DCS.openbeta.\n" +
-                                "It is not installed on your system.",
-                                "DCS not found",
-                                MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
+                File.Delete(ExportScript);
             }
-
-            if (!File.Exists(DCSob + "\\Scripts\\Hooks\\YAME_Export_Hook.lua"))
-            {
-                MessageBox.Show("DCS.openbeta was already unpatched.\n" +
-                                "There's really nothing for me to do here.",
-                                "DCS unpatch failed!",
-                                MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            File.Delete(DCSob + "\\Scripts\\Hooks\\YAME_Export_Hook.lua");
-
-            MessageBox.Show("Unpatched DCS.openbeta.\n " +
-                            "Motion data export suspended.",
-                            "DCS.openbeta patch removed",
-                            MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        bool IsPatched_DCSopenbeta()
+        private bool IsPatched_DCS_openbeta()
         {
-            string ExpScript = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)
-                                + "\\Saved Games\\DCS.openbeta\\Scripts\\Hooks\\YAME_Export_Hook.lua";
+            string DCS_openbeta = Folders.SavedGamesFolder + @"\DCS_openbeta";
+            string ExportScript = DCS_openbeta + Properties.Settings.Default.Patcher_DCS_YAME;
 
-            if (File.Exists(ExpScript)) return true;
+            if (File.Exists(ExportScript)) return true;
             return false;
+        }
+        private bool IsInstalled_DCS_openbeta()
+        {
+            string DCS_openbeta = Folders.SavedGamesFolder + @"\DCS_openbeta";
+
+            return Directory.Exists(DCS_openbeta);                                                   //Is DCS installed?
         }
 
         //---------- X-Plane ----------

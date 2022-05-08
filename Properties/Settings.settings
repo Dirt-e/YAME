@@ -380,5 +380,8 @@
     <Setting Name="LoaderSaver_ProfilePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">nil</Value>
     </Setting>
+    <Setting Name="Patcher_DCS_YAME" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\Scripts\Hooks\YAME_Export_Hook.lua</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

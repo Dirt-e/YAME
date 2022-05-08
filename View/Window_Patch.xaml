@@ -59,11 +59,11 @@
 
         <Button     x:Name="btn_Patch_DCSopenbeta" Content="Patch" Style="{StaticResource Button_NoHighlight_Rounded}"
                     Grid.Row="2" Grid.Column="2" Margin="3"
-                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Patch_DCSopenbeta_Click">
+                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Patch_DCS_openbeta_Click">
         </Button>
         <Button     x:Name="btn_Unpatch_DCSopenbeta" Content="Unpatch" Style="{StaticResource Button_NoHighlight_Rounded}"
                     Grid.Row="2" Grid.Column="3" Margin="3"
-                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Unpatch_DCSopenbeta_Click">
+                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Unpatch_DCS_openbeta_Click">
         </Button>
 
         <Button     x:Name="btn_Patch_FS2020" Content="Patch"  Style="{StaticResource Button_NoHighlight_Rounded}"
