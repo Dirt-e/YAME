@@ -18,9 +18,10 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Menu Height="Auto">
-            <MenuItem Header="_File" x:Name="mnuHdr_File">
-                <MenuItem Header="_Load" Click="OnClick_Load"/>
-                <MenuItem Header="_Save" Click="OnClick_Save"/>
+            <MenuItem Header="_Profile" x:Name="mnuHdr_Profile">
+                <MenuItem Header="_Load"    Click="OnClick_Load"/>
+                <MenuItem Header="_Save"    Click="OnClick_Save"/>
+                <MenuItem Header="_Save As" Click="OnClick_SaveAs"/>
                 <Separator />
                 <MenuItem Header="_Quit" Click="OnClick_Quit"/>
             </MenuItem>
@@ -116,7 +117,7 @@
             <Border Height="100" Margin="5" Style="{StaticResource BorderStyle}">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
@@ -133,10 +134,10 @@
                     <TextBlock Grid.Row="2" TextAlignment="Right" VerticalAlignment="Center" Padding="1" 
                                Text="Aircraft:"/>
                     <TextBlock Grid.Row="3" TextAlignment="Right" VerticalAlignment="Center" Padding="1" 
-                               Text="Receiving data:"/>
+                               Text="Receiving Data:"/>
 
                     <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Left" VerticalAlignment="Center" Padding="1"
-                               Text="{Binding Profile}" x:Name="txtblk_profile"/>
+                               Text="{Binding ProfileFileName}" x:Name="txtblk_profile"/>
                     <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Left" VerticalAlignment="Center" Padding="1"
                                Text="{Binding SIM}" x:Name="txtblk_simulator"/>
                     <TextBlock Grid.Row="2" Grid.Column="1" TextAlignment="Left" VerticalAlignment="Center" Padding="1"

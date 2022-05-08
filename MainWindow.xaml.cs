@@ -82,8 +82,9 @@ namespace YAME
         
         private void SetDataContexts()
         {
-            txtblk_simulator.DataContext = engine.chopper;
-            rct_OnAirLight.DataContext = engine.server;
+            txtblk_profile.DataContext      = engine.loadersaver;
+            txtblk_simulator.DataContext    = engine.chopper;
+            rct_OnAirLight.DataContext      = engine.server;
         }
 
         //Window_Loaded:
@@ -187,6 +188,10 @@ namespace YAME
         private void OnClick_Save(object sender, RoutedEventArgs e)
         {
             engine.loadersaver.Save_Profile();
+        }
+        private void OnClick_SaveAs(object sender, RoutedEventArgs e)
+        {
+            engine.loadersaver.Save_Profile(true);
         }
         private void OnClick_Quit(object sender, RoutedEventArgs e)
         {
@@ -450,5 +455,6 @@ namespace YAME
             //PhantomRig pr = new PhantomRig();
             //var x = pr.Explore(DOF.pitch, DOF.roll);
         }
+
     }
 }

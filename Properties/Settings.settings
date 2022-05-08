@@ -377,5 +377,8 @@
     <Setting Name="Patcher_FS2020_STEAM_Folder" Type="System.String" Scope="User">
       <Value Profile="(Default)">\AppData\Roaming\Microsoft Flight Simulator</Value>
     </Setting>
+    <Setting Name="LoaderSaver_ProfilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">nil</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

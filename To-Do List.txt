@@ -36,9 +36,6 @@ POSITION OFFSET CORRECTION:
 PATCHER:
 - show current patch status when opening Patcher-Window
 - Re-apply DCS Patch if already patched. Just to be sure!
-- Add patching routine for FS2020
-		--> AppData\Local\Packages\Microsoft.FlightSimulator_8wekyb3d8bbwe\LocalCache\exe.xml for the Windows Store version
-		--> For Steam, the EXE.xml is located under USER/AppData/Roaming/Microsoft Flight Simulator
 
 
 --------------------------------------------------------

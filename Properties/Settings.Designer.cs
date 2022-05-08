@@ -1522,5 +1522,17 @@ namespace YAME.Properties {
                 this["Patcher_FS2020_STEAM_Folder"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("nil")]
+        public string LoaderSaver_ProfilePath {
+            get {
+                return ((string)(this["LoaderSaver_ProfilePath"]));
+            }
+            set {
+                this["LoaderSaver_ProfilePath"] = value;
+            }
+        }
     }
 }

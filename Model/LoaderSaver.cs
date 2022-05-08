@@ -10,7 +10,26 @@ namespace YAME.Model
     public class LoaderSaver : MyObject
     {
         SaveObject saveObject;
-        
+
+        private string _fullProfilePath;
+        public string FullProfilePath
+        {
+            get { return _fullProfilePath; }
+            set 
+            { 
+                _fullProfilePath = value;
+                ProfileFileName = Path.GetFileNameWithoutExtension(_fullProfilePath);
+                OnPropertyChanged(nameof(FullProfilePath));
+            }
+        }
+
+        private string _profileFileName;
+        public string ProfileFileName
+        {
+            get { return _profileFileName; }
+            set { _profileFileName = value; OnPropertyChanged(nameof(ProfileFileName)); }
+        }
+
         public LoaderSaver(Engine e)
         {
             engine = e;
@@ -21,6 +40,7 @@ namespace YAME.Model
         //------------------ Load ------------------------
         public void Load_Settings()
         {
+            LoadProfilePath_Application();
             LoadCrashDetectorThresholds_Application();
             LoadPositionOffsetCorrectionSettings_Application();
             LoadAlphaCompensationValues_Application();
@@ -31,6 +51,10 @@ namespace YAME.Model
             LoadRigConfiguration_Application();
             LoadSerialTalkerSettings_Application();
         }
+            private void LoadProfilePath_Application()
+            {
+                FullProfilePath = Properties.Settings.Default.LoaderSaver_ProfilePath;
+            }
             private void LoadCrashDetectorThresholds_Application()
             {
                 var defaults = Properties.Settings.Default;
@@ -174,11 +198,12 @@ namespace YAME.Model
 
                 string name = Properties.Settings.Default.SerialTalker_LastUsed_HardwareController;
                 engine.serialtalker.Controller = (ControllerType)Enum.Parse(typeof(ControllerType), name);
-            }
+        }
 
         //---------------- Save -----------------------
         public void Save_Settings()
         {
+            SaveProfilePath_Application();
             SaveCrashDetectorThresholds_Application();
             SavePositionCorrectionOffsets_Application();
             SaveAlphaCompensationValues_Application();
@@ -191,6 +216,10 @@ namespace YAME.Model
 
             Properties.Settings.Default.Save();
         }
+            private void SaveProfilePath_Application()
+            {
+                Properties.Settings.Default.LoaderSaver_ProfilePath = FullProfilePath;
+            }
             private void SaveCrashDetectorThresholds_Application()
             {
                 var defaults = Properties.Settings.Default;
@@ -330,7 +359,7 @@ namespace YAME.Model
             {
                 Properties.Settings.Default.SerialTalker_LastUsed_HardwareController = engine.serialtalker.Controller.ToString();
             }
-            
+
         #endregion
         #region To/from Profile:
         //------------------ Load ------------------------
@@ -338,10 +367,13 @@ namespace YAME.Model
         {
             if (engine.serialtalker.IsOpen)
             {
-                MessageBox.Show(    "You wanna load a profile while the rig is hot? I'm tellin'ya that is not going to go well.\n" +
-                                    "Move the rig to PARK, then close the serial connection. ONLY THEN should you change the profile.",
-                                    "HOT RIG WARNING",
-                                    MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(
+                    "You wanna load a profile while the rig is hot? I'm tellin'ya " +
+                    "that is not going to go well.\n" +
+                    "Move the rig to PARK, then close the serial connection. " +
+                    "ONLY THEN should you change the profile.",
+                    "HOT RIG WARNING",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -352,6 +384,7 @@ namespace YAME.Model
                 string json = File.ReadAllText(ofd.FileName);
                 saveObject = JsonSerializer.Deserialize<SaveObject>(json);
 
+                FullProfilePath = ofd.FileName;
                 LoadCrashDetectorThresholds_Profile();
                 LoadPositionOffsetCorrectionSettings_Profile();
                 LoadAlphaCompensationValues_Profile();
@@ -492,11 +525,15 @@ namespace YAME.Model
             }
 
         //---------------- Save -----------------------
-        public void Save_Profile()
+        public void Save_Profile(bool _as = false)
         {
-            SaveFileDialog sfd = MySaveFileDialog();
-
-            if (sfd.ShowDialog() == true)
+            if (_as || FullProfilePath == "nil")
+            {
+                SaveFileDialog sfd = MySaveFileDialog();
+                if (sfd.ShowDialog() == true)   FullProfilePath = sfd.FileName;
+                else                            return;
+            }
+            else
             {
                 SaveCrashDetectorThresholds_Profile();
                 SavePositionCorrectionOffsets_Profile();
@@ -511,7 +548,7 @@ namespace YAME.Model
                 var options = new JsonSerializerOptions { WriteIndented = true };
                 string json = JsonSerializer.Serialize(saveObject, options);
 
-                File.WriteAllText(sfd.FileName, json);
+                File.WriteAllText(FullProfilePath, json);
             }
         }
             private void SaveCrashDetectorThresholds_Profile()
