@@ -214,8 +214,8 @@
     <Compile Include="ViewModel\ViewModel_MotionControlWindow.cs" />
     <Compile Include="ViewModel\ViewModel_SceneView.cs" />
     <Compile Include="ViewModel\_ViewModel.cs" />
-    <Compile Include="View\AlphaCompensationWindow.xaml.cs">
-      <DependentUpon>AlphaCompensationWindow.xaml</DependentUpon>
+    <Compile Include="View\AlphaCompensation_Window.xaml.cs">
+      <DependentUpon>AlphaCompensation_Window.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Converters\ActuatorstatusToColorConverter.cs" />
     <Compile Include="View\Converters\BoolToActiveConverter..cs" />
@@ -225,15 +225,15 @@
     <Compile Include="View\Converters\BoolToOpenConverter_SerialConnection.cs" />
     <Compile Include="View\Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="View\Converters\CharToColorConverter.cs" />
-    <Compile Include="View\CrashDetectorWindow.xaml.cs">
-      <DependentUpon>CrashDetectorWindow.xaml</DependentUpon>
+    <Compile Include="View\CrashDetector_Window.xaml.cs">
+      <DependentUpon>CrashDetector_Window.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DOF_Window.xaml.cs">
       <DependentUpon>DOF_Window.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EnumBindingSourceExtension.cs" />
-    <Compile Include="View\FiltersWindow.xaml.cs">
-      <DependentUpon>FiltersWindow.xaml</DependentUpon>
+    <Compile Include="View\Filters_Window.xaml.cs">
+      <DependentUpon>Filters_Window.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MotionControl_Window.xaml.cs">
       <DependentUpon>MotionControl_Window.xaml</DependentUpon>
@@ -241,23 +241,20 @@
     <Compile Include="View\Patcher_Window.xaml.cs">
       <DependentUpon>Patcher_Window.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\PositionCorrectorWindow.xaml.cs">
-      <DependentUpon>PositionCorrectorWindow.xaml</DependentUpon>
+    <Compile Include="View\PositionCorrector_Window.xaml.cs">
+      <DependentUpon>PositionCorrector_Window.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\RawDataWindow.xaml.cs">
-      <DependentUpon>RawDataWindow.xaml</DependentUpon>
+    <Compile Include="View\RawData_Window.xaml.cs">
+      <DependentUpon>RawData_Window.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\RigConfigWindow.xaml.cs">
-      <DependentUpon>RigConfigWindow.xaml</DependentUpon>
+    <Compile Include="View\RigConfig_Window.xaml.cs">
+      <DependentUpon>RigConfig_Window.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SceneViewWindow.xaml.cs">
-      <DependentUpon>SceneViewWindow.xaml</DependentUpon>
+    <Compile Include="View\SceneView_Window.xaml.cs">
+      <DependentUpon>SceneView_Window.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SerialConnection_Window.xaml.cs">
       <DependentUpon>SerialConnection_Window.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\ServerWindow.xaml.cs">
-      <DependentUpon>ServerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls\CompressionBox.xaml.cs">
       <DependentUpon>CompressionBox.xaml</DependentUpon>
@@ -271,8 +268,8 @@
     <Compile Include="View\UserControls\ToggleSwitch.xaml.cs">
       <DependentUpon>ToggleSwitch.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AboutWindow.xaml.cs">
-      <DependentUpon>AboutWindow.xaml</DependentUpon>
+    <Compile Include="View\About_Window.xaml.cs">
+      <DependentUpon>About_Window.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -286,11 +283,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\AlphaCompensationWindow.xaml">
+    <Page Include="View\AlphaCompensation_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\CrashDetectorWindow.xaml">
+    <Page Include="View\CrashDetector_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -298,7 +295,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\FiltersWindow.xaml">
+    <Page Include="View\Filters_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -310,27 +307,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\PositionCorrectorWindow.xaml">
+    <Page Include="View\PositionCorrector_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\RawDataWindow.xaml">
+    <Page Include="View\RawData_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\RigConfigWindow.xaml">
+    <Page Include="View\RigConfig_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SceneViewWindow.xaml">
+    <Page Include="View\SceneView_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SerialConnection_Window.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\ServerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -350,7 +343,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AboutWindow.xaml">
+    <Page Include="View\About_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

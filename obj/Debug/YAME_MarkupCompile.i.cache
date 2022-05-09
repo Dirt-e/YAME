@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\OneDrive\Frank - PC\GitHub\YAME\App.xaml
-181711819855
+17-1325544103
 1-1596150947
-861615037801
+85-540766301
 1362092608981
-MainWindow.xaml;View\AlphaCompensation_Window.xaml;View\CrashDetector_Window.xaml;View\DOF_Window.xaml;View\Filters_Window.xaml;View\MotionControl_Window.xaml;View\Patcher_Window.xaml;View\PositionCorrector_Window.xaml;View\RawData_Window.xaml;View\RigConfig_Window.xaml;View\SceneView_Window.xaml;View\SerialConnection_Window.xaml;View\ServerWindow.xaml;View\UserControls\CompressionBox.xaml;View\UserControls\FilterBox.xaml;View\UserControls\ScalerBox.xaml;View\UserControls\ToggleSwitch.xaml;View\About_Window.xaml;
+MainWindow.xaml;View\AlphaCompensation_Window.xaml;View\CrashDetector_Window.xaml;View\DOF_Window.xaml;View\Filters_Window.xaml;View\MotionControl_Window.xaml;View\Patcher_Window.xaml;View\PositionCorrector_Window.xaml;View\RawData_Window.xaml;View\RigConfig_Window.xaml;View\SceneView_Window.xaml;View\SerialConnection_Window.xaml;View\UserControls\CompressionBox.xaml;View\UserControls\FilterBox.xaml;View\UserControls\ScalerBox.xaml;View\UserControls\ToggleSwitch.xaml;View\About_Window.xaml;
 
-True
+False
 
