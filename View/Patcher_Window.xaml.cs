@@ -19,8 +19,15 @@ namespace YAME.View
         public Patcher_Window()
         {
             InitializeComponent();
+            SetDatacontexts();
 
             snappyDragger = new SnappyDragger(this);
+        }
+
+        void SetDatacontexts()
+        {
+            var mw = Application.Current.MainWindow as MainWindow;
+            DataContext = mw.engine.patcher;
         }
 
         //---------- DCS ----------

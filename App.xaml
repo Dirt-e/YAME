@@ -6,14 +6,15 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <!--Converters-->
-        <Converters:ActuatorstatusToColorConverter  x:Key="cnvrtr_ActuatorstatusToColor"/>
-        <Converters:BoolToActiveConverter x:Key="cnvrt_BoolToActive"/>
-        <Converters:BoolToColorBrushConverter x:Key="cnvrt_BoolToColorBrush"/>
-        <Converters:BoolToColorBrushConverter_Actuator x:Key="cnvrt_BoolToColorBrush_Actuator"/>
-        <Converters:BoolToColorBrushConverter_OnAirLight x:Key="cnvrt_BoolToColorBrush_OnAirLight"/>
-        <Converters:BoolToOpenConverter x:Key="cnvrt_BoolToOpen"/>
-        <Converters:CharToColorConverter x:Key="cnvrt_CharToColor"/>
-        <Converters:BoolToVisibilityConverter x:Key="cnvrt_BoolToVisibility"/>
+        <Converters:ActuatorstatusToColorConverter          x:Key="cnvrtr_ActuatorstatusToColor"/>
+        <Converters:BoolToActiveConverter                   x:Key="cnvrt_BoolToActive"/>
+        <Converters:BoolToColorBrushConverter               x:Key="cnvrt_BoolToColorBrush"/>
+        <Converters:BoolToColorBrushConverter_RedGreen      x:Key="cnvrt_BoolToColorBrush_RedGreen"/>
+        <Converters:BoolToColorBrushConverter_Actuator      x:Key="cnvrt_BoolToColorBrush_Actuator"/>
+        <Converters:BoolToColorBrushConverter_OnAirLight    x:Key="cnvrt_BoolToColorBrush_OnAirLight"/>
+        <Converters:BoolToOpenConverter                     x:Key="cnvrt_BoolToOpen"/>
+        <Converters:CharToColorConverter                    x:Key="cnvrt_CharToColor"/>
+        <Converters:BoolToVisibilityConverter               x:Key="cnvrt_BoolToVisibility"/>
         <!--Colors-->
         <Color x:Key="MyDarkGray" A="255" R="30" G="30" B="30"/>
         <Color x:Key="MyDimGray" A="255" R="50" G="50" B="50"/>

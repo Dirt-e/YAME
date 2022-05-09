@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YAME.View"
+        xmlns:Converters="clr-namespace:YAME.View.Converters"
         mc:Ignorable="d" Style="{StaticResource ChildWindow_Style}"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         MouseLeftButtonUp="Window_MouseLeftButtonUp"
@@ -84,10 +85,22 @@
                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Unpatch_XPlane_Click">
         </Button>
 
+        <Rectangle Grid.Row="1" Grid.Column="4" Width="14" Height="14" x:Name="rct_IsPatched_DCS"
+                               RadiusX="7" RadiusY="7" HorizontalAlignment="Center" Margin="5,0,0,0"
+                               Stroke="{StaticResource MyDarkGrayBrush}"
+                               Fill="{Binding IsPatched_DCS_prop, Converter={StaticResource cnvrt_BoolToColorBrush_RedGreen}}"/>
+        <Rectangle Grid.Row="2" Grid.Column="4" Width="14" Height="14" x:Name="rct_IsPatched_DCS_openbeta"
+                               RadiusX="7" RadiusY="7" HorizontalAlignment="Center" Margin="5,0,0,0"
+                               Stroke="{StaticResource MyDarkGrayBrush}"
+                               Fill="{Binding IsPatched_DCS_openbeta_prop, Converter={StaticResource cnvrt_BoolToColorBrush_RedGreen}}"/>
         <Rectangle Grid.Row="3" Grid.Column="4" Width="14" Height="14" x:Name="rct_IsPatched_FS2020"
                                RadiusX="7" RadiusY="7" HorizontalAlignment="Center" Margin="5,0,0,0"
                                Stroke="{StaticResource MyDarkGrayBrush}"
-                               Fill="{Binding IsPatched_FS2020, Converter={StaticResource cnvrt_BoolToColorBrush}}"/>
+                               Fill="{Binding IsPatched_FS2020_prop, Converter={StaticResource cnvrt_BoolToColorBrush_RedGreen}}"/>
+        <Rectangle Grid.Row="4" Grid.Column="4" Width="14" Height="14" x:Name="rct_IsPatched_X_Plane"
+                               RadiusX="7" RadiusY="7" HorizontalAlignment="Center" Margin="5,0,0,0"
+                               Stroke="{StaticResource MyDarkGrayBrush}"
+                               Fill="{Binding IsPatched_X_Plane_prop, Converter={StaticResource cnvrt_BoolToColorBrush_RedGreen}}"/>
 
         <Button     x:Name="btn_Close" Content="Close" Style="{StaticResource Button_NoHighlight_Rounded}"
                     Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Margin="3"

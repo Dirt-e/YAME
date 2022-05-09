@@ -219,6 +219,7 @@
     </Compile>
     <Compile Include="View\Converters\ActuatorstatusToColorConverter.cs" />
     <Compile Include="View\Converters\BoolToActiveConverter..cs" />
+    <Compile Include="View\Converters\BoolToColorBrushConverter_RedGreen.cs" />
     <Compile Include="View\Converters\BoolToColorBrushConverter.cs" />
     <Compile Include="View\Converters\BoolToColorBrushConverter_OnAirLight.cs" />
     <Compile Include="View\Converters\BoolToColorBrushConverter_Actuator.cs" />
