@@ -18,7 +18,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Menu Height="Auto">
-            <MenuItem Header="_Profile" x:Name="mnuHdr_Profile">
+            <MenuItem Header="_File" x:Name="mnuHdr_Profile">
                 <MenuItem Header="_Load"    Click="OnClick_Load"/>
                 <MenuItem Header="_Save"    Click="OnClick_Save"/>
                 <MenuItem Header="_Save As" Click="OnClick_SaveAs"/>

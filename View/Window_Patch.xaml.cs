@@ -127,14 +127,14 @@ namespace YAME.View
         }
         void btn_Unpatch_DCS_openbeta_Click(object sender, RoutedEventArgs e)
         {
-            string DCS_openbeta = Folders.SavedGamesFolder + @"\DCS_openbeta";
+            string DCS_openbeta = Folders.SavedGamesFolder + @"\DCS.openbeta";
             string ExportScript = DCS_openbeta + Properties.Settings.Default.Patcher_DCS_YAME;
 
             if (!Directory.Exists(DCS_openbeta))
             {
                 MessageBox.Show(
-                    "Could not unpatch DCS_openbeta. It is not installed on your system.",
-                    "DCS_openbeta not found",
+                    "Could not unpatch DCS.openbeta. It is not installed on your system.",
+                    "DCS.openbeta not found",
                     MessageBoxButton.OK,
                     MessageBoxImage.Warning);
 
@@ -144,7 +144,7 @@ namespace YAME.View
             if (!File.Exists(ExportScript))
             {
                 MessageBox.Show(
-                    "DCS_openbeta was already unpatched.",
+                    "DCS.openbeta was already unpatched.",
                     "No patch found",
                     MessageBoxButton.OK,
                     MessageBoxImage.Warning);
@@ -154,7 +154,7 @@ namespace YAME.View
             unPatch_DCS_openbeta();
 
             MessageBox.Show(
-                "Unpatched DCS_openbeta.\n" +
+                "Unpatched DCS.openbeta.\n" +
                 "Motion data export suspended.",
                 "DCS_openbeta patch removed",
                 MessageBoxButton.OK,
@@ -162,13 +162,13 @@ namespace YAME.View
         }
         private void patch_DCS_openbeta()
         {
-            string DCS_openbeta = Folders.SavedGamesFolder + @"\DCS_openbeta";
+            string DCS_openbeta = Folders.SavedGamesFolder + @"\DCS.openbeta";
             string ExportScript = DCS_openbeta + Properties.Settings.Default.Patcher_DCS_YAME;
 
             if (!IsInstalled_DCS_openbeta())                                                          //Is DCS installed?
             {
-                MessageBox.Show("DCS_openbeta is not installed on your system.",
-                                "DCS_openbeta patch failed!",
+                MessageBox.Show("DCS.openbeta is not installed on your system.",
+                                "DCS.openbeta patch failed!",
                                 MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
@@ -183,14 +183,14 @@ namespace YAME.View
             File.WriteAllBytes(ExportScript, content);                                      //...and write it to file.
 
             MessageBox.Show(
-                "Patched DCS for motion data export.\n" +
-                "Restart DCS now!",                                                         //Brag about it :-)
+                "Patched DCS.openbeta for motion data export.\n" +
+                "Restart DCS.openbeta now!",                                                         //Brag about it :-)
                 "DCS patched",
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
         private void unPatch_DCS_openbeta()
         {
-            string DCS_openbeta = Folders.SavedGamesFolder + @"\DCS_openbeta";
+            string DCS_openbeta = Folders.SavedGamesFolder + @"\DCS.openbeta";
             string ExportScript = DCS_openbeta + Properties.Settings.Default.Patcher_DCS_YAME;
 
             if (File.Exists(ExportScript))
@@ -200,7 +200,7 @@ namespace YAME.View
         }
         private bool IsPatched_DCS_openbeta()
         {
-            string DCS_openbeta = Folders.SavedGamesFolder + @"\DCS_openbeta";
+            string DCS_openbeta = Folders.SavedGamesFolder + @"\DCS.openbeta";
             string ExportScript = DCS_openbeta + Properties.Settings.Default.Patcher_DCS_YAME;
 
             if (File.Exists(ExportScript)) return true;
@@ -208,7 +208,7 @@ namespace YAME.View
         }
         private bool IsInstalled_DCS_openbeta()
         {
-            string DCS_openbeta = Folders.SavedGamesFolder + @"\DCS_openbeta";
+            string DCS_openbeta = Folders.SavedGamesFolder + @"\DCS.openbeta";
 
             return Directory.Exists(DCS_openbeta);                                                   //Is DCS installed?
         }
@@ -506,6 +506,15 @@ namespace YAME.View
 
             if (IsInstalled_FS2020(false))  unPatch_FS2020(false);
             if (IsInstalled_FS2020(true))   unPatch_FS2020(true);
+
+            if (IsInstalled_FS2020_ANY())
+            {
+                MessageBox.Show(
+                    "Removed FS2020 motion data patch.",
+                    "FS2020 unpatched",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            
         }
         private void Patch_FS2020(bool steam = false)
         {
@@ -534,10 +543,10 @@ namespace YAME.View
                                 "FS2020 patched",
                                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        private void unPatch_FS2020(bool steam = false)
+        private void unPatch_FS2020(bool steamVersion = false)
         {   
             string filePath     = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder + @"\exe.xml";
-            if (steam)
+            if (steamVersion)
             {
                 filePath        = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder + @"\exe.xml";
             }
@@ -567,9 +576,7 @@ namespace YAME.View
 
             doc.Save(filePath);
 
-            MessageBox.Show(    "Removed FS2020 motion data patch.",
-                                "FS2020 unpatched",
-                                MessageBoxButton.OK, MessageBoxImage.Information);
+            //Delete_FS2020_Motion_Exporter_EXE();          //We don't need to delete it. 
         }
         private bool IsInstalled_FS2020_ANY()
         {
@@ -580,15 +587,16 @@ namespace YAME.View
             if (steam)  return Directory.Exists(Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder);
             else        return Directory.Exists(Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder);
         }
-        private bool IsPatchedFS2020(bool steam = false)
+        private bool IsPatchedFS2020(bool steamVersion = false)
         {
-            string filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder + @"\exe.xml";
+            //string filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder + @"\exe.xml";
+            string filePath = String.Empty;
 
-            if (steam)
-            {
-                filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder + @"\exe.xml";
-            }
-            
+            if (steamVersion)   filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder;
+            else                filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder;
+
+            filePath += @"\exe.xml";
+
             if (!File.Exists(filePath))
             {
                 return false;
