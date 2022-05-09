@@ -66,7 +66,6 @@ D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\Microsoft.WindowsAPICodePack.Shell.
 D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
 D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
 D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.xml
-D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\Resources\X-Plane\XPlaneGetter.zip
 D:\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\Resources\DCS\YAME_Export_Hook.lua
 \\Mac\Home\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\Resources\DCS\YAME_Export_Hook.lua
 \\Mac\Home\OneDrive\Frank - PC\GitHub\YAME\bin\Debug\Resources\X-Plane\XPlaneGetter.zip

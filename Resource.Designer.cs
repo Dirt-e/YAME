@@ -94,9 +94,9 @@ namespace YAME {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] XPlaneGetter {
+        public static byte[] XPlane_Motion_Exporter {
             get {
-                object obj = ResourceManager.GetObject("XPlaneGetter", resourceCulture);
+                object obj = ResourceManager.GetObject("XPlane_Motion_Exporter", resourceCulture);
                 return ((byte[])(obj));
             }
         }

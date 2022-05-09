@@ -1546,5 +1546,17 @@ namespace YAME.Properties {
                 this["Patcher_DCS_YAME"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\XPlane_Motion_Exporter")]
+        public string Patcher_Xplane_Exporter {
+            get {
+                return ((string)(this["Patcher_Xplane_Exporter"]));
+            }
+            set {
+                this["Patcher_Xplane_Exporter"] = value;
+            }
+        }
     }
 }

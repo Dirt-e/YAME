@@ -34,7 +34,7 @@
     <ProductName>YAME</ProductName>
     <PublisherName>HexaGo</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>49</ApplicationRevision>
+    <ApplicationRevision>51</ApplicationRevision>
     <ApplicationVersion>0.0.10.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -375,9 +375,7 @@
     <EmbeddedResource Include="Resources\DCS\YAME_Export_Hook.lua">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\X-Plane\XPlaneGetter.zip">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <None Include="Resources\X-Plane\XPlane_Motion_Exporter.zip" />
     <None Include="YAME_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -437,6 +435,7 @@
     <None Include="Resources\FS2020\exe.xml_Example_BLANK.xml" />
     <Content Include="Resources\FS2020\FS2020_MotionExporter.exe" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\System.Text.Json.6.0.1\build\System.Text.Json.targets" Condition="Exists('packages\System.Text.Json.6.0.1\build\System.Text.Json.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

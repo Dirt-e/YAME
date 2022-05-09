@@ -615,7 +615,9 @@ namespace YAME.Model
                 return;
             }
 
-            if (!Directory.Exists(dialog.FileName + "\\Resources\\plugins\\XPlaneGetter"))
+            string MyPlugin = dialog.FileName + @"\Resources\plugins" + Properties.Settings.Default.Patcher_Xplane_Exporter;
+
+            if (!Directory.Exists(MyPlugin))
             {
                 MessageBox.Show(
                     "This looks like an X-Plane installation Folder, but there " +
@@ -625,7 +627,7 @@ namespace YAME.Model
                 return;
             }
 
-            Directory.Delete(dialog.FileName + "\\Resources\\plugins\\XPlaneGetter", true);
+            Directory.Delete(MyPlugin, true);
 
             IsPatched_X_Plane_prop = false;
 
@@ -662,7 +664,7 @@ namespace YAME.Model
         bool IsPatched_XPlane()
         {
             List<string> allPaths = All_Xplane_Installations();
-            string MyPlugin = allPaths.Last()+ @"\Resources\plugins\XPlaneGetter";
+            string MyPlugin = allPaths.Last()+ @"\Resources\plugins" + Properties.Settings.Default.Patcher_Xplane_Exporter;
 
             if (Directory.Exists(MyPlugin))
             {
@@ -681,8 +683,11 @@ namespace YAME.Model
         }
         void ExtractPluginToFolder(string folder)
         {
-            string _tempZipFile = Environment.GetEnvironmentVariable("TEMP") + @"\XPlaneGetter.zip";
-            var res = Resource.XPlaneGetter;
+            //string _tempZipFile = Environment.GetEnvironmentVariable("TEMP") + @"\XPlaneGetter.zip";
+            string _tempZipFile = 
+                Environment.GetEnvironmentVariable("TEMP") 
+                + Properties.Settings.Default.Patcher_Xplane_Exporter + ".zip";
+            var res = Resource.XPlane_Motion_Exporter;
 
             using (FileStream fs = new FileStream(_tempZipFile, FileMode.Create))
             {
@@ -691,13 +696,15 @@ namespace YAME.Model
 
             string destination = folder + "\\Resources\\plugins\\";
 
-            if (Directory.Exists(destination + "XPlaneGetter"))
+            if (Directory.Exists(destination + Properties.Settings.Default.Patcher_Xplane_Exporter))
             {
-                MessageBox.Show("X-Plane is already patched for motion data export. But I'm " +
-                                "gonna re-apply the patch, just to be sure.",
-                                "Overwriting Patch",
-                                MessageBoxButton.OK, MessageBoxImage.Information);
-                Directory.Delete(destination + "XPlaneGetter", true);
+                MessageBox.Show(
+                    "X-Plane is already patched for motion data export. But I'm " +
+                    "gonna re-apply the patch, just to be sure.",
+                    "Overwriting Patch",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+
+                Directory.Delete(destination + Properties.Settings.Default.Patcher_Xplane_Exporter, true);
             }
 
             ZipFile.ExtractToDirectory(_tempZipFile, destination);

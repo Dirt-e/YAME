@@ -383,5 +383,8 @@
     <Setting Name="Patcher_DCS_YAME" Type="System.String" Scope="User">
       <Value Profile="(Default)">\Scripts\Hooks\YAME_Export_Hook.lua</Value>
     </Setting>
+    <Setting Name="Patcher_Xplane_Exporter" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\XPlane_Motion_Exporter</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
