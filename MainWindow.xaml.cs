@@ -36,17 +36,17 @@ namespace YAME
         public Engine engine = new Engine();
         Mutex single_instance_mutex;
 
-        RawDataWindow           rawDataWindow;
-        CrashDetectorWindow     crashDetectorWindow;
-        PositionCorrector_Window positionCorrectorWindow;
-        AlphaCompensationWindow alphaCompensationWindow;
-        FiltersWindow           filtersWindow;
-        DOF_Window              dof_window;
-        SceneViewWindow         sceneViewWindow;
-        RigConfigWindow         rigConfigWindow;
-        MotionControl_Window    motionControlWindow;
-        SerialConnection_Window serialConnectionWindow;
-        AboutWindow             aboutWindow;
+        RawDataWindow               rawDataWindow;
+        CrashDetectorWindow         crashDetectorWindow;
+        PositionCorrector_Window    positionCorrectorWindow;
+        AlphaCompensationWindow     alphaCompensationWindow;
+        FiltersWindow               filtersWindow;
+        DOF_Window                  dof_window;
+        SceneViewWindow             sceneViewWindow;
+        RigConfigWindow             rigConfigWindow;
+        MotionControl_Window        motionControlWindow;
+        SerialConnection_Window     serialConnectionWindow;
+        AboutWindow                 aboutWindow;
 
         public MainWindow()
         {
@@ -392,7 +392,7 @@ namespace YAME
                 
             }
 
-            Window_Patcher window_Patcher = new Window_Patcher();
+            Patcher_Window window_Patcher = new Patcher_Window();
             window_Patcher.Owner = this;
             window_Patcher.Name = "PatcherWindow";
             window_Patcher.Show();

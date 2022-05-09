@@ -167,6 +167,7 @@
     <Compile Include="Model\ActuatorSystem.cs" />
     <Compile Include="Model\AlphaCompensator.cs" />
     <Compile Include="Model\Chopper.cs" />
+    <Compile Include="Model\Patcher.cs" />
     <Compile Include="Model\CompressorModule.cs" />
     <Compile Include="Model\CompressorSystem.cs" />
     <Compile Include="Model\ConnectingPoints.cs" />
@@ -237,8 +238,8 @@
     <Compile Include="View\MotionControl_Window.xaml.cs">
       <DependentUpon>MotionControl_Window.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Window_Patch.xaml.cs">
-      <DependentUpon>Window_Patch.xaml</DependentUpon>
+    <Compile Include="View\Patcher_Window.xaml.cs">
+      <DependentUpon>Patcher_Window.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PositionCorrectorWindow.xaml.cs">
       <DependentUpon>PositionCorrectorWindow.xaml</DependentUpon>
@@ -305,7 +306,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Window_Patch.xaml">
+    <Page Include="View\Patcher_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

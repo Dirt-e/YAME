@@ -16,11 +16,13 @@ namespace YAME.Model
     public class Engine : MyObject
     {   
         //UI-thread objects:
+        public BackgroundWorker         backgroundworker;
         public Server                   server;
-        public LoaderSaver              loadersaver;
 
         //Worker-thread objects:
-        public BackgroundWorker         backgroundworker;
+        public LoaderSaver              loadersaver;
+        public Patcher                  patcher;
+
         public Chopper                  chopper;
         public Inverter                 inverter;
         public ExceedanceDetector       exceedancedetector;
@@ -74,7 +76,7 @@ namespace YAME.Model
                 WorkerSupportsCancellation = true,
             };
             server              = new Server();
-            loadersaver         = new LoaderSaver(this);
+
             InstantiateViewModels();
         }
         
@@ -95,7 +97,7 @@ namespace YAME.Model
 
                 backgroundworker.DoWork += (object sender, DoWorkEventArgs e) =>
                 {
-                    InstatiateObjects();
+                    InstatiateObjects_OnWorkerThread();
                     while (!backgroundworker.CancellationPending)
                     {
                         UpdateObjects();
@@ -112,8 +114,11 @@ namespace YAME.Model
         }
 
         //------- This happens on the Worker Thread -----------------
-        private void InstatiateObjects()
+        private void InstatiateObjects_OnWorkerThread()
         {
+            loadersaver             = new LoaderSaver(this);
+            patcher                 = new Patcher();
+
             chopper                 = new Chopper();
             inverter                = new Inverter();
             exceedancedetector      = new ExceedanceDetector(this);
@@ -126,7 +131,6 @@ namespace YAME.Model
             scalersystem            = new ScalerSystem();
             zeromaker               = new ZeroMaker();
             dof_override            = new DOF_Override();
-            loadersaver             = new LoaderSaver(this);
             integrator              = new Integrator(this);
             IK_Module               = new IK_Module(integrator as Integrator_basic);
             actuatorsystem          = new ActuatorSystem(IK_Module);
