@@ -527,29 +527,27 @@ namespace YAME.Model
         //---------------- Save -----------------------
         public void Save_Profile(bool _as = false)
         {
-            if (_as || FullProfilePath == "nil")
+            if (_as || !File.Exists(FullProfilePath))
             {
                 SaveFileDialog sfd = MySaveFileDialog();
+                if (FullProfilePath != "nil")   sfd.FileName = Path.GetFileName(FullProfilePath);
                 if (sfd.ShowDialog() == true)   FullProfilePath = sfd.FileName;
                 else                            return;
             }
-            else
-            {
-                SaveCrashDetectorThresholds_Profile();
-                SavePositionCorrectionOffsets_Profile();
-                SaveAlphaCompensationValues_Profile();
-                SaveFilterSettings_Profile();
-                SaveCompressionSettings_Profile();
-                SaveScalerSettings_Profile();
-                SaveZeromakerSettings_Profile();
-                SaveRigConfiguration_Profile();
-                SaveSerialTalkerSettings_Profile();
+            SaveCrashDetectorThresholds_Profile();
+            SavePositionCorrectionOffsets_Profile();
+            SaveAlphaCompensationValues_Profile();
+            SaveFilterSettings_Profile();
+            SaveCompressionSettings_Profile();
+            SaveScalerSettings_Profile();
+            SaveZeromakerSettings_Profile();
+            SaveRigConfiguration_Profile();
+            SaveSerialTalkerSettings_Profile();
 
-                var options = new JsonSerializerOptions { WriteIndented = true };
-                string json = JsonSerializer.Serialize(saveObject, options);
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            string json = JsonSerializer.Serialize(saveObject, options);
 
-                File.WriteAllText(FullProfilePath, json);
-            }
+            File.WriteAllText(FullProfilePath, json);
         }
             private void SaveCrashDetectorThresholds_Profile()
             {
