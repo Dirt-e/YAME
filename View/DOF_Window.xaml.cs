@@ -18,18 +18,18 @@ namespace YAME.View
     public partial class DOF_Window : Window
     {
         SnappyDragger SnappyDragger;
-
         Engine engine;
 
         public DOF_Window()
         {   
-            engine = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine;
+            var mw = Application.Current.MainWindow as MainWindow;
+            engine = mw.engine;
             
             InitializeComponent();
             DataContext = engine.dof_override;
+            //dummy.DataContext = engine.dof_override.lerp;
             
         }
-
 
         private void ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -48,7 +48,6 @@ namespace YAME.View
             }
         }
 
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SnappyDragger = new SnappyDragger(this);
@@ -56,7 +55,6 @@ namespace YAME.View
             Left    = Properties.Settings.Default.Window_DOFs_Position_X;
             Top     = Properties.Settings.Default.Window_DOFs_Position_Y;
         }
-
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Properties.Settings.Default.Window_DOFs_Position_X = (float)Left;

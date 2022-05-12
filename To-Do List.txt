@@ -6,7 +6,6 @@ GENERAL:
 - Mark the content of a TextBox when entering focus (to be able ot overwrite the contents quickly)
 
 MAIN WINDOW:
-- Save "SimName in profile
 
 CRASH DETECTION & RECOVERY:
 

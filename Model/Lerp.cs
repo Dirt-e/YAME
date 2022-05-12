@@ -8,16 +8,21 @@ using System.Windows.Media.Media3D;
 
 namespace YAME.Model
 {
-    public class Lerp
+    public class Lerp : MyObject
     {
         public TimeSpan Duration { get; set; }
         public LerpOverMethod Method { get; set; } = LerpOverMethod.PerlinSmoothStep;
         Stopwatch stopwatch = new Stopwatch();
         float Deltatime;
 
-        float _ratio_linear     { get; set; }           //Always linear.   
-        public float Ratio_external { get; set; }       //Depends on the FadeOver Method and is non linear!  
+        float _ratio_linear     { get; set; }           //Always linear.
 
+        float _ratio_external;                          //Depends on the FadeOver Method and is non linear!  
+        public float Ratio_external     
+        { 
+            get { return _ratio_external; }
+            set { _ratio_external = value; OnPropertyChanged(nameof(Ratio_external)); }
+        }       
         public bool IsRunning           { get; set; }
         public bool Direction           { get; set; } = true;
         public bool IsMovingUpwards     { get { return (IsRunning && Direction); }  }

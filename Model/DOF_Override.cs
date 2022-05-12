@@ -14,189 +14,254 @@ namespace YAME.Model
         public DOF_Data Input = new DOF_Data();
         public DOF_Data Output = new DOF_Data();
 
-        #region ViewModel Sliders
+        //public Lerp lerp = new Lerp();
+
+        #region ViewModel General
+        bool _isOverride;
+        public bool IsOverride
+        {
+            get { return _isOverride; }
+            set 
+            { 
+                _isOverride = value; 
+                OnPropertyChanged(nameof(IsOverride)); 
+
+                //lerp.Run(IsOverride);
+            }
+        }
+        #endregion
+        #region ViewModel SliderValues
         float _rollHFC;
         public float RollHFC
         {
             get { return _rollHFC; }
-            set { _rollHFC = value; OnPropertyChanged("RollHFC"); }
+            set { _rollHFC = value; OnPropertyChanged(nameof(RollHFC)); }
         }
         float _yawHFC;
         public float YawHFC
         {
             get { return _yawHFC; }
-            set { _yawHFC = value; OnPropertyChanged("YawHFC"); }
+            set { _yawHFC = value; OnPropertyChanged(nameof(YawHFC)); }
         }
         float _pitchHFC;
         public float PitchHFC
         {
             get { return _pitchHFC; }
-            set { _pitchHFC = value; OnPropertyChanged("PitchHFC"); }
+            set { _pitchHFC = value; OnPropertyChanged(nameof(PitchHFC)); }
         }
 
         float _surgeHFC;
         public float SurgeHFC
         {
             get { return _surgeHFC; }
-            set { _surgeHFC = value; OnPropertyChanged("SurgeHFC"); }
+            set { _surgeHFC = value; OnPropertyChanged(nameof(SurgeHFC)); }
         }
         float _pitchLFC;
         public float PitchLFC
         {
             get { return _pitchLFC; }
-            set { _pitchLFC = value; OnPropertyChanged("PitchLFC"); }
+            set { _pitchLFC = value; OnPropertyChanged(nameof(PitchLFC)); }
         }
 
         float _heaveHFC;
         public float HeaveHFC
         {
             get { return _heaveHFC; }
-            set { _heaveHFC = value; OnPropertyChanged("HeaveHFC"); }
+            set { _heaveHFC = value; OnPropertyChanged(nameof(HeaveHFC)); }
         }
 
         float _swayHFC;
         public float SwayHFC
         {
             get { return _swayHFC; }
-            set { _swayHFC = value; OnPropertyChanged("SwayHFC"); }
+            set { _swayHFC = value; OnPropertyChanged(nameof(SwayHFC)); }
         }
         float _rollLFC;
         public float RollLFC
         {
             get { return _rollLFC; }
-            set { _rollLFC = value; OnPropertyChanged("RollLFC"); }
+            set { _rollLFC = value; OnPropertyChanged(nameof(RollLFC)); }
         }
         #endregion
-        #region ViewModel MaxValues
-        float _max_rollHFC;
-        public float MaxRollHFC
+        #region ViewModel Ranges
+        //------------- Pos------------------
+        float _range_rollHFC = 20;
+        public float RangeRollHFC
         {
-            get { return _max_rollHFC; }
-            set { _max_rollHFC = value; OnPropertyChanged("MaxRollHFC"); MinRollHFC = -MaxRollHFC; }
+            get { return _range_rollHFC; }
+            set
+            { 
+                _range_rollHFC = Abs(value);
+                RangeRollHFC_neg = -_range_rollHFC;
+                OnPropertyChanged(nameof(RangeRollHFC)); 
+            }
         }
-        float _max_yawHFC;
-        public float MaxYawHFC
+        float _range_yawHFC = 20;
+        public float RangeYawHFC
         {
-            get { return _max_yawHFC; }
-            set { _max_yawHFC = value; OnPropertyChanged("MaxYawHFC"); MinYawHFC = -MaxYawHFC; }
+            get { return _range_yawHFC; }
+            set 
+            { 
+                _range_yawHFC = Abs(value);
+                RangeYawHFC_neg = -_range_yawHFC;
+                OnPropertyChanged(nameof(RangeYawHFC)); 
+            }
         }
-        float _max_pitchHFC;
-        public float MaxPitchHFC
+        float _range_pitchHFC = 20;
+        public float RangePitchHFC
         {
-            get { return _max_pitchHFC; }
-            set { _max_pitchHFC = value; OnPropertyChanged("MaxPitchHFC"); MinPitchHFC = -MaxPitchHFC; }
-        }
-
-        float _max_surgeHFC;
-        public float MaxSurgeHFC
-        {
-            get { return _max_surgeHFC; }
-            set { _max_surgeHFC = value; OnPropertyChanged("MaxSurgeHFC"); MinSurgeHFC = -MaxSurgeHFC; }
-        }
-        float _max_pitchLFC;
-        public float MaxPitchLFC
-        {
-            get { return _max_pitchLFC; }
-            set { _max_pitchLFC = value; OnPropertyChanged("MaxPitchLFC"); MinPitchLFC = -MaxPitchLFC; }
-        }
-
-        float _max_heaveHFC;
-        public float MaxHeaveHFC
-        {
-            get { return _max_heaveHFC; }
-            set { _max_heaveHFC = value; OnPropertyChanged("MaxHeaveHFC"); MinHeaveHFC = -MaxHeaveHFC; }
+            get { return _range_pitchHFC; }
+            set 
+            { 
+                _range_pitchHFC = Abs(value);
+                RangePitchHFC_neg = -_range_pitchHFC;
+                OnPropertyChanged(nameof(RangePitchHFC)); 
+            }
         }
 
-        float _max_swayHFC;
-        public float MaxSwayHFC
+        float _range_surgeHFC = 200;
+        public float RangeSurgeHFC
         {
-            get { return _max_swayHFC; }
-            set { _max_swayHFC = value; OnPropertyChanged("MaxSwayHFC"); MinSwayHFC = -MaxSwayHFC; }
+            get { return _range_surgeHFC; }
+            set 
+            { 
+                _range_surgeHFC = Abs(value);
+                RangeSurgeHFC_neg = -_range_surgeHFC;
+                OnPropertyChanged(nameof(RangeSurgeHFC)); 
+            }
         }
-        float _max_rollLFC;
-        public float MaxRollLFC
+        float _range_pitchLFC = 20;
+        public float RangePitchLFC
         {
-            get { return _max_rollLFC; }
-            set { _max_rollLFC = value; OnPropertyChanged("MaxRollLFC"); MinRollLFC = -MaxRollLFC; }
+            get { return _range_pitchLFC; }
+            set 
+            { 
+                _range_pitchLFC = Abs(value);
+                RangePitchLFC_neg = -_range_pitchLFC;
+                OnPropertyChanged(nameof(RangePitchLFC)); 
+            }
+        }
+
+        float _range_heaveHFC = 200;
+        public float RangeHeaveHFC
+        {
+            get { return _range_heaveHFC; }
+            set 
+            { 
+                _range_heaveHFC = Abs(value);
+                RangeHeaveHFC_neg = -_range_heaveHFC;    
+                OnPropertyChanged(nameof(RangeHeaveHFC)); 
+            }
+        }
+
+        float _range_swayHFC = 200;
+        public float RangeSwayHFC
+        {
+            get { return _range_swayHFC; }
+            set 
+            { 
+                _range_swayHFC = Abs(value);
+                RangeSwayHFC_neg = -_range_swayHFC; 
+                OnPropertyChanged(nameof(RangeSwayHFC)); 
+            }
+        }
+        float _range_rollLFC = 20;
+        public float RangeRollLFC
+        {
+            get { return _range_rollLFC; }
+            set 
+            { 
+                _range_rollLFC = Abs(value);
+                RangeRollLFC_neg = -_range_rollLFC;
+                OnPropertyChanged(nameof(RangeRollLFC)); 
+            }
+        }
+        //----------- neg ---------------
+        float _range_rollHFC_neg = -20;
+        public float RangeRollHFC_neg
+        {
+            get { return _range_rollHFC_neg; }
+            set { _range_rollHFC_neg = -Abs(value); OnPropertyChanged(nameof(RangeRollHFC_neg)); }
+        }
+        float _range_yawHFC_neg = -20;
+        public float RangeYawHFC_neg
+        {
+            get { return _range_yawHFC_neg; }
+            set { _range_yawHFC_neg = -Abs(value); OnPropertyChanged(nameof(RangeYawHFC_neg)); }
+        }
+        float _range_pitchHFC_neg = -20;
+        public float RangePitchHFC_neg
+        {
+            get { return _range_pitchHFC_neg; }
+            set { _range_pitchHFC_neg = -Abs(value); OnPropertyChanged(nameof(RangePitchHFC_neg)); }
+        }
+
+        float _range_surgeHFC_neg = -200;
+        public float RangeSurgeHFC_neg
+        {
+            get { return _range_surgeHFC_neg; }
+            set { _range_surgeHFC_neg = -Abs(value); OnPropertyChanged(nameof(RangeSurgeHFC_neg)); }
+        }
+        float _range_pitchLFC_neg = -20;
+        public float RangePitchLFC_neg
+        {
+            get { return _range_pitchLFC_neg; }
+            set { _range_pitchLFC_neg = -Abs(value); OnPropertyChanged(nameof(RangePitchLFC_neg)); }
+        }
+
+        float _range_heaveHFC_neg = -200;
+        public float RangeHeaveHFC_neg
+        {
+            get { return _range_heaveHFC_neg; }
+            set { _range_heaveHFC_neg = -Abs(value); OnPropertyChanged(nameof(RangeHeaveHFC_neg)); }
+        }
+
+        float _range_swayHFC_neg = -200;
+        public float RangeSwayHFC_neg
+        {
+            get { return _range_swayHFC_neg; }
+            set { _range_swayHFC_neg = -Abs(value); OnPropertyChanged(nameof(RangeSwayHFC_neg)); }
+        }
+        float _range_rollLFC_neg = -20;
+        public float RangeRollLFC_neg
+        {
+            get { return _range_rollLFC_neg; }
+            set { _range_rollLFC_neg = -Abs(value); OnPropertyChanged(nameof(RangeRollLFC_neg)); }
         }
         #endregion
-        #region ViewModel MinValues
-        float _min_rollHFC;
-        public float MinRollHFC
-        {
-            get { return _min_rollHFC; }
-            set { _min_rollHFC = value; OnPropertyChanged("MinRollHFC"); }
-        }
-        float _min_yawHFC;
-        public float MinYawHFC
-        {
-            get { return _min_yawHFC; }
-            set { _min_yawHFC = value; OnPropertyChanged("MinYawHFC"); }
-        }
-        float _min_pitchHFC;
-        public float MinPitchHFC
-        {
-            get { return _min_pitchHFC; }
-            set { _min_pitchHFC = value; OnPropertyChanged("MinPitchHFC"); }
-        }
 
-        float _min_surgeHFC;
-        public float MinSurgeHFC
+        public DOF_Override()
         {
-            get { return _min_surgeHFC; }
-            set { _min_surgeHFC = value; OnPropertyChanged("MinSurgeHFC"); }
-        }
-        float _min_pitchLFC;
-        public float MinPitchLFC
-        {
-            get { return _min_pitchLFC; }
-            set { _min_pitchLFC = value; OnPropertyChanged("MinPitchLFC"); }
-        }
 
-        float _min_heaveHFC;
-        public float MinHeaveHFC
-        {
-            get { return _min_heaveHFC; }
-            set { _min_heaveHFC = value; OnPropertyChanged("MinHeaveHFC"); }
         }
-
-        float _min_swayHFC;
-        public float MinSwayHFC
-        {
-            get { return _min_swayHFC; }
-            set { _min_swayHFC = value; OnPropertyChanged("MinSwayHFC"); }
-        }
-        float _min_rollLFC;
-        public float MinRollLFC
-        {
-            get { return _min_rollLFC; }
-            set { _min_rollLFC = value; OnPropertyChanged("MinRollLFC"); }
-        }
-        #endregion
 
         public void Process(DOF_Data data)
         {
             Input = new DOF_Data(data);
-            RememberNewMaximumValues();
-            SetSliderValues();
-            PassThrough();
+
+            //lerp.Update();
+
+            if (IsOverride)
+            {
+                Output.HFC_Roll = RollHFC;
+                Output.HFC_Yaw = YawHFC;
+                Output.HFC_Pitch = PitchHFC;
+
+                Output.HFC_Surge = SurgeHFC;
+                Output.LFC_Pitch = PitchLFC;
+
+                Output.HFC_Heave = HeaveHFC;
+
+                Output.HFC_Sway = SwayHFC;
+                Output.LFC_Roll = RollLFC;
+            }
+            else
+            {
+                PassThrough();
+                PositionSliders();
+            }
         }
-         
-        private void RememberNewMaximumValues()
-        {
-            MaxRollHFC  = Max(Abs(Input.HFC_Roll), Abs(MaxRollHFC));
-            MaxYawHFC   = Max(Abs(Input.HFC_Yaw), Abs(MaxYawHFC));
-            MaxPitchHFC = Max(Abs(Input.HFC_Pitch), Abs(MaxPitchHFC));
-
-            MaxSurgeHFC = Max(Abs(Input.HFC_Surge), Abs(MaxSurgeHFC));
-            MaxPitchLFC = Max(Abs(Input.LFC_Pitch), Abs(MaxPitchLFC));
-
-            MaxHeaveHFC = Max(Abs(Input.HFC_Heave), Abs(MaxHeaveHFC));
-
-            MaxSwayHFC  = Max(Abs(Input.HFC_Sway), Abs(MaxSwayHFC));
-            MaxRollLFC  = Max(Abs(Input.LFC_Roll), Abs(MaxRollLFC));
-        }
-        private void SetSliderValues()
+        private void PositionSliders()
         {
             RollHFC = Output.HFC_Roll;
             YawHFC = Output.HFC_Yaw;
