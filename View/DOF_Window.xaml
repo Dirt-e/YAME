@@ -25,8 +25,9 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="80"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
@@ -48,39 +49,24 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="1" Text="DOFs:"    Padding="2"  FontSize="15" FontWeight="Bold" Grid.ColumnSpan="5"/>
-        <!--<TextBlock Grid.Row="0" Grid.Column="3" x:Name="dummy" Text="{Binding Ratio_external, StringFormat=N2}" />-->
+        <TextBlock Grid.Row="0" Grid.Column="3" x:Name="dummy" Text="{Binding SliderRaw.HFC_Roll, StringFormat=N2}" />
 
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="Passthrough" VerticalAlignment="Center" HorizontalAlignment="Right"
-                   Padding="2"  FontSize="15" FontWeight="Bold"/>
-        <Controls:ToggleSwitch x:Name="tgl_Active" Grid.Column="2" Grid.Row="1" Height="20"
-                               IsOn="{Binding IsOverride, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-        <TextBlock Grid.Row="1" Grid.Column="3" Text="Override" VerticalAlignment="Center"
-                   Padding="2"  FontSize="15" FontWeight="Bold"/>
-        <!--Labels-->
-        <Label  Content="Roll" Grid.Row="3" Grid.Column="1"
-                VerticalContentAlignment="Center" Margin="10,0,0,0"
-                Style="{StaticResource Label_Style}"/>
-        <Label  Content="Yaw" Grid.Row="4" Grid.Column="1"
-                VerticalContentAlignment="Center" Margin="10,0,0,0"
-                Style="{StaticResource Label_Style}"/>
-        <Label  Content="Pitch" Grid.Row="5" Grid.Column="1"
-                VerticalContentAlignment="Center" Margin="10,0,0,0"
-                Style="{StaticResource Label_Style}"/>
-        <Label  Content="Surge" Grid.Row="7" Grid.Column="1"
-                VerticalContentAlignment="Center" Margin="10,0,0,0"
-                Style="{StaticResource Label_Style}"/>
-        <Label  Content="Pitch LFC" Grid.Row="8" Grid.Column="1" 
-                VerticalContentAlignment="Center" Margin="10,0,0,0"
-                Style="{StaticResource Label_Style}"/>
-        <Label  Content="Heave" Grid.Row="10" Grid.Column="1"
-                VerticalContentAlignment="Center" Margin="10,0,0,0"
-                Style="{StaticResource Label_Style}"/>
-        <Label  Content="Sway" Grid.Row="12" Grid.Column="1"
-                VerticalContentAlignment="Center" Margin="10,0,0,0"
-                Style="{StaticResource Label_Style}"/>
-        <Label  Content="Roll LFC" Grid.Row="13" Grid.Column="1"
-                VerticalContentAlignment="Center" Margin="10,0,0,0"
-                Style="{StaticResource Label_Style}"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Pass-through" VerticalAlignment="Center" HorizontalAlignment="Right" Padding="2"  FontSize="15" FontWeight="Bold"/>
+        <Controls:ToggleSwitch x:Name="tgl_Active" Grid.Column="2" Grid.Row="1" Height="20" IsOn="{Binding IsOverride, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+        <TextBlock Grid.Row="1" Grid.Column="3" Text="Override" VerticalAlignment="Center" Padding="2"  FontSize="15" FontWeight="Bold"/>
+        <Button Content="Center" Grid.Column="4" Grid.Row="1" Margin="7" Click="Button_Click" Style="{StaticResource Button_NoHighlight_Rounded}">
+            
+        </Button>
+
+            <!--Labels-->
+        <Label  Content="Roll"      Grid.Row="3" Grid.Column="1"    VerticalContentAlignment="Center" Margin="10,0,0,0" Style="{StaticResource Label_Style}"/>
+        <Label  Content="Yaw"       Grid.Row="4" Grid.Column="1"    VerticalContentAlignment="Center" Margin="10,0,0,0" Style="{StaticResource Label_Style}"/>
+        <Label  Content="Pitch"     Grid.Row="5" Grid.Column="1"    VerticalContentAlignment="Center" Margin="10,0,0,0" Style="{StaticResource Label_Style}"/>
+        <Label  Content="Surge"     Grid.Row="7" Grid.Column="1"    VerticalContentAlignment="Center" Margin="10,0,0,0" Style="{StaticResource Label_Style}"/>
+        <Label  Content="Pitch LFC" Grid.Row="8" Grid.Column="1"    VerticalContentAlignment="Center" Margin="10,0,0,0" Style="{StaticResource Label_Style}"/>
+        <Label  Content="Heave"     Grid.Row="10" Grid.Column="1"   VerticalContentAlignment="Center" Margin="10,0,0,0" Style="{StaticResource Label_Style}"/>
+        <Label  Content="Sway"      Grid.Row="12" Grid.Column="1"   VerticalContentAlignment="Center" Margin="10,0,0,0" Style="{StaticResource Label_Style}"/>
+        <Label  Content="Roll LFC"  Grid.Row="13" Grid.Column="1"   VerticalContentAlignment="Center" Margin="10,0,0,0" Style="{StaticResource Label_Style}"/>
 
         <!--Max/Min-->
         <TextBox    Text="{Binding RangeRollHFC,  StringFormat=N0}"   Grid.Row="3"  Grid.Column="2" Width="60" Height="20" Style="{StaticResource TextBox_Style}"/>
@@ -92,21 +78,13 @@
         <TextBox    Text="{Binding RangeSwayHFC,  StringFormat=N0}"   Grid.Row="12" Grid.Column="2" Width="60" Height="20" Style="{StaticResource TextBox_Style}"/>
         <TextBox    Text="{Binding RangeRollLFC,  StringFormat=N0}"   Grid.Row="13" Grid.Column="2" Width="60" Height="20" Style="{StaticResource TextBox_Style}"/>
 
-        <Slider x:Name="sld_DOF_Roll"       Grid.Column="3" Grid.Row="3" 
-                ValueChanged="ValueChanged" Value="{Binding RollHFC}"   Maximum="{Binding RangeRollHFC}"    Minimum="{Binding RangeRollHFC_neg}"/>
-        <Slider x:Name="sld_DOF_Yaw"        Grid.Column="3" Grid.Row="4"    
-                ValueChanged="ValueChanged" Value="{Binding YawHFC}"    Maximum="{Binding RangeYawHFC}"     Minimum="{Binding RangeYawHFC_neg}"/>
-        <Slider x:Name="sld_DOF_Pitch"      Grid.Column="3" Grid.Row="5" 
-                ValueChanged="ValueChanged" Value="{Binding PitchHFC}"  Maximum="{Binding RangePitchHFC}"   Minimum="{Binding RangePitchHFC_neg}"/>
-        <Slider x:Name="sld_DOF_Surge"      Grid.Column="3" Grid.Row="7" 
-                ValueChanged="ValueChanged" Value="{Binding SurgeHFC}"  Maximum="{Binding RangeSurgeHFC}"   Minimum="{Binding RangeSurgeHFC_neg}"/>
-        <Slider x:Name="sld_DOF_Pitch_LFC"  Grid.Column="3" Grid.Row="8" 
-                ValueChanged="ValueChanged" Value="{Binding PitchLFC}"  Maximum="{Binding RangePitchLFC}"   Minimum="{Binding RangePitchLFC_neg}"/>
-        <Slider x:Name="sld_DOF_Heave"      Grid.Column="3" Grid.Row="10"
-                ValueChanged="ValueChanged" Value="{Binding HeaveHFC}"  Maximum="{Binding RangeHeaveHFC}"   Minimum="{Binding RangeHeaveHFC_neg}"/>
-        <Slider x:Name="sld_DOF_Sway"       Grid.Column="3" Grid.Row="12"
-                ValueChanged="ValueChanged" Value="{Binding SwayHFC}"   Maximum="{Binding RangeSwayHFC}"    Minimum="{Binding RangeSwayHFC_neg}"/>
-        <Slider x:Name="sld_DOF_Roll_LFC"   Grid.Column="3" Grid.Row="13"
-                ValueChanged="ValueChanged" Value="{Binding RollLFC}"   Maximum="{Binding RangeRollLFC}"    Minimum="{Binding RangeRollLFC_neg}"/>
+        <Slider x:Name="sld_DOF_Roll"       Grid.Column="3" Grid.Row="3"  Value="{Binding sldr_RollHFC}"   Maximum="{Binding RangeRollHFC}"    Minimum="{Binding RangeRollHFC_neg}"  SelectionStart="{Binding SelRollHFC_min}"  SelectionEnd="{Binding SelRollHFC_max}"  IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>
+        <Slider x:Name="sld_DOF_Yaw"        Grid.Column="3" Grid.Row="4"  Value="{Binding sldr_YawHFC}"    Maximum="{Binding RangeYawHFC}"     Minimum="{Binding RangeYawHFC_neg}"   SelectionStart="{Binding SelYawHFC_min}"   SelectionEnd="{Binding SelYawHFC_max}"   IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>
+        <Slider x:Name="sld_DOF_Pitch"      Grid.Column="3" Grid.Row="5"  Value="{Binding sldr_PitchHFC}"  Maximum="{Binding RangePitchHFC}"   Minimum="{Binding RangePitchHFC_neg}" SelectionStart="{Binding SelPitchHFC_min}" SelectionEnd="{Binding SelPitchHFC_max}" IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>
+        <Slider x:Name="sld_DOF_Surge"      Grid.Column="3" Grid.Row="7"  Value="{Binding sldr_SurgeHFC}"  Maximum="{Binding RangeSurgeHFC}"   Minimum="{Binding RangeSurgeHFC_neg}" SelectionStart="{Binding SelSurgeHFC_min}" SelectionEnd="{Binding SelSurgeHFC_max}" IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>
+        <Slider x:Name="sld_DOF_Pitch_LFC"  Grid.Column="3" Grid.Row="8"  Value="{Binding sldr_PitchLFC}"  Maximum="{Binding RangePitchLFC}"   Minimum="{Binding RangePitchLFC_neg}" SelectionStart="{Binding SelPitchLFC_min}" SelectionEnd="{Binding SelPitchLFC_max}" IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>
+        <Slider x:Name="sld_DOF_Heave"      Grid.Column="3" Grid.Row="10" Value="{Binding sldr_HeaveHFC}"  Maximum="{Binding RangeHeaveHFC}"   Minimum="{Binding RangeHeaveHFC_neg}" SelectionStart="{Binding SelHeaveHFC_min}" SelectionEnd="{Binding SelHeaveHFC_max}" IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>
+        <Slider x:Name="sld_DOF_Sway"       Grid.Column="3" Grid.Row="12" Value="{Binding sldr_SwayHFC}"   Maximum="{Binding RangeSwayHFC}"    Minimum="{Binding RangeSwayHFC_neg}"  SelectionStart="{Binding SelSwayHFC_min}"  SelectionEnd="{Binding SelSwayHFC_max}"  IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>
+        <Slider x:Name="sld_DOF_Roll_LFC"   Grid.Column="3" Grid.Row="13" Value="{Binding sldr_RollLFC}"   Maximum="{Binding RangeRollLFC}"    Minimum="{Binding RangeRollLFC_neg}"  SelectionStart="{Binding SelRollLFC_min}"  SelectionEnd="{Binding SelRollLFC_max}"  IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>  
     </Grid>
 </Window>

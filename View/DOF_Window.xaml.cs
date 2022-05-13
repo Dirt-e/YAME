@@ -27,25 +27,15 @@ namespace YAME.View
             
             InitializeComponent();
             DataContext = engine.dof_override;
-            //dummy.DataContext = engine.dof_override.lerp;
-            
-        }
+            //sld_DOF_Roll.DataContext        = engine.dof_override.SliderRaw.HFC_Roll;
+            //sld_DOF_Yaw.DataContext         = engine.dof_override.SliderRaw.HFC_Yaw;
+            //sld_DOF_Pitch.DataContext       = engine.dof_override.SliderRaw.HFC_Pitch;
+            //sld_DOF_Surge.DataContext       = engine.dof_override.SliderRaw.HFC_Surge;
+            //sld_DOF_Pitch_LFC.DataContext   = engine.dof_override.SliderRaw.LFC_Pitch;
+            //sld_DOF_Heave.DataContext       = engine.dof_override.SliderRaw.HFC_Heave;
+            //sld_DOF_Sway.DataContext        = engine.dof_override.SliderRaw.HFC_Sway;
+            //sld_DOF_Roll_LFC.DataContext    = engine.dof_override.SliderRaw.LFC_Roll;
 
-        private void ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            //Draw the bar (SelectionRange) anytime a value changes
-            var slider = sender as Slider;
-
-            if (slider.Value > 0)
-            {
-                slider.SelectionStart = 0;
-                slider.SelectionEnd = slider.Value;
-            }
-            else
-            {
-                slider.SelectionStart = slider.Value;
-                slider.SelectionEnd = 0;
-            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -70,6 +60,18 @@ namespace YAME.View
         private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             SnappyDragger.StopDrag();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            sld_DOF_Roll.Value = 0;
+            sld_DOF_Yaw.Value = 0;
+            sld_DOF_Pitch.Value = 0;
+            sld_DOF_Surge.Value = 0;
+            sld_DOF_Pitch_LFC.Value = 0;
+            sld_DOF_Heave.Value = 0;
+            sld_DOF_Sway.Value = 0;
+            sld_DOF_Roll_LFC.Value = 0;
         }
     }
 }

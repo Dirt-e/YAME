@@ -7,7 +7,7 @@ using YAME.Model;
 
 namespace YAME.DataFomats
 {
-    public class DOF_Data
+    public class DOF_Data : MyObject
     {
         //HFC:
         public float HFC_Surge { get; set; }
@@ -16,7 +16,12 @@ namespace YAME.DataFomats
 
         public float HFC_Yaw { get; set; }
         public float HFC_Pitch { get; set; }
-        public float HFC_Roll { get; set; }
+        float _hfc_roll;
+        public float HFC_Roll 
+        { 
+            get { return _hfc_roll; }
+            set { _hfc_roll = value; OnPropertyChanged(nameof(HFC_Roll)); }
+        }
 
         //LFC
         public float LFC_Pitch { get; set; }
