@@ -1,4 +1,5 @@
-﻿using YAME.DataFomats;
+﻿using System.Diagnostics;
+using YAME.DataFomats;
 using static System.Math;
 
 namespace YAME.Model
@@ -18,6 +19,8 @@ namespace YAME.Model
         LowPassNthOrder LP_sldr_SwayHFC     = new LowPassNthOrder(3);
         LowPassNthOrder LP_sldr_RollLFC     = new LowPassNthOrder(3);
 
+        Lerp lerp = new Lerp(2000);
+
         #region ViewModel General
         bool _isOverride;
         public bool IsOverride
@@ -27,6 +30,7 @@ namespace YAME.Model
             {
                 _isOverride = value;
                 OnPropertyChanged(nameof(IsOverride));
+                lerp.Run(value);
             }
         }
         #endregion
@@ -377,51 +381,15 @@ namespace YAME.Model
         {
             Input = new DOF_Data(data);
 
-            Drive_LP_Filters(); 
+            Update_LP_Filters(); 
+            lerp.Update();
+
             DrawBlueBars();
 
-            if (IsOverride)
-            {
-                OverrideValues();
-            }
-            else
-            {
-                PassThrough();
-            }
-
+            Output = Input * (1 - lerp.Ratio_external) + Slider_LP3 * lerp.Ratio_external;
         }
 
-
-        void DrawBlueBars()
-        {
-            SelRollHFC_max  = Max(Input.HFC_Roll, 0.0f);
-            SelYawHFC_max   = Max(Input.HFC_Yaw, 0.0f);
-            SelPitchHFC_max = Max(Input.HFC_Pitch, 0.0f);
-            SelSurgeHFC_max = Max(Input.HFC_Surge, 0.0f);
-            SelPitchLFC_max = Max(Input.LFC_Pitch, 0.0f);
-            SelHeaveHFC_max = Max(Input.HFC_Heave, 0.0f);
-            SelSwayHFC_max  = Max(Input.HFC_Sway, 0.0f);
-            SelRollLFC_max  = Max(Input.LFC_Roll, 0.0f);
-
-
-            SelRollHFC_min  = Min(Input.HFC_Roll, 0.0f);
-            SelYawHFC_min   = Min(Input.HFC_Yaw, 0.0f);
-            SelPitchHFC_min = Min(Input.HFC_Pitch, 0.0f);
-            SelSurgeHFC_min = Min(Input.HFC_Surge, 0.0f);
-            SelPitchLFC_min = Min(Input.LFC_Pitch, 0.0f);
-            SelHeaveHFC_min = Min(Input.HFC_Heave, 0.0f);
-            SelSwayHFC_min  = Min(Input.HFC_Sway, 0.0f);
-            SelRollLFC_min  = Min(Input.LFC_Roll, 0.0f);
-        }
-        private void OverrideValues()
-        {
-            Output = Slider_LP3;
-        }
-        private void PassThrough()
-        {
-            Output = Input;
-        }
-        void Drive_LP_Filters()
+        void Update_LP_Filters()
         {
             //Push values in:
             LP_sldr_RollHFC.Push(sldr_RollHFC);
@@ -443,6 +411,27 @@ namespace YAME.Model
             Slider_LP3.HFC_Heave    = LP_sldr_HeaveHFC.OutValue;
             Slider_LP3.HFC_Sway     = LP_sldr_SwayHFC.OutValue;
             Slider_LP3.LFC_Roll     = LP_sldr_RollLFC.OutValue;
+        }
+        void DrawBlueBars()
+        {
+            SelRollHFC_max  = Max(Input.HFC_Roll, 0.0f);
+            SelYawHFC_max   = Max(Input.HFC_Yaw, 0.0f);
+            SelPitchHFC_max = Max(Input.HFC_Pitch, 0.0f);
+            SelSurgeHFC_max = Max(Input.HFC_Surge, 0.0f);
+            SelPitchLFC_max = Max(Input.LFC_Pitch, 0.0f);
+            SelHeaveHFC_max = Max(Input.HFC_Heave, 0.0f);
+            SelSwayHFC_max  = Max(Input.HFC_Sway, 0.0f);
+            SelRollLFC_max  = Max(Input.LFC_Roll, 0.0f);
+
+
+            SelRollHFC_min  = Min(Input.HFC_Roll, 0.0f);
+            SelYawHFC_min   = Min(Input.HFC_Yaw, 0.0f);
+            SelPitchHFC_min = Min(Input.HFC_Pitch, 0.0f);
+            SelSurgeHFC_min = Min(Input.HFC_Surge, 0.0f);
+            SelPitchLFC_min = Min(Input.LFC_Pitch, 0.0f);
+            SelHeaveHFC_min = Min(Input.HFC_Heave, 0.0f);
+            SelSwayHFC_min  = Min(Input.HFC_Sway, 0.0f);
+            SelRollLFC_min  = Min(Input.LFC_Roll, 0.0f);
         }
     }
 }

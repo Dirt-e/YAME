@@ -27,14 +27,6 @@ namespace YAME.View
             
             InitializeComponent();
             DataContext = engine.dof_override;
-            //sld_DOF_Roll.DataContext        = engine.dof_override.SliderRaw.HFC_Roll;
-            //sld_DOF_Yaw.DataContext         = engine.dof_override.SliderRaw.HFC_Yaw;
-            //sld_DOF_Pitch.DataContext       = engine.dof_override.SliderRaw.HFC_Pitch;
-            //sld_DOF_Surge.DataContext       = engine.dof_override.SliderRaw.HFC_Surge;
-            //sld_DOF_Pitch_LFC.DataContext   = engine.dof_override.SliderRaw.LFC_Pitch;
-            //sld_DOF_Heave.DataContext       = engine.dof_override.SliderRaw.HFC_Heave;
-            //sld_DOF_Sway.DataContext        = engine.dof_override.SliderRaw.HFC_Sway;
-            //sld_DOF_Roll_LFC.DataContext    = engine.dof_override.SliderRaw.LFC_Roll;
 
         }
 

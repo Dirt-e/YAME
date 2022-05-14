@@ -10,25 +10,19 @@ namespace YAME.DataFomats
     public class DOF_Data : MyObject
     {
         //HFC:
-        public float HFC_Surge { get; set; }
-        public float HFC_Heave { get; set; }
-        public float HFC_Sway { get; set; }
+        public float HFC_Surge  { get; set; }
+        public float HFC_Heave  { get; set; }
+        public float HFC_Sway   { get; set; }
 
-        public float HFC_Yaw { get; set; }
-        public float HFC_Pitch { get; set; }
-        float _hfc_roll;
-        public float HFC_Roll 
-        { 
-            get { return _hfc_roll; }
-            set { _hfc_roll = value; OnPropertyChanged(nameof(HFC_Roll)); }
-        }
+        public float HFC_Yaw    { get; set; }
+        public float HFC_Pitch  { get; set; }
+        public float HFC_Roll   { get; set; }
 
         //LFC
-        public float LFC_Pitch { get; set; }
-        public float LFC_Roll { get; set; }
+        public float LFC_Pitch  { get; set; }
+        public float LFC_Roll   { get; set; }
 
         //Constructor
-        public DOF_Data() { }
         public DOF_Data(DOF_Data dof_data)
         {
             //HFC
@@ -56,6 +50,72 @@ namespace YAME.DataFomats
             //LFC
             LFC_Pitch   = pitch_lfc;
             LFC_Roll    = roll_lfc;
+        }
+
+
+        public static DOF_Data operator -(DOF_Data d1)
+        {
+            DOF_Data temp = new DOF_Data();
+
+            temp.HFC_Surge = d1.HFC_Surge   * -1.0f;
+            temp.HFC_Heave  = d1.HFC_Heave  * -1.0f;
+            temp.HFC_Sway   = d1.HFC_Sway   * -1.0f;
+            temp.HFC_Yaw    = d1.HFC_Yaw    * -1.0f;
+            temp.HFC_Pitch  = d1.HFC_Pitch  * -1.0f;
+            temp.HFC_Roll   = d1.HFC_Roll   * -1.0f;
+            temp.LFC_Pitch  = d1.LFC_Pitch  * -1.0f;
+            temp.LFC_Roll   = d1.LFC_Roll   * -1.0f;
+
+            return temp;
+        }
+        public static DOF_Data operator -(DOF_Data d1, DOF_Data d2)
+        {
+            DOF_Data temp = new DOF_Data();
+
+            temp.HFC_Surge  = d1.HFC_Surge  -d1.HFC_Surge ;
+            temp.HFC_Heave  = d1.HFC_Heave  -d1.HFC_Heave ;
+            temp.HFC_Sway   = d1.HFC_Sway   -d1.HFC_Sway ;
+            temp.HFC_Yaw    = d1.HFC_Yaw    -d1.HFC_Yaw ;
+            temp.HFC_Pitch  = d1.HFC_Pitch  -d1.HFC_Pitch ;
+            temp.HFC_Roll   = d1.HFC_Roll   -d1.HFC_Roll ;
+            temp.LFC_Pitch  = d1.LFC_Pitch  -d1.LFC_Pitch ;
+            temp.LFC_Roll   = d1.LFC_Roll   -d1.LFC_Roll ;
+
+            return temp;
+        }
+        public static DOF_Data operator +(DOF_Data d1, DOF_Data d2)
+        {
+            DOF_Data temp = new DOF_Data();
+
+            temp.HFC_Surge  = d1.HFC_Surge  + d2.HFC_Surge ;
+            temp.HFC_Heave  = d1.HFC_Heave  + d2.HFC_Heave ;
+            temp.HFC_Sway   = d1.HFC_Sway   + d2.HFC_Sway ;
+            temp.HFC_Yaw    = d1.HFC_Yaw    + d2.HFC_Yaw ;
+            temp.HFC_Pitch  = d1.HFC_Pitch  + d2.HFC_Pitch ;
+            temp.HFC_Roll   = d1.HFC_Roll   + d2.HFC_Roll ;
+            temp.LFC_Pitch  = d1.LFC_Pitch  + d2.LFC_Pitch ;
+            temp.LFC_Roll   = d1.LFC_Roll   + d2.LFC_Roll ;
+
+            return temp;
+        }
+        public static DOF_Data operator *(DOF_Data d1, float f)
+        {
+            DOF_Data temp = new DOF_Data();
+
+            temp.HFC_Surge  = d1.HFC_Surge * f; 
+            temp.HFC_Heave  = d1.HFC_Heave * f; 
+            temp.HFC_Sway   = d1.HFC_Sway * f; 
+            temp.HFC_Yaw    = d1.HFC_Yaw * f; 
+            temp.HFC_Pitch  = d1.HFC_Pitch * f; 
+            temp.HFC_Roll   = d1.HFC_Roll * f; 
+            temp.LFC_Pitch  = d1.LFC_Pitch * f; 
+            temp.LFC_Roll   = d1.LFC_Roll * f;
+
+            return temp;
+        }
+        public static DOF_Data operator *(float f, DOF_Data d1)
+        {
+            return d1 * f;
         }
 
         public float report(DOF dof)
