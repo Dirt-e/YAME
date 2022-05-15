@@ -1558,5 +1558,101 @@ namespace YAME.Properties {
                 this["Patcher_Xplane_Exporter"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        public float DOF_Override_Range_Roll_HFC {
+            get {
+                return ((float)(this["DOF_Override_Range_Roll_HFC"]));
+            }
+            set {
+                this["DOF_Override_Range_Roll_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        public float DOF_Override_Range_Yaw_HFC {
+            get {
+                return ((float)(this["DOF_Override_Range_Yaw_HFC"]));
+            }
+            set {
+                this["DOF_Override_Range_Yaw_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        public float DOF_Override_Range_Pitch_HFC {
+            get {
+                return ((float)(this["DOF_Override_Range_Pitch_HFC"]));
+            }
+            set {
+                this["DOF_Override_Range_Pitch_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("200")]
+        public float DOF_Override_Range_Surge_HFC {
+            get {
+                return ((float)(this["DOF_Override_Range_Surge_HFC"]));
+            }
+            set {
+                this["DOF_Override_Range_Surge_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("200")]
+        public float DOF_Override_Range_Heave_HFC {
+            get {
+                return ((float)(this["DOF_Override_Range_Heave_HFC"]));
+            }
+            set {
+                this["DOF_Override_Range_Heave_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("200")]
+        public float DOF_Override_Range_Sway_HFC {
+            get {
+                return ((float)(this["DOF_Override_Range_Sway_HFC"]));
+            }
+            set {
+                this["DOF_Override_Range_Sway_HFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        public float DOF_Override_Range_Pitch_LFC {
+            get {
+                return ((float)(this["DOF_Override_Range_Pitch_LFC"]));
+            }
+            set {
+                this["DOF_Override_Range_Pitch_LFC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        public float DOF_Override_Range_Roll_LFC {
+            get {
+                return ((float)(this["DOF_Override_Range_Roll_LFC"]));
+            }
+            set {
+                this["DOF_Override_Range_Roll_LFC"] = value;
+            }
+        }
     }
 }

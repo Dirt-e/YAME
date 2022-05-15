@@ -386,5 +386,29 @@
     <Setting Name="Patcher_Xplane_Exporter" Type="System.String" Scope="User">
       <Value Profile="(Default)">\XPlane_Motion_Exporter</Value>
     </Setting>
+    <Setting Name="DOF_Override_Range_Roll_HFC" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="DOF_Override_Range_Yaw_HFC" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="DOF_Override_Range_Pitch_HFC" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="DOF_Override_Range_Surge_HFC" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">200</Value>
+    </Setting>
+    <Setting Name="DOF_Override_Range_Heave_HFC" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">200</Value>
+    </Setting>
+    <Setting Name="DOF_Override_Range_Sway_HFC" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">200</Value>
+    </Setting>
+    <Setting Name="DOF_Override_Range_Pitch_LFC" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="DOF_Override_Range_Roll_LFC" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
