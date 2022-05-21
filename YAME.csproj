@@ -214,6 +214,9 @@
     <Compile Include="ViewModel\ViewModel_MotionControlWindow.cs" />
     <Compile Include="ViewModel\ViewModel_SceneView.cs" />
     <Compile Include="ViewModel\_ViewModel.cs" />
+    <Compile Include="View\Actuator_Override_Window.xaml.cs">
+      <DependentUpon>Actuator_Override_Window.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AlphaCompensation_Window.xaml.cs">
       <DependentUpon>AlphaCompensation_Window.xaml</DependentUpon>
     </Compile>
@@ -229,8 +232,8 @@
     <Compile Include="View\CrashDetector_Window.xaml.cs">
       <DependentUpon>CrashDetector_Window.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DOF_Window.xaml.cs">
-      <DependentUpon>DOF_Window.xaml</DependentUpon>
+    <Compile Include="View\DOF_Override_Window.xaml.cs">
+      <DependentUpon>DOF_Override_Window.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EnumBindingSourceExtension.cs" />
     <Compile Include="View\Filters_Window.xaml.cs">
@@ -284,6 +287,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Actuator_Override_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AlphaCompensation_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -292,7 +299,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DOF_Window.xaml">
+    <Page Include="View\DOF_Override_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

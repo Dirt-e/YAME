@@ -69,6 +69,12 @@
                             IsChecked="False"
                             Checked="mnuDOFs_Checked"
                             Unchecked="mnuDOFs_Unchecked"/>
+                <MenuItem   Header="_Actuator Override"
+                            x:Name="mnuActuatorOverride"
+                            IsCheckable="True"
+                            IsChecked="False"
+                            Checked="mnuActuatorOverride_Checked"
+                            Unchecked="mnuActuatorOverride_Unchecked"/>
                 <MenuItem   Header="_Scene View"
                             x:Name="mnuSceneView"
                             IsCheckable="True"

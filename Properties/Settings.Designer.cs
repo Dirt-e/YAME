@@ -1654,5 +1654,41 @@ namespace YAME.Properties {
                 this["DOF_Override_Range_Roll_LFC"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("123")]
+        public float Window_ActuatorOverride_Position_X {
+            get {
+                return ((float)(this["Window_ActuatorOverride_Position_X"]));
+            }
+            set {
+                this["Window_ActuatorOverride_Position_X"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("456")]
+        public float Window_ActuatorOverride_Position_Y {
+            get {
+                return ((float)(this["Window_ActuatorOverride_Position_Y"]));
+            }
+            set {
+                this["Window_ActuatorOverride_Position_Y"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Window_ActuatorOverride_IsOpen {
+            get {
+                return ((bool)(this["Window_ActuatorOverride_IsOpen"]));
+            }
+            set {
+                this["Window_ActuatorOverride_IsOpen"] = value;
+            }
+        }
     }
 }

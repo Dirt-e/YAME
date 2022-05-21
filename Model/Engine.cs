@@ -114,7 +114,7 @@ namespace YAME.Model
         }
 
         //------- This happens on the Worker Thread -----------------
-        private void InstatiateObjects_OnWorkerThread()
+        void InstatiateObjects_OnWorkerThread()
         {
             loadersaver             = new LoaderSaver(this);
             patcher                 = new Patcher();
@@ -137,7 +137,7 @@ namespace YAME.Model
             serialtalker            = new SerialTalker(this);
             logger                  = new Logger(this);
         }
-        private void UpdateObjects()
+        void UpdateObjects()
         {
             server.Read();
             chopper.ChopParseAndPackage(server.RawDatastring);
@@ -158,9 +158,7 @@ namespace YAME.Model
             serialtalker.Update(actuatorsystem.Output);
             logger.Update();
         }
-
-        //Helpers:
-        private void WaitForTargetFramerate()
+        void WaitForTargetFramerate()
         {
             //Hic sunt dracones!
             int fps_target = Properties.Settings.Default.Processing_Framerate;

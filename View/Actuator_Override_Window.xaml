@@ -1,0 +1,69 @@
+﻿<Window x:Class="YAME.View.Actuator_Override_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YAME.View"
+        xmlns:Controls="clr-namespace:YAME.View.UserControls"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded" Closing="Window_Closing" 
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        MouseLeftButtonUp="Window_MouseLeftButtonUp"
+        Title="Actuator_Override" Height="450" Width="270"
+        Style="{StaticResource ChildWindow_Style}">
+    <Window.Resources>
+        <Style TargetType="Label" x:Key="Label_Style">
+            <Setter Property="FontFamily" Value="Bahnschrift Light"/>
+            <Setter Property="Foreground" Value="{StaticResource MyPaleWhiteBrush}"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style TargetType="Slider">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="IsSelectionRangeEnabled" Value="True"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="310"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Actuators:"    Padding="2"  FontSize="15" FontWeight="Bold" Grid.ColumnSpan="5"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Pass-through" VerticalAlignment="Center" HorizontalAlignment="Right" Padding="2"  FontSize="15" FontWeight="Bold"/>
+        <Controls:ToggleSwitch x:Name="tgl_Active" Grid.Column="2" Grid.Row="1" Height="20" IsOn="{Binding IsOverride, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+        <TextBlock Grid.Row="1" Grid.Column="3" Text="Override" VerticalAlignment="Center" Padding="2"  FontSize="15" FontWeight="Bold"/>
+        <Button Content="Sync" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3"
+                Margin="7" Click="SyncButton_Click" Style="{StaticResource Button_NoHighlight_Rounded}"/>
+
+        <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Slider x:Name="sld_Act1" Value="{Binding sldr_Act1}" SelectionStart="0"  SelectionEnd="{Binding Util_1}"   IsEnabled="{Binding IsOverride}" Orientation="Vertical" Maximum="1"   Minimum="0" Height="300" Width="30"/>
+            <Slider x:Name="sld_Act2" Value="{Binding sldr_Act2}" SelectionStart="0"  SelectionEnd="{Binding Util_2}"   IsEnabled="{Binding IsOverride}" Orientation="Vertical" Maximum="1"   Minimum="0" Height="300" Width="30"/>
+            <Slider x:Name="sld_Act3" Value="{Binding sldr_Act3}" SelectionStart="0"  SelectionEnd="{Binding Util_3}"   IsEnabled="{Binding IsOverride}" Orientation="Vertical" Maximum="1"   Minimum="0" Height="300" Width="30"/>
+            <Slider x:Name="sld_Act4" Value="{Binding sldr_Act4}" SelectionStart="0"  SelectionEnd="{Binding Util_4}"   IsEnabled="{Binding IsOverride}" Orientation="Vertical" Maximum="1"   Minimum="0" Height="300" Width="30"/>
+            <Slider x:Name="sld_Act5" Value="{Binding sldr_Act5}" SelectionStart="0"  SelectionEnd="{Binding Util_5}"   IsEnabled="{Binding IsOverride}" Orientation="Vertical" Maximum="1"   Minimum="0" Height="300" Width="30"/>
+            <Slider x:Name="sld_Act6" Value="{Binding sldr_Act6}" SelectionStart="0"  SelectionEnd="{Binding Util_6}"   IsEnabled="{Binding IsOverride}" Orientation="Vertical" Maximum="1"   Minimum="0" Height="300" Width="30"/>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20">
+            <TextBlock Text="1" Width="40" Height="20" Padding="12,0,0,0"/>
+            <TextBlock Text="2" Width="40" Height="20" Padding="12,0,0,0"/>
+            <TextBlock Text="3" Width="40" Height="20" Padding="12,0,0,0"/>
+            <TextBlock Text="4" Width="40" Height="20" Padding="12,0,0,0"/>
+            <TextBlock Text="5" Width="40" Height="20" Padding="12,0,0,0"/>
+            <TextBlock Text="6" Width="40" Height="20" Padding="12,0,0,0"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

@@ -8,14 +8,67 @@ namespace YAME.DataFomats
 {
     public class SixSisters
     {
-        //Utilitsation of the actuators between 0-1
         public float[] values = new float[6];
 
-        //public float A1 { get; set; }
-        //public float A2 { get; set; }
-        //public float A3 { get; set; }
-        //public float A4 { get; set; }
-        //public float A5 { get; set; }
-        //public float A6 { get; set; }
+        //Operators
+        public static SixSisters operator +(SixSisters s1, SixSisters s2)
+        {
+            SixSisters result = new SixSisters();
+
+            for (int i = 0; i < result.values.Length; i++)
+            {
+                result.values[i] = s1.values[i] + s2.values[i];
+            }
+
+            return result;
+        }
+        public static SixSisters operator -(SixSisters s1, SixSisters s2)
+        {
+            return s1 + (-s2);
+        }
+        public static SixSisters operator -(SixSisters s1)
+        {
+            SixSisters result = new SixSisters();
+
+            for (int i = 0; i < result.values.Length; i++)
+            {
+                result.values[i] = s1.values[i] * -1.0f;
+            }
+
+            return result;
+        }
+        public static SixSisters operator *(SixSisters s1, float f)
+        {
+            SixSisters result = new SixSisters();
+
+            for (int i = 0; i < result.values.Length; i++)
+            {
+                result.values[i] = s1.values[i] * f;
+            }
+
+            return result;
+        }
+        public static SixSisters operator *(float f, SixSisters s1)
+        {
+            return s1 * f;
+        }
+        public static SixSisters operator /(SixSisters s1, float f)
+        {
+            if (f == 0)
+            {
+                SixSisters result = new SixSisters();
+                for (int i = 0; i < result.values.Length; i++)
+                {
+                    result.values[i] = float.NaN;
+                }
+                return result;
+            }
+            else
+            {
+                return s1 * (1.0f / f);
+            }
+            
+            
+        }
     }
 }

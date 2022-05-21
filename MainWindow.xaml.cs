@@ -42,6 +42,7 @@ namespace YAME
         AlphaCompensationWindow     alphaCompensationWindow;
         FiltersWindow               filtersWindow;
         DOF_Window                  dof_window;
+        Actuator_Override_Window    actuatorOverrideWindow;
         SceneViewWindow             sceneViewWindow;
         RigConfigWindow             rigConfigWindow;
         MotionControl_Window        motionControlWindow;
@@ -91,17 +92,18 @@ namespace YAME
         private void OpenDefaultChildWindows()
         {
             //Open all the windows that were open when you last closed the application:
-            if (Properties.Settings.Default.Window_AlphaCompensation_IsOpen)    mnuAlphaCompensation.IsChecked = true;
-            if (Properties.Settings.Default.Window_CrashDetector_IsOpen)        mnuCrashDetector.IsChecked = true;
-            if (Properties.Settings.Default.Window_DOFs_IsOpen)                 mnuDOFs.IsChecked = true;
-            if (Properties.Settings.Default.Window_Filters_IsOpen)              mnuFilters.IsChecked = true;
-            if (Properties.Settings.Default.Window_Graphs_IsOpen)               mnuGraphs.IsChecked = true;
-            if (Properties.Settings.Default.Window_MotionControl_IsOpen)        mnuMotionControl.IsChecked = true;
+            if (Properties.Settings.Default.Window_AlphaCompensation_IsOpen)    mnuAlphaCompensation.IsChecked  = true;
+            if (Properties.Settings.Default.Window_CrashDetector_IsOpen)        mnuCrashDetector.IsChecked      = true;
+            if (Properties.Settings.Default.Window_DOFs_IsOpen)                 mnuDOFs.IsChecked               = true;
+            if (Properties.Settings.Default.Window_ActuatorOverride_IsOpen)     mnuActuatorOverride.IsChecked   = true;
+            if (Properties.Settings.Default.Window_Filters_IsOpen)              mnuFilters.IsChecked            = true;
+            if (Properties.Settings.Default.Window_Graphs_IsOpen)               mnuGraphs.IsChecked             = true;
+            if (Properties.Settings.Default.Window_MotionControl_IsOpen)        mnuMotionControl.IsChecked      = true;
             if (Properties.Settings.Default.Window_PositionCorrection_IsOpen)   mnuPositionCorrection.IsChecked = true;
-            if (Properties.Settings.Default.Window_RawData_IsOpen)              mnuRawData.IsChecked = true;
-            if (Properties.Settings.Default.Window_RigConfig_IsOpen)            mnuRigConfig.IsChecked = true;
-            if (Properties.Settings.Default.Window_SceneView_IsOpen)            mnuSceneView.IsChecked = true;
-            if (Properties.Settings.Default.Window_SerialConnection_IsOpen)     mnuSerialConnection.IsChecked = true;
+            if (Properties.Settings.Default.Window_RawData_IsOpen)              mnuRawData.IsChecked            = true;
+            if (Properties.Settings.Default.Window_RigConfig_IsOpen)            mnuRigConfig.IsChecked          = true;
+            if (Properties.Settings.Default.Window_SceneView_IsOpen)            mnuSceneView.IsChecked          = true;
+            if (Properties.Settings.Default.Window_SerialConnection_IsOpen)     mnuSerialConnection.IsChecked   = true;
             if (Properties.Settings.Default.Window_Patcher_IsOpen)              mnuHdr_Patcher_Click(this, new EventArgs() as RoutedEventArgs);
         }
         //Window_Closing:
@@ -115,6 +117,7 @@ namespace YAME
             Properties.Settings.Default.Window_Filters_IsOpen               = false;
             Properties.Settings.Default.Window_Graphs_IsOpen                = false;
             Properties.Settings.Default.Window_DOFs_IsOpen                  = false;
+            Properties.Settings.Default.Window_ActuatorOverride_IsOpen      = false;
             Properties.Settings.Default.Window_SceneView_IsOpen             = false;
             Properties.Settings.Default.Window_RigConfig_IsOpen             = false;
             Properties.Settings.Default.Window_MotionControl_IsOpen         = false;
@@ -146,6 +149,9 @@ namespace YAME
                         break;
                     case "DOF_Window":
                         Properties.Settings.Default.Window_DOFs_IsOpen                  = true;
+                        break;
+                    case "ActuatorOverrideWindow":
+                        Properties.Settings.Default.Window_ActuatorOverride_IsOpen      = true;
                         break;
                     case "SceneViewWindow":
                         Properties.Settings.Default.Window_SceneView_IsOpen             = true;
@@ -283,6 +289,18 @@ namespace YAME
             dof_window.Close();
         }
 
+        private void mnuActuatorOverride_Checked(object sender, RoutedEventArgs e)
+        {
+            actuatorOverrideWindow = new Actuator_Override_Window();
+            actuatorOverrideWindow.Owner = this;
+            actuatorOverrideWindow.Name = "ActuatorOverrideWindow";
+            actuatorOverrideWindow.Show();
+        }
+        private void mnuActuatorOverride_Unchecked(object sender, RoutedEventArgs e)
+        {
+            actuatorOverrideWindow.Close(); 
+        }
+
         private void mnuSceneView_Checked(object sender, RoutedEventArgs e)
         {
             sceneViewWindow = new SceneViewWindow();
@@ -333,33 +351,35 @@ namespace YAME
 
         private void mnuOpenAll_Click(object sender, RoutedEventArgs e)
         {
-            mnuAlphaCompensation.IsChecked = true;
-            mnuCrashDetector.IsChecked = true;
-            mnuDOFs.IsChecked = true;
-            mnuFilters.IsChecked = true;
-            mnuGraphs.IsChecked = true;
-            mnuMotionControl.IsChecked = true;
-            mnuPositionCorrection.IsChecked = true;
-            mnuRawData.IsChecked = true;
-            mnuRigConfig.IsChecked = true;
-            mnuSceneView.IsChecked = true;
-            mnuSerialConnection.IsChecked = true;
+            mnuAlphaCompensation.IsChecked      = true;
+            mnuCrashDetector.IsChecked          = true;
+            mnuDOFs.IsChecked                   = true;
+            mnuActuatorOverride.IsChecked       = true;
+            mnuFilters.IsChecked                = true;
+            mnuGraphs.IsChecked                 = true;
+            mnuMotionControl.IsChecked          = true;
+            mnuPositionCorrection.IsChecked     = true;
+            mnuRawData.IsChecked                = true;
+            mnuRigConfig.IsChecked              = true;
+            mnuSceneView.IsChecked              = true;
+            mnuSerialConnection.IsChecked       = true;
         }
         private void mnuCloseAll_Click(object sender, RoutedEventArgs e)
         {
-            mnuAlphaCompensation.IsChecked = false;
-            mnuCrashDetector.IsChecked = false;
-            mnuDOFs.IsChecked = false;
-            mnuFilters.IsChecked = false;
-            mnuGraphs.IsChecked = false;
-            mnuMotionControl.IsChecked = false;
+            mnuAlphaCompensation.IsChecked  = false;
+            mnuCrashDetector.IsChecked      = false;
+            mnuDOFs.IsChecked               = false;
+            mnuActuatorOverride.IsChecked   = false;
+            mnuFilters.IsChecked            = false;
+            mnuGraphs.IsChecked             = false;
+            mnuMotionControl.IsChecked      = false;
             mnuPositionCorrection.IsChecked = false;
-            mnuRawData.IsChecked = false;
-            mnuRigConfig.IsChecked = false;
-            mnuSceneView.IsChecked = false;
-            mnuSerialConnection.IsChecked = false;
+            mnuRawData.IsChecked            = false;
+            mnuRigConfig.IsChecked          = false;
+            mnuSceneView.IsChecked          = false;
+            mnuSerialConnection.IsChecked   = false;
         }
-
+        
         //---------- ? ------------
         private void mnuHdr_QM_Click(object sender, RoutedEventArgs e)
         {
@@ -455,5 +475,6 @@ namespace YAME
             
         }
 
+        
     }
 }
