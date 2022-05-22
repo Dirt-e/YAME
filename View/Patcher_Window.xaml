@@ -9,7 +9,7 @@
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         MouseLeftButtonUp="Window_MouseLeftButtonUp"
         Loaded="Window_Loaded" Closing="Window_Closing"
-        Title="PatchWindow" Height="300" Width="370">
+        Title="PatchWindow" Height="190" Width="370">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
