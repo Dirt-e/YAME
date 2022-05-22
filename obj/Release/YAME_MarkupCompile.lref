@@ -1,9 +1,10 @@
 ﻿
 FD:\OneDrive\Frank - PC\GitHub\YAME\App.xaml;;
 FD:\OneDrive\Frank - PC\GitHub\YAME\MainWindow.xaml;;
+FD:\OneDrive\Frank - PC\GitHub\YAME\View\Actuator_Override_Window.xaml;;
 FD:\OneDrive\Frank - PC\GitHub\YAME\View\AlphaCompensation_Window.xaml;;
 FD:\OneDrive\Frank - PC\GitHub\YAME\View\CrashDetector_Window.xaml;;
-FD:\OneDrive\Frank - PC\GitHub\YAME\View\DOF_Window.xaml;;
+FD:\OneDrive\Frank - PC\GitHub\YAME\View\DOF_Override_Window.xaml;;
 FD:\OneDrive\Frank - PC\GitHub\YAME\View\Filters_Window.xaml;;
 FD:\OneDrive\Frank - PC\GitHub\YAME\View\MotionControl_Window.xaml;;
 FD:\OneDrive\Frank - PC\GitHub\YAME\View\Patcher_Window.xaml;;

@@ -1,9 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 -- Data export script for YAME
 -- Version 0.02
--- created by @Dirty, find me here: https://www.xsimulator.net/community/members/dirty.27556/
+-- created by frank@hexago-motion.com
 
---
 -- Changes:
 -- Added 'omega_dot'
 ---------------------------------------------------------------------------------------------------
@@ -58,17 +57,17 @@ function YAME_Callbacks.onSimulationFrame()
 	PrevTime	= Time
 	Time		= Export.LoGetModelTime()
 	DeltaTime	= Time - PrevTime
-	Counter = Counter + 1
+	Counter 	= Counter + 1
 	
 	--Airdata:
-	IAS = 				Export.LoGetIndicatedAirSpeed()
-	Machnumber = 		Export.LoGetMachNumber()
-	TAS = 				Export.LoGetTrueAirSpeed()
-	vv = 				Export.LoGetVectorVelocity()
-	GS = 					math.sqrt( (vv.x * vv.x) + (vv.z * vv.z) )
-	AOA = 				Export.LoGetAngleOfAttack()
-	VerticalSpeed = 	Export.LoGetVerticalVelocity()
-	Height = 			Export.LoGetAltitudeAboveGroundLevel()
+	IAS 			= Export.LoGetIndicatedAirSpeed()
+	Machnumber 		= Export.LoGetMachNumber()
+	TAS 			= Export.LoGetTrueAirSpeed()
+	vv 				= Export.LoGetVectorVelocity()
+	GS 					= math.sqrt( (vv.x * vv.x) + (vv.z * vv.z) )
+	AOA 			= Export.LoGetAngleOfAttack()
+	VerticalSpeed 	= Export.LoGetVerticalVelocity()
+	Height 			= Export.LoGetAltitudeAboveGroundLevel()
 		
 	if (YouPreferKnotsOverMetersPerSecond) then
 		IAS = IAS * m2k

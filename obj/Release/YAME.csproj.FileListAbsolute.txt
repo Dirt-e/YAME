@@ -96,7 +96,6 @@ D:\OneDrive\Frank - PC\GitHub\YAME\bin\Release\System.ValueTuple.xml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\YAME.csproj.AssemblyReference.cache
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\YAME.csproj.SuggestedBindingRedirects.cache
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\MainWindow.g.cs
-D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\DOF_Window.g.cs
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\MotionControl_Window.g.cs
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\SerialConnection_Window.g.cs
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\UserControls\CompressionBox.g.cs
@@ -109,7 +108,6 @@ D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\YAME_MarkupCompile.cache
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\YAME_MarkupCompile.lref
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\App.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\MainWindow.baml
-D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\DOF_Window.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\MotionControl_Window.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\SerialConnection_Window.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\UserControls\CompressionBox.baml
@@ -183,3 +181,7 @@ D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\RawData_Window.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\RigConfig_Window.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\SceneView_Window.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\About_Window.baml
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\Actuator_Override_Window.g.cs
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\DOF_Override_Window.g.cs
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\Actuator_Override_Window.baml
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\DOF_Override_Window.baml
