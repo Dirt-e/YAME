@@ -52,9 +52,9 @@
         <TextBlock Grid.Row="0" Grid.Column="1" Text="DOFs:"    Padding="2"  FontSize="15" FontWeight="Bold" Grid.ColumnSpan="6"/>
         <TextBlock Grid.Row="0" Grid.Column="3" x:Name="dummy" Text="{Binding SliderRaw.HFC_Roll, StringFormat=N2}" Grid.ColumnSpan="2" />
 
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="Pass-through" VerticalAlignment="Center" HorizontalAlignment="Left" Padding="2"  FontSize="15" FontWeight="Bold" Height="23" Margin="4,0,0,0" Width="96"/>
-        <Controls:ToggleSwitch x:Name="tgl_Active" Grid.Column="2" Grid.Row="1" IsOn="{Binding IsOverride, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="0,8,0,7"/>
-        <TextBlock Grid.Row="1" Grid.Column="3" Text="Override" VerticalAlignment="Center" Padding="2"  FontSize="15" FontWeight="Bold" Height="23" Grid.ColumnSpan="2"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Pass-through" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="15" FontWeight="Bold"/>
+        <Controls:ToggleSwitch x:Name="tgl_Active" Grid.Column="2" Grid.Row="1" IsOn="{Binding IsOverride, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Height="20"/>
+        <TextBlock Grid.Row="1" Grid.Column="3" Text="Override" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Grid.ColumnSpan="2"/>
         <Button Content="Center" Grid.Column="5" Grid.Row="1" Margin="7,7,7,7" Click="Button_Click" Style="{StaticResource Button_NoHighlight_Rounded}">
 
         </Button>
@@ -64,10 +64,10 @@
         <Label  Content="Yaw"       Grid.Row="4" Grid.Column="1"    VerticalContentAlignment="Center" Margin="10,0,0,0" Style="{StaticResource Label_Style}"/>
         <Label  Content="Pitch"     Grid.Row="5" Grid.Column="1"    VerticalContentAlignment="Center" Margin="10,0,0,0" Style="{StaticResource Label_Style}"/>
         <Label  Content="Surge"     Grid.Row="7" Grid.Column="1"    VerticalContentAlignment="Center" Margin="10,0,0,0" Style="{StaticResource Label_Style}"/>
-        <Label  Content="Pitch LFC" Grid.Row="8" Grid.Column="1"    VerticalContentAlignment="Center" Margin="10,0,0,0" Style="{StaticResource Label_Style}"/>
+        <Label  Content="Pitch Co." Grid.Row="8" Grid.Column="1"    VerticalContentAlignment="Center" Margin="10,0,0,0" Style="{StaticResource Label_Style}"/>
         <Label  Content="Heave"     Grid.Row="10" Grid.Column="1"   VerticalContentAlignment="Center" Margin="10,0,0,0" Style="{StaticResource Label_Style}"/>
         <Label  Content="Sway"      Grid.Row="12" Grid.Column="1"   VerticalContentAlignment="Center" Margin="10,0,0,0" Style="{StaticResource Label_Style}"/>
-        <Label  Content="Roll LFC"  Grid.Row="13" Grid.Column="1"   VerticalContentAlignment="Center" Margin="10,0,0,0" Style="{StaticResource Label_Style}"/>
+        <Label  Content="Roll Co."  Grid.Row="13" Grid.Column="1"   VerticalContentAlignment="Center" Margin="10,0,0,0" Style="{StaticResource Label_Style}"/>
 
         <!--Max/Min-->
         <TextBox    Text="{Binding RangeRollHFC,  StringFormat=N0}"   Grid.Row="3"  Grid.Column="2" Style="{StaticResource TextBox_Style}" Margin="0,7,0,8"/>

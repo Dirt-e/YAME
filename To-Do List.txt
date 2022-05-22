@@ -1,9 +1,6 @@
 ﻿To-Do:
 GENERAL:
-- SnappyDragger: Snap Windows to borders of screen
-- SnappyDragger: Make Windows snap independently in vertical and horizontal direction
 - SnappyDragger: Constrain window to within screen area! IMPORTANT!!!
-- Add "ActuatorWindow" to show individual actuators
 - Mark the content of a TextBox when entering focus (to be able ot overwrite the contents quickly)
 
 MAIN WINDOW:
@@ -22,9 +19,6 @@ FILTERS WINDOW:
 
 RIG CONFIGURATION:
 - Add a slew mode for apropriate offsets. May be used during an open serial connection!
-- Make sure the calibration feature is used only when either...
-	- ...no data is coming in from the sim
-	- ...sim data is not taken into account for the calibration process
 
 LOADER/SAVER:
 - Split Load/Save routine up into "Rig" and "Filters"
@@ -34,57 +28,4 @@ ALPHA_COMPENSATION:
 POSITION OFFSET CORRECTION:
 
 PATCHER:
-- show current patch status when opening Patcher-Window
 - Re-apply DCS Patch if already patched. Just to be sure!
-
-
---------------------------------------------------------
-Changelog:
-
-	Version 0.03:
-	- Added "About page
-	- File->Quit closes application
-
-	Version 0.04:
-	- Serial output supports M4S and Thanos format
-	- Added splashscreen on app start
-	- SerialConnectionWindow: "OPEN" indicates green
-	- Bugfixed offset correction 
-	- OffsetCorrectionWindow: Green "Active" toggle
-	- Show fps in About Window
-	- Show Profile/SIM/FPS in Main Window.
-
-	Version 0.05:
-	- Added patch/unpatch routine for DCS
-
-	Version 0.06:
-	- Added PatchWindow
-	- Added convenience patching for DCS
-	- Added convenience patching for X-Plane
-
-	Version 0.07
-	- Added "Receiving data" light in MainWindow
-	- Propper error message given to user when application shuts down because of occupied UDP port
-	- Enforced single instance
-
-	Version 0.08
-	- SnappyDragger makes windows snap to other windows when borders are close.
-	- Defined UDP Port in Settings file
-	- Defined DefaultDataString in Settings file
-	- Added Input datastreams (A_lon, A_lat, etc...) to Filters Window
-	- Added ViewCube to SceneView
-
-	Version 0.09
-	- Improved logic for setting Actuator Min/Max Length
-	- Added "CALIB" feature for Partk & Pause position. (Phantomrig)
-	- Actuators in SceneView are color-coded to indicate 1%, 50% and 99%
-	- Actuator color-coding TriggerZones are controlled from Settings file
-	- Processing framerate set from Settings file
-
-	Version 10
-	- Updater working
-	- Version and Build visible in AboutWindow
-	- SerialConnectionWindow remembers last used HardwareController
-	- Let user set "Stroke" instead of MaxLength
-
-

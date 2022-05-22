@@ -14,13 +14,13 @@ namespace YAME.Model
 {
     public class SnappyDragger
     {
+        Window window = null;
+        int SnapDist = 10;
+
         DispatcherTimer timer = new DispatcherTimer
         {
             Interval = new TimeSpan(0, 0, 0, 0, 10),
         };
-        Window window = null;
-        int SnapDist = 10;
-        SnapToBorder snapBorder = SnapToBorder.none;
 
         Point MouseStartPoint   = new Point();
         Point MouseCurrentPoint = new Point();
@@ -60,42 +60,19 @@ namespace YAME.Model
             MouseCurrentPoint = GetMousePosition_ScreenRes();     
             delta = (MouseCurrentPoint - MouseStartPoint);              //In screen resolution pixels!
             
-            Window w = WindowToSnapTo();
+            UpdateVirtualWindowPosition();
 
-            if (WindowToSnapTo() == null)
-            {
-                window.Left = WindowStartPoint.X + delta.X;
-                window.Top = WindowStartPoint.Y + delta.Y;              //Just Dragging
-                return;
-            }
+            double x = closestLateralSnap();
+            double y = closestVerticalSnap();
 
-            switch (snapBorder)
-            {
-                case SnapToBorder.left:
-                    window.Left = w.Left - window.Width;
-                    window.Top = WindowStartPoint.Y + delta.Y;
-                    break;
-                case SnapToBorder.top:
-                    window.Top = w.Top - window.Height;
-                    window.Left = WindowStartPoint.X + delta.X;
-                    break;
-                case SnapToBorder.right:
-                    window.Left = w.Left + w.Width;
-                    window.Top = WindowStartPoint.Y + delta.Y;
-                    break;
-                case SnapToBorder.bottom:
-                    window.Top = w.Top + w.Height;
-                    window.Left = WindowStartPoint.X + delta.X;
-                    break;
-                case SnapToBorder.none:
-                    break;
-                default:
-                    break;
-            }
+            if (Math.Abs(x) < SnapDist) window.Left = vLEFT + x;
+            else                        window.Left = vLEFT;
 
-
+            if (Math.Abs(y) < SnapDist) window.Top = vTOP + y;
+            else                        window.Top = vTOP;
         }
 
+        //------- Helpers -------
         Point GetMousePosition_ScreenRes()
         {
             var point = Control.MousePosition;                          //In physical pixels (int)
@@ -109,72 +86,144 @@ namespace YAME.Model
 
             return new Point(x, y);                                     //In screen pixels (double)
         }
-        Window WindowToSnapTo()
+        private void UpdateVirtualWindowPosition()
         {
-            //Check all windows for proximity...
+            vLEFT   = WindowStartPoint.X + delta.X;
+            vTOP    = WindowStartPoint.Y + delta.Y;
+            vRIGHT  = vLEFT + window.Width;
+            vBOTTOM = vTOP + window.Height;
+        }
+
+        List<Window> WindowsWithLateralOverlap()
+        {
+            List<Window> WindowsWithLateralOverlap = new List<Window>();
+
             MainWindow mw = System.Windows.Application.Current.MainWindow as MainWindow;
 
             foreach (Window w in mw.OwnedWindows)
             {
-                if (w.Name == window.Name)  continue;                //Skip yourself
-                if (ShallSnappTo(w))        return w;
+                if (HasLateralOverlapWith(w) && w.Name != window.Name)
+                {
+                    WindowsWithLateralOverlap.Add(w);
+                }
             }
-            return null;
-        }
-        bool ShallSnappTo(Window w)
-        {
-            //Virtual positions:
-            vLEFT      = WindowStartPoint.X + delta.X;
-            vTOP       = WindowStartPoint.Y + delta.Y;
-            vRIGHT     = WindowStartPoint.X + window.Width + delta.X;
-            vBOTTOM    = WindowStartPoint.Y + window.Height + delta.Y;
 
-            if (HasVerticalOverlapWith(w))
-            {
-                if (Math.Abs((w.Left + w.Width) - vLEFT) < SnapDist)            //dragging right to left  <--
-                {
-                    snapBorder = SnapToBorder.right;
-                    return true;
-                }
-                if (Math.Abs(vRIGHT - w.Left) < SnapDist)                       //dragging left to right  -->
-                {
-                    snapBorder = SnapToBorder.left;
-                    return true;
-                }
-            }
-            if (HasLateralOverlapWith(w))
-            {
-                if (Math.Abs((w.Top + w.Height) - vTOP) < SnapDist)            //dragging upwards
-                {
-                    snapBorder = SnapToBorder.bottom;
-                    return true;
-                }
-                if (Math.Abs((vBOTTOM) - w.Top) < SnapDist)                     //dragging downwards
-                {
-                    snapBorder = SnapToBorder.top;
-                    return true;
-                }
-            }
-            return false;
+            return WindowsWithLateralOverlap;
         }
+        List<Window> WindowsWithVerticalOverlap()
+        {
+            List<Window> WindowsWithVerticalOverlap = new List<Window>();
+
+            MainWindow mw = System.Windows.Application.Current.MainWindow as MainWindow;
+
+            foreach (Window w in mw.OwnedWindows)
+            {
+                if (HasVerticalOverlapWith(w) && w.Name != window.Name)
+                {
+                    WindowsWithVerticalOverlap.Add(w);
+                }
+            }
+
+            return WindowsWithVerticalOverlap;
+        }
+
         bool HasLateralOverlapWith(Window w)
         {
-            if (w.Left + w.Width > window.Left && window.Left + window.Width > w.Left)    return true;
+            if (w.Left + w.Width >= window.Left && window.Left + window.Width >= w.Left)    return true;
             return false;
         }
         bool HasVerticalOverlapWith(Window w)
         {
-            if (w.Top + w.Height > window.Top && window.Top + window.Height > w.Top) return true;
+            if (w.Top + w.Height >= window.Top && window.Top + window.Height >= w.Top) return true;
             return false;
         }
 
-        enum SnapToBorder
+        List<double> LateralSnapPoints()
         {
-            left,
-            top,
-            right,
-            bottom,
-            none,
+            List<double> lateralsnappoints = new List<double>();
+
+            List<Window> WinList_LateralSnap = WindowsWithVerticalOverlap();
+            foreach (Window w in WinList_LateralSnap)
+            {
+                lateralsnappoints.Add(w.Left);  
+                lateralsnappoints.Add(w.Left + w.Width);
+            }
+
+            //Add left & right edges of screen
+            var resolution = Screen.PrimaryScreen.Bounds;
+            DpiScale scale = VisualTreeHelper.GetDpi(window);
+            lateralsnappoints.Add(0);
+            lateralsnappoints.Add(resolution.Width / scale.DpiScaleX);
+
+            return lateralsnappoints.Distinct().ToList();
+        }
+        List<double> VerticallSnapPoints()
+        {
+            List<double> verticalsnappoints = new List<double>();
+
+            List<Window> WinList_VerticalSnap = WindowsWithLateralOverlap();
+            foreach (Window w in WinList_VerticalSnap)
+            {
+                verticalsnappoints.Add(w.Top);
+                verticalsnappoints.Add(w.Top + w.Height);
+            }
+
+            //Add top & bottom edges of screen
+            var resolution = Screen.PrimaryScreen.Bounds;
+            DpiScale scale = VisualTreeHelper.GetDpi(window);
+            verticalsnappoints.Add(0);
+            verticalsnappoints.Add(resolution.Height / scale.DpiScaleY);
+
+            return verticalsnappoints.Distinct().ToList();
+        }
+
+        double closestLateralSnap()
+        {
+            List<double> distances = new List<double>();
+
+            foreach (double d in LateralSnapPoints())           //Which of those numbers is closest to the window (vLEFT & vRIGHT) & in which direction?
+            {
+                distances.Add(d - vLEFT);
+                distances.Add(d - vRIGHT);
+            }
+
+            double dist_abs = 123456789;
+            double dist = 123456789;
+
+            for (int i = 0; i < distances.Count; i++)
+            {
+                if (Math.Abs(distances[i]) < dist_abs)
+                {
+                    dist_abs = Math.Abs(distances[i]);
+                    dist = distances[i];
+                }
+            }
+
+            return dist;
+        }
+        double closestVerticalSnap()
+        {
+            List<double> distances = new List<double>();
+
+            foreach (double d in VerticallSnapPoints())           //Which of those numbers is closest to the window (vLEFT & vRIGHT) & in which direction?
+            {
+                distances.Add(d - vTOP);
+                distances.Add(d - vBOTTOM);
+            }
+
+            double dist_abs = 123456789;
+            double dist = 123456789;
+
+            for (int i = 0; i < distances.Count; i++)
+            {
+                if (Math.Abs(distances[i]) < dist_abs)
+                {
+                    dist_abs = Math.Abs(distances[i]);
+                    dist = distances[i];
+                }
+            }
+
+            return dist;
         }
     }
 }
