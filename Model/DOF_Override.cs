@@ -372,10 +372,6 @@ namespace YAME.Model
         }
         #endregion
 
-        public DOF_Override()
-        {
-
-        }
 
         public void Process(DOF_Data data)
         {

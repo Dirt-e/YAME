@@ -49,12 +49,12 @@
                 Margin="7" Click="SyncButton_Click" Style="{StaticResource Button_NoHighlight_Rounded}"/>
 
         <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
-            <Slider x:Name="sld_Act1" Value="{Binding sldr_Act1}" SelectionStart="0"  SelectionEnd="{Binding Util_1}"   IsEnabled="{Binding IsOverride}" Orientation="Vertical" Maximum="1"   Minimum="0" Height="300" Width="30"/>
-            <Slider x:Name="sld_Act2" Value="{Binding sldr_Act2}" SelectionStart="0"  SelectionEnd="{Binding Util_2}"   IsEnabled="{Binding IsOverride}" Orientation="Vertical" Maximum="1"   Minimum="0" Height="300" Width="30"/>
-            <Slider x:Name="sld_Act3" Value="{Binding sldr_Act3}" SelectionStart="0"  SelectionEnd="{Binding Util_3}"   IsEnabled="{Binding IsOverride}" Orientation="Vertical" Maximum="1"   Minimum="0" Height="300" Width="30"/>
-            <Slider x:Name="sld_Act4" Value="{Binding sldr_Act4}" SelectionStart="0"  SelectionEnd="{Binding Util_4}"   IsEnabled="{Binding IsOverride}" Orientation="Vertical" Maximum="1"   Minimum="0" Height="300" Width="30"/>
-            <Slider x:Name="sld_Act5" Value="{Binding sldr_Act5}" SelectionStart="0"  SelectionEnd="{Binding Util_5}"   IsEnabled="{Binding IsOverride}" Orientation="Vertical" Maximum="1"   Minimum="0" Height="300" Width="30"/>
-            <Slider x:Name="sld_Act6" Value="{Binding sldr_Act6}" SelectionStart="0"  SelectionEnd="{Binding Util_6}"   IsEnabled="{Binding IsOverride}" Orientation="Vertical" Maximum="1"   Minimum="0" Height="300" Width="30"/>
+            <Slider x:Name="sld_Act1" Value="{Binding Sldr_Act1}" SelectionStart="0"  SelectionEnd="{Binding SelAct1}"   IsEnabled="{Binding IsOverride}" Orientation="Vertical" Maximum="1"   Minimum="0" Height="300" Width="30" LargeChange="0"/>
+            <Slider x:Name="sld_Act2" Value="{Binding Sldr_Act2}" SelectionStart="0"  SelectionEnd="{Binding SelAct2}"   IsEnabled="{Binding IsOverride}" Orientation="Vertical" Maximum="1"   Minimum="0" Height="300" Width="30" LargeChange="0"/>
+            <Slider x:Name="sld_Act3" Value="{Binding Sldr_Act3}" SelectionStart="0"  SelectionEnd="{Binding SelAct3}"   IsEnabled="{Binding IsOverride}" Orientation="Vertical" Maximum="1"   Minimum="0" Height="300" Width="30" LargeChange="0"/>
+            <Slider x:Name="sld_Act4" Value="{Binding Sldr_Act4}" SelectionStart="0"  SelectionEnd="{Binding SelAct4}"   IsEnabled="{Binding IsOverride}" Orientation="Vertical" Maximum="1"   Minimum="0" Height="300" Width="30" LargeChange="0"/>
+            <Slider x:Name="sld_Act5" Value="{Binding Sldr_Act5}" SelectionStart="0"  SelectionEnd="{Binding SelAct5}"   IsEnabled="{Binding IsOverride}" Orientation="Vertical" Maximum="1"   Minimum="0" Height="300" Width="30" LargeChange="0"/>
+            <Slider x:Name="sld_Act6" Value="{Binding Sldr_Act6}" SelectionStart="0"  SelectionEnd="{Binding SelAct6}"   IsEnabled="{Binding IsOverride}" Orientation="Vertical" Maximum="1"   Minimum="0" Height="300" Width="30" LargeChange="0"/>
         </StackPanel>
         <StackPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20">
             <TextBlock Text="1" Width="40" Height="20" Padding="12,0,0,0"/>

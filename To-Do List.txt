@@ -2,6 +2,7 @@
 GENERAL:
 - SnappyDragger: Snap Windows to borders of screen
 - SnappyDragger: Make Windows snap independently in vertical and horizontal direction
+- SnappyDragger: Constrain window to within screen area! IMPORTANT!!!
 - Add "ActuatorWindow" to show individual actuators
 - Mark the content of a TextBox when entering focus (to be able ot overwrite the contents quickly)
 

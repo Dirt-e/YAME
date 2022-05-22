@@ -165,6 +165,7 @@
     <Compile Include="DataFomats\SixSisters.cs" />
     <Compile Include="Model\Actuator.cs" />
     <Compile Include="Model\ActuatorSystem.cs" />
+    <Compile Include="Model\Actuator_Override.cs" />
     <Compile Include="Model\AlphaCompensator.cs" />
     <Compile Include="Model\Chopper.cs" />
     <Compile Include="Model\Patcher.cs" />

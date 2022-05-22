@@ -27,13 +27,14 @@ namespace YAME.View
 
         private void SetDataContext()
         {
-            var engine = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine;
-            DataContext = engine.actuatorsystem;
+            var mw = Application.Current.MainWindow as MainWindow;
+            DataContext = mw.engine.actuatoroverride;
         }
 
         private void SyncButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            var mw = Application.Current.MainWindow as MainWindow;
+            mw.engine.actuatoroverride.syncSliders();   
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

@@ -10,6 +10,18 @@ namespace YAME.DataFomats
     {
         public float[] values = new float[6];
 
+        public SixSisters()
+        {
+
+        }
+        public SixSisters(SixSisters ss)
+        {
+            for (int i = 0; i < ss.values.Length; i++)
+            {
+                values[i] = ss.values[i];
+            }
+        }
+
         //Operators
         public static SixSisters operator +(SixSisters s1, SixSisters s2)
         {

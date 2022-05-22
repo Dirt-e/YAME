@@ -38,6 +38,7 @@ namespace YAME.Model
         public Integrator               integrator;
         public IK_Module                IK_Module;
         public ActuatorSystem           actuatorsystem;
+        public Actuator_Override        actuatoroverride;
         public SerialTalker             serialtalker;
         public Logger                   logger;
         //...
@@ -134,6 +135,7 @@ namespace YAME.Model
             integrator              = new Integrator(this);
             IK_Module               = new IK_Module(integrator as Integrator_basic);
             actuatorsystem          = new ActuatorSystem(IK_Module);
+            actuatoroverride        = new Actuator_Override() ;
             serialtalker            = new SerialTalker(this);
             logger                  = new Logger(this);
         }
@@ -155,7 +157,8 @@ namespace YAME.Model
             integrator.Update(dof_override.Output);
             IK_Module.Update();
             actuatorsystem.Update();
-            serialtalker.Update(actuatorsystem.Output);
+            actuatoroverride.Process(actuatorsystem.Output);
+            serialtalker.Update(actuatoroverride.Output);
             logger.Update();
         }
         void WaitForTargetFramerate()
