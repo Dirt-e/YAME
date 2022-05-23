@@ -99,6 +99,12 @@
                             IsChecked="False"
                             Checked="mnuSerialConnection_Checked"
                             Unchecked="mnuSerialConnection_Unchecked"/>
+                <MenuItem   Header="_Serial Connection2"
+                            x:Name="mnuSerialConnection2"
+                            IsCheckable="True"
+                            IsChecked="False"
+                            Checked="mnuSerialConnection2_Checked"
+                            Unchecked="mnuSerialConnection2_Unchecked"/>
                 <Separator />
                 <MenuItem   Header="_Open All"
                             x:Name="mnuOpenAll"

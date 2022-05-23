@@ -182,26 +182,13 @@ namespace YAME.Model
             {
                 throw new Exception("Cannot write. Serialport not open.");
             }
-        }
-
-        //Helper functions:
-        //private void ShowMessageInUI(byte[] bytes)
-        //{
-        //    StringBuilder sb = new StringBuilder();
-
-        //    foreach (byte b in bytes)
-        //    {
-        //        string s3 = ConvertToThreeDigitNumber(b);
-        //        sb.Append("<" + s3 + ">");
-        //    }
-        //    UI_Message = sb.ToString();
-        //}
-        
+        } 
     }
 
     public enum ControllerType
     {
         Motion4Sim,
         Thanos_AMC,
+        Odrive
     }
 }

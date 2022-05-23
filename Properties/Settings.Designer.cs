@@ -1690,5 +1690,41 @@ namespace YAME.Properties {
                 this["Window_ActuatorOverride_IsOpen"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        public float Window_SerialConnection2_Position_X {
+            get {
+                return ((float)(this["Window_SerialConnection2_Position_X"]));
+            }
+            set {
+                this["Window_SerialConnection2_Position_X"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        public float Window_SerialConnection2_Position_Y {
+            get {
+                return ((float)(this["Window_SerialConnection2_Position_Y"]));
+            }
+            set {
+                this["Window_SerialConnection2_Position_Y"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Window_SerialConnection2_IsOpen {
+            get {
+                return ((bool)(this["Window_SerialConnection2_IsOpen"]));
+            }
+            set {
+                this["Window_SerialConnection2_IsOpen"] = value;
+            }
+        }
     }
 }

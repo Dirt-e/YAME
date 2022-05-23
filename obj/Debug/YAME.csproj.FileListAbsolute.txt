@@ -178,3 +178,5 @@ D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\Actuator_Override_Window.g.cs
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\DOF_Override_Window.g.cs
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\Actuator_Override_Window.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\DOF_Override_Window.baml
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\SerialConnection2_Window.g.cs
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\SerialConnection2_Window.baml

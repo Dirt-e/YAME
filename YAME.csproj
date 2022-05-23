@@ -258,6 +258,9 @@
     <Compile Include="View\SceneView_Window.xaml.cs">
       <DependentUpon>SceneView_Window.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SerialConnection2_Window.xaml.cs">
+      <DependentUpon>SerialConnection2_Window.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SerialConnection_Window.xaml.cs">
       <DependentUpon>SerialConnection_Window.xaml</DependentUpon>
     </Compile>
@@ -329,6 +332,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SceneView_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SerialConnection2_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

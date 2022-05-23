@@ -47,6 +47,7 @@ namespace YAME
         RigConfigWindow             rigConfigWindow;
         MotionControl_Window        motionControlWindow;
         SerialConnection_Window     serialConnectionWindow;
+        SerialConnection2_Window    serialConnection2Window;
         AboutWindow                 aboutWindow;
 
         public MainWindow()
@@ -104,6 +105,7 @@ namespace YAME
             if (Properties.Settings.Default.Window_RigConfig_IsOpen)            mnuRigConfig.IsChecked          = true;
             if (Properties.Settings.Default.Window_SceneView_IsOpen)            mnuSceneView.IsChecked          = true;
             if (Properties.Settings.Default.Window_SerialConnection_IsOpen)     mnuSerialConnection.IsChecked   = true;
+            if (Properties.Settings.Default.Window_SerialConnection2_IsOpen)    mnuSerialConnection2.IsChecked  = true;
             if (Properties.Settings.Default.Window_Patcher_IsOpen)              mnuHdr_Patcher_Click(this, new EventArgs() as RoutedEventArgs);
         }
         //Window_Closing:
@@ -122,6 +124,7 @@ namespace YAME
             Properties.Settings.Default.Window_RigConfig_IsOpen             = false;
             Properties.Settings.Default.Window_MotionControl_IsOpen         = false;
             Properties.Settings.Default.Window_SerialConnection_IsOpen      = false;
+            Properties.Settings.Default.Window_SerialConnection2_IsOpen     = false;
             Properties.Settings.Default.Window_Patcher_IsOpen               = false;
 
             //Then set only the ones that were open to "true"
@@ -164,6 +167,9 @@ namespace YAME
                         break;
                     case "SerialConnectionWindow":
                         Properties.Settings.Default.Window_SerialConnection_IsOpen      = true;
+                        break;
+                    case "SerialConnection2Window":
+                        Properties.Settings.Default.Window_SerialConnection2_IsOpen     = true;
                         break;
                     case "PatcherWindow":
                         Properties.Settings.Default.Window_Patcher_IsOpen               = true;
@@ -349,6 +355,18 @@ namespace YAME
             serialConnectionWindow?.Close();
         }
 
+        private void mnuSerialConnection2_Checked(object sender, RoutedEventArgs e)
+        {
+            serialConnection2Window = new SerialConnection2_Window();
+            serialConnection2Window.Owner = this;
+            serialConnection2Window.Name = "SerialConnection2Window";
+            serialConnection2Window.Show();
+        }
+        private void mnuSerialConnection2_Unchecked(object sender, RoutedEventArgs e)
+        {
+            serialConnection2Window?.Close();
+        }
+        
         private void mnuOpenAll_Click(object sender, RoutedEventArgs e)
         {
             mnuAlphaCompensation.IsChecked      = true;
@@ -475,6 +493,5 @@ namespace YAME
             
         }
 
-        
     }
 }
