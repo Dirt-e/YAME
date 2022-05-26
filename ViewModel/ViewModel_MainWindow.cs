@@ -46,7 +46,7 @@ namespace YAME.ViewModel
             base.engine = e;
             Version = getRunningVersion().ToString();
         }
-
+        //-------  Helpers  -------
         Version getRunningVersion()
         {
             try

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:YAME.View.UserControls"
+             xmlns:Controls="clr-namespace:YAME.View.UserControls"
              xmlns:converters="clr-namespace:YAME.View.Converters"
              mc:Ignorable="d" d:DesignHeight="60" d:DesignWidth="80"
              DataContext="{Binding RelativeSource={RelativeSource Self}}" >
@@ -32,9 +33,16 @@
             <TextBlock  Text="{Binding Code}" DockPanel.Dock="Right"
                         VerticalAlignment="Center" Margin="0,0,5,0"/>
         </DockPanel>
-        <TextBox    x:Name="txtbx_FilterVariable" Text="{Binding FilterVariable, UpdateSourceTrigger=Default, Mode=TwoWay}"
-                    Style="{StaticResource TextBox_Style}"
-                    FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Width="40"/>
+        <Controls:ClickSelectTextBox x:Name="txtbx_FilterVariable" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Width="40"
+                    Style="{StaticResource TextBox_Style}">
+            <Controls:ClickSelectTextBox.Text>
+                <Binding Path="FilterVariable" UpdateSourceTrigger="LostFocus" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <Controls:RangeValidationRule MinValue="1" MaxValue="1000000" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </Controls:ClickSelectTextBox.Text>
+        </Controls:ClickSelectTextBox>
         <TextBlock  x:Name="txtblk_Outvalue"    Text="{Binding OutValue, StringFormat=N3}"
                     FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Margin="0,0,5,0"/>
     </Grid>

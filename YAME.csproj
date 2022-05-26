@@ -168,6 +168,8 @@
     <Compile Include="Model\Actuator_Override.cs" />
     <Compile Include="Model\AlphaCompensator.cs" />
     <Compile Include="Model\Chopper.cs" />
+    <Compile Include="Model\MessageGenerator_Odrive.cs" />
+    <Compile Include="Model\ODriveSystem.cs" />
     <Compile Include="Model\Patcher.cs" />
     <Compile Include="Model\CompressorModule.cs" />
     <Compile Include="Model\CompressorSystem.cs" />
@@ -192,6 +194,7 @@
     <Compile Include="Model\ScalerSystem.cs" />
     <Compile Include="Model\SerialTalker.cs" />
     <Compile Include="Model\RecoveryLogic.cs" />
+    <Compile Include="Model\ODriveTalker.cs" />
     <Compile Include="Model\SnappyDragger.cs" />
     <Compile Include="Model\Structs\ActuatorStatus_Struct.cs" />
     <Compile Include="Model\Structs\Platforms_Struct.cs" />
@@ -229,6 +232,7 @@
     <Compile Include="View\Converters\BoolToColorBrushConverter_Actuator.cs" />
     <Compile Include="View\Converters\BoolToOpenConverter_SerialConnection.cs" />
     <Compile Include="View\Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="View\Converters\BoolInverter.cs" />
     <Compile Include="View\Converters\CharToColorConverter.cs" />
     <Compile Include="View\CrashDetector_Window.xaml.cs">
       <DependentUpon>CrashDetector_Window.xaml</DependentUpon>
@@ -258,18 +262,20 @@
     <Compile Include="View\SceneView_Window.xaml.cs">
       <DependentUpon>SceneView_Window.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SerialConnection2_Window.xaml.cs">
-      <DependentUpon>SerialConnection2_Window.xaml</DependentUpon>
+    <Compile Include="View\ODriveTalker_Window.xaml.cs">
+      <DependentUpon>ODriveTalker_Window.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SerialConnection_Window.xaml.cs">
       <DependentUpon>SerialConnection_Window.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UserControls\ClickSelectTextBox.cs" />
     <Compile Include="View\UserControls\CompressionBox.xaml.cs">
       <DependentUpon>CompressionBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls\FilterBox.xaml.cs">
       <DependentUpon>FilterBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UserControls\RangeValidationRule.cs" />
     <Compile Include="View\UserControls\ScalerBox.xaml.cs">
       <DependentUpon>ScalerBox.xaml</DependentUpon>
     </Compile>
@@ -335,7 +341,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SerialConnection2_Window.xaml">
+    <Page Include="View\ODriveTalker_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

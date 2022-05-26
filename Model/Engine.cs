@@ -40,6 +40,7 @@ namespace YAME.Model
         public ActuatorSystem           actuatorsystem;
         public Actuator_Override        actuatoroverride;
         public SerialTalker             serialtalker;
+        public ODriveSystem             odrivesystem;
         public Logger                   logger;
         //...
 
@@ -137,6 +138,7 @@ namespace YAME.Model
             actuatorsystem          = new ActuatorSystem(IK_Module);
             actuatoroverride        = new Actuator_Override() ;
             serialtalker            = new SerialTalker(this);
+            odrivesystem            = new ODriveSystem(this);
             logger                  = new Logger(this);
         }
         void UpdateObjects()
@@ -159,6 +161,7 @@ namespace YAME.Model
             actuatorsystem.Update();
             actuatoroverride.Process(actuatorsystem.Output);
             serialtalker.Update(actuatoroverride.Output);
+            odrivesystem.Process(actuatoroverride.Output);
             logger.Update();
         }
         void WaitForTargetFramerate()

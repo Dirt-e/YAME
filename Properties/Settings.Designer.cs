@@ -1357,7 +1357,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\"\"")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string SerialTalker_LastUsed_ComPort {
             get {
                 return ((string)(this["SerialTalker_LastUsed_ComPort"]));
@@ -1724,6 +1724,54 @@ namespace YAME.Properties {
             }
             set {
                 this["Window_SerialConnection2_IsOpen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ODriveTalker_LastUsedComPort_1 {
+            get {
+                return ((string)(this["ODriveTalker_LastUsedComPort_1"]));
+            }
+            set {
+                this["ODriveTalker_LastUsedComPort_1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ODriveTalker_LastUsedComPort_2 {
+            get {
+                return ((string)(this["ODriveTalker_LastUsedComPort_2"]));
+            }
+            set {
+                this["ODriveTalker_LastUsedComPort_2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ODriveTalker_LastUsedComPort_3 {
+            get {
+                return ((string)(this["ODriveTalker_LastUsedComPort_3"]));
+            }
+            set {
+                this["ODriveTalker_LastUsedComPort_3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public int ODriveTalker_Lead {
+            get {
+                return ((int)(this["ODriveTalker_Lead"]));
+            }
+            set {
+                this["ODriveTalker_Lead"] = value;
             }
         }
     }

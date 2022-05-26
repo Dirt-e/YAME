@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using YAME.DataFomats;
 using static System.Math;
+using static Utility;
 
 namespace YAME.Model
 {
@@ -89,7 +90,7 @@ namespace YAME.Model
         #endregion
         #region ViewModel Ranges
         //------------- Pos------------------
-        float _range_rollHFC = 20;
+        float _range_rollHFC;
         public float RangeRollHFC
         {
             get { return _range_rollHFC; }
@@ -100,7 +101,7 @@ namespace YAME.Model
                 OnPropertyChanged(nameof(RangeRollHFC));
             }
         }
-        float _range_yawHFC = 20;
+        float _range_yawHFC;
         public float RangeYawHFC
         {
             get { return _range_yawHFC; }
@@ -111,7 +112,7 @@ namespace YAME.Model
                 OnPropertyChanged(nameof(RangeYawHFC));
             }
         }
-        float _range_pitchHFC = 20;
+        float _range_pitchHFC;
         public float RangePitchHFC
         {
             get { return _range_pitchHFC; }
@@ -123,7 +124,7 @@ namespace YAME.Model
             }
         }
 
-        float _range_surgeHFC = 200;
+        float _range_surgeHFC;
         public float RangeSurgeHFC
         {
             get { return _range_surgeHFC; }
@@ -134,7 +135,7 @@ namespace YAME.Model
                 OnPropertyChanged(nameof(RangeSurgeHFC));
             }
         }
-        float _range_pitchLFC = 20;
+        float _range_pitchLFC;
         public float RangePitchLFC
         {
             get { return _range_pitchLFC; }
@@ -146,7 +147,7 @@ namespace YAME.Model
             }
         }
 
-        float _range_heaveHFC = 200;
+        float _range_heaveHFC;
         public float RangeHeaveHFC
         {
             get { return _range_heaveHFC; }
@@ -158,7 +159,7 @@ namespace YAME.Model
             }
         }
 
-        float _range_swayHFC = 200;
+        float _range_swayHFC;
         public float RangeSwayHFC
         {
             get { return _range_swayHFC; }
@@ -169,7 +170,7 @@ namespace YAME.Model
                 OnPropertyChanged(nameof(RangeSwayHFC));
             }
         }
-        float _range_rollLFC = 20;
+        float _range_rollLFC;
         public float RangeRollLFC
         {
             get { return _range_rollLFC; }
@@ -181,59 +182,59 @@ namespace YAME.Model
             }
         }
         //----------- neg ---------------
-        float _range_rollHFC_neg = -20;
+        float _range_rollHFC_neg;
         public float RangeRollHFC_neg
         {
             get { return _range_rollHFC_neg; }
             set { _range_rollHFC_neg = -Abs(value); OnPropertyChanged(nameof(RangeRollHFC_neg)); }
         }
-        float _range_yawHFC_neg = -20;
+        float _range_yawHFC_neg;
         public float RangeYawHFC_neg
         {
             get { return _range_yawHFC_neg; }
             set { _range_yawHFC_neg = -Abs(value); OnPropertyChanged(nameof(RangeYawHFC_neg)); }
         }
-        float _range_pitchHFC_neg = -20;
+        float _range_pitchHFC_neg;
         public float RangePitchHFC_neg
         {
             get { return _range_pitchHFC_neg; }
             set { _range_pitchHFC_neg = -Abs(value); OnPropertyChanged(nameof(RangePitchHFC_neg)); }
         }
 
-        float _range_surgeHFC_neg = -200;
+        float _range_surgeHFC_neg;
         public float RangeSurgeHFC_neg
         {
             get { return _range_surgeHFC_neg; }
             set { _range_surgeHFC_neg = -Abs(value); OnPropertyChanged(nameof(RangeSurgeHFC_neg)); }
         }
-        float _range_pitchLFC_neg = -20;
+        float _range_pitchLFC_neg;
         public float RangePitchLFC_neg
         {
             get { return _range_pitchLFC_neg; }
             set { _range_pitchLFC_neg = -Abs(value); OnPropertyChanged(nameof(RangePitchLFC_neg)); }
         }
 
-        float _range_heaveHFC_neg = -200;
+        float _range_heaveHFC_neg;
         public float RangeHeaveHFC_neg
         {
             get { return _range_heaveHFC_neg; }
             set { _range_heaveHFC_neg = -Abs(value); OnPropertyChanged(nameof(RangeHeaveHFC_neg)); }
         }
 
-        float _range_swayHFC_neg = -200;
+        float _range_swayHFC_neg;
         public float RangeSwayHFC_neg
         {
             get { return _range_swayHFC_neg; }
             set { _range_swayHFC_neg = -Abs(value); OnPropertyChanged(nameof(RangeSwayHFC_neg)); }
         }
-        float _range_rollLFC_neg = -20;
+        float _range_rollLFC_neg;
         public float RangeRollLFC_neg
         {
             get { return _range_rollLFC_neg; }
             set { _range_rollLFC_neg = -Abs(value); OnPropertyChanged(nameof(RangeRollLFC_neg)); }
         }
         #endregion
-        #region ViewModel SelectionRanges
+        #region ViewModel Blue Bars
         //------------- Max ------------------
         float _sel_rollHFC_max;
         public float SelRollHFC_max

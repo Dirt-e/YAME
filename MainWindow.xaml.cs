@@ -47,7 +47,8 @@ namespace YAME
         RigConfigWindow             rigConfigWindow;
         MotionControl_Window        motionControlWindow;
         SerialConnection_Window     serialConnectionWindow;
-        SerialConnection2_Window    serialConnection2Window;
+        ODriveTalker_Window         serialConnection2Window;
+        Patcher_Window              patcherWindow;
         AboutWindow                 aboutWindow;
 
         public MainWindow()
@@ -65,7 +66,7 @@ namespace YAME
 
             engine.StartEngine();
             Thread.Sleep(100);
-            engine.loadersaver.Load_Settings();
+            engine.loadersaver.Load_Application();
 
             SetDataContexts();
 
@@ -78,7 +79,7 @@ namespace YAME
             RememberWhichChildWindowsWereOpen();
             CloseAllOpenChildWindows();
             
-            engine.loadersaver.Save_Settings();
+            engine.loadersaver.Save_Application();
             engine.StopEngine();
         }
         
@@ -132,49 +133,49 @@ namespace YAME
             {
                 switch (w.Name)
                 {
-                    case "RawDataWindow":
+                    case nameof(rawDataWindow):
                         Properties.Settings.Default.Window_RawData_IsOpen               = true;
                         break;
-                    case "CrashDetectorWindow":
+                    case nameof(crashDetectorWindow):
                         Properties.Settings.Default.Window_CrashDetector_IsOpen         = true;
                         break;
-                    case "PositionCorrectorWindow":
+                    case nameof(positionCorrectorWindow):
                         Properties.Settings.Default.Window_PositionCorrection_IsOpen    = true;
                         break;
-                    case "AlphaCompensationWindow":
+                    case nameof(alphaCompensationWindow):
                         Properties.Settings.Default.Window_AlphaCompensation_IsOpen     = true;
                         break;
-                    case "FiltersWindow":
+                    case nameof(filtersWindow):
                         Properties.Settings.Default.Window_Filters_IsOpen               = true;
                         break;
-                    case "GraphsWindow":
-                        Properties.Settings.Default.Window_Graphs_IsOpen                = true;
-                        break;
-                    case "DOF_Window":
+                    //case nameof(GraphsWindow):
+                    //    Properties.Settings.Default.Window_Graphs_IsOpen                = true;
+                    //    break;
+                    case nameof(dof_window):
                         Properties.Settings.Default.Window_DOFs_IsOpen                  = true;
                         break;
-                    case "ActuatorOverrideWindow":
+                    case nameof(actuatorOverrideWindow):
                         Properties.Settings.Default.Window_ActuatorOverride_IsOpen      = true;
                         break;
-                    case "SceneViewWindow":
+                    case nameof(sceneViewWindow):
                         Properties.Settings.Default.Window_SceneView_IsOpen             = true;
                         break;
-                    case "RigConfigWindow":
+                    case nameof(rigConfigWindow):
                         Properties.Settings.Default.Window_RigConfig_IsOpen             = true;
                         break;
-                    case "MotionControlWindow":
+                    case nameof(motionControlWindow):
                         Properties.Settings.Default.Window_MotionControl_IsOpen         = true;
                         break;
-                    case "SerialConnectionWindow":
+                    case nameof(serialConnectionWindow):
                         Properties.Settings.Default.Window_SerialConnection_IsOpen      = true;
                         break;
-                    case "SerialConnection2Window":
+                    case nameof(serialConnection2Window):
                         Properties.Settings.Default.Window_SerialConnection2_IsOpen     = true;
                         break;
-                    case "PatcherWindow":
+                    case nameof(patcherWindow):
                         Properties.Settings.Default.Window_Patcher_IsOpen               = true;
                         break;
-                    case "AboutWindow":
+                    case nameof(aboutWindow):
                         //Do nothing, this does not need to be remembered
                         break;
                     default:
@@ -215,7 +216,7 @@ namespace YAME
         {
             rawDataWindow = new RawDataWindow();
             rawDataWindow.Owner = this;
-            rawDataWindow.Name = "RawDataWindow";
+            rawDataWindow.Name = nameof(rawDataWindow);
             rawDataWindow.Show();
         }
         private void mnuRawData_Unchecked(object sender, RoutedEventArgs e)
@@ -227,7 +228,7 @@ namespace YAME
         {
             crashDetectorWindow = new CrashDetectorWindow();
             crashDetectorWindow.Owner = this;
-            crashDetectorWindow.Name = "CrashDetectorWindow";
+            crashDetectorWindow.Name = nameof(crashDetectorWindow);
             crashDetectorWindow.Show();
         }
         private void mnuCrashDetector_Unchecked(object sender, RoutedEventArgs e)
@@ -239,7 +240,7 @@ namespace YAME
         {
             positionCorrectorWindow = new PositionCorrector_Window();
             positionCorrectorWindow.Owner = this;
-            positionCorrectorWindow.Name = "PositionCorrectorWindow";
+            positionCorrectorWindow.Name = nameof(positionCorrectorWindow);
             positionCorrectorWindow.Show();
         }
         private void mnuPositionCorrection_Unchecked(object sender, RoutedEventArgs e)
@@ -251,7 +252,7 @@ namespace YAME
         {
             alphaCompensationWindow = new AlphaCompensationWindow();
             alphaCompensationWindow.Owner = this;
-            alphaCompensationWindow.Name = "AlphaCompensationWindow";
+            alphaCompensationWindow.Name = nameof(alphaCompensationWindow);
             alphaCompensationWindow.Show();
         }
         private void mnuAlphaCompensation_Unchecked(object sender, RoutedEventArgs e)
@@ -263,7 +264,7 @@ namespace YAME
         {
             filtersWindow = new FiltersWindow();
             filtersWindow.Owner = this;
-            filtersWindow.Name = "FiltersWindow";
+            filtersWindow.Name = nameof(filtersWindow);
             filtersWindow.Show();
         }
         private void mnuFilters_Unchecked(object sender, RoutedEventArgs e)
@@ -287,7 +288,7 @@ namespace YAME
         {
             dof_window = new DOF_Window();
             dof_window.Owner = this;
-            dof_window.Name = "DOF_Window";
+            dof_window.Name = nameof(dof_window);
             dof_window.Show();
         }
         private void mnuDOFs_Unchecked(object sender, RoutedEventArgs e)
@@ -299,7 +300,7 @@ namespace YAME
         {
             actuatorOverrideWindow = new Actuator_Override_Window();
             actuatorOverrideWindow.Owner = this;
-            actuatorOverrideWindow.Name = "ActuatorOverrideWindow";
+            actuatorOverrideWindow.Name = nameof(actuatorOverrideWindow);
             actuatorOverrideWindow.Show();
         }
         private void mnuActuatorOverride_Unchecked(object sender, RoutedEventArgs e)
@@ -311,7 +312,7 @@ namespace YAME
         {
             sceneViewWindow = new SceneViewWindow();
             sceneViewWindow.Owner = this;
-            sceneViewWindow.Name = "SceneViewWindow";
+            sceneViewWindow.Name = nameof(sceneViewWindow);
             sceneViewWindow.Show();
         }
         private void mnuSceneView_Unchecked(object sender, RoutedEventArgs e)
@@ -323,7 +324,7 @@ namespace YAME
         {
             rigConfigWindow = new RigConfigWindow();
             rigConfigWindow.Owner = this;
-            rigConfigWindow.Name = "RigConfigWindow";
+            rigConfigWindow.Name = nameof(rigConfigWindow);
             rigConfigWindow.Show();
         }
         private void mnuRigConfig_Unchecked(object sender, RoutedEventArgs e)
@@ -335,7 +336,7 @@ namespace YAME
         {
             motionControlWindow = new MotionControl_Window();
             motionControlWindow.Owner = this;
-            motionControlWindow.Name = "MotionControlWindow";
+            motionControlWindow.Name = nameof(motionControlWindow);
             motionControlWindow.Show();
         }
         private void mnuMotionControl_Unchecked(object sender, RoutedEventArgs e)
@@ -347,7 +348,7 @@ namespace YAME
         {
             serialConnectionWindow = new SerialConnection_Window();
             serialConnectionWindow.Owner = this;
-            serialConnectionWindow.Name = "SerialConnectionWindow";
+            serialConnectionWindow.Name = nameof(serialConnectionWindow);
             serialConnectionWindow.Show();
         }
         private void mnuSerialConnection_Unchecked(object sender, RoutedEventArgs e)
@@ -357,9 +358,9 @@ namespace YAME
 
         private void mnuSerialConnection2_Checked(object sender, RoutedEventArgs e)
         {
-            serialConnection2Window = new SerialConnection2_Window();
+            serialConnection2Window = new ODriveTalker_Window();
             serialConnection2Window.Owner = this;
-            serialConnection2Window.Name = "SerialConnection2Window";
+            serialConnection2Window.Name = nameof(serialConnection2Window);
             serialConnection2Window.Show();
         }
         private void mnuSerialConnection2_Unchecked(object sender, RoutedEventArgs e)
@@ -381,6 +382,7 @@ namespace YAME
             mnuRigConfig.IsChecked              = true;
             mnuSceneView.IsChecked              = true;
             mnuSerialConnection.IsChecked       = true;
+            mnuSerialConnection2.IsChecked      = true;
         }
         private void mnuCloseAll_Click(object sender, RoutedEventArgs e)
         {
@@ -396,6 +398,7 @@ namespace YAME
             mnuRigConfig.IsChecked          = false;
             mnuSceneView.IsChecked          = false;
             mnuSerialConnection.IsChecked   = false;
+            mnuSerialConnection2.IsChecked  = false;
         }
         
         //---------- ? ------------
@@ -422,18 +425,17 @@ namespace YAME
         {
             foreach (Window w in OwnedWindows)
             {
-                if (w.Name == "PatcherWindow")      //If it's open already!
+                if (w.Name == nameof(patcherWindow))      //If it's open already!
                 {
                     w.Close();                      //Close it!
                     return;      
                 }
-                
             }
 
-            Patcher_Window window_Patcher = new Patcher_Window();
-            window_Patcher.Owner = this;
-            window_Patcher.Name = "PatcherWindow";
-            window_Patcher.Show();
+            patcherWindow = new Patcher_Window();
+            patcherWindow.Owner = this;
+            patcherWindow.Name = nameof(patcherWindow);
+            patcherWindow.Show();
         }
 
         //---------- Helpers ------------

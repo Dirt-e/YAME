@@ -32,7 +32,7 @@ namespace YAME.Model
                 sb.Append($"<{ThreeDigitNumber_from(Message[6])}>");        //Actuator3     
                 sb.Append($"<{ThreeDigitNumber_from(Message[7])}>");
                 sb.Append($"\n");
-                sb.Append($"<{ThreeDigitNumber_from(Message[8])}>");       //Actuator4    
+                sb.Append($"<{ThreeDigitNumber_from(Message[8])}>");        //Actuator4    
                 sb.Append($"<{ThreeDigitNumber_from(Message[9])}>");
                 sb.Append($"\n");
                 sb.Append($"<{ThreeDigitNumber_from(Message[10])}>");       //Actuator5   
@@ -41,10 +41,10 @@ namespace YAME.Model
                 sb.Append($"<{ThreeDigitNumber_from(Message[12])}>");       //Actuator6   
                 sb.Append($"<{ThreeDigitNumber_from(Message[13])}>");
                 sb.Append($"\n");
-                sb.Append($"<{ThreeDigitNumber_from(Message[14])}>");       //Additionals1   
+                sb.Append($"<{ThreeDigitNumber_from(Message[14])}>");       //Additional 1   
                 sb.Append($"<{ThreeDigitNumber_from(Message[15])}>");
                 sb.Append($"\n");
-                sb.Append($"<{ThreeDigitNumber_from(Message[16])}>");       //Additionals1     
+                sb.Append($"<{ThreeDigitNumber_from(Message[16])}>");       //Additional 2    
                 sb.Append($"<{ThreeDigitNumber_from(Message[17])}>");
                 sb.Append($"\n");
                 sb.Append($"<{ThreeDigitNumber_from(Message[18])}>");       //End block   

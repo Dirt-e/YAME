@@ -47,10 +47,10 @@ namespace YAME.View
             var serialtalker =  Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine.serialtalker;
             if (serialtalker.IsOpen)
             {
-                MessageBox.Show(    "You are trying to select another controller while a serial " +
+                MessageBox.Show("You are trying to select another controller while a serial " +
                     "connection is open!?! Close the serial connection, THEN select your controller.",
-                           "Serial Connection Open!!!",
-                           MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    "Serial Connection Open!!!",
+                    MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
         private void cmbbx_Ports_DropDownOpened(object sender, EventArgs e)

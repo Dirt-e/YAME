@@ -34,7 +34,7 @@ namespace YAME.View
         
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Left = Properties.Settings.Default.Window_SceneView_Position_X;
+            Left    = Properties.Settings.Default.Window_SceneView_Position_X;
             Top     = Properties.Settings.Default.Window_SceneView_Position_Y;
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

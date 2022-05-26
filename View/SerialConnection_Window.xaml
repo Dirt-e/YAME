@@ -31,7 +31,7 @@
             <RowDefinition Height="10"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Serial Connection:" FontSize="15" FontWeight="Bold"
+        <TextBlock Text="AASD Output:" FontSize="15" FontWeight="Bold"
                    Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Left"/>
 
         <Label      Content="COM Port:" VerticalAlignment="Center" HorizontalAlignment="Right"

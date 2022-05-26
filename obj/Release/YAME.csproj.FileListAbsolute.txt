@@ -185,3 +185,5 @@ D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\Actuator_Override_Window.g.c
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\DOF_Override_Window.g.cs
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\Actuator_Override_Window.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\DOF_Override_Window.baml
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\ODriveTalker_Window.g.cs
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\ODriveTalker_Window.baml

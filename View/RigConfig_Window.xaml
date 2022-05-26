@@ -4,7 +4,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:YAME.View"
-    xmlns:ViewModel="clr-namespace:YAME.ViewModel" x:Class="YAME.View.RigConfigWindow"
+    xmlns:ViewModel="clr-namespace:YAME.ViewModel"
+    xmlns:Controls="clr-namespace:YAME.View.UserControls"
+    x:Class="YAME.View.RigConfigWindow"
     mc:Ignorable="d" 
     Loaded="Window_Loaded" Closing="Window_Closing" 
     Title="RigConfigWindow" Height="260" Width="345" 
@@ -44,19 +46,19 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5"/>
                     <ColumnDefinition/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="10"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock  Text="Upper Platform" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"
                             Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"/>
                 <TextBlock  Text="Distance A" FontWeight="DemiBold" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
                 <TextBlock  Text="Distance B" FontWeight="DemiBold" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"/>
-                <TextBox    Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Style="{StaticResource TextBox_Style}"
-                            Text="{Binding Dist_A_Upper, UpdateSourceTrigger=LostFocus}"/>
-                <TextBox    Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Style="{StaticResource TextBox_Style}"
-                            Text="{Binding Dist_B_Upper, UpdateSourceTrigger=LostFocus}"/>
-                <TextBlock  Text="mm" FontWeight="DemiBold" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" Margin="2,0,0,0"/>
-                <TextBlock  Text="mm" FontWeight="DemiBold" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" Margin="2,0,0,0"/>
+                <Controls:ClickSelectTextBox    Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalContentAlignment="Right"
+                            Style="{StaticResource TextBox_Style}"
+                            Text="{Binding Dist_A_Upper, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat={}{0} mm}"/>
+                <Controls:ClickSelectTextBox    Grid.Row="2" Grid.Column="2" VerticalAlignment="Center"
+                            Style="{StaticResource TextBox_Style}" HorizontalContentAlignment="Right"
+                            Text="{Binding Dist_B_Upper, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat={}{0} mm}"/>
             </Grid>
         </Border>
         <Border x:Name="border_LowerPlatform" Grid.Row="3" Style="{StaticResource BorderStyle}" Grid.Column="1">
@@ -70,19 +72,19 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5"/>
                     <ColumnDefinition/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="10"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock  Text="Lower Platform" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"
                     Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"/>
                 <TextBlock  Text="Distance A" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
                 <TextBlock  Text="Distance B" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"/>
-                <TextBox    Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Style="{StaticResource TextBox_Style}"
-                            Text="{Binding Dist_A_Lower, UpdateSourceTrigger=LostFocus}"/>
-                <TextBox    Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Style="{StaticResource TextBox_Style}"
-                            Text="{Binding Dist_B_Lower, UpdateSourceTrigger=LostFocus}"/>
-                <TextBlock  Text="mm" FontWeight="DemiBold" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" Margin="2,0,0,0"/>
-                <TextBlock  Text="mm" FontWeight="DemiBold" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" Margin="2,0,0,0"/>
+                <Controls:ClickSelectTextBox    Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"
+                            Style="{StaticResource TextBox_Style}" HorizontalContentAlignment="Right"
+                            Text="{Binding Dist_A_Lower, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat={}{0} mm}"/>
+                <Controls:ClickSelectTextBox    Grid.Row="2" Grid.Column="2" VerticalAlignment="Center"
+                            Style="{StaticResource TextBox_Style}" HorizontalContentAlignment="Right"
+                            Text="{Binding Dist_B_Lower, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat={}{0} mm}"/>
             </Grid>
         </Border>
         <Border x:Name="border_Actuators" Grid.Row="5" Style="{StaticResource BorderStyle}" Grid.Column="1">
@@ -96,19 +98,19 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5"/>
                     <ColumnDefinition/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="10"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock  Text="Actuators" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"
                             Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"/>
                 <TextBlock  Text="Stroke" FontWeight="DemiBold" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
-                <TextBox    Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Style="{StaticResource TextBox_Style}"
-                            Text="{Binding Stroke, UpdateSourceTrigger=LostFocus}"/>
+                <Controls:ClickSelectTextBox    Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"
+                            Style="{StaticResource TextBox_Style}" HorizontalContentAlignment="Right"
+                            Text="{Binding Stroke, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat={}{0} mm}"/>
                 <TextBlock  Text="Min Length" FontWeight="DemiBold" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"/>
-                <TextBox    Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Style="{StaticResource TextBox_Style}"
-                            Text="{Binding MinLength, UpdateSourceTrigger=LostFocus}"/>
-                <TextBlock  Text="mm" FontWeight="DemiBold" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" Margin="2,0,0,0"/>
-                <TextBlock  Text="mm" FontWeight="DemiBold" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" Margin="2,0,0,0"/>
+                <Controls:ClickSelectTextBox    Grid.Row="2" Grid.Column="2" VerticalAlignment="Center"
+                            Style="{StaticResource TextBox_Style}" HorizontalContentAlignment="Right"
+                            Text="{Binding MinLength, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat={}{0} mm}"/>
             </Grid>
         </Border>
         <Border x:Name="border_Park_Position" Grid.Row="1" Style="{StaticResource BorderStyle}" Grid.Column="4">
@@ -122,18 +124,17 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5"/>
                     <ColumnDefinition/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="10"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock  Text="Park Position" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"
                             Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"/>
                 <TextBlock  Text="Height" FontWeight="DemiBold" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
-                <Button     Grid.Row="1" Grid.Column="2" Margin="4" Content="Calib." FontSize="9"
+                <Button     Grid.Row="2" Grid.Column="2" Margin="4" Content="Calibrate" FontSize="9"
                             Click="CalibPark_Click"/>
-                <TextBox    Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" Style="{StaticResource TextBox_Style}"
-                            x:Name="txtbx_OffsetPark" Text="{Binding Offset_Park, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
-                <TextBlock  Text="mm" FontWeight="DemiBold" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" Margin="2,0,0,0"/>
+                <Controls:ClickSelectTextBox    Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"
+                            Style="{StaticResource TextBox_Style}" HorizontalContentAlignment="Right"
+                            x:Name="txtbx_OffsetPark" Text="{Binding Offset_Park, Mode=TwoWay, UpdateSourceTrigger=LostFocus, StringFormat={}{0} mm}"/>
             </Grid>
         </Border>
         <Border x:Name="border_PausePosition" Grid.Row="3" Style="{StaticResource BorderStyle}" Grid.Column="4">
@@ -147,18 +148,17 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5"/>
                     <ColumnDefinition/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="10"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"
                     Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Text="Pause Position"/>
                 <TextBlock  Text="Height" FontWeight="DemiBold" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
-                <Button     Grid.Row="1" Grid.Column="2" Margin="4" Content="Calib." FontSize="9"
+                <Button     Grid.Row="2" Grid.Column="2" Margin="4" Content="Calibrate" FontSize="9"
                             Click="CalibPause_Click"/>
-                <TextBox    Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" Style="{StaticResource TextBox_Style}"
-                            x:Name="txtbx_OffsetPause" Text="{Binding Offset_Pause, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"/>
-                <TextBlock  Text="mm" FontWeight="DemiBold" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" Margin="2,0,0,0"/>
+                <Controls:ClickSelectTextBox    Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"
+                            Style="{StaticResource TextBox_Style}" HorizontalContentAlignment="Right"
+                            x:Name="txtbx_OffsetPause" Text="{Binding Offset_Pause, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat={}{0} mm}"/>
             </Grid>
         </Border>
         <Border x:Name="border_CenterOfRotation" Grid.Row="5" Style="{StaticResource BorderStyle}" Grid.Column="4">
@@ -172,21 +172,21 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5"/>
                     <ColumnDefinition/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="10"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock  Text="Center of Rotation" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"
                     Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"/>
                 <TextBlock  Text="Offset" FontWeight="DemiBold" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
-                <TextBox    Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Style="{StaticResource TextBox_Style}"
-                            x:Name="txtbx_OffsetCoR" Text="{Binding Offset_CoR, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
+                <Controls:ClickSelectTextBox Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"
+                            Style="{StaticResource TextBox_Style}" HorizontalContentAlignment="Right"
+                            x:Name="txtbx_OffsetCoR" Text="{Binding Offset_CoR, Mode=TwoWay, StringFormat={}{0} mm, UpdateSourceTrigger=LostFocus}"/>
                 <TextBlock  Text="mm" FontWeight="DemiBold" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" Margin="2,0,0,0"/>
             </Grid>
         </Border>
         <Image  x:Name="img_warning" Grid.Row="1" Grid.Column="0" Grid.RowSpan="7" Grid.ColumnSpan="6" Margin="-40,0,-40,0"
                 Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center"
                 Visibility="{Binding IsOpen, Converter={StaticResource cnvrt_BoolToVisibility}}"
-                Source="\Media\BlockeWhileSerial.png">
-        </Image>
+                Source="\Media\BlockeWhileSerial.png"/>
     </Grid>
 </Window>

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:YAME.View.UserControls"
+             xmlns:Controls="clr-namespace:YAME.View.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="60" d:DesignWidth="80">
 
@@ -29,9 +30,9 @@
                     Text="{Binding Input, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat=N3}"
                     Style="{StaticResource TextBlock_Style}"   Margin="5,0,0,0"/>
 
-        <TextBox    x:Name="txtbx_scalar" Text="{Binding Gain, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat=N2}"
+        <Controls:ClickSelectTextBox x:Name="txtbx_scalar" Text="{Binding Gain, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat=N2}"
                     FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"
-                    Style="{StaticResource TextBox_Style}"   Width="40" 
+                    Style="{StaticResource TextBox_Style}"   Width="50" 
                     MouseWheel="txtbx_scalar_MouseWheel"/>
         <TextBlock  Text="{Binding Output, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat=N3}"
                     FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2"

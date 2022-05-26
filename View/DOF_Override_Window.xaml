@@ -26,7 +26,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="70"/>
             <ColumnDefinition Width="40"/>
             <ColumnDefinition Width="35"/>
             <ColumnDefinition/>
@@ -36,17 +36,18 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="35"/>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="35"/>
-            <RowDefinition Height="35"/>
-            <RowDefinition Height="35"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="35"/>
-            <RowDefinition Height="35"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="35"/>
+            <RowDefinition Height="25"/>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="35"/>
-            <RowDefinition Height="35"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="1" Text="DOFs:"    Padding="2"  FontSize="15" FontWeight="Bold" Grid.ColumnSpan="6"/>
@@ -55,9 +56,7 @@
         <TextBlock Grid.Row="1" Grid.Column="1" Text="Pass-through" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="15" FontWeight="Bold"/>
         <Controls:ToggleSwitch x:Name="tgl_Active" Grid.Column="2" Grid.Row="1" IsOn="{Binding IsOverride, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Height="20"/>
         <TextBlock Grid.Row="1" Grid.Column="3" Text="Override" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Grid.ColumnSpan="2"/>
-        <Button Content="Center" Grid.Column="5" Grid.Row="1" Margin="7,7,7,7" Click="Button_Click" Style="{StaticResource Button_NoHighlight_Rounded}">
-
-        </Button>
+        <Button Content="Center" Grid.Column="5" Grid.Row="1" Margin="7,7,7,7" Click="Button_Click" Style="{StaticResource Button_NoHighlight_Rounded}"/>
 
         <!--Labels-->
         <Label  Content="Roll"      Grid.Row="3" Grid.Column="1"    VerticalContentAlignment="Center" Margin="10,0,0,0" Style="{StaticResource Label_Style}"/>
@@ -70,22 +69,22 @@
         <Label  Content="Roll Co."  Grid.Row="13" Grid.Column="1"   VerticalContentAlignment="Center" Margin="10,0,0,0" Style="{StaticResource Label_Style}"/>
 
         <!--Max/Min-->
-        <TextBox    Text="{Binding RangeRollHFC,  StringFormat=N0}"   Grid.Row="3"  Grid.Column="2" Style="{StaticResource TextBox_Style}" Margin="0,7,0,8"/>
-        <TextBox    Text="{Binding RangeYawHFC,   StringFormat=N0}"   Grid.Row="4"  Grid.Column="2" Style="{StaticResource TextBox_Style}" Margin="0,8,0,7"/>
-        <TextBox    Text="{Binding RangePitchHFC, StringFormat=N0}"   Grid.Row="5"  Grid.Column="2" Style="{StaticResource TextBox_Style}" Margin="0,7,0,8"/>
-        <TextBox    Text="{Binding RangeSurgeHFC, StringFormat=N0}"   Grid.Row="7"  Grid.Column="2" Style="{StaticResource TextBox_Style}" Margin="0,8,0,7"/>
-        <TextBox    Text="{Binding RangePitchLFC, StringFormat=N0}"   Grid.Row="8"  Grid.Column="2" Style="{StaticResource TextBox_Style}" Margin="0,7,0,8"/>
-        <TextBox    Text="{Binding RangeHeaveHFC, StringFormat=N0}"   Grid.Row="10" Grid.Column="2" Style="{StaticResource TextBox_Style}" Margin="0,8,0,7"/>
-        <TextBox    Text="{Binding RangeSwayHFC,  StringFormat=N0}"   Grid.Row="12" Grid.Column="2" Style="{StaticResource TextBox_Style}" Margin="0,7,0,8"/>
-        <TextBox    Text="{Binding RangeRollLFC,  StringFormat=N0}"   Grid.Row="13" Grid.Column="2" Style="{StaticResource TextBox_Style}" Margin="0,8,0,7"/>
+        <Controls:ClickSelectTextBox Text="{Binding RangeRollHFC,  StringFormat={}{0} °}"   Grid.Row="3"  Grid.Column="2" Style="{StaticResource TextBox_Style}" Margin="2"/>
+        <Controls:ClickSelectTextBox Text="{Binding RangeYawHFC,   StringFormat={}{0} °}"   Grid.Row="4"  Grid.Column="2" Style="{StaticResource TextBox_Style}" Margin="2"/>
+        <Controls:ClickSelectTextBox Text="{Binding RangePitchHFC, StringFormat={}{0} °}"   Grid.Row="5"  Grid.Column="2" Style="{StaticResource TextBox_Style}" Margin="2"/>
+        <Controls:ClickSelectTextBox Text="{Binding RangeSurgeHFC, StringFormat={}{0} mm}"  Grid.Row="7"  Grid.Column="2" Style="{StaticResource TextBox_Style}" Margin="2"/>
+        <Controls:ClickSelectTextBox Text="{Binding RangePitchLFC, StringFormat={}{0} °}"   Grid.Row="8"  Grid.Column="2" Style="{StaticResource TextBox_Style}" Margin="2"/>
+        <Controls:ClickSelectTextBox Text="{Binding RangeHeaveHFC, StringFormat={}{0} mm}"  Grid.Row="10" Grid.Column="2" Style="{StaticResource TextBox_Style}" Margin="2"/>
+        <Controls:ClickSelectTextBox Text="{Binding RangeSwayHFC,  StringFormat={}{0} mm}"  Grid.Row="12" Grid.Column="2" Style="{StaticResource TextBox_Style}" Margin="2"/>
+        <Controls:ClickSelectTextBox Text="{Binding RangeRollLFC,  StringFormat={}{0} °}"   Grid.Row="13" Grid.Column="2" Style="{StaticResource TextBox_Style}" Margin="2"/>
 
-        <Slider x:Name="sld_DOF_Roll"       Grid.Column="4" Grid.Row="3"  Value="{Binding sldr_RollHFC}"   Maximum="{Binding RangeRollHFC}"    Minimum="{Binding RangeRollHFC_neg}"  SelectionStart="{Binding SelRollHFC_min}"  SelectionEnd="{Binding SelRollHFC_max}"  IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>
-        <Slider x:Name="sld_DOF_Yaw"        Grid.Column="4" Grid.Row="4"  Value="{Binding sldr_YawHFC}"    Maximum="{Binding RangeYawHFC}"     Minimum="{Binding RangeYawHFC_neg}"   SelectionStart="{Binding SelYawHFC_min}"   SelectionEnd="{Binding SelYawHFC_max}"   IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>
-        <Slider x:Name="sld_DOF_Pitch"      Grid.Column="4" Grid.Row="5"  Value="{Binding sldr_PitchHFC}"  Maximum="{Binding RangePitchHFC}"   Minimum="{Binding RangePitchHFC_neg}" SelectionStart="{Binding SelPitchHFC_min}" SelectionEnd="{Binding SelPitchHFC_max}" IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>
-        <Slider x:Name="sld_DOF_Surge"      Grid.Column="4" Grid.Row="7"  Value="{Binding sldr_SurgeHFC}"  Maximum="{Binding RangeSurgeHFC}"   Minimum="{Binding RangeSurgeHFC_neg}" SelectionStart="{Binding SelSurgeHFC_min}" SelectionEnd="{Binding SelSurgeHFC_max}" IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>
-        <Slider x:Name="sld_DOF_Pitch_LFC"  Grid.Column="4" Grid.Row="8"  Value="{Binding sldr_PitchLFC}"  Maximum="{Binding RangePitchLFC}"   Minimum="{Binding RangePitchLFC_neg}" SelectionStart="{Binding SelPitchLFC_min}" SelectionEnd="{Binding SelPitchLFC_max}" IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>
-        <Slider x:Name="sld_DOF_Heave"      Grid.Column="4" Grid.Row="10" Value="{Binding sldr_HeaveHFC}"  Maximum="{Binding RangeHeaveHFC}"   Minimum="{Binding RangeHeaveHFC_neg}" SelectionStart="{Binding SelHeaveHFC_min}" SelectionEnd="{Binding SelHeaveHFC_max}" IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>
-        <Slider x:Name="sld_DOF_Sway"       Grid.Column="4" Grid.Row="12" Value="{Binding sldr_SwayHFC}"   Maximum="{Binding RangeSwayHFC}"    Minimum="{Binding RangeSwayHFC_neg}"  SelectionStart="{Binding SelSwayHFC_min}"  SelectionEnd="{Binding SelSwayHFC_max}"  IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>
-        <Slider x:Name="sld_DOF_Roll_LFC"   Grid.Column="4" Grid.Row="13" Value="{Binding sldr_RollLFC}"   Maximum="{Binding RangeRollLFC}"    Minimum="{Binding RangeRollLFC_neg}"  SelectionStart="{Binding SelRollLFC_min}"  SelectionEnd="{Binding SelRollLFC_max}"  IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>
+        <Slider x:Name="sld_DOF_Roll"       Grid.Column="4" Grid.Row="3"  VerticalAlignment="Center" Value="{Binding sldr_RollHFC}"   Maximum="{Binding RangeRollHFC}"    Minimum="{Binding RangeRollHFC_neg}"  SelectionStart="{Binding SelRollHFC_min}"  SelectionEnd="{Binding SelRollHFC_max}"  IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>
+        <Slider x:Name="sld_DOF_Yaw"        Grid.Column="4" Grid.Row="4"  VerticalAlignment="Center" Value="{Binding sldr_YawHFC}"    Maximum="{Binding RangeYawHFC}"     Minimum="{Binding RangeYawHFC_neg}"   SelectionStart="{Binding SelYawHFC_min}"   SelectionEnd="{Binding SelYawHFC_max}"   IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>
+        <Slider x:Name="sld_DOF_Pitch"      Grid.Column="4" Grid.Row="5"  VerticalAlignment="Center" Value="{Binding sldr_PitchHFC}"  Maximum="{Binding RangePitchHFC}"   Minimum="{Binding RangePitchHFC_neg}" SelectionStart="{Binding SelPitchHFC_min}" SelectionEnd="{Binding SelPitchHFC_max}" IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>
+        <Slider x:Name="sld_DOF_Surge"      Grid.Column="4" Grid.Row="7"  VerticalAlignment="Center" Value="{Binding sldr_SurgeHFC}"  Maximum="{Binding RangeSurgeHFC}"   Minimum="{Binding RangeSurgeHFC_neg}" SelectionStart="{Binding SelSurgeHFC_min}" SelectionEnd="{Binding SelSurgeHFC_max}" IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>
+        <Slider x:Name="sld_DOF_Pitch_LFC"  Grid.Column="4" Grid.Row="8"  VerticalAlignment="Center" Value="{Binding sldr_PitchLFC}"  Maximum="{Binding RangePitchLFC}"   Minimum="{Binding RangePitchLFC_neg}" SelectionStart="{Binding SelPitchLFC_min}" SelectionEnd="{Binding SelPitchLFC_max}" IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>
+        <Slider x:Name="sld_DOF_Heave"      Grid.Column="4" Grid.Row="10" VerticalAlignment="Center" Value="{Binding sldr_HeaveHFC}"  Maximum="{Binding RangeHeaveHFC}"   Minimum="{Binding RangeHeaveHFC_neg}" SelectionStart="{Binding SelHeaveHFC_min}" SelectionEnd="{Binding SelHeaveHFC_max}" IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>
+        <Slider x:Name="sld_DOF_Sway"       Grid.Column="4" Grid.Row="12" VerticalAlignment="Center" Value="{Binding sldr_SwayHFC}"   Maximum="{Binding RangeSwayHFC}"    Minimum="{Binding RangeSwayHFC_neg}"  SelectionStart="{Binding SelSwayHFC_min}"  SelectionEnd="{Binding SelSwayHFC_max}"  IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>
+        <Slider x:Name="sld_DOF_Roll_LFC"   Grid.Column="4" Grid.Row="13" VerticalAlignment="Center" Value="{Binding sldr_RollLFC}"   Maximum="{Binding RangeRollLFC}"    Minimum="{Binding RangeRollLFC_neg}"  SelectionStart="{Binding SelRollLFC_min}"  SelectionEnd="{Binding SelRollLFC_max}"  IsEnabled="{Binding IsOverride}" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

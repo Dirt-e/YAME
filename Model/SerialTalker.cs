@@ -189,6 +189,5 @@ namespace YAME.Model
     {
         Motion4Sim,
         Thanos_AMC,
-        Odrive
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.IO;
+using System.IO.Ports;
 using System.Text.Json;
 using System.Windows;
 using YAME.DataFomats;
@@ -38,7 +39,7 @@ namespace YAME.Model
 
         #region To/from Settings:
         //------------------ Load ------------------------
-        public void Load_Settings()
+        public void Load_Application()
         {
             Load_ProfilePath_Application();
             Load_CrashDetectorThresholds_Application();
@@ -50,7 +51,8 @@ namespace YAME.Model
             Load_ScalerSettings_Application();
             Load_ZeromakerSettings_Application();
             Load_DOF_Override_Application();
-            Load_SerialTalkerSettings_Application();
+            Load_AASD_OutputSettings_Application();
+            Load_ODrive_OutputSettings_Application();
         }
         void Load_ProfilePath_Application()
         {
@@ -206,7 +208,7 @@ namespace YAME.Model
             dof_override.RangePitchLFC = defaults.DOF_Override_Range_Pitch_LFC;
             dof_override.RangeRollLFC = defaults.DOF_Override_Range_Roll_LFC;
         }
-        void Load_SerialTalkerSettings_Application()
+        void Load_AASD_OutputSettings_Application()
         {
             //COM port is handled inside "SerialConnectionWindow.xaml.cs",
             //because COM ports are assigned during runtime
@@ -214,9 +216,15 @@ namespace YAME.Model
             string name = Properties.Settings.Default.SerialTalker_LastUsed_HardwareController;
             engine.serialtalker.Controller = (ControllerType)Enum.Parse(typeof(ControllerType), name);
         }
+        void Load_ODrive_OutputSettings_Application()
+        {
+            //COM port is handled inside "ODriveTalker_Window.xaml.cs" Window_Loaded Event
+
+            engine.odrivesystem.Lead = Properties.Settings.Default.ODriveTalker_Lead;
+        }
 
         //---------------- Save -----------------------
-        public void Save_Settings()
+        public void Save_Application()
         {
             Save_ProfilePath_Application();
             Save_CrashDetectorThresholds_Application();
@@ -227,8 +235,9 @@ namespace YAME.Model
             Save_CompressionSettings_Application();
             Save_ScalerSettings_Application();
             Save_ZeromakerSettings_Application();
-            Save_DOF_Override_Application();
-            Save_SerialTalkerSettings_Application();
+            Save_DOF_OverrideSettings_Application();
+            Save_AASD_OutputSettings_Application();
+            Save_ODrive_OutputSettings_Application();
 
             Properties.Settings.Default.Save();
         }
@@ -371,7 +380,7 @@ namespace YAME.Model
             defaults.Zeromaker_Zero_SwayHFC = zeromaker.Zero_SwayHFC;
             defaults.Zeromaker_Zero_RollLFC = zeromaker.Zero_RollLFC;
         }
-        void Save_DOF_Override_Application()
+        void Save_DOF_OverrideSettings_Application()
         {
             var defaults = Properties.Settings.Default;
             var dof_override = engine.dof_override;
@@ -385,11 +394,30 @@ namespace YAME.Model
             defaults.DOF_Override_Range_Pitch_LFC = dof_override.RangePitchLFC;
             defaults.DOF_Override_Range_Roll_LFC = dof_override.RangeRollLFC;
         }
-        void Save_SerialTalkerSettings_Application()
+        void Save_AASD_OutputSettings_Application()
         {
             Properties.Settings.Default.SerialTalker_LastUsed_HardwareController = engine.serialtalker.Controller.ToString();
         }
+        void Save_ODrive_OutputSettings_Application()
+        {
+            if (engine.odrivesystem.oDriveTalkers[0].COM_Port != null)
+            {
+                Properties.Settings.Default.ODriveTalker_LastUsedComPort_1 = 
+                    engine.odrivesystem.oDriveTalkers[0].COM_Port.ToString();
+            }
+            if (engine.odrivesystem.oDriveTalkers[1].COM_Port != null)
+            {
+                Properties.Settings.Default.ODriveTalker_LastUsedComPort_2 =
+                    engine.odrivesystem.oDriveTalkers[1].COM_Port.ToString();
+            }
+            if (engine.odrivesystem.oDriveTalkers[2].COM_Port != null)
+            {
+                Properties.Settings.Default.ODriveTalker_LastUsedComPort_3 =
+                    engine.odrivesystem.oDriveTalkers[2].COM_Port.ToString();
+            }
 
+            Properties.Settings.Default.ODriveTalker_Lead = engine.odrivesystem.Lead;
+        }
         #endregion
         #region To/from Profile:
         //------------------ Load ------------------------
