@@ -27,7 +27,6 @@ D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\YAME.csproj.AssemblyReference.cache
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\YAME.csproj.SuggestedBindingRedirects.cache
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\MainWindow.g.cs
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\MotionControl_Window.g.cs
-D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\SerialConnection_Window.g.cs
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\UserControls\CompressionBox.g.cs
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\UserControls\FilterBox.g.cs
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\UserControls\ScalerBox.g.cs
@@ -39,7 +38,6 @@ D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\YAME_MarkupCompile.lref
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\App.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\MainWindow.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\MotionControl_Window.baml
-D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\SerialConnection_Window.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\UserControls\CompressionBox.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\UserControls\FilterBox.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\UserControls\ScalerBox.baml
@@ -180,3 +178,5 @@ D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\Actuator_Override_Window.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\DOF_Override_Window.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\ODriveTalker_Window.g.cs
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\ODriveTalker_Window.baml
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\AASD_Talker_Window.g.cs
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\AASD_Talker_Window.baml

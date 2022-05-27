@@ -46,7 +46,7 @@ namespace YAME
         SceneViewWindow             sceneViewWindow;
         RigConfigWindow             rigConfigWindow;
         MotionControl_Window        motionControlWindow;
-        SerialConnection_Window     serialConnectionWindow;
+        AASD_Talker_Window     serialConnectionWindow;
         ODriveTalker_Window         serialConnection2Window;
         Patcher_Window              patcherWindow;
         AboutWindow                 aboutWindow;
@@ -346,7 +346,7 @@ namespace YAME
 
         private void mnuSerialConnection_Checked(object sender, RoutedEventArgs e)
         {
-            serialConnectionWindow = new SerialConnection_Window();
+            serialConnectionWindow = new AASD_Talker_Window();
             serialConnectionWindow.Owner = this;
             serialConnectionWindow.Name = nameof(serialConnectionWindow);
             serialConnectionWindow.Show();

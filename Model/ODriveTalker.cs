@@ -43,7 +43,6 @@ namespace YAME.Model
             }
         }
 
-
         string _ui_message;
         public string UI_Message
         {
@@ -54,6 +53,16 @@ namespace YAME.Model
                 {
                     _ui_message = value; OnPropertyChanged(nameof(UI_Message));
                 }
+            }
+        }
+
+        string _message;
+        public string Message
+        {
+            get { return _message; }
+            set
+            {
+                _message = value; OnPropertyChanged(nameof(Message));
             }
         }
 
@@ -118,7 +127,10 @@ namespace YAME.Model
                     {
                         MessageBox.Show($"Unable to open {COM_Port}. Are you sure that this is the controller you're looking for?",
                                             "Unable to open COM port",
-                                            MessageBoxButton.OK, MessageBoxImage.Error);
+                                            MessageBoxButton.OK, 
+                                            MessageBoxImage.Error,
+                                            MessageBoxResult.OK,
+                                            MessageBoxOptions.DefaultDesktopOnly);
                         serialport.Close();
                         _isopen = false;
                     }
@@ -146,8 +158,10 @@ namespace YAME.Model
         {
             if (serialport.IsOpen)
             {
-                string message = messageGenerator_Odrive.ComposeMessageFrom(revs1, revs2);
-                byte[] bytes_ODrive = Encoding.ASCII.GetBytes(message);
+                Message = messageGenerator_Odrive.ComposeMessageFrom(revs1, revs2);
+                UI_Message = Message;
+
+                byte[] bytes_ODrive = Encoding.ASCII.GetBytes(Message);
                 Write(bytes_ODrive);
             }
             else
@@ -170,10 +184,12 @@ namespace YAME.Model
                     UI_Message = "Conection timed out";
 
                     MessageBox.Show($"Write timeout after {WriteTimeout}ms.\n" +
-                                        $"Looks like {OdriveNumber} on {COM_Port} is not responding.",
-                                        "Write Timeout",
-                                        MessageBoxButton.OK,
-                                        MessageBoxImage.Exclamation);
+                        $"Looks like {OdriveNumber} on {COM_Port} is not responding.",
+                        "Write Timeout",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Exclamation,
+                        MessageBoxResult.OK,
+                        MessageBoxOptions.DefaultDesktopOnly);
                 }
             }
             else

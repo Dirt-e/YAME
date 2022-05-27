@@ -52,6 +52,10 @@ namespace YAME.View
             txtblk_OpenClose1.DataContext = mw.engine.odrivesystem.oDriveTalkers[0];
             txtblk_OpenClose2.DataContext = mw.engine.odrivesystem.oDriveTalkers[1];
             txtblk_OpenClose3.DataContext = mw.engine.odrivesystem.oDriveTalkers[2];
+
+            txtblk_Message1.DataContext = mw.engine.odrivesystem.oDriveTalkers[0];
+            txtblk_Message2.DataContext = mw.engine.odrivesystem.oDriveTalkers[1];
+            txtblk_Message3.DataContext = mw.engine.odrivesystem.oDriveTalkers[2];
         }
 
         private void tgl_Active123_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

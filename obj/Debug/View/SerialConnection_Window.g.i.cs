@@ -40,7 +40,7 @@ namespace YAME.View {
     /// <summary>
     /// SerialConnection_Window
     /// </summary>
-    public partial class SerialConnection_Window : System.Windows.Window, System.Windows.Markup.IComponentConnector {
+    public partial class AASD_Talker_Window : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
         
         #line 39 "..\..\..\View\SerialConnection_Window.xaml"
@@ -106,25 +106,25 @@ namespace YAME.View {
             case 1:
             
             #line 10 "..\..\..\View\SerialConnection_Window.xaml"
-            ((YAME.View.SerialConnection_Window)(target)).Loaded += new System.Windows.RoutedEventHandler(this.Window_Loaded);
+            ((YAME.View.AASD_Talker_Window)(target)).Loaded += new System.Windows.RoutedEventHandler(this.Window_Loaded);
             
             #line default
             #line hidden
             
             #line 10 "..\..\..\View\SerialConnection_Window.xaml"
-            ((YAME.View.SerialConnection_Window)(target)).Closing += new System.ComponentModel.CancelEventHandler(this.Window_Closing);
+            ((YAME.View.AASD_Talker_Window)(target)).Closing += new System.ComponentModel.CancelEventHandler(this.Window_Closing);
             
             #line default
             #line hidden
             
             #line 11 "..\..\..\View\SerialConnection_Window.xaml"
-            ((YAME.View.SerialConnection_Window)(target)).MouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(this.Window_MouseLeftButtonDown);
+            ((YAME.View.AASD_Talker_Window)(target)).MouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(this.Window_MouseLeftButtonDown);
             
             #line default
             #line hidden
             
             #line 11 "..\..\..\View\SerialConnection_Window.xaml"
-            ((YAME.View.SerialConnection_Window)(target)).MouseLeftButtonUp += new System.Windows.Input.MouseButtonEventHandler(this.Window_MouseLeftButtonUp);
+            ((YAME.View.AASD_Talker_Window)(target)).MouseLeftButtonUp += new System.Windows.Input.MouseButtonEventHandler(this.Window_MouseLeftButtonUp);
             
             #line default
             #line hidden

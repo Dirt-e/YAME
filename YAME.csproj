@@ -265,8 +265,8 @@
     <Compile Include="View\ODriveTalker_Window.xaml.cs">
       <DependentUpon>ODriveTalker_Window.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SerialConnection_Window.xaml.cs">
-      <DependentUpon>SerialConnection_Window.xaml</DependentUpon>
+    <Compile Include="View\AASD_Talker_Window.xaml.cs">
+      <DependentUpon>AASD_Talker_Window.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls\ClickSelectTextBox.cs" />
     <Compile Include="View\UserControls\CompressionBox.xaml.cs">
@@ -345,7 +345,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SerialConnection_Window.xaml">
+    <Page Include="View\AASD_Talker_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -8,7 +8,7 @@
         xmlns:model="clr-namespace:YAME.Model"
         xmlns:Controls="clr-namespace:YAME.View.UserControls"
         mc:Ignorable="d"
-        Title="SerialConnection2_Window" Height="320" Width="505"
+        Title="SerialConnection2_Window" Height="320" Width="330"
         Loaded="Window_Loaded" Closing="Window_Closing"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         MouseLeftButtonUp="Window_MouseLeftButtonUp"
@@ -64,27 +64,6 @@
                     SelectedItem="{Binding COM_Port, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                     Style="{StaticResource ComboBox_Style}" IsEnabled="{Binding IsOpen, Converter={StaticResource cnvrtr_BoolInverter}}"/>
 
-        <!--ODrives-->
-        <!--
-        <ComboBox   x:Name="cmbbx_ODrive1" Grid.Column="3" Grid.Row="2" IsEnabled="{Binding IsOpen, Converter={StaticResource cnvrtr_BoolInverter}}"
-                    PreviewMouseLeftButtonDown="cmbbx_ODrive123_PreviewMouseLeftButtonDown"
-                    VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="5"
-                    ItemsSource="{view:EnumBindingSource model:OdriveNumber}"
-                    SelectedItem="{Binding Controller, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                    Style="{StaticResource ComboBox_Style}"/>
-        <ComboBox   x:Name="cmbbx_ODrive2" Grid.Column="3" Grid.Row="3" IsEnabled="{Binding IsOpen, Converter={StaticResource cnvrtr_BoolInverter}}"
-                    PreviewMouseLeftButtonDown="cmbbx_ODrive123_PreviewMouseLeftButtonDown"
-                    VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="5"
-                    ItemsSource="{view:EnumBindingSource model:OdriveNumber}"
-                    SelectedItem="{Binding Controller, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                    Style="{StaticResource ComboBox_Style}"/>
-        <ComboBox   x:Name="cmbbx_ODrive3" Grid.Column="3" Grid.Row="4" IsEnabled="{Binding IsOpen, Converter={StaticResource cnvrtr_BoolInverter}}"
-                    PreviewMouseLeftButtonDown="cmbbx_ODrive123_PreviewMouseLeftButtonDown"
-                    VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="5"
-                    ItemsSource="{view:EnumBindingSource model:OdriveNumber}"
-                    SelectedItem="{Binding Controller, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                    Style="{StaticResource ComboBox_Style}"/>-->
-
         <!--Lead-->
         <Controls:ClickSelectTextBox x:Name="txtbx_Lead1" Grid.Row="2" Grid.Column="3" Margin="5"
                  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
@@ -123,19 +102,20 @@
 
         <Border     Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="7" BorderThickness="0.7" CornerRadius="5" Background="Gray">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <!--<TextBlock  Text="{Binding UI_Message, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Center"
-                        Foreground="Black" FontFamily="Courier New" Padding="0"/>-->
                 <TextBlock  Text="ODrive 1:" VerticalAlignment="Center" HorizontalAlignment="Left"
-                            Foreground="red" FontFamily="Courier New" Padding="0"/>
-                <TextBlock  Text="UI_Message______1" VerticalAlignment="Center" HorizontalAlignment="Center"
+                            Foreground="Black" FontFamily="Courier New" FontWeight="Bold" Padding="0"/>
+                <TextBlock  x:Name="txtblk_Message1" Text="{Binding UI_Message, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
                             Foreground="Black" FontFamily="Courier New" Padding="0"/>
                 <TextBlock  Text="ODrive 2:" VerticalAlignment="Center" HorizontalAlignment="Left"
-                            Foreground="Red" FontFamily="Courier New" Padding="0"/>
-                <TextBlock  Text="UI_Message______2" VerticalAlignment="Center" HorizontalAlignment="Center"
+                            Foreground="Black" FontFamily="Courier New" FontWeight="Bold" Padding="0"/>
+                <TextBlock  x:Name="txtblk_Message2"  Text="{Binding UI_Message, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
                             Foreground="Black" FontFamily="Courier New" Padding="0"/>
                 <TextBlock  Text="ODrive 3:" VerticalAlignment="Center" HorizontalAlignment="Left"
-                            Foreground="Red" FontFamily="Courier New" Padding="0"/>
-                <TextBlock  Text="UI_Message______3" VerticalAlignment="Center" HorizontalAlignment="Center"
+                            Foreground="Black" FontFamily="Courier New" FontWeight="Bold" Padding="0"/>
+                <TextBlock  x:Name="txtblk_Message3"  Text="{Binding UI_Message, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
                             Foreground="Black" FontFamily="Courier New" Padding="0"/>
             </StackPanel>
 
