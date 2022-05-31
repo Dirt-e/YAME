@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\
+\\Mac\Home\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\
 YAME
 none
 false
 DEBUG;TRACE
-D:\OneDrive\Frank - PC\GitHub\YAME\App.xaml
+\\Mac\Home\OneDrive\Frank - PC\GitHub\YAME\App.xaml
 191022269039
 1-1596150947
 941733103160
-1362092608981
+136-17095255
 MainWindow.xaml;View\Actuator_Override_Window.xaml;View\AlphaCompensation_Window.xaml;View\CrashDetector_Window.xaml;View\DOF_Override_Window.xaml;View\Filters_Window.xaml;View\MotionControl_Window.xaml;View\Patcher_Window.xaml;View\PositionCorrector_Window.xaml;View\RawData_Window.xaml;View\RigConfig_Window.xaml;View\SceneView_Window.xaml;View\ODriveTalker_Window.xaml;View\AASD_Talker_Window.xaml;View\UserControls\CompressionBox.xaml;View\UserControls\FilterBox.xaml;View\UserControls\ScalerBox.xaml;View\UserControls\ToggleSwitch.xaml;View\About_Window.xaml;
 
 False

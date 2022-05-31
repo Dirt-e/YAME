@@ -664,6 +664,12 @@ namespace YAME.Model
         bool IsPatched_XPlane()
         {
             List<string> allPaths = All_Xplane_Installations();
+
+            if (allPaths.Count == 0)
+            {
+                return false;
+            }
+
             string MyPlugin = allPaths.Last()+ @"\Resources\plugins" + Properties.Settings.Default.Patcher_Xplane_Exporter;
 
             if (Directory.Exists(MyPlugin))

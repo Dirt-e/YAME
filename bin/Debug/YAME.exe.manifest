@@ -218,17 +218,17 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ewfaqo4cf+jPXk+b+QkJOAPkqbCqME5OsWtGgpcgPAE=</dsig:DigestValue>
+        <dsig:DigestValue>LYp8hWESfMsqdDtZRK9JX8HjJp+FMm/XQEq1I+x6TX4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Resources\FS2020\FS2020_MotionExporter.exe" size="52224">
+  <file name="Resources\FS2020\FS2020_MotionExporter.exe" size="52736">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>3jqvRskQtICiHTXI6BxSHIDDVHkbfGgPl3XurRW8HYs=</dsig:DigestValue>
+      <dsig:DigestValue>x1TbKV6hbO3Vmr6ACSPp/lHlbtRy+AwYnm2hyi6SuU8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="YAME.exe.config" size="37247">
