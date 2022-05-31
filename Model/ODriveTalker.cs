@@ -17,7 +17,7 @@ namespace YAME.Model
         public SerialPort serialport = new SerialPort();
         MessageGenerator_Odrive messageGenerator_Odrive = new MessageGenerator_Odrive();
 
-        private const int BaudRate = 250000;
+        private const int BaudRate = 115200;
         private const int WriteTimeout = 2000;
 
         #region ViewModel
@@ -138,7 +138,23 @@ namespace YAME.Model
                 }
                 else            //Wanna switch it off?
                 {
-                    if (serialport.IsOpen) serialport.Close();
+                    try
+                    {
+                        if (serialport.IsOpen)
+                        {
+                            serialport.Close();
+                        }
+                    }
+                    catch (IOException)
+                    {
+                        MessageBox.Show($"Uhmm,... cough-cough, I am no longer able to talk to " +
+                            $"{_odrive_number} on {COM_Port}. Did you just unplug it?",
+                            $"What happened to {_odrive_number}?",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error,
+                            MessageBoxResult.OK,
+                            MessageBoxOptions.DefaultDesktopOnly);
+                    }
                     _isopen = false;
                 }
 
