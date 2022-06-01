@@ -192,7 +192,7 @@
     <Compile Include="Model\PhantomRig.cs" />
     <Compile Include="Model\ScalerModule.cs" />
     <Compile Include="Model\ScalerSystem.cs" />
-    <Compile Include="Model\SerialTalker.cs" />
+    <Compile Include="Model\AASD_Talker.cs" />
     <Compile Include="Model\RecoveryLogic.cs" />
     <Compile Include="Model\ODriveTalker.cs" />
     <Compile Include="Model\SnappyDragger.cs" />
@@ -262,11 +262,11 @@
     <Compile Include="View\SceneView_Window.xaml.cs">
       <DependentUpon>SceneView_Window.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ODriveTalker_Window.xaml.cs">
-      <DependentUpon>ODriveTalker_Window.xaml</DependentUpon>
+    <Compile Include="View\OutputODrive_Window.xaml.cs">
+      <DependentUpon>OutputODrive_Window.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AASD_Talker_Window.xaml.cs">
-      <DependentUpon>AASD_Talker_Window.xaml</DependentUpon>
+    <Compile Include="View\OutputAASD_Window.xaml.cs">
+      <DependentUpon>OutputAASD_Window.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls\ClickSelectTextBox.cs" />
     <Compile Include="View\UserControls\CompressionBox.xaml.cs">
@@ -341,11 +341,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ODriveTalker_Window.xaml">
+    <Page Include="View\OutputODrive_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AASD_Talker_Window.xaml">
+    <Page Include="View\OutputAASD_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

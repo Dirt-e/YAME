@@ -1322,36 +1322,36 @@ namespace YAME.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("500")]
-        public float Window_SerialConnection_Position_X {
+        public float Window_OutputAASD_Position_X {
             get {
-                return ((float)(this["Window_SerialConnection_Position_X"]));
+                return ((float)(this["Window_OutputAASD_Position_X"]));
             }
             set {
-                this["Window_SerialConnection_Position_X"] = value;
+                this["Window_OutputAASD_Position_X"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("500")]
-        public float Window_SerialConnection_Position_Y {
+        public float Window_OutputAASD_Position_Y {
             get {
-                return ((float)(this["Window_SerialConnection_Position_Y"]));
+                return ((float)(this["Window_OutputAASD_Position_Y"]));
             }
             set {
-                this["Window_SerialConnection_Position_Y"] = value;
+                this["Window_OutputAASD_Position_Y"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Window_SerialConnection_IsOpen {
+        public bool Window_OutputAASD_IsOpen {
             get {
-                return ((bool)(this["Window_SerialConnection_IsOpen"]));
+                return ((bool)(this["Window_OutputAASD_IsOpen"]));
             }
             set {
-                this["Window_SerialConnection_IsOpen"] = value;
+                this["Window_OutputAASD_IsOpen"] = value;
             }
         }
         
@@ -1694,36 +1694,36 @@ namespace YAME.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("20")]
-        public float Window_SerialConnection2_Position_X {
+        public float Window_OutputODrive_Position_X {
             get {
-                return ((float)(this["Window_SerialConnection2_Position_X"]));
+                return ((float)(this["Window_OutputODrive_Position_X"]));
             }
             set {
-                this["Window_SerialConnection2_Position_X"] = value;
+                this["Window_OutputODrive_Position_X"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("20")]
-        public float Window_SerialConnection2_Position_Y {
+        public float Window_OutputODrive_Position_Y {
             get {
-                return ((float)(this["Window_SerialConnection2_Position_Y"]));
+                return ((float)(this["Window_OutputODrive_Position_Y"]));
             }
             set {
-                this["Window_SerialConnection2_Position_Y"] = value;
+                this["Window_OutputODrive_Position_Y"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Window_SerialConnection2_IsOpen {
+        public bool Window_OutputODrive_IsOpen {
             get {
-                return ((bool)(this["Window_SerialConnection2_IsOpen"]));
+                return ((bool)(this["Window_OutputODrive_IsOpen"]));
             }
             set {
-                this["Window_SerialConnection2_IsOpen"] = value;
+                this["Window_OutputODrive_IsOpen"] = value;
             }
         }
         
@@ -1766,12 +1766,24 @@ namespace YAME.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("10")]
-        public int ODriveTalker_Lead {
+        public int ODriveSystem_Lead {
             get {
-                return ((int)(this["ODriveTalker_Lead"]));
+                return ((int)(this["ODriveSystem_Lead"]));
             }
             set {
-                this["ODriveTalker_Lead"] = value;
+                this["ODriveSystem_Lead"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("q  0 <value0>\\\\nq 0 <value1>")]
+        public string ODriveSystem_FormatString {
+            get {
+                return ((string)(this["ODriveSystem_FormatString"]));
+            }
+            set {
+                this["ODriveSystem_FormatString"] = value;
             }
         }
     }

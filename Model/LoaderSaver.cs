@@ -214,13 +214,14 @@ namespace YAME.Model
             //because COM ports are assigned during runtime
 
             string name = Properties.Settings.Default.SerialTalker_LastUsed_HardwareController;
-            engine.serialtalker.Controller = (ControllerType)Enum.Parse(typeof(ControllerType), name);
+            engine.aasd_talker.Controller = (ControllerType)Enum.Parse(typeof(ControllerType), name);
         }
         void Load_ODrive_OutputSettings_Application()
         {
             //COM port is handled inside "ODriveTalker_Window.xaml.cs" Window_Loaded Event
 
-            engine.odrivesystem.Lead = Properties.Settings.Default.ODriveTalker_Lead;
+            engine.odrivesystem.Lead            = Properties.Settings.Default.ODriveSystem_Lead;
+            engine.odrivesystem.FormatString    = Properties.Settings.Default.ODriveSystem_FormatString;
         }
 
         //---------------- Save -----------------------
@@ -396,7 +397,7 @@ namespace YAME.Model
         }
         void Save_AASD_OutputSettings_Application()
         {
-            Properties.Settings.Default.SerialTalker_LastUsed_HardwareController = engine.serialtalker.Controller.ToString();
+            Properties.Settings.Default.SerialTalker_LastUsed_HardwareController = engine.aasd_talker.Controller.ToString();
         }
         void Save_ODrive_OutputSettings_Application()
         {
@@ -416,14 +417,15 @@ namespace YAME.Model
                     engine.odrivesystem.oDriveTalkers[2].COM_Port.ToString();
             }
 
-            Properties.Settings.Default.ODriveTalker_Lead = engine.odrivesystem.Lead;
+            Properties.Settings.Default.ODriveSystem_Lead           = engine.odrivesystem.Lead;
+            Properties.Settings.Default.ODriveSystem_FormatString   = engine.odrivesystem.FormatString;
         }
         #endregion
         #region To/from Profile:
         //------------------ Load ------------------------
         public void Load_Profile()
         {
-            if (engine.serialtalker.IsOpen)
+            if (engine.aasd_talker.IsOpen)
             {
                 MessageBox.Show(
                     "You wanna load a profile while the rig is hot? I'm tellin'ya " +
@@ -452,7 +454,8 @@ namespace YAME.Model
                 Load_ScalerSettings_Profile();
                 Load_ZeromakerSettings_Profile();
                 Load_DOF_Override_Profile();
-                Load_SerialTalkerSettings_Profile();
+                Load_AASDTalker_Settings_Profile();
+                Load_ODriveTalker_Settings_Profile();
             }
         }
         void Load_CrashDetectorThresholds_Profile()
@@ -586,12 +589,20 @@ namespace YAME.Model
             engine.dof_override.RangePitchLFC   = saveObject.RangePitchLFC;
             engine.dof_override.RangeRollLFC    = saveObject.RangeRollLFC;
         }
-        void Load_SerialTalkerSettings_Profile()
+        void Load_AASDTalker_Settings_Profile()
         {
             //COM port is handled inside "SerialConnectionWindow.xaml.cs",
             //because COM ports are assigned during runtime
 
-            engine.serialtalker.Controller = saveObject.SerialTalker_ControllerType;
+            engine.aasd_talker.Controller = saveObject.AASDTalker_ControllerType;
+        }
+        void Load_ODriveTalker_Settings_Profile()
+        {
+            //COM port is handled inside "OutputODrive_Window.xaml.cs",
+            //because COM ports are assigned during runtime
+
+            engine.odrivesystem.FormatString    = saveObject.FormatString;
+            engine.odrivesystem.Lead            = saveObject.Lead;
         }
 
         //---------------- Save -----------------------
@@ -613,7 +624,8 @@ namespace YAME.Model
             Save_ScalerSettings_Profile();
             Save_ZeromakerSettings_Profile();
             Save_DOF_Override_Profile();
-            Save_SerialTalkerSettings_Profile();
+            Save_AASDTalker_Settings_Profile();
+            Save_ODriveTalker_Settings_Profile();
 
             var options = new JsonSerializerOptions { WriteIndented = true };
             string json = JsonSerializer.Serialize(saveObject, options);
@@ -750,9 +762,14 @@ namespace YAME.Model
             saveObject.RangePitchLFC    = engine.dof_override.RangePitchLFC;
             saveObject.RangeRollLFC     = engine.dof_override.RangeRollLFC;
         }
-        void Save_SerialTalkerSettings_Profile()
+        void Save_AASDTalker_Settings_Profile()
         {
-            saveObject.SerialTalker_ControllerType = engine.serialtalker.Controller;
+            saveObject.AASDTalker_ControllerType = engine.aasd_talker.Controller;
+        }
+        void Save_ODriveTalker_Settings_Profile()
+        {
+            saveObject.FormatString = engine.odrivesystem.FormatString;
+            saveObject.Lead         = engine.odrivesystem.Lead;
         }
         #endregion
 

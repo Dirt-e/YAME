@@ -15,7 +15,7 @@ namespace YAME.Model
     public class ODriveTalker : MyObject
     {
         public SerialPort serialport = new SerialPort();
-        MessageGenerator_Odrive messageGenerator_Odrive = new MessageGenerator_Odrive();
+        public MessageGenerator_Odrive messageGenerator_Odrive = new MessageGenerator_Odrive();
 
         private const int BaudRate = 115200;
         private const int WriteTimeout = 2000;
@@ -77,18 +77,18 @@ namespace YAME.Model
                     if (serialport.IsOpen)
                     {
                         MessageBox.Show("You are trying to open a serial connection that is already open! " +
-                                            "That is very strange. If you can consistently reproduce this, definitely shoot us an " +
-                                            "email to bugs@hexago-motion.com.",
-                                            "Serial port already open :-/",
-                                            MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                            "That is very strange. If you can consistently reproduce this, definitely shoot us an " +
+                            "email to bugs@hexago-motion.com.",
+                            "Serial port already open :-/",
+                            MessageBoxButton.OK, MessageBoxImage.Exclamation);
                         return;
                     }
                     if (COM_Port == null)
                     {
                         MessageBox.Show("You have to select a COM port from the dropdown list before you can open it.",
-                                            "No COM port selected!",
-                                            MessageBoxButton.OK,
-                                            MessageBoxImage.Exclamation);
+                            "No COM port selected!",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Exclamation);
                         _isopen = false;
                         return;
                     }
@@ -99,13 +99,13 @@ namespace YAME.Model
                     if (!engine.actuatorsystem.Is_AllActuatorsFullyRetracted)
                     {
                         MessageBoxResult result = MessageBox.Show(
-                                            "You're trying to send data to the motion controller. However, the data you're about to send " +
-                                            "is telling the controller to move the rig to a position where it most probably isn't " +
-                                            "at this moment. If your controller is active and online YOUR RIG COULD POTENTIALLY MAKE A HUGE JOLT!\n" +
-                                            "\n" +
-                                            "Do you really know what you're doing?",
-                                            "HOT RIG WARNING",
-                                            MessageBoxButton.YesNo, MessageBoxImage.Stop);
+                            "You're trying to send data to the motion controller. However, the data you're about to send " +
+                            "is telling the controller to move the rig to a position where it most probably isn't " +
+                            "at this moment. If your controller is active and online YOUR RIG COULD POTENTIALLY MAKE A HUGE JOLT!\n" +
+                            "\n" +
+                            "Do you really know what you're doing?",
+                            "HOT RIG WARNING",
+                            MessageBoxButton.YesNo, MessageBoxImage.Stop);
                         if (result == MessageBoxResult.No)
                         {
                             _isopen = false;
@@ -125,12 +125,13 @@ namespace YAME.Model
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show($"Unable to open {COM_Port}. Are you sure that this is the controller you're looking for?",
-                                            "Unable to open COM port",
-                                            MessageBoxButton.OK, 
-                                            MessageBoxImage.Error,
-                                            MessageBoxResult.OK,
-                                            MessageBoxOptions.DefaultDesktopOnly);
+                        MessageBox.Show($"Unable to open {COM_Port}. Are you sure that this is the controller you're looking for? " +
+                            $"Could it be that this controller is already in use?",
+                            "Unable to open COM port",
+                            MessageBoxButton.OK, 
+                            MessageBoxImage.Error,
+                            MessageBoxResult.OK,
+                            MessageBoxOptions.DefaultDesktopOnly);
                         serialport.Close();
                         _isopen = false;
                     }
@@ -170,15 +171,14 @@ namespace YAME.Model
             OdriveNumber = odrive_number;
         }
 
-        public void Update(float revs1, float revs2)
+        public void Update(float revs1, float revs2, string formatstring)
         {
             if (serialport.IsOpen)
             {
-                Message = messageGenerator_Odrive.ComposeMessageFrom(revs1, revs2);
+                Message = messageGenerator_Odrive.ComposeMessageFrom(revs1, revs2, formatstring);
                 UI_Message = Message;
 
-                byte[] bytes_ODrive = Encoding.ASCII.GetBytes(Message);
-                Write(bytes_ODrive);
+                Write(Message);
             }
             else
             {
@@ -186,15 +186,15 @@ namespace YAME.Model
             }
 
         }
-        void Write(byte[] msg)
+        void Write(string msg)
         {
             if (serialport.IsOpen)
             {
                 try
                 {
-                    serialport.Write(msg, 0, msg.Length);
+                    serialport.WriteLine(msg);
                 }
-                catch (Exception)
+                catch(TimeoutException)
                 {
                     IsOpen = false;
                     UI_Message = "Conection timed out";
@@ -202,6 +202,18 @@ namespace YAME.Model
                     MessageBox.Show($"Write timeout after {WriteTimeout}ms.\n" +
                         $"Looks like {OdriveNumber} on {COM_Port} is not responding.",
                         "Write Timeout",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Exclamation,
+                        MessageBoxResult.OK,
+                        MessageBoxOptions.DefaultDesktopOnly);
+                }
+                catch (Exception)
+                {
+                    IsOpen = false;
+                    UI_Message = "Conection Lost";
+
+                    MessageBox.Show($"I lost connection with {OdriveNumber} on {COM_Port}.",
+                        "Lost Connection",
                         MessageBoxButton.OK,
                         MessageBoxImage.Exclamation,
                         MessageBoxResult.OK,

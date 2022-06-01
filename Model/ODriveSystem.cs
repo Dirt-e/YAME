@@ -41,6 +41,13 @@ namespace YAME.Model
             }
         }
 
+        string _formatstring;
+        public string FormatString
+        { 
+            get { return _formatstring; } 
+            set { _formatstring = value; OnPropertyChanged(nameof(FormatString)); } 
+        }    
+
         public ODriveSystem(Engine e)
         {
             engine = e;
@@ -60,9 +67,9 @@ namespace YAME.Model
                 revolutions[i] = ss.values[i] * revolutionsPerFullStroke;
             }
 
-            oDriveTalkers[0].Update(revolutions[0], revolutions[1]);
-            oDriveTalkers[1].Update(revolutions[2], revolutions[3]);
-            oDriveTalkers[2].Update(revolutions[4], revolutions[5]);
+            oDriveTalkers[0].Update(revolutions[0], revolutions[1], FormatString);
+            oDriveTalkers[1].Update(revolutions[2], revolutions[3], FormatString);
+            oDriveTalkers[2].Update(revolutions[4], revolutions[5], FormatString);
         }
     }
 }

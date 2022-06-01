@@ -39,7 +39,7 @@ namespace YAME.Model
         public IK_Module                IK_Module;
         public ActuatorSystem           actuatorsystem;
         public Actuator_Override        actuatoroverride;
-        public SerialTalker             serialtalker;
+        public AASD_Talker              aasd_talker;
         public ODriveSystem             odrivesystem;
         public Logger                   logger;
         //...
@@ -137,7 +137,7 @@ namespace YAME.Model
             IK_Module               = new IK_Module(integrator as Integrator_basic);
             actuatorsystem          = new ActuatorSystem(IK_Module);
             actuatoroverride        = new Actuator_Override() ;
-            serialtalker            = new SerialTalker(this);
+            aasd_talker             = new AASD_Talker(this);
             odrivesystem            = new ODriveSystem(this);
             logger                  = new Logger(this);
         }
@@ -160,7 +160,7 @@ namespace YAME.Model
             IK_Module.Update();
             actuatorsystem.Update();
             actuatoroverride.Process(actuatorsystem.Output);
-            serialtalker.Update(actuatoroverride.Output);
+            aasd_talker.Update(actuatoroverride.Output);
             odrivesystem.Process(actuatoroverride.Output);
             logger.Update();
         }

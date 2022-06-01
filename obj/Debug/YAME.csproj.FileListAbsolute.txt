@@ -151,10 +151,6 @@ D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\Actuator_Override_Window.g.cs
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\DOF_Override_Window.g.cs
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\Actuator_Override_Window.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\DOF_Override_Window.baml
-D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\ODriveTalker_Window.g.cs
-D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\ODriveTalker_Window.baml
-D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\AASD_Talker_Window.g.cs
-D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\AASD_Talker_Window.baml
 \\Mac\Home\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\Actuator_Override_Window.g.cs
 \\Mac\Home\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\AlphaCompensation_Window.g.cs
 \\Mac\Home\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\CrashDetector_Window.g.cs
@@ -182,3 +178,7 @@ D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\AASD_Talker_Window.baml
 \\Mac\Home\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\ODriveTalker_Window.baml
 \\Mac\Home\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\AASD_Talker_Window.baml
 \\Mac\Home\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\About_Window.baml
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\OutputODrive_Window.g.cs
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\OutputAASD_Window.g.cs
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\OutputODrive_Window.baml
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\OutputAASD_Window.baml

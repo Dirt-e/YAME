@@ -12,12 +12,19 @@ namespace YAME.Model
     public class MessageGenerator_Odrive : MyObject
     {
         //Use 'p' for real time position streaming. See here: https://docs.odriverobotics.com/v/beta/ascii-protocol.html#motor-position
-        string Command = "q";       //Can eventually be replaced by a Binding!
-        
-        public string ComposeMessageFrom(float f1, float f2)
+
+        public string ComposeMessageFrom(float f1, float f2, string formatstring)
         {
-            //return $"{Command} 0 {f1}\n{Command} 1 {f2}";
-            return $"{Command} 0 {f1}\n";
+            //Example FormatString: "q 0 [value0]"
+            //Example FormatString: "q 0 [value0][newline]q 1 [value1]"
+
+            StringBuilder sb = new StringBuilder(formatstring);
+
+            sb.Replace("[value0]", f1.ToString("F6"));
+            sb.Replace("[newline]", "\n");
+            sb.Replace("[value1]", f2.ToString("F6"));
+
+            return sb.ToString();
         }
     }
 }

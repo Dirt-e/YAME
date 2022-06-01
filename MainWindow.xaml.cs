@@ -46,8 +46,8 @@ namespace YAME
         SceneViewWindow             sceneViewWindow;
         RigConfigWindow             rigConfigWindow;
         MotionControl_Window        motionControlWindow;
-        AASD_Talker_Window     serialConnectionWindow;
-        ODriveTalker_Window         serialConnection2Window;
+        OutputAASD_Window           outputAASD_Window;
+        OutputODrive_Window         outputODrive_Window;
         Patcher_Window              patcherWindow;
         AboutWindow                 aboutWindow;
 
@@ -99,14 +99,13 @@ namespace YAME
             if (Properties.Settings.Default.Window_DOFs_IsOpen)                 mnuDOFs.IsChecked               = true;
             if (Properties.Settings.Default.Window_ActuatorOverride_IsOpen)     mnuActuatorOverride.IsChecked   = true;
             if (Properties.Settings.Default.Window_Filters_IsOpen)              mnuFilters.IsChecked            = true;
-            if (Properties.Settings.Default.Window_Graphs_IsOpen)               mnuGraphs.IsChecked             = true;
             if (Properties.Settings.Default.Window_MotionControl_IsOpen)        mnuMotionControl.IsChecked      = true;
             if (Properties.Settings.Default.Window_PositionCorrection_IsOpen)   mnuPositionCorrection.IsChecked = true;
             if (Properties.Settings.Default.Window_RawData_IsOpen)              mnuRawData.IsChecked            = true;
             if (Properties.Settings.Default.Window_RigConfig_IsOpen)            mnuRigConfig.IsChecked          = true;
             if (Properties.Settings.Default.Window_SceneView_IsOpen)            mnuSceneView.IsChecked          = true;
-            if (Properties.Settings.Default.Window_SerialConnection_IsOpen)     mnuSerialConnection.IsChecked   = true;
-            if (Properties.Settings.Default.Window_SerialConnection2_IsOpen)    mnuSerialConnection2.IsChecked  = true;
+            if (Properties.Settings.Default.Window_OutputAASD_IsOpen)           mnuOutputAASD.IsChecked         = true;
+            if (Properties.Settings.Default.Window_OutputODrive_IsOpen)         mnuOutputODrive.IsChecked       = true;
             if (Properties.Settings.Default.Window_Patcher_IsOpen)              mnuHdr_Patcher_Click(this, new EventArgs() as RoutedEventArgs);
         }
         //Window_Closing:
@@ -124,8 +123,8 @@ namespace YAME
             Properties.Settings.Default.Window_SceneView_IsOpen             = false;
             Properties.Settings.Default.Window_RigConfig_IsOpen             = false;
             Properties.Settings.Default.Window_MotionControl_IsOpen         = false;
-            Properties.Settings.Default.Window_SerialConnection_IsOpen      = false;
-            Properties.Settings.Default.Window_SerialConnection2_IsOpen     = false;
+            Properties.Settings.Default.Window_OutputAASD_IsOpen      = false;
+            Properties.Settings.Default.Window_OutputODrive_IsOpen     = false;
             Properties.Settings.Default.Window_Patcher_IsOpen               = false;
 
             //Then set only the ones that were open to "true"
@@ -166,11 +165,11 @@ namespace YAME
                     case nameof(motionControlWindow):
                         Properties.Settings.Default.Window_MotionControl_IsOpen         = true;
                         break;
-                    case nameof(serialConnectionWindow):
-                        Properties.Settings.Default.Window_SerialConnection_IsOpen      = true;
+                    case nameof(outputAASD_Window):
+                        Properties.Settings.Default.Window_OutputAASD_IsOpen      = true;
                         break;
-                    case nameof(serialConnection2Window):
-                        Properties.Settings.Default.Window_SerialConnection2_IsOpen     = true;
+                    case nameof(outputODrive_Window):
+                        Properties.Settings.Default.Window_OutputODrive_IsOpen     = true;
                         break;
                     case nameof(patcherWindow):
                         Properties.Settings.Default.Window_Patcher_IsOpen               = true;
@@ -344,28 +343,28 @@ namespace YAME
             motionControlWindow?.Close();
         }
 
-        private void mnuSerialConnection_Checked(object sender, RoutedEventArgs e)
+        private void mnu_OutputAASD_Checked(object sender, RoutedEventArgs e)
         {
-            serialConnectionWindow = new AASD_Talker_Window();
-            serialConnectionWindow.Owner = this;
-            serialConnectionWindow.Name = nameof(serialConnectionWindow);
-            serialConnectionWindow.Show();
+            outputAASD_Window = new OutputAASD_Window();
+            outputAASD_Window.Owner = this;
+            outputAASD_Window.Name = nameof(outputAASD_Window);
+            outputAASD_Window.Show();
         }
-        private void mnuSerialConnection_Unchecked(object sender, RoutedEventArgs e)
+        private void mnu_OutputAASD_Unchecked(object sender, RoutedEventArgs e)
         {
-            serialConnectionWindow?.Close();
+            outputAASD_Window?.Close();
         }
 
-        private void mnuSerialConnection2_Checked(object sender, RoutedEventArgs e)
+        private void mnu_OutputOdrive_Checked(object sender, RoutedEventArgs e)
         {
-            serialConnection2Window = new ODriveTalker_Window();
-            serialConnection2Window.Owner = this;
-            serialConnection2Window.Name = nameof(serialConnection2Window);
-            serialConnection2Window.Show();
+            outputODrive_Window = new OutputODrive_Window();
+            outputODrive_Window.Owner = this;
+            outputODrive_Window.Name = nameof(outputODrive_Window);
+            outputODrive_Window.Show();
         }
-        private void mnuSerialConnection2_Unchecked(object sender, RoutedEventArgs e)
+        private void mnu_OutputODrive_Unchecked(object sender, RoutedEventArgs e)
         {
-            serialConnection2Window?.Close();
+            outputODrive_Window?.Close();
         }
         
         private void mnuOpenAll_Click(object sender, RoutedEventArgs e)
@@ -375,14 +374,14 @@ namespace YAME
             mnuDOFs.IsChecked                   = true;
             mnuActuatorOverride.IsChecked       = true;
             mnuFilters.IsChecked                = true;
-            mnuGraphs.IsChecked                 = true;
+            //mnuGraphs.IsChecked                 = true;
             mnuMotionControl.IsChecked          = true;
             mnuPositionCorrection.IsChecked     = true;
             mnuRawData.IsChecked                = true;
             mnuRigConfig.IsChecked              = true;
             mnuSceneView.IsChecked              = true;
-            mnuSerialConnection.IsChecked       = true;
-            mnuSerialConnection2.IsChecked      = true;
+            mnuOutputAASD.IsChecked       = true;
+            mnuOutputODrive.IsChecked      = true;
         }
         private void mnuCloseAll_Click(object sender, RoutedEventArgs e)
         {
@@ -391,14 +390,14 @@ namespace YAME
             mnuDOFs.IsChecked               = false;
             mnuActuatorOverride.IsChecked   = false;
             mnuFilters.IsChecked            = false;
-            mnuGraphs.IsChecked             = false;
+            //mnuGraphs.IsChecked             = false;
             mnuMotionControl.IsChecked      = false;
             mnuPositionCorrection.IsChecked = false;
             mnuRawData.IsChecked            = false;
             mnuRigConfig.IsChecked          = false;
             mnuSceneView.IsChecked          = false;
-            mnuSerialConnection.IsChecked   = false;
-            mnuSerialConnection2.IsChecked  = false;
+            mnuOutputAASD.IsChecked   = false;
+            mnuOutputODrive.IsChecked  = false;
         }
         
         //---------- ? ------------

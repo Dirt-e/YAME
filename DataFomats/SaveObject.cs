@@ -137,8 +137,12 @@ namespace YAME.DataFomats
         public float RangePitchLFC  { get; set; }
         public float RangeRollLFC   { get; set; }
         #endregion
-        #region SerialTalker
-        public ControllerType SerialTalker_ControllerType { get; set; }
+        #region AASDlTalker
+        public ControllerType AASDTalker_ControllerType { get; set; }
+        #endregion
+        #region ODriveTalker
+        public int Lead { get; set; }
+        public string FormatString { get; set; }
         #endregion
     }
 }
