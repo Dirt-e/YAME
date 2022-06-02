@@ -52,5 +52,11 @@ namespace YAME.View
         {
             snappydragger.StopDrag();
         }
+
+        private void Red_X_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var mw = System.Windows.Application.Current.MainWindow as MainWindow;
+            mw.mnuAlphaCompensation.IsChecked = false;
+        }
     }
 }

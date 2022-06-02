@@ -39,7 +39,7 @@
                             IsChecked="False"
                             Checked="mnuCrashDetector_Checked"
                             Unchecked="mnuCrashDetector_Unchecked"/>
-                <MenuItem   Header="_Position Correction"
+                <MenuItem   Header="_Position Offset"
                             x:Name="mnuPositionCorrection"
                             IsCheckable="True"
                             IsChecked="False"

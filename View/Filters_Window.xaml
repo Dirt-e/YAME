@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YAME.View"
-        xmlns:controls="clr-namespace:YAME.View.UserControls"
+        xmlns:Controls="clr-namespace:YAME.View.UserControls"
         mc:Ignorable="d"
         Title="FiltersWindow" Height="620" Width="800" WindowStartupLocation="Manual"
         MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseLeftButtonUp="Window_MouseLeftButtonUp"
@@ -30,8 +30,8 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0"/>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="20"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
@@ -46,22 +46,27 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <!--Headers-->
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Filters:"    Padding="2"  FontSize="15" FontWeight="Bold" Grid.ColumnSpan="6"/>
+        <Controls:Red_X Grid.ColumnSpan="20" Width="12" Height="12" Margin="3"
+                        HorizontalAlignment="Right" VerticalAlignment="Top" 
+                        MouseLeftButtonDown="Red_X_MouseLeftButtonDown"/>
+        
         <TextBlock  Text="Inv:" Grid.Column="2"  Grid.Row="1" HorizontalAlignment="Center"  VerticalAlignment="Center"
-                    FontSize="15" FontWeight="Bold"/>
+                    FontSize="12" FontWeight="Bold"/>
         <Border     Grid.Column="2" Grid.Row="1" BorderBrush="Gray" Margin="2,2,2,2" BorderThickness="0,0,0,2" Grid.ColumnSpan="2"/>
         <TextBlock  Text="Filters:"  Grid.Row="1" Grid.Column="5"
-                    FontSize="15" FontWeight="Bold" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                    FontSize="12" FontWeight="Bold" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
         <Border     Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="3" BorderBrush="Gray" Margin="2,2,2,2" BorderThickness="0,0,0,2"/>
         <TextBlock  Text="Compression:"  Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2"
-                    FontSize="15" FontWeight="Bold" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="34,0,0,0"/>
+                    FontSize="12" FontWeight="Bold" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="34,0,0,0"/>
         <Border     Grid.Column="8" Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="Gray" Margin="2,2,2,2" BorderThickness="0,0,0,2"/>
         <TextBlock  Text="Scaling:"  Grid.Row="1" Grid.Column="11"
-                    FontSize="15" FontWeight="Bold" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                    FontSize="12" FontWeight="Bold" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
         <Border     Grid.Column="11" Grid.Row="1" BorderBrush="Gray" Margin="2,2,2,2" BorderThickness="0,0,0,2"/>
-        <TextBlock  Text="Zero:"  Grid.Row="1" Grid.Column="12" FontSize="15" FontWeight="Bold"
+        <TextBlock  Text="Zero:"  Grid.Row="1" Grid.Column="12" FontSize="12" FontWeight="Bold"
                     HorizontalAlignment="Center"  VerticalAlignment="Center"/>
         <Border     Grid.Column="12" Grid.Row="1" BorderBrush="Gray" Margin="2,2,2,2" BorderThickness="0,0,0,2"/>
-        <TextBlock  Text="Isolate:"  Grid.Row="1" Grid.Column="13" FontSize="15" FontWeight="Bold"
+        <TextBlock  Text="Isolate:"  Grid.Row="1" Grid.Column="13" FontSize="12" FontWeight="Bold"
                     HorizontalAlignment="Center"  VerticalAlignment="Center"/>
         <Border     Grid.Column="13" Grid.Row="1" BorderBrush="Gray" Margin="2,2,2,2" BorderThickness="0,0,0,2"/>
 
@@ -94,49 +99,49 @@
                   IsChecked="{Binding InvertAz, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                   Style="{StaticResource CheckBox_Style}"/>
         <!--Filtering-->
-        <controls:FilterBox x:Name="filterbox_wx_HP"        Grid.Column="4" Grid.Row="2"/>
-        <controls:FilterBox x:Name="filterbox_wx_HP_LP"     Grid.Column="5" Grid.Row="2" />
-        <controls:FilterBox x:Name="filterbox_wy_HP"        Grid.Column="4" Grid.Row="3"/>
-        <controls:FilterBox x:Name="filterbox_wy_HP_LP"     Grid.Column="5" Grid.Row="3"/>
-        <controls:FilterBox x:Name="filterbox_wz_HP"        Grid.Column="4" Grid.Row="4"/>
-        <controls:FilterBox x:Name="filterbox_wz_HP_LP"     Grid.Column="5" Grid.Row="4"/>
+        <Controls:FilterBox x:Name="filterbox_wx_HP"        Grid.Column="4" Grid.Row="2"/>
+        <Controls:FilterBox x:Name="filterbox_wx_HP_LP"     Grid.Column="5" Grid.Row="2" />
+        <Controls:FilterBox x:Name="filterbox_wy_HP"        Grid.Column="4" Grid.Row="3"/>
+        <Controls:FilterBox x:Name="filterbox_wy_HP_LP"     Grid.Column="5" Grid.Row="3"/>
+        <Controls:FilterBox x:Name="filterbox_wz_HP"        Grid.Column="4" Grid.Row="4"/>
+        <Controls:FilterBox x:Name="filterbox_wz_HP_LP"     Grid.Column="5" Grid.Row="4"/>
 
-        <controls:FilterBox x:Name="filterbox_ax_HP"        Grid.Column="4" Grid.Row="6"/>
-        <controls:FilterBox x:Name="filterbox_ax_HP_LP2"    Grid.Column="5" Grid.Row="6" Grid.ColumnSpan="2"/>
-        <controls:FilterBox x:Name="filterbox_ax_LP3"       Grid.Column="4" Grid.Row="7" Grid.ColumnSpan="3"/>
+        <Controls:FilterBox x:Name="filterbox_ax_HP"        Grid.Column="4" Grid.Row="6"/>
+        <Controls:FilterBox x:Name="filterbox_ax_HP_LP2"    Grid.Column="5" Grid.Row="6" Grid.ColumnSpan="2"/>
+        <Controls:FilterBox x:Name="filterbox_ax_LP3"       Grid.Column="4" Grid.Row="7" Grid.ColumnSpan="3"/>
 
-        <controls:FilterBox x:Name="filterbox_ay_HP"        Grid.Column="4" Grid.Row="9"/>
-        <controls:FilterBox x:Name="filterbox_ay_HP_LP2"    Grid.Column="5" Grid.Row="9" Grid.ColumnSpan="2"/>
+        <Controls:FilterBox x:Name="filterbox_ay_HP"        Grid.Column="4" Grid.Row="9"/>
+        <Controls:FilterBox x:Name="filterbox_ay_HP_LP2"    Grid.Column="5" Grid.Row="9" Grid.ColumnSpan="2"/>
 
-        <controls:FilterBox x:Name="filterbox_az_HP"        Grid.Column="4" Grid.Row="11"/>
-        <controls:FilterBox x:Name="filterbox_az_HP_LP2"    Grid.Column="5" Grid.Row="11" Grid.ColumnSpan="2"/>
-        <controls:FilterBox x:Name="filterbox_az_LP3"       Grid.Column="4" Grid.Row="12" Grid.ColumnSpan="3"/>
+        <Controls:FilterBox x:Name="filterbox_az_HP"        Grid.Column="4" Grid.Row="11"/>
+        <Controls:FilterBox x:Name="filterbox_az_HP_LP2"    Grid.Column="5" Grid.Row="11" Grid.ColumnSpan="2"/>
+        <Controls:FilterBox x:Name="filterbox_az_LP3"       Grid.Column="4" Grid.Row="12" Grid.ColumnSpan="3"/>
 
         <!--Compression-->
-        <controls:CompressionBox x:Name="cmprbx_Roll_HFC"   Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="2"/>
-        <controls:CompressionBox x:Name="cmprbx_Yaw_HFC"    Grid.Column="8" Grid.Row="3" Grid.ColumnSpan="2"/>
-        <controls:CompressionBox x:Name="cmprbx_Pitch_HFC"  Grid.Column="8" Grid.Row="4" Grid.ColumnSpan="2"/>
+        <Controls:CompressionBox x:Name="cmprbx_Roll_HFC"   Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <Controls:CompressionBox x:Name="cmprbx_Yaw_HFC"    Grid.Column="8" Grid.Row="3" Grid.ColumnSpan="2"/>
+        <Controls:CompressionBox x:Name="cmprbx_Pitch_HFC"  Grid.Column="8" Grid.Row="4" Grid.ColumnSpan="2"/>
 
-        <controls:CompressionBox x:Name="cmprbx_Surge_HFC"  Grid.Column="8" Grid.Row="6" Grid.ColumnSpan="2"/>
-        <controls:CompressionBox x:Name="cmprbx_Pitch_LFC"  Grid.Column="8" Grid.Row="7" Grid.ColumnSpan="2"/>
+        <Controls:CompressionBox x:Name="cmprbx_Surge_HFC"  Grid.Column="8" Grid.Row="6" Grid.ColumnSpan="2"/>
+        <Controls:CompressionBox x:Name="cmprbx_Pitch_LFC"  Grid.Column="8" Grid.Row="7" Grid.ColumnSpan="2"/>
 
-        <controls:CompressionBox x:Name="cmprbx_Heave_HFC"  Grid.Column="8" Grid.Row="9" Grid.ColumnSpan="2"/>
+        <Controls:CompressionBox x:Name="cmprbx_Heave_HFC"  Grid.Column="8" Grid.Row="9" Grid.ColumnSpan="2"/>
 
-        <controls:CompressionBox x:Name="cmprbx_Sway_HFC"   Grid.Column="8" Grid.Row="11" Grid.ColumnSpan="2"/>
-        <controls:CompressionBox x:Name="cmprbx_Roll_LFC"   Grid.Column="8" Grid.Row="12" Grid.ColumnSpan="2"/>
+        <Controls:CompressionBox x:Name="cmprbx_Sway_HFC"   Grid.Column="8" Grid.Row="11" Grid.ColumnSpan="2"/>
+        <Controls:CompressionBox x:Name="cmprbx_Roll_LFC"   Grid.Column="8" Grid.Row="12" Grid.ColumnSpan="2"/>
 
         <!--Scaling-->
-        <controls:ScalerBox x:Name="sclr_Roll_HFC"      Grid.Column="11" Grid.Row="2"/>
-        <controls:ScalerBox x:Name="sclr_Yaw_HFC"       Grid.Column="11" Grid.Row="3"/>
-        <controls:ScalerBox x:Name="sclr_Pitch_HFC"     Grid.Column="11" Grid.Row="4"/>
+        <Controls:ScalerBox x:Name="sclr_Roll_HFC"      Grid.Column="11" Grid.Row="2"/>
+        <Controls:ScalerBox x:Name="sclr_Yaw_HFC"       Grid.Column="11" Grid.Row="3"/>
+        <Controls:ScalerBox x:Name="sclr_Pitch_HFC"     Grid.Column="11" Grid.Row="4"/>
 
-        <controls:ScalerBox x:Name="sclr_Surge_HFC"     Grid.Column="11" Grid.Row="6"/>
-        <controls:ScalerBox x:Name="sclr_Pitch_LFC"     Grid.Column="11" Grid.Row="7"/>
+        <Controls:ScalerBox x:Name="sclr_Surge_HFC"     Grid.Column="11" Grid.Row="6"/>
+        <Controls:ScalerBox x:Name="sclr_Pitch_LFC"     Grid.Column="11" Grid.Row="7"/>
 
-        <controls:ScalerBox x:Name="sclr_Heave_HFC"     Grid.Column="11" Grid.Row="9"/>
+        <Controls:ScalerBox x:Name="sclr_Heave_HFC"     Grid.Column="11" Grid.Row="9"/>
 
-        <controls:ScalerBox x:Name="sclr_Sway_HFC"      Grid.Column="11" Grid.Row="11"/>
-        <controls:ScalerBox x:Name="sclr_Roll_LFC"      Grid.Column="11" Grid.Row="12"/>
+        <Controls:ScalerBox x:Name="sclr_Sway_HFC"      Grid.Column="11" Grid.Row="11"/>
+        <Controls:ScalerBox x:Name="sclr_Roll_LFC"      Grid.Column="11" Grid.Row="12"/>
 
         <!--Zeros-->
 

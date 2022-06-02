@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YAME.View"
         xmlns:Converters="clr-namespace:YAME.View.Converters"
+        xmlns:Controls="clr-namespace:YAME.View.UserControls"
         mc:Ignorable="d" Style="{StaticResource ChildWindow_Style}"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         MouseLeftButtonUp="Window_MouseLeftButtonUp"
         Loaded="Window_Loaded" Closing="Window_Closing"
-        Title="PatchWindow" Height="190" Width="370">
+        Title="PatchWindow" Height="155" Width="275">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -17,78 +18,66 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Patcher"  Grid.Row="0" Grid.Column="1" FontSize="15" FontWeight="Bold" Grid.ColumnSpan="5"/>
+        <TextBlock Text="Patcher"  Grid.Row="0" Grid.Column="1" FontSize="15" FontWeight="Bold"/>
+        <Controls:Red_X Width="12" Height="12" Margin="0,3,3,0"
+                        HorizontalAlignment="Right" VerticalAlignment="Top" 
+                        MouseLeftButtonDown="Red_X_MouseLeftButtonDown" Grid.Column="4"/>
 
-        <TextBlock Text="DCS"           Grid.Row="1" Grid.Column="1" FontSize="12" VerticalAlignment="Center" />
-        <TextBlock Text="DCS.openbeta"  Grid.Row="2" Grid.Column="1" FontSize="12" VerticalAlignment="Center" />
-        <TextBlock Text="FS2020"        Grid.Row="3" Grid.Column="1" FontSize="12" VerticalAlignment="Center" />
-        <TextBlock Text="X-Plane"       Grid.Row="4" Grid.Column="1" FontSize="12" VerticalAlignment="Center" />
+        <TextBlock Text="DCS"           Grid.Row="1" Grid.Column="1" FontSize="12" VerticalAlignment="Center" Height="14" />
+        <TextBlock Text="DCS.openbeta"  Grid.Row="2" Grid.Column="1" FontSize="12" VerticalAlignment="Center" Height="14" />
+        <TextBlock Text="FS2020"        Grid.Row="3" Grid.Column="1" FontSize="12" VerticalAlignment="Center" Height="14" />
+        <TextBlock Text="X-Plane"       Grid.Row="4" Grid.Column="1" FontSize="12" VerticalAlignment="Center" Height="14" />
 
         <Button     x:Name="btn_Patch_DCS" Content="Patch"  Style="{StaticResource Button_NoHighlight_Rounded}"
-                    Grid.Row="1" Grid.Column="2" Margin="3"
-                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Patch_DCS_Click">
-        </Button>
+                    Grid.Row="1" Grid.Column="2" Margin="3,3,3,3" Click="btn_Patch_DCS_Click"/>
         <Button     x:Name="btn_Unpatch_DCS" Content="Unpatch" Style="{StaticResource Button_NoHighlight_Rounded}"
-                    Grid.Row="1" Grid.Column="3" Margin="3"
-                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Unpatch_DCS_Click">
-        </Button>
+                    Grid.Row="1" Grid.Column="3" Margin="3,3,3,3" Click="btn_Unpatch_DCS_Click"/>
 
         <Button     x:Name="btn_Patch_DCSopenbeta" Content="Patch" Style="{StaticResource Button_NoHighlight_Rounded}"
-                    Grid.Row="2" Grid.Column="2" Margin="3"
-                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Patch_DCS_openbeta_Click">
-        </Button>
+                    Grid.Row="2" Grid.Column="2" Margin="3,3,3,3" Click="btn_Patch_DCS_openbeta_Click"/>
         <Button     x:Name="btn_Unpatch_DCSopenbeta" Content="Unpatch" Style="{StaticResource Button_NoHighlight_Rounded}"
-                    Grid.Row="2" Grid.Column="3" Margin="3"
-                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Unpatch_DCS_openbeta_Click">
-        </Button>
+                    Grid.Row="2" Grid.Column="3" Margin="3,3,3,3" Click="btn_Unpatch_DCS_openbeta_Click"/>
 
         <Button     x:Name="btn_Patch_FS2020" Content="Patch"  Style="{StaticResource Button_NoHighlight_Rounded}"
-                    Grid.Row="3" Grid.Column="2" Margin="3"
-                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Patch_FS2020_Click">
-        </Button>
+                    Grid.Row="3" Grid.Column="2" Margin="3,3,3,3" Click="btn_Patch_FS2020_Click"/>
         <Button     x:Name="btn_Unpatch_FS2020" Content="Unpatch" Style="{StaticResource Button_NoHighlight_Rounded}"
-                    Grid.Row="3" Grid.Column="3" Margin="3"
-                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Unpatch_FS2020_Click">
-        </Button>
+                    Grid.Row="3" Grid.Column="3" Margin="3,3,3,3" Click="btn_Unpatch_FS2020_Click"/>
 
         <Button     x:Name="btn_Patch_XPlane" Content="Patch"  Style="{StaticResource Button_NoHighlight_Rounded}"
-                    Grid.Row="4" Grid.Column="2" Margin="3"
-                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Patch_XPlane_Click">
-        </Button>
+                    Grid.Row="4" Grid.Column="2" Margin="3,3,3,3" Click="btn_Patch_XPlane_Click"/>
         <Button     x:Name="btn_Unpatch_XPlane" Content="Unpatch" Style="{StaticResource Button_NoHighlight_Rounded}"
-                    Grid.Row="4" Grid.Column="3" Margin="3"
-                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Unpatch_XPlane_Click">
-        </Button>
+                    Grid.Row="4" Grid.Column="3" Margin="3,3,3,3" Click="btn_Unpatch_XPlane_Click"/>
 
-        <Rectangle Grid.Row="1" Grid.Column="4" Width="14" Height="14" x:Name="rct_IsPatched_DCS"
-                               RadiusX="7" RadiusY="7" HorizontalAlignment="Center" Margin="5,0,0,0"
+        <Rectangle Grid.Row="1" Grid.Column="4" Width="14" x:Name="rct_IsPatched_DCS"
+                               RadiusX="7" RadiusY="7" HorizontalAlignment="Center"
                                Stroke="{StaticResource MyDarkGrayBrush}"
-                               Fill="{Binding IsPatched_DCS_prop, Converter={StaticResource cnvrt_BoolToColorBrush_RedGreen}}"/>
-        <Rectangle Grid.Row="2" Grid.Column="4" Width="14" Height="14" x:Name="rct_IsPatched_DCS_openbeta"
-                               RadiusX="7" RadiusY="7" HorizontalAlignment="Center" Margin="5,0,0,0"
+                               Fill="{Binding IsPatched_DCS_prop, Converter={StaticResource cnvrt_BoolToColorBrush_RedGreen}}" Margin="0,8,0,8"/>
+        <Rectangle Grid.Row="2" Grid.Column="4" Width="14" x:Name="rct_IsPatched_DCS_openbeta"
+                               RadiusX="7" RadiusY="7" HorizontalAlignment="Center"
                                Stroke="{StaticResource MyDarkGrayBrush}"
-                               Fill="{Binding IsPatched_DCS_openbeta_prop, Converter={StaticResource cnvrt_BoolToColorBrush_RedGreen}}"/>
-        <Rectangle Grid.Row="3" Grid.Column="4" Width="14" Height="14" x:Name="rct_IsPatched_FS2020"
-                               RadiusX="7" RadiusY="7" HorizontalAlignment="Center" Margin="5,0,0,0"
+                               Fill="{Binding IsPatched_DCS_openbeta_prop, Converter={StaticResource cnvrt_BoolToColorBrush_RedGreen}}" Margin="0,8,0,8"/>
+        <Rectangle Grid.Row="3" Grid.Column="4" Width="14" x:Name="rct_IsPatched_FS2020"
+                               RadiusX="7" RadiusY="7" HorizontalAlignment="Center"
                                Stroke="{StaticResource MyDarkGrayBrush}"
-                               Fill="{Binding IsPatched_FS2020_prop, Converter={StaticResource cnvrt_BoolToColorBrush_RedGreen}}"/>
-        <Rectangle Grid.Row="4" Grid.Column="4" Width="14" Height="14" x:Name="rct_IsPatched_X_Plane"
-                               RadiusX="7" RadiusY="7" HorizontalAlignment="Center" Margin="5,0,0,0"
+                               Fill="{Binding IsPatched_FS2020_prop, Converter={StaticResource cnvrt_BoolToColorBrush_RedGreen}}" Margin="0,8,0,8"/>
+        <Rectangle Grid.Row="4" Grid.Column="4" Width="14" x:Name="rct_IsPatched_X_Plane"
+                               RadiusX="7" RadiusY="7" HorizontalAlignment="Center"
                                Stroke="{StaticResource MyDarkGrayBrush}"
-                               Fill="{Binding IsPatched_X_Plane_prop, Converter={StaticResource cnvrt_BoolToColorBrush_RedGreen}}"/>
+                               Fill="{Binding IsPatched_X_Plane_prop, Converter={StaticResource cnvrt_BoolToColorBrush_RedGreen}}" Margin="0,8,0,8"/>
 
-        <Button     x:Name="btn_Close" Content="Close" Style="{StaticResource Button_NoHighlight_Rounded}"
+        <!--<Button     x:Name="btn_Close" Content="Close" Style="{StaticResource Button_NoHighlight_Rounded}"
                     Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Margin="3"
-                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Close_Click"/>
+                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="btn_Close_Click"/>-->
     </Grid>
 </Window>

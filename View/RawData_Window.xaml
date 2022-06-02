@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YAME.View"
+        xmlns:Controls="clr-namespace:YAME.View.UserControls"
         mc:Ignorable="d" Title="RawDataWindow"
         Loaded="Window_Loaded" Closing="Window_Closing"
         Height="420" Width="200" WindowStartupLocation="Manual" ResizeMode="NoResize" 
@@ -50,6 +51,9 @@
             <RowDefinition Height="15"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="1" Text="Raw Data:"    Padding="2"  FontSize="15" FontWeight="Bold" Grid.ColumnSpan="5"/>
+        <Controls:Red_X Width="12" Height="12" Grid.ColumnSpan="20" Margin="3"
+                        HorizontalAlignment="Right" VerticalAlignment="Top" 
+                        MouseLeftButtonDown="Red_X_MouseLeftButtonDown"/>
 
         <TextBlock Grid.Row="2" Grid.Column="1" Text="IAS:"  HorizontalAlignment="Right"/>
         <TextBlock Grid.Row="3" Grid.Column="1" Text="MACH:" HorizontalAlignment="Right"/>

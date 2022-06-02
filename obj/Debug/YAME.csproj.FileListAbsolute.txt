@@ -182,3 +182,5 @@ D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\OutputODrive_Window.g.cs
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\OutputAASD_Window.g.cs
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\OutputODrive_Window.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\OutputAASD_Window.baml
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\UserControls\Red_X.g.cs
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Debug\View\UserControls\Red_X.baml

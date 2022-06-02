@@ -34,7 +34,7 @@
     <ProductName>YAME</ProductName>
     <PublisherName>HexaGo</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>63</ApplicationRevision>
+    <ApplicationRevision>64</ApplicationRevision>
     <ApplicationVersion>0.0.10.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -276,6 +276,9 @@
       <DependentUpon>FilterBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls\RangeValidationRule.cs" />
+    <Compile Include="View\UserControls\Red_X.xaml.cs">
+      <DependentUpon>Red_X.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\UserControls\ScalerBox.xaml.cs">
       <DependentUpon>ScalerBox.xaml</DependentUpon>
     </Compile>
@@ -354,6 +357,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\UserControls\FilterBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Red_X.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

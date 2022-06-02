@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YAME.View"
+        xmlns:Controls="clr-namespace:YAME.View.UserControls"
         mc:Ignorable="d"
         Title="CrashDetectorWindow"
         Height="230" Width="180" WindowStartupLocation="Manual" ResizeMode="NoResize" 
@@ -32,7 +33,11 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock  Text="Crash Detector:" Grid.Column="0" Grid.ColumnSpan="5"  Margin="5,0,0,0" FontSize="15" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <TextBlock  Text="Crash Detector:" Grid.Column="0" Grid.ColumnSpan="5"  Margin="5,0,0,0" 
+                    FontSize="15" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <Controls:Red_X Grid.Column="5" Grid.ColumnSpan="3" Width="12" Height="12" Margin="3"
+                        HorizontalAlignment="Right" VerticalAlignment="Top" 
+                        MouseLeftButtonDown="Red_X_MouseLeftButtonDown"/>
 
         <TextBlock  Text="Acc_lon:"   Grid.Column="1"   Grid.Row="2"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
         <TextBlock  Text="Acc_vert:"  Grid.Column="1"   Grid.Row="3"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>

@@ -65,5 +65,10 @@ namespace YAME.View
             sld_DOF_Sway.Value = 0;
             sld_DOF_Roll_LFC.Value = 0;
         }
+        private void Red_X_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var mw = Application.Current.MainWindow as MainWindow;
+            mw.mnuDOFs.IsChecked = false;
+        }
     }
 }

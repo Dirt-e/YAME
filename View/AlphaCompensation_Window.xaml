@@ -33,6 +33,9 @@
         </Grid.RowDefinitions>
         <TextBlock Text="α-Compensation:" FontSize="15" FontWeight="Bold"
                    Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Left"/>
+        <Controls:Red_X Grid.Column="4" Grid.ColumnSpan="3" Width="12" Height="12" Margin="3"
+                        HorizontalAlignment="Right" VerticalAlignment="Top" 
+                        MouseLeftButtonDown="Red_X_MouseLeftButtonDown"/>
 
         <Label      Content="Alpha:" VerticalAlignment="Center" HorizontalAlignment="Right"
                     Grid.Column="1" Grid.Row="1" Padding="0"/>

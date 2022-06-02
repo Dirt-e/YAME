@@ -34,6 +34,9 @@
         <TextBlock Grid.Row="0" Grid.Column="1" Text="Position Offset:"
                    Margin="0"  Padding="2"  FontSize="15" FontWeight="Bold"
                    Grid.ColumnSpan="4" HorizontalAlignment="Left"/>
+        <Controls:Red_X Width="12" Height="12" Margin="0,3,3,0"
+                        HorizontalAlignment="Right" VerticalAlignment="Top" 
+                        MouseLeftButtonDown="Red_X_MouseLeftButtonDown" Grid.Column="4"/>
 
         <Label      Content="Delta X:"  Grid.Column="1"     Grid.Row="1"    Padding="0"
                     HorizontalAlignment="Right" VerticalAlignment="Center" Height="16" Margin="0,2,0.667,2" Width="40" />

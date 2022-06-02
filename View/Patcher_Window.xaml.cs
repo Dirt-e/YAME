@@ -91,10 +91,6 @@ namespace YAME.View
         }
 
         //---------- Close ----------
-        void btn_Close_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //LastClosed values
@@ -110,6 +106,9 @@ namespace YAME.View
             Properties.Settings.Default.Save();
         }
 
-        
+        private void Red_X_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

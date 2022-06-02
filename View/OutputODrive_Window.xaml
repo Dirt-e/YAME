@@ -34,8 +34,11 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBlock FontSize="15" FontWeight="Bold"
-                   Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Left"><Run Text="ODrive Output"/><LineBreak/><Run Text=" Output"/></TextBlock>
+        <TextBlock Text="Output ODrive" FontSize="15" FontWeight="Bold"
+                   Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Left"/>
+        <Controls:Red_X Grid.ColumnSpan="20" Width="12" Height="12" Margin="3"
+                        HorizontalAlignment="Right" VerticalAlignment="Top" 
+                        MouseLeftButtonDown="Red_X_MouseLeftButtonDown"/>
 
         <Label      Content="Port" VerticalAlignment="Bottom" HorizontalAlignment="Center"
                     Grid.Column="2" Grid.Row="1"/>

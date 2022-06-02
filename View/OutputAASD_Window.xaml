@@ -31,8 +31,11 @@
             <RowDefinition Height="10"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="AASD Output:" FontSize="15" FontWeight="Bold"
+        <TextBlock Text="Output AASD" FontSize="15" FontWeight="Bold"
                    Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Left"/>
+        <Controls:Red_X Grid.Column="5" Grid.ColumnSpan="3" Width="12" Height="12" Margin="3"
+                        HorizontalAlignment="Right" VerticalAlignment="Top" 
+                        MouseLeftButtonDown="Red_X_MouseLeftButtonDown"/>
 
         <Label      Content="COM Port:" VerticalAlignment="Center" HorizontalAlignment="Right"
                     Grid.Column="1" Grid.Row="4" Padding="0"/>
