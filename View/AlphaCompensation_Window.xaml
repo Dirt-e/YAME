@@ -45,7 +45,7 @@
         <Label      Content="Fade-in pct:"   VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="6" FontSize="12" Padding="0"/>
 
 
-        <TextBlock  Text="{Binding AoA, StringFormat={}{0:#.} °, UpdateSourceTrigger=PropertyChanged}"
+        <TextBlock  Text="{Binding AoA, StringFormat={}{0:#0.00} °, UpdateSourceTrigger=PropertyChanged}"
                     VerticalAlignment="Center" Grid.Column="3" Grid.Row="1" Padding="0" HorizontalAlignment="Center"/>
         <Controls:ClickSelectTextBox Text="{ Binding AoA_zero, StringFormat={}{0:#0.00} °, UpdateSourceTrigger=LostFocus}"
                     Grid.Column="3" Grid.Row="2" TextAlignment="Center" Margin="1"
