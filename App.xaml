@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:YAME"
              xmlns:Converters="clr-namespace:YAME.View.Converters"
+             xmlns:Controls="clr-namespace:YAME.View.UserControls"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <!--Converters-->
@@ -62,6 +63,9 @@
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="TextAlignment" Value="Center"/>
             <Setter Property="FontFamily" Value="Courier"/>
+        </Style>
+        <Style TargetType="Controls:ClickSelectTextBox" x:Key="ClickSelectTextBox_Style" BasedOn="{StaticResource TextBox_Style}">
+        
         </Style>
         <Style TargetType="ComboBox" x:Key="ComboBox_Style">
             <Setter Property="Background" Value="{StaticResource My_EnterData_Brush}"/>

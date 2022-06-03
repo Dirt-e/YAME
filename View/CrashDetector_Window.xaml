@@ -16,9 +16,8 @@
             <ColumnDefinition Width="10"></ColumnDefinition>
             <ColumnDefinition Width="50"></ColumnDefinition>
             <ColumnDefinition Width="10"></ColumnDefinition>
-            <ColumnDefinition Width="40"></ColumnDefinition>
-            <ColumnDefinition Width="40"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
@@ -33,9 +32,9 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock  Text="Crash Detector:" Grid.Column="0" Grid.ColumnSpan="5"  Margin="5,0,0,0" 
+        <TextBlock  Text="Crash Detector:" Grid.Column="1" Grid.ColumnSpan="5" 
                     FontSize="15" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-        <Controls:Red_X Grid.Column="5" Grid.ColumnSpan="3" Width="12" Height="12" Margin="3"
+        <Controls:Red_X Grid.Column="4" Grid.ColumnSpan="3" Width="12" Height="12" Margin="3"
                         HorizontalAlignment="Right" VerticalAlignment="Top" 
                         MouseLeftButtonDown="Red_X_MouseLeftButtonDown"/>
 
@@ -46,41 +45,35 @@
         <TextBlock  Text="ω_vert:"  Grid.Column="1"   Grid.Row="7"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
         <TextBlock  Text="ω_lat:"   Grid.Column="1"   Grid.Row="8"    Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
-        <TextBox    x:Name="txtbx_Ax_Threshold" Text="{ Binding AX_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
+        <Controls:ClickSelectTextBox x:Name="txtbx_Ax_Threshold" Text="{ Binding AX_CrashTrigger, StringFormat={}{0:#.} m/s², UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
                     Grid.Column="3" Grid.Row="2" Margin="1" TextAlignment="Center" Style="{StaticResource TextBox_Style}"/>
-        <TextBox    x:Name="txtbx_Ay_Threshold" Text="{ Binding AY_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
+        <Controls:ClickSelectTextBox x:Name="txtbx_Ay_Threshold" Text="{ Binding AY_CrashTrigger, StringFormat={}{0:#.} m/s², UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
                     Grid.Column="3" Grid.Row="3" Margin="1" TextAlignment="Center" Style="{StaticResource TextBox_Style}"/>
-        <TextBox    x:Name="txtbx_Az_Threshold" Text="{ Binding AZ_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
+        <Controls:ClickSelectTextBox x:Name="txtbx_Az_Threshold" Text="{ Binding AZ_CrashTrigger, StringFormat={}{0:#.} m/s², UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
                     Grid.Column="3" Grid.Row="4" Margin="1" TextAlignment="Center" Style="{StaticResource TextBox_Style}"/>
-        <TextBox    x:Name="txtbx_Wx_Threshold" Text="{ Binding WX_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+        <Controls:ClickSelectTextBox x:Name="txtbx_Wx_Threshold" Text="{ Binding WX_CrashTrigger, StringFormat={}{0:#.} °/s, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
                     Grid.Column="3" Grid.Row="6" Margin="1" TextAlignment="Center" Style="{StaticResource TextBox_Style}"/>
-        <TextBox    x:Name="txtbx_Wy_Threshold" Text="{ Binding WY_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+        <Controls:ClickSelectTextBox x:Name="txtbx_Wy_Threshold" Text="{ Binding WY_CrashTrigger, StringFormat={}{0:#.} °/s, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
                     Grid.Column="3" Grid.Row="7" Margin="1" TextAlignment="Center" Style="{StaticResource TextBox_Style}"/>
-        <TextBox    x:Name="txtbx_Wz_Threshold" Text="{ Binding WZ_CrashTrigger, StringFormat=N2, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+        <Controls:ClickSelectTextBox x:Name="txtbx_Wz_Threshold" Text="{ Binding WZ_CrashTrigger, StringFormat={}{0:#.} °/s, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
                     Grid.Column="3" Grid.Row="8" Margin="1" TextAlignment="Center" Style="{StaticResource TextBox_Style}"/>
 
-        <Label      Content="m/s²" Grid.Column="4"   Grid.Row="2"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
-        <Label      Content="m/s²" Grid.Column="4"   Grid.Row="3"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
-        <Label      Content="m/s²" Grid.Column="4"   Grid.Row="4"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
-        <Label      Content="°/s"  Grid.Column="4"   Grid.Row="6"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
-        <Label      Content="°/s"  Grid.Column="4"   Grid.Row="7"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
-        <Label      Content="°/s"  Grid.Column="4"   Grid.Row="8"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
-
-        <TextBlock  x:Name="lbl_exc_ax" Text="{Binding ExceedanceValue_displayed_Ax, StringFormat=N2}" Grid.Column="5"   Grid.Row="2"
+        <TextBlock  x:Name="lbl_exc_ax" Text="{Binding ExceedanceValue_displayed_Ax, StringFormat=N2}" Grid.Column="4"   Grid.Row="2"
                     Visibility="{Binding Visible_exc_ax, Converter={StaticResource cnvrt_BoolToVisibility}}" 
                     Foreground="Red" Padding="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-        <TextBlock  x:Name="lbl_exc_ay" Text="{Binding ExceedanceValue_displayed_Ay, StringFormat=N2}" Grid.Column="5"   Grid.Row="3"
+        <TextBlock  x:Name="lbl_exc_ay" Text="{Binding ExceedanceValue_displayed_Ay, StringFormat=N2}" Grid.Column="4"   Grid.Row="3"
                     Visibility="{Binding Visible_exc_ay, Converter={StaticResource cnvrt_BoolToVisibility}}" 
                     Foreground="Red" Padding="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-        <TextBlock  x:Name="lbl_exc_az" Text="{Binding ExceedanceValue_displayed_Az, StringFormat=N2}" Grid.Column="5"   Grid.Row="4"    
-                    Visibility="{Binding Visible_exc_az, Converter={StaticResource cnvrt_BoolToVisibility}}"                     Foreground="Red" Padding="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-        <TextBlock  x:Name="lbl_exc_wx" Text="{Binding ExceedanceValue_displayed_Wx, StringFormat=N2}" Grid.Column="5"   Grid.Row="6"    
+        <TextBlock  x:Name="lbl_exc_az" Text="{Binding ExceedanceValue_displayed_Az, StringFormat=N2}" Grid.Column="4"   Grid.Row="4"    
+                    Visibility="{Binding Visible_exc_az, Converter={StaticResource cnvrt_BoolToVisibility}}"
+                    Foreground="Red" Padding="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBlock  x:Name="lbl_exc_wx" Text="{Binding ExceedanceValue_displayed_Wx, StringFormat=N2}" Grid.Column="4"   Grid.Row="6"    
                     Visibility="{Binding Visible_exc_wx, Converter={StaticResource cnvrt_BoolToVisibility}}" 
                     Foreground="Red" Padding="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-        <TextBlock  x:Name="lbl_exc_wy" Text="{Binding ExceedanceValue_displayed_Wy, StringFormat=N2}" Grid.Column="5"   Grid.Row="7"    
+        <TextBlock  x:Name="lbl_exc_wy" Text="{Binding ExceedanceValue_displayed_Wy, StringFormat=N2}" Grid.Column="4"   Grid.Row="7"    
                     Visibility="{Binding Visible_exc_wy, Converter={StaticResource cnvrt_BoolToVisibility}}" 
                     Foreground="Red" Padding="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-        <TextBlock  x:Name="lbl_exc_wz" Text="{Binding ExceedanceValue_displayed_Wz, StringFormat=N2}" Grid.Column="5"   Grid.Row="8"    
+        <TextBlock  x:Name="lbl_exc_wz" Text="{Binding ExceedanceValue_displayed_Wz, StringFormat=N2}" Grid.Column="4"   Grid.Row="8"    
                     Visibility="{Binding Visible_exc_wz, Converter={StaticResource cnvrt_BoolToVisibility}}" 
                     Foreground="Red" Padding="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 

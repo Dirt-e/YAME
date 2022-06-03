@@ -71,17 +71,20 @@
 
         <!--Lead-->
         <Controls:ClickSelectTextBox x:Name="txtbx_Lead1" Grid.Row="2" Grid.Column="3" Margin="5"
-                 VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                 IsEnabled="{Binding IsAnyPortOpen, Converter={StaticResource cnvrtr_BoolInverter}}"
-                 Text="{Binding Lead, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat={}{0} mm}"/>
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                Style="{StaticResource TextBox_Style}"
+                IsEnabled="{Binding IsAnyPortOpen, Converter={StaticResource cnvrtr_BoolInverter}}"
+                Text="{Binding Lead, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat={}{0} mm}"/>
         <Controls:ClickSelectTextBox x:Name="txtbx_Lead2" Grid.Row="3" Grid.Column="3" Margin="5"
-                 VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                 IsEnabled="{Binding IsAnyPortOpen, Converter={StaticResource cnvrtr_BoolInverter}}"
-                 Text="{Binding Lead, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat={}{0} mm}"/>
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                Style="{StaticResource TextBox_Style}"
+                IsEnabled="{Binding IsAnyPortOpen, Converter={StaticResource cnvrtr_BoolInverter}}"
+                Text="{Binding Lead, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat={}{0} mm}"/>
         <Controls:ClickSelectTextBox x:Name="txtbx_Lead3" Grid.Row="4" Grid.Column="3" Margin="5"
-                 VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                 IsEnabled="{Binding IsAnyPortOpen, Converter={StaticResource cnvrtr_BoolInverter}}"
-                 Text="{Binding Lead, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat={}{0} mm}"/>
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                Style="{StaticResource TextBox_Style}"
+                IsEnabled="{Binding IsAnyPortOpen, Converter={StaticResource cnvrtr_BoolInverter}}"
+                Text="{Binding Lead, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat={}{0} mm}"/>
 
         <!--Open/Closed-->
         <TextBlock  x:Name="txtblk_OpenClose1" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="2"

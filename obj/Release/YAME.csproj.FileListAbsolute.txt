@@ -97,7 +97,6 @@ D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\YAME.csproj.AssemblyReference.cac
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\YAME.csproj.SuggestedBindingRedirects.cache
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\MainWindow.g.cs
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\MotionControl_Window.g.cs
-D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\SerialConnection_Window.g.cs
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\UserControls\CompressionBox.g.cs
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\UserControls\FilterBox.g.cs
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\UserControls\ScalerBox.g.cs
@@ -109,7 +108,6 @@ D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\YAME_MarkupCompile.lref
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\App.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\MainWindow.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\MotionControl_Window.baml
-D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\SerialConnection_Window.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\UserControls\CompressionBox.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\UserControls\FilterBox.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\UserControls\ScalerBox.baml
@@ -185,5 +183,9 @@ D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\Actuator_Override_Window.g.c
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\DOF_Override_Window.g.cs
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\Actuator_Override_Window.baml
 D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\DOF_Override_Window.baml
-D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\ODriveTalker_Window.g.cs
-D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\ODriveTalker_Window.baml
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\OutputODrive_Window.g.cs
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\OutputAASD_Window.g.cs
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\UserControls\Red_X.g.cs
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\OutputODrive_Window.baml
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\OutputAASD_Window.baml
+D:\OneDrive\Frank - PC\GitHub\YAME\obj\Release\View\UserControls\Red_X.baml

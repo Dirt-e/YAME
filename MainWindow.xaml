@@ -93,7 +93,7 @@
                             IsChecked="False"
                             Checked="mnu_OutputAASD_Checked"
                             Unchecked="mnu_OutputAASD_Unchecked"/>
-                <MenuItem   Header="Output ODrive"
+                <MenuItem   Header="Output (ODrive)"
                             x:Name="mnuOutputODrive"
                             IsCheckable="True"
                             IsChecked="False"

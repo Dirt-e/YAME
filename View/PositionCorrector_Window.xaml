@@ -16,11 +16,11 @@
             <ColumnDefinition Width="5"></ColumnDefinition>
             <ColumnDefinition Width="70"></ColumnDefinition>
             <ColumnDefinition Width="10"></ColumnDefinition>
-            <ColumnDefinition Width="40"></ColumnDefinition>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="5"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
             <RowDefinition Height="20"/>
             <RowDefinition Height="20"/>
             <RowDefinition Height="20"/>
@@ -31,18 +31,16 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="1" Text="Position Offset:"
-                   Margin="0"  Padding="2"  FontSize="15" FontWeight="Bold"
-                   Grid.ColumnSpan="4" HorizontalAlignment="Left"/>
-        <Controls:Red_X Width="12" Height="12" Margin="0,3,3,0"
-                        HorizontalAlignment="Right" VerticalAlignment="Top" 
-                        MouseLeftButtonDown="Red_X_MouseLeftButtonDown" Grid.Column="4"/>
+        <TextBlock Text="Position Offset:" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4"
+                   FontSize="15" FontWeight="Bold" HorizontalAlignment="Left"/>
+        <Controls:Red_X Grid.ColumnSpan="1000" Width="12" Height="12" Margin="3"
+                        HorizontalAlignment="Right" VerticalAlignment="Top"  MouseLeftButtonDown="Red_X_MouseLeftButtonDown"/>
 
-        <Label      Content="Delta X:"  Grid.Column="1"     Grid.Row="1"    Padding="0"
+        <TextBlock  Text="Delta X"  Grid.Column="1"     Grid.Row="1"    Padding="0"
                     HorizontalAlignment="Right" VerticalAlignment="Center" Height="16" Margin="0,2,0.667,2" Width="40" />
-        <Label      Content="Delta Y:"  Grid.Column="1"     Grid.Row="2"    Padding="0"
+        <TextBlock  Text="Delta Y"  Grid.Column="1"     Grid.Row="2"    Padding="0"
                     HorizontalAlignment="Right" VerticalAlignment="Center" Height="16" Margin="0,2,0.667,2" Width="40" />
-        <Label      Content="Delta Z:"  Grid.Column="1"     Grid.Row="3"    Padding="0"
+        <TextBlock  Text="Delta Z"  Grid.Column="1"     Grid.Row="3"    Padding="0"
                     HorizontalAlignment="Right" VerticalAlignment="Center" Height="16" Margin="0,2,0.667,2" Width="40"/>
 
         <Label     Grid.Row="5" Grid.Column="1" Padding="0"   HorizontalAlignment="Right" VerticalAlignment="Center">
@@ -50,11 +48,11 @@
                 <Style TargetType="Label">
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding IsActive}" Value="True">
-                            <Setter Property="Content" Value="Corrected Ax:"/>
+                            <Setter Property="Content" Value="Corrected Ax"/>
                             <Setter Property="Foreground" Value="LightGray"/>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding IsActive}" Value="False">
-                            <Setter Property="Content" Value="Uncorr. Ax:"/>
+                            <Setter Property="Content" Value="Uncorr. Ax"/>
                             <Setter Property="Foreground" Value="LightGray"/>
                         </DataTrigger>
                     </Style.Triggers>
@@ -66,11 +64,11 @@
                 <Style TargetType="Label">
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding IsActive}" Value="True">
-                            <Setter Property="Content" Value="Corrected Ay:"/>
+                            <Setter Property="Content" Value="Corrected Ay"/>
                             <Setter Property="Foreground" Value="LightGray"/>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding IsActive}" Value="False">
-                            <Setter Property="Content" Value="Uncorr. Ay:"/>
+                            <Setter Property="Content" Value="Uncorr. Ay"/>
                             <Setter Property="Foreground" Value="LightGray"/>
                         </DataTrigger>
                     </Style.Triggers>
@@ -82,11 +80,11 @@
                 <Style TargetType="Label">
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding IsActive}" Value="True">
-                            <Setter Property="Content" Value="Corrected Az:"/>
+                            <Setter Property="Content" Value="Corrected Az"/>
                             <Setter Property="Foreground" Value="LightGray"/>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding IsActive}" Value="False">
-                            <Setter Property="Content" Value="Uncorr. Az:"/>
+                            <Setter Property="Content" Value="Uncorr. Az"/>
                             <Setter Property="Foreground" Value="LightGray"/>
                         </DataTrigger>
                     </Style.Triggers>
@@ -94,36 +92,19 @@
             </Label.Style>
         </Label>
 
-        <TextBox    x:Name="txtbx_DeltaX" Text="{ Binding Delta_X, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"
+        <Controls:ClickSelectTextBox x:Name="txtbx_DeltaX" Text="{ Binding Delta_X, StringFormat={}{0:#0.00} m, UpdateSourceTrigger=PropertyChanged}"
                     Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="1" Margin="1" Style="{StaticResource TextBox_Style}"/>
-        <TextBox    x:Name="txtbx_DeltaY" Text="{ Binding Delta_Y, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"
+        <Controls:ClickSelectTextBox x:Name="txtbx_DeltaY" Text="{ Binding Delta_Y, StringFormat={}{0:#0.00} m, UpdateSourceTrigger=PropertyChanged}"
                     Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="1" Margin="1" Style="{StaticResource TextBox_Style}"/>
-        <TextBox    x:Name="txtbx_DeltaZ" Text="{ Binding Delta_Z, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"
+        <Controls:ClickSelectTextBox x:Name="txtbx_DeltaZ" Text="{ Binding Delta_Z, StringFormat={}{0:#0.00} m, UpdateSourceTrigger=PropertyChanged}"
                     Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="1" Margin="1" Style="{StaticResource TextBox_Style}"/>
 
-        <Label      x:Name="lbl_Ax_corr" Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0">
-            <Label.Content>
-                <TextBlock Text="{ Binding Ax_output, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"/>
-            </Label.Content>
-        </Label>
-        <Label      x:Name="lbl_Ay_corr" Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0">
-            <Label.Content>
-                <TextBlock Text="{ Binding Ay_output, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"/>
-            </Label.Content>
-        </Label>
-        <Label      x:Name="lbl_Az_corr" Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0">
-            <Label.Content>
-                <TextBlock Text="{ Binding Az_output, StringFormat=N2, UpdateSourceTrigger=PropertyChanged}"/>
-            </Label.Content>
-        </Label>
-
-        <Label      Content="m" Grid.Column="4"   Grid.Row="1"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
-        <Label      Content="m" Grid.Column="4"   Grid.Row="2"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
-        <Label      Content="m" Grid.Column="4"   Grid.Row="3"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
-
-        <Label      Content="m/s²" Grid.Column="4"   Grid.Row="5"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
-        <Label      Content="m/s²" Grid.Column="4"   Grid.Row="6"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
-        <Label      Content="m/s²" Grid.Column="4"   Grid.Row="7"    Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,0,0"/>
+        <TextBlock  x:Name="lbl_Ax_corr" Text="{ Binding Ax_output, StringFormat={}{0:#0.00} m/s², UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Column="3"  Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0"/>
+        <TextBlock  x:Name="lbl_Ay_corr" Text="{ Binding Ay_output, StringFormat={}{0:#0.00} m/s², UpdateSourceTrigger=PropertyChanged}" 
+                    Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0"/>
+        <TextBlock  x:Name="lbl_Az_corr" Text="{ Binding Az_output, StringFormat={}{0:#0.00} m/s², UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0"/>
 
         <Controls:ToggleSwitch x:Name="tgl_Active" IsOn="{Binding IsActive, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                Grid.Column="1" Grid.Row="8" Height="15"/>

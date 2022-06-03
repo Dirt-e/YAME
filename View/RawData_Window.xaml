@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YAME.View"
         xmlns:Controls="clr-namespace:YAME.View.UserControls"
-        mc:Ignorable="d" Title="RawDataWindow"
-        Loaded="Window_Loaded" Closing="Window_Closing"
-        Height="420" Width="200" WindowStartupLocation="Manual" ResizeMode="NoResize" 
+        mc:Ignorable="d" 
+        Title="RawDataWindow"  Loaded="Window_Loaded" Closing="Window_Closing"
+        Height="420" Width="200"
         MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseLeftButtonUp="Window_MouseLeftButtonUp"
         Style="{StaticResource ChildWindow_Style}"
         >
