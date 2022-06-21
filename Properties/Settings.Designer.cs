@@ -1777,7 +1777,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("q  0 <value0>\\\\nq 0 <value1>")]
+        [global::System.Configuration.DefaultSettingValueAttribute("q 0 [value0][newline]q 1 [value1]")]
         public string ODriveSystem_FormatString {
             get {
                 return ((string)(this["ODriveSystem_FormatString"]));

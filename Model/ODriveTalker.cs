@@ -83,6 +83,7 @@ namespace YAME.Model
                             MessageBoxButton.OK, MessageBoxImage.Exclamation);
                         return;
                     }
+
                     if (COM_Port == null)
                     {
                         MessageBox.Show("You have to select a COM port from the dropdown list before you can open it.",
@@ -92,9 +93,6 @@ namespace YAME.Model
                         _isopen = false;
                         return;
                     }
-
-
-
 
                     if (!engine.actuatorsystem.Is_AllActuatorsFullyRetracted)
                     {

@@ -441,7 +441,7 @@
       <Value Profile="(Default)">10</Value>
     </Setting>
     <Setting Name="ODriveSystem_FormatString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">q  0 &lt;value0&gt;\\nq 0 &lt;value1&gt;</Value>
+      <Value Profile="(Default)">q 0 [value0][newline]q 1 [value1]</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -36,7 +36,8 @@ namespace YAME.View
             txtbx_OffsetPark.DataContext        = engine.integrator;
             txtbx_OffsetPause.DataContext       = engine.integrator;
             txtbx_OffsetCoR.DataContext         = engine.integrator;
-            img_warning.DataContext             = engine.aasd_talker;
+            img_warning_AASD.DataContext        = engine.aasd_talker;
+            img_warning_ODrive.DataContext      = engine.odrivesystem;
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
