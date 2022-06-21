@@ -137,62 +137,61 @@ namespace YAME.Model
             Correct_Az();
             WriteCorrectedOutputData();
         }
-
-        private void CalculateDeltasSinceLastFrame()
-        {
-            delta_Wx = Input.WX - Output.WX;        //Output is still the previous frames Output, we have not changed anything yet!
-            delta_Wy = Input.WY - Output.WY;
-            delta_Wz = Input.WZ - Output.WZ;
-
-        }
-        private void CalculateOmegaDots()
-        {
-            if (deltaTime > 0)                      //Prevents division by zero
+            private void CalculateDeltasSinceLastFrame()
             {
-                Wx_dot = 1000 * delta_Wx / deltaTime;       //Factor of 1000 to convert °/ms into  °/s 
-                Wy_dot = 1000 * delta_Wy / deltaTime;
-                Wz_dot = 1000 * delta_Wz / deltaTime;
+                delta_Wx = Input.WX - Output.WX;        //Output is still the previous frames Output, we have not changed anything yet!
+                delta_Wy = Input.WY - Output.WY;
+                delta_Wz = Input.WZ - Output.WZ;
+
             }
+            private void CalculateOmegaDots()
+            {
+                if (deltaTime > 0)                      //Prevents division by zero
+                {
+                    Wx_dot = 1000 * delta_Wx / deltaTime;       //Factor of 1000 to convert °/ms into  °/s 
+                    Wy_dot = 1000 * delta_Wy / deltaTime;
+                    Wz_dot = 1000 * delta_Wz / deltaTime;
+                }
 
-            Wx_dot_smooth = Wx_dot * adoptionrate + Wx_dot_smooth * (1 - adoptionrate);
-            Wy_dot_smooth = Wy_dot * adoptionrate + Wy_dot_smooth * (1 - adoptionrate);
-            Wz_dot_smooth = Wz_dot * adoptionrate + Wz_dot_smooth * (1 - adoptionrate);
-        }
-        void Correct_Ax()
-        {
-            //Centrifugal acceleration [m/s^2]:
-            float wy_2 = RAD_from_DEG(Input.WY) * RAD_from_DEG(Input.WY);
-            float wz_2 = RAD_from_DEG(Input.WZ) * RAD_from_DEG(Input.WZ);
-            cent_x = -Delta_X * (wy_2 + wz_2);
+                Wx_dot_smooth = Wx_dot * adoptionrate + Wx_dot_smooth * (1 - adoptionrate);
+                Wy_dot_smooth = Wy_dot * adoptionrate + Wy_dot_smooth * (1 - adoptionrate);
+                Wz_dot_smooth = Wz_dot * adoptionrate + Wz_dot_smooth * (1 - adoptionrate);
+            }
+            void Correct_Ax()
+            {
+                //Centrifugal acceleration [m/s^2]:
+                float wy_2 = RAD_from_DEG(Input.WY) * RAD_from_DEG(Input.WY);
+                float wz_2 = RAD_from_DEG(Input.WZ) * RAD_from_DEG(Input.WZ);
+                cent_x = -Delta_X * (wy_2 + wz_2);
 
-            //Tangential acceleration [m/s^2]:
-            tang_x = RAD_from_DEG(Wy_dot_smooth) * Delta_Z - RAD_from_DEG(Wz_dot_smooth) * Delta_Y; 
+                //Tangential acceleration [m/s^2]:
+                tang_x = RAD_from_DEG(Wy_dot_smooth) * Delta_Z - RAD_from_DEG(Wz_dot_smooth) * Delta_Y; 
 
-            Ax_output = Input.AX + cent_x + tang_x;
-        }
-        void Correct_Ay()
-        {
-            //Centrifugal acceleration [m/s^2]:
-            float wx_2 = RAD_from_DEG(Input.WX) * RAD_from_DEG(Input.WX);
-            float wz_2 = RAD_from_DEG(Input.WZ) * RAD_from_DEG(Input.WZ);
-            cent_y = -Delta_Y * (wx_2 + wz_2);
-            //Tangential acceleration [m/s^2]:
-            tang_y = RAD_from_DEG(Wy_dot_smooth) * Delta_X - RAD_from_DEG(Wx_dot_smooth) * Delta_Z;
+                Ax_output = Input.AX + cent_x + tang_x;
+            }
+            void Correct_Ay()
+            {
+                //Centrifugal acceleration [m/s^2]:
+                float wx_2 = RAD_from_DEG(Input.WX) * RAD_from_DEG(Input.WX);
+                float wz_2 = RAD_from_DEG(Input.WZ) * RAD_from_DEG(Input.WZ);
+                cent_y = -Delta_Y * (wx_2 + wz_2);
+                //Tangential acceleration [m/s^2]:
+                tang_y = RAD_from_DEG(Wz_dot_smooth) * Delta_X - RAD_from_DEG(Wx_dot_smooth) * Delta_Z;
 
-            Ay_output = Input.AY + cent_y + tang_y;
-        }
-        void Correct_Az()
-        {
-            //Centrifugal acceleration [m/s^2]:
-            float wx_2 = RAD_from_DEG(Input.WX) * RAD_from_DEG(Input.WX);
-            float wy_2 = RAD_from_DEG(Input.WY) * RAD_from_DEG(Input.WY);
-            cent_z = -Delta_Z * (wx_2 + wy_2);
-            //Tangential acceleration [m/s^2]:
-            tang_z = RAD_from_DEG(Wx_dot_smooth) * Delta_Y - RAD_from_DEG(Wy_dot_smooth) * Delta_X;
+                Ay_output = Input.AY + cent_y + tang_y;
+            }
+            void Correct_Az()
+            {
+                //Centrifugal acceleration [m/s^2]:
+                float wx_2 = RAD_from_DEG(Input.WX) * RAD_from_DEG(Input.WX);
+                float wy_2 = RAD_from_DEG(Input.WY) * RAD_from_DEG(Input.WY);
+                cent_z = -Delta_Z * (wx_2 + wy_2);
+                //Tangential acceleration [m/s^2]:
+                tang_z = RAD_from_DEG(Wx_dot_smooth) * Delta_Y - RAD_from_DEG(Wy_dot_smooth) * Delta_X;
 
-            Az_output = Input.AZ + cent_z + tang_z;
-        }
-        void WriteCorrectedOutputData()
+                Az_output = Input.AZ + cent_z + tang_z;
+            }
+            void WriteCorrectedOutputData()
         {
             //First, just copy over EVERYTHING...
             Output = new PreprocessorData(Input);

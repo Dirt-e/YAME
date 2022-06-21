@@ -1,12 +1,14 @@
 ﻿using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Threading;
 using System.Xml;
 using YAME.Model;
 
@@ -43,14 +45,7 @@ namespace YAME.Model
             set { _isPatchedX_Plane_prop = value; OnPropertyChanged(nameof(IsPatched_X_Plane_prop)); }
         }
 
-        public Patcher()
-        {
-            IsPatched_DCS_prop          = IsPatched_DCS();
-            IsPatched_DCS_openbeta_prop = IsPatched_DCS_openbeta();
-            IsPatched_FS2020_prop       = IsPatched_FS2020();
-            IsPatched_X_Plane_prop      = IsPatched_XPlane();
-        }
-        
+
         //-------------- DCS -------------
         public void btn_Patch_DCS_Click()
         {
@@ -365,16 +360,15 @@ namespace YAME.Model
         }
         bool IsInstalled_FS2020(bool steam = false)
         {
-            if (steam) return Directory.Exists(Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder);
-            else return Directory.Exists(Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder);
+            if (steam)  return Directory.Exists(Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder);
+            else        return Directory.Exists(Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder);
         }
         bool IsPatched_FS2020(bool steamVersion = false)
         {
-            //string filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder + @"\exe.xml";
             string filePath = String.Empty;
 
-            if (steamVersion) filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder;
-            else filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder;
+            if (steamVersion)   filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder;
+            else                filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder;
 
             filePath += @"\exe.xml";
 
@@ -762,6 +756,12 @@ namespace YAME.Model
 
             return FolderPath + "/";
         }
-
+        public void RefreshPatchStatusOfAllSims()
+        {
+            IsPatched_DCS_prop = IsPatched_DCS();
+            IsPatched_DCS_openbeta_prop = IsPatched_DCS_openbeta();
+            IsPatched_FS2020_prop = IsPatched_FS2020();
+            IsPatched_X_Plane_prop = IsPatched_XPlane();
+        }
     }
 }

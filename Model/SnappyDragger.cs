@@ -19,7 +19,7 @@ namespace YAME.Model
 
         DispatcherTimer timer = new DispatcherTimer
         {
-            Interval = new TimeSpan(0, 0, 0, 0, 10),
+            Interval = TimeSpan.FromMilliseconds(1),
         };
 
         Point MouseStartPoint   = new Point();

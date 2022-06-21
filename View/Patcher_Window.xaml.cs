@@ -1,12 +1,14 @@
 ﻿using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Threading;
 using System.Xml;
 using YAME.Model;
 
@@ -15,13 +17,23 @@ namespace YAME.View
     public partial class Patcher_Window : Window
     {
         SnappyDragger snappyDragger;
+        DispatcherTimer timer;
 
         public Patcher_Window()
         {
             InitializeComponent();
             SetDatacontexts();
+            UpdatePatchStatusOfAllSims();
 
             snappyDragger = new SnappyDragger(this);
+
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(5000);
+            timer.Tick += delegate
+            {
+                UpdatePatchStatusOfAllSims();
+            };
+            timer.Start();
         }
 
         void SetDatacontexts()
@@ -80,7 +92,6 @@ namespace YAME.View
         }
 
         //---------- Window ----------
-
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             snappyDragger.StartDrag();
@@ -90,7 +101,6 @@ namespace YAME.View
             snappyDragger.StopDrag();
         }
 
-        //---------- Close ----------
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //LastClosed values
@@ -109,6 +119,11 @@ namespace YAME.View
         private void Red_X_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.Close();
+        }
+        private static void UpdatePatchStatusOfAllSims()
+        {
+            var mw = Application.Current.MainWindow as MainWindow;
+            mw.engine.patcher.RefreshPatchStatusOfAllSims();
         }
     }
 }
