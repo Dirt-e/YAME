@@ -15,8 +15,8 @@ namespace YAME.Model
 
         public string ComposeMessageFrom(float f1, float f2, string formatstring)
         {
-            //Example FormatString: "q 0 [value0]"
-            //Example FormatString: "q 0 [value0][newline]q 1 [value1]"
+            //Example FormatString: "p 0 [value0]"
+            //Example FormatString: "p 0 [value0][newline]p 1 [value1]"
 
             StringBuilder sb = new StringBuilder(formatstring);
 
