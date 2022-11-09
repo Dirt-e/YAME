@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static Utility;
 using System.Windows;
+using System.Globalization;
 
 namespace YAME.Model
 {
@@ -20,9 +21,9 @@ namespace YAME.Model
 
             StringBuilder sb = new StringBuilder(formatstring);
 
-            sb.Replace("[value0]", f1.ToString("F6"));
+            sb.Replace("[value0]", f1.ToString("F6", CultureInfo.InvariantCulture));
             sb.Replace("[newline]", "\n");
-            sb.Replace("[value1]", f2.ToString("F6"));
+            sb.Replace("[value1]", f2.ToString("F6", CultureInfo.InvariantCulture));
 
             return sb.ToString();
         }

@@ -46,7 +46,9 @@ namespace YAME.Model
         string _ui_message;
         public string UI_Message
         {
-            get { return _ui_message; }
+            get
+            { 
+                return _ui_message;  }
             set
             {
                 if (value != _ui_message)
@@ -157,7 +159,7 @@ namespace YAME.Model
                     _isopen = false;
                 }
 
-                engine.odrivesystem.IsAnyPortOpen = _isopen;
+                engine.odrivesystem.IsAnyPortOpen = _isopen;        //This doesn't really SET the variable! It's just a trigger to get the OdriveSystem to Update its state.
                 OnPropertyChanged(nameof(IsOpen));
             }
         }
