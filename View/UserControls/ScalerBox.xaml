@@ -27,13 +27,15 @@
             </Rectangle.Stroke>
         </Rectangle>
         <TextBlock  FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0"
-                    Text="{Binding Input, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat=N3}"
+                    Text="{Binding Input, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat=N3 }"
                     Style="{StaticResource TextBlock_Style}"   Margin="5,0,0,0"/>
 
-        <Controls:ClickSelectTextBox x:Name="txtbx_scalar" Text="{Binding Gain, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat=N2}"
+        <Controls:ClickSelectTextBox x:Name="txtbx_scalar"
+                    Text="{Binding Gain, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat=N2}"
                     FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"
                     Style="{StaticResource TextBox_Style}"   Width="50" 
-                    MouseWheel="txtbx_scalar_MouseWheel"/>
+                    MouseWheel="txtbx_scalar_MouseWheel">
+        </Controls:ClickSelectTextBox>
         <TextBlock  Text="{Binding Output, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat=N3}"
                     FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2"
                     Style="{StaticResource TextBlock_Style}"  Margin="0,0,5,0"/>

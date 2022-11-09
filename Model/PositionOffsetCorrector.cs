@@ -30,11 +30,7 @@ namespace YAME.Model
         public float Delta_X
         {
             get { return _delta_x; }
-            set
-            {
-                _delta_x = value;
-                OnPropertyChanged(nameof(Delta_X));
-            }
+            set { _delta_x = value; OnPropertyChanged(nameof(Delta_X)); }
         }
         float _delta_y = 0;
         public float Delta_Y

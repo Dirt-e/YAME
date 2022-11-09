@@ -92,11 +92,11 @@
             </Label.Style>
         </Label>
 
-        <Controls:ClickSelectTextBox x:Name="txtbx_DeltaX" Text="{ Binding Delta_X, StringFormat={}{0:##0.00} m, UpdateSourceTrigger=PropertyChanged}"
+        <Controls:ClickSelectTextBox x:Name="txtbx_DeltaX" Text="{ Binding Delta_X, StringFormat={}{0:#0.00} m, UpdateSourceTrigger=LostFocus}"
                     Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="1" Margin="1" Style="{StaticResource TextBox_Style}"/>
-        <Controls:ClickSelectTextBox x:Name="txtbx_DeltaY" Text="{ Binding Delta_Y, StringFormat={}{0:#0.00} m, UpdateSourceTrigger=PropertyChanged}"
+        <Controls:ClickSelectTextBox x:Name="txtbx_DeltaY" Text="{ Binding Delta_Y, StringFormat={}{0:#0.00} m, UpdateSourceTrigger=LostFocus}"
                     Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="1" Margin="1" Style="{StaticResource TextBox_Style}"/>
-        <Controls:ClickSelectTextBox x:Name="txtbx_DeltaZ" Text="{ Binding Delta_Z, StringFormat={}{0:#0.00} m, UpdateSourceTrigger=PropertyChanged}"
+        <Controls:ClickSelectTextBox x:Name="txtbx_DeltaZ" Text="{ Binding Delta_Z, StringFormat={}{0:#0.00} m, UpdateSourceTrigger=LostFocus}"
                     Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="1" Margin="1" Style="{StaticResource TextBox_Style}"/>
 
         <TextBlock  x:Name="lbl_Ax_corr" Text="{ Binding Ax_output, StringFormat={}{0:#0.00} m/s², UpdateSourceTrigger=PropertyChanged}"

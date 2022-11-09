@@ -33,10 +33,11 @@
             <TextBlock  Text="{Binding Code}" DockPanel.Dock="Right"
                         VerticalAlignment="Center" Margin="0,0,5,0"/>
         </DockPanel>
-        <Controls:ClickSelectTextBox x:Name="txtbx_FilterVariable" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Width="40"
+        <Controls:ClickSelectTextBox x:Name="txtbx_FilterVariable" FontSize="12" HorizontalAlignment="Center"
+                    VerticalAlignment="Center" Grid.Row="1" Width="40"
                     Style="{StaticResource TextBox_Style}">
             <Controls:ClickSelectTextBox.Text>
-                <Binding Path="FilterVariable" UpdateSourceTrigger="LostFocus" Mode="TwoWay">
+                <Binding Path="FilterVariable" UpdateSourceTrigger="LostFocus" Mode="TwoWay" StringFormat="">
                     <Binding.ValidationRules>
                         <Controls:RangeValidationRule MinValue="1" MaxValue="1000000" />
                     </Binding.ValidationRules>

@@ -27,7 +27,8 @@ namespace YAME.View
 
         private void SetDatacontext()
         {
-            DataContext = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine.positionoffsetcorrector;
+            MainWindow mw = Application.Current.MainWindow as MainWindow;
+            DataContext = mw.engine.positionoffsetcorrector;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
