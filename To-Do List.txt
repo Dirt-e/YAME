@@ -1,11 +1,12 @@
 ﻿To-Do:
 GENERAL:
 - SnappyDragger: Constrain window to within screen area! IMPORTANT!!!
-- Mark the content of a TextBox when entering focus (to be able ot overwrite the contents quickly)
 
 MAIN WINDOW:
 
+
 CRASH DETECTION & RECOVERY:
+
 
 INTEGRATOR:
 - Implement some sort of DOF limit to keep the Transform3D from
@@ -13,19 +14,40 @@ INTEGRATOR:
   excessive angles could lead to erratic "snapping" during 
   quaternion interpolation (shortest path problem)
 
+
 SERIALTALKER:
+- Allow more flexible Odrive assignments (like @PeterW)
+
 
 FILTERS WINDOW:
+
 
 RIG CONFIGURATION:
 - Add a slew mode for apropriate offsets. May be used during an open serial connection!
 
+
 LOADER/SAVER:
 - Split Load/Save routine up into "Rig" and "Filters"
 
+
 ALPHA_COMPENSATION:
+
 
 POSITION OFFSET CORRECTION:
 
 PATCHER:
 - Re-apply DCS Patch if already patched. Just to be sure!
+- Make FS2020_Motion_Exporter invisible
+- Make FS2020_Motion_Exporter close appplication when Flightsimulator closes
+
+
+SAFETY:
+- Make ActuatorOverride "Foolproof"
+- Make DOF Override "Foolproof"
+
+MOTION CONTROL:
+- Allow free lerping between Park/Pause/Motion (via LP Filters and/or PerlinSmooth transitions),maybe even reversible transitions
+
+Scene View:
+- Show ghost platform(s)
+- Show CoR as yellow ball

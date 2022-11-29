@@ -1777,13 +1777,37 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("q 0 [value0][newline]q 1 [value1]")]
-        public string ODriveSystem_FormatString {
+        [global::System.Configuration.DefaultSettingValueAttribute("p 0 [Act1][newline]p 1 [Act2]")]
+        public string ODriveSystem_FormatString_1 {
             get {
-                return ((string)(this["ODriveSystem_FormatString"]));
+                return ((string)(this["ODriveSystem_FormatString_1"]));
             }
             set {
-                this["ODriveSystem_FormatString"] = value;
+                this["ODriveSystem_FormatString_1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("p 0 [Act3][newline]p 1 [Act4]")]
+        public string ODriveSystem_FormatString_2 {
+            get {
+                return ((string)(this["ODriveSystem_FormatString_2"]));
+            }
+            set {
+                this["ODriveSystem_FormatString_2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("p 0 [Act5][newline]p 1 [Act6]")]
+        public string ODriveSystem_FormatString_3 {
+            get {
+                return ((string)(this["ODriveSystem_FormatString_3"]));
+            }
+            set {
+                this["ODriveSystem_FormatString_3"] = value;
             }
         }
     }

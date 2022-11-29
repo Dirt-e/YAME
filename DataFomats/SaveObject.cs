@@ -142,7 +142,9 @@ namespace YAME.DataFomats
         #endregion
         #region ODriveTalker
         public int Lead { get; set; }
-        public string FormatString { get; set; }
+        public string FormatString_1 { get; set; }
+        public string FormatString_2 { get; set; }
+        public string FormatString_3 { get; set; }
         #endregion
     }
 }

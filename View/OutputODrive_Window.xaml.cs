@@ -49,7 +49,9 @@ namespace YAME.View
             txtblk_OpenClose2.DataContext = mw.engine.odrivesystem.oDriveTalkers[1];
             txtblk_OpenClose3.DataContext = mw.engine.odrivesystem.oDriveTalkers[2];
 
-            txtbx_Format.DataContext = mw.engine.odrivesystem;
+            txtbx_Format_1.DataContext = mw.engine.odrivesystem;
+            txtbx_Format_2.DataContext = mw.engine.odrivesystem;
+            txtbx_Format_3.DataContext = mw.engine.odrivesystem;
 
             txtblk_Message1.DataContext = mw.engine.odrivesystem.oDriveTalkers[0];
             txtblk_Message2.DataContext = mw.engine.odrivesystem.oDriveTalkers[1];

@@ -440,8 +440,14 @@
     <Setting Name="ODriveSystem_Lead" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10</Value>
     </Setting>
-    <Setting Name="ODriveSystem_FormatString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">q 0 [value0][newline]q 1 [value1]</Value>
+    <Setting Name="ODriveSystem_FormatString_1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">p 0 [Act1][newline]p 1 [Act2]</Value>
+    </Setting>
+    <Setting Name="ODriveSystem_FormatString_2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">p 0 [Act3][newline]p 1 [Act4]</Value>
+    </Setting>
+    <Setting Name="ODriveSystem_FormatString_3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">p 0 [Act5][newline]p 1 [Act6]</Value>
     </Setting>
   </Settings>
 </SettingsFile>

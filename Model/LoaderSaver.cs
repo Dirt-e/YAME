@@ -221,7 +221,9 @@ namespace YAME.Model
             //COM port is handled inside "ODriveTalker_Window.xaml.cs" Window_Loaded Event
 
             engine.odrivesystem.Lead            = Properties.Settings.Default.ODriveSystem_Lead;
-            engine.odrivesystem.FormatString    = Properties.Settings.Default.ODriveSystem_FormatString;
+            engine.odrivesystem.FormatString_1    = Properties.Settings.Default.ODriveSystem_FormatString_1;
+            engine.odrivesystem.FormatString_2    = Properties.Settings.Default.ODriveSystem_FormatString_2;
+            engine.odrivesystem.FormatString_3    = Properties.Settings.Default.ODriveSystem_FormatString_3;
         }
 
         //---------------- Save -----------------------
@@ -417,8 +419,10 @@ namespace YAME.Model
                     engine.odrivesystem.oDriveTalkers[2].COM_Port.ToString();
             }
 
-            Properties.Settings.Default.ODriveSystem_Lead           = engine.odrivesystem.Lead;
-            Properties.Settings.Default.ODriveSystem_FormatString   = engine.odrivesystem.FormatString;
+            Properties.Settings.Default.ODriveSystem_Lead               = engine.odrivesystem.Lead;
+            Properties.Settings.Default.ODriveSystem_FormatString_1     = engine.odrivesystem.FormatString_1;
+            Properties.Settings.Default.ODriveSystem_FormatString_2     = engine.odrivesystem.FormatString_2;
+            Properties.Settings.Default.ODriveSystem_FormatString_3     = engine.odrivesystem.FormatString_3;
         }
         #endregion
         #region To/from Profile:
@@ -601,8 +605,10 @@ namespace YAME.Model
             //COM port is handled inside "OutputODrive_Window.xaml.cs",
             //because COM ports are assigned during runtime
 
-            engine.odrivesystem.FormatString    = saveObject.FormatString;
-            engine.odrivesystem.Lead            = saveObject.Lead;
+            engine.odrivesystem.FormatString_1      = saveObject.FormatString_1;
+            engine.odrivesystem.FormatString_2      = saveObject.FormatString_2;
+            engine.odrivesystem.FormatString_3      = saveObject.FormatString_3;
+            engine.odrivesystem.Lead                = saveObject.Lead;
         }
 
         //---------------- Save -----------------------
@@ -768,8 +774,10 @@ namespace YAME.Model
         }
         void Save_ODriveTalker_Settings_Profile()
         {
-            saveObject.FormatString = engine.odrivesystem.FormatString;
-            saveObject.Lead         = engine.odrivesystem.Lead;
+            saveObject.FormatString_1   = engine.odrivesystem.FormatString_1;
+            saveObject.FormatString_2   = engine.odrivesystem.FormatString_2;
+            saveObject.FormatString_3   = engine.odrivesystem.FormatString_3;
+            saveObject.Lead             = engine.odrivesystem.Lead;
         }
         #endregion
 

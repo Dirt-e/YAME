@@ -15,7 +15,7 @@ namespace YAME.Model
     public class ODriveTalker : MyObject
     {
         public SerialPort serialport = new SerialPort();
-        public MessageGenerator_Odrive messageGenerator_Odrive = new MessageGenerator_Odrive();
+        public MessageGenerator_Odrive messageGenerator_Odrive;
 
         private const int BaudRate = 115200;
         private const int WriteTimeout = 2000;
@@ -96,12 +96,17 @@ namespace YAME.Model
                         return;
                     }
 
-                    if (!engine.actuatorsystem.Is_AllActuatorsFullyRetracted)
+                    if (!engine.actuatorsystem.Is_AllActuatorsFullyRetracted || engine.actuatoroverride.IsOverride)
                     {
                         MessageBoxResult result = MessageBox.Show(
-                            "You're trying to send data to the motion controller. However, the data you're about to send " +
-                            "is telling the controller to move the rig to a position where it most probably isn't " +
-                            "at this moment. If your controller is active and online YOUR RIG COULD POTENTIALLY MAKE A HUGE JOLT!\n" +
+                            "You want to send data to the motion controller. However, the data you're about to send " +
+                            "is commanding the rig into motion RIGHT NOW! Your rig could potentially make a huge jolt! " +
+                            "Chances are that this is caused by one or both of these two conditions:\n" +
+                            "1. Your rig is not in the park position\n" +
+                            "2. You are using the actuator override\n" +
+                            "\n" +
+                            "To fix this you should move the rig down into the park position using the \"Motion Control\" module until you see the actuators turn pale blue in "+
+                            "the 3D view. On top make sure that you are not using the actuator override feature." +
                             "\n" +
                             "Do you really know what you're doing?",
                             "HOT RIG WARNING",
@@ -168,16 +173,17 @@ namespace YAME.Model
         public ODriveTalker(Engine e, OdriveNumber odrive_number)
         {
             engine = e;
+            messageGenerator_Odrive = new MessageGenerator_Odrive(engine);
             OdriveNumber = odrive_number;
-        }
+    }
 
-        public void Update(float revs1, float revs2, string formatstring)
+        public void Update(string formatstring, float[] revolutions)
         {
             if (serialport.IsOpen)
             {
-                Message = messageGenerator_Odrive.ComposeMessageFrom(revs1, revs2, formatstring);
+                Message = messageGenerator_Odrive.ComposeMessageFrom(formatstring, revolutions);
+                
                 UI_Message = Message;
-
                 Write(Message);
             }
             else
