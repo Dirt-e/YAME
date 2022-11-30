@@ -81,6 +81,10 @@ namespace YAME.Model
 
             Lerp_ParkPause.Duration = TimeSpan.FromSeconds(5);
             Lerp_PauseMotion.Duration = TimeSpan.FromSeconds(5);
+
+            Lerp_ParkPause.Method = LerpOverMethod.LowPass3rdOrder;
+            Lerp_PauseMotion.Method = LerpOverMethod.LowPass3rdOrder;
+
             SetToA();
             //Just switch a cycle to make sure the State gets Updated at first Startup
             State = Lerp3_State.Dummy;
@@ -92,6 +96,10 @@ namespace YAME.Model
 
             Lerp_ParkPause.Duration = time_AB;
             Lerp_PauseMotion.Duration = time_BC;
+
+            Lerp_ParkPause.Method = LerpOverMethod.LowPass3rdOrder;
+            Lerp_PauseMotion.Method = LerpOverMethod.LowPass3rdOrder;
+
             SetToA();
             //Just switch a cycle to make sure the State gets Updated at first Startup
             State = Lerp3_State.Dummy;
@@ -116,17 +124,16 @@ namespace YAME.Model
 
         public void EMERGENCY_OnCrashDetected()
         {
-            if (State == Lerp3_State.Motion) Command = Lerp3_Command.Pause;                     //Just like pushing the button
-            //if (State == Lerp3_State.Transit_Pause2Motion) Lerp_PauseMotion.Reverse();        //Hard option!!! To-do: give the Lerp a 3rd order LP transition 
-            if (State == Lerp3_State.TransitTowards_Motion) Lerp_PauseMotion.Reverse();          //Experimental
+            if (State == Lerp3_State.Motion ||
+                State == Lerp3_State.TransitTowards_Motion)     Command = Lerp3_Command.Pause;                     //Just like pushing the button
         }
 
         public void LerpBetween(Transform3D TF1, Transform3D TF2, Transform3D TF3)
         {
             Lerp_ParkPause.Update();
             Lerp_PauseMotion.Update();
-
             State = DetermineState();
+
             Output = CreateInterpolation(TF1, TF2, TF3);
         }
         private Lerp3_State DetermineState()
@@ -137,12 +144,6 @@ namespace YAME.Model
             if (Lerp_ParkPause.IsFullUp && Lerp_PauseMotion.IsFullUp)                       return Lerp3_State.Motion;
 
             //All other cases must be Transit states:
-            //if (Lerp_ParkPause.IsMovingUpwards && Lerp_PauseMotion.IsFullDown)              return Lerp3_State.Transit_Park2Pause;
-            //if (Lerp_ParkPause.IsMovingDownwards)   return Lerp3_State.Transit_Pause2Park;
-            
-            //if (Lerp_PauseMotion.IsMovingUpwards)   return Lerp3_State.Transit_Pause2Motion;
-            //if (Lerp_PauseMotion.IsMovingDownwards) return Lerp3_State.Transit_Motion2Pause;
-            
             bool TraTo_Motion   = (Lerp_ParkPause.IsMovingUpwards   || Lerp_ParkPause.IsFullUp)     && (Lerp_PauseMotion.IsMovingUpwards    || Lerp_PauseMotion.IsFullUp);
             bool TraTo_Pause    = (Lerp_ParkPause.IsMovingUpwards   || Lerp_ParkPause.IsFullUp)     && (Lerp_PauseMotion.IsMovingDownwards  || Lerp_PauseMotion.IsFullDown);
             bool TraTo_Park     = (Lerp_ParkPause.IsMovingDownwards || Lerp_ParkPause.IsFullDown)   && (Lerp_PauseMotion.IsMovingDownwards  || Lerp_PauseMotion.IsFullDown);

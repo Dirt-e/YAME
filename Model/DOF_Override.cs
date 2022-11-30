@@ -20,7 +20,7 @@ namespace YAME.Model
         LowPassNthOrder LP_sldr_SwayHFC     = new LowPassNthOrder(3);
         LowPassNthOrder LP_sldr_RollLFC     = new LowPassNthOrder(3);
 
-        Lerp lerp = new Lerp(2000);
+        Lerp lerp = new Lerp(2000, LerpOverMethod.LowPass3rdOrder);
 
         #region ViewModel General
         bool _isOverride;
@@ -379,9 +379,9 @@ namespace YAME.Model
             Input = new DOF_Data(data);
 
             Update_LP_Filters(); 
-            lerp.Update();
-
             DrawBlueBars();
+
+            lerp.Update();
 
             Output = Input * (1 - lerp.Ratio_external) + Slider_LP3 * lerp.Ratio_external;
         }
