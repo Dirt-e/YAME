@@ -16,11 +16,10 @@ INTEGRATOR:
 
 
 SERIALTALKER:
-- Allow more flexible Odrive assignments (like @PeterW)
 
 
 FILTERS WINDOW:
-
+- Prevent Ay from jumping because of sudden onset of 9,81m/s². Filter needs to be equalised shortly after startup
 
 RIG CONFIGURATION:
 - Add a slew mode for apropriate offsets. May be used during an open serial connection!

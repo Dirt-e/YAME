@@ -41,8 +41,6 @@ namespace YAME.Model
         {
             base.Update(data);
 
-            
-
             LerpPhysical_Between_ParkPauseMotion();
             UpdateUI_ViaDispatcherInvoke();
         }

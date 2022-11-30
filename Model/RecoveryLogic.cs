@@ -68,9 +68,7 @@ namespace YAME.Model
                     goto case Recovery_State.Recovering;                            //Move on.
                 case Recovery_State.Recovering:
                     if (engine.integrator.Lerp_3Way.State == Lerp3_State.Pause || 
-                        engine.integrator.Lerp_3Way.State == Lerp3_State.Park ||
-                        engine.integrator.Lerp_3Way.State == Lerp3_State.Transit_Park2Pause ||
-                        engine.integrator.Lerp_3Way.State == Lerp3_State.Transit_Pause2Park)      //Do nothing. Will move on
+                        engine.integrator.Lerp_3Way.State == Lerp3_State.Park)      //Do nothing. Will move on
                     {
                         SetCrashLight(Colors.Orange, Colors.Black, "RIG RECOVERED", "Press to reset");
                         State = Recovery_State.WaitingForAcknoledgement;
@@ -103,7 +101,7 @@ namespace YAME.Model
         {
             if (engine.integrator.Lerp_3Way.State == Lerp3_State.Motion)
                 engine.integrator.Lerp_3Way.Command = Lerp3_Command.Pause;      //Soft option
-            if (engine.integrator.Lerp_3Way.State == Lerp3_State.Transit_Pause2Motion)
+            if (engine.integrator.Lerp_3Way.State == Lerp3_State.TransitTowards_Motion)
                 engine.integrator.Lerp_3Way.EMERGENCY_OnCrashDetected();        //Hard option
         }
         void SetCrashLight(Color lgt_col, Color txt_col, string line1, string line2)

@@ -37,32 +37,40 @@ namespace YAME.Model
             get { return _command; }
             set
             {
+                _command = value;
+                switch (value)
                 {
-                    _command = value;
-                    switch (value)
-                    {
-                        case Lerp3_Command.Park:
-                            if (State == Lerp3_State.Pause) { Lerp_ParkPause.Run(); }
-                            break;
+                    case Lerp3_Command.Park:
+                        //if (State == Lerp3_State.Pause) { Lerp_ParkPause.Run(); }
+                        Lerp_PauseMotion.Run(false);         //Experimental!
+                        Lerp_ParkPause.Run(false);           //Experimental!
+                        break;
+             
+                    case Lerp3_Command.Pause:
+                        //if (State == Lerp3_State.Park) { Lerp_ParkPause.Run(); }
+                        //else if (State == Lerp3_State.Motion) { Lerp_PauseMotion.Run(); }
+                        Lerp_PauseMotion.Run(false);         //Experimental!
+                        Lerp_ParkPause.Run(true);           //Experimental!
+                        break;
+             
+                    case Lerp3_Command.Motion:
+                        bool ExceedancePresent = engine.exceedancedetector.IsAnyExceedancePresent;
+                        bool AcknoledgementOpen = engine.recoverylogic.State == Recovery_State.WaitingForAcknoledgement;
+                        bool InPauseState = State == Lerp3_State.Pause;
+                        //if ((!ExceedancePresent && !AcknoledgementOpen) && InPauseState)
+                        //{ 
+                        //    Lerp_PauseMotion.Run();
+                        //}
 
-                        case Lerp3_Command.Pause:
-                            if (State == Lerp3_State.Park) { Lerp_ParkPause.Run(); }
-                            else if (State == Lerp3_State.Motion) { Lerp_PauseMotion.Run(); }
-                            break;
-
-                        case Lerp3_Command.Motion:
-                            bool ExceedancePresent = engine.exceedancedetector.IsAnyExceedancePresent;
-                            bool AcknoledgementOpen = engine.recoverylogic.State == Recovery_State.WaitingForAcknoledgement;
-                            bool InPauseState = State == Lerp3_State.Pause;
-                            if ((!ExceedancePresent && !AcknoledgementOpen) && InPauseState)
-                            { 
-                                Lerp_PauseMotion.Run();
-                            }
-                            break;
-
-                        default:
-                            throw new Exception();
-                    }
+                        if (!ExceedancePresent && !AcknoledgementOpen)            //Experimental
+                        {
+                            Lerp_PauseMotion.Run(true);         //Experimental!
+                            Lerp_ParkPause.Run(true);           //Experimental!
+                        }
+                        break;
+             
+                    default:
+                        throw new Exception();
                 }
             }
         }
@@ -109,7 +117,8 @@ namespace YAME.Model
         public void EMERGENCY_OnCrashDetected()
         {
             if (State == Lerp3_State.Motion) Command = Lerp3_Command.Pause;                     //Just like pushing the button
-            if (State == Lerp3_State.Transit_Pause2Motion) Lerp_PauseMotion.Reverse();          //Hard option!!! To-do: give the Lerp a 3rd order LP transition 
+            //if (State == Lerp3_State.Transit_Pause2Motion) Lerp_PauseMotion.Reverse();        //Hard option!!! To-do: give the Lerp a 3rd order LP transition 
+            if (State == Lerp3_State.TransitTowards_Motion) Lerp_PauseMotion.Reverse();          //Experimental
         }
 
         public void LerpBetween(Transform3D TF1, Transform3D TF2, Transform3D TF3)
@@ -127,13 +136,21 @@ namespace YAME.Model
             if (Lerp_ParkPause.IsFullUp && Lerp_PauseMotion.IsFullDown)                     return Lerp3_State.Pause;
             if (Lerp_ParkPause.IsFullUp && Lerp_PauseMotion.IsFullUp)                       return Lerp3_State.Motion;
 
-            //All other cases must be Transit states
-            if (Lerp_ParkPause.IsMovingUpwards && Lerp_PauseMotion.IsFullDown)              return Lerp3_State.Transit_Park2Pause;
-            if (Lerp_ParkPause.IsMovingDownwards)   return Lerp3_State.Transit_Pause2Park;
+            //All other cases must be Transit states:
+            //if (Lerp_ParkPause.IsMovingUpwards && Lerp_PauseMotion.IsFullDown)              return Lerp3_State.Transit_Park2Pause;
+            //if (Lerp_ParkPause.IsMovingDownwards)   return Lerp3_State.Transit_Pause2Park;
             
-            if (Lerp_PauseMotion.IsMovingUpwards)   return Lerp3_State.Transit_Pause2Motion;
-            if (Lerp_PauseMotion.IsMovingDownwards) return Lerp3_State.Transit_Motion2Pause;
+            //if (Lerp_PauseMotion.IsMovingUpwards)   return Lerp3_State.Transit_Pause2Motion;
+            //if (Lerp_PauseMotion.IsMovingDownwards) return Lerp3_State.Transit_Motion2Pause;
             
+            bool TraTo_Motion   = (Lerp_ParkPause.IsMovingUpwards   || Lerp_ParkPause.IsFullUp)     && (Lerp_PauseMotion.IsMovingUpwards    || Lerp_PauseMotion.IsFullUp);
+            bool TraTo_Pause    = (Lerp_ParkPause.IsMovingUpwards   || Lerp_ParkPause.IsFullUp)     && (Lerp_PauseMotion.IsMovingDownwards  || Lerp_PauseMotion.IsFullDown);
+            bool TraTo_Park     = (Lerp_ParkPause.IsMovingDownwards || Lerp_ParkPause.IsFullDown)   && (Lerp_PauseMotion.IsMovingDownwards  || Lerp_PauseMotion.IsFullDown);
+
+            if (TraTo_Motion)   return Lerp3_State.TransitTowards_Motion;
+            if (TraTo_Pause)    return Lerp3_State.TransitTowards_Pause;
+            if (TraTo_Park)     return Lerp3_State.TransitTowards_Park;
+
 
             //You should never get here!
             throw new Exception("Unhandled State! ");
@@ -173,10 +190,13 @@ namespace YAME.Model
         Pause,
         Motion,
         Dummy,                          //This is necessary to switch a "dummy-cycle" during the construction (see constructor above)
-        Transit_Park2Pause,
-        Transit_Pause2Park,
-        Transit_Pause2Motion,
-        Transit_Motion2Pause
+        //Transit_Park2Pause,
+        //Transit_Pause2Park,
+        //Transit_Pause2Motion,
+        //Transit_Motion2Pause
+        TransitTowards_Motion,
+        TransitTowards_Park,
+        TransitTowards_Pause,
     }
     public enum Lerp3_Command
     {

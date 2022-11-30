@@ -53,18 +53,27 @@ namespace YAME.ViewModel
                             CursorPark = Cursors.No;
                             break;
 
-                        case Lerp3_State.Transit_Park2Pause: case Lerp3_State.Transit_Pause2Park:
+                        case Lerp3_State.TransitTowards_Park:
                             BtnMotion_ForegroundColor = new SolidColorBrush(Colors.Black);
-                            BtnPause_ForegroundColor = new SolidColorBrush(Colors.DarkOrange);
+                            BtnPause_ForegroundColor = new SolidColorBrush(Colors.Black);
                             BtnPark_ForegroundColor = new SolidColorBrush(Colors.DarkOrange);
                             CursorMotion = Cursors.No;
                             CursorPause = Cursors.No;
                             CursorPark = Cursors.No;
                             break;
 
-                        case Lerp3_State.Transit_Pause2Motion:  case Lerp3_State.Transit_Motion2Pause:
-                            BtnMotion_ForegroundColor = new SolidColorBrush(Colors.DarkOrange);
+                        case Lerp3_State.TransitTowards_Pause:
+                            BtnMotion_ForegroundColor = new SolidColorBrush(Colors.Black);
                             BtnPause_ForegroundColor = new SolidColorBrush(Colors.DarkOrange);
+                            BtnPark_ForegroundColor = new SolidColorBrush(Colors.Black);
+                            CursorMotion = Cursors.No;
+                            CursorPause = Cursors.No;
+                            CursorPark = Cursors.No;
+                            break;
+
+                        case Lerp3_State.TransitTowards_Motion:
+                            BtnMotion_ForegroundColor = new SolidColorBrush(Colors.DarkOrange);
+                            BtnPause_ForegroundColor = new SolidColorBrush(Colors.Black);
                             BtnPark_ForegroundColor = new SolidColorBrush(Colors.Black);
                             CursorMotion = Cursors.No;
                             CursorPause = Cursors.No;
