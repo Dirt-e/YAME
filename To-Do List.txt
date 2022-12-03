@@ -14,6 +14,8 @@ INTEGRATOR:
   excessive angles could lead to erratic "snapping" during 
   quaternion interpolation (shortest path problem)
 
+ ACTUATOR OVERRIDE:
+- Show actuator speed to user  in [mm/s]
 
 SERIALTALKER:
 

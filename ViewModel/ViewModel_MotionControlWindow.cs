@@ -30,7 +30,7 @@ namespace YAME.ViewModel
                             BtnMotion_ForegroundColor = new SolidColorBrush(Colors.Black);
                             BtnPause_ForegroundColor = new SolidColorBrush(Colors.Black);
                             BtnPark_ForegroundColor = new SolidColorBrush(Colors.LightGreen);
-                            CursorMotion = Cursors.No;
+                            CursorMotion = Cursors.Hand;
                             CursorPause = Cursors.Hand;
                             CursorPark = Cursors.Arrow;
                             break;
@@ -50,34 +50,34 @@ namespace YAME.ViewModel
                             BtnPark_ForegroundColor = new SolidColorBrush(Colors.Black);
                             CursorMotion = Cursors.Arrow;
                             CursorPause = Cursors.Hand;
-                            CursorPark = Cursors.No;
+                            CursorPark = Cursors.Hand;
                             break;
 
                         case Lerp3_State.TransitTowards_Park:
                             BtnMotion_ForegroundColor = new SolidColorBrush(Colors.Black);
                             BtnPause_ForegroundColor = new SolidColorBrush(Colors.Black);
                             BtnPark_ForegroundColor = new SolidColorBrush(Colors.DarkOrange);
-                            CursorMotion = Cursors.No;
-                            CursorPause = Cursors.No;
-                            CursorPark = Cursors.No;
+                            CursorMotion = Cursors.Hand;
+                            CursorPause = Cursors.Hand;
+                            CursorPark = Cursors.Hand;
                             break;
 
                         case Lerp3_State.TransitTowards_Pause:
                             BtnMotion_ForegroundColor = new SolidColorBrush(Colors.Black);
                             BtnPause_ForegroundColor = new SolidColorBrush(Colors.DarkOrange);
                             BtnPark_ForegroundColor = new SolidColorBrush(Colors.Black);
-                            CursorMotion = Cursors.No;
-                            CursorPause = Cursors.No;
-                            CursorPark = Cursors.No;
+                            CursorMotion = Cursors.Hand;
+                            CursorPause = Cursors.Hand;
+                            CursorPark = Cursors.Hand;
                             break;
 
                         case Lerp3_State.TransitTowards_Motion:
                             BtnMotion_ForegroundColor = new SolidColorBrush(Colors.DarkOrange);
                             BtnPause_ForegroundColor = new SolidColorBrush(Colors.Black);
                             BtnPark_ForegroundColor = new SolidColorBrush(Colors.Black);
-                            CursorMotion = Cursors.No;
-                            CursorPause = Cursors.No;
-                            CursorPark = Cursors.No;
+                            CursorMotion = Cursors.Hand;
+                            CursorPause = Cursors.Hand;
+                            CursorPark = Cursors.Hand;
                             break;
 
                         case Lerp3_State.Dummy:
