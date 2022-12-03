@@ -73,17 +73,21 @@ namespace YAME.Model
 
         public void Process(SixSisters ss)
         {
-            float revolutionsPerFullStroke = engine.actuatorsystem.Stroke / Lead;
-            
-            float[] revolutions = new float[6];
-            for (int i = 0; i < revolutions.Count(); i++)
+            if(IsAnyPortOpen)
             {
-                revolutions[i] = ss.values[i] * revolutionsPerFullStroke;
-            }
+                float revolutionsPerFullStroke = engine.actuatorsystem.Stroke / Lead;
+            
+                float[] revolutions = new float[6];
+                for (int i = 0; i < revolutions.Count(); i++)
+                {
+                    revolutions[i] = ss.values[i] * revolutionsPerFullStroke;
+                }
 
-            oDriveTalkers[0].Update(FormatString_1, revolutions);
-            oDriveTalkers[1].Update(FormatString_2, revolutions);
-            oDriveTalkers[2].Update(FormatString_3, revolutions);
+                oDriveTalkers[0].Update(FormatString_1, revolutions);
+                oDriveTalkers[1].Update(FormatString_2, revolutions);
+                oDriveTalkers[2].Update(FormatString_3, revolutions);
+            }
+            
         }
     }
 }

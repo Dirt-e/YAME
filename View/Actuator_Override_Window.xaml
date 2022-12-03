@@ -37,6 +37,7 @@
             <RowDefinition Height="35"/>
             <RowDefinition Height="310"/>
             <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="1" Text="Actuators:"    Padding="2"  FontSize="15" FontWeight="Bold" Grid.ColumnSpan="5"/>
@@ -59,12 +60,20 @@
             <Slider x:Name="sld_Act6" Value="{Binding Sldr_Act6}" SelectionStart="0"  SelectionEnd="{Binding SelAct6}"   IsEnabled="{Binding IsOverride}" Orientation="Vertical" Maximum="1"   Minimum="0" Height="300" Width="30" LargeChange="0"/>
         </StackPanel>
         <StackPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20">
-            <TextBlock Text="1" Width="40" Height="20" Padding="12,0,0,0"/>
-            <TextBlock Text="2" Width="40" Height="20" Padding="12,0,0,0"/>
-            <TextBlock Text="3" Width="40" Height="20" Padding="12,0,0,0"/>
-            <TextBlock Text="4" Width="40" Height="20" Padding="12,0,0,0"/>
-            <TextBlock Text="5" Width="40" Height="20" Padding="12,0,0,0"/>
-            <TextBlock Text="6" Width="40" Height="20" Padding="12,0,0,0"/>
+            <TextBlock Text="1" Width="40" Height="20" Padding="12,0,0,0" FontSize="15"/>
+            <TextBlock Text="2" Width="40" Height="20" Padding="12,0,0,0" FontSize="15"/>
+            <TextBlock Text="3" Width="40" Height="20" Padding="12,0,0,0" FontSize="15"/>
+            <TextBlock Text="4" Width="40" Height="20" Padding="12,0,0,0" FontSize="15"/>
+            <TextBlock Text="5" Width="40" Height="20" Padding="12,0,0,0" FontSize="15"/>
+            <TextBlock Text="6" Width="40" Height="20" Padding="12,0,0,0" FontSize="15"/>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20">
+            <TextBlock x:Name="Speed_Act1" Width="40" Height="20" Padding="5,0,0,0" Text="{Binding Speed}" />
+            <TextBlock x:Name="Speed_Act2" Width="40" Height="20" Padding="5,0,0,0" Text="{Binding Speed}" />
+            <TextBlock x:Name="Speed_Act3" Width="40" Height="20" Padding="5,0,0,0" Text="{Binding Speed}" />
+            <TextBlock x:Name="Speed_Act4" Width="40" Height="20" Padding="5,0,0,0" Text="{Binding Speed}" />
+            <TextBlock x:Name="Speed_Act5" Width="40" Height="20" Padding="5,0,0,0" Text="{Binding Speed}" />
+            <TextBlock x:Name="Speed_Act6" Width="40" Height="20" Padding="5,0,0,0" Text="{Binding Speed}" />
         </StackPanel>
 
     </Grid>

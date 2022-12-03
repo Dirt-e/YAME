@@ -12,12 +12,12 @@ namespace YAME.Model
 {
     public class ActuatorSystem : MyObject
     {
-        Actuator A1 = new Actuator();   
-        Actuator A2 = new Actuator();   
-        Actuator A3 = new Actuator();   
-        Actuator A4 = new Actuator();   
-        Actuator A5 = new Actuator();   
-        Actuator A6 = new Actuator();   
+        public Actuator A1 = new Actuator();
+        public Actuator A2 = new Actuator();   
+        public Actuator A3 = new Actuator();   
+        public Actuator A4 = new Actuator();   
+        public Actuator A5 = new Actuator();   
+        public Actuator A6 = new Actuator();   
 
         public SixSisters Output;
         Stopwatch invoke_timer = Stopwatch.StartNew();      //to determine the time to update the "VM_SceneView" (33ms)

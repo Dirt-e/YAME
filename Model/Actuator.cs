@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace YAME.Model
 {
@@ -41,6 +43,16 @@ namespace YAME.Model
                 OnPropertyChanged("Currentlength");
 
                 redraw();
+            }
+        }
+        float _speed;
+        public float Speed
+        {
+            get { return _speed; }
+            set
+            {
+                _speed = value;
+                OnPropertyChanged("Speed");
             }
         }
         //Internal:
@@ -83,6 +95,7 @@ namespace YAME.Model
             private set { _status = value; OnPropertyChanged("Status"); }
         }
 
+
         void redraw()
         {
             Extension = CurrentLength - MinLength;
@@ -90,7 +103,9 @@ namespace YAME.Model
             Utilisation = DetermineUtilisation();
             Status = DetermineStatus();
         }
+
         
+        //Helpers
         float DetermineUtilisation()
         {
             if (MinLength <= CurrentLength && CurrentLength <= MaxLength)   return (Extension / Stroke);
