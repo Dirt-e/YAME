@@ -146,12 +146,12 @@ namespace YAME.Model
         //Helpers:
         void CreateOutput()
         {
-            Output.values[0] = A1.Utilisation;
-            Output.values[1] = A2.Utilisation;
-            Output.values[2] = A3.Utilisation;
-            Output.values[3] = A4.Utilisation;
-            Output.values[4] = A5.Utilisation;
-            Output.values[5] = A6.Utilisation;
+            Output.Values[0] = A1.Utilisation;
+            Output.Values[1] = A2.Utilisation;
+            Output.Values[2] = A3.Utilisation;
+            Output.Values[3] = A4.Utilisation;
+            Output.Values[4] = A5.Utilisation;
+            Output.Values[5] = A6.Utilisation;
         }
         
         #region Callback

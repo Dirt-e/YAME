@@ -64,12 +64,12 @@ namespace YAME.Model
 
         public byte[] ComposeMessageFrom(SixSisters ss)
         {
-            byte[] A1_bytes = GenerateBytes_24bit_from(ss.values[0]);
-            byte[] A2_bytes = GenerateBytes_24bit_from(ss.values[1]);
-            byte[] A3_bytes = GenerateBytes_24bit_from(ss.values[2]);
-            byte[] A4_bytes = GenerateBytes_24bit_from(ss.values[3]);
-            byte[] A5_bytes = GenerateBytes_24bit_from(ss.values[4]);
-            byte[] A6_bytes = GenerateBytes_24bit_from(ss.values[5]);
+            byte[] A1_bytes = GenerateBytes_24bit_from(ss.Values[0]);
+            byte[] A2_bytes = GenerateBytes_24bit_from(ss.Values[1]);
+            byte[] A3_bytes = GenerateBytes_24bit_from(ss.Values[2]);
+            byte[] A4_bytes = GenerateBytes_24bit_from(ss.Values[3]);
+            byte[] A5_bytes = GenerateBytes_24bit_from(ss.Values[4]);
+            byte[] A6_bytes = GenerateBytes_24bit_from(ss.Values[5]);
 
             Message[0] = StartBlock[0];
             Message[1] = StartBlock[1];

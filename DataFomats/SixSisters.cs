@@ -8,7 +8,7 @@ namespace YAME.DataFomats
 {
     public class SixSisters
     {
-        public float[] values = new float[6];
+        public float[] Values = new float[6];
 
         public SixSisters()
         {
@@ -16,9 +16,9 @@ namespace YAME.DataFomats
         }
         public SixSisters(SixSisters ss)
         {
-            for (int i = 0; i < ss.values.Length; i++)
+            for (int i = 0; i < ss.Values.Length; i++)
             {
-                values[i] = ss.values[i];
+                Values[i] = ss.Values[i];
             }
         }
 
@@ -27,9 +27,9 @@ namespace YAME.DataFomats
         {
             SixSisters result = new SixSisters();
 
-            for (int i = 0; i < result.values.Length; i++)
+            for (int i = 0; i < result.Values.Length; i++)
             {
-                result.values[i] = s1.values[i] + s2.values[i];
+                result.Values[i] = s1.Values[i] + s2.Values[i];
             }
 
             return result;
@@ -42,9 +42,9 @@ namespace YAME.DataFomats
         {
             SixSisters result = new SixSisters();
 
-            for (int i = 0; i < result.values.Length; i++)
+            for (int i = 0; i < result.Values.Length; i++)
             {
-                result.values[i] = s1.values[i] * -1.0f;
+                result.Values[i] = s1.Values[i] * -1.0f;
             }
 
             return result;
@@ -53,9 +53,9 @@ namespace YAME.DataFomats
         {
             SixSisters result = new SixSisters();
 
-            for (int i = 0; i < result.values.Length; i++)
+            for (int i = 0; i < result.Values.Length; i++)
             {
-                result.values[i] = s1.values[i] * f;
+                result.Values[i] = s1.Values[i] * f;
             }
 
             return result;
@@ -69,9 +69,9 @@ namespace YAME.DataFomats
             if (f == 0)
             {
                 SixSisters result = new SixSisters();
-                for (int i = 0; i < result.values.Length; i++)
+                for (int i = 0; i < result.Values.Length; i++)
                 {
-                    result.values[i] = float.NaN;
+                    result.Values[i] = float.NaN;
                 }
                 return result;
             }

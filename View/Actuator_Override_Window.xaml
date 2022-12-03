@@ -68,12 +68,12 @@
             <TextBlock Text="6" Width="40" Height="20" Padding="12,0,0,0" FontSize="15"/>
         </StackPanel>
         <StackPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20">
-            <TextBlock x:Name="Speed_Act1" Width="40" Height="20" Padding="5,0,0,0" Text="{Binding Speed}" />
-            <TextBlock x:Name="Speed_Act2" Width="40" Height="20" Padding="5,0,0,0" Text="{Binding Speed}" />
-            <TextBlock x:Name="Speed_Act3" Width="40" Height="20" Padding="5,0,0,0" Text="{Binding Speed}" />
-            <TextBlock x:Name="Speed_Act4" Width="40" Height="20" Padding="5,0,0,0" Text="{Binding Speed}" />
-            <TextBlock x:Name="Speed_Act5" Width="40" Height="20" Padding="5,0,0,0" Text="{Binding Speed}" />
-            <TextBlock x:Name="Speed_Act6" Width="40" Height="20" Padding="5,0,0,0" Text="{Binding Speed}" />
+            <TextBlock x:Name="Speed_Act1" Width="40" Height="20" Padding="0,0,4,0" Text="{Binding Spd_Act1, StringFormat=N0}" TextAlignment="Center" FontSize="10"/>
+            <TextBlock x:Name="Speed_Act2" Width="40" Height="20" Padding="0,0,4,0" Text="{Binding Spd_Act2, StringFormat=N0}" TextAlignment="Center" FontSize="10"/>
+            <TextBlock x:Name="Speed_Act3" Width="40" Height="20" Padding="0,0,4,0" Text="{Binding Spd_Act3, StringFormat=N0}" TextAlignment="Center" FontSize="10"/>
+            <TextBlock x:Name="Speed_Act4" Width="40" Height="20" Padding="0,0,4,0" Text="{Binding Spd_Act4, StringFormat=N0}" TextAlignment="Center" FontSize="10"/>
+            <TextBlock x:Name="Speed_Act5" Width="40" Height="20" Padding="0,0,4,0" Text="{Binding Spd_Act5, StringFormat=N0}" TextAlignment="Center" FontSize="10"/>
+            <TextBlock x:Name="Speed_Act6" Width="40" Height="20" Padding="0,0,4,0" Text="{Binding Spd_Act6, StringFormat=N0}" TextAlignment="Center" FontSize="10"/>
         </StackPanel>
 
     </Grid>

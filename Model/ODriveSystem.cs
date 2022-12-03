@@ -80,7 +80,7 @@ namespace YAME.Model
                 float[] revolutions = new float[6];
                 for (int i = 0; i < revolutions.Count(); i++)
                 {
-                    revolutions[i] = ss.values[i] * revolutionsPerFullStroke;
+                    revolutions[i] = ss.Values[i] * revolutionsPerFullStroke;
                 }
 
                 oDriveTalkers[0].Update(FormatString_1, revolutions);

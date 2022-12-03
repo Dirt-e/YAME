@@ -29,12 +29,6 @@ namespace YAME.View
         {
             var mw = Application.Current.MainWindow as MainWindow;
             DataContext = mw.engine.actuatoroverride;
-            Speed_Act1.DataContext = mw.engine.actuatorsystem.A1;
-            Speed_Act2.DataContext = mw.engine.actuatorsystem.A2;
-            Speed_Act3.DataContext = mw.engine.actuatorsystem.A3;
-            Speed_Act4.DataContext = mw.engine.actuatorsystem.A4;
-            Speed_Act5.DataContext = mw.engine.actuatorsystem.A5;
-            Speed_Act6.DataContext = mw.engine.actuatorsystem.A6;
         }
 
         private void SyncButton_Click(object sender, RoutedEventArgs e)

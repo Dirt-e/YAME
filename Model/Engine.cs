@@ -20,6 +20,7 @@ namespace YAME.Model
         public Server                   server;
 
         //Worker-thread objects:
+        public FrameTimer               frametimer;
         public LoaderSaver              loadersaver;
         public Patcher                  patcher;
 
@@ -118,6 +119,7 @@ namespace YAME.Model
         //------- This happens on the Worker Thread -----------------
         void InstatiateObjects_OnWorkerThread()
         {
+            frametimer              = new FrameTimer();
             loadersaver             = new LoaderSaver(this);
             patcher                 = new Patcher();
 
@@ -136,13 +138,14 @@ namespace YAME.Model
             integrator              = new Integrator(this);
             IK_Module               = new IK_Module(integrator as Integrator_basic);
             actuatorsystem          = new ActuatorSystem(IK_Module);
-            actuatoroverride        = new Actuator_Override() ;
+            actuatoroverride        = new Actuator_Override(this) ;
             aasd_talker             = new AASD_Talker(this);
             odrivesystem            = new ODriveSystem(this);
             logger                  = new Logger(this);
         }
         void UpdateObjects()
         {
+            frametimer.update();
             server.Read();
             chopper.ChopParseAndPackage(server.RawDatastring);
             inverter.InvertDataAsNeeded(chopper.Output);
