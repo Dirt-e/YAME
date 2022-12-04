@@ -380,7 +380,7 @@
     <Setting Name="LoaderSaver_ProfilePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">nil</Value>
     </Setting>
-    <Setting Name="Patcher_DCS_YAME" Type="System.String" Scope="User">
+    <Setting Name="Patcher_DCS_Script" Type="System.String" Scope="User">
       <Value Profile="(Default)">\Scripts\Hooks\YAME_Export_Hook.lua</Value>
     </Setting>
     <Setting Name="Patcher_Xplane_Exporter" Type="System.String" Scope="User">
@@ -448,6 +448,24 @@
     </Setting>
     <Setting Name="ODriveSystem_FormatString_3" Type="System.String" Scope="User">
       <Value Profile="(Default)">p 0 [Act5][newline]p 1 [Act6]</Value>
+    </Setting>
+    <Setting Name="Invert_Wx" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Invert_Wy" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Invert_Wz" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Invert_Ax" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Invert_Ay" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Invert_Az" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

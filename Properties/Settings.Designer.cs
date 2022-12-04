@@ -1538,12 +1538,12 @@ namespace YAME.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("\\Scripts\\Hooks\\YAME_Export_Hook.lua")]
-        public string Patcher_DCS_YAME {
+        public string Patcher_DCS_Script {
             get {
-                return ((string)(this["Patcher_DCS_YAME"]));
+                return ((string)(this["Patcher_DCS_Script"]));
             }
             set {
-                this["Patcher_DCS_YAME"] = value;
+                this["Patcher_DCS_Script"] = value;
             }
         }
         
@@ -1808,6 +1808,78 @@ namespace YAME.Properties {
             }
             set {
                 this["ODriveSystem_FormatString_3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Invert_Wx {
+            get {
+                return ((bool)(this["Invert_Wx"]));
+            }
+            set {
+                this["Invert_Wx"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Invert_Wy {
+            get {
+                return ((bool)(this["Invert_Wy"]));
+            }
+            set {
+                this["Invert_Wy"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Invert_Wz {
+            get {
+                return ((bool)(this["Invert_Wz"]));
+            }
+            set {
+                this["Invert_Wz"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Invert_Ax {
+            get {
+                return ((bool)(this["Invert_Ax"]));
+            }
+            set {
+                this["Invert_Ax"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Invert_Ay {
+            get {
+                return ((bool)(this["Invert_Ay"]));
+            }
+            set {
+                this["Invert_Ay"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Invert_Az {
+            get {
+                return ((bool)(this["Invert_Az"]));
+            }
+            set {
+                this["Invert_Az"] = value;
             }
         }
     }

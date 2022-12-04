@@ -56,7 +56,7 @@ namespace YAME.Model
         public void btn_Unpatch_DCS_Click()
         {
             string DCS = Folders.SavedGamesFolder + @"\DCS";
-            string ExportScript = DCS + Properties.Settings.Default.Patcher_DCS_YAME;
+            string ExportScript = DCS + Properties.Settings.Default.Patcher_DCS_Script;
 
             if (!Directory.Exists(DCS))
             {
@@ -93,7 +93,7 @@ namespace YAME.Model
         void patch_DCS()
         {
             string DCS = Folders.SavedGamesFolder + @"\DCS";
-            string ExportScript = DCS + Properties.Settings.Default.Patcher_DCS_YAME;
+            string ExportScript = DCS + Properties.Settings.Default.Patcher_DCS_Script;
 
             if (!IsInstalled_DCS())                                                          //Is DCS installed?
             {
@@ -123,7 +123,7 @@ namespace YAME.Model
         void unPatch_DCS()
         {
             string DCS = Folders.SavedGamesFolder + @"\DCS";
-            string ExportScript = DCS + Properties.Settings.Default.Patcher_DCS_YAME;
+            string ExportScript = DCS + Properties.Settings.Default.Patcher_DCS_Script;
 
             if (File.Exists(ExportScript))
             {
@@ -135,7 +135,7 @@ namespace YAME.Model
         bool IsPatched_DCS()
         {
             string DCS = Folders.SavedGamesFolder + @"\DCS";
-            string ExportScript = DCS + Properties.Settings.Default.Patcher_DCS_YAME;
+            string ExportScript = DCS + Properties.Settings.Default.Patcher_DCS_Script;
 
             if (File.Exists(ExportScript)) return true;
             return false;
@@ -157,7 +157,7 @@ namespace YAME.Model
         public void btn_Unpatch_DCS_openbeta_Click()
         {
             string DCS_openbeta = Folders.SavedGamesFolder + @"\DCS.openbeta";
-            string ExportScript = DCS_openbeta + Properties.Settings.Default.Patcher_DCS_YAME;
+            string ExportScript = DCS_openbeta + Properties.Settings.Default.Patcher_DCS_Script;
 
             if (!Directory.Exists(DCS_openbeta))
             {
@@ -192,7 +192,7 @@ namespace YAME.Model
         void patch_DCS_openbeta()
         {
             string DCS_openbeta = Folders.SavedGamesFolder + @"\DCS.openbeta";
-            string ExportScript = DCS_openbeta + Properties.Settings.Default.Patcher_DCS_YAME;
+            string ExportScript = DCS_openbeta + Properties.Settings.Default.Patcher_DCS_Script;
 
             if (!IsInstalled_DCS_openbeta())                                                          //Is DCS installed?
             {
@@ -222,7 +222,7 @@ namespace YAME.Model
         void unPatch_DCS_openbeta()
         {
             string DCS_openbeta = Folders.SavedGamesFolder + @"\DCS.openbeta";
-            string ExportScript = DCS_openbeta + Properties.Settings.Default.Patcher_DCS_YAME;
+            string ExportScript = DCS_openbeta + Properties.Settings.Default.Patcher_DCS_Script;
 
             if (File.Exists(ExportScript))
             {
@@ -233,7 +233,7 @@ namespace YAME.Model
         bool IsPatched_DCS_openbeta()
         {
             string DCS_openbeta = Folders.SavedGamesFolder + @"\DCS.openbeta";
-            string ExportScript = DCS_openbeta + Properties.Settings.Default.Patcher_DCS_YAME;
+            string ExportScript = DCS_openbeta + Properties.Settings.Default.Patcher_DCS_Script;
 
             if (File.Exists(ExportScript)) return true;
             return false;

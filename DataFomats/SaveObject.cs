@@ -40,6 +40,14 @@ namespace YAME.DataFomats
         public float AlphaCompensator_FadeIn_Done { get; set; }
         public float AlphaCompensator_CompensationPercentage { get; set; }
         #endregion
+        #region Inverter
+        public bool InvertWx { get; set; }
+        public bool InvertWy { get; set; }
+        public bool InvertWz { get; set; }
+        public bool InvertAx { get; set; }
+        public bool InvertAy { get; set; }
+        public bool InvertAz { get; set; }
+        #endregion
         #region FilterSystem
         public float FilterSystem_Variable_Wx_HP { get; set; }
         public float FilterSystem_Variable_Wx_HP_LP { get; set; }

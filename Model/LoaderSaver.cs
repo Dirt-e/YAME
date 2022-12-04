@@ -46,6 +46,7 @@ namespace YAME.Model
             Load_RigConfiguration_Application();
             Load_PositionOffsetCorrectionSettings_Application();
             Load_AlphaCompensationValues_Application();
+            Load_InverterValues_Application();
             Load_FilterSettings_Application();
             Load_CompressionSettings_Application();
             Load_ScalerSettings_Application();
@@ -54,6 +55,7 @@ namespace YAME.Model
             Load_AASD_OutputSettings_Application();
             Load_ODrive_OutputSettings_Application();
         }
+
         void Load_ProfilePath_Application()
         {
             FullProfilePath = Properties.Settings.Default.LoaderSaver_ProfilePath;
@@ -104,6 +106,17 @@ namespace YAME.Model
             alphacomp.FadeIn_Start_IAS = defaults.AlphaCompensation_FadeIn_Start;
             alphacomp.FadeIn_Done_IAS = defaults.AlphaCompensation_FadeIn_Done;
             alphacomp.IsActive = defaults.AlphaCompensation_IsActive;
+        }
+        void Load_InverterValues_Application()
+        {
+            var defaults = Properties.Settings.Default;
+
+            engine.inverter.InvertWx = defaults.Invert_Wx;
+            engine.inverter.InvertWy = defaults.Invert_Wy;
+            engine.inverter.InvertWz = defaults.Invert_Wz;
+            engine.inverter.InvertAx = defaults.Invert_Ax;
+            engine.inverter.InvertAy = defaults.Invert_Ay;
+            engine.inverter.InvertAz = defaults.Invert_Az;
         }
         void Load_FilterSettings_Application()
         {
@@ -234,6 +247,7 @@ namespace YAME.Model
             Save_RigConfiguration_Application();
             Save_PositionCorrectionOffsets_Application();
             Save_AlphaCompensationValues_Application();
+            Save_InverterValues_Application();
             Save_FilterSettings_Application();
             Save_CompressionSettings_Application();
             Save_ScalerSettings_Application();
@@ -244,6 +258,7 @@ namespace YAME.Model
 
             Properties.Settings.Default.Save();
         }
+
         void Save_ProfilePath_Application()
         {
             Properties.Settings.Default.LoaderSaver_ProfilePath = FullProfilePath;
@@ -295,6 +310,18 @@ namespace YAME.Model
             defaults.AlphaCompensation_FadeIn_Start = alphacomp.FadeIn_Start_IAS;
             defaults.AlphaCompensation_FadeIn_Done = alphacomp.FadeIn_Done_IAS;
             defaults.AlphaCompensation_IsActive = alphacomp.IsActive;
+        }
+        void Save_InverterValues_Application()
+        {
+            var defaults = Properties.Settings.Default;
+
+            defaults.Invert_Wx = engine.inverter.InvertWx;
+            defaults.Invert_Wy = engine.inverter.InvertWy;
+            defaults.Invert_Wz = engine.inverter.InvertWz;
+            defaults.Invert_Ax = engine.inverter.InvertAx;
+            defaults.Invert_Ay = engine.inverter.InvertAy;
+            defaults.Invert_Az = engine.inverter.InvertAz;
+
         }
         void Save_FilterSettings_Application()
         {
@@ -453,6 +480,7 @@ namespace YAME.Model
                 Load_RigConfiguration_Profile();
                 Load_PositionOffsetCorrectionSettings_Profile();
                 Load_AlphaCompensationValues_Profile();
+                Load_InverterValues_Profile();
                 Load_FilterSettings_Profile();
                 Load_CompressionSettings_Profile();
                 Load_ScalerSettings_Profile();
@@ -462,6 +490,7 @@ namespace YAME.Model
                 Load_ODriveTalker_Settings_Profile();
             }
         }
+
         void Load_CrashDetectorThresholds_Profile()
         {
             engine.exceedancedetector.AX_CrashTrigger = saveObject.Crashdetector_Trigger_Ax;
@@ -501,6 +530,15 @@ namespace YAME.Model
             engine.alphacompensator.FadeIn_Start_IAS = saveObject.AlphaCompensator_FadeIn_Start;
             engine.alphacompensator.FadeIn_Done_IAS = saveObject.AlphaCompensator_FadeIn_Done;
             engine.alphacompensator.AlphaCompensationPercentage = saveObject.AlphaCompensator_CompensationPercentage;
+        }
+        void Load_InverterValues_Profile()
+        {
+            engine.inverter.InvertWx = saveObject.InvertWx;
+            engine.inverter.InvertWy = saveObject.InvertWy;
+            engine.inverter.InvertWz = saveObject.InvertWz;
+            engine.inverter.InvertAx = saveObject.InvertAx;
+            engine.inverter.InvertAy = saveObject.InvertAy;
+            engine.inverter.InvertAz = saveObject.InvertAz;
         }
         void Load_FilterSettings_Profile()
         {
@@ -625,6 +663,7 @@ namespace YAME.Model
             Save_RigConfiguration_Profile();
             Save_PositionCorrectionOffsets_Profile();
             Save_AlphaCompensationValues_Profile();
+            Save_InverterSettings_Profile();
             Save_FilterSettings_Profile();
             Save_CompressionSettings_Profile();
             Save_ScalerSettings_Profile();
@@ -638,6 +677,7 @@ namespace YAME.Model
 
             File.WriteAllText(FullProfilePath, json);
         }
+
         void Save_CrashDetectorThresholds_Profile()
         {
             saveObject.Crashdetector_Trigger_Ax = engine.exceedancedetector.AX_CrashTrigger;
@@ -676,6 +716,15 @@ namespace YAME.Model
             saveObject.AlphaCompensator_FadeIn_Start = engine.alphacompensator.FadeIn_Start_IAS;
             saveObject.AlphaCompensator_FadeIn_Done = engine.alphacompensator.FadeIn_Done_IAS;
             saveObject.AlphaCompensator_CompensationPercentage = engine.alphacompensator.AlphaCompensationPercentage;
+        }
+        void Save_InverterSettings_Profile()
+        {
+            saveObject.InvertWx = engine.inverter.InvertWx;
+            saveObject.InvertWy = engine.inverter.InvertWy;
+            saveObject.InvertWz = engine.inverter.InvertWz;
+            saveObject.InvertAx = engine.inverter.InvertAx;
+            saveObject.InvertAy = engine.inverter.InvertAy;
+            saveObject.InvertAz = engine.inverter.InvertAz;
         }
         void Save_FilterSettings_Profile()
         {

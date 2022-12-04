@@ -76,13 +76,13 @@ namespace YAME.Model
         {
             Output = data;
             //And then modify some
-            if (InvertWx) { Output.WX = data.WX * -1.0f; }
-            if (InvertWy) { Output.WY = data.WY * -1.0f; }
-            if (InvertWz) { Output.WZ = data.WZ * -1.0f; }
-
-            if (InvertAx) { Output.AX = data.AX * -1.0f; }
-            if (InvertAy) { Output.AY = data.AY * -1.0f; }
-            if (InvertAz) { Output.AZ = data.AZ * -1.0f; }
+            if (InvertWx) Output.WX *= -1.0f;
+            if (InvertWy) Output.WY *= -1.0f;
+            if (InvertWz) Output.WZ *= -1.0f;
+                                     
+            if (InvertAx) Output.AX *= -1.0f;
+            if (InvertAy) Output.AY *= -1.0f;
+            if (InvertAz) Output.AZ *= -1.0f;
         }
     }
 }

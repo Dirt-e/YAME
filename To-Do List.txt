@@ -7,6 +7,8 @@ MAIN WINDOW:
 
 CRASH DETECTION & RECOVERY:
 
+INVERTER:
+-Implement soft transition to prevent jolt
 
 INTEGRATOR:
 - Implement some sort of DOF limit to keep the Transform3D from
@@ -15,7 +17,6 @@ INTEGRATOR:
   quaternion interpolation (shortest path problem)
 
  ACTUATOR OVERRIDE:
-- Show actuator speed to user  in [mm/s]
 
 SERIALTALKER:
 
