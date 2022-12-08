@@ -1882,5 +1882,17 @@ namespace YAME.Properties {
                 this["Invert_Az"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int SnappyDragger_SnapDistance {
+            get {
+                return ((int)(this["SnappyDragger_SnapDistance"]));
+            }
+            set {
+                this["SnappyDragger_SnapDistance"] = value;
+            }
+        }
     }
 }

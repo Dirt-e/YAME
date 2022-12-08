@@ -27,6 +27,13 @@ namespace YAME.Model
         Point WindowStartPoint  = new Point();
         Vector delta            = new Vector();                         //In screen resolution pixels!
 
+        double ScreenWidth;
+        double ScreenHeight;
+        DpiScale scale;
+        
+        double maxRightScreenPoint;
+        double maxBottomScreenPoint;
+
         //Virtual positions of dragged window:
         double vLEFT;
         double vTOP;
@@ -48,6 +55,13 @@ namespace YAME.Model
             MouseStartPoint = GetMousePosition_ScreenRes();             //In screen resolution pixels!
             WindowStartPoint = new Point(window.Left, window.Top);      //In screen resolution pixels!
 
+            ScreenWidth = Screen.PrimaryScreen.Bounds.Width;
+            ScreenHeight = Screen.PrimaryScreen.Bounds.Height;
+            scale = VisualTreeHelper.GetDpi(window);
+            
+            maxRightScreenPoint = ScreenWidth / scale.DpiScaleX;
+            maxBottomScreenPoint = ScreenHeight / scale.DpiScaleY;
+            
             timer.Start();
         }
         public void StopDrag()
@@ -57,19 +71,47 @@ namespace YAME.Model
 
         void UpdateWindow()
         {
-            MouseCurrentPoint = GetMousePosition_ScreenRes();     
-            delta = (MouseCurrentPoint - MouseStartPoint);              //In screen resolution pixels!
-            
+            //This code runs on every timer.tick event
+            DetermineMouseMovement();
+
+            if (Control.MouseButtons == MouseButtons.None)
+            {
+                StopDrag();
+            }
+
             UpdateVirtualWindowPosition();
+            SnapActualWindowToSnappoints();
+            //ConstrainActualWindowToScreenArea();
+            
+        }
 
-            double x = closestLateralSnap();
-            double y = closestVerticalSnap();
+        private void DetermineMouseMovement()
+        {
+            MouseCurrentPoint = GetMousePosition_ScreenRes();
+            delta = (MouseCurrentPoint - MouseStartPoint);              //In screen resolution pixels!
+        }
+        private void UpdateVirtualWindowPosition()
+        {
+            vLEFT   = WindowStartPoint.X + delta.X;
+            vTOP    = WindowStartPoint.Y + delta.Y;
+            vRIGHT  = vLEFT + window.Width;
+            vBOTTOM = vTOP + window.Height;
+        }
+        private void SnapActualWindowToSnappoints()
+        {
+            double Offset_X = closestLateralSnap();
+            double Offset_Y = closestVerticalSnap();
 
-            if (Math.Abs(x) < SnapDist) window.Left = vLEFT + x;
-            else                        window.Left = vLEFT;
+            if (Math.Abs(Offset_X) < SnapDist) window.Left = vLEFT + Offset_X;
+            else window.Left = vLEFT;
 
-            if (Math.Abs(y) < SnapDist) window.Top = vTOP + y;
-            else                        window.Top = vTOP;
+            if (Math.Abs(Offset_Y) < SnapDist) window.Top = vTOP + Offset_Y;
+            else window.Top = vTOP;
+        }
+        private void ConstrainActualWindowToScreenArea()
+        {
+            window.Left = Utility.Clamp(window.Left, 0, (maxRightScreenPoint - window.Width));
+            window.Top = Utility.Clamp(window.Top, 0, (maxBottomScreenPoint - window.Height));
         }
 
         //------- Helpers -------
@@ -86,14 +128,16 @@ namespace YAME.Model
 
             return new Point(x, y);                                     //In screen pixels (double)
         }
-        private void UpdateVirtualWindowPosition()
+        bool MouseIsOnMainScreen()
         {
-            vLEFT   = WindowStartPoint.X + delta.X;
-            vTOP    = WindowStartPoint.Y + delta.Y;
-            vRIGHT  = vLEFT + window.Width;
-            vBOTTOM = vTOP + window.Height;
+            if (    MouseCurrentPoint.X < 0 || 
+                    MouseCurrentPoint.Y < 0 ||
+                    MouseCurrentPoint.X > maxRightScreenPoint ||
+                    MouseCurrentPoint.Y > maxBottomScreenPoint    )
+                return false;
+            else 
+                return true;
         }
-
         List<Window> WindowsWithLateralOverlap()
         {
             List<Window> WindowsWithLateralOverlap = new List<Window>();
