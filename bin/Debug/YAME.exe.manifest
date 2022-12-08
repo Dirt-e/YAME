@@ -218,7 +218,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Hp00oWKlWwDJ0dBwsFYAw71SJpc6yN6E1tZ/Qp+KE9k=</dsig:DigestValue>
+        <dsig:DigestValue>WFSCcSj7ZwcZ0MqTI1Rkm4IT0iHcPZ8Q+ku4aWFoeEM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -231,13 +231,13 @@
       <dsig:DigestValue>3jqvRskQtICiHTXI6BxSHIDDVHkbfGgPl3XurRW8HYs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="YAME.exe.config" size="38586">
+  <file name="YAME.exe.config" size="38585">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>a0VjhQdEAORhA8RCUUJ9QuILuY3f8W1Fqj1qcck6Uh4=</dsig:DigestValue>
+      <dsig:DigestValue>6Q/4C80+v6usTu7aobOKLXKh53hbfR0PER3Nf/rtGUo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="YAME.ico" size="269342">

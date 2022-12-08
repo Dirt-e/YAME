@@ -15,7 +15,7 @@ namespace YAME.Model
     public class SnappyDragger
     {
         Window window = null;
-        int SnapDist = 10;
+        int SnapDist;
 
         DispatcherTimer timer = new DispatcherTimer
         {
@@ -43,6 +43,7 @@ namespace YAME.Model
         public SnappyDragger(Window w)
         {
             window = w;
+            SnapDist = Properties.Settings.Default.SnappyDragger_SnapDistance;
 
             timer.Tick += delegate
             {
@@ -61,7 +62,7 @@ namespace YAME.Model
             
             maxRightScreenPoint = ScreenWidth / scale.DpiScaleX;
             maxBottomScreenPoint = ScreenHeight / scale.DpiScaleY;
-            
+
             timer.Start();
         }
         public void StopDrag()

@@ -1885,7 +1885,7 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public int SnappyDragger_SnapDistance {
             get {
                 return ((int)(this["SnappyDragger_SnapDistance"]));
