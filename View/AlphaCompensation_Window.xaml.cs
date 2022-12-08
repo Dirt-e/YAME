@@ -24,7 +24,6 @@ namespace YAME.View
         public AlphaCompensationWindow()
         {
             InitializeComponent();
-            //MainWindow mw = System.Windows.Application.Current.Windows.OfType<MainWindow>().FirstOrDefault() as MainWindow;
             MainWindow mw = System.Windows.Application.Current.MainWindow as MainWindow;
             DataContext = mw.engine.alphacompensator;
         }

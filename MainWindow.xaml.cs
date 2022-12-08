@@ -35,6 +35,7 @@ namespace YAME
     {
         public Engine engine = new Engine();
         Mutex single_instance_mutex;
+        SnappyDragger snappydragger;
 
         RawDataWindow               rawDataWindow;
         CrashDetectorWindow         crashDetectorWindow;
@@ -63,6 +64,7 @@ namespace YAME
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             EnforceSingleInstance();
+            snappydragger = new SnappyDragger(this);
 
             engine.StartEngine();
             Thread.Sleep(100);
@@ -485,14 +487,17 @@ namespace YAME
         // --------- Mouse Events ---------
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            //DragMove();
+            snappydragger.StartDrag();
         }
-
+        private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            snappydragger.StopDrag();
+        }
         //---------- Buttons -----------
         private void btn_Test_Click(object sender, RoutedEventArgs e)
         {
             
         }
-
     }
 }
