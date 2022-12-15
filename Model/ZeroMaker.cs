@@ -8,74 +8,33 @@ using System.Threading.Tasks;
 
 namespace YAME.Model
 {
-    public class ZeroMaker : INotifyPropertyChanged
+    public class ZeroMaker : MyObject
     {
-        public DOF_Data Input = new DOF_Data();
         public DOF_Data Output = new DOF_Data();
 
-        #region values to bind to
-        float _rollHFC;
-        public float RollHFC
-        {
-            get { return _rollHFC; }
-            set { _rollHFC = value; OnPropertyChanged("RollHFC"); }
-        }
-        float _yawHFC;
-        public float YawHFC
-        {
-            get { return _yawHFC; }
-            set { _yawHFC = value; OnPropertyChanged("YawHFC"); }
-        }
-        float _pitchHFC;
-        public float PitchHFC
-        {
-            get { return _pitchHFC; }
-            set { _pitchHFC = value; OnPropertyChanged("PitchHFC"); }
-        }
+        const int fadeOverTime = 2000;              //ms
 
-        float _surgeHFC;
-        public float SurgeHFC
-        {
-            get { return _surgeHFC; }
-            set { _surgeHFC = value; OnPropertyChanged("SurgeHFC"); }
-        }
-        float _pitchLFC;
-        public float PitchLFC
-        {
-            get { return _pitchLFC; }
-            set { _pitchLFC = value; OnPropertyChanged("PitchLFC"); }
-        }
-
-        float _heaveHFC;
-        public float HeaveHFC
-        {
-            get { return _heaveHFC; }
-            set { _heaveHFC = value; OnPropertyChanged("HeaveHFC"); }
-        }
-
-        float _swayHFC;
-        public float SwayHFC
-        {
-            get { return _swayHFC; }
-            set { _swayHFC = value; OnPropertyChanged("SwayHFC"); }
-        }
-        float _rollLFC;
-        public float RollLFC
-        {
-            get { return _rollLFC; }
-            set { _rollLFC = value; OnPropertyChanged("RollLFC"); }
-        }
-        #endregion
-
-        #region Zero switches
-        bool _zero_rollHFC;
+        #region Viewmodel for tickmarks
+        bool _zero_RollHFC;
         public bool Zero_RollHFC
         {
-            get { return _zero_rollHFC; }
+            get { return _zero_RollHFC; }
             set
             {
-                _zero_rollHFC = value;
-                OnPropertyChanged("Zero_RollHFC");
+                _zero_RollHFC = value;
+                lerp_HFC_roll.Run(value);
+                OnPropertyChanged(nameof(Zero_RollHFC));
+            }
+        }
+        bool _zero_YawHFC;
+        public bool Zero_YawHFC
+        {
+            get { return _zero_YawHFC; }
+            set
+            {
+                _zero_YawHFC = value;
+                lerp_HFC_yaw.Run(value);
+                OnPropertyChanged(nameof(Zero_YawHFC));
             }
         }
         bool _zero_PitchHFC;
@@ -85,119 +44,164 @@ namespace YAME.Model
             set
             {
                 _zero_PitchHFC = value;
-                OnPropertyChanged("Zero_PitchHFC");
+                lerp_HFC_pitch.Run(value);
+                OnPropertyChanged(nameof(Zero_PitchHFC));
             }
         }
-        bool _zero_yawHFC;
-        public bool Zero_YawHFC
-        {
-            get { return _zero_yawHFC; }
-            set
-            {
-                _zero_yawHFC = value;
-                OnPropertyChanged("Zero_YawHFC");
-            }
-        }
-
-        bool _zero_surgeHFC;
+        
+        bool _zero_SurgeHFC;
         public bool Zero_SurgeHFC
         {
-            get { return _zero_surgeHFC; }
+            get { return _zero_SurgeHFC; }
             set
             {
-                _zero_surgeHFC = value;
-                OnPropertyChanged("Zero_SurgeHFC");
+                _zero_SurgeHFC = value;
+                lerp_HFC_surge.Run(value);
+                OnPropertyChanged(nameof(Zero_SurgeHFC));
             }
         }
-        bool _zero_pitchLFC;
+        bool _zero_PitchLFC;
         public bool Zero_PitchLFC
         {
-            get { return _zero_pitchLFC; }
+            get { return _zero_PitchLFC; }
             set
             {
-                _zero_pitchLFC = value;
-                OnPropertyChanged("Zero_PitchLFC");
+                _zero_PitchLFC = value;
+                lerp_LFC_pitch.Run(value);
+                OnPropertyChanged(nameof(Zero_PitchLFC));
             }
         }
 
-        bool _zero_heaveHFC;
+        bool _zero_HeaveHFC;
         public bool Zero_HeaveHFC
         {
-            get { return _zero_heaveHFC; }
+            get { return _zero_HeaveHFC; }
             set
             {
-                _zero_heaveHFC = value;
-                OnPropertyChanged("Zero_HeaveHFC");
+                _zero_HeaveHFC = value;
+                lerp_HFC_heave.Run(value);
+                OnPropertyChanged(nameof(Zero_HeaveHFC));
             }
         }
 
-        bool _zero_swayHFC;
+        bool _zero_SwayHFC;
         public bool Zero_SwayHFC
         {
-            get { return _zero_swayHFC; }
+            get { return _zero_SwayHFC; }
             set
             {
-                _zero_swayHFC = value;
-                OnPropertyChanged("Zero_SwayHFC");
+                _zero_SwayHFC = value;
+                lerp_HFC_sway.Run(value);
+                OnPropertyChanged(nameof(Zero_SwayHFC));
             }
         }
-        bool _zero_rollLFC;
+        bool _zero_RollLFC;
         public bool Zero_RollLFC
         {
-            get { return _zero_rollLFC; }
+            get { return _zero_RollLFC; }
             set
             {
-                _zero_rollLFC = value;
-                OnPropertyChanged("Zero_RollLFC");
+                _zero_RollLFC = value;
+                lerp_LFC_roll.Run(value);
+                OnPropertyChanged(nameof(Zero_RollLFC));
             }
         }
         #endregion
-
-        public void Process(DOF_Data data)
+        #region Viewmodel for indication
+        float _rollHFC;
+        public float RollHFC
         {
-            Input = new DOF_Data(data);
-
-            NullDataAsNeeded();
+            get { return _rollHFC; }
+            set { _rollHFC = value; OnPropertyChanged(nameof(RollHFC)); }
+        }
+        float _yawHFC;
+        public float YawHFC
+        {
+            get { return _yawHFC; }
+            set { _yawHFC = value; OnPropertyChanged(nameof(YawHFC)); }
+        }
+        float _pitchHFC;
+        public float PitchHFC
+        {
+            get { return _pitchHFC; }
+            set { _pitchHFC = value; OnPropertyChanged(nameof(PitchHFC)); }
         }
 
-        private void NullDataAsNeeded()
+        float _surgeHFC;
+        public float SurgeHFC
         {
-            //Copy all values over
-            Output = new DOF_Data(Input);
+            get { return _surgeHFC; }
+            set { _surgeHFC = value; OnPropertyChanged(nameof(SurgeHFC)); }
+        }
+        float _pitchLFC;
+        public float PitchLFC
+        {
+            get { return _pitchLFC; }
+            set { _pitchLFC = value; OnPropertyChanged(nameof(PitchLFC)); }
+        }
 
-            //And then modify some
-            if (Zero_RollHFC)   { Output.HFC_Roll = 0; }
-            if (Zero_YawHFC)    { Output.HFC_Yaw = 0; }
-            if (Zero_PitchHFC)  { Output.HFC_Pitch = 0; }
+        float _heaveHFC;
+        public float HeaveHFC
+        {
+            get { return _heaveHFC; }
+            set { _heaveHFC = value; OnPropertyChanged(nameof(HeaveHFC)); }
+        }
 
-            if (Zero_SurgeHFC)  { Output.HFC_Surge = 0; }
-            if (Zero_PitchLFC)  { Output.LFC_Pitch = 0; }
+        float _swayHFC;
+        public float SwayHFC
+        {
+            get { return _swayHFC; }
+            set { _swayHFC = value; OnPropertyChanged(nameof(SwayHFC)); }
+        }
+        float _rollLFC;
+        public float RollLFC
+        {
+            get { return _rollLFC; }
+            set { _rollLFC = value; OnPropertyChanged(nameof(RollLFC)); }
+        }
+        #endregion
 
-            if (Zero_HeaveHFC) { Output.HFC_Heave = 0; }
+        Lerp lerp_HFC_roll  = new Lerp(fadeOverTime, LerpOverMethod.LowPass3rdOrder);
+        Lerp lerp_HFC_yaw   = new Lerp(fadeOverTime, LerpOverMethod.LowPass3rdOrder);
+        Lerp lerp_HFC_pitch = new Lerp(fadeOverTime, LerpOverMethod.LowPass3rdOrder);
+        Lerp lerp_HFC_surge = new Lerp(fadeOverTime, LerpOverMethod.LowPass3rdOrder);
+        Lerp lerp_LFC_pitch = new Lerp(fadeOverTime, LerpOverMethod.LowPass3rdOrder);
+        Lerp lerp_HFC_heave = new Lerp(fadeOverTime, LerpOverMethod.LowPass3rdOrder);
+        Lerp lerp_HFC_sway  = new Lerp(fadeOverTime, LerpOverMethod.LowPass3rdOrder);
+        Lerp lerp_LFC_roll  = new Lerp(fadeOverTime, LerpOverMethod.LowPass3rdOrder);
 
-            if (Zero_SwayHFC)   { Output.HFC_Sway = 0; }
-            if (Zero_RollLFC)   { Output.LFC_Roll = 0; }
+        public void ZeroDataAsNeeded(DOF_Data data)
+        {
+            Output = data;
 
-            //Make them show up in the UI
+            //And then modify some...
+            lerp_HFC_roll.Update();
+            lerp_HFC_yaw.Update();
+            lerp_HFC_pitch.Update();
+            lerp_HFC_surge.Update();
+            lerp_LFC_pitch.Update();
+            lerp_HFC_heave.Update();
+            lerp_HFC_sway.Update();
+            lerp_LFC_roll.Update();
+
+            Output.HFC_Roll     *= 1-lerp_HFC_roll.Ratio_external;
+            Output.HFC_Yaw      *= 1-lerp_HFC_yaw.Ratio_external;
+            Output.HFC_Pitch    *= 1-lerp_HFC_pitch.Ratio_external;
+            Output.HFC_Surge    *= 1-lerp_HFC_surge.Ratio_external;
+            Output.LFC_Pitch    *= 1-lerp_LFC_pitch.Ratio_external;
+            Output.HFC_Heave    *= 1-lerp_HFC_heave.Ratio_external;
+            Output.HFC_Sway     *= 1-lerp_HFC_sway.Ratio_external;
+            Output.LFC_Roll     *= 1-lerp_LFC_roll.Ratio_external;
+
+            //show values in UI
             RollHFC     = Output.HFC_Roll;
             YawHFC      = Output.HFC_Yaw;
             PitchHFC    = Output.HFC_Pitch;
-
             SurgeHFC    = Output.HFC_Surge;
             PitchLFC    = Output.LFC_Pitch;
-
             HeaveHFC    = Output.HFC_Heave;
-
             SwayHFC     = Output.HFC_Sway;
             RollLFC     = Output.LFC_Roll;
-        }
-
-
-        //INotifyPropertyChanged:
-        public event PropertyChangedEventHandler PropertyChanged;
-        private protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

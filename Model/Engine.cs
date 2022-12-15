@@ -157,7 +157,7 @@ namespace YAME.Model
             filtersystem.Process(alphacompensator.Output);
             compressorsystem.Process(filtersystem.Output);
             scalersystem.Process(compressorsystem.Output);
-            zeromaker.Process(scalersystem.Output);
+            zeromaker.ZeroDataAsNeeded(scalersystem.Output);
             dof_override.Process(zeromaker.Output);
             integrator.Update(dof_override.Output);
             IK_Module.Update();
