@@ -1,6 +1,6 @@
 ﻿To-Do:
 GENERAL:
-- SnappyDragger: Constrain window to within screen area! IMPORTANT!!!
+
 
 MAIN WINDOW:
 
@@ -8,7 +8,7 @@ MAIN WINDOW:
 CRASH DETECTION & RECOVERY:
 
 INVERTER:
--Implement soft transition to prevent jolt
+
 
 INTEGRATOR:
 - Implement some sort of DOF limit to keep the Transform3D from
@@ -16,13 +16,12 @@ INTEGRATOR:
   excessive angles could lead to erratic "snapping" during 
   quaternion interpolation (shortest path problem)
 
- ACTUATOR OVERRIDE:
+ACTUATOR OVERRIDE:
 
 SERIALTALKER:
 
-
 FILTERS WINDOW:
-- Prevent Ay from jumping because of sudden onset of 9,81m/s². Filter needs to be equalised shortly after startup
+- Prevent Ay from jumping because of sudden onset of 9,81m/s² on startup. Filter needs to be equalised shortly after startup
 
 RIG CONFIGURATION:
 - Add a slew mode for apropriate offsets. May be used during an open serial connection!
@@ -39,16 +38,11 @@ POSITION OFFSET CORRECTION:
 
 PATCHER:
 - Re-apply DCS Patch if already patched. Just to be sure!
-- Make FS2020_Motion_Exporter invisible
-- Make FS2020_Motion_Exporter close appplication when Flightsimulator closes
 
 
 SAFETY:
-- Make ActuatorOverride "Foolproof"
-- Make DOF Override "Foolproof"
 
 MOTION CONTROL:
-- Allow free lerping between Park/Pause/Motion (via LP Filters and/or PerlinSmooth transitions),maybe even reversible transitions
 
 Scene View:
 - Show ghost platform(s)
