@@ -31,7 +31,7 @@
                     Style="{StaticResource TextBlock_Style}"   Margin="5,0,0,0"/>
 
         <Controls:ClickSelectTextBox x:Name="txtbx_scalar"
-                    Text="{Binding Gain, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat=N2}"
+                    Text="{Binding Gain_raw, UpdateSourceTrigger=LostFocus, Mode=TwoWay, StringFormat=N2}"
                     FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"
                     Style="{StaticResource TextBox_Style}"   Width="50" 
                     MouseWheel="txtbx_scalar_MouseWheel">

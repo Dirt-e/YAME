@@ -180,15 +180,15 @@ namespace YAME.Model
             var defaults = Properties.Settings.Default;
             var scaler = engine.scalersystem;
 
-            scaler.SCL_Roll_HFC.Gain = defaults.Scaler_Gain_RollHFC;
-            scaler.SCL_Yaw_HFC.Gain = defaults.Scaler_Gain_YawHFC;
-            scaler.SCL_Pitch_HFC.Gain = defaults.Scaler_Gain_PitchHFC;
-            scaler.SCL_Surge_HFC.Gain = defaults.Scaler_Gain_SurgeHFC;
-            scaler.SCL_Heave_HFC.Gain = defaults.Scaler_Gain_HeaveHFC;
-            scaler.SCL_Sway_HFC.Gain = defaults.Scaler_Gain_SwayHFC;
+            scaler.SCL_Roll_HFC.Gain_raw    = defaults.Scaler_Gain_RollHFC;
+            scaler.SCL_Yaw_HFC.Gain_raw     = defaults.Scaler_Gain_YawHFC;
+            scaler.SCL_Pitch_HFC.Gain_raw   = defaults.Scaler_Gain_PitchHFC;
+            scaler.SCL_Surge_HFC.Gain_raw   = defaults.Scaler_Gain_SurgeHFC;
+            scaler.SCL_Heave_HFC.Gain_raw   = defaults.Scaler_Gain_HeaveHFC;
+            scaler.SCL_Sway_HFC.Gain_raw    = defaults.Scaler_Gain_SwayHFC;
 
-            scaler.SCL_Roll_LFC.Gain = defaults.Scaler_Gain_RollLFC;
-            scaler.SCL_Pitch_LFC.Gain = defaults.Scaler_Gain_PitchLFC;
+            scaler.SCL_Roll_LFC.Gain_raw    = defaults.Scaler_Gain_RollLFC;
+            scaler.SCL_Pitch_LFC.Gain_raw   = defaults.Scaler_Gain_PitchLFC;
         }
         void Load_ZeromakerSettings_Application()
         {
@@ -383,15 +383,15 @@ namespace YAME.Model
             var defaults = Properties.Settings.Default;
             var scaler = engine.scalersystem;
 
-            defaults.Scaler_Gain_RollHFC = scaler.SCL_Roll_HFC.Gain;
-            defaults.Scaler_Gain_YawHFC = scaler.SCL_Yaw_HFC.Gain;
-            defaults.Scaler_Gain_PitchHFC = scaler.SCL_Pitch_HFC.Gain;
-            defaults.Scaler_Gain_SurgeHFC = scaler.SCL_Surge_HFC.Gain;
-            defaults.Scaler_Gain_HeaveHFC = scaler.SCL_Heave_HFC.Gain;
-            defaults.Scaler_Gain_SwayHFC = scaler.SCL_Sway_HFC.Gain;
+            defaults.Scaler_Gain_RollHFC = scaler.SCL_Roll_HFC.Gain_raw;
+            defaults.Scaler_Gain_YawHFC = scaler.SCL_Yaw_HFC.Gain_raw;
+            defaults.Scaler_Gain_PitchHFC = scaler.SCL_Pitch_HFC.Gain_raw;
+            defaults.Scaler_Gain_SurgeHFC = scaler.SCL_Surge_HFC.Gain_raw;
+            defaults.Scaler_Gain_HeaveHFC = scaler.SCL_Heave_HFC.Gain_raw;
+            defaults.Scaler_Gain_SwayHFC = scaler.SCL_Sway_HFC.Gain_raw;
 
-            defaults.Scaler_Gain_PitchLFC = scaler.SCL_Pitch_LFC.Gain;
-            defaults.Scaler_Gain_RollLFC = scaler.SCL_Roll_LFC.Gain;
+            defaults.Scaler_Gain_PitchLFC = scaler.SCL_Pitch_LFC.Gain_raw;
+            defaults.Scaler_Gain_RollLFC = scaler.SCL_Roll_LFC.Gain_raw;
         }
         void Save_ZeromakerSettings_Application()
         {
@@ -594,17 +594,17 @@ namespace YAME.Model
         }
         void Load_ScalerSettings_Profile()
         {
-            engine.scalersystem.SCL_Roll_HFC.Gain = saveObject.Scaler_Gain_Roll_HFC;
-            engine.scalersystem.SCL_Yaw_HFC.Gain = saveObject.Scaler_Gain_Yaw_HFC;
-            engine.scalersystem.SCL_Pitch_HFC.Gain = saveObject.Scaler_Gain_Pitch_HFC;
+            engine.scalersystem.SCL_Roll_HFC.Gain_raw = saveObject.Scaler_Gain_Roll_HFC;
+            engine.scalersystem.SCL_Yaw_HFC.Gain_raw = saveObject.Scaler_Gain_Yaw_HFC;
+            engine.scalersystem.SCL_Pitch_HFC.Gain_raw = saveObject.Scaler_Gain_Pitch_HFC;
 
-            engine.scalersystem.SCL_Surge_HFC.Gain = saveObject.Scaler_Gain_Surge_HFC;
-            engine.scalersystem.SCL_Pitch_LFC.Gain = saveObject.Scaler_Gain_Pitch_LFC;
+            engine.scalersystem.SCL_Surge_HFC.Gain_raw = saveObject.Scaler_Gain_Surge_HFC;
+            engine.scalersystem.SCL_Pitch_LFC.Gain_raw = saveObject.Scaler_Gain_Pitch_LFC;
 
-            engine.scalersystem.SCL_Heave_HFC.Gain = saveObject.Scaler_Gain_Heave_HFC;
+            engine.scalersystem.SCL_Heave_HFC.Gain_raw = saveObject.Scaler_Gain_Heave_HFC;
 
-            engine.scalersystem.SCL_Sway_HFC.Gain = saveObject.Scaler_Gain_Sway_HFC;
-            engine.scalersystem.SCL_Roll_LFC.Gain = saveObject.Scaler_Gain_Roll_LFC;
+            engine.scalersystem.SCL_Sway_HFC.Gain_raw = saveObject.Scaler_Gain_Sway_HFC;
+            engine.scalersystem.SCL_Roll_LFC.Gain_raw = saveObject.Scaler_Gain_Roll_LFC;
         }
         void Load_ZeromakerSettings_Profile()
         {
@@ -780,17 +780,17 @@ namespace YAME.Model
         }
         void Save_ScalerSettings_Profile()
         {
-            saveObject.Scaler_Gain_Roll_HFC = engine.scalersystem.SCL_Roll_HFC.Gain;
-            saveObject.Scaler_Gain_Yaw_HFC = engine.scalersystem.SCL_Yaw_HFC.Gain;
-            saveObject.Scaler_Gain_Pitch_HFC = engine.scalersystem.SCL_Pitch_HFC.Gain;
+            saveObject.Scaler_Gain_Roll_HFC = engine.scalersystem.SCL_Roll_HFC.Gain_raw;
+            saveObject.Scaler_Gain_Yaw_HFC = engine.scalersystem.SCL_Yaw_HFC.Gain_raw;
+            saveObject.Scaler_Gain_Pitch_HFC = engine.scalersystem.SCL_Pitch_HFC.Gain_raw;
 
-            saveObject.Scaler_Gain_Surge_HFC = engine.scalersystem.SCL_Surge_HFC.Gain;
-            saveObject.Scaler_Gain_Pitch_LFC = engine.scalersystem.SCL_Pitch_LFC.Gain;
+            saveObject.Scaler_Gain_Surge_HFC = engine.scalersystem.SCL_Surge_HFC.Gain_raw;
+            saveObject.Scaler_Gain_Pitch_LFC = engine.scalersystem.SCL_Pitch_LFC.Gain_raw;
 
-            saveObject.Scaler_Gain_Heave_HFC = engine.scalersystem.SCL_Heave_HFC.Gain;
+            saveObject.Scaler_Gain_Heave_HFC = engine.scalersystem.SCL_Heave_HFC.Gain_raw;
 
-            saveObject.Scaler_Gain_Sway_HFC = engine.scalersystem.SCL_Sway_HFC.Gain;
-            saveObject.Scaler_Gain_Roll_LFC = engine.scalersystem.SCL_Roll_LFC.Gain;
+            saveObject.Scaler_Gain_Sway_HFC = engine.scalersystem.SCL_Sway_HFC.Gain_raw;
+            saveObject.Scaler_Gain_Roll_LFC = engine.scalersystem.SCL_Roll_LFC.Gain_raw;
         }
         void Save_ZeromakerSettings_Profile()
         {

@@ -8,8 +8,6 @@ namespace YAME.Model
 {
     public class LowPassNthOrder : Filter
     {
-        
-
         private LowPassModule[] LP_Array = new LowPassModule[4];
         
         //Constructor

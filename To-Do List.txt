@@ -21,6 +21,7 @@ ACTUATOR OVERRIDE:
 SERIALTALKER:
 
 FILTERS WINDOW:
+- Let scaling factor transition smoothly upon changes
 - Prevent Ay from jumping because of sudden onset of 9,81m/s² on startup. Filter needs to be equalised shortly after startup
 
 RIG CONFIGURATION:
