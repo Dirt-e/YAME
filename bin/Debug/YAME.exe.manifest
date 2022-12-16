@@ -211,14 +211,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="YAME.exe" size="5325248">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="YAME.exe" size="5325760">
       <assemblyIdentity name="YAME" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>XKPYqlem28uMV8LlFjfERUCotB6gLLxeGwga+R8KKY8=</dsig:DigestValue>
+        <dsig:DigestValue>XWJlwgi+U2fqfYRGSjg9fO9TrGH++YkYrb3DSnclAL8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

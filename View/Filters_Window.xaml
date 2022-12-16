@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:YAME.View"
         xmlns:Controls="clr-namespace:YAME.View.UserControls"
         mc:Ignorable="d"
-        Title="FiltersWindow" Height="620" Width="800" WindowStartupLocation="Manual"
+        Title="FiltersWindow" Height="620" Width="760" WindowStartupLocation="Manual"
         MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseLeftButtonUp="Window_MouseLeftButtonUp"
         Loaded="Window_Loaded" Closing="Window_Closing"
         Style="{StaticResource ChildWindow_Style}">
@@ -67,6 +67,9 @@
                     HorizontalAlignment="Center"  VerticalAlignment="Center"/>
         <Border     Grid.Column="12" Grid.Row="1" BorderBrush="Gray" Margin="2,2,2,2" BorderThickness="0,0,0,2"/>
         <TextBlock  Text="Isolate:"  Grid.Row="1" Grid.Column="13" FontSize="12" FontWeight="Bold"
+                    HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+        <Border     Grid.Column="13" Grid.Row="1" BorderBrush="Gray" Margin="2,2,2,2" BorderThickness="0,0,0,2"/>
+        <TextBlock  Text="DOF out:"  Grid.Row="1" Grid.Column="14" FontSize="12" FontWeight="Bold"
                     HorizontalAlignment="Center"  VerticalAlignment="Center"/>
         <Border     Grid.Column="13" Grid.Row="1" BorderBrush="Gray" Margin="2,2,2,2" BorderThickness="0,0,0,2"/>
 
@@ -184,13 +187,13 @@
         <Button     x:Name="btn_AllActive"    Content="All Active" FontSize="10" Grid.Column="12" Grid.Row="13" Grid.ColumnSpan="2" Margin="20,14,5,14" Height="20" Click="btn_AllActive_Click"/>
 
         <!--Output-->
-        <TextBlock x:Name="txtblk_output_wx"        Text="{Binding RollHFC,     StringFormat=N7}" Grid.Column="14" Grid.Row="2"     HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
-        <TextBlock x:Name="txtblk_output_wy"        Text="{Binding YawHFC,      StringFormat=N7}" Grid.Column="14" Grid.Row="3"     HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
-        <TextBlock x:Name="txtblk_output_wz"        Text="{Binding PitchHFC,    StringFormat=N7}" Grid.Column="14" Grid.Row="4"     HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
-        <TextBlock x:Name="txtblk_output_ax_hfc"    Text="{Binding SurgeHFC,    StringFormat=N7}" Grid.Column="14" Grid.Row="6"     HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
-        <TextBlock x:Name="txtblk_output_ax_lfc"    Text="{Binding PitchLFC,    StringFormat=N7}" Grid.Column="14" Grid.Row="7"     HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
-        <TextBlock x:Name="txtblk_output_ay_hfc"    Text="{Binding HeaveHFC,    StringFormat=N7}" Grid.Column="14" Grid.Row="9"     HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
-        <TextBlock x:Name="txtblk_output_az_hfc"    Text="{Binding SwayHFC,     StringFormat=N7}" Grid.Column="14" Grid.Row="11"    HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
-        <TextBlock x:Name="txtblk_output_az_lfc"    Text="{Binding RollLFC,     StringFormat=N7}" Grid.Column="14" Grid.Row="12"    HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_output_wx"        Text="{Binding RollHFC,     StringFormat=N3}" Grid.Column="14" Grid.Row="2"     HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_output_wy"        Text="{Binding YawHFC,      StringFormat=N3}" Grid.Column="14" Grid.Row="3"     HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_output_wz"        Text="{Binding PitchHFC,    StringFormat=N3}" Grid.Column="14" Grid.Row="4"     HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_output_ax_hfc"    Text="{Binding SurgeHFC,    StringFormat=N3}" Grid.Column="14" Grid.Row="6"     HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_output_ax_lfc"    Text="{Binding PitchLFC,    StringFormat=N3}" Grid.Column="14" Grid.Row="7"     HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_output_ay_hfc"    Text="{Binding HeaveHFC,    StringFormat=N3}" Grid.Column="14" Grid.Row="9"     HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_output_az_hfc"    Text="{Binding SwayHFC,     StringFormat=N3}" Grid.Column="14" Grid.Row="11"    HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
+        <TextBlock x:Name="txtblk_output_az_lfc"    Text="{Binding RollLFC,     StringFormat=N3}" Grid.Column="14" Grid.Row="12"    HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="Courier"/>
     </Grid>
 </Window>
