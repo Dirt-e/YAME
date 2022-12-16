@@ -14,7 +14,7 @@ namespace YAME.Model
 
         //Defaults:
         float ax_default = 0;
-        float ay_default = 1;
+        float ay_default = 9.81f;
         float az_default = 0;
 
         float wx_default = 0;
@@ -60,6 +60,8 @@ namespace YAME.Model
             Az_HP.UpdateCode();
             Az_HP_LP2.UpdateCode();
             Az_LP3.UpdateCode();
+
+            ResetToDefaults();
         }
 
         public void Process(FilterData data)
@@ -89,7 +91,6 @@ namespace YAME.Model
                 Az_HP_LP2.Push(Az_HP.OutValue);
             Az_LP3.Push(Input.AZ);
         }
-
         private void WriteOutputData()
         {
             Output.HFC_Roll     = Wx_HP_LP.OutValue;
@@ -105,7 +106,7 @@ namespace YAME.Model
         }
 
         //Convienience functions:
-        public void ResetToDefaults()
+        void ResetToDefaults()
         {
             //This functions sets all Filters to the default values. It also makes sure that all filters are in a balanced state.
             Ax_HP.Set(ax_default);
