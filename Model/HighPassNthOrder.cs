@@ -17,7 +17,7 @@ namespace YAME.Model
             {  
                 _filtervariable = value;
                 if (LP != null) LP.FilterVariable = value;
-                OnPropertyChanged("FilterVariable");
+                OnPropertyChanged(nameof(FilterVariable));
             }
         }
 
@@ -36,6 +36,10 @@ namespace YAME.Model
         public void Set(float f)
         {
             LP.Set(f);
+        }
+        public void Equalize()
+        {
+            LP.Equalize();
         }
     }
 }

@@ -23,21 +23,28 @@ namespace YAME.Model
         
         public override void CreateOutput()
         {
-            float temp = InValue;                               
-            float adoptionrate = 1 / FilterVariable;            //The LP filter internally uses adoption rate!
+            double temp = InValue;
+            double adoptionrate = 1 / FilterVariable;            //The LP filter internally uses adoption rate!
             
             for (int i = 0; i < (int)Order; i++)                //Push it through as many LP-filters as the filter order
             {
                 LP_Array[i].Push(temp, adoptionrate);          
                 temp = LP_Array[i].Output;
             }
-            OutValue = temp;
+            OutValue = (float)temp;
         }
         public void Set(float f)
         {
             foreach (LowPassModule lpm in LP_Array)
             {
                 lpm.Set(f);
+            }
+        }
+        public void Equalize()
+        {
+            foreach (LowPassModule lpm in LP_Array)
+            {
+                lpm.Set(InValue);
             }
         }
     }

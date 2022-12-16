@@ -101,6 +101,7 @@ namespace YAME.Model
                 backgroundworker.DoWork += (object sender, DoWorkEventArgs e) =>
                 {
                     InstatiateObjects_OnWorkerThread();
+                    
                     while (!backgroundworker.CancellationPending)
                     {
                         UpdateObjects();

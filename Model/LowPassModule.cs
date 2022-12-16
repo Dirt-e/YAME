@@ -8,14 +8,14 @@ namespace YAME.Model
 {
     public class LowPassModule
     {
-        public float Output { get; set; }
-        public void Push(float NewValue, float Alpha)
+        public double Output { get; set; }
+        public void Push(double NewValue, double Alpha)
         {
             Output = NewValue * Alpha + Output * (1 - Alpha);
         }
-        public void Set(float f)
+        public void Set(double d)
         {
-            Output = f;
+            Output = d;     
         }
     }
 }

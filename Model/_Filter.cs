@@ -17,21 +17,21 @@ namespace YAME.Model
         public float InValue
         {
             get { return _invalue; } 
-            set { _invalue = value; OnPropertyChanged("InValue"); } 
+            set { _invalue = value; OnPropertyChanged(nameof(InValue)); } 
         }
 
         protected float _filtervariable;
         public float FilterVariable
         {
             get { return _filtervariable; }
-            set { _filtervariable = value; OnPropertyChanged("FilterVariable"); }
+            set { _filtervariable = value; OnPropertyChanged(nameof(FilterVariable)); }
         }
 
         float _outvalue;
         public float OutValue 
         { 
             get { return _outvalue; } 
-            set { _outvalue = value; OnPropertyChanged("OutValue"); }
+            set { _outvalue = value; OnPropertyChanged(nameof(OutValue)); }
         }
 
         string _code;

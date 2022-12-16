@@ -14,7 +14,7 @@ namespace YAME.Model
 
         //Defaults:
         float ax_default = 0;
-        float ay_default = 9.81f;
+        float ay_default = 9.806f;
         float az_default = 0;
 
         float wx_default = 0;
@@ -43,23 +43,7 @@ namespace YAME.Model
 
         public FilterSystem()
         {
-            Wx_HP.UpdateCode();
-            Wx_HP_LP.UpdateCode();
-            Wy_HP.UpdateCode();
-            Wy_HP_LP.UpdateCode();
-            Wz_HP.UpdateCode();
-            Wz_HP_LP.UpdateCode();
-
-            Ax_HP.UpdateCode();
-            Ax_HP_LP2.UpdateCode();
-            Ax_LP3.UpdateCode();
-
-            Ay_HP.UpdateCode();
-            Ay_HP_LP2.UpdateCode();
-
-            Az_HP.UpdateCode();
-            Az_HP_LP2.UpdateCode();
-            Az_LP3.UpdateCode();
+            UpdateAllFilterCodes();
 
             ResetToDefaults();
         }
@@ -91,6 +75,7 @@ namespace YAME.Model
                 Az_HP_LP2.Push(Az_HP.OutValue);
             Az_LP3.Push(Input.AZ);
         }
+
         private void WriteOutputData()
         {
             Output.HFC_Roll     = Wx_HP_LP.OutValue;
@@ -106,6 +91,26 @@ namespace YAME.Model
         }
 
         //Convienience functions:
+        private void UpdateAllFilterCodes()
+        {
+            Wx_HP.UpdateCode();
+            Wx_HP_LP.UpdateCode();
+            Wy_HP.UpdateCode();
+            Wy_HP_LP.UpdateCode();
+            Wz_HP.UpdateCode();
+            Wz_HP_LP.UpdateCode();
+
+            Ax_HP.UpdateCode();
+            Ax_HP_LP2.UpdateCode();
+            Ax_LP3.UpdateCode();
+
+            Ay_HP.UpdateCode();
+            Ay_HP_LP2.UpdateCode();
+
+            Az_HP.UpdateCode();
+            Az_HP_LP2.UpdateCode();
+            Az_LP3.UpdateCode();
+        }
         void ResetToDefaults()
         {
             //This functions sets all Filters to the default values. It also makes sure that all filters are in a balanced state.
@@ -124,7 +129,7 @@ namespace YAME.Model
             Wx_HP_LP.Set(Wx_HP.OutValue);
 
             Wy_HP.Set(wy_default);
-            Wy_HP_LP.Set(Wz_HP.OutValue);
+            Wy_HP_LP.Set(Wy_HP.OutValue);
 
             Wz_HP.Set(wz_default);
             Wz_HP_LP.Set(Wz_HP.OutValue);
