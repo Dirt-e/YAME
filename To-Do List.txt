@@ -21,8 +21,6 @@ ACTUATOR OVERRIDE:
 SERIALTALKER:
 
 FILTERS WINDOW:
-- Let scaling factor transition smoothly upon changes
-- Prevent Ay from jumping because of sudden onset of 9,81m/s² on startup. Filter needs to be equalised shortly after startup
 
 RIG CONFIGURATION:
 - Add a slew mode for apropriate offsets. May be used during an open serial connection!
@@ -38,7 +36,6 @@ ALPHA_COMPENSATION:
 POSITION OFFSET CORRECTION:
 
 PATCHER:
-- Re-apply DCS Patch if already patched. Just to be sure!
 
 
 SAFETY:
