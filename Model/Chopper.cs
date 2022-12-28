@@ -319,7 +319,7 @@ namespace YAME.Model
         }
         #endregion
 
-        private string[] Chunks = new string[19];
+        private string[] Chunks = new string[22];
 
         public void ChopParseAndPackage(string rawdatastring)
         {
