@@ -61,6 +61,25 @@ namespace YAME {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to [General]
+        ///Enabled=1
+        ///
+        ///[Connection]
+        ///Host=127.0.0.1
+        ///Port=31090
+        ///
+        ///[Misc]
+        ///SendIntervalMs=10
+        ///ExtendedData=1
+        ///LogToFile=0.
+        /// </summary>
+        public static string Condor2_UDPini {
+            get {
+                return ResourceManager.GetString("Condor2_UDPini", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;Windows-1252&quot;?&gt;
         ///&lt;SimBase.Document Type=&quot;SimConnect&quot; version=&quot;1,0&quot;&gt;
         ///	&lt;Descr&gt;SimConnect&lt;/Descr&gt;

@@ -406,6 +406,7 @@
     <EmbeddedResource Include="Resources\DCS\YAME_Export_Hook.lua">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <None Include="Resources\Condor2\Condor2_UDP.ini" />
     <None Include="Resources\X-Plane\XPlane_Motion_Exporter.zip" />
     <None Include="YAME_TemporaryKey.pfx" />
   </ItemGroup>

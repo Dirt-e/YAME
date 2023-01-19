@@ -92,6 +92,18 @@ namespace YAME.View
             mw.engine.patcher.btn_Unpatch_FS2020_Click();
         }
 
+        //---------- Condor2 ---------
+        private void btn_Patch_Condor2_Click(object sender, RoutedEventArgs e)
+        {
+            var mw = Application.Current.MainWindow as MainWindow;
+            mw.engine.patcher.btn_Patch_Condor2_Click();
+        }
+        private void btn_Unpatch_Condor2_Click(object sender, RoutedEventArgs e)
+        {
+            var mw = Application.Current.MainWindow as MainWindow;
+            mw.engine.patcher.btn_Unpatch_Condor2_Click();
+        }
+
         //---------- Window ----------
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -115,11 +127,6 @@ namespace YAME.View
             Properties.Settings.Default.Window_Patcher_Position_Y = (float)Top;
 
             Properties.Settings.Default.Save();
-        }
-
-        private void Red_X_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            this.Close();
         }
 
         private void RadioButton_ActiveSource_Click(object sender, RoutedEventArgs e)
@@ -151,5 +158,12 @@ namespace YAME.View
                     break;
             }
         }
+
+        private void Red_X_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+
+        
     }
 }

@@ -21,29 +21,36 @@ namespace YAME.Model
         public bool IsPatched_DCS_prop
         {
             get { return _isPatchedDCS_prop; }
-            set { _isPatchedDCS_prop = value; OnPropertyChanged(nameof(IsPatched_DCS_prop)); }
+            private set { _isPatchedDCS_prop = value; OnPropertyChanged(nameof(IsPatched_DCS_prop)); }
         }
 
         bool _isPatchedDCS_openbeta_prop;
         public bool IsPatched_DCS_openbeta_prop
         {
             get { return _isPatchedDCS_openbeta_prop; }
-            set { _isPatchedDCS_openbeta_prop = value; OnPropertyChanged(nameof(IsPatched_DCS_openbeta_prop)); }
+            private set { _isPatchedDCS_openbeta_prop = value; OnPropertyChanged(nameof(IsPatched_DCS_openbeta_prop)); }
         }
 
         bool _isPatchedFS2020_prop;
         public bool IsPatched_FS2020_prop
         {
             get { return _isPatchedFS2020_prop; }
-            set { _isPatchedFS2020_prop = value; OnPropertyChanged(nameof(IsPatched_FS2020_prop)); }
+            private set { _isPatchedFS2020_prop = value; OnPropertyChanged(nameof(IsPatched_FS2020_prop)); }
         }
 
         bool _isPatchedX_Plane_prop;
         public bool IsPatched_X_Plane_prop
         {
             get { return _isPatchedX_Plane_prop; }
-            set { _isPatchedX_Plane_prop = value; OnPropertyChanged(nameof(IsPatched_X_Plane_prop)); }
-        } 
+            private set { _isPatchedX_Plane_prop = value; OnPropertyChanged(nameof(IsPatched_X_Plane_prop)); }
+        }
+
+        bool _isPatched_Condor2_prop;
+        public bool IsPatched_Condor2_prop 
+        { 
+            get { return _isPatched_Condor2_prop; }
+            private set { _isPatched_Condor2_prop = value; OnPropertyChanged(nameof(IsPatched_Condor2_prop)); } 
+        }
         #endregion
 
         DispatcherTimer timer;
@@ -560,7 +567,7 @@ namespace YAME.Model
 
             try
             {
-                ExtractPluginToFolder(dialog.FileName);
+                ExtractXPlanePluginToFolder(dialog.FileName);
 
                 IsPatched_X_Plane_prop = true;
             }
@@ -697,7 +704,7 @@ namespace YAME.Model
             }
             return false;
         }
-        void ExtractPluginToFolder(string folder)
+        void ExtractXPlanePluginToFolder(string folder)
         {
             //string _tempZipFile = Environment.GetEnvironmentVariable("TEMP") + @"\XPlaneGetter.zip";
             string _tempZipFile = 
@@ -755,6 +762,173 @@ namespace YAME.Model
 
             return allPaths;
         }
+
+        //---------- Condor2 ---------
+        public void btn_Patch_Condor2_Click()
+        {
+            string directory = @"C:\Condor2\";
+
+            MessageBox.Show("OK, I get it. You want to patch Condor2 so that it sends you motion data. \n" +
+                            "I can do that for you! All you gotta do is " +
+                            "point me to your Condor2 installation folder.\n\n" +
+                            "You should normally find it here:\n" +
+                            $"{directory}"  + "\n\n" +
+                            "Now point me to your Condor2 install folder, will you.",
+                            "Need your help!",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
+
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog()
+            {
+                InitialDirectory = directory,
+                IsFolderPicker = true,
+            };
+            var Result = dialog.ShowDialog();
+
+            if (Result != CommonFileDialogResult.Ok)
+            {
+                MessageBox.Show("You aborted the patch routine.\n\n" +
+                                "Condor2 was NOT patched!",
+                                "Patch aborted",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                return;                                                                     //End Process
+            }
+            if (!Isconfirmed_Condor2_Folder(dialog.FileName))
+            {
+                MessageBox.Show("This is not the Condor2 installation folder! It does not contain " +
+                                "all the usual subfolder structure that I expect to see :-/\n\n" +
+                                "Condor2 was NOT patched!",
+                                "Not a Condor2 installation Folder",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            try
+            {
+                WriteCondor2_UDPini_ToFolder(dialog.FileName);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("I was unable to apply the motion data patch to Condor2. Usually this happens, when you " +
+                                "have Condor 2 running while trying to apply the patch. Make sure Condor2 is NOT running! " +
+                                "You might even have to reboot to be absolutely sure. \n\n" +
+                                "Condor2 was NOT patched!",
+                                "Something went wrong",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            IsPatched_Condor2_prop = true;
+
+            MessageBox.Show("Condor2 was successfully patched for motion data export to YAME. " +
+                            "You may need to restart Condor2 for the changes to take effect.",
+                            "Patch successful",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
+
+        }
+        public void btn_Unpatch_Condor2_Click()
+        {
+            string probable_directory = @"C:\Condor2\";
+            
+            MessageBox.Show("You want to unpatch Condor2 so that it WON'T send motion data anymore? \n" +
+                            "I can do that for you! All you gotta do is " +
+                            "point me to your Condor2 installation folder.\n\n" +
+                            "You should normally find it here:\n" +
+                            $"{probable_directory}" + "\n\n" +
+                            "Now point me to your Condor2 install folder, will you.",
+                            "Need your help!",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
+
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog()
+            {
+                InitialDirectory = probable_directory,
+                IsFolderPicker = true,
+            };
+            var Result = dialog.ShowDialog();
+
+            if (Result != CommonFileDialogResult.Ok)
+            {
+                MessageBox.Show("You aborted the unpatch routine.\n\n" +
+                                "I made no changes to your Condor2 installation",
+                                "Process aborted",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                return;                                                                     //End Process
+            }
+            if (!Isconfirmed_Condor2_Folder(dialog.FileName))
+            {
+                MessageBox.Show("This is not the Condor2 installation folder! It does not contain " +
+                                "all the usual subfolder structure that I expect to see :-/\n\n" +
+                                "Condor2 was NOT unpatched! I made NO changes to your Condor2 installation.",
+                                "Not a Condor2 installation Folder",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            //string UDPini_file = dialog.FileName + @"\Settings\UDP.ini";
+            string UDPini_file = Path.Combine(dialog.FileName, "Settings" , "UDP.ini");
+            string Backupfile = UDPini_file + "_bak";
+
+            try
+            {
+                if (File.Exists(Backupfile))        //Restore backup
+                {
+                    File.Copy(Backupfile, UDPini_file, true);
+                    File.Delete(Backupfile);
+                }
+                else                                //Just "Enabled=0"
+                {
+                    string[] lines = File.ReadAllLines(UDPini_file);
+                    for (int i = 0; i < lines.Length; i++)
+                    {
+                        if (lines[i] == "[General]" && lines[i+1].StartsWith("Enabled"))
+                        {
+                            lines[i + 1] = "Enabled=0";
+                            break;
+                        }
+                    }
+
+                    File.WriteAllLines(UDPini_file, lines);  
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("I was unable to unpatch Condor2. Make sure that the file" +
+                                @"Condor2\Settings\UDP.ini is NOT opened in any program!" +
+                                "You might even have to reboot to be absolutely sure. \n\n" +
+                                "Condor2 was NOT unpatched! I made no changes to your Condor2 installation.",
+                                "Something went wrong",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            IsPatched_Condor2_prop = false;
+
+            MessageBox.Show("Condor2 was successfully patched for motion data export to YAME. " +
+                            "You may need to restart Condor2 for the changes to take effect.",
+                            "Patch successful",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+        
+        bool Isconfirmed_Condor2_Folder(string path)
+        {
+            if (Directory.Exists(path + "\\Landscapes") && Directory.Exists(path + "\\Effects"))
+            {
+                return true;
+            }
+            return false;
+        }
+        void WriteCondor2_UDPini_ToFolder(string fileName)
+        {
+            string UDPini_file = fileName + @"\Settings\UDP.ini";
+            string Backupfile = UDPini_file + "_bak";
+
+            if (!File.Exists(Backupfile))
+            {
+                File.Copy(UDPini_file, Backupfile, false);
+            }
+            
+            File.WriteAllText(UDPini_file, Resource.Condor2_UDPini);
+        }
+
 
         //---------- Helpers ----------
         static string RemoveLastDirectoryFrom(string FolderPath)
