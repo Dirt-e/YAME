@@ -108,7 +108,7 @@ namespace YAME
             if (Properties.Settings.Default.Window_SceneView_IsOpen)            mnuSceneView.IsChecked          = true;
             if (Properties.Settings.Default.Window_OutputAASD_IsOpen)           mnuOutputAASD.IsChecked         = true;
             if (Properties.Settings.Default.Window_OutputODrive_IsOpen)         mnuOutputODrive.IsChecked       = true;
-            if (Properties.Settings.Default.Window_Patcher_IsOpen)              mnuHdr_Patcher_Click(this, new EventArgs() as RoutedEventArgs);
+            if (Properties.Settings.Default.Window_Patcher_IsOpen)              mnuHdr_Source_Click(this, new EventArgs() as RoutedEventArgs);
         }
         //Window_Closing:
         private void RememberWhichChildWindowsWereOpen()
@@ -421,8 +421,8 @@ namespace YAME
             aboutWindow.Close();
         }
 
-        //---------- Patcher ---------- 
-        private void mnuHdr_Patcher_Click(object sender, RoutedEventArgs e)
+        //---------- Source ---------- 
+        private void mnuHdr_Source_Click(object sender, RoutedEventArgs e)
         {
             foreach (Window w in OwnedWindows)
             {

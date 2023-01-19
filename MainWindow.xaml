@@ -108,7 +108,7 @@
                             x:Name="mnuCloseAll"
                             Click="mnuCloseAll_Click"/>
             </MenuItem>
-            <MenuItem Header="_Patcher" x:Name="mnuHdr_Patcher" Click="mnuHdr_Patcher_Click"/>
+            <MenuItem Header="_Source" x:Name="mnuHdr_Source" Click="mnuHdr_Source_Click"/>
             <MenuItem Header="_?" x:Name="mnuHdr_QM" Click="mnuHdr_QM_Click"/>
         </Menu>
         <StackPanel Grid.Row="1">
