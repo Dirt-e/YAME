@@ -11,13 +11,10 @@ namespace YAME.Model
 {
     public class Getter : MyObject
     {
-        public MotionSource Source { get; set; } = MotionSource.Condor2;
-        public UDP_Server udp_Server;
+        public MotionSource Source { get; set; } = MotionSource.None;
+        public UDP_Server udp_Server = new UDP_Server();
 
         public string RawDatastring { get; set; } = Properties.Settings.Default.Server_DefaulDataString;
-        int counter;
-        double deltatime;
-        double prev_time;
 
         bool _data_flowing;
         public bool DataFlowing
@@ -26,19 +23,17 @@ namespace YAME.Model
             set { _data_flowing = value; OnPropertyChanged(nameof(DataFlowing)); }
         }
 
-        Stopwatch stopwatch = Stopwatch.StartNew();     //To determine the timeout for the default values
-        private readonly int Timeout = 500;             //[ms]
+        int counter;
+        double deltatime;
+        double prev_time;
 
-        public Getter()
-        {
-            udp_Server = new UDP_Server();
-        }
+        Stopwatch stopwatch = Stopwatch.StartNew();     //To determine the timeout for the default values
+        private readonly int Timeout = Properties.Settings.Default.Getter_Timeout;             //[ms]
 
         public void StartGetter()
         {
             udp_Server.StartServer();
         }
-
         public void GetData()
         {
             //Do your  thing!!!
@@ -48,10 +43,26 @@ namespace YAME.Model
                     break;
                 case MotionSource.DCS:
                 case MotionSource.DCS_openbeta:
+                    udp_Server.Read();
+                    if (udp_Server.dataAvailable && IsDCSFormat(udp_Server.RawString))
+                    {
+                        RawDatastring = udp_Server.RawString;
+                        DataFlowing = true;
+                        stopwatch.Restart();
+                    }
+                    break;
                 case MotionSource.FS2020:
+                    udp_Server.Read();
+                    if (udp_Server.dataAvailable && IsFS2020Format(udp_Server.RawString))
+                    {
+                        RawDatastring = udp_Server.RawString;
+                        DataFlowing = true;
+                        stopwatch.Restart();
+                    }
+                    break;
                 case MotionSource.XPlane:
                     udp_Server.Read();
-                    if (udp_Server.dataAvailable)
+                    if (udp_Server.dataAvailable && IsXPlaneFormat(udp_Server.RawString))
                     {
                         RawDatastring = udp_Server.RawString;
                         DataFlowing = true;
@@ -59,10 +70,17 @@ namespace YAME.Model
                     }
                     break;
                 case MotionSource.iRacing:
+                    udp_Server.Read();
+                    if (udp_Server.dataAvailable && IsiRacingFormat(udp_Server.RawString))
+                    {
+                        RawDatastring = ConvertFromCondor(udp_Server.RawString);
+                        DataFlowing = true;
+                        stopwatch.Restart();
+                    }
                     break;
                 case MotionSource.Condor2:
                     udp_Server.Read();
-                    if (udp_Server.dataAvailable && ComesFromCondor(udp_Server.RawString))
+                    if (udp_Server.dataAvailable && IsCondorFormat(udp_Server.RawString))
                     {
                         RawDatastring = ConvertFromCondor(udp_Server.RawString);
                         DataFlowing = true;
@@ -80,6 +98,7 @@ namespace YAME.Model
             }
         }
 
+        //Helpers:
         private string ConvertFromCondor(string rawString)
         {
             //This function takes the raw string from Condor2 and returns the
@@ -154,14 +173,25 @@ namespace YAME.Model
 
             return result;
         }
-
-        //Helpers:
-        bool ComesFromCondor(string rawstring)
+        private bool IsDCSFormat(string rawstring)
         {
-            string[] lines = rawstring.Replace("\r", "").Split('\n');
-
-            if (lines.LastOrDefault().StartsWith("surfaceroughness"))   return true;
-            else                                                        return false;
+            return rawstring.Contains("DCS");
+        }
+        private bool IsFS2020Format(string rawstring)
+        {
+            return rawstring.Contains("FS2020");
+        }
+        private bool IsXPlaneFormat(string rawstring)
+        {
+            return rawstring.Contains("X-Plane");
+        }
+        private bool IsiRacingFormat(string rawstring)
+        {
+            return rawstring.Contains("iRacing");
+        }
+        private bool IsCondorFormat(string rawstring)
+        {
+            return rawstring.Contains("surfaceroughness");
         }
     }
 

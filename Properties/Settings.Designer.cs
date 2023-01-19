@@ -1894,5 +1894,17 @@ namespace YAME.Properties {
                 this["SnappyDragger_SnapDistance"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
+        public int Getter_Timeout {
+            get {
+                return ((int)(this["Getter_Timeout"]));
+            }
+            set {
+                this["Getter_Timeout"] = value;
+            }
+        }
     }
 }

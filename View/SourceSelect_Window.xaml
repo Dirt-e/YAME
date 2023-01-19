@@ -87,16 +87,16 @@
                                Fill="{Binding IsPatched_X_Plane_prop, Converter={StaticResource cnvrt_BoolToColorBrush_RedGreen}}"/>
         
         <RadioButton Grid.Row="2" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" GroupName="ActiveSource" Height="14" Width="14"
-                     Click="RadioButton_DCS_Click"/>
+                     Click="RadioButton_ActiveSource_Click"  x:Name="RdoBtn_DCS"/>
         <RadioButton Grid.Row="3" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" GroupName="ActiveSource" Height="14" Width="14"
-                     Click="RadioButton_DCSopenbeta_Click"/>
+                     Click="RadioButton_ActiveSource_Click"  x:Name="RdoBtn_DCSopenbeta"/>
         <RadioButton Grid.Row="4" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" GroupName="ActiveSource" Height="14" Width="14"
-                     Click="RadioButton_FS2020_Click"/>
+                     Click="RadioButton_ActiveSource_Click"  x:Name="RdoBtn_FS2020"/>
         <RadioButton Grid.Row="5" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" GroupName="ActiveSource" Height="14" Width="14"
-                     Click="RadioButton_XPlane_Click"/>
+                     Click="RadioButton_ActiveSource_Click"  x:Name="RdoBtn_XPlane"/>
         <RadioButton Grid.Row="6" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" GroupName="ActiveSource" Height="14" Width="14"
-                     Click="RadioButton_iRacing_Click"/>
+                     Click="RadioButton_ActiveSource_Click"  x:Name="RdoBtn_iRacing"/>
         <RadioButton Grid.Row="7" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" GroupName="ActiveSource" Height="14" Width="14"
-                     Click="RadioButton_Condor2_Click"/>
+                     Click="RadioButton_ActiveSource_Click"  x:Name="RdoBtn_Condor2"/>
     </Grid>
 </Window>

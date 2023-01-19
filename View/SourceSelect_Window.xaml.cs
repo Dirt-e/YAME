@@ -7,6 +7,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
 using System.Xml;
@@ -121,35 +122,34 @@ namespace YAME.View
             this.Close();
         }
 
-        private void RadioButton_DCS_Click(object sender, RoutedEventArgs e)
+        private void RadioButton_ActiveSource_Click(object sender, RoutedEventArgs e)
         {
             var mw = Application.Current.MainWindow as MainWindow;
-            mw.engine.getter.Source = MotionSource.DCS;
-        }
-        private void RadioButton_DCSopenbeta_Click(object sender, RoutedEventArgs e)
-        {
-            var mw = Application.Current.MainWindow as MainWindow;
-            mw.engine.getter.Source = MotionSource.DCS_openbeta;
-        }
-        private void RadioButton_FS2020_Click(object sender, RoutedEventArgs e)
-        {
-            var mw = Application.Current.MainWindow as MainWindow;
-            mw.engine.getter.Source = MotionSource.FS2020;
-        }
-        private void RadioButton_XPlane_Click(object sender, RoutedEventArgs e)
-        {
-            var mw = Application.Current.MainWindow as MainWindow;
-            mw.engine.getter.Source = MotionSource.XPlane;
-        }
-        private void RadioButton_iRacing_Click(object sender, RoutedEventArgs e)
-        {
-            var mw = Application.Current.MainWindow as MainWindow;
-            mw.engine.getter.Source = MotionSource.iRacing;
-        }
-        private void RadioButton_Condor2_Click(object sender, RoutedEventArgs e)
-        {
-            var mw = Application.Current.MainWindow as MainWindow;
-            mw.engine.getter.Source = MotionSource.Condor2;
+            var button = sender as RadioButton;
+
+            switch (button.Name)
+            {
+                case "RdoBtn_DCS":
+                    mw.engine.getter.Source = MotionSource.DCS;
+                    break;
+                case "RdoBtn_DCSopenbeta":
+                    mw.engine.getter.Source = MotionSource.DCS_openbeta;
+                    break;
+                case "RdoBtn_FS2020":
+                    mw.engine.getter.Source = MotionSource.FS2020;
+                    break;
+                case "RdoBtn_XPlane":
+                    mw.engine.getter.Source = MotionSource.XPlane;
+                    break;
+                case "RdoBtn_iRacing":
+                    mw.engine.getter.Source = MotionSource.iRacing;
+                    break;
+                case "RdoBtn_Condor2":
+                    mw.engine.getter.Source = MotionSource.Condor2;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

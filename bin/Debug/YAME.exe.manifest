@@ -211,14 +211,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="YAME.exe" size="5328896">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="YAME.exe" size="5329920">
       <assemblyIdentity name="YAME" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>UvYNAwwx1mcpDm+fMCKUBjaP91842E2C4VsO8f3U9jg=</dsig:DigestValue>
+        <dsig:DigestValue>ElrjIvkfIvMy2aT0vwZHboAniD5MYNrsiNf3deJ10uc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -231,13 +231,13 @@
       <dsig:DigestValue>gBd+bWIWWWBVQkey+tEW9D68CZT2Ub4vzwGFPcQm58o=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="YAME.exe.config" size="38585">
+  <file name="YAME.exe.config" size="38711">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>6Q/4C80+v6usTu7aobOKLXKh53hbfR0PER3Nf/rtGUo=</dsig:DigestValue>
+      <dsig:DigestValue>FbKCfMd/gQzqIlJMTwryZ9rs1bcQ4KhYDWyxPOsR7T0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="YAME.ico" size="269342">
