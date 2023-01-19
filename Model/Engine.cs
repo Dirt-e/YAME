@@ -17,7 +17,7 @@ namespace YAME.Model
     {   
         //UI-thread objects:
         public BackgroundWorker         backgroundworker;
-        public Server                   server;
+        public Getter                   getter;
 
         //Worker-thread objects:
         public FrameTimer               frametimer;
@@ -78,7 +78,7 @@ namespace YAME.Model
             {
                 WorkerSupportsCancellation = true,
             };
-            server              = new Server();
+            getter              = new Getter();
 
             InstantiateViewModels();
         }
@@ -96,7 +96,7 @@ namespace YAME.Model
         {
             if (!backgroundworker.IsBusy)
             {
-                server.StartServer();
+                getter.StartGetter();
 
                 backgroundworker.DoWork += (object sender, DoWorkEventArgs e) =>
                 {
@@ -147,8 +147,8 @@ namespace YAME.Model
         void UpdateObjects()
         {
             frametimer.update();
-            server.Read();
-            chopper.ChopParseAndPackage(server.RawDatastring);
+            getter.GetData();
+            chopper.ChopParseAndPackage(getter.RawDatastring);
             inverter.InvertDataAsNeeded(chopper.Output);
             exceedancedetector.Process(inverter.Output);
             recoverylogic.Update();

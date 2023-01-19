@@ -49,7 +49,7 @@ namespace YAME
         MotionControl_Window        motionControlWindow;
         OutputAASD_Window           outputAASD_Window;
         OutputODrive_Window         outputODrive_Window;
-        Patcher_Window              patcherWindow;
+        SourceSelect_Window         sourceSelectWindow;
         AboutWindow                 aboutWindow;
 
         public MainWindow()
@@ -89,7 +89,7 @@ namespace YAME
         {
             txtblk_profile.DataContext      = engine.loadersaver;
             txtblk_simulator.DataContext    = engine.chopper;
-            rct_OnAirLight.DataContext      = engine.server;
+            rct_OnAirLight.DataContext      = engine.getter;
         }
 
         //Window_Loaded:
@@ -173,7 +173,7 @@ namespace YAME
                     case nameof(outputODrive_Window):
                         Properties.Settings.Default.Window_OutputODrive_IsOpen     = true;
                         break;
-                    case nameof(patcherWindow):
+                    case nameof(sourceSelectWindow):
                         Properties.Settings.Default.Window_Patcher_IsOpen               = true;
                         break;
                     case nameof(aboutWindow):
@@ -426,17 +426,17 @@ namespace YAME
         {
             foreach (Window w in OwnedWindows)
             {
-                if (w.Name == nameof(patcherWindow))      //If it's open already!
+                if (w.Name == nameof(sourceSelectWindow))      //If it's open already!
                 {
                     w.Close();                      //Close it!
                     return;      
                 }
             }
 
-            patcherWindow = new Patcher_Window();
-            patcherWindow.Owner = this;
-            patcherWindow.Name = nameof(patcherWindow);
-            patcherWindow.Show();
+            sourceSelectWindow = new SourceSelect_Window();
+            sourceSelectWindow.Owner = this;
+            sourceSelectWindow.Name = nameof(sourceSelectWindow);
+            sourceSelectWindow.Show();
         }
 
         //---------- Helpers ------------

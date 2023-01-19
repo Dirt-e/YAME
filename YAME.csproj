@@ -61,7 +61,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>YAME.ico</ApplicationIcon>
@@ -197,6 +197,7 @@
     <Compile Include="Model\RecoveryLogic.cs" />
     <Compile Include="Model\ODriveTalker.cs" />
     <Compile Include="Model\SnappyDragger.cs" />
+    <Compile Include="Model\Getter.cs" />
     <Compile Include="Model\Structs\ActuatorStatus_Struct.cs" />
     <Compile Include="Model\Structs\Platforms_Struct.cs" />
     <Compile Include="Model\ZeroMaker.cs" />
@@ -248,8 +249,8 @@
     <Compile Include="View\MotionControl_Window.xaml.cs">
       <DependentUpon>MotionControl_Window.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Patcher_Window.xaml.cs">
-      <DependentUpon>Patcher_Window.xaml</DependentUpon>
+    <Compile Include="View\SourceSelect_Window.xaml.cs">
+      <DependentUpon>SourceSelect_Window.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PositionCorrector_Window.xaml.cs">
       <DependentUpon>PositionCorrector_Window.xaml</DependentUpon>
@@ -325,7 +326,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Patcher_Window.xaml">
+    <Page Include="View\SourceSelect_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -380,7 +381,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Engine.cs" />
-    <Compile Include="Model\Server.cs" />
+    <Compile Include="Model\UDP_Server.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

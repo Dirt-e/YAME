@@ -28,7 +28,6 @@ namespace YAME.View
             DataContext = mw.engine.alphacompensator;
         }
 
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             snappydragger = new SnappyDragger(this);
@@ -48,7 +47,6 @@ namespace YAME.View
         {
             snappydragger.StartDrag();
         }
-
         private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             snappydragger.StopDrag();

@@ -16,7 +16,7 @@ namespace YAME.Model
 {
     public class Patcher : MyObject
     {
-        //---------- ViewModel ---------
+        #region ViewModel
         bool _isPatchedDCS_prop;
         public bool IsPatched_DCS_prop
         {
@@ -43,6 +43,22 @@ namespace YAME.Model
         {
             get { return _isPatchedX_Plane_prop; }
             set { _isPatchedX_Plane_prop = value; OnPropertyChanged(nameof(IsPatched_X_Plane_prop)); }
+        } 
+        #endregion
+
+        DispatcherTimer timer;
+
+        public Patcher()
+        {
+            RefreshPatchStatusOfAllSims();
+
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(5000);
+            timer.Tick += delegate
+            {
+                RefreshPatchStatusOfAllSims();
+            };
+            timer.Start();
         }
 
 
