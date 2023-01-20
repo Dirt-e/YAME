@@ -142,17 +142,22 @@ namespace YAME.Model
 
             //calculations here:
             counter++;
+
             deltatime = Time - prev_time;
             prev_time = Time;
+
+            double Vx       = double.Parse(lines[22],   CultureInfo.InvariantCulture);
+            double Vy       = double.Parse(lines[23],   CultureInfo.InvariantCulture);
+            double GS = Math.Sqrt(Vx * Vx + Vy * Vy);
 
             //Put string together:
             string result = lines[1] + ", " +                                           //IAS
                             "0" + ", " +                                                //Mach
                             "0" + ", " +                                                //TAS
-                            "0" + ", " +                                                //GS
+                            GS.ToString(GlobalVars.myNumberFormat(7)) + ", " +          //GS
                             "0" + ", " +                                                //AOA
                             lines[24] + ", " +                                          //VS
-                            "0" + ", " +                                                //HGT
+                            lines[30] + ", " +                                          //HGT
 
                             Bank.ToString(GlobalVars.myNumberFormat(7)) + ", " +        //BANK
                             Hdng.ToString(GlobalVars.myNumberFormat(7)) + ", " +        //HDG
