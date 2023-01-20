@@ -54,6 +54,7 @@ namespace YAME.Model
             Load_DOF_Override_Application();
             Load_AASD_OutputSettings_Application();
             Load_ODrive_OutputSettings_Application();
+            Load_SourceSelect_Settings_Application();
         }
 
         void Load_ProfilePath_Application()
@@ -226,7 +227,7 @@ namespace YAME.Model
             //COM port is handled inside "SerialConnectionWindow.xaml.cs",
             //because COM ports are assigned during runtime
 
-            string name = Properties.Settings.Default.SerialTalker_LastUsed_HardwareController;
+            string name = Properties.Settings.Default.AASD_Talker_LastUsed_HardwareController;
             engine.aasd_talker.Controller = (ControllerType)Enum.Parse(typeof(ControllerType), name);
         }
         void Load_ODrive_OutputSettings_Application()
@@ -234,9 +235,14 @@ namespace YAME.Model
             //COM port is handled inside "ODriveTalker_Window.xaml.cs" Window_Loaded Event
 
             engine.odrivesystem.Lead            = Properties.Settings.Default.ODriveSystem_Lead;
-            engine.odrivesystem.FormatString_1    = Properties.Settings.Default.ODriveSystem_FormatString_1;
-            engine.odrivesystem.FormatString_2    = Properties.Settings.Default.ODriveSystem_FormatString_2;
-            engine.odrivesystem.FormatString_3    = Properties.Settings.Default.ODriveSystem_FormatString_3;
+            engine.odrivesystem.FormatString_1  = Properties.Settings.Default.ODriveSystem_FormatString_1;
+            engine.odrivesystem.FormatString_2  = Properties.Settings.Default.ODriveSystem_FormatString_2;
+            engine.odrivesystem.FormatString_3  = Properties.Settings.Default.ODriveSystem_FormatString_3;
+        }
+        void Load_SourceSelect_Settings_Application()
+        {
+            string Source = Properties.Settings.Default.Getter_MotionSource;
+            engine.getter.Source = (MotionSource)Enum.Parse(typeof(MotionSource), Source);
         }
 
         //---------------- Save -----------------------
@@ -255,6 +261,7 @@ namespace YAME.Model
             Save_DOF_OverrideSettings_Application();
             Save_AASD_OutputSettings_Application();
             Save_ODrive_OutputSettings_Application();
+            Save_SourceSelect_Settings_Application();
 
             Properties.Settings.Default.Save();
         }
@@ -426,7 +433,7 @@ namespace YAME.Model
         }
         void Save_AASD_OutputSettings_Application()
         {
-            Properties.Settings.Default.SerialTalker_LastUsed_HardwareController = engine.aasd_talker.Controller.ToString();
+            Properties.Settings.Default.AASD_Talker_LastUsed_HardwareController = engine.aasd_talker.Controller.ToString();
         }
         void Save_ODrive_OutputSettings_Application()
         {
@@ -450,6 +457,10 @@ namespace YAME.Model
             Properties.Settings.Default.ODriveSystem_FormatString_1     = engine.odrivesystem.FormatString_1;
             Properties.Settings.Default.ODriveSystem_FormatString_2     = engine.odrivesystem.FormatString_2;
             Properties.Settings.Default.ODriveSystem_FormatString_3     = engine.odrivesystem.FormatString_3;
+        }
+        void Save_SourceSelect_Settings_Application()
+        {
+            Properties.Settings.Default.Getter_MotionSource = engine.getter.Source.ToString(); ;
         }
         #endregion
         #region To/from Profile:
@@ -488,6 +499,7 @@ namespace YAME.Model
                 Load_DOF_Override_Profile();
                 Load_AASDTalker_Settings_Profile();
                 Load_ODriveTalker_Settings_Profile();
+                Load_SourceSelect_Settings_Profile();
             }
         }
 
@@ -648,6 +660,10 @@ namespace YAME.Model
             engine.odrivesystem.FormatString_3      = saveObject.FormatString_3;
             engine.odrivesystem.Lead                = saveObject.Lead;
         }
+        void Load_SourceSelect_Settings_Profile()
+        {
+            engine.getter.Source = saveObject.GetterSource;
+        }
 
         //---------------- Save -----------------------
         public void Save_Profile(bool _as = false)
@@ -671,6 +687,8 @@ namespace YAME.Model
             Save_DOF_Override_Profile();
             Save_AASDTalker_Settings_Profile();
             Save_ODriveTalker_Settings_Profile();
+            Save_SourceSelect_Settings_Profile();
+
 
             var options = new JsonSerializerOptions { WriteIndented = true };
             string json = JsonSerializer.Serialize(saveObject, options);
@@ -827,6 +845,10 @@ namespace YAME.Model
             saveObject.FormatString_2   = engine.odrivesystem.FormatString_2;
             saveObject.FormatString_3   = engine.odrivesystem.FormatString_3;
             saveObject.Lead             = engine.odrivesystem.Lead;
+        }
+        void Save_SourceSelect_Settings_Profile()
+        {
+            saveObject.GetterSource = engine.getter.Source;
         }
         #endregion
 

@@ -108,18 +108,18 @@ namespace YAME.View
             
             if (SelectedItem != null)
             {
-                Properties.Settings.Default.SerialTalker_LastUsed_ComPort = SelectedItem.ToString();
+                Properties.Settings.Default.AASD_Talker_LastUsed_ComPort = SelectedItem.ToString();
             }
             else
             {
-                Properties.Settings.Default.SerialTalker_LastUsed_ComPort = String.Empty;
+                Properties.Settings.Default.AASD_Talker_LastUsed_ComPort = String.Empty;
             }
         }
         private void TryLoad_LastUsedComPort_Application()
         {
             PopulateDropdownList_Ports();
 
-            string LastUsedComPort = Properties.Settings.Default.SerialTalker_LastUsed_ComPort;
+            string LastUsedComPort = Properties.Settings.Default.AASD_Talker_LastUsed_ComPort;
             int index = cmbbx_Ports.Items.IndexOf(LastUsedComPort);             //-1 indicates a NoFind!
 
             if (index >= 0)  cmbbx_Ports.SelectedItem = cmbbx_Ports.Items[index];

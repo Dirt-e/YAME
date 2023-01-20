@@ -1358,12 +1358,12 @@ namespace YAME.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string SerialTalker_LastUsed_ComPort {
+        public string AASD_Talker_LastUsed_ComPort {
             get {
-                return ((string)(this["SerialTalker_LastUsed_ComPort"]));
+                return ((string)(this["AASD_Talker_LastUsed_ComPort"]));
             }
             set {
-                this["SerialTalker_LastUsed_ComPort"] = value;
+                this["AASD_Talker_LastUsed_ComPort"] = value;
             }
         }
         
@@ -1418,12 +1418,12 @@ namespace YAME.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9.806,0,0,0,0,nil")]
-        public string Server_DefaulDataString {
+        public string Getter_DefaulDataString {
             get {
-                return ((string)(this["Server_DefaulDataString"]));
+                return ((string)(this["Getter_DefaulDataString"]));
             }
             set {
-                this["Server_DefaulDataString"] = value;
+                this["Getter_DefaulDataString"] = value;
             }
         }
         
@@ -1466,12 +1466,12 @@ namespace YAME.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Motion4Sim")]
-        public string SerialTalker_LastUsed_HardwareController {
+        public string AASD_Talker_LastUsed_HardwareController {
             get {
-                return ((string)(this["SerialTalker_LastUsed_HardwareController"]));
+                return ((string)(this["AASD_Talker_LastUsed_HardwareController"]));
             }
             set {
-                this["SerialTalker_LastUsed_HardwareController"] = value;
+                this["AASD_Talker_LastUsed_HardwareController"] = value;
             }
         }
         
@@ -1904,6 +1904,18 @@ namespace YAME.Properties {
             }
             set {
                 this["Getter_Timeout"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("None")]
+        public string Getter_MotionSource {
+            get {
+                return ((string)(this["Getter_MotionSource"]));
+            }
+            set {
+                this["Getter_MotionSource"] = value;
             }
         }
     }

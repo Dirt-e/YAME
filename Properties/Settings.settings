@@ -335,7 +335,7 @@
     <Setting Name="Window_OutputAASD_IsOpen" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="SerialTalker_LastUsed_ComPort" Type="System.String" Scope="User">
+    <Setting Name="AASD_Talker_LastUsed_ComPort" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Window_Patcher_IsOpen" Type="System.Boolean" Scope="User">
@@ -350,7 +350,7 @@
     <Setting Name="Server_Port_UDP" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">31090</Value>
     </Setting>
-    <Setting Name="Server_DefaulDataString" Type="System.String" Scope="User">
+    <Setting Name="Getter_DefaulDataString" Type="System.String" Scope="User">
       <Value Profile="(Default)">0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9.806,0,0,0,0,nil</Value>
     </Setting>
     <Setting Name="SplashScreen" Type="System.Boolean" Scope="User">
@@ -362,7 +362,7 @@
     <Setting Name="Actuator_TriggerZone" Type="System.Single" Scope="User">
       <Value Profile="(Default)">0.001</Value>
     </Setting>
-    <Setting Name="SerialTalker_LastUsed_HardwareController" Type="System.String" Scope="User">
+    <Setting Name="AASD_Talker_LastUsed_HardwareController" Type="System.String" Scope="User">
       <Value Profile="(Default)">Motion4Sim</Value>
     </Setting>
     <Setting Name="Patcher_FS2020_ExportersFolder" Type="System.String" Scope="User">
@@ -472,6 +472,9 @@
     </Setting>
     <Setting Name="Getter_Timeout" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">500</Value>
+    </Setting>
+    <Setting Name="Getter_MotionSource" Type="System.String" Scope="User">
+      <Value Profile="(Default)">None</Value>
     </Setting>
   </Settings>
 </SettingsFile>

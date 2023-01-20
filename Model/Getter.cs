@@ -20,7 +20,7 @@ namespace YAME.Model
             set { _source = value; OnPropertyChanged(nameof(Source)); }
         }
 
-        public string RawDatastring { get; set; } = Properties.Settings.Default.Server_DefaulDataString;
+        public string RawDatastring { get; set; } = Properties.Settings.Default.Getter_DefaulDataString;
 
         bool _data_flowing;
         public bool DataFlowing
@@ -99,7 +99,7 @@ namespace YAME.Model
 
             if (stopwatch.ElapsedMilliseconds >= Timeout)
             {
-                RawDatastring = Properties.Settings.Default.Server_DefaulDataString;
+                RawDatastring = Properties.Settings.Default.Getter_DefaulDataString;
                 DataFlowing = false;
             }
         }

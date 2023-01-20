@@ -154,5 +154,8 @@ namespace YAME.DataFomats
         public string FormatString_2 { get; set; }
         public string FormatString_3 { get; set; }
         #endregion
+        #region Getter
+        public MotionSource GetterSource { get; set; }
+        #endregion
     }
 }
