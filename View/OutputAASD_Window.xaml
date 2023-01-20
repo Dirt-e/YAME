@@ -45,7 +45,7 @@
         <Label      Content="Controller:" VerticalAlignment="Center" HorizontalAlignment="Right"
                     Grid.Column="1" Grid.Row="2" Padding="0"/>
         <ComboBox   x:Name="cmbbx_Controller" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="3"
-                    PreviewMouseLeftButtonDown="cmbbx_Controller_MouseLeftButtonDown"
+                    PreviewMouseLeftButtonDown="cmbbx_Controller_PreviewMouseLeftButtonDown"
                     ItemsSource="{view:EnumBindingSource model:ControllerType}"
                     SelectedItem="{Binding Controller, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                     Style="{StaticResource ComboBox_Style}">

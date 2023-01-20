@@ -42,7 +42,7 @@ namespace YAME.View
             }
             e.Handled = true;       //Do nothing else with this mouse click.
         }
-        private void cmbbx_Controller_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void cmbbx_Controller_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             var serialtalker =  Application.Current.Windows.OfType<MainWindow>().FirstOrDefault().engine.aasd_talker;
             if (serialtalker.IsOpen)

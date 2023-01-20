@@ -6,15 +6,17 @@
         xmlns:local="clr-namespace:YAME.View"
         xmlns:Converters="clr-namespace:YAME.View.Converters"
         xmlns:Controls="clr-namespace:YAME.View.UserControls"
+        xmlns:view="clr-namespace:YAME.View"
+        xmlns:model="clr-namespace:YAME.Model"
         mc:Ignorable="d" Style="{StaticResource ChildWindow_Style}"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         MouseLeftButtonUp="Window_MouseLeftButtonUp"
         Loaded="Window_Loaded" Closing="Window_Closing"
-        Title="PatchWindow" Height="235" Width="307">
+        Title="PatchWindow" Height="300" Width="295">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="15"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
@@ -26,22 +28,30 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="80"/>
-            <ColumnDefinition Width="60"/>
-            <ColumnDefinition Width="60"/>
-            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="80"/>
             <ColumnDefinition Width="50"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <TextBlock  Grid.Row="0" Grid.Column="1" FontSize="15" Grid.ColumnSpan="2"
                     Text="Source Select" FontWeight="Bold"/>
-        <Controls:Red_X Width="12" Height="12" Margin="0,3,3,0"  Grid.Column="5"
+        <Controls:Red_X Width="12" Height="12" Margin="0,3,3,0"  Grid.Column="4"
                         HorizontalAlignment="Right" VerticalAlignment="Top" 
                         MouseLeftButtonDown="Red_X_MouseLeftButtonDown"/>
 
-        <TextBlock Text="Status"        Grid.Row="1" Grid.Column="4" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center" />
-        <TextBlock Text="Select"        Grid.Row="1" Grid.Column="5" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center" />
-        
+        <ComboBox   x:Name="cmbbx_Source" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Height="20" VerticalAlignment="Center" Margin="3"
+                    PreviewMouseLeftButtonDown="cmbbx_Source_PreviewMouseLeftButtonDown"
+                    ItemsSource="{view:EnumBindingSource model:MotionSource}"
+                    SelectedItem="{Binding Source, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                    Style="{StaticResource ComboBox_Style}"/>
+        <TextBlock  Text="Source:"      Grid.Row="1" Grid.Column="1" Margin="3"
+                    VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="10"
+                    TextWrapping="Wrap"/>
+
+        <TextBlock Text="Patch Status"  Grid.Row="1" Grid.Column="4" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap"/>
+
+
         <TextBlock Text="DCS"           Grid.Row="2" Grid.Column="1" FontSize="12" VerticalAlignment="Center" Height="14" />
         <TextBlock Text="DCS.openbeta"  Grid.Row="3" Grid.Column="1" FontSize="12" VerticalAlignment="Center" Height="14" />
         <TextBlock Text="FS2020"        Grid.Row="4" Grid.Column="1" FontSize="12" VerticalAlignment="Center" Height="14" />
@@ -69,6 +79,9 @@
         <Button     x:Name="btn_Unpatch_XPlane" Content="Unpatch" Style="{StaticResource Button_NoHighlight_Rounded}"
                     Grid.Row="5" Grid.Column="3" Margin="3,3,3,3" Click="btn_Unpatch_XPlane_Click"/>
 
+        <TextBlock Text="Coming soon"  Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" FontSize="10" 
+                   VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
         <Button     x:Name="btn_Patch_Condor2" Content="Patch"  Style="{StaticResource Button_NoHighlight_Rounded}"
                     Grid.Row="7" Grid.Column="2" Margin="3,3,3,3" Click="btn_Patch_Condor2_Click"/>
         <Button     x:Name="btn_Unpatch_Condor2" Content="Unpatch" Style="{StaticResource Button_NoHighlight_Rounded}"
@@ -81,17 +94,21 @@
         <Rectangle x:Name="rct_IsPatched_DCS_openbeta" Grid.Row="3" Grid.Column="4" Width="14" Height="14"
                                RadiusX="7" RadiusY="7" HorizontalAlignment="Center"
                                Stroke="{StaticResource MyDarkGrayBrush}"
-                               Fill="{Binding IsPatched_DCS_openbeta_prop, Converter={StaticResource cnvrt_BoolToColorBrush_RedGreen}}"/>
+                               Fill="{Binding IsPatched_DCS_openbeta_prop, Converter={StaticResource cnvrt_BoolToColorBrush_RedGreen}}" Margin="0,8,0,8"/>
         <Rectangle x:Name="rct_IsPatched_FS2020" Grid.Row="4" Grid.Column="4" Width="14" Height="14"
                                RadiusX="7" RadiusY="7" HorizontalAlignment="Center"
                                Stroke="{StaticResource MyDarkGrayBrush}"
-                               Fill="{Binding IsPatched_FS2020_prop, Converter={StaticResource cnvrt_BoolToColorBrush_RedGreen}}"/>
+                               Fill="{Binding IsPatched_FS2020_prop, Converter={StaticResource cnvrt_BoolToColorBrush_RedGreen}}" Margin="0,8,0,8"/>
         <Rectangle x:Name="rct_IsPatched_X_Plane" Grid.Row="5" Grid.Column="4" Width="14" Height="14"
                                RadiusX="7" RadiusY="7" HorizontalAlignment="Center"
                                Stroke="{StaticResource MyDarkGrayBrush}"
-                               Fill="{Binding IsPatched_X_Plane_prop, Converter={StaticResource cnvrt_BoolToColorBrush_RedGreen}}"/>
-        
-        <RadioButton Grid.Row="2" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" GroupName="ActiveSource" Height="14" Width="14"
+                               Fill="{Binding IsPatched_X_Plane_prop, Converter={StaticResource cnvrt_BoolToColorBrush_RedGreen}}" Margin="0,8,0,8"/>
+        <Rectangle x:Name="rct_IsPatched_Condor2" Grid.Row="7" Grid.Column="4" Width="14" Height="14"
+                               RadiusX="7" RadiusY="7" HorizontalAlignment="Center"
+                               Stroke="{StaticResource MyDarkGrayBrush}"
+                               Fill="{Binding IsPatched_Condor2_prop, Converter={StaticResource cnvrt_BoolToColorBrush_RedGreen}}" Margin="0,8,0,8"/>
+
+        <!--<RadioButton Grid.Row="2" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" GroupName="ActiveSource" Height="14" Width="14"
                      Click="RadioButton_ActiveSource_Click"  x:Name="RdoBtn_DCS"/>
         <RadioButton Grid.Row="3" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" GroupName="ActiveSource" Height="14" Width="14"
                      Click="RadioButton_ActiveSource_Click"  x:Name="RdoBtn_DCSopenbeta"/>
@@ -102,6 +119,6 @@
         <RadioButton Grid.Row="6" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" GroupName="ActiveSource" Height="14" Width="14"
                      Click="RadioButton_ActiveSource_Click"  x:Name="RdoBtn_iRacing"/>
         <RadioButton Grid.Row="7" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" GroupName="ActiveSource" Height="14" Width="14"
-                     Click="RadioButton_ActiveSource_Click"  x:Name="RdoBtn_Condor2"/>
+                     Click="RadioButton_ActiveSource_Click"  x:Name="RdoBtn_Condor2"/>-->
     </Grid>
 </Window>

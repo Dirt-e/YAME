@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Threading;
 using System.Xml;
 using YAME.Model;
+using static Utility;
 
 namespace YAME.Model
 {
@@ -907,7 +908,13 @@ namespace YAME.Model
                             "Patch successful",
                             MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        
+        bool IsPatched_Condor2()
+        {
+            string UDP_OnHardDrive = File.ReadAllText(@"C:\Condor2\Settings\UDP.ini");
+            string UDP_Patched = Resource.Condor2_UDPini;
+
+            return UDP_OnHardDrive == UDP_Patched;
+        }
         bool Isconfirmed_Condor2_Folder(string path)
         {
             if (Directory.Exists(path + "\\Landscapes") && Directory.Exists(path + "\\Effects"))
@@ -928,7 +935,6 @@ namespace YAME.Model
             
             File.WriteAllText(UDPini_file, Resource.Condor2_UDPini);
         }
-
 
         //---------- Helpers ----------
         static string RemoveLastDirectoryFrom(string FolderPath)
@@ -952,6 +958,7 @@ namespace YAME.Model
             IsPatched_DCS_openbeta_prop = IsPatched_DCS_openbeta();
             IsPatched_FS2020_prop = IsPatched_FS2020();
             IsPatched_X_Plane_prop = IsPatched_XPlane();
+            IsPatched_Condor2_prop = IsPatched_Condor2();
         }
     }
 }

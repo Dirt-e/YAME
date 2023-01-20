@@ -11,8 +11,14 @@ namespace YAME.Model
 {
     public class Getter : MyObject
     {
-        public MotionSource Source { get; set; } = MotionSource.None;
         public UDP_Server udp_Server = new UDP_Server();
+
+        MotionSource _source;
+        public MotionSource Source 
+        { 
+            get { return _source; }
+            set { _source = value; OnPropertyChanged(nameof(Source)); }
+        }
 
         public string RawDatastring { get; set; } = Properties.Settings.Default.Server_DefaulDataString;
 

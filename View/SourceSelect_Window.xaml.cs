@@ -24,23 +24,15 @@ namespace YAME.View
         {
             InitializeComponent();
             SetDatacontexts();
-            //UpdatePatchStatusOfAllSims();
 
             snappyDragger = new SnappyDragger(this);
-
-            //timer = new DispatcherTimer();
-            //timer.Interval = TimeSpan.FromMilliseconds(5000);
-            //timer.Tick += delegate
-            //{
-            //    UpdatePatchStatusOfAllSims();
-            //};
-            //timer.Start();
         }
 
         void SetDatacontexts()
         {
             var mw = Application.Current.MainWindow as MainWindow;
-            DataContext = mw.engine.patcher;
+            DataContext                 = mw.engine.patcher;
+            cmbbx_Source.DataContext    = mw.engine.getter;
         }
 
         //---------- DCS ----------
@@ -129,33 +121,21 @@ namespace YAME.View
             Properties.Settings.Default.Save();
         }
 
-        private void RadioButton_ActiveSource_Click(object sender, RoutedEventArgs e)
+        private void cmbbx_Source_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             var mw = Application.Current.MainWindow as MainWindow;
-            var button = sender as RadioButton;
+            var aasd_talker = mw.engine.aasd_talker;
+            var odrive_system = mw.engine.odrivesystem;
 
-            switch (button.Name)
+            if (aasd_talker.IsOpen || odrive_system.IsAnyPortOpen)
             {
-                case "RdoBtn_DCS":
-                    mw.engine.getter.Source = MotionSource.DCS;
-                    break;
-                case "RdoBtn_DCSopenbeta":
-                    mw.engine.getter.Source = MotionSource.DCS_openbeta;
-                    break;
-                case "RdoBtn_FS2020":
-                    mw.engine.getter.Source = MotionSource.FS2020;
-                    break;
-                case "RdoBtn_XPlane":
-                    mw.engine.getter.Source = MotionSource.XPlane;
-                    break;
-                case "RdoBtn_iRacing":
-                    mw.engine.getter.Source = MotionSource.iRacing;
-                    break;
-                case "RdoBtn_Condor2":
-                    mw.engine.getter.Source = MotionSource.Condor2;
-                    break;
-                default:
-                    break;
+                MessageBox.Show("You are trying to select a new motion data source while a " +
+                    "serial connection to your rig is open!?! That could cause huge jolts!\n" +
+                    "1. Close all serial connections.(Output Module)\n " +
+                    "2. Select your new motion data source.\n" +
+                    "3. Reconnect serial connection.(Output Module)",
+                    "Serial Connection Open!!!",
+                    MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
 
@@ -164,6 +144,5 @@ namespace YAME.View
             this.Close();
         }
 
-        
     }
 }
