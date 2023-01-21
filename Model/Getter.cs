@@ -105,104 +105,104 @@ namespace YAME.Model
         }
 
         //Helpers:
-        private string ConvertFromCondor(string rawString)
+        string ConvertFromCondor(string CondorRawString)
         {
             //This function takes the raw string from Condor2 and returns the
             //rawDataString the Chopper can process
-            string[] lines = rawString.Replace("\r", "").Split('\n');
 
-            for (int i = 0; i < lines.Length; i++)
-            {   
-                if (lines[i].Contains("NAN"))
-                {   
-                    lines[i] = "0";
-                }
-                else
-                {
-                    lines[i] = lines[i].Split('=').Last();
-                }
-            }
-
+            Dictionary<string, double> data = CreateDictionaryFromCondor(CondorRawString);
+            
             //Conversions here:
-            double Hdng     = double.Parse(lines[12],   CultureInfo.InvariantCulture);
-            double Bank     = double.Parse(lines[14],   CultureInfo.InvariantCulture);
-            double Ptch     = double.Parse(lines[13],   CultureInfo.InvariantCulture);
-            double W_lon    = double.Parse(lines[25],   CultureInfo.InvariantCulture);
-            double W_Vrt    = double.Parse(lines[27],   CultureInfo.InvariantCulture);
-            double W_lat    = double.Parse(lines[26],   CultureInfo.InvariantCulture);
-            double Time     = double.Parse(lines[0],    CultureInfo.InvariantCulture);
-
-            Hdng    *= GlobalVars.Rad2Deg;
-            Bank    *= -GlobalVars.Rad2Deg;    //direction reversal by minus 1!
-            Ptch    *= GlobalVars.Rad2Deg;
-            W_lon   *= GlobalVars.Rad2Deg;
-            W_Vrt   *= GlobalVars.Rad2Deg;
-            W_lat   *= GlobalVars.Rad2Deg;
-            Time    *= 60 * 60 * 1000;
+            if (data.ContainsKey("yaw"))        data["yaw"]         *= GlobalVars.Rad2Deg;
+            if (data.ContainsKey("pitch"))      data["pitch"]       *= GlobalVars.Rad2Deg;
+            if (data.ContainsKey("bank"))       data["bank"]        *= -GlobalVars.Rad2Deg;     //direction reversal by minus 1!
+            if (data.ContainsKey("rollrate"))   data["rollrate"]    *= GlobalVars.Rad2Deg;
+            if (data.ContainsKey("pitchrate"))  data["pitchrate"]   *= GlobalVars.Rad2Deg;
+            if (data.ContainsKey("yawrate"))    data["yawrate"]     *= GlobalVars.Rad2Deg;
+            if (data.ContainsKey("time"))       data["time"]        *= 60 * 60 * 1000;          //to convert from hrs to milliseconds
 
             //calculations here:
             counter++;
-
-            deltatime = Time - prev_time;
-            prev_time = Time;
-
-            double Vx       = double.Parse(lines[22],   CultureInfo.InvariantCulture);
-            double Vy       = double.Parse(lines[23],   CultureInfo.InvariantCulture);
-            double GS = Math.Sqrt(Vx * Vx + Vy * Vy);
+            deltatime = data["time"] - prev_time;
+            prev_time = data["time"];
+            double GS = Math.Sqrt(data["vx"] * data["vx"] + data["vy"] * data["vy"]);
 
             //Put string together:
-            string result = lines[1] + ", " +                                           //IAS
-                            "0" + ", " +                                                //Mach
-                            "0" + ", " +                                                //TAS
-                            GS.ToString(GlobalVars.myNumberFormat(7)) + ", " +          //GS
-                            "0" + ", " +                                                //AOA
-                            lines[24] + ", " +                                          //VS
-                            lines[30] + ", " +                                          //HGT
+            string result = data["airspeed"].ToString(GlobalVars.myNumberFormat(7)) + ", " +        //IAS
+                            "0" + ", " +                                                            //Mach
+                            "0" + ", " +                                                            //TAS
+                            GS.ToString(GlobalVars.myNumberFormat(7)) + ", " +                      //GS
+                            "0" + ", " +                                                            //AOA
+                            data["vz"].ToString(GlobalVars.myNumberFormat(7)) + ", " +              //VS
+                            data["wheelheight"].ToString(GlobalVars.myNumberFormat(7)) + ", " +     //HGT
 
-                            Bank.ToString(GlobalVars.myNumberFormat(7)) + ", " +        //BANK
-                            Hdng.ToString(GlobalVars.myNumberFormat(7)) + ", " +        //HDG
-                            Ptch.ToString(GlobalVars.myNumberFormat(7)) + ", " +        //PITCH
+                            data["bank"].ToString(GlobalVars.myNumberFormat(7)) + ", " +            //BANK
+                            data["yaw"].ToString(GlobalVars.myNumberFormat(7)) + ", " +             //HDG
+                            data["pitch"].ToString(GlobalVars.myNumberFormat(7)) + ", " +           //PITCH
 
-                            W_lon.ToString(GlobalVars.myNumberFormat(7)) + ", " +       //W_lon
-                            W_Vrt.ToString(GlobalVars.myNumberFormat(7)) + ", " +       //W_vert
-                            W_lat.ToString(GlobalVars.myNumberFormat(7)) + ", " +       //W_lat
+                            data["rollrate"].ToString(GlobalVars.myNumberFormat(7)) + ", " +        //W_lon
+                            data["yawrate"].ToString(GlobalVars.myNumberFormat(7)) + ", " +         //W_vert
+                            data["pitchrate"].ToString(GlobalVars.myNumberFormat(7)) + ", " +       //W_lat
 
-                            "0" + ", " +                                                //W_lon_dot
-                            "0" + ", " +                                                //W_vert_dot
-                            "0" + ", " +                                                //W_lat_dot
+                            "0" + ", " +                                                            //W_lon_dot
+                            "0" + ", " +                                                            //W_vert_dot
+                            "0" + ", " +                                                            //W_lat_dot
 
-                            "0" + ", " +                                                //A_lon
-                            "0" + ", " +                                                //A_vert
-                            "0" + ", " +                                                //A_lat
+                            "0" + ", " +                                                            //A_lon
+                            "0" + ", " +                                                            //A_vert
+                            "0" + ", " +                                                            //A_lat
 
-                            Time.ToString(GlobalVars.myNumberFormat(7)) + ", " +        //Time [ms]
-                            deltatime.ToString(GlobalVars.myNumberFormat(7)) + ", " +   //DeltaTime
-                            counter + ", " +                                            //Counter
+                            data["time"].ToString(GlobalVars.myNumberFormat(7)) + ", " +            //Time [ms]
+                            deltatime.ToString(GlobalVars.myNumberFormat(7)) + ", " +               //DeltaTime
+                            counter + ", " +                                                        //Counter
 
-                            "Condor2"                                                   //Sim
+                            "Condor2"                                                               //Sim
                             ;
 
             return result;
         }
-        private bool IsDCSFormat(string rawstring)
+        Dictionary<string, double> CreateDictionaryFromCondor(string CondorRawString)
+        {
+            Dictionary<string, double> result = new Dictionary<string, double>();
+
+            string[] lines = CondorRawString.Replace("\r","").Split('\n');
+
+            foreach (string line in lines)
+            {
+                if (line == "")                         continue;       //ignore
+                if (line.StartsWith("hudmessages"))     continue;       //ignore
+
+                string[] tokens = line.Split('=');
+                
+                if (tokens[1]=="NAN")   tokens[1] = "0";
+                
+                string key = tokens[0];
+                double value = double.Parse(tokens[1], CultureInfo.InvariantCulture);
+                
+                result.Add(key,value);
+            }
+
+            return result;
+        }
+        bool IsDCSFormat(string rawstring)
         {
             return rawstring.Contains("DCS");
         }
-        private bool IsFS2020Format(string rawstring)
+        bool IsFS2020Format(string rawstring)
         {
             return rawstring.Contains("FS2020");
         }
-        private bool IsXPlaneFormat(string rawstring)
+        bool IsXPlaneFormat(string rawstring)
         {
             return rawstring.Contains("X-Plane");
         }
-        private bool IsiRacingFormat(string rawstring)
+        bool IsiRacingFormat(string rawstring)
         {
             return rawstring.Contains("iRacing");
         }
-        private bool IsCondorFormat(string rawstring)
+        bool IsCondorFormat(string rawstring)
         {
-            return rawstring.Contains("surfaceroughness");
+            return rawstring.Contains("surfaceroughness") && rawstring.Contains("turbulencestrength");
         }
     }
 
