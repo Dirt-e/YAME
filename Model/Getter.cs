@@ -114,13 +114,15 @@ namespace YAME.Model
             Dictionary<string, double> data = CreateDictionaryFromCondor(CondorRawString);
 
             //Conversions here:
-            if (data.ContainsKey("yaw"))        data["yaw"]         *= GlobalVars.Rad2Deg;
-            if (data.ContainsKey("pitch"))      data["pitch"]       *= GlobalVars.Rad2Deg;
-            if (data.ContainsKey("bank"))       data["bank"]        *= -GlobalVars.Rad2Deg;     //direction reversal by minus 1!
-            if (data.ContainsKey("rollrate"))   data["rollrate"]    *= GlobalVars.Rad2Deg;
-            if (data.ContainsKey("pitchrate"))  data["pitchrate"]   *= GlobalVars.Rad2Deg;
-            if (data.ContainsKey("yawrate"))    data["yawrate"]     *= GlobalVars.Rad2Deg;
-            if (data.ContainsKey("time"))       data["time"]        *= 60 * 60 * 1000;          //to convert from hrs to milliseconds
+            if (data.ContainsKey("yaw")) data["yaw"] *= GlobalVars.Rad2Deg;
+            if (data.ContainsKey("pitch")) data["pitch"] *= GlobalVars.Rad2Deg;
+            if (data.ContainsKey("bank")) data["bank"] *= -GlobalVars.Rad2Deg;     //direction reversal by minus 1!
+            if (data.ContainsKey("rollrate")) data["rollrate"] *= GlobalVars.Rad2Deg;
+            if (data.ContainsKey("pitchrate")) data["pitchrate"] *= GlobalVars.Rad2Deg;
+            if (data.ContainsKey("yawrate")) data["yawrate"] *= GlobalVars.Rad2Deg;
+            if (data.ContainsKey("time")) data["time"] *= 60 * 60 * 1000;          //to convert from hrs to milliseconds
+
+            double[] A_xyz_prop = CalculateProperAccelerations(data);
 
             //calculations here:
             counter++;
@@ -162,6 +164,26 @@ namespace YAME.Model
 
             return result;
         }
+
+        private double[] CalculateProperAccelerations(Dictionary<string, double> data)
+        {
+            double[] result = new double[3];
+
+            double ax = data["ax"];
+            double ay = data["ay"];
+            double az = data["az"];
+
+            double hdg = data["yaw"];
+            double ptc = data["pitch"];
+            double bnk = data["bank"];
+
+            //do some magic here!!!
+
+            //do some more magic here!!!
+
+            return result;
+        }
+
         Dictionary<string, double> CreateDictionaryFromCondor(string CondorRawString)
         {
             Dictionary<string, double> result = new Dictionary<string, double>();
