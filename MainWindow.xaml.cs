@@ -108,7 +108,7 @@ namespace YAME
             if (Properties.Settings.Default.Window_SceneView_IsOpen)            mnuSceneView.IsChecked          = true;
             if (Properties.Settings.Default.Window_OutputAASD_IsOpen)           mnuOutputAASD.IsChecked         = true;
             if (Properties.Settings.Default.Window_OutputODrive_IsOpen)         mnuOutputODrive.IsChecked       = true;
-            if (Properties.Settings.Default.Window_Patcher_IsOpen)              mnuHdr_Source_Click(this, new EventArgs() as RoutedEventArgs);
+            if (Properties.Settings.Default.Window_SourceSelect_IsOpen)         mnuHdr_Source_Click(this, new EventArgs() as RoutedEventArgs);
         }
         //Window_Closing:
         private void RememberWhichChildWindowsWereOpen()
@@ -125,9 +125,9 @@ namespace YAME
             Properties.Settings.Default.Window_SceneView_IsOpen             = false;
             Properties.Settings.Default.Window_RigConfig_IsOpen             = false;
             Properties.Settings.Default.Window_MotionControl_IsOpen         = false;
-            Properties.Settings.Default.Window_OutputAASD_IsOpen      = false;
-            Properties.Settings.Default.Window_OutputODrive_IsOpen     = false;
-            Properties.Settings.Default.Window_Patcher_IsOpen               = false;
+            Properties.Settings.Default.Window_OutputAASD_IsOpen            = false;
+            Properties.Settings.Default.Window_OutputODrive_IsOpen          = false;
+            Properties.Settings.Default.Window_SourceSelect_IsOpen          = false;
 
             //Then set only the ones that were open to "true"
             foreach (Window w in this.OwnedWindows)
@@ -174,9 +174,9 @@ namespace YAME
                         Properties.Settings.Default.Window_OutputODrive_IsOpen     = true;
                         break;
                     case nameof(sourceSelectWindow):
-                        Properties.Settings.Default.Window_Patcher_IsOpen               = true;
+                        Properties.Settings.Default.Window_SourceSelect_IsOpen               = true;
                         break;
-                    case nameof(aboutWindow):
+                    case nameof(aboutWindow):       //AboutWindow
                         //Do nothing, this does not need to be remembered
                         break;
                     default:
@@ -398,8 +398,8 @@ namespace YAME
             mnuRawData.IsChecked            = false;
             mnuRigConfig.IsChecked          = false;
             mnuSceneView.IsChecked          = false;
-            mnuOutputAASD.IsChecked   = false;
-            mnuOutputODrive.IsChecked  = false;
+            mnuOutputAASD.IsChecked         = false;
+            mnuOutputODrive.IsChecked       = false;
         }
         
         //---------- ? ------------
@@ -413,7 +413,7 @@ namespace YAME
         {
             aboutWindow = new AboutWindow();
             aboutWindow.Owner = this;
-            aboutWindow.Name = "AboutWindow";
+            aboutWindow.Name = nameof(aboutWindow);
             aboutWindow.Show();
         }
         void CloseAboutWindow()

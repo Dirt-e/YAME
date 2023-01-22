@@ -338,13 +338,13 @@
     <Setting Name="AASD_Talker_LastUsed_ComPort" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="Window_Patcher_IsOpen" Type="System.Boolean" Scope="User">
+    <Setting Name="Window_SourceSelect_IsOpen" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="Window_Patcher_Position_X" Type="System.Single" Scope="User">
+    <Setting Name="Window_SourceSelect_Position_X" Type="System.Single" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="Window_Patcher_Position_Y" Type="System.Single" Scope="User">
+    <Setting Name="Window_SourceSelect_Position_Y" Type="System.Single" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Server_Port_UDP" Type="System.Int32" Scope="User">

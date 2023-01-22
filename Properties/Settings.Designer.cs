@@ -1370,36 +1370,36 @@ namespace YAME.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Window_Patcher_IsOpen {
+        public bool Window_SourceSelect_IsOpen {
             get {
-                return ((bool)(this["Window_Patcher_IsOpen"]));
+                return ((bool)(this["Window_SourceSelect_IsOpen"]));
             }
             set {
-                this["Window_Patcher_IsOpen"] = value;
+                this["Window_SourceSelect_IsOpen"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public float Window_Patcher_Position_X {
+        public float Window_SourceSelect_Position_X {
             get {
-                return ((float)(this["Window_Patcher_Position_X"]));
+                return ((float)(this["Window_SourceSelect_Position_X"]));
             }
             set {
-                this["Window_Patcher_Position_X"] = value;
+                this["Window_SourceSelect_Position_X"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public float Window_Patcher_Position_Y {
+        public float Window_SourceSelect_Position_Y {
             get {
-                return ((float)(this["Window_Patcher_Position_Y"]));
+                return ((float)(this["Window_SourceSelect_Position_Y"]));
             }
             set {
-                this["Window_Patcher_Position_Y"] = value;
+                this["Window_SourceSelect_Position_Y"] = value;
             }
         }
         
