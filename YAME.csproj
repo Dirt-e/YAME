@@ -34,7 +34,7 @@
     <ProductName>YAME</ProductName>
     <PublisherName>HexaGo</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>85</ApplicationRevision>
+    <ApplicationRevision>86</ApplicationRevision>
     <ApplicationVersion>0.0.10.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -153,16 +153,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="..\GlobalVars.cs">
-      <Link>GlobalVars.cs</Link>
-    </Compile>
-    <Compile Include="..\Utility.cs">
-      <Link>Utility.cs</Link>
-    </Compile>
     <Compile Include="DataFomats\DOF_Data.cs" />
     <Compile Include="DataFomats\PreprocessorData.cs" />
     <Compile Include="DataFomats\SaveObject.cs" />
     <Compile Include="DataFomats\SixSisters.cs" />
+    <Compile Include="GlobalVars.cs" />
     <Compile Include="Model\Actuator.cs" />
     <Compile Include="Model\ActuatorSystem.cs" />
     <Compile Include="Model\Actuator_Override.cs" />
@@ -215,6 +210,7 @@
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="Utility.cs" />
     <Compile Include="ViewModel\ViewModel_CrashDetector.cs" />
     <Compile Include="ViewModel\ViewModel_MainWindow.cs" />
     <Compile Include="ViewModel\ViewModel_MotionControlWindow.cs" />
@@ -463,7 +459,6 @@
     <Resource Include="YAME.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\FS2020_MotionExporter.exe" />
     <None Include="Resources\FS2020\exe.xml_Example_BLANK.xml" />
     <Content Include="Resources\FS2020\FS2020_MotionExporter.exe" />
   </ItemGroup>

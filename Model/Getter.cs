@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -111,7 +112,7 @@ namespace YAME.Model
             //rawDataString the Chopper can process
 
             Dictionary<string, double> data = CreateDictionaryFromCondor(CondorRawString);
-            
+
             //Conversions here:
             if (data.ContainsKey("yaw"))        data["yaw"]         *= GlobalVars.Rad2Deg;
             if (data.ContainsKey("pitch"))      data["pitch"]       *= GlobalVars.Rad2Deg;
@@ -173,8 +174,13 @@ namespace YAME.Model
                 if (line.StartsWith("hudmessages"))     continue;       //ignore
 
                 string[] tokens = line.Split('=');
-                
-                if (tokens[1]=="NAN")   tokens[1] = "0";
+
+                if (tokens[1] == "NAN")
+                {
+                    tokens[1] = "0";
+                    Console.WriteLine("Alarm");
+                    SystemSounds.Exclamation.Play();
+                }
                 
                 string key = tokens[0];
                 double value = double.Parse(tokens[1], CultureInfo.InvariantCulture);
@@ -184,6 +190,7 @@ namespace YAME.Model
 
             return result;
         }
+
         bool IsDCSFormat(string rawstring)
         {
             return rawstring.Contains("DCS");
