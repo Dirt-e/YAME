@@ -18,14 +18,14 @@
         <Converters:CharToColorConverter                    x:Key="cnvrt_CharToColor"/>
         <Converters:BoolToVisibilityConverter               x:Key="cnvrt_BoolToVisibility"/>
         <!--Colors-->
-        <Color x:Key="MyDarkGray" A="255" R="30" G="30" B="30"/>
-        <Color x:Key="MyDimGray" A="255" R="50" G="50" B="50"/>
-        <Color x:Key="MyMediumGray" A="255" R="70" G="70" B="70"/>
-        <Color x:Key="MyLightGray" A="255" R="100" G="100" B="100"/>
-        <Color x:Key="MyBrightGray" A="255" R="120" G="120" B="120"/>
-        <Color x:Key="MyDarkWhite" A="255" R="150" G="150" B="150"/>
-        <Color x:Key="MyDimWhite" A="255" R="180" G="180" B="180"/>
-        <Color x:Key="MyPaleWhite" A="255" R="200" G="200" B="200"/>
+        <Color x:Key="MyDarkGray"   A="255"     R="30"  G="30"  B="30"/>
+        <Color x:Key="MyDimGray"    A="255"     R="50"  G="50"  B="50"/>
+        <Color x:Key="MyMediumGray" A="255"     R="70"  G="70"  B="70"/>
+        <Color x:Key="MyLightGray"  A="255"     R="100" G="100" B="100"/>
+        <Color x:Key="MyBrightGray" A="255"     R="120" G="120" B="120"/>
+        <Color x:Key="MyDarkWhite"  A="255"     R="150" G="150" B="150"/>
+        <Color x:Key="MyDimWhite"   A="255"     R="180" G="180" B="180"/>
+        <Color x:Key="MyPaleWhite"  A="255"     R="200" G="200" B="200"/>
 
         <!--Brushes-->
         <SolidColorBrush x:Key="MyDarkGrayBrush" Color="{StaticResource MyDarkGray}"/>
@@ -65,7 +65,7 @@
             <Setter Property="FontFamily" Value="Courier"/>
         </Style>
         <Style TargetType="Controls:ClickSelectTextBox" x:Key="ClickSelectTextBox_Style" BasedOn="{StaticResource TextBox_Style}">
-        
+            
         </Style>
         <Style TargetType="ComboBox" x:Key="ComboBox_Style">
             <Setter Property="Background" Value="{StaticResource My_EnterData_Brush}"/>
@@ -108,12 +108,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style TargetType="Border" x:Key="BorderStyle">
-            <Setter Property="BorderThickness" Value="0.7"/>
-            <Setter Property="CornerRadius" Value="3"/>
-            <Setter Property="BorderBrush" Value="LightGray"/>
-            <Setter Property="Background" Value="{StaticResource MyMediumGrayBrush}"/>
-        </Style>
         <Style TargetType="Button" x:Key="Button_NoHighlight_Rounded">
             <Setter Property="Template">
                 <Setter.Value>
@@ -127,5 +121,12 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style TargetType="Border" x:Key="BorderStyle">
+            <Setter Property="BorderThickness" Value="0.7"/>
+            <Setter Property="CornerRadius" Value="3"/>
+            <Setter Property="BorderBrush" Value="LightGray"/>
+            <Setter Property="Background" Value="{StaticResource MyMediumGrayBrush}"/>
+        </Style>
+        
     </Application.Resources>
 </Application>

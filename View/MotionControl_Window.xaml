@@ -30,17 +30,17 @@
         <StackPanel Grid.Column="1" Grid.Row="2">
             <Button x:Name="btn_motion" Content="Motion"
                     Foreground="{Binding BtnMotion_ForegroundColor}" Background="{Binding BtnMotionColor}"
-                    Style="{StaticResource Button_NoHighlight}" Cursor="{Binding CursorMotion}"
+                    Style="{StaticResource Button_NoHighlight_Rounded}" Cursor="{Binding CursorMotion}"
                     Width="100" Height="25" Margin="2"
                     Click="btn_motion_Click"/>
             <Button x:Name="btn_pause"  Content="Pause"
                     Foreground="{Binding BtnPause_ForegroundColor}" Background="{Binding BtnPauseColor}"
-                    Style="{StaticResource Button_NoHighlight}" Cursor="{Binding CursorPause}"
+                    Style="{StaticResource Button_NoHighlight_Rounded}" Cursor="{Binding CursorPause}"
                     Width="100" Height="25" Margin="2"
                     Click="btn_pause_Click"/>
             <Button x:Name="btn_park"   Content="Park"
                     Foreground="{Binding BtnPark_ForegroundColor}" Background="{Binding BtnParkColor}"
-                    Style="{StaticResource Button_NoHighlight}" Cursor="{Binding CursorPark}"
+                    Style="{StaticResource Button_NoHighlight_Rounded}" Cursor="{Binding CursorPark}"
                     Width="100" Height="25" Margin="2"
                     Click="btn_park_Click"/>
         </StackPanel>
