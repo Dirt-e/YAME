@@ -72,7 +72,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <TextBlock  Text="© 2022 HexaGo" Grid.Row="2" Grid.ColumnSpan="2" Height="20"
+        <TextBlock  Text="© 2023 HexaGo" Grid.Row="2" Grid.ColumnSpan="2" Height="20"
                     Foreground="{StaticResource MyBrightGrayBrush}"
                     TextAlignment="Center" VerticalAlignment="Bottom"/>
         
