@@ -8,3 +8,9 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
+
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+.vs/YAME/v17/.suo
