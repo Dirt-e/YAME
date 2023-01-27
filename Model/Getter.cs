@@ -80,7 +80,7 @@ namespace YAME.Model
                     udp_Server.Read();
                     if (udp_Server.dataAvailable && IsiRacingFormat(udp_Server.RawString))
                     {
-                        RawDatastring = ConvertFromCondor(udp_Server.RawString);
+                        RawDatastring = udp_Server.RawString;
                         DataFlowing = true;
                         stopwatch.Restart();
                     }
