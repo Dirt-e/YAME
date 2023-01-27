@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Media;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -177,7 +178,15 @@ namespace YAME.Model
             double ptc = data["pitch"];
             double bnk = data["bank"];
 
+            float Qx = (float)data["quaternionx"];
+            float Qy = (float)data["quaterniony"];
+            float Qz = (float)data["quaternionz"];
+            float Qw = (float)data["quaternionw"];
+
             //do some magic here!!!
+            Matrix4x4 m = Matrix4x4.CreateFromQuaternion(new Quaternion(Qx, Qy, Qz, Qw));
+            Console.WriteLine(m.ToString());
+
 
             //do some more magic here!!!
 
