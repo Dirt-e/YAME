@@ -178,17 +178,19 @@ namespace YAME.Model
             double ptc = data["pitch"];
             double bnk = data["bank"];
 
+            //Grab the quaternion from Condor2
             float Qx = (float)data["quaternionx"];
             float Qy = (float)data["quaterniony"];
             float Qz = (float)data["quaternionz"];
             float Qw = (float)data["quaternionw"];
 
-            //do some magic here!!!
-            Matrix4x4 m = Matrix4x4.CreateFromQuaternion(new Quaternion(Qx, Qy, Qz, Qw));
+            Quaternion q = new Quaternion(Qx, Qy, Qz, Qw);
+
+            //Convert it into MAtrix representation
+            Matrix4x4 m = Matrix4x4.CreateFromQuaternion(q);
+
+            //Just for debugging:
             Console.WriteLine(m.ToString());
-
-
-            //do some more magic here!!!
 
             return result;
         }
