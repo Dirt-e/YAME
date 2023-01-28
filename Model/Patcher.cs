@@ -910,14 +910,21 @@ namespace YAME.Model
         }
         bool IsPatched_Condor2()
         {
-            string UDP_OnHardDrive = File.ReadAllText(@"C:\Condor2\Settings\UDP.ini");
-            string UDP_Patched = Resource.Condor2_UDPini;
+            string UDP_ini_path = @"C:\Condor2\Settings\UDP.ini";
 
-            return UDP_OnHardDrive == UDP_Patched;
+            if (File.Exists(UDP_ini_path))
+            {
+                string UDPini_OnHardDrive = File.ReadAllText(@"C:\Condor2\Settings\UDP.ini");
+                string UDPini_Patched = Resource.Condor2_UDPini;
+
+                return UDPini_OnHardDrive == UDPini_Patched;
+            }
+            return false;
+            
         }
         bool Isconfirmed_Condor2_Folder(string path)
         {
-            if (Directory.Exists(path + "\\Landscapes") && Directory.Exists(path + "\\Effects"))
+            if (Directory.Exists(path + @"\Landscapes") && Directory.Exists(path + @"\Effects"))
             {
                 return true;
             }

@@ -4,10 +4,12 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Media;
-using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Numerics;
+using Matrix4x4 = System.Numerics.Matrix4x4;
+using Vector3D = System.Windows.Media.Media3D.Vector3D;
 
 namespace YAME.Model
 {
@@ -115,20 +117,19 @@ namespace YAME.Model
             Dictionary<string, double> data = CreateDictionaryFromCondor(CondorRawString);
 
             //Conversions here:
-            if (data.ContainsKey("yaw")) data["yaw"] *= GlobalVars.Rad2Deg;
-            if (data.ContainsKey("pitch")) data["pitch"] *= GlobalVars.Rad2Deg;
-            if (data.ContainsKey("bank")) data["bank"] *= -GlobalVars.Rad2Deg;     //direction reversal by minus 1!
-            if (data.ContainsKey("rollrate")) data["rollrate"] *= GlobalVars.Rad2Deg;
-            if (data.ContainsKey("pitchrate")) data["pitchrate"] *= GlobalVars.Rad2Deg;
-            if (data.ContainsKey("yawrate")) data["yawrate"] *= GlobalVars.Rad2Deg;
-            if (data.ContainsKey("time")) data["time"] *= 60 * 60 * 1000;          //to convert from hrs to milliseconds
-
-            double[] A_xyz_prop = CalculateProperAccelerations(data);
+            if (data.ContainsKey("yaw"))        data["yaw"]         *= GlobalVars.Rad2Deg;
+            if (data.ContainsKey("pitch"))      data["pitch"]       *= GlobalVars.Rad2Deg;
+            if (data.ContainsKey("bank"))       data["bank"]        *= -GlobalVars.Rad2Deg;     //direction reversal by minus 1!
+            if (data.ContainsKey("rollrate"))   data["rollrate"]    *= GlobalVars.Rad2Deg;
+            if (data.ContainsKey("pitchrate"))  data["pitchrate"]   *= GlobalVars.Rad2Deg;
+            if (data.ContainsKey("yawrate"))    data["yawrate"]     *= GlobalVars.Rad2Deg;
+            if (data.ContainsKey("time"))       data["time"]        *= 60 * 60 * 1000;          //to convert from hrs to milliseconds
 
             //calculations here:
             counter++;
             deltatime = data["time"] - prev_time;
             prev_time = data["time"];
+            double[] Axyz_prop = CalculateProperAccelerations_Condor2(data);
             double GS = Math.Sqrt(data["vx"] * data["vx"] + data["vy"] * data["vy"]);
 
             //Put string together:
@@ -152,9 +153,9 @@ namespace YAME.Model
                             "0" + ", " +                                                            //W_vert_dot
                             "0" + ", " +                                                            //W_lat_dot
 
-                            "0" + ", " +                                                            //A_lon
-                            "0" + ", " +                                                            //A_vert
-                            "0" + ", " +                                                            //A_lat
+                            Axyz_prop[0].ToString(GlobalVars.myNumberFormat(7)) + ", " +            //A_lon
+                            Axyz_prop[2].ToString(GlobalVars.myNumberFormat(7)) + ", " +            //A_vrt
+                            Axyz_prop[1].ToString(GlobalVars.myNumberFormat(7)) + ", " +            //A_lat
 
                             data["time"].ToString(GlobalVars.myNumberFormat(7)) + ", " +            //Time [ms]
                             deltatime.ToString(GlobalVars.myNumberFormat(7)) + ", " +               //DeltaTime
@@ -165,34 +166,55 @@ namespace YAME.Model
 
             return result;
         }
-
-        private double[] CalculateProperAccelerations(Dictionary<string, double> data)
+        private double[] CalculateProperAccelerations_Condor2(Dictionary<string, double> data)
         {
-            double[] result = new double[3];
+            /* 
+            Condor2 only provides coordinate accelerations in the world coordinate system (ax,ay,az).
+            This function calculates the PROPER(!) accelerations in the vehicle reference system.
+            
+            World coordinate system:
+            X = West
+            Y = North
+            Z = Up
 
-            double ax = data["ax"];
-            double ay = data["ay"];
-            double az = data["az"];
+            Vehicle reference system:
+            X = Forward
+            Y = Right wing
+            Z = Up
 
-            double hdg = data["yaw"];
-            double ptc = data["pitch"];
-            double bnk = data["bank"];
+            */
 
-            //Grab the quaternion from Condor2
+            //Grab world accelerations
+            float ax = (float)data["ax"];
+            float ay = (float)data["ay"];
+            float az = (float)data["az"];
+            Vector3D Vec_Accel_world_No_Gravity = new Vector3D(ax, ay, az);
+            
+            //Grab quaternion
             float Qx = (float)data["quaternionx"];
             float Qy = (float)data["quaterniony"];
             float Qz = (float)data["quaternionz"];
             float Qw = (float)data["quaternionw"];
-
             Quaternion q = new Quaternion(Qx, Qy, Qz, Qw);
-
-            //Convert it into MAtrix representation
+            
+            //Convert it into Matrix representation
             Matrix4x4 m = Matrix4x4.CreateFromQuaternion(q);
 
-            //Just for debugging:
-            Console.WriteLine(m.ToString());
+            //Create all relevant vectors
+            Vector3D Vec_Gravity        = new Vector3D(0, 0, 9.806f);
+            Vector3D Vec_nose_unit      = new Vector3D(m.M11, m.M21, m.M31);
+            Vector3D Vec_rightwing_unit = new Vector3D(m.M12, m.M22, m.M32);
+            Vector3D Vec_head_unit      = new Vector3D(m.M13, m.M23, m.M33);
 
-            return result;
+            //Add gravity
+            Vector3D Vec_Accel_World_With_Gravity = Vec_Accel_world_No_Gravity + Vec_Gravity;
+
+            //Calculate component along vehicle axises using DotProduct().
+            double Alon = Vector3D.DotProduct(Vec_Accel_World_With_Gravity, Vec_nose_unit);
+            double Alat = Vector3D.DotProduct(Vec_Accel_World_With_Gravity, Vec_rightwing_unit);
+            double Avrt = Vector3D.DotProduct(Vec_Accel_World_With_Gravity, Vec_head_unit);
+    
+            return new double[] { Alon, Alat, Avrt };
         }
 
         Dictionary<string, double> CreateDictionaryFromCondor(string CondorRawString)

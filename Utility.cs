@@ -139,6 +139,7 @@ public static class Utility
         return Math.Atan2(m.M13, m.M33);
     }
 
+    //Vectors & Points
     public static Vector3D EulerFrom(Matrix3D m)
     {
         Vector3D EulerVector = new Vector3D();
@@ -156,7 +157,6 @@ public static class Utility
 
         return EulerFrom(m);
     }
-
     public static Point3D PointFrom(Transform3D TF)
     {
         float x = (float)TF.Value.OffsetX;
@@ -164,6 +164,16 @@ public static class Utility
         float z = (float)TF.Value.OffsetZ;
 
         return new Point3D(x, y, z);
+    }
+    public static Vector3D UnitvectorFrom(Vector3D v)
+    {
+        Vector3D UnitVector = new Vector3D
+        {
+            X = v.X / v.Length,
+            Y = v.Y / v.Length,
+            Z = v.Z / v.Length
+        };
+        return UnitVector;
     }
     public static float DistanceBetween(Point3D p1, Point3D p2)
     {
@@ -173,7 +183,22 @@ public static class Utility
 
         return (float)Math.Sqrt(Math.Pow(delta_x, 2) + Math.Pow(delta_y, 2) + Math.Pow(delta_z, 2));
     }
+    public static Vector3D ProjectOnto(Vector3D v1, Vector3D v2)
+    {
+        /*
+        This function projects v1 onto v2 (NOT COMMUTATIVE!) and returns the full vector (not just the length) of the procection result.
+        */
 
+        //Convert v2 into a unit vector (length 1)
+        Vector3D V2_unit = Utility.UnitvectorFrom(v2);
+
+        //Create Dot product:
+        double DP = Vector3D.DotProduct(v1, V2_unit);
+
+        return V2_unit * DP;
+    }
+
+    //Bytes
     public static byte[] GenerateBytes_16bit_from(float util)
     {
         if (util <= 0.0f) return new byte[2] { 0, 0 };            //return a min value
