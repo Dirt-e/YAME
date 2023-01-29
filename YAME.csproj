@@ -164,6 +164,7 @@
     <Compile Include="Model\AlphaCompensator.cs" />
     <Compile Include="Model\Chopper.cs" />
     <Compile Include="Model\FrameTimer.cs" />
+    <Compile Include="Model\Getter_Condor2.cs" />
     <Compile Include="Model\MessageGenerator_Odrive.cs" />
     <Compile Include="Model\ODriveSystem.cs" />
     <Compile Include="Model\Patcher.cs" />
