@@ -79,7 +79,7 @@ namespace YAME.Model
             deltatime = data["time"] - prev_time;
             prev_time = data["time"];
 
-            //Choose wisely :-)
+            //Choose as you prefer :-)
             //double[] Axyz_prop = CalculateProperAccelerations_FromAccels(data);
             double[] Axyz_prop = CalculateProperAccelerations_FromVelocities(data);
 
