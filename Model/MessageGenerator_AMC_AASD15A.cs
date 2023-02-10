@@ -14,6 +14,7 @@ namespace YAME.Model
         byte[] StartBlock = new byte[] { 255, 255 };
         byte[] Additionals = new byte[] { 0, 0, 0, 0 };
         byte[] EndBlock = new byte[] { 10, 13 };
+        
         public string UI_Message
         {
             get

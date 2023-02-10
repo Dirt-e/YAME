@@ -201,26 +201,25 @@ public static class Utility
     //Bytes
     public static byte[] GenerateBytes_16bit_from(float util)
     {
-        if (util <= 0.0f) return new byte[2] { 0, 0 };            //return a min value
-        else if (util >= 1.0f) return new byte[2] { 255, 255 };        //return a max value
+        if (util <= 0.0f)       return new byte[2] { 0, 0 };            //return min value
+        else if (util >= 1.0f)  return new byte[2] { 255, 255 };        //return max value
         else
         {
-            UInt16 value;
-            value = (UInt16)(UInt16.MaxValue * util);
-            Byte[] Bytes = BitConverter.GetBytes(value);
+            UInt16 value = (UInt16)(UInt16.MaxValue * util);
+            byte[] Bytes = BitConverter.GetBytes(value);
             Array.Reverse(Bytes);
             return Bytes;
         }
     }
     public static byte[] GenerateBytes_24bit_from(float util)
     {
-        if (util <= 0.0f) return new byte[3] { 0, 0, 0 };
-        else if (util >= 1.0f) return new byte[3] { 255, 255, 255 };
+        if (util <= 0.0f)       return new byte[3] { 0, 0, 0 };         //return min value
+        else if (util >= 1.0f)  return new byte[3] { 255, 255, 255 };   //return max value
         else
         {
             UInt32 value = (UInt32)(16777216 * util);
-            Byte[] Bytes_4 = BitConverter.GetBytes(value);
-            Byte[] Bytes_3 = new byte[3] { Bytes_4[2], Bytes_4[1], Bytes_4[0] };
+            byte[] Bytes_4 = BitConverter.GetBytes(value);
+            byte[] Bytes_3 = new byte[3] { Bytes_4[2], Bytes_4[1], Bytes_4[0] };
             return Bytes_3;
         }
     }
