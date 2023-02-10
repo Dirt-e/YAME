@@ -217,7 +217,7 @@ public static class Utility
         else if (util >= 1.0f)  return new byte[3] { 255, 255, 255 };   //return max value
         else
         {
-            UInt32 value = (UInt32)(16777216 * util);
+            UInt32 value = (UInt32)(16777215 * util);
             byte[] Bytes_4 = BitConverter.GetBytes(value);
             byte[] Bytes_3 = new byte[3] { Bytes_4[2], Bytes_4[1], Bytes_4[0] };
             return Bytes_3;
