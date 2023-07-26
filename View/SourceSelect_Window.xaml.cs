@@ -73,16 +73,16 @@ namespace YAME.View
         }
 
         //---------- FS2020 ----------
-        void btn_Patch_FS2020_Click(object sender, RoutedEventArgs e)
-        {
-            var mw = Application.Current.MainWindow as MainWindow;
-            mw.engine.patcher.btn_Patch_FS2020_Click();
-        }
-        void btn_Unpatch_FS2020_Click(object sender, RoutedEventArgs e)
-        {
-            var mw = Application.Current.MainWindow as MainWindow;
-            mw.engine.patcher.btn_Unpatch_FS2020_Click();
-        }
+        //void btn_Patch_FS2020_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var mw = Application.Current.MainWindow as MainWindow;
+        //    mw.engine.patcher.btn_Patch_FS2020_Click();
+        //}
+        //void btn_Unpatch_FS2020_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var mw = Application.Current.MainWindow as MainWindow;
+        //    mw.engine.patcher.btn_Unpatch_FS2020_Click();
+        //}
 
         //---------- Condor2 ---------
         private void btn_Patch_Condor2_Click(object sender, RoutedEventArgs e)
@@ -138,11 +138,31 @@ namespace YAME.View
                     MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
+        private void cmbbx_Source_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Clean Up
+            var mw = Application.Current.MainWindow as MainWindow;
+            mw.engine.patcher.KillAllMotionExporters();
+
+            var cbx = sender as ComboBox;
+
+            switch (cbx.SelectedItem.ToString())
+                //Some sims require a dedicated exporter to relay the motion data to YAME
+            {
+                case "iRacing":
+                    mw.engine.patcher.Run_iRacing_Motion_Exporter();
+                    break;
+                case "FS2020":
+                    mw.engine.patcher.Run_FS2020_Motion_Exporter();
+                    break;
+                default:
+                    break;
+            }
+        }
 
         private void Red_X_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.Close();
         }
-
     }
 }

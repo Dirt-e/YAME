@@ -127,6 +127,9 @@
   <data name="FS2020_MotionExporter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\FS2020\FS2020_MotionExporter.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="iRacing_MotionExporter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\iRacing\iRacing_MotionExporter.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="XPlane_Motion_Exporter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\X-Plane\XPlane_Motion_Exporter.zip;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

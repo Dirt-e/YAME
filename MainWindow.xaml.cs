@@ -80,11 +80,12 @@ namespace YAME
         {
             RememberWhichChildWindowsWereOpen();
             CloseAllOpenChildWindows();
+            KillAllExporterRelays();
             
             engine.loadersaver.Save_Application();
             engine.StopEngine();
         }
-        
+
         private void SetDataContexts()
         {
             txtblk_profile.DataContext      = engine.loadersaver;
@@ -192,6 +193,11 @@ namespace YAME
             {
                 w.Close();
             }
+        }
+        private void KillAllExporterRelays()
+        {
+            var mw = Application.Current.MainWindow as MainWindow;
+            mw.engine.patcher.KillAllMotionExporters();
         }
 
         //Menu/File:

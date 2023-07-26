@@ -42,6 +42,7 @@
 
         <ComboBox   x:Name="cmbbx_Source" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Height="20" VerticalAlignment="Center" Margin="3"
                     PreviewMouseLeftButtonDown="cmbbx_Source_PreviewMouseLeftButtonDown"
+                    SelectionChanged="cmbbx_Source_SelectionChanged"
                     ItemsSource="{view:EnumBindingSource model:MotionSource}"
                     SelectedItem="{Binding Source, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                     Style="{StaticResource ComboBox_Style}"/>
@@ -69,17 +70,20 @@
         <Button     x:Name="btn_Unpatch_DCSopenbeta" Content="Unpatch" Style="{StaticResource Button_NoHighlight_Rounded}"
                     Grid.Row="3" Grid.Column="3" Margin="3,3,3,3" Click="btn_Unpatch_DCS_openbeta_Click"/>
 
-        <Button     x:Name="btn_Patch_FS2020" Content="Patch"  Style="{StaticResource Button_NoHighlight_Rounded}"
+        <TextBlock Text="No patch required"  Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" FontSize="10" 
+                   VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        <!--<Button     x:Name="btn_Patch_FS2020" Content="Patch"  Style="{StaticResource Button_NoHighlight_Rounded}"
                     Grid.Row="4" Grid.Column="2" Margin="3,3,3,3" Click="btn_Patch_FS2020_Click"/>
         <Button     x:Name="btn_Unpatch_FS2020" Content="Unpatch" Style="{StaticResource Button_NoHighlight_Rounded}"
-                    Grid.Row="4" Grid.Column="3" Margin="3,3,3,3" Click="btn_Unpatch_FS2020_Click"/>
+                    Grid.Row="4" Grid.Column="3" Margin="3,3,3,3" Click="btn_Unpatch_FS2020_Click"/>-->
 
         <Button     x:Name="btn_Patch_XPlane" Content="Patch"  Style="{StaticResource Button_NoHighlight_Rounded}"
                     Grid.Row="5" Grid.Column="2" Margin="3,3,3,3" Click="btn_Patch_XPlane_Click"/>
         <Button     x:Name="btn_Unpatch_XPlane" Content="Unpatch" Style="{StaticResource Button_NoHighlight_Rounded}"
                     Grid.Row="5" Grid.Column="3" Margin="3,3,3,3" Click="btn_Unpatch_XPlane_Click"/>
 
-        <TextBlock Text="Coming soon"  Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" FontSize="10" 
+        <TextBlock Text="No patch required"  Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" FontSize="10" 
                    VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
         <Button     x:Name="btn_Patch_Condor2" Content="Patch"  Style="{StaticResource Button_NoHighlight_Rounded}"
@@ -98,11 +102,15 @@
         <Rectangle x:Name="rct_IsPatched_FS2020" Grid.Row="4" Grid.Column="4" Width="14" Height="14"
                                RadiusX="7" RadiusY="7" HorizontalAlignment="Center"
                                Stroke="{StaticResource MyDarkGrayBrush}"
-                               Fill="{Binding IsPatched_FS2020_prop, Converter={StaticResource cnvrt_BoolToColorBrush_RedGreen}}" Margin="0,8,0,8"/>
+                               Fill="Gray" Margin="0,8,0,8"/>
         <Rectangle x:Name="rct_IsPatched_X_Plane" Grid.Row="5" Grid.Column="4" Width="14" Height="14"
                                RadiusX="7" RadiusY="7" HorizontalAlignment="Center"
                                Stroke="{StaticResource MyDarkGrayBrush}"
                                Fill="{Binding IsPatched_X_Plane_prop, Converter={StaticResource cnvrt_BoolToColorBrush_RedGreen}}" Margin="0,8,0,8"/>
+        <Rectangle x:Name="rct_IsPatched_iRacing" Grid.Row="6" Grid.Column="4" Width="14" Height="14"
+                               RadiusX="7" RadiusY="7" HorizontalAlignment="Center"
+                               Stroke="{StaticResource MyDarkGrayBrush}"
+                               Fill="Gray" Margin="0,8,0,8"/>
         <Rectangle x:Name="rct_IsPatched_Condor2" Grid.Row="7" Grid.Column="4" Width="14" Height="14"
                                RadiusX="7" RadiusY="7" HorizontalAlignment="Center"
                                Stroke="{StaticResource MyDarkGrayBrush}"

@@ -107,6 +107,16 @@ namespace YAME {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] iRacing_MotionExporter {
+            get {
+                object obj = ResourceManager.GetObject("iRacing_MotionExporter", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] XPlane_Motion_Exporter {
             get {
                 object obj = ResourceManager.GetObject("XPlane_Motion_Exporter", resourceCulture);

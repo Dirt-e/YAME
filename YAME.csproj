@@ -460,6 +460,7 @@
     <Resource Include="YAME.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\iRacing\iRacing_MotionExporter.exe" />
     <None Include="Resources\FS2020\exe.xml_Example_BLANK.xml" />
     <Content Include="Resources\FS2020\FS2020_MotionExporter.exe" />
   </ItemGroup>

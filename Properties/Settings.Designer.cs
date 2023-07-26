@@ -1478,12 +1478,12 @@ namespace YAME.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("\\Saved Games\\YAME Motion Engine\\Exporters")]
-        public string Patcher_FS2020_ExportersFolder {
+        public string Patcher_ExportersFolder {
             get {
-                return ((string)(this["Patcher_FS2020_ExportersFolder"]));
+                return ((string)(this["Patcher_ExportersFolder"]));
             }
             set {
-                this["Patcher_FS2020_ExportersFolder"] = value;
+                this["Patcher_ExportersFolder"] = value;
             }
         }
         
@@ -1916,6 +1916,18 @@ namespace YAME.Properties {
             }
             set {
                 this["Getter_MotionSource"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\iRacing_MotionExporter.exe")]
+        public string Patcher_iRacing_Exporter_exe {
+            get {
+                return ((string)(this["Patcher_iRacing_Exporter_exe"]));
+            }
+            set {
+                this["Patcher_iRacing_Exporter_exe"] = value;
             }
         }
     }

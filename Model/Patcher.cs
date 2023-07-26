@@ -6,6 +6,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
@@ -32,12 +33,12 @@ namespace YAME.Model
             private set { _isPatchedDCS_openbeta_prop = value; OnPropertyChanged(nameof(IsPatched_DCS_openbeta_prop)); }
         }
 
-        bool _isPatchedFS2020_prop;
-        public bool IsPatched_FS2020_prop
-        {
-            get { return _isPatchedFS2020_prop; }
-            private set { _isPatchedFS2020_prop = value; OnPropertyChanged(nameof(IsPatched_FS2020_prop)); }
-        }
+        //bool _isPatchedFS2020_prop;
+        //public bool IsPatched_FS2020_prop
+        //{
+        //    get { return _isPatchedFS2020_prop; }
+        //    private set { _isPatchedFS2020_prop = value; OnPropertyChanged(nameof(IsPatched_FS2020_prop)); }
+        //}
 
         bool _isPatchedX_Plane_prop;
         public bool IsPatched_X_Plane_prop
@@ -54,6 +55,7 @@ namespace YAME.Model
         }
         #endregion
 
+        Process Exporter_Relay;
         DispatcherTimer timer;
 
         public Patcher()
@@ -270,223 +272,258 @@ namespace YAME.Model
         }
 
         //---------- FS2020 ----------
-        public void btn_Patch_FS2020_Click()
-        {
-            if (!IsInstalled_FS2020_ANY())
-            {
-                MessageBox.Show("FS2020 is not installed on your system.",
-                                "Patch aborted",
-                                MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
 
-            Create_FS2020_Motion_Exporter_EXE();
-            if (IsInstalled_FS2020(false)) Patch_FS2020(false);
-            if (IsInstalled_FS2020(true)) Patch_FS2020(true);
+        //public void btn_Patch_FS2020_Click()
+        //{
+        //    if (!IsInstalled_FS2020_ANY())
+        //    {
+        //        MessageBox.Show("FS2020 is not installed on your system.",
+        //                        "Patch aborted",
+        //                        MessageBoxButton.OK, MessageBoxImage.Error);
+        //        return;
+        //    }
 
-        }
-        public void btn_Unpatch_FS2020_Click()
-        {
-            if (!IsInstalled_FS2020_ANY())
-            {
-                MessageBox.Show("FS2020 is not installed on your system.",
-                                "Operation aborted",
-                                MessageBoxButton.OK, MessageBoxImage.Error);
+        //    Create_FS2020_Motion_Exporter_EXE();
+        //    if (IsInstalled_FS2020(false)) Patch_FS2020(false);
+        //    if (IsInstalled_FS2020(true)) Patch_FS2020(true);
+
+        //}
+        //public void btn_Unpatch_FS2020_Click()
+        //{
+        //    if (!IsInstalled_FS2020_ANY())
+        //    {
+        //        MessageBox.Show("FS2020 is not installed on your system.",
+        //                        "Operation aborted",
+        //                        MessageBoxButton.OK, MessageBoxImage.Error);
                 
-                IsPatched_FS2020_prop = false;
-                return;
-            }
+        //        IsPatched_FS2020_prop = false;
+        //        return;
+        //    }
 
-            if (IsInstalled_FS2020(false)) unPatch_FS2020(false);
-            if (IsInstalled_FS2020(true)) unPatch_FS2020(true);
+        //    if (IsInstalled_FS2020(false)) unPatch_FS2020(false);
+        //    if (IsInstalled_FS2020(true)) unPatch_FS2020(true);
 
-            if (IsInstalled_FS2020_ANY())
-            {
-                MessageBox.Show(
-                    "Removed FS2020 motion data patch.",
-                    "FS2020 unpatched",
-                    MessageBoxButton.OK, MessageBoxImage.Information);
-            }
+        //    if (IsInstalled_FS2020_ANY())
+        //    {
+        //        MessageBox.Show(
+        //            "Removed FS2020 motion data patch.",
+        //            "FS2020 unpatched",
+        //            MessageBoxButton.OK, MessageBoxImage.Information);
+        //    }
 
-            IsPatched_FS2020_prop = false;
-        }
-        void Patch_FS2020(bool steam = false)
+        //    IsPatched_FS2020_prop = false;
+        //}
+        //void Patch_FS2020(bool steam = false)
+        //{
+        //    switch (steam)
+        //    {
+        //        case false:
+        //            if (IsPatched_FS2020(false)) unPatch_FS2020(false);
+        //            break;
+        //        case true:
+        //            if (IsPatched_FS2020(true)) unPatch_FS2020(true);
+        //            break;
+        //    }
+
+        //    string filePath = string.Empty;
+        //    if (steam) filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder + @"\exe.xml";
+        //    else filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder + @"\exe.xml";
+
+        //    if (!File.Exists(filePath))
+        //    {
+        //        File.WriteAllText(filePath, Resource.exe_xml_Example_BLANK);
+        //    }
+
+        //    Modify_exe_xml(filePath);
+
+        //    IsPatched_FS2020_prop = true;
+
+        //    MessageBox.Show(
+        //        "Patched FS2020 for motion data export.",
+        //        "FS2020 patched",
+        //        MessageBoxButton.OK, MessageBoxImage.Information);
+        //}
+        //void unPatch_FS2020(bool steamVersion = false)
+        //{
+        //    string filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder + @"\exe.xml";
+        //    if (steamVersion)
+        //    {
+        //        filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder + @"\exe.xml";
+        //    }
+
+        //    XmlDocument doc = new XmlDocument();
+        //    doc.Load(filePath);
+
+        //    XmlNode SimBaseDocument = doc.SelectSingleNode("SimBase.Document");
+        //    if (SimBaseDocument != null)
+        //    {
+        //        XmlNodeList Nodes = SimBaseDocument.ChildNodes;
+        //        foreach (XmlNode Node in Nodes)
+        //        {
+        //            if (Node.Name == "Launch.Addon")
+        //            {
+        //                XmlNodeList LaunchNodes = Node.ChildNodes;
+        //                foreach (XmlNode LaunchNode in LaunchNodes)
+        //                {
+        //                    if (LaunchNode.InnerText == "YAME Motion Data Exporter")
+        //                    {
+        //                        SimBaseDocument.RemoveChild(Node);
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+
+        //    doc.Save(filePath);
+
+        //    IsPatched_FS2020_prop = false;
+
+        //    //We don't need to delete it. Maybe someone can do something useful with it.
+        //    //Delete_FS2020_Motion_Exporter_EXE();          
+        //}
+        //bool IsInstalled_FS2020_ANY()
+        //{
+        //    return (IsInstalled_FS2020(false) || IsInstalled_FS2020(true));
+        //}
+        //bool IsInstalled_FS2020(bool steam = false)
+        //{
+        //    if (steam)  return Directory.Exists(Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder);
+        //    else        return Directory.Exists(Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder);
+        //}
+        //bool IsPatched_FS2020(bool steamVersion = false)
+        //{
+        //    string filePath = String.Empty;
+
+        //    if (steamVersion)   filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder;
+        //    else                filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder;
+
+        //    filePath += @"\exe.xml";
+
+        //    if (!File.Exists(filePath))
+        //    {
+        //        return false;
+        //    }
+
+        //    XmlDocument doc = new XmlDocument();
+        //    doc.Load(filePath);
+
+        //    XmlNode SimBaseDocument = doc.SelectSingleNode("SimBase.Document");
+        //    if (SimBaseDocument != null)
+        //    {
+        //        XmlNodeList Nodes = SimBaseDocument.ChildNodes;
+        //        foreach (XmlNode Node in Nodes)
+        //        {
+        //            if (Node.Name == "Launch.Addon")
+        //            {
+        //                XmlNodeList LaunchNodes = Node.ChildNodes;
+        //                foreach (XmlNode LaunchNode in LaunchNodes)
+        //                {
+        //                    if (LaunchNode.InnerText == "YAME Motion Data Exporter")
+        //                    {
+        //                        return true;
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //    return false;
+        //}
+        //void Create_FS2020_Motion_Exporter_EXE()
+        //{
+        //    Delete_FS2020_Motion_Exporter_EXE();            //Cleanup
+
+        //    string userFolder = Folders.UserFolder;
+        //    string ExportersFolder = userFolder + Properties.Settings.Default.Patcher_ExportersFolder;
+        //    string Exporter_EXE = ExportersFolder + Properties.Settings.Default.Patcher_FS2020_Exporter_exe;
+
+        //    Directory.CreateDirectory(ExportersFolder);
+
+        //    var res = Resource.FS2020_MotionExporter;
+        //    using (FileStream fs = new FileStream(Exporter_EXE, FileMode.Create))
+        //    {
+        //        fs.Write(res, 0, res.Length);
+        //    }
+        //}
+        //void Delete_FS2020_Motion_Exporter_EXE()
+        //{
+        //    string userFolder = Folders.UserFolder;
+        //    string ExportersFolder = userFolder + Properties.Settings.Default.Patcher_ExportersFolder;
+        //    string Exporter_EXE = ExportersFolder + Properties.Settings.Default.Patcher_FS2020_Exporter_exe;
+
+        //    if (File.Exists(Exporter_EXE))
+        //    {
+        //        File.Delete(Exporter_EXE);
+        //    }
+        //}
+        //void Modify_exe_xml(string filePath)
+        //{
+        //    //Open XML document:
+        //    XmlDocument doc = new XmlDocument();
+        //    doc.Load(filePath);
+
+        //    //Create all the XML elements:
+        //    XmlElement Name = doc.CreateElement("Name");
+        //    Name.InnerText = "YAME Motion Data Exporter";
+
+        //    XmlElement Disabled = doc.CreateElement("Disabled");
+        //    Disabled.InnerText = "False";
+
+        //    XmlElement Path = doc.CreateElement("Path");
+        //    Path.InnerText = Folders.UserFolder
+        //        + Properties.Settings.Default.Patcher_ExportersFolder
+        //        + Properties.Settings.Default.Patcher_FS2020_Exporter_exe;
+
+        //    XmlElement CommandLine = doc.CreateElement("CommandLine");
+        //    CommandLine.InnerText = " ";
+
+        //    //Combine elements to one 'Launch.Addon' element
+        //    XmlElement LaunchAddon = doc.CreateElement("Launch.Addon");
+        //    LaunchAddon.AppendChild(Name);
+        //    LaunchAddon.AppendChild(Disabled);
+        //    LaunchAddon.AppendChild(Path);
+        //    LaunchAddon.AppendChild(CommandLine);
+
+        //    //...and append it to the parent element ('Simbase.Document')
+        //    XmlNode SimBaseDocument = doc.SelectSingleNode("SimBase.Document");
+        //    SimBaseDocument.AppendChild(LaunchAddon);
+
+        //    doc.Save(filePath);
+        //}
+        public void Run_FS2020_Motion_Exporter()
         {
-            switch (steam)
-            {
-                case false:
-                    if (IsPatched_FS2020(false)) unPatch_FS2020(false);
-                    break;
-                case true:
-                    if (IsPatched_FS2020(true)) unPatch_FS2020(true);
-                    break;
-            }
+            KillAllMotionExporters();
+            Create_FS2020_Motion_Exporter_EXE();
 
-            string filePath = string.Empty;
-            if (steam) filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder + @"\exe.xml";
-            else filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder + @"\exe.xml";
-
-            if (!File.Exists(filePath))
-            {
-                File.WriteAllText(filePath, Resource.exe_xml_Example_BLANK);
-            }
-
-            Modify_exe_xml(filePath);
-
-            IsPatched_FS2020_prop = true;
-
-            MessageBox.Show(
-                "Patched FS2020 for motion data export.",
-                "FS2020 patched",
-                MessageBoxButton.OK, MessageBoxImage.Information);
-        }
-        void unPatch_FS2020(bool steamVersion = false)
-        {
-            string filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder + @"\exe.xml";
-            if (steamVersion)
-            {
-                filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder + @"\exe.xml";
-            }
-
-            XmlDocument doc = new XmlDocument();
-            doc.Load(filePath);
-
-            XmlNode SimBaseDocument = doc.SelectSingleNode("SimBase.Document");
-            if (SimBaseDocument != null)
-            {
-                XmlNodeList Nodes = SimBaseDocument.ChildNodes;
-                foreach (XmlNode Node in Nodes)
-                {
-                    if (Node.Name == "Launch.Addon")
-                    {
-                        XmlNodeList LaunchNodes = Node.ChildNodes;
-                        foreach (XmlNode LaunchNode in LaunchNodes)
-                        {
-                            if (LaunchNode.InnerText == "YAME Motion Data Exporter")
-                            {
-                                SimBaseDocument.RemoveChild(Node);
-                            }
-                        }
-                    }
-                }
-            }
-
-            doc.Save(filePath);
-
-            IsPatched_FS2020_prop = false;
-
-            //We don't need to delete it. Maybe someone can do something useful with it.
-            //Delete_FS2020_Motion_Exporter_EXE();          
-        }
-        bool IsInstalled_FS2020_ANY()
-        {
-            return (IsInstalled_FS2020(false) || IsInstalled_FS2020(true));
-        }
-        bool IsInstalled_FS2020(bool steam = false)
-        {
-            if (steam)  return Directory.Exists(Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder);
-            else        return Directory.Exists(Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder);
-        }
-        bool IsPatched_FS2020(bool steamVersion = false)
-        {
-            string filePath = String.Empty;
-
-            if (steamVersion)   filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder;
-            else                filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder;
-
-            filePath += @"\exe.xml";
-
-            if (!File.Exists(filePath))
-            {
-                return false;
-            }
-
-            XmlDocument doc = new XmlDocument();
-            doc.Load(filePath);
-
-            XmlNode SimBaseDocument = doc.SelectSingleNode("SimBase.Document");
-            if (SimBaseDocument != null)
-            {
-                XmlNodeList Nodes = SimBaseDocument.ChildNodes;
-                foreach (XmlNode Node in Nodes)
-                {
-                    if (Node.Name == "Launch.Addon")
-                    {
-                        XmlNodeList LaunchNodes = Node.ChildNodes;
-                        foreach (XmlNode LaunchNode in LaunchNodes)
-                        {
-                            if (LaunchNode.InnerText == "YAME Motion Data Exporter")
-                            {
-                                return true;
-                            }
-                        }
-                    }
-                }
-            }
-            return false;
-        }
-        void Create_FS2020_Motion_Exporter_EXE()
-        {
-            Delete_FS2020_Motion_Exporter_EXE();            //Cleanup
+            Thread.Sleep(100);
 
             string userFolder = Folders.UserFolder;
-            string ExportersFolder = userFolder + Properties.Settings.Default.Patcher_FS2020_ExportersFolder;
+            string ExportersFolder = userFolder + Properties.Settings.Default.Patcher_ExportersFolder;
             string Exporter_EXE = ExportersFolder + Properties.Settings.Default.Patcher_FS2020_Exporter_exe;
 
-            Directory.CreateDirectory(ExportersFolder);
+            Exporter_Relay = new Process();        //Clean Sheet
 
-            var res = Resource.FS2020_MotionExporter;
-            using (FileStream fs = new FileStream(Exporter_EXE, FileMode.Create))
-            {
-                fs.Write(res, 0, res.Length);
-            }
+            Exporter_Relay.StartInfo.FileName = Exporter_EXE;
+            Exporter_Relay.StartInfo.CreateNoWindow = true;
+            Exporter_Relay.Start();
         }
-        void Delete_FS2020_Motion_Exporter_EXE()
+        public void Create_FS2020_Motion_Exporter_EXE()
         {
             string userFolder = Folders.UserFolder;
-            string ExportersFolder = userFolder + Properties.Settings.Default.Patcher_FS2020_ExportersFolder;
-            string Exporter_EXE = ExportersFolder + Properties.Settings.Default.Patcher_FS2020_Exporter_exe;
+            string ExportersFolder = userFolder + Properties.Settings.Default.Patcher_ExportersFolder;
+            string Exporter_EXE = ExportersFolder + Properties.Settings.Default.Patcher_iRacing_Exporter_exe;
 
-            if (File.Exists(Exporter_EXE))
+            if (!File.Exists(Exporter_EXE))
             {
-                File.Delete(Exporter_EXE);
+                Directory.CreateDirectory(ExportersFolder);
+
+                var res = Resource.iRacing_MotionExporter;
+                using (FileStream fs = new FileStream(Exporter_EXE, FileMode.Create))
+                {
+                    fs.Write(res, 0, res.Length);
+                }
             }
         }
-        void Modify_exe_xml(string filePath)
-        {
-            //Open XML document:
-            XmlDocument doc = new XmlDocument();
-            doc.Load(filePath);
 
-            //Create all the XML elements:
-            XmlElement Name = doc.CreateElement("Name");
-            Name.InnerText = "YAME Motion Data Exporter";
-
-            XmlElement Disabled = doc.CreateElement("Disabled");
-            Disabled.InnerText = "False";
-
-            XmlElement Path = doc.CreateElement("Path");
-            Path.InnerText = Folders.UserFolder
-                + Properties.Settings.Default.Patcher_FS2020_ExportersFolder
-                + Properties.Settings.Default.Patcher_FS2020_Exporter_exe;
-
-            XmlElement CommandLine = doc.CreateElement("CommandLine");
-            CommandLine.InnerText = " ";
-
-            //Combine elements to one 'Launch.Addon' element
-            XmlElement LaunchAddon = doc.CreateElement("Launch.Addon");
-            LaunchAddon.AppendChild(Name);
-            LaunchAddon.AppendChild(Disabled);
-            LaunchAddon.AppendChild(Path);
-            LaunchAddon.AppendChild(CommandLine);
-
-            //...and append it to the parent element ('Simbase.Document')
-            XmlNode SimBaseDocument = doc.SelectSingleNode("SimBase.Document");
-            SimBaseDocument.AppendChild(LaunchAddon);
-
-            doc.Save(filePath);
-        }
-        
         //---------- X-Plane ----------
         const string xPlane9 = "x-plane_install.txt";
         const string xPlane10 = "x-plane_install_10.txt";
@@ -764,6 +801,39 @@ namespace YAME.Model
             return allPaths;
         }
 
+        //----------- iRacing ----------
+        public void Run_iRacing_Motion_Exporter()
+        {
+            KillAllMotionExporters();
+            Create_iRacing_Motion_Exporter_EXE();
+
+            string userFolder = Folders.UserFolder;
+            string ExportersFolder = userFolder + Properties.Settings.Default.Patcher_ExportersFolder;
+            string Exporter_EXE = ExportersFolder + Properties.Settings.Default.Patcher_iRacing_Exporter_exe;
+
+            Exporter_Relay = new Process();        //Clean Sheet
+
+            Exporter_Relay.StartInfo.FileName = Exporter_EXE;
+            Exporter_Relay.Start();
+        }
+        public void Create_iRacing_Motion_Exporter_EXE()
+        {
+            string userFolder = Folders.UserFolder;
+            string ExportersFolder = userFolder + Properties.Settings.Default.Patcher_ExportersFolder;
+            string Exporter_EXE = ExportersFolder + Properties.Settings.Default.Patcher_iRacing_Exporter_exe;
+
+            if (!File.Exists(Exporter_EXE))
+            {
+                Directory.CreateDirectory(ExportersFolder);
+
+                var res = Resource.iRacing_MotionExporter;
+                using (FileStream fs = new FileStream(Exporter_EXE, FileMode.Create))
+                {
+                    fs.Write(res, 0, res.Length);
+                }
+            }
+        }
+
         //---------- Condor2 ---------
         public void btn_Patch_Condor2_Click()
         {
@@ -963,9 +1033,30 @@ namespace YAME.Model
         {
             IsPatched_DCS_prop = IsPatched_DCS();
             IsPatched_DCS_openbeta_prop = IsPatched_DCS_openbeta();
-            IsPatched_FS2020_prop = IsPatched_FS2020();
+            //IsPatched_FS2020_prop = IsPatched_FS2020();
             IsPatched_X_Plane_prop = IsPatched_XPlane();
             IsPatched_Condor2_prop = IsPatched_Condor2();
+        }
+        public void KillAllMotionExporters()
+        {
+            Exporter_Relay = new Process();        //Clean Sheet
+
+            var processes = Process.GetProcesses();
+            foreach (var p in processes)
+            {
+                if (p.ProcessName.Contains("MotionExporter"))
+                {
+                    try
+                    {
+                        p.Kill();
+                    }
+                    catch (Exception)
+                    {
+                        //ignore :-)
+                    }
+                    
+                }
+            }
         }
     }
 }
