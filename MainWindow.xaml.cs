@@ -52,6 +52,18 @@ namespace YAME
         SourceSelect_Window         sourceSelectWindow;
         AboutWindow                 aboutWindow;
 
+        bool isConfigFilePresent
+        {
+            get
+            {
+                string ConfigFilePath = Folders.SavedGamesFolder + @"\YAME Motion Engine\Config\YAME.cfg";
+                // z.B.:   "C:\Users\frank\Saved Games\YAME Motion Engine\Config\YAME.cfg"
+
+                if (File.Exists(ConfigFilePath))    return true;
+                else                                return false;
+            }
+        }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -74,7 +86,13 @@ namespace YAME
 
             ShowAboutWindowOnAppStart(2000);
 
-            OpenDefaultChildWindows();
+            if (isConfigFilePresent)
+            {
+                //read .cfg and set values accordingly
+            }
+
+            OpenChildWindows();
+
         }
         private void Window_Closing(object sender, CancelEventArgs e)
         {
@@ -94,9 +112,10 @@ namespace YAME
         }
 
         //Window_Loaded:
-        private void OpenDefaultChildWindows()
+        private void OpenChildWindows()
         {
             //Open all the windows that were open when you last closed the application:
+            //To-Do: Change syntax to --> "mnuAlphaCompensation.IsChecked  = Properties.Settings.Default.Window_AlphaCompensation_IsOpen;"
             if (Properties.Settings.Default.Window_AlphaCompensation_IsOpen)    mnuAlphaCompensation.IsChecked  = true;
             if (Properties.Settings.Default.Window_CrashDetector_IsOpen)        mnuCrashDetector.IsChecked      = true;
             if (Properties.Settings.Default.Window_DOFs_IsOpen)                 mnuDOFs.IsChecked               = true;
