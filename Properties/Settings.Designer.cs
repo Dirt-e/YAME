@@ -1934,24 +1934,36 @@ namespace YAME.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("\\Saved Games\\YAME Motion Engine\\Config\\YAME.cfg")]
-        public string ConfigFilePath {
+        public string Configurator_ConfigFilePath {
             get {
-                return ((string)(this["ConfigFilePath"]));
+                return ((string)(this["Configurator_ConfigFilePath"]));
             }
             set {
-                this["ConfigFilePath"] = value;
+                this["Configurator_ConfigFilePath"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool ShowAboutWindowOnStartup {
+        public bool Configurator_ShowAboutWindowOnStartup {
             get {
-                return ((bool)(this["ShowAboutWindowOnStartup"]));
+                return ((bool)(this["Configurator_ShowAboutWindowOnStartup"]));
             }
             set {
-                this["ShowAboutWindowOnStartup"] = value;
+                this["Configurator_ShowAboutWindowOnStartup"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Configurator_ForceHotRigWarningSilent {
+            get {
+                return ((bool)(this["Configurator_ForceHotRigWarningSilent"]));
+            }
+            set {
+                this["Configurator_ForceHotRigWarningSilent"] = value;
             }
         }
     }

@@ -79,7 +79,7 @@ namespace YAME.Model
                         _isopen = false;
                         return;
                     }
-                    if (!engine.actuatorsystem.Is_AllActuatorsFullyRetracted)
+                    if (!engine.actuatorsystem.Is_AllActuatorsFullyRetracted && !Properties.Settings.Default.Configurator_ForceHotRigWarningSilent )
                     {
                         MessageBoxResult result = MessageBox.Show(  
                                             "You're trying to send data to the motion controller. However, the data you're about to send " +

@@ -55,6 +55,8 @@ namespace YAME.Model
             Load_AASD_OutputSettings_Application();
             Load_ODrive_OutputSettings_Application();
             Load_SourceSelect_Settings_Application();
+
+            Automator.ProcessConfigFile();
         }
 
         void Load_ProfilePath_Application()
@@ -224,8 +226,7 @@ namespace YAME.Model
         }
         void Load_AASD_OutputSettings_Application()
         {
-            //COM port is handled inside "SerialConnectionWindow.xaml.cs",
-            //because COM ports are assigned during runtime
+            engine.aasd_talker.COM_Port = Properties.Settings.Default.AASD_Talker_LastUsed_ComPort;
 
             string name = Properties.Settings.Default.AASD_Talker_LastUsed_HardwareController;
             engine.aasd_talker.Controller = (ControllerType)Enum.Parse(typeof(ControllerType), name);
@@ -434,6 +435,7 @@ namespace YAME.Model
         void Save_AASD_OutputSettings_Application()
         {
             Properties.Settings.Default.AASD_Talker_LastUsed_HardwareController = engine.aasd_talker.Controller.ToString();
+            Properties.Settings.Default.AASD_Talker_LastUsed_ComPort = engine.aasd_talker.COM_Port.ToString();
         }
         void Save_ODrive_OutputSettings_Application()
         {

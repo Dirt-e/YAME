@@ -41,13 +41,11 @@ namespace YAME.Model
                 switch (value)
                 {
                     case Lerp3_Command.Park:
-                        //if (State == Lerp3_State.Pause) { Lerp_ParkPause.Run(); }
                         Lerp_PauseMotion.Run(false);         //Experimental!
                         Lerp_ParkPause.Run(false);           //Experimental!
                         break;
              
                     case Lerp3_Command.Pause:
-                        //if (State == Lerp3_State.Park) { Lerp_ParkPause.Run(); }
                         //else if (State == Lerp3_State.Motion) { Lerp_PauseMotion.Run(); }
                         Lerp_PauseMotion.Run(false);         //Experimental!
                         Lerp_ParkPause.Run(true);           //Experimental!
@@ -56,11 +54,6 @@ namespace YAME.Model
                     case Lerp3_Command.Motion:
                         bool ExceedancePresent = engine.exceedancedetector.IsAnyExceedancePresent;
                         bool AcknoledgementOpen = engine.recoverylogic.State == Recovery_State.WaitingForAcknoledgement;
-                        bool InPauseState = State == Lerp3_State.Pause;
-                        //if ((!ExceedancePresent && !AcknoledgementOpen) && InPauseState)
-                        //{ 
-                        //    Lerp_PauseMotion.Run();
-                        //}
 
                         if (!ExceedancePresent && !AcknoledgementOpen)            //Experimental
                         {
@@ -191,10 +184,6 @@ namespace YAME.Model
         Pause,
         Motion,
         Dummy,                          //This is necessary to switch a "dummy-cycle" during the construction (see constructor above)
-        //Transit_Park2Pause,
-        //Transit_Pause2Park,
-        //Transit_Pause2Motion,
-        //Transit_Motion2Pause
         TransitTowards_Motion,
         TransitTowards_Park,
         TransitTowards_Pause,

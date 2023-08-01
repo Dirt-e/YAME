@@ -73,7 +73,7 @@ namespace YAME.View
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //LastClosed values
+            //LastClosed values:
             TryLoad_LastUsedComPort_Application();
 
             Left = Properties.Settings.Default.Window_OutputAASD_Position_X;
@@ -81,9 +81,7 @@ namespace YAME.View
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            //LastClosed values
-            SaveLastUsedComPort_Application();
-
+            //LastClosed values:
             Properties.Settings.Default.Window_OutputAASD_Position_X = (float)Left;
             Properties.Settings.Default.Window_OutputAASD_Position_Y = (float)Top;
 
@@ -91,6 +89,15 @@ namespace YAME.View
         }
 
         //---------- Helpers ----------
+        private void TryLoad_LastUsedComPort_Application()
+        {
+            PopulateDropdownList_Ports();
+
+            string LastUsedComPort = Properties.Settings.Default.AASD_Talker_LastUsed_ComPort;
+            int index = cmbbx_Ports.Items.IndexOf(LastUsedComPort);             //-1 indicates a NoFind!
+
+            if (index >= 0)  cmbbx_Ports.SelectedItem = cmbbx_Ports.Items[index];
+        }
         private void PopulateDropdownList_Ports()
         {
             cmbbx_Ports.Items.Clear();
@@ -100,29 +107,6 @@ namespace YAME.View
             {
                 cmbbx_Ports.Items.Add(port);
             }
-        }
-        private void SaveLastUsedComPort_Application()
-        {
-            //Save the state of the SerialTalker so that it has the same COM port preselected on next start
-            var SelectedItem = cmbbx_Ports.SelectedItem;
-            
-            if (SelectedItem != null)
-            {
-                Properties.Settings.Default.AASD_Talker_LastUsed_ComPort = SelectedItem.ToString();
-            }
-            else
-            {
-                Properties.Settings.Default.AASD_Talker_LastUsed_ComPort = String.Empty;
-            }
-        }
-        private void TryLoad_LastUsedComPort_Application()
-        {
-            PopulateDropdownList_Ports();
-
-            string LastUsedComPort = Properties.Settings.Default.AASD_Talker_LastUsed_ComPort;
-            int index = cmbbx_Ports.Items.IndexOf(LastUsedComPort);             //-1 indicates a NoFind!
-
-            if (index >= 0)  cmbbx_Ports.SelectedItem = cmbbx_Ports.Items[index];
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

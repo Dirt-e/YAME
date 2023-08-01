@@ -35,8 +35,6 @@ namespace YAME.Model
 
         }
 
-          
-
         new public void Update(DOF_Data data)
         {
             base.Update(data);

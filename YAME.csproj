@@ -34,7 +34,7 @@
     <ProductName>YAME</ProductName>
     <PublisherName>HexaGo</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>91</ApplicationRevision>
+    <ApplicationRevision>92</ApplicationRevision>
     <ApplicationVersion>0.0.10.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -163,7 +163,7 @@
     <Compile Include="Model\Actuator_Override.cs" />
     <Compile Include="Model\AlphaCompensator.cs" />
     <Compile Include="Model\Chopper.cs" />
-    <Compile Include="Model\Configurator.cs" />
+    <Compile Include="Model\Automator.cs" />
     <Compile Include="Model\FrameTimer.cs" />
     <Compile Include="Model\Getter_Condor2.cs" />
     <Compile Include="Model\MessageGenerator_Odrive.cs" />

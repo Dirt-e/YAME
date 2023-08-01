@@ -71,13 +71,12 @@ namespace YAME
 
             engine.StartEngine();
             Thread.Sleep(100);
+
             engine.loadersaver.Load_Application();
 
             SetDataContexts();
-            
-            Configurator.ProcessConfigFile();
 
-            if (Properties.Settings.Default.ShowAboutWindowOnStartup)
+            if (Properties.Settings.Default.Configurator_ShowAboutWindowOnStartup)
             {
                 ShowAboutWindowOnAppStart(2000);
             }
