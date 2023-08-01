@@ -1930,5 +1930,29 @@ namespace YAME.Properties {
                 this["Patcher_iRacing_Exporter_exe"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\Saved Games\\YAME Motion Engine\\Config\\YAME.cfg")]
+        public string ConfigFilePath {
+            get {
+                return ((string)(this["ConfigFilePath"]));
+            }
+            set {
+                this["ConfigFilePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowAboutWindowOnStartup {
+            get {
+                return ((bool)(this["ShowAboutWindowOnStartup"]));
+            }
+            set {
+                this["ShowAboutWindowOnStartup"] = value;
+            }
+        }
     }
 }

@@ -479,5 +479,11 @@
     <Setting Name="Patcher_iRacing_Exporter_exe" Type="System.String" Scope="User">
       <Value Profile="(Default)">\iRacing_MotionExporter.exe</Value>
     </Setting>
+    <Setting Name="ConfigFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\Saved Games\YAME Motion Engine\Config\YAME.cfg</Value>
+    </Setting>
+    <Setting Name="ShowAboutWindowOnStartup" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

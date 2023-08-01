@@ -52,17 +52,7 @@ namespace YAME
         SourceSelect_Window         sourceSelectWindow;
         AboutWindow                 aboutWindow;
 
-        bool isConfigFilePresent
-        {
-            get
-            {
-                string ConfigFilePath = Folders.SavedGamesFolder + @"\YAME Motion Engine\Config\YAME.cfg";
-                // z.B.:   "C:\Users\frank\Saved Games\YAME Motion Engine\Config\YAME.cfg"
-
-                if (File.Exists(ConfigFilePath))    return true;
-                else                                return false;
-            }
-        }
+        
 
         public MainWindow()
         {
@@ -76,6 +66,7 @@ namespace YAME
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             EnforceSingleInstance();
+
             snappydragger = new SnappyDragger(this);
 
             engine.StartEngine();
@@ -83,16 +74,15 @@ namespace YAME
             engine.loadersaver.Load_Application();
 
             SetDataContexts();
+            
+            Configurator.ProcessConfigFile();
 
-            ShowAboutWindowOnAppStart(2000);
-
-            if (isConfigFilePresent)
+            if (Properties.Settings.Default.ShowAboutWindowOnStartup)
             {
-                //read .cfg and set values accordingly
+                ShowAboutWindowOnAppStart(2000);
             }
-
+            
             OpenChildWindows();
-
         }
         private void Window_Closing(object sender, CancelEventArgs e)
         {
