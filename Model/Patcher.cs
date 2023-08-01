@@ -33,12 +33,12 @@ namespace YAME.Model
             private set { _isPatchedDCS_openbeta_prop = value; OnPropertyChanged(nameof(IsPatched_DCS_openbeta_prop)); }
         }
 
-        //bool _isPatchedFS2020_prop;
-        //public bool IsPatched_FS2020_prop
-        //{
-        //    get { return _isPatchedFS2020_prop; }
-        //    private set { _isPatchedFS2020_prop = value; OnPropertyChanged(nameof(IsPatched_FS2020_prop)); }
-        //}
+        bool _isPatchedFS2020_prop;
+        public bool IsPatched_FS2020_prop
+        {
+            get { return _isPatchedFS2020_prop; }
+            private set { _isPatchedFS2020_prop = value; OnPropertyChanged(nameof(IsPatched_FS2020_prop)); }
+        }
 
         bool _isPatchedX_Plane_prop;
         public bool IsPatched_X_Plane_prop
@@ -286,7 +286,6 @@ namespace YAME.Model
         //    Create_FS2020_Motion_Exporter_EXE();
         //    if (IsInstalled_FS2020(false)) Patch_FS2020(false);
         //    if (IsInstalled_FS2020(true)) Patch_FS2020(true);
-
         //}
         //public void btn_Unpatch_FS2020_Click()
         //{
@@ -295,7 +294,7 @@ namespace YAME.Model
         //        MessageBox.Show("FS2020 is not installed on your system.",
         //                        "Operation aborted",
         //                        MessageBoxButton.OK, MessageBoxImage.Error);
-                
+
         //        IsPatched_FS2020_prop = false;
         //        return;
         //    }
@@ -387,15 +386,15 @@ namespace YAME.Model
         //}
         //bool IsInstalled_FS2020(bool steam = false)
         //{
-        //    if (steam)  return Directory.Exists(Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder);
-        //    else        return Directory.Exists(Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder);
+        //    if (steam) return Directory.Exists(Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder);
+        //    else return Directory.Exists(Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder);
         //}
         //bool IsPatched_FS2020(bool steamVersion = false)
         //{
         //    string filePath = String.Empty;
 
-        //    if (steamVersion)   filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder;
-        //    else                filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder;
+        //    if (steamVersion) filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder;
+        //    else filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder;
 
         //    filePath += @"\exe.xml";
 
