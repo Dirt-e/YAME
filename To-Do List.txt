@@ -1,4 +1,9 @@
 ﻿To-Do: 
+
+BUGS:
+-What happens if you manually close the Exporters?
+-Make iRacingExporter.exe smaller (include less projects maybe?)
+
 GENERAL:
 
 

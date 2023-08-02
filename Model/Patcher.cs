@@ -511,13 +511,13 @@ namespace YAME.Model
         {
             string userFolder = Folders.UserFolder;
             string ExportersFolder = userFolder + Properties.Settings.Default.Patcher_ExportersFolder;
-            string Exporter_EXE = ExportersFolder + Properties.Settings.Default.Patcher_iRacing_Exporter_exe;
+            string Exporter_EXE = ExportersFolder + Properties.Settings.Default.Patcher_FS2020_Exporter_exe;
 
             if (!File.Exists(Exporter_EXE))
             {
                 Directory.CreateDirectory(ExportersFolder);
 
-                var res = Resource.iRacing_MotionExporter;
+                var res = Resource.FS2020_MotionExporter;
                 using (FileStream fs = new FileStream(Exporter_EXE, FileMode.Create))
                 {
                     fs.Write(res, 0, res.Length);
