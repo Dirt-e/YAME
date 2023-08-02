@@ -26,6 +26,7 @@ namespace YAME.Model
             }
         }
 
+
         public static void ProcessConfigFile()
         {   
             var mw = Application.Current.MainWindow as MainWindow;

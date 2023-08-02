@@ -406,6 +406,7 @@
     </EmbeddedResource>
     <None Include="Resources\Condor2\Condor2_UDP.ini" />
     <None Include="Resources\X-Plane\XPlane_Motion_Exporter.zip" />
+    <None Include="Resources\YAME.cfg" />
     <None Include="YAME_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

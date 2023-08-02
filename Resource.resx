@@ -133,6 +133,9 @@
   <data name="XPlane_Motion_Exporter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\X-Plane\XPlane_Motion_Exporter.zip;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="YAME" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\YAME.cfg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="YAME_Export_Hook" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\DCS\YAME_Export_Hook.lua;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
