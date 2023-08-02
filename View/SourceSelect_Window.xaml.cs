@@ -18,7 +18,6 @@ namespace YAME.View
     public partial class SourceSelect_Window : Window
     {
         SnappyDragger snappyDragger;
-        //DispatcherTimer timer;
 
         public SourceSelect_Window()
         {
@@ -140,24 +139,7 @@ namespace YAME.View
         }
         private void cmbbx_Source_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Clean Up
-            var mw = Application.Current.MainWindow as MainWindow;
-            mw.engine.patcher.KillAllMotionExporters();
 
-            var cbx = sender as ComboBox;
-
-            switch (cbx.SelectedItem.ToString())
-                //Some sims require a dedicated exporter to relay the motion data to YAME
-            {
-                case "iRacing":
-                    mw.engine.patcher.Run_iRacing_Motion_Exporter();
-                    break;
-                case "FS2020":
-                    mw.engine.patcher.Run_FS2020_Motion_Exporter();
-                    break;
-                default:
-                    break;
-            }
         }
 
         private void Red_X_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

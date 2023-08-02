@@ -33,12 +33,12 @@ namespace YAME.Model
             private set { _isPatchedDCS_openbeta_prop = value; OnPropertyChanged(nameof(IsPatched_DCS_openbeta_prop)); }
         }
 
-        bool _isPatchedFS2020_prop;
-        public bool IsPatched_FS2020_prop
-        {
-            get { return _isPatchedFS2020_prop; }
-            private set { _isPatchedFS2020_prop = value; OnPropertyChanged(nameof(IsPatched_FS2020_prop)); }
-        }
+        //bool _isPatchedFS2020_prop;
+        //public bool IsPatched_FS2020_prop
+        //{
+        //    get { return _isPatchedFS2020_prop; }
+        //    private set { _isPatchedFS2020_prop = value; OnPropertyChanged(nameof(IsPatched_FS2020_prop)); }
+        //}
 
         bool _isPatchedX_Plane_prop;
         public bool IsPatched_X_Plane_prop
@@ -69,6 +69,8 @@ namespace YAME.Model
                 RefreshPatchStatusOfAllSims();
             };
             timer.Start();
+
+
         }
 
 
@@ -1041,7 +1043,7 @@ namespace YAME.Model
             Exporter_Relay = new Process();        //Clean Sheet
 
             var processes = Process.GetProcesses();
-            foreach (var p in processes)
+            foreach (Process p in processes)
             {
                 if (p.ProcessName.Contains("MotionExporter"))
                 {

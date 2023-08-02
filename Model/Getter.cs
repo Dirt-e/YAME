@@ -19,7 +19,27 @@ namespace YAME.Model
         public MotionSource Source 
         { 
             get { return _source; }
-            set { _source = value; OnPropertyChanged(nameof(Source)); }
+            set 
+            {
+                _source = value;
+
+                #region Exporters Required?
+                    var mw = Application.Current.MainWindow as MainWindow;
+                    mw.engine.patcher.KillAllMotionExporters(); 
+
+                    switch (_source)
+                    {
+                        case MotionSource.FS2020:
+                            mw.engine.patcher.Run_FS2020_Motion_Exporter();
+                            break;
+                        case MotionSource.iRacing:
+                            mw.engine.patcher.Run_iRacing_Motion_Exporter();
+                            break;
+                    }
+                #endregion
+                
+                OnPropertyChanged(nameof(Source)); 
+            }
         }
 
         public string RawDatastring { get; set; } = Properties.Settings.Default.Getter_DefaulDataString;
