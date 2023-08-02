@@ -1429,18 +1429,6 @@ namespace YAME.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool SplashScreen {
-            get {
-                return ((bool)(this["SplashScreen"]));
-            }
-            set {
-                this["SplashScreen"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("500")]
         public int Processing_Framerate {
             get {
@@ -1934,36 +1922,36 @@ namespace YAME.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("\\Saved Games\\YAME Motion Engine\\Config\\YAME.cfg")]
-        public string Configurator_ConfigFilePath {
+        public string Automator_ConfigFilePath {
             get {
-                return ((string)(this["Configurator_ConfigFilePath"]));
+                return ((string)(this["Automator_ConfigFilePath"]));
             }
             set {
-                this["Configurator_ConfigFilePath"] = value;
+                this["Automator_ConfigFilePath"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool Configurator_ShowAboutWindowOnStartup {
+        public bool Automator_ShowAboutWindowOnStartup {
             get {
-                return ((bool)(this["Configurator_ShowAboutWindowOnStartup"]));
+                return ((bool)(this["Automator_ShowAboutWindowOnStartup"]));
             }
             set {
-                this["Configurator_ShowAboutWindowOnStartup"] = value;
+                this["Automator_ShowAboutWindowOnStartup"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Configurator_ForceHotRigWarningSilent {
+        public bool Automator_ForceHotRigWarningSilent {
             get {
-                return ((bool)(this["Configurator_ForceHotRigWarningSilent"]));
+                return ((bool)(this["Automator_ForceHotRigWarningSilent"]));
             }
             set {
-                this["Configurator_ForceHotRigWarningSilent"] = value;
+                this["Automator_ForceHotRigWarningSilent"] = value;
             }
         }
     }

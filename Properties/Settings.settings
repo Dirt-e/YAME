@@ -353,9 +353,6 @@
     <Setting Name="Getter_DefaulDataString" Type="System.String" Scope="User">
       <Value Profile="(Default)">0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9.806,0,0,0,0,nil</Value>
     </Setting>
-    <Setting Name="SplashScreen" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
     <Setting Name="Processing_Framerate" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">500</Value>
     </Setting>
@@ -479,13 +476,13 @@
     <Setting Name="Patcher_iRacing_Exporter_exe" Type="System.String" Scope="User">
       <Value Profile="(Default)">\iRacing_MotionExporter.exe</Value>
     </Setting>
-    <Setting Name="Configurator_ConfigFilePath" Type="System.String" Scope="User">
+    <Setting Name="Automator_ConfigFilePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">\Saved Games\YAME Motion Engine\Config\YAME.cfg</Value>
     </Setting>
-    <Setting Name="Configurator_ShowAboutWindowOnStartup" Type="System.Boolean" Scope="User">
+    <Setting Name="Automator_ShowAboutWindowOnStartup" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="Configurator_ForceHotRigWarningSilent" Type="System.Boolean" Scope="User">
+    <Setting Name="Automator_ForceHotRigWarningSilent" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>

@@ -14,7 +14,7 @@ namespace YAME.Model
         {
             get
             {
-                return Folders.UserFolder + Properties.Settings.Default.Configurator_ConfigFilePath;
+                return Folders.UserFolder + Properties.Settings.Default.Automator_ConfigFilePath;
             }
         }
         static bool IsConfigFilePresent
@@ -32,11 +32,13 @@ namespace YAME.Model
             
             if (IsConfigFilePresent)
             {
-                string[] x = File.ReadAllLines(ConfigFilePath);
+                string[] lines = File.ReadAllLines(ConfigFilePath);
 
-                foreach (string line in x)
+                foreach (string line in lines)
                 {
-                    string conditionedLine = line.Replace(" ", "");        //remove whitespace
+                    string conditionedLine;
+                    conditionedLine = RemoveWhitespaceFrom(line);
+                    conditionedLine = RemoveCommentsFrom(conditionedLine);
 
                     string[] tokens = conditionedLine.Split('=');
                     
@@ -46,14 +48,18 @@ namespace YAME.Model
                             mw.engine.aasd_talker.IsOpen = bool.Parse(tokens[1]);
                             break;
                         case "ForceHotRigWarningSilent":
-                            Properties.Settings.Default.Configurator_ForceHotRigWarningSilent = bool.Parse(tokens[1]);
+                            Properties.Settings.Default.Automator_ForceHotRigWarningSilent = bool.Parse(tokens[1]);
                             break;
                         case "MotionControlSelector_OnStartUp":
                             mw.engine.integrator.Lerp_3Way.Command = (Lerp3_Command)Enum.Parse(typeof(Lerp3_Command), tokens[1]);
                             break;
                         case "ShowAboutWindow_OnStartup":
-                            Properties.Settings.Default.Configurator_ShowAboutWindowOnStartup = bool.Parse(tokens[1]);
+                            Properties.Settings.Default.Automator_ShowAboutWindowOnStartup = bool.Parse(tokens[1]);
                             break;
+                            //...
+                            //...
+                            //...
+                            //...
                         default:
                             break;
                     }
@@ -61,10 +67,19 @@ namespace YAME.Model
             }
         }
 
-
-
-
-
-
+        //------- Helpers -------
+        static string RemoveWhitespaceFrom(string s)
+        {
+            return s.Replace(" ", "");
+        }
+        static string RemoveCommentsFrom(string s)
+        {
+            if (s.Contains("#"))
+            {
+                int index = s.IndexOf('#');
+                return s.Substring(0, index);
+            }
+            return s;
+        }
     }
 }

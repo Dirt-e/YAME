@@ -76,7 +76,7 @@ namespace YAME
 
             SetDataContexts();
 
-            if (Properties.Settings.Default.Configurator_ShowAboutWindowOnStartup)
+            if (Properties.Settings.Default.Automator_ShowAboutWindowOnStartup)
             {
                 ShowAboutWindowOnAppStart(2000);
             }
