@@ -46,7 +46,6 @@ namespace YAME.View
             mw.engine.patcher.btn_Unpatch_DCS_Click();
         }
 
-
         //---------- DCS openbeta ----------
         void btn_Patch_DCS_openbeta_Click(object sender, RoutedEventArgs e)
         {
@@ -70,18 +69,6 @@ namespace YAME.View
             var mw = Application.Current.MainWindow as MainWindow;
             mw.engine.patcher.btn_Unpatch_XPlane_Click();
         }
-
-        //---------- FS2020 ----------
-        //void btn_Patch_FS2020_Click(object sender, RoutedEventArgs e)
-        //{
-        //    var mw = Application.Current.MainWindow as MainWindow;
-        //    mw.engine.patcher.btn_Patch_FS2020_Click();
-        //}
-        //void btn_Unpatch_FS2020_Click(object sender, RoutedEventArgs e)
-        //{
-        //    var mw = Application.Current.MainWindow as MainWindow;
-        //    mw.engine.patcher.btn_Unpatch_FS2020_Click();
-        //}
 
         //---------- Condor2 ---------
         private void btn_Patch_Condor2_Click(object sender, RoutedEventArgs e)
@@ -107,6 +94,10 @@ namespace YAME.View
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            //Temporary un-patch routine, can be removed in the future.
+            var mw = Application.Current.MainWindow as MainWindow;
+            mw.engine.patcher.btn_Unpatch_FS2020_Click();
+
             //LastClosed values
             Left = Properties.Settings.Default.Window_SourceSelect_Position_X;
             Top  = Properties.Settings.Default.Window_SourceSelect_Position_Y;
@@ -136,10 +127,6 @@ namespace YAME.View
                     "Serial Connection Open!!!",
                     MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
-        }
-        private void cmbbx_Source_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
 
         private void Red_X_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

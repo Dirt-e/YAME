@@ -72,11 +72,6 @@
         <TextBlock Text="No patch required"  Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" FontSize="10" 
                    VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
-        <!--<Button     x:Name="btn_Patch_FS2020" Content="Patch"  Style="{StaticResource Button_NoHighlight_Rounded}"
-                    Grid.Row="4" Grid.Column="2" Margin="3,3,3,3" Click="btn_Patch_FS2020_Click"/>
-        <Button     x:Name="btn_Unpatch_FS2020" Content="Unpatch" Style="{StaticResource Button_NoHighlight_Rounded}"
-                    Grid.Row="4" Grid.Column="3" Margin="3,3,3,3" Click="btn_Unpatch_FS2020_Click"/>-->
-
         <Button     x:Name="btn_Patch_XPlane" Content="Patch"  Style="{StaticResource Button_NoHighlight_Rounded}"
                     Grid.Row="5" Grid.Column="2" Margin="3,3,3,3" Click="btn_Patch_XPlane_Click"/>
         <Button     x:Name="btn_Unpatch_XPlane" Content="Unpatch" Style="{StaticResource Button_NoHighlight_Rounded}"
@@ -114,18 +109,5 @@
                                RadiusX="7" RadiusY="7" HorizontalAlignment="Center"
                                Stroke="{StaticResource MyDarkGrayBrush}"
                                Fill="{Binding IsPatched_Condor2_prop, Converter={StaticResource cnvrt_BoolToColorBrush_RedGreen}}" Margin="0,8,0,8"/>
-
-        <!--<RadioButton Grid.Row="2" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" GroupName="ActiveSource" Height="14" Width="14"
-                     Click="RadioButton_ActiveSource_Click"  x:Name="RdoBtn_DCS"/>
-        <RadioButton Grid.Row="3" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" GroupName="ActiveSource" Height="14" Width="14"
-                     Click="RadioButton_ActiveSource_Click"  x:Name="RdoBtn_DCSopenbeta"/>
-        <RadioButton Grid.Row="4" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" GroupName="ActiveSource" Height="14" Width="14"
-                     Click="RadioButton_ActiveSource_Click"  x:Name="RdoBtn_FS2020"/>
-        <RadioButton Grid.Row="5" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" GroupName="ActiveSource" Height="14" Width="14"
-                     Click="RadioButton_ActiveSource_Click"  x:Name="RdoBtn_XPlane"/>
-        <RadioButton Grid.Row="6" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" GroupName="ActiveSource" Height="14" Width="14"
-                     Click="RadioButton_ActiveSource_Click"  x:Name="RdoBtn_iRacing"/>
-        <RadioButton Grid.Row="7" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" GroupName="ActiveSource" Height="14" Width="14"
-                     Click="RadioButton_ActiveSource_Click"  x:Name="RdoBtn_Condor2"/>-->
     </Grid>
 </Window>
