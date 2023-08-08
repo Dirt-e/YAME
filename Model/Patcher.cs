@@ -313,8 +313,14 @@ namespace YAME.Model
         #endregion
         public void btn_Unpatch_FS2020_Click()
         {
-            if (IsInstalled_FS2020(false))  unPatch_FS2020(false);
-            if (IsInstalled_FS2020(true))   unPatch_FS2020(true);
+            if (IsInstalled_FS2020(false))
+            {
+                unPatch_FS2020(false);
+            } else
+            {
+                unPatch_FS2020(true);
+            }
+            //OLD METHOD: if (IsInstalled_FS2020(true))   unPatch_FS2020(true);
         }
         void unPatch_FS2020(bool steamVersion = false)
         {
@@ -322,7 +328,16 @@ namespace YAME.Model
 
             if (steamVersion)   filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder + @"\exe.xml";
             else                filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder + @"\exe.xml";
-            
+
+            //Only for Debugging
+            //MessageBox.Show(filePath);
+
+            //Checks if the set FilePath actually exists to prevent crashing
+            if (File.Exists(filePath)) {
+                MessageBox.Show("YAME has detected, that you are using the FS2020 Steam Version, but the Steam Directory (" + filePath + ") appears to be missing critical files. If you are using the Microsoft Store Edition, please delete this Folder. YAME will now Try the MS-Store Version.");
+                filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder + @"\exe.xml";
+            }
+
             XmlDocument doc = new XmlDocument();
             doc.Load(filePath);
 
