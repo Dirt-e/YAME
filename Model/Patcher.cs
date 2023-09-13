@@ -564,6 +564,7 @@ namespace YAME.Model
             string installs_xp9 = userFolder + "\\AppData\\Local\\x-plane_install.txt";
             string installs_xp10 = userFolder + "\\AppData\\Local\\x-plane_install_10.txt";
             string installs_xp11 = userFolder + "\\AppData\\Local\\x-plane_install_11.txt";
+            string installs_xp12 = userFolder + "\\AppData\\Local\\x-plane_install_12.txt";
 
             List<string> allFiles = new List<string>();
             List<string> allPaths = new List<string>();
@@ -572,6 +573,7 @@ namespace YAME.Model
             allFiles.Add(installs_xp9);
             allFiles.Add(installs_xp10);
             allFiles.Add(installs_xp11);
+            allFiles.Add(installs_xp12);
 
             //Is it even installed?
             foreach (var file in allFiles)
@@ -647,6 +649,7 @@ namespace YAME.Model
             allFiles.Add(installs_xp9);
             allFiles.Add(installs_xp10);
             allFiles.Add(installs_xp11);
+            allFiles.Add(installs_xp12);
 
             List<string> allPaths = new List<string>();
             allPaths.DefaultIfEmpty<string>("C:");
