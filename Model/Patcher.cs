@@ -359,8 +359,6 @@ namespace YAME.Model
             KillAllMotionExporters();
             Create_FS2020_Motion_Exporter_EXE();
 
-            Thread.Sleep(100);
-
             string userFolder = Folders.UserFolder;
             string ExportersFolder = userFolder + Properties.Settings.Default.Patcher_ExportersFolder;
             string Exporter_EXE = ExportersFolder + Properties.Settings.Default.Patcher_FS2020_Exporter_exe;
