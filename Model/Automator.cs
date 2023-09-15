@@ -57,6 +57,9 @@ namespace YAME.Model
                         case "ShowAboutWindow_OnStartup":
                             Properties.Settings.Default.Automator_ShowAboutWindowOnStartup = bool.Parse(tokens[1]);
                             break;
+                        case "AutoCrashRecovery":
+                            Properties.Settings.Default.Automator_AutoCrashRecovery = bool.Parse(tokens[1]);
+                            break;
                             //...
                             //...
                             //...

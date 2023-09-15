@@ -61,6 +61,7 @@ namespace YAME.Model
                     break;
                 case Recovery_State.Crash_Informed:
                     engine.protector.IsLatched = true;
+                    PopUpCrashDetectorWindow();
                     SetCrashLight(Colors.Red, Colors.Black, "CRASHED", "Wait for recovery");
                     SetExceedanceHighlight_CrashDetector();
                     RecoverRig();
@@ -94,8 +95,7 @@ namespace YAME.Model
             }
         }
 
-        
-
+       
         //Helpers:
         void RecoverRig()
         {
@@ -103,6 +103,10 @@ namespace YAME.Model
                 engine.integrator.Lerp_3Way.Command = Lerp3_Command.Pause;      //Soft option
             if (engine.integrator.Lerp_3Way.State == Lerp3_State.TransitTowards_Motion)
                 engine.integrator.Lerp_3Way.EMERGENCY_OnCrashDetected();        //Hard option
+        }
+        void PopUpCrashDetectorWindow()
+        {
+            Application.Current.Dispatcher.BeginInvoke(new UpdateViewModel_Callback_PopUpCrashDetector(UpdateViewModel_PopUpCrashDetector));
         }
         void SetCrashLight(Color lgt_col, Color txt_col, string line1, string line2)
         {
@@ -150,9 +154,17 @@ namespace YAME.Model
         }
 
         #region UI_Callbacks
+        private delegate void UpdateViewModel_Callback_PopUpCrashDetector();
         private delegate void UpdateViewModel_Callback_color(Color c);
         private delegate void UpdateViewModel_Callback_string(string s1, string s2);
         //These functions run on the Main thread:
+        private void UpdateViewModel_PopUpCrashDetector()
+        {
+            if (Application.Current.MainWindow is MainWindow mainwindow)
+            {
+                mainwindow.mnuCrashDetector.IsChecked = true;
+            }
+        }
         private void UpdateViewModel_Light_Color(Color c)
         {
             if (Application.Current.MainWindow is MainWindow mainwindow)

@@ -148,6 +148,7 @@ namespace YAME.Model
         public void Process(PreprocessorData data)
         {
             CheckLimits(data);
+
             Output = data;              //We always pass the data on. This is only a DETECTOR!
         }
 
@@ -160,19 +161,19 @@ namespace YAME.Model
             IsExceedance_Wy = Math.Abs(data.WY) >= WY_CrashTrigger;
             IsExceedance_Wz = Math.Abs(data.WZ) >= WZ_CrashTrigger;
 
-            IsAnyExceedancePresent = (  IsExceedance_Ax ||
-                                        IsExceedance_Ay ||
-                                        IsExceedance_Az ||
-                                        IsExceedance_Wx ||
-                                        IsExceedance_Wy ||
-                                        IsExceedance_Wz     );
-
             if (IsExceedance_Ax) ExceedanceValue_Ax = data.AX;
             if (IsExceedance_Ay) ExceedanceValue_Ay = data.AY;
             if (IsExceedance_Az) ExceedanceValue_Az = data.AZ;
             if (IsExceedance_Wx) ExceedanceValue_Wx = data.WX;
             if (IsExceedance_Wy) ExceedanceValue_Wy = data.WY;
             if (IsExceedance_Wz) ExceedanceValue_Wz = data.WZ;
+
+            IsAnyExceedancePresent = (  IsExceedance_Ax ||
+                                        IsExceedance_Ay ||
+                                        IsExceedance_Az ||
+                                        IsExceedance_Wx ||
+                                        IsExceedance_Wy ||
+                                        IsExceedance_Wz);
         }
     }
 }
