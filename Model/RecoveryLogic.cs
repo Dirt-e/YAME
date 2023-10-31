@@ -59,6 +59,7 @@ namespace YAME.Model
             {
                 case Recovery_State.Dormant:                                        //Do nothing. Will move on when informed about Crash.
                     break;
+
                 case Recovery_State.Crash_Informed:
                     engine.protector.IsLatched = true;
                     PopUpCrashDetectorWindow();
@@ -67,6 +68,7 @@ namespace YAME.Model
                     RecoverRig();
                     State = Recovery_State.Recovering;
                     goto case Recovery_State.Recovering;                            //Move on.
+
                 case Recovery_State.Recovering:
                     if (engine.integrator.Lerp_3Way.State == Lerp3_State.Pause || 
                         engine.integrator.Lerp_3Way.State == Lerp3_State.Park)      //Do nothing. Will move on
@@ -76,20 +78,30 @@ namespace YAME.Model
                         goto case Recovery_State.WaitingForAcknoledgement;          //...move on.
                     }
                     break;
-                case Recovery_State.WaitingForAcknoledgement:                       //Do nothing. Will move on when Button is pushed
+
+                case Recovery_State.WaitingForAcknoledgement:                       //Do nothing. Will move on when Button is pushed...
+                    if (Properties.Settings.Default.Automator_AutoCrashRecovery)    //...or if the user made the setting via YAME.cfg
+                    {
+                        State = Recovery_State.Acknoledged;                         //goto case Recovery_State.Acknoledged;                       
+                    }
                     break;
+
                 case Recovery_State.Acknoledged:
                     if (engine.exceedancedetector.IsAnyExceedancePresent)
+                    {
                         goto case Recovery_State.WaitingForAcknoledgement;          //Go Back!
+                    }
                     SetCrashLight(Color.FromArgb(255,50,50,50), Colors.LightGreen, "READY", "for Motion");
                     //Reset all Filters (equilibrium)
                     ClearExceedanceHighlight_CrashDetector();                       //Clean up.
                     engine.protector.IsLatched = false;
                     State = Recovery_State.Cleaned_Up;
                     goto case Recovery_State.Cleaned_Up;                            //Move on.
+
                 case Recovery_State.Cleaned_Up:
                     State = Recovery_State.Dormant;                                 //Move on.
                     break;
+
                 default:
                     break;
             }
@@ -172,19 +184,19 @@ namespace YAME.Model
                 mainwindow.engine.VM_CrashDetector.LightColor = new SolidColorBrush(c);
             }
         }
+        private void UpdateViewModel_Text_Color(Color c)
+        {
+            if (Application.Current.MainWindow is MainWindow mainwindow)
+            {
+                mainwindow.engine.VM_CrashDetector.TextColor = new SolidColorBrush(c);
+            }
+        }
         private void UpdateViewModel_Light_Text(string s1, string s2)
         {
             if (Application.Current.MainWindow is MainWindow mainwindow)
             {
                 mainwindow.engine.VM_CrashDetector.Line1 = s1;
                 mainwindow.engine.VM_CrashDetector.Line2 = s2;
-            }
-        }
-        private void UpdateViewModel_Text_Color(Color c)
-        {
-            if (Application.Current.MainWindow is MainWindow mainwindow)
-            {
-                mainwindow.engine.VM_CrashDetector.TextColor = new SolidColorBrush(c);
             }
         }
         #endregion

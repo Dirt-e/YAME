@@ -30,7 +30,16 @@ namespace YAME.Model
         public static void ProcessConfigFile()
         {   
             var mw = Application.Current.MainWindow as MainWindow;
+
+            //First, switch all settings to the safest option:
+            mw.engine.aasd_talker.IsOpen = false;
+            Properties.Settings.Default.Automator_ForceHotRigWarningSilent = false;
+            mw.engine.integrator.Lerp_3Way.Command = Lerp3_Command.Park;
+            Properties.Settings.Default.Automator_ShowAboutWindowOnStartup = true;
+            Properties.Settings.Default.Automator_AutoCrashRecovery = false;
+            Properties.Settings.Default.Automator_CreateLogFile = false;
             
+            //...then switch them as per user request
             if (IsConfigFilePresent)
             {
                 string[] lines = File.ReadAllLines(ConfigFilePath);
@@ -42,7 +51,7 @@ namespace YAME.Model
                     conditionedLine = RemoveCommentsFrom(conditionedLine);
 
                     string[] tokens = conditionedLine.Split('=');
-                    
+
                     switch (tokens[0])
                     {
                         case "ForceComPortOpen_OnStartUp":
@@ -60,10 +69,13 @@ namespace YAME.Model
                         case "AutoCrashRecovery":
                             Properties.Settings.Default.Automator_AutoCrashRecovery = bool.Parse(tokens[1]);
                             break;
-                            //...
-                            //...
-                            //...
-                            //...
+                        case "CreateLogFile":
+                            Properties.Settings.Default.Automator_CreateLogFile = bool.Parse(tokens[1]);
+                            break;
+                        //...
+                        //...
+                        //...
+                        //...
                         default:
                             break;
                     }

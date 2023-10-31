@@ -275,7 +275,7 @@ namespace YAME.Model
         }
 
         //---------- FS2020 ----------
-        #region FS2020 xml manipulation
+        #region Unpatch FS2020 deprecated
         //void Modify_exe_xml(string filePath)
         //{
         //    //Open XML document:
@@ -310,50 +310,50 @@ namespace YAME.Model
 
         //    doc.Save(filePath);
         //} 
-        #endregion
-        public void btn_Unpatch_FS2020_Click()
-        {
-            if (IsInstalled_FS2020(false))  unPatch_FS2020(false);
-            if (IsInstalled_FS2020(true))   unPatch_FS2020(true);
-        }
-        void unPatch_FS2020(bool steamVersion = false)
-        {
-            string filePath;
+        
+        //public void btn_Unpatch_FS2020_Click()
+        //{
+        //    if (IsInstalled_FS2020(false))  unPatch_FS2020(false);
+        //    if (IsInstalled_FS2020(true))   unPatch_FS2020(true);
+        //}
+        //void unPatch_FS2020(bool steamVersion = false)
+        //{
+        //    string filePath;
 
-            if (steamVersion)   filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder + @"\exe.xml";
-            else                filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder + @"\exe.xml";
+        //    if (steamVersion)   filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder + @"\exe.xml";
+        //    else                filePath = Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder + @"\exe.xml";
             
-            XmlDocument doc = new XmlDocument();
-            doc.Load(filePath);
+        //    XmlDocument doc = new XmlDocument();
+        //    doc.Load(filePath);
 
-            XmlNode SimBaseDocument = doc.SelectSingleNode("SimBase.Document");
-            if (SimBaseDocument != null)
-            {
-                XmlNodeList Nodes = SimBaseDocument.ChildNodes;
-                foreach (XmlNode Node in Nodes)
-                {
-                    if (Node.Name == "Launch.Addon")
-                    {
-                        XmlNodeList LaunchNodes = Node.ChildNodes;
-                        foreach (XmlNode LaunchNode in LaunchNodes)
-                        {
-                            if (LaunchNode.InnerText == "YAME Motion Data Exporter")
-                            {
-                                SimBaseDocument.RemoveChild(Node);
-                            }
-                        }
-                    }
-                }
-            }
+        //    XmlNode SimBaseDocument = doc.SelectSingleNode("SimBase.Document");
+        //    if (SimBaseDocument != null)
+        //    {
+        //        XmlNodeList Nodes = SimBaseDocument.ChildNodes;
+        //        foreach (XmlNode Node in Nodes)
+        //        {
+        //            if (Node.Name == "Launch.Addon")
+        //            {
+        //                XmlNodeList LaunchNodes = Node.ChildNodes;
+        //                foreach (XmlNode LaunchNode in LaunchNodes)
+        //                {
+        //                    if (LaunchNode.InnerText == "YAME Motion Data Exporter")
+        //                    {
+        //                        SimBaseDocument.RemoveChild(Node);
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
 
-            doc.Save(filePath);        
-        }
-        bool IsInstalled_FS2020(bool steam = false)
-        {
-            if (steam) return Directory.Exists(Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder);
-            else return Directory.Exists(Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder);
-        }
-
+        //    doc.Save(filePath);        
+        //}
+        //bool IsInstalled_FS2020(bool steam = false)
+        //{
+        //    if (steam)  return Directory.Exists(Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STEAM_Folder);
+        //    else        return Directory.Exists(Folders.UserFolder + Properties.Settings.Default.Patcher_FS2020_STORE_Folder);
+        //}
+        #endregion
         public void Run_FS2020_Motion_Exporter()
         {
             KillAllMotionExporters();

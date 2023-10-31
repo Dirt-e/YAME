@@ -95,8 +95,8 @@ namespace YAME.View
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //Temporary un-patch routine, can be removed in the future.
-            var mw = Application.Current.MainWindow as MainWindow;
-            mw.engine.patcher.btn_Unpatch_FS2020_Click();
+            //var mw = Application.Current.MainWindow as MainWindow;
+            //mw.engine.patcher.btn_Unpatch_FS2020_Click();
 
             //LastClosed values
             Left = Properties.Settings.Default.Window_SourceSelect_Position_X;
