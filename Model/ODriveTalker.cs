@@ -145,10 +145,23 @@ namespace YAME.Model
                 else            //Wanna switch it off?
                 {
                     try
-                    {
-                        if (serialport.IsOpen)
+                    { 
+                        var mw = Application.Current.MainWindow as MainWindow;
+                        bool isOK = mw.engine.integrator.Lerp_3Way.State == Lerp3_State.Park;
+
+                        if (serialport.IsOpen && isOK)
                         {
                             serialport.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Not possible to switch off " +
+                            $"{_odrive_number} on {COM_Port}. Park Rig first!",
+                            $"What happened to {_odrive_number}?",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error,
+                            MessageBoxResult.OK,
+                            MessageBoxOptions.DefaultDesktopOnly);
                         }
                     }
                     catch (IOException)
