@@ -1954,5 +1954,29 @@ namespace YAME.Properties {
                 this["Automator_ForceHotRigWarningSilent"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Automator_AutoCrashRecovery {
+            get {
+                return ((bool)(this["Automator_AutoCrashRecovery"]));
+            }
+            set {
+                this["Automator_AutoCrashRecovery"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Automator_CreateLogFile {
+            get {
+                return ((bool)(this["Automator_CreateLogFile"]));
+            }
+            set {
+                this["Automator_CreateLogFile"] = value;
+            }
+        }
     }
 }

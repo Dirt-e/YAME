@@ -40,6 +40,29 @@ namespace YAME.Model
             base.Update(data);
 
             LerpPhysical_Between_ParkPauseMotion();
+
+
+            //--------------   OVRMC:  -----------------
+            //Use "Lerp_3Way.Output.Value" to generate the translations and rotations necessary for OVRMC
+
+            //Translations:
+            double OVRMC_Translation_X      = Lerp_3Way.Output.Value.OffsetX;
+            double OVRMC_Translation_Y      = Lerp_3Way.Output.Value.OffsetY;
+            double OVRMC_Translation_Z      = Lerp_3Way.Output.Value.OffsetZ;
+            //Quaternion:
+            Quaternion OVRMC_Quaternion     = Utility.QuaternionFrom(Lerp_3Way.Output.Value);
+            double OVRMC_QRotation_X        = OVRMC_Quaternion.X;
+            double OVRMC_QRotation_Y        = OVRMC_Quaternion.Y;
+            double OVRMC_QRotation_Z        = OVRMC_Quaternion.Z;
+            double OVRMC_QRotation_W        = OVRMC_Quaternion.W;
+            //Euler Angles:
+            double OVRMC_Rotation_Pitch     = Utility.EulerFrom(OVRMC_Quaternion).Y;
+            double OVRMC_Rotation_Yaw       = Utility.EulerFrom(OVRMC_Quaternion).X;
+            double OVRMC_Rotation_Roll      = Utility.EulerFrom(OVRMC_Quaternion).Z;
+            //--------------  END OVRMC  ----------------
+
+
+
             UpdateUI_ViaDispatcherInvoke();
         }
 
