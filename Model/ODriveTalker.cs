@@ -160,16 +160,6 @@ namespace YAME.Model
                             ShowWarningToUser();
                             _isopen = true;        //The End :-)
                         }
-                        else
-                        {
-                            MessageBox.Show($"Not possible to switch off " +
-                            $"{_odrive_number} on {COM_Port}. Park Rig first!",
-                            $"What happened to {_odrive_number}?",
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Error,
-                            MessageBoxResult.OK,
-                            MessageBoxOptions.DefaultDesktopOnly);
-                        }
                     }
                     catch (IOException)
                     {
