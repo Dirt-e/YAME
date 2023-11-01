@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using static Utility;
+using System.Threading;
 
 namespace YAME.Model
 {
@@ -146,9 +147,18 @@ namespace YAME.Model
                 {
                     try
                     {
-                        if (serialport.IsOpen)
+                        var mw = Application.Current.MainWindow as MainWindow;
+                        bool isParked = mw.engine.integrator.Lerp_3Way.State == Lerp3_State.Park;
+
+                        if (serialport.IsOpen && isParked)
                         {
                             serialport.Close();
+                            _isopen = false;        //The End :-)
+                        }
+                        else if (!isParked)
+                        {
+                            ShowWarningToUser();
+                            _isopen = true;        //The End :-)
                         }
                     }
                     catch (IOException)
@@ -161,7 +171,6 @@ namespace YAME.Model
                             MessageBoxResult.OK,
                             MessageBoxOptions.DefaultDesktopOnly);
                     }
-                    _isopen = false;
                 }
 
                 engine.odrivesystem.IsAnyPortOpen = _isopen;        //This doesn't really SET the variable! It's just a trigger to get the OdriveSystem to Update its state.
@@ -230,6 +239,24 @@ namespace YAME.Model
             {
                 throw new Exception("Cannot write. Serialport not open.");
             }
+        }
+
+        private void ShowWarningToUser()
+        {
+            Thread thread = new Thread(new ThreadStart(Worker));
+            thread.Start();
+        }
+        void Worker()
+        {
+            //different thread:
+            MessageBox.Show($"You are trying to close the connection to " +
+                            $"{_odrive_number} on {COM_Port}. That is asking for trouble! \n\n" +
+                            $"Move the rig into the -Park- position, then close the COM port.",
+                            $"Unable to close {COM_Port} while rig is not parked",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error,
+                            MessageBoxResult.OK,
+                            MessageBoxOptions.DefaultDesktopOnly);
         }
     }
 
