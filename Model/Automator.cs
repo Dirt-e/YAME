@@ -55,7 +55,11 @@ namespace YAME.Model
                     switch (tokens[0])
                     {
                         case "ForceComPortOpen_OnStartUp":
-                            mw.engine.aasd_talker.IsOpen = bool.Parse(tokens[1]);
+                            //When the COM port is forced open, the HotRigWarning shall be supressed for this one instance.
+                            bool previousState = Properties.Settings.Default.Automator_ForceHotRigWarningSilent;                //We need to remember the user setting
+                            Properties.Settings.Default.Automator_ForceHotRigWarningSilent = true;                              //Supress the HotRigWarning
+                            mw.engine.aasd_talker.IsOpen = bool.Parse(tokens[1]);                                               //Force the COM port as per user request
+                            Properties.Settings.Default.Automator_ForceHotRigWarningSilent = previousState;                     //...and restore the previous user setting
                             break;
                         case "ForceHotRigWarningSilent":
                             Properties.Settings.Default.Automator_ForceHotRigWarningSilent = bool.Parse(tokens[1]);
